@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ORG — ORGANIC DISTRIBUTION — oligarCH 4 of 9</title>
+<meta name="description" content="ORGANIC DISTRIBUTION. A fully on-chain Cardano NFT. Open mint, you pay only the network fee.">
+<link rel="canonical" href="https://beacnpool.github.io/ABCDE/oligarCH/org/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="oligarCH">
+<meta property="og:url" content="https://beacnpool.github.io/ABCDE/oligarCH/org/">
+<meta property="og:title" content="ORG — ORGANIC DISTRIBUTION — oligarCH 4 of 9">
+<meta property="og:description" content="ORGANIC DISTRIBUTION. A fully on-chain Cardano NFT. Open mint, you pay only the network fee.">
+<meta property="og:image" content="https://beacnpool.github.io/ABCDE/oligarCH/org/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ORG — ORGANIC DISTRIBUTION, a fully on-chain Cardano meme NFT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ORG — ORGANIC DISTRIBUTION — oligarCH 4 of 9">
+<meta name="twitter:description" content="ORGANIC DISTRIBUTION. A fully on-chain Cardano NFT. Open mint, you pay only the network fee.">
+<meta name="twitter:image" content="https://beacnpool.github.io/ABCDE/oligarCH/org/og.png">
+<style>
+  :root{--bg:#101012;--panel:#18181c;--line:#2a2a31;--ink:#eceaea;--dim:#9a9aa4;
+        --red:#ed1c24;--gold:#c9a227;--ok:#4ade80;--warn:#fbbf24}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:16px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  .wrap{max-width:680px;margin:0 auto;padding:28px 18px 64px}
+  a{color:#7dd3fc}
+  /* NB: never text-transform the series name — the capital CH is the point */
+  .kicker{font:700 12px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.18em;
+          color:var(--gold);margin-bottom:9px}
+  .kicker a{color:var(--gold);text-decoration:none}
+  .kicker a:hover{text-decoration:underline}
+  h1{font:900 clamp(34px,9vw,58px)/1 ui-sans-serif,system-ui,sans-serif;
+     letter-spacing:-.03em;margin:0}
+  .sub{color:var(--dim);margin:6px 0 22px;font-size:15px}
+  .clock{display:flex;gap:8px;justify-content:center;margin:20px 0 6px}
+  .clock div{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+             padding:8px 0;min-width:66px;text-align:center}
+  .clock b{display:block;font:800 24px/1 ui-monospace,monospace;font-variant-numeric:tabular-nums}
+  .clock span{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em}
+  .deadline{text-align:center;color:var(--dim);font-size:13px;margin-bottom:22px}
+  footer{margin-top:30px;color:var(--dim);font-size:12.5px;text-align:center}
+  .hint{margin:11px 2px 0;font-size:13px;line-height:1.5;color:var(--dim);text-align:center}
+  .hint b{color:#c9c9d2;font-weight:700}
+  .hint[hidden]{display:none}
+
+  /* the ticker is an abbreviation — the phrase under it is what makes it legible */
+  .phrase{margin:5px 0 0;font:800 clamp(17px,4.6vw,25px)/1.15 ui-sans-serif,system-ui,sans-serif;
+          letter-spacing:-.01em;color:var(--ink)}
+  .art{width:100%;aspect-ratio:1;border:1px solid var(--line);border-radius:14px;
+       overflow:hidden;background:#bfbfbf;display:block}
+  .art img{width:100%;height:100%;display:block}
+  button{font:700 17px/1 inherit;padding:15px 20px;width:100%;border-radius:12px;
+         border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
+  button:hover:not(:disabled){border-color:#3d3d47}
+  button:disabled{opacity:.45;cursor:not-allowed}
+  button.go{background:var(--red);border-color:var(--red);color:#fff}
+  .wallets{display:grid;gap:8px}
+  .row{display:flex;align-items:center;gap:10px}
+  .row img{width:22px;height:22px;border-radius:5px}
+  #status{margin-top:16px;padding:13px 15px;border-radius:11px;background:var(--panel);
+          border:1px solid var(--line);font-size:14.5px;display:none;overflow-wrap:anywhere}
+  #status.on{display:block}
+  #status.err{border-color:#7f1d1d;background:#1d1112}
+  #status.ok{border-color:#14532d;background:#0f1a13}
+  table{width:100%;border-collapse:collapse;margin-top:26px;font-size:14px}
+  td{padding:7px 0;border-top:1px solid var(--line);vertical-align:top}
+  td:first-child{color:var(--dim);width:38%}
+  code{font:13px/1.4 ui-monospace,monospace;overflow-wrap:anywhere}
+  .note{margin-top:26px;padding:14px 16px;border:1px solid var(--line);border-left:3px solid var(--warn);
+        border-radius:0 11px 11px 0;background:var(--panel);font-size:14px;color:#cfcfd6}
+  .note b{color:var(--ink)}
+  .sibling{margin-top:20px;padding:12px 15px;border:1px solid var(--line);border-radius:11px;
+           background:var(--panel);font-size:14px;color:#cfcfd6}
+  .sibling a{font-weight:700}
+
+  .manifesto{margin:20px 0 4px;font-size:16px;color:#d6d4d4}
+  .manifesto p{margin:0 0 13px}
+  .manifesto b{color:var(--ink)}
+  .manifesto em{color:var(--red);font-style:normal;font-weight:700}
+  .manifesto .price{margin-top:17px;padding:13px 15px;background:var(--panel);
+                    border:1px solid var(--line);border-radius:11px;font-size:14.5px;color:#cfcfd6}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="kicker"><a href="../">← oligarCH</a> · 4 of 9</div>
+  <h1 style="color:var(--red)">ORG</h1>
+  <p class="phrase">ORGANIC DISTRIBUTION</p>
+  <p class="sub">The picture below <em>is</em> the token: every byte
+     of it lives in the minting transaction. No IPFS, no server, nothing to keep alive.</p>
+
+  <div class="art"><img id="art" alt="ORGANIC DISTRIBUTION"></div>
+
+  <div class="manifesto">
+    <p>Nothing needs to be hidden if it is simply divided until no one can hold all of it in view at once. <em>"Organic distribution."</em> Tens of thousands of doors, and the tell was never any single one of them — it was that they all opened in the same minute.</p>
+  </div>
+
+  <div class="clock" id="clock">
+    <div><b id="d">--</b><span>days</span></div>
+    <div><b id="h">--</b><span>hrs</span></div>
+    <div><b id="m">--</b><span>min</span></div>
+    <div><b id="s">--</b><span>sec</span></div>
+  </div>
+  <div class="deadline">mint closes 09 Aug 2026 02:32 UTC · enforced by the policy itself, not by this page</div>
+
+  <div id="pick" class="wallets"></div>
+  <p class="hint" id="nowallet" hidden>No wallet reached this page. To mint, open it in a
+     wallet's dapp browser — <b>Vespr</b> on a phone, or the <b>Eternl</b> extension on
+     desktop. An ordinary mobile browser cannot talk to your wallet.</p>
+  <div id="status"></div>
+  <div class="sibling">Also open right now: <a href="../byttg/">BYTTG</a> (1 of 9, closes 08 Aug 2026 05:00 UTC), <a href="../ivyom/">IVYOM</a> (3 of 9, closes 08 Aug 2026 23:52 UTC), <a href="../tgm/">TGM</a> (2 of 9, closes 08 Aug 2026 20:20 UTC), <a href="../ndl/">NDL</a> (6 of 9, closes 08 Aug 2026 22:04 UTC), <a href="../hotel/">HOTEL</a> (5 of 9, closes 09 Aug 2026 01:05 UTC), <a href="../dnpg/">DNPG</a> (7 of 9, closes 09 Aug 2026 03:49 UTC), <a href="../smoke/">SMOKE</a> (8 of 9, closes 09 Aug 2026 12:02 UTC). Separate policy, separate deadline, separate collection.</div>
+
+  <table>
+    <tr><td>policy id</td><td><code id="pid">computing…</code></td></tr>
+    <tr><td>policy script</td><td><code>{ "type": "before", "slot": 194676488 }</code> — no signature required, so anyone may mint until that slot, after which the policy is dead forever</td></tr>
+    <tr><td>asset name</td><td><code>ORG&lt;8 hex&gt;</code> — derived from the UTxO you spend, so every mint is a distinct token</td></tr>
+    <tr><td>image</td><td><code>9,479 bytes</code> of SVG, base64 in CIP-25 metadata</td></tr>
+    <tr><td>you pay</td><td><b>~0.76 ADA</b> network fee, plus <b>~1.17 ADA</b> min-UTxO that stays in your wallet holding the token</td></tr>
+    <tr><td>creator takes</td><td><b>nothing</b> — there is no payment address in this transaction</td></tr>
+    <tr><td>proof</td><td>the image is embedded in the transaction your wallet signs. After it confirms, pull the base64 back out of the CIP-25 metadata, decode it, and you get the picture above — byte for byte, from the chain, with no server involved.</td></tr>
+  </table>
+
+  <div class="note">
+    <b>Open policy, honestly stated.</b> The policy requires no signature, which is what
+    makes the mint free and permissionless. It also means supply is unlimited and anyone
+    can mint anything under this policy id until the deadline. That is the joke, and it is
+    deliberate. Do not treat this as a scarce collectible.
+  </div>
+
+  <footer>no backend · no tracking · your wallet builds, signs and submits the transaction</footer>
+
+</div>
+<script id="art-org" data-art="org" type="image/svg+xml"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><defs><path id="A" d="M0 28 8 0 16 28M3 19h10"/><path id="B" d="M0 28V0h8q8 0 8 7t-8 7H0m8 0q8 0 8 7t-8 7H0"/><path id="C" d="M15 5q-13-7-13 9t13 9"/><path id="D" d="M0 0h7q9 0 9 14t-9 14H0z"/><path id="G" d="M15 5q-13-7-13 9t13 9v-9h-6"/><path id="I" d="M2 0h12M8 0v28M2 28h12"/><path id="N" d="M0 28V0l16 28V0"/><path id="O" d="M8 0a8 14 0 0 0 0 28a8 14 0 0 0 0-28z"/><path id="R" d="M0 28V0h7q9 0 9 8t-9 8H0m7 0 9 12"/><path id="S" d="M15 4Q8-2 3 5t6 9 6 10-13 2"/><path id="T" d="M0 0h16M8 0v28"/><path id="U" d="M0 0v18q0 10 8 10t8-10V0"/><path id="q" d="M2 7q2-7 7-6t4 8-5 6v3M8 27v1"/><path id="hr" d="M462 292q6-104 123-106t123 106q-24-52-62-72-61 24-122 0-38 20-62 72z"/><path id="bd" d="M476 344q34 62 109 64t109-64q13 64-23 96-30 30-86 30t-86-30q-36-32-23-96z"/><path id="ms" d="M520 364q65-14 130 0-6 20-65 20t-65-20z"/><path id="sp" d="M512 218l-5-13M532 206l-11-25M554 198l-4-15M576 193l6-21M600 195l7-13M622 203l8-23M644 215l12-15M664 230l7-12"/><pattern id="h" width="11" height="11" patternUnits="userSpaceOnUse" patternTransform="rotate(28)"><path d="M3 0v7M8 4v7" stroke="#241a0e" stroke-width="2.4" stroke-linecap="round"/></pattern><pattern id="g" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(-42)"><rect width="11" height="26" fill="#fff"/></pattern><pattern id="cn" width="48" height="48" patternUnits="userSpaceOnUse"><rect width="48" height="48" fill="#43434b"/><g fill="#d9b45e" stroke="#111" stroke-width="3"><circle cx="13" cy="12" r="13"/><circle cx="37" cy="35" r="13"/><circle cx="0" cy="40" r="10"/><circle cx="48" cy="40" r="10"/></g><g fill="none" stroke="#a8842f" stroke-width="3"><circle cx="13" cy="12" r="7"/><circle cx="37" cy="35" r="7"/></g></pattern><g id="sk"><path d="M-46-102q-58 36-58 98 0 40 20 66h168q20-26 20-66 0-62-58-98z"/><path d="M-48-102q-10-18 4-32h88q14 14 4 32z"/><path d="M-42-134q-16-32 10-42 10 12 34 0 26 10 10 42z"/><path d="M-30-92q8 26-4 44M0-92q4 28 0 46M30-92q-8 26 4 44" fill="none" stroke-width="6"/></g><g id="ky" fill="none" stroke-linecap="round"><circle r="11"/><path d="M0 11v36M0 40h15M0 29h13"/></g><g id="ada"><use href="#A" x="0"/><use href="#D" x="22"/><use href="#A" x="44"/></g><g id="pch" stroke="#111" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"><path d="M-10-20q-16 10-16 28 0 12 6 20h40q6-8 6-20 0-18-16-28z" fill="#d8bc8e"/><path d="M-11-20q-4-8 2-14h18q6 6 2 14z" fill="#d8bc8e"/><path d="M16 20 30 30" fill="none"/><rect x="27" y="28" width="18" height="22" rx="2" fill="#f2ece0"/></g><g id="prow"><use href="#pch" x="0"/><use href="#pch" x="62"/><use href="#pch" x="124"/><use href="#pch" x="186"/><use href="#pch" x="248"/></g><g id="hd" stroke-linecap="round" stroke-linejoin="round"><ellipse rx="36" ry="32"/><path d="M-31-24v-42M-10-30v-54M11-30v-52M32-24v-40M-38-4l-32-18" fill="none"/></g><g id="cap" transform="translate(46 926) scale(2.15)" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#O" x="0"/><use href="#R" x="22"/><use href="#G" x="44"/><use href="#A" x="66"/><use href="#N" x="88"/><use href="#I" x="110"/><use href="#C" x="132"/><use href="#D" x="176"/><use href="#I" x="198"/><use href="#S" x="220"/><use href="#T" x="242"/><use href="#R" x="264"/><use href="#I" x="286"/><use href="#B" x="308"/><use href="#U" x="330"/><use href="#T" x="352"/><use href="#I" x="374"/><use href="#O" x="396"/><use href="#N" x="418"/></g></defs><rect width="1024" height="1024" fill="#c3c3c3"/><path d="M0 890h1024v134H0z" fill="#e7e5e1"/><g stroke="#111" stroke-width="10" stroke-linejoin="round"><path d="M237 262 327 412 233 468 143 318z" fill="url(#cn)"/><path d="M380 258h110v184H380z" fill="url(#cn)"/><path d="M779 329 629 479 551 401 701 251z" fill="url(#cn)"/></g><g stroke="#111" stroke-width="10" stroke-linejoin="round"><ellipse cx="190" cy="290" rx="86" ry="26" transform="rotate(-30 190 290)" fill="url(#cn)"/><use href="#sk" transform="translate(159 236) rotate(-30)" fill="#d8bc8e"/><ellipse cx="435" cy="262" rx="86" ry="26" fill="url(#cn)"/><use href="#sk" transform="translate(435 200)" fill="#d8bc8e"/><ellipse cx="740" cy="290" rx="86" ry="26" transform="rotate(30 740 290)" fill="url(#cn)"/><use href="#sk" transform="translate(771 236) rotate(30)" fill="#75757c"/><circle cx="139" cy="201" r="56" fill="#f2ece0"/><circle cx="435" cy="160" r="56" fill="#f2ece0"/><circle cx="791" cy="201" r="56" fill="#f2cfa6"/></g><g fill="none" stroke="#111" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><use href="#ada" transform="rotate(-30 139 201) translate(100 183) scale(1.3)"/><use href="#ada" transform="translate(396 142) scale(1.3)"/><use href="#q" transform="rotate(30 791 201) translate(772 168) scale(2.4)" stroke-width="7"/></g><g stroke="#111" stroke-width="10" stroke-linejoin="round"><path d="M640 856h384v42H640z" fill="#75757c"/></g><g fill="#c3c3c3" stroke="#111" stroke-width="7"><circle cx="722" cy="877" r="15"/><circle cx="776" cy="877" r="15"/><circle cx="830" cy="877" r="15"/><circle cx="884" cy="877" r="15"/><circle cx="938" cy="877" r="15"/><circle cx="992" cy="877" r="15"/></g><g stroke="#111" stroke-width="10" stroke-linejoin="round"><path d="M210 440h450v450H210z" fill="#f2ece0"/><path d="M210 440h450v36H210z" fill="#ddd7c8"/><path d="M225 410h110v36H225zM380 410h110v36H380zM535 410h110v36H535z" fill="#43434b"/><circle cx="435" cy="650" r="132" fill="#75757c"/><circle cx="435" cy="650" r="104" fill="url(#cn)"/></g><g fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".6"><path d="M356 598q80-38 162 10M350 696q88 48 172-6"/></g><g fill="none" stroke="#e8e2d4" stroke-width="6" stroke-linecap="round"><use href="#ky" transform="translate(384 606) rotate(28)"/><use href="#ky" transform="translate(478 686) rotate(-48)"/><use href="#ky" transform="translate(408 700) rotate(100)"/></g><g stroke="#111" stroke-width="10" stroke-linejoin="round"><path d="M660 758h50l52 58v40h-102z" fill="#75757c"/></g><use href="#prow" transform="translate(842 662) scale(0.82)"/><use href="#prow" transform="translate(826 698) scale(0.9)"/><use href="#prow" transform="translate(810 740) scale(0.98)"/><use href="#prow" transform="translate(784 788) scale(1.06)"/><use href="#prow" transform="translate(772 840) scale(1.16)"/><g stroke="#111" stroke-width="10" stroke-linejoin="round"><circle cx="418" cy="836" r="40" fill="#ddd7c8"/></g><g fill="none" stroke="#111" stroke-linecap="round"><path d="M418 836 438 810" stroke-width="9"/><path d="M458 804l14-14M418 786v-18M462 836h18" stroke-width="6"/></g><g stroke="#111" stroke-width="10" stroke-linejoin="round"><path d="M132 782h68v82h-68z" fill="#f2cfa6"/><path d="M22 890V854q0-44 58-56h148q58 12 58 56v36z" fill="#6ba3d0"/></g><path d="M232 874q52 8 92-20" fill="none" stroke="#111" stroke-width="58" stroke-linecap="round"/><path d="M232 874q52 8 92-20" fill="none" stroke="#6ba3d0" stroke-width="44" stroke-linecap="round"/><use href="#hd" transform="translate(338 850) rotate(88) scale(0.55)" fill="#111" stroke="#111" stroke-width="34"/><use href="#hd" transform="translate(338 850) rotate(88) scale(0.55)" fill="#f2cfa6" stroke="#f2cfa6" stroke-width="18"/><g transform="translate(-302 447) scale(0.78)"><g stroke="#111" stroke-width="9" stroke-linejoin="round"><ellipse cx="454" cy="330" rx="19" ry="27" fill="#f2cfa6"/><ellipse cx="716" cy="330" rx="19" ry="27" fill="#f2cfa6"/><use href="#sp" fill="none" stroke="#33240f" stroke-width="7" stroke-linecap="round"/><ellipse cx="585" cy="310" rx="130" ry="122" fill="#f2cfa6"/><use href="#hr" fill="#463320"/></g><g stroke="none"><use href="#hr" fill="url(#h)"/><use href="#bd" fill="#bb9668"/><use href="#ms" fill="#bb9668"/><use href="#bd" fill="url(#h)" opacity=".55"/><use href="#ms" fill="url(#h)"/></g><path d="M694 344q13 64-23 96-30 30-86 30t-86-30q-36-32-23-96" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><g stroke="#111" stroke-width="9" stroke-linejoin="round"><path d="M530 392 646 378q-58 77-116 14z" fill="#3a2118"/><g fill="#fff" stroke-width="5"><rect x="570" y="387" width="19" height="25" rx="3"/><rect x="593" y="385" width="18" height="24" rx="3"/></g></g><g fill="none" stroke="#111" stroke-linecap="round"><path d="M577 336q-23 24-6 37 20 14 37-5" stroke-width="7"/><path d="M504 288q30-13 60-3M610 268q32-14 60 6" stroke-width="9"/><path d="M490 340l-16 8M492 352l-14 10M680 338l16 8M678 350l14 10" stroke-width="4"/><path d="M530 390q-15-3-23-14M646 376q15-3 23-14" stroke-width="5"/></g><g stroke="#111" stroke-width="4"><ellipse cx="539" cy="331" rx="18" ry="11" fill="#fff"/><ellipse cx="633" cy="330" rx="18" ry="11" fill="#fff"/></g><g fill="#111" stroke="none"><ellipse cx="556" cy="331" rx="6" ry="7"/><ellipse cx="650" cy="330" rx="6" ry="7"/></g><path d="M522 331q18-15 35-2M616 330q18-14 35 2" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/><g stroke="none"><circle cx="540" cy="325" r="30" fill="#dff1fa" opacity=".3"/><circle cx="632" cy="325" r="30" fill="#dff1fa" opacity=".3"/><circle cx="540" cy="325" r="30" fill="url(#g)" opacity=".38"/></g><g fill="none" stroke="#111" stroke-width="5.5" stroke-linecap="round"><circle cx="540" cy="325" r="30"/><circle cx="632" cy="325" r="30"/><path d="M570 320q16-9 32 0M510 320l-32-7M662 320l32-7"/></g></g><use href="#cap" stroke="#111" stroke-width="13"/><use href="#cap" stroke="#ed1c24" stroke-width="8"/></svg></script>
+<script type="module">
+const ANCHOR_SLOT = 193727336, ANCHOR_UNIX = 1785293627;
+const ARTS = {}, B64 = {};
+for (const el of document.querySelectorAll('script[data-art]')) {
+  const b = btoa(String.fromCharCode(...new TextEncoder().encode(el.textContent.trim())));
+  B64[el.dataset.art] = b;
+  ARTS[el.dataset.art] = 'data:image/svg+xml;base64,' + b;
+}
+const $ = id => document.getElementById(id);
+const nowSlot = () => ANCHOR_SLOT + Math.floor(Date.now() / 1000) - ANCHOR_UNIX;
+const pad = n => String(n).padStart(2, '0');
+function parts(slot) {
+  let s = slot - nowSlot(); if (s < 0) s = 0;
+  return [Math.floor(s / 86400), Math.floor(s % 86400 / 3600), Math.floor(s % 3600 / 60), s % 60, s];
+}
+const hasWallet = () => {
+  const c = window.cardano || {};
+  return Object.keys(c).some(k => c[k] && typeof c[k].enable === 'function' && c[k].apiVersion);
+};
+// Extensions inject window.cardano AFTER load, so a bare check would flash the hint at
+// desktop users who do have a wallet. Poll ~3s, then conclude.
+async function walletHint() {
+  for (let i = 0; i < 30; i++) {
+    if (hasWallet()) return true;
+    await new Promise(r => setTimeout(r, 100));
+  }
+  const el = $('nowallet'); if (el) el.hidden = false;
+  return false;
+}
+const SLUG = "org", TICKER = "ORG";
+const META_DESC = "ORGANIC DISTRIBUTION. Fully on-chain. Edition four of on-chain meme NFTs.";
+const DEADLINE_SLOT = 194676488;
+
+const PP = {feeA:'44', feeB:'155381', utxoByte:'4310', maxTx:16384, maxVal:5000,
+            poolDep:'500000000', keyDep:'2000000'};
+const CDN = 'https://cdn.jsdelivr.net/npm/@emurgo/cardano-serialization-lib-browser@15.0.3/';
+const b64 = B64[SLUG], ART = ARTS[SLUG];
+$('art').src = ART;
+const hex = b => [...b].map(x => x.toString(16).padStart(2, '0')).join('');
+const unhex = s => new Uint8Array(s.match(/../g).map(x => parseInt(x, 16)));
+function say(msg, kind) { const el = $('status'); el.className = 'on ' + (kind || ''); el.innerHTML = msg; }
+
+function tick() {
+  const [d, h, m, s, left] = parts(DEADLINE_SLOT);
+  $('d').textContent = d; $('h').textContent = pad(h);
+  $('m').textContent = pad(m); $('s').textContent = pad(s);
+  if (!left) {
+    $('pick').innerHTML = '';
+    say('<b>The mint window has closed.</b> The policy expired at slot ' + DEADLINE_SLOT +
+        '. Nothing further can ever be minted under this policy id.', 'err');
+  }
+}
+tick(); setInterval(tick, 1000);
+
+let CSL, script, policyId;
+async function loadCSL() {
+  const bg = await import(CDN + 'cardano_serialization_lib_bg.js');
+  const { instance } = await WebAssembly.instantiateStreaming(
+    fetch(CDN + 'cardano_serialization_lib_bg.wasm'),
+    { './cardano_serialization_lib_bg.js': bg });
+  bg.__wbg_set_wasm(instance.exports);
+  if (instance.exports.__wbindgen_start) instance.exports.__wbindgen_start();
+  CSL = bg;
+  script = CSL.NativeScript.new_timelock_expiry(
+    CSL.TimelockExpiry.new_timelockexpiry(CSL.BigNum.from_str(String(DEADLINE_SLOT))));
+  policyId = script.hash();
+  $('pid').textContent = hex(policyId.to_bytes());
+}
+
+function listWallets() {
+  const c = window.cardano || {};
+  const keys = Object.keys(c).filter(k => c[k] && typeof c[k].enable === 'function' && c[k].apiVersion);
+  const box = $('pick');
+  if (!keys.length) {
+    box.innerHTML = '<button disabled>No wallet here — open this page in a dapp browser</button>';
+    return;
+  }
+  box.innerHTML = '';
+  for (const k of keys) {
+    const b = document.createElement('button');
+    b.innerHTML = `<span class="row">${c[k].icon ? `<img src="${c[k].icon}" alt="">` : ''}
+                   <span>Mint with ${c[k].name || k}</span></span>`;
+    b.className = 'go';
+    b.onclick = () => mint(k, b);
+    box.appendChild(b);
+  }
+}
+
+async function mint(key, btn) {
+  const all = [...document.querySelectorAll('#pick button')];
+  all.forEach(b => b.disabled = true);
+  try {
+    if (nowSlot() >= DEADLINE_SLOT) throw new Error('The mint window has closed.');
+    say('Connecting to your wallet…');
+    const api = await window.cardano[key].enable();
+
+    const netId = await api.getNetworkId();
+    if (netId !== 1) throw new Error('Switch your wallet to mainnet (it is on the testnet).');
+
+    const addr = CSL.Address.from_bytes(unhex(await api.getChangeAddress()));
+    const raw = await api.getUtxos();
+    if (!raw || !raw.length) throw new Error('That wallet has no UTxOs — it needs a little ADA.');
+    const utxos = raw.map(h => CSL.TransactionUnspentOutput.from_hex(h));
+
+    // Spend one specific UTxO as the "seed". Because it is consumed, the asset name
+    // derived from it can never be produced twice -> every mint is a unique token.
+    const pure = utxos.filter(u => !u.output().amount().multiasset() ||
+                                    u.output().amount().multiasset().len() === 0);
+    const pool = (pure.length ? pure : utxos).slice().sort((a, b) =>
+      Number(b.output().amount().coin().to_str()) - Number(a.output().amount().coin().to_str()));
+    const seed = pool[0];
+    const nameStr = TICKER + hex(seed.input().transaction_id().to_bytes()).slice(0, 8);
+    const assetName = CSL.AssetName.new(new TextEncoder().encode(nameStr));
+
+    say('Building the transaction — the whole picture goes in it…');
+
+    // every metadata string is capped at 64 BYTES by the ledger, so long values
+    // become arrays of chunks — consumers concatenate them back
+    const cut = s => s.match(/.{1,64}/g);
+    const uri = 'data:image/svg+xml;base64,' + b64;
+    const meta = {};
+    meta[hex(policyId.to_bytes())] = {};
+    meta[hex(policyId.to_bytes())][nameStr] = {
+      name: TICKER, mediaType: 'image/svg+xml', image: cut(uri),
+      description: cut(META_DESC)
+    };
+    const aux = CSL.AuxiliaryData.new();
+    const gtm = CSL.GeneralTransactionMetadata.new();
+    gtm.insert(CSL.BigNum.from_str('721'),
+      CSL.encode_json_str_to_metadatum(JSON.stringify(meta), CSL.MetadataJsonSchema.NoConversions));
+    aux.set_metadata(gtm);
+
+    const cfg = CSL.TransactionBuilderConfigBuilder.new()
+      .fee_algo(CSL.LinearFee.new(CSL.BigNum.from_str(PP.feeA), CSL.BigNum.from_str(PP.feeB)))
+      .pool_deposit(CSL.BigNum.from_str(PP.poolDep))
+      .key_deposit(CSL.BigNum.from_str(PP.keyDep))
+      .max_value_size(PP.maxVal).max_tx_size(PP.maxTx)
+      .coins_per_utxo_byte(CSL.BigNum.from_str(PP.utxoByte))
+      .build();
+    const tb = CSL.TransactionBuilder.new(cfg);
+
+    const mb = CSL.MintBuilder.new();
+    mb.add_asset(CSL.MintWitness.new_native_script(CSL.NativeScriptSource.new(script)),
+                 assetName, CSL.Int.new_i32(1));
+    tb.set_mint_builder(mb);
+    tb.set_auxiliary_data(aux);
+    // the timelock only passes if the tx says it is invalid at/after the deadline
+    tb.set_ttl_bignum(CSL.BigNum.from_str(String(Math.min(DEADLINE_SLOT, nowSlot() + 7200))));
+
+    const ma = CSL.MultiAsset.new(), assets = CSL.Assets.new();
+    assets.insert(assetName, CSL.BigNum.from_str('1'));
+    ma.insert(CSL.ScriptHash.from_bytes(policyId.to_bytes()), assets);
+    const probe = CSL.Value.new(CSL.BigNum.from_str('2000000')); probe.set_multiasset(ma);
+    const minAda = CSL.min_ada_for_output(CSL.TransactionOutput.new(addr, probe),
+      CSL.DataCost.new_coins_per_byte(CSL.BigNum.from_str(PP.utxoByte)));
+    const val = CSL.Value.new(minAda); val.set_multiasset(ma);
+    tb.add_output(CSL.TransactionOutput.new(addr, val));
+
+    tb.add_regular_input(seed.output().address(), seed.input(), seed.output().amount());
+    const rest = CSL.TransactionUnspentOutputs.new();
+    utxos.forEach(u => { if (u !== seed) rest.add(u); });
+    if (rest.len()) {
+      try { tb.add_inputs_from(rest, CSL.CoinSelectionStrategyCIP2.LargestFirst); } catch (e) {}
+    }
+    tb.add_change_if_needed(addr);
+
+    const tx = tb.build_tx();
+    const size = tx.to_bytes().length;
+    if (size > PP.maxTx) throw new Error(`Transaction is ${size} bytes, over the ${PP.maxTx} limit.`);
+    const fee = Number(tx.body().fee().to_str()) / 1e6;
+
+    say(`Sign to mint <b>${nameStr}</b>.<br>Fee ${fee.toFixed(3)} ADA · ` +
+        `${(Number(minAda.to_str()) / 1e6).toFixed(3)} ADA stays with your token · ` +
+        `tx ${size.toLocaleString()} / ${PP.maxTx.toLocaleString()} bytes.`);
+
+    const unsignedHex = hex(tx.to_bytes());
+    const wsHex = await api.signTx(unsignedHex, true);
+
+    // Merge the wallet's signature into a FixedTransaction, which keeps the ORIGINAL
+    // body bytes. Rebuilding the tx instead can re-serialise the body differently and
+    // silently invalidate the signature the wallet just produced.
+    const ftx = CSL.FixedTransaction.from_hex(unsignedHex);
+    const vk = CSL.TransactionWitnessSet.from_hex(wsHex).vkeys();
+    if (!vk || !vk.len()) throw new Error('The wallet returned no signature.');
+    for (let i = 0; i < vk.len(); i++) ftx.add_vkey_witness(vk.get(i));
+
+    say('Submitting…');
+    const txHash = await api.submitTx(hex(ftx.to_bytes()));
+    say(`<b>Minted.</b> ${nameStr} is yours, picture and all, on chain forever.<br>` +
+        `<a href="https://cexplorer.io/tx/${txHash}" target="_blank" rel="noopener">${txHash}</a>`, 'ok');
+  } catch (e) {
+    const m = (e && (e.info || e.message)) || String(e);
+    say('<b>Not minted.</b> ' + m, 'err');
+    all.forEach(b => b.disabled = false);
+  }
+}
+
+try { await loadCSL(); listWallets(); walletHint(); }
+catch (e) { say('Could not load the Cardano library: ' + e, 'err'); }
+
+</script>
+</body>
+</html>

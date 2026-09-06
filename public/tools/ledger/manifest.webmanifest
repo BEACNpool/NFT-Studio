@@ -1,0 +1,19 @@
+{
+  "name": "Ledger Scrolls + Ledger Book",
+  "short_name": "Scrolls + Book",
+  "description": "Preserve originals with Ledger Scrolls. Collect ongoing entries with Ledger Book.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0d1015",
+  "theme_color": "#0d1015",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

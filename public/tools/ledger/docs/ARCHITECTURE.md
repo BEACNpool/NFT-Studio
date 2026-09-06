@@ -1,0 +1,101 @@
+# Architecture — how the stack fits together
+
+One job: **read and write immutable media on a public ledger.** Everything
+in this repository is one of four layers doing that job, and each layer can
+survive the death of the layers above it.
+
+```
+┌────────────────────────────────────────────────────────────────────┐
+│ 4. THE SITE (GitHub Pages serves this repo's root — a convenience) │
+│    index.html (the Main Viewer) · leaks.html · calculator.html     │
+│    media.html · ledger-book.html · ledger-chess.html · vault-tool  │
+├────────────────────────────────────────────────────────────────────┤
+│ 3. READERS (each one stands alone)                                 │
+│    examples/the-reader/reader.html — one file, MINTED ON-CHAIN     │
+│    viewers/koios-cli — stdlib Python · koios-viewer (lsview)       │
+├────────────────────────────────────────────────────────────────────┤
+│ 2. WRITER TOOLS                                                    │
+│    tools/lschain (prepare / mint) · scripts/ (standard scrolls)    │
+├────────────────────────────────────────────────────────────────────┤
+│ 1. THE PROTOCOL (the only layer that must never break)             │
+│    registry/spec/ · docs/PROTOCOL_V1_PROPOSAL.md · conformance/    │
+└────────────────────────────────────────────────────────────────────┘
+```
+
+## Layer 1 — the protocol
+
+Two queries and a hash. The wire formats (`manifest-chain-v2`,
+`utxo-inline-datum-bytes-v1`, `cip25-pages-v1`, metadata label 22025) are
+frozen; the `conformance/` fixtures are the contract. Nothing above this
+layer is allowed to matter: a stranger with the spec can rebuild everything
+else. **The strongest proof lives on the chain itself: the minimal reader
+is minted as a scroll** (`9a564165…07de2#0`), so the ledger carries its own
+decoder.
+
+## Layer 3 — readers and the source problem
+
+A reader needs chain data, and where it gets it is a *trust choice the
+reader's user makes* — never something hard-wired by us:
+
+1. **Your own node + Koios instance** — zero third parties.
+2. **Any Koios-compatible endpoint** you run or rent.
+3. **`api.koios.rest`** — keyless; perfect for CLI/scripts. ⚠ Its browser
+   CORS currently answers only koios.rest itself, which is why browser
+   readers need the next two rungs.
+4. **A CORS mirror** — [`tools/cors-mirror/`](../tools/cors-mirror/) is a
+   ~25-line recipe anyone deploys free in two minutes. A mirror can hide
+   data but can never forge it: every reader verifies SHA-256 locally.
+5. **Blockfrost with your own free key** — different API, honest CORS;
+   `reader.html` speaks it natively.
+
+Site pages list **only CORS-capable mirrors** — direct `api.koios.rest` /
+`preview.koios.rest` are deliberately absent from browser source lists (they
+never answer browsers, so as a "fallback" they could only produce a
+misleading `Failed to fetch`; they remain first-class for curl/CLI) — and show
+which source answered in their trust logs. The BEACN mirror is a courtesy
+deployment of the public recipe — the site works out of the box, and nobody
+who forks the reader inherits a landlord. The **minted** reader contains no
+BEACN endpoint at all.
+
+## Layer 4 — one Library, thin doors
+
+`index.html` (The Library) is the single browser engine: all three scroll
+forms, channels, registries, deep links (`#s=<name>`, `#p=<policy>`),
+user-set data source and registry head persisted locally. The old
+per-scroll standalone viewers (bible, constitution, first-video, latest) and
+the testnet rehearsal viewer have been **removed** — the Library reads every
+scroll via `#s=<name>` deep links, so they were redundant. The standalone
+docket terminal (`legal.html`) is retired too — docket records open in the
+Main Viewer (`#s=legal-0001`, `#p=<policy>`). `leaks.html` remains a separate
+product (channel player) on the same source discipline.
+
+## Invariants (change these and it stops being Ledger Scrolls)
+
+- A reader never renders bytes it could not verify.
+- Published URLs never break; paths cited inside minted scrolls
+  (`koios-viewer/`, `tools/lschain/`, `viewers/koios-cli/`) never move.
+- Minted sources in `examples/` stay byte-exact, forever.
+- `neon-door.html` at the repo root is a **byte-frozen mirror** of an
+  on-chain scroll (sha256
+  `33d170ee9d7b35c707cb3631bfffbbea4f2ec57a3ba7e43c4c853dff7740341b`) —
+  any edit breaks the mirror.
+- The referee engine inside `ledger-chess.html` is **minted on-chain** and
+  pinned by golden vectors; on-chain victory claims replay against it, so
+  its behavior can never change.
+- `registry/published/*` mirrors on-chain state — regenerated from chain,
+  never hand-edited.
+- Wire identifiers live in specs; humans read "Ledger Scroll."
+- No secret, no key, no personal data ever enters the repo or a scroll.
+
+## Verification is a set of facts
+
+The UI must not collapse several different guarantees into one green badge:
+
+- **integrity** — reconstructed bytes match the committed SHA-256;
+- **permanence** — the manifest/standard datum is at the canonical always-fail address;
+- **catalog authenticity** — the entry descends from the user's selected registry trust root;
+- **provenance** — a transaction proves control of a key, while human identity requires an external key-to-person link; and
+- **completeness** — the provider returned the entire requested history rather than a capped page.
+
+Unknown is not failure, but it must be visible. A provider can hide data even
+when it cannot forge hash-valid bytes.

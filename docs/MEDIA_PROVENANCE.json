@@ -1,0 +1,1154 @@
+{
+  "schema": "nft-studio.provenance.v1",
+  "generatedAt": "2026-09-06T21:47:14.888700+00:00",
+  "files": [
+    {
+      "path": "public/arcade/starfall/game.html",
+      "bytes": 5257,
+      "sha256": "4b4a4d9d9e787444be4a88a03be86c49df853ac239a28ae13bfee03e980a1826",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/starfall/game.html"
+      }
+    },
+    {
+      "path": "public/arcade/starfall/cover.svg",
+      "bytes": 1055,
+      "sha256": "6b6bdb701837352583c5a8580dfb8e06b8e03e732351045f2c433335190f2704",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/starfall/cover.svg"
+      }
+    },
+    {
+      "path": "public/arcade/starfall/expanded.html",
+      "bytes": 42600,
+      "sha256": "a339a49b4c926ab4bd2fa891c5141f371ecc11f7ca0d8771647419872aef4f3a",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/starfall/expanded.html"
+      }
+    },
+    {
+      "path": "public/arcade/starfall/cartridges.zip",
+      "bytes": 17836,
+      "sha256": "65ed2ab0cf1d01a15f244f03b16407a58dca524b15e2b73808e72f21a6205391",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/starfall/cartridges.zip"
+      }
+    },
+    {
+      "path": "public/arcade/prismwake/game.html",
+      "bytes": 12843,
+      "sha256": "abcb80ad71973837b54ad38e6c8d2ddaca0b175643073d40d38ddd273eda417d",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/prismwake/game.html"
+      }
+    },
+    {
+      "path": "public/arcade/prismwake/cover.svg",
+      "bytes": 628,
+      "sha256": "2c354a43d8050ddb9a621e3044134d8a6eff57e42a66570e4c8d31d49e459ac5",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/prismwake/cover.svg"
+      }
+    },
+    {
+      "path": "public/arcade/prismwake/expanded.html",
+      "bytes": 21665,
+      "sha256": "107624b3f7ecb67cc8b5adbe6e3b5516625a69a0ee30608f92d4e89afac30348",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/prismwake/expanded.html"
+      }
+    },
+    {
+      "path": "public/arcade/tidelock/game.html",
+      "bytes": 12511,
+      "sha256": "40100157cc78aa436116fe7b4dda9896bceff2fa3f38db86301f349bee93b7ca",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/tidelock/game.html"
+      }
+    },
+    {
+      "path": "public/arcade/tidelock/cover.svg",
+      "bytes": 698,
+      "sha256": "d23d771e2799b3c95a9775e2b162bfb5a4b01bea44ba78c5bfbdf946337ab06d",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/tidelock/cover.svg"
+      }
+    },
+    {
+      "path": "public/arcade/tidelock/expanded.html",
+      "bytes": 20982,
+      "sha256": "d2900d96f5e7d272a51ca43f8141ef55622e807e110303d0c7e9b6f11845a6d7",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/tidelock/expanded.html"
+      }
+    },
+    {
+      "path": "public/arcade/lastember/game.html",
+      "bytes": 13795,
+      "sha256": "fc60cd20c3d11b47197ef0252a7c7007eb7d440353c72e0cd50f77836725fec9",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/lastember/game.html"
+      }
+    },
+    {
+      "path": "public/arcade/lastember/cover.svg",
+      "bytes": 604,
+      "sha256": "5c47b09ea7509987711b611deabd74d4cb391ae47a07636e05a375d4a0623cb9",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/lastember/cover.svg"
+      }
+    },
+    {
+      "path": "public/arcade/lastember/expanded.html",
+      "bytes": 23352,
+      "sha256": "149c08f2bb59c06d4c9e541a7d7b945b0f1b696a4473cf3a153d534369b45b64",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/lastember/expanded.html"
+      }
+    },
+    {
+      "path": "public/arcade/chess/game.html",
+      "bytes": 13290,
+      "sha256": "9c83ada6615599b88e5f6773a3f9d4c24d1ebb4ae2c0fd88d1ff39b79367fae3",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/chess/game.html"
+      }
+    },
+    {
+      "path": "public/arcade/chess/cover.svg",
+      "bytes": 748,
+      "sha256": "c15abbf218f86aa69a66f3f031e9b1a6229c09d84f39458141aadadac1afd084",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/chess/cover.svg"
+      }
+    },
+    {
+      "path": "public/arcade/chess/expanded.html",
+      "bytes": 23047,
+      "sha256": "dc39faa8003ef1252d67b889d0c783d261db1cde5b913b86ed89c7c0d0e8090c",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/chess/expanded.html"
+      }
+    },
+    {
+      "path": "public/arcade/checkers/game.html",
+      "bytes": 9486,
+      "sha256": "0b57d01a46bb85e2bd215b85270e13e51f2f64289c46c3462a2532fdc3b38cef",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/checkers/game.html"
+      }
+    },
+    {
+      "path": "public/arcade/checkers/cover.svg",
+      "bytes": 792,
+      "sha256": "4aa0ab78a078dbda6e4bfb684a4c5b63f62fce9ebc3d5b9cdb041741a9805dcd",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/checkers/cover.svg"
+      }
+    },
+    {
+      "path": "public/arcade/checkers/expanded.html",
+      "bytes": 15118,
+      "sha256": "b12a37ca5c7ce6af27367a40e2a3d6dc53c37d7c9b4dd4edcc42a7dfb703d8d2",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/checkers/expanded.html"
+      }
+    },
+    {
+      "path": "public/arcade/solitaire/game.html",
+      "bytes": 9802,
+      "sha256": "1450b76a2fc147775f45ca075a68d5e347f9ec3ea30885f699f6c490beeefe80",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/solitaire/game.html"
+      }
+    },
+    {
+      "path": "public/arcade/solitaire/cover.svg",
+      "bytes": 779,
+      "sha256": "685ec81c1898bb8c38f5f6a726c0cf0fef000af9f4802d3ae0045f16ac7e3d41",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/solitaire/cover.svg"
+      }
+    },
+    {
+      "path": "public/arcade/solitaire/expanded.html",
+      "bytes": 15776,
+      "sha256": "3d660631b13c35ab927c4457dc50e320a921f6b07767ef435ee088aad4cc1e68",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/solitaire/expanded.html"
+      }
+    },
+    {
+      "path": "public/arcade/ninefold/game.html",
+      "bytes": 13490,
+      "sha256": "9fbb6f610f16896420385fd5bc690f96e403e9d07cc15db47745d6e5331de4f0",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/ninefold/game.html"
+      }
+    },
+    {
+      "path": "public/arcade/ninefold/cover.svg",
+      "bytes": 804,
+      "sha256": "114252c4f30a6fd12a5033832de07fdc2e585f44304aad7bc4e31de0a5c120c6",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/ninefold/cover.svg"
+      }
+    },
+    {
+      "path": "public/arcade/ninefold/expanded.html",
+      "bytes": 24285,
+      "sha256": "5fa1d72c1a6ee1064520d311cd9b11a59a78be4cba0cb73fb49431cb83471f4f",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/ninefold/expanded.html"
+      }
+    },
+    {
+      "path": "public/arcade/afterlight/game.html",
+      "bytes": 13298,
+      "sha256": "1f7c467ad3dfcaf2180ba7959a84d9da1a865eed111e3eadf177f2e4667c34e4",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/afterlight/game.html"
+      }
+    },
+    {
+      "path": "public/arcade/afterlight/cover.svg",
+      "bytes": 807,
+      "sha256": "e846b261b69e03821c5f068fd71a8a0c2fc52e475dcfec3839284b007a357825",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/afterlight/cover.svg"
+      }
+    },
+    {
+      "path": "public/arcade/afterlight/expanded.html",
+      "bytes": 22941,
+      "sha256": "5992a9e400579bdea29c7ef0ddbfd1ff63c779b4035e9871f65bab8b4182872b",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/afterlight/expanded.html"
+      }
+    },
+    {
+      "path": "public/originals/light-we-leave/cover.svg",
+      "bytes": 10587,
+      "sha256": "45a0e91b4a2256554204863334026fea5f918ba7e5320935ca5bd78280281aa3",
+      "source": {
+        "kind": "onchain-recovery",
+        "txHash": "cbd58d88dc1876819c52ba5fe303ae4f7abc68fa99ae62bbb51ef6bf3738996f",
+        "policy": "4c5c193f83522bcc8dcc28c42c4f455b2a0087d7616ef0384da2bf67",
+        "assetHex": "424541434e4c6967687457654c65617665",
+        "viewerURL": "https://pool.pm/asset1z9t4a7f26tayumx0ss72jj6gttf5vu8kjecqts",
+        "endpoint": "https://koios.beacn.workers.dev/api/v1/tx_metadata",
+        "retrievedAt": "2026-09-06T21:47:14.888700+00:00"
+      }
+    },
+    {
+      "path": "public/originals/impossible-dawn/cover.webp",
+      "bytes": 2046,
+      "sha256": "027980a8290aaaebe2ef2c7402577425b0081cc2053be08664c728e43421992e",
+      "source": {
+        "kind": "onchain-recovery",
+        "txHash": "849792d2cd16d7ac74abb4e88a2d1c4a8d3503cc66b2f1afd1239f7255a6e7d0",
+        "policy": "d73e3b87a90bf926fde9e54dbaf2cba571976ff1e8dc5dc4b85ff1c7",
+        "assetHex": "4441574e",
+        "viewerURL": "https://pool.pm/asset1jxgw88w84ssq3w8m44sg30qxdvgp5cd8ctp9nr",
+        "endpoint": "https://koios.beacn.workers.dev/api/v1/tx_metadata",
+        "retrievedAt": "2026-09-06T21:47:14.888700+00:00"
+      }
+    },
+    {
+      "path": "public/originals/impossible-dawn/program.html",
+      "bytes": 9202,
+      "sha256": "e5dbf821fb40a8a8f6f62c15d4f0f73f556fe43e4c1d9c95c671ba0505bc2d9e",
+      "source": {
+        "kind": "onchain-recovery",
+        "txHash": "849792d2cd16d7ac74abb4e88a2d1c4a8d3503cc66b2f1afd1239f7255a6e7d0",
+        "policy": "d73e3b87a90bf926fde9e54dbaf2cba571976ff1e8dc5dc4b85ff1c7",
+        "assetHex": "4441574e",
+        "viewerURL": "https://pool.pm/asset1jxgw88w84ssq3w8m44sg30qxdvgp5cd8ctp9nr",
+        "endpoint": "https://koios.beacn.workers.dev/api/v1/tx_metadata",
+        "retrievedAt": "2026-09-06T21:47:14.888700+00:00"
+      }
+    },
+    {
+      "path": "public/originals/keep-growing/cover.svg",
+      "bytes": 9923,
+      "sha256": "2f0ea38fb4541d61d30a8a1b55bebfd399314229af4662e91b33183025d16f96",
+      "source": {
+        "kind": "onchain-recovery",
+        "txHash": "90bfefec194b9fddef07b17ec61518259324a6adcecce24b0ae7ba386038b72b",
+        "policy": "0bdabc0d217f125176c06aecb2c3922ee031ff4e12363b46c4db990a",
+        "assetHex": "424d4b524b65657047726f77696e67",
+        "viewerURL": "https://pool.pm/asset1mxame69qahlnq73f98s2gvxq38m7mmuqv6dz96",
+        "endpoint": "https://koios.beacn.workers.dev/api/v1/tx_metadata",
+        "retrievedAt": "2026-09-06T21:47:14.888700+00:00"
+      }
+    },
+    {
+      "path": "public/originals/boss-fight/cover.svg",
+      "bytes": 9991,
+      "sha256": "3a593acef12350423b9ece99aa3b0b18e85bf2ffc5f559ee5395b314a0130858",
+      "source": {
+        "kind": "onchain-recovery",
+        "txHash": "37b41feee216a4023b7c36bc19d5b2e63be9aa2828e787460716706fd8f15d5f",
+        "policy": "d839799fdb78e582aebc53944a37b149d76f0e4fbbc6af1fad67ecc1",
+        "assetHex": "424d4b52426f73734669676874",
+        "viewerURL": "https://pool.pm/asset1gx62exhkcpyynnez6jcrf0l66pwj783j4vlux3",
+        "endpoint": "https://koios.beacn.workers.dev/api/v1/tx_metadata",
+        "retrievedAt": "2026-09-06T21:47:14.888700+00:00"
+      }
+    },
+    {
+      "path": "public/originals/chain-pressure/cover.svg",
+      "bytes": 819,
+      "sha256": "eebdc77f95c935e24732e32da756dcfb9916ac6396bfbb91cfab8988a0bf35d1",
+      "source": {
+        "kind": "onchain-recovery",
+        "txHash": "7c899421cdd7e623a7ee52710e5b141ebdf4f48d30c67e4469ce79594fa766ab",
+        "policy": "d75c0aa036bd188d0e38b779bcece9305ba05e51cad824baa4cba2a9",
+        "assetHex": "424d4b52436861696e5072657373757265",
+        "viewerURL": "https://pool.pm/asset1dkstjnqmnmpcj2kwe2xntxhr3sen5v43nrtgjt",
+        "endpoint": "https://koios.beacn.workers.dev/api/v1/tx_metadata",
+        "retrievedAt": "2026-09-06T21:47:14.888700+00:00"
+      }
+    },
+    {
+      "path": "public/originals/chain-pressure/program.html",
+      "bytes": 9740,
+      "sha256": "7ab252cc7063e37beb4414f64e8aea6f817298173267eb89986974471e2b3246",
+      "source": {
+        "kind": "onchain-recovery",
+        "txHash": "7c899421cdd7e623a7ee52710e5b141ebdf4f48d30c67e4469ce79594fa766ab",
+        "policy": "d75c0aa036bd188d0e38b779bcece9305ba05e51cad824baa4cba2a9",
+        "assetHex": "424d4b52436861696e5072657373757265",
+        "viewerURL": "https://pool.pm/asset1dkstjnqmnmpcj2kwe2xntxhr3sen5v43nrtgjt",
+        "endpoint": "https://koios.beacn.workers.dev/api/v1/tx_metadata",
+        "retrievedAt": "2026-09-06T21:47:14.888700+00:00"
+      }
+    },
+    {
+      "path": "lib/arcade-catalog.json",
+      "bytes": 17081,
+      "sha256": "6e7e10f8315ba99d02a6ddf0b695dad1358645938fe9a3234e6f903ea4c96655",
+      "source": {
+        "kind": "public-studio-source",
+        "project": "BMKR",
+        "relativePath": "lib/arcade-catalog.json"
+      }
+    },
+    {
+      "path": "public/legacy/oligarCH/index.html",
+      "bytes": 95968,
+      "sha256": "f2d692726886293c4c661fe319e1ab9b60c2db3f9aac0e65d036702d66daf4a0",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/oligarCH/index.html",
+        "retrievedAt": "2026-09-06T21:49:59.518785+00:00"
+      }
+    },
+    {
+      "path": "public/legacy/oligarCH/make/index.html",
+      "bytes": 57447,
+      "sha256": "df12738481d9902aaff062abf9ce377d314a724b1a7eabd865ac23faf644a0f1",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/oligarCH/make/index.html",
+        "retrievedAt": "2026-09-06T21:49:59.518785+00:00"
+      }
+    },
+    {
+      "path": "public/legacy/oligarCH/make/wall/index.html",
+      "bytes": 16868,
+      "sha256": "9e1d4e85924ec237bb0ec9096fdfda200eec1acfa77e71af2815b9546e6d1900",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/oligarCH/make/wall/index.html",
+        "retrievedAt": "2026-09-06T21:49:59.518785+00:00"
+      }
+    },
+    {
+      "path": "public/legacy/oligarCH/byttg/index.html",
+      "bytes": 27370,
+      "sha256": "3ec5b9ac8def292e2d21b739e4aff1a27430ea0b3e41a91271846b3e8b1435a6",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/oligarCH/byttg/index.html",
+        "retrievedAt": "2026-09-06T21:49:59.518785+00:00"
+      }
+    },
+    {
+      "path": "public/legacy/oligarCH/tgm/index.html",
+      "bytes": 28685,
+      "sha256": "8c17a85344ea8ab032f12ba42f76ddc5811ce142786c7ecb8791daf1a3ad68d5",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/oligarCH/tgm/index.html",
+        "retrievedAt": "2026-09-06T21:49:59.518785+00:00"
+      }
+    },
+    {
+      "path": "public/legacy/oligarCH/ivyom/index.html",
+      "bytes": 28075,
+      "sha256": "f9090a58b5245babf876f937b8436ba3ca08cd5cea2b7a07b1bb5fb2d6a4aa16",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/oligarCH/ivyom/index.html",
+        "retrievedAt": "2026-09-06T21:49:59.518785+00:00"
+      }
+    },
+    {
+      "path": "public/legacy/oligarCH/org/index.html",
+      "bytes": 27806,
+      "sha256": "b28daf0905c0a303c772184586aed687e6e483a5596cc7ead644d14ebdc41419",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/oligarCH/org/index.html",
+        "retrievedAt": "2026-09-06T21:49:59.518785+00:00"
+      }
+    },
+    {
+      "path": "public/legacy/oligarCH/hotel/index.html",
+      "bytes": 26336,
+      "sha256": "b6f7668a9db3318028204526f67573cf6ad387a041542d214303a81ea9bc4fef",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/oligarCH/hotel/index.html",
+        "retrievedAt": "2026-09-06T21:49:59.518785+00:00"
+      }
+    },
+    {
+      "path": "public/legacy/oligarCH/ndl/index.html",
+      "bytes": 26995,
+      "sha256": "1d94ecc1b3a6ad00ee0b12c33e6b71d842f5ce12f887c4623165f813f29e532c",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/oligarCH/ndl/index.html",
+        "retrievedAt": "2026-09-06T21:49:59.518785+00:00"
+      }
+    },
+    {
+      "path": "public/legacy/oligarCH/dnpg/index.html",
+      "bytes": 29042,
+      "sha256": "ec792337c970ec6d93b81f3d1e819f020c9416bdf85afc2fce254d13f817c01b",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/oligarCH/dnpg/index.html",
+        "retrievedAt": "2026-09-06T21:49:59.518785+00:00"
+      }
+    },
+    {
+      "path": "public/legacy/oligarCH/smoke/index.html",
+      "bytes": 28598,
+      "sha256": "701708a31166fb5fdfa3172e2ac0ff45a9f715b403194e61042b66edee49e131",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/oligarCH/smoke/index.html",
+        "retrievedAt": "2026-09-06T21:49:59.518785+00:00"
+      }
+    },
+    {
+      "path": "public/legacy/tipsy/index.html",
+      "bytes": 9884,
+      "sha256": "3f316ec5944e3c63e38a7fe8c05d75e18b958dd757eac35496504ea5ad082de4",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/tipsy/index.html",
+        "retrievedAt": "2026-09-06T21:49:59.518785+00:00"
+      }
+    },
+    {
+      "path": "public/legacy/tipsy/tipsy/index.html",
+      "bytes": 30532,
+      "sha256": "6d85775f2b3f9e776083ce0fc1d2ee4e5815155d3de8f5a8ec7de32fd5ec588f",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/tipsy/tipsy/index.html",
+        "retrievedAt": "2026-09-06T21:49:59.518785+00:00"
+      }
+    },
+    {
+      "path": "public/legacy/tipsy/ghost/index.html",
+      "bytes": 29902,
+      "sha256": "55485d4a614c6802bca85ff9732c07e4bcf631d793434bb685c13ba60ddabf38",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/tipsy/ghost/index.html",
+        "retrievedAt": "2026-09-06T21:49:59.518785+00:00"
+      }
+    },
+    {
+      "path": "public/legacy/tipsy/vote/index.html",
+      "bytes": 25120,
+      "sha256": "aa952a546c34967cf71d111b8b3da88f0182b511f727740d2a7428b77564e24a",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/tipsy/vote/index.html",
+        "retrievedAt": "2026-09-06T21:49:59.518785+00:00"
+      }
+    },
+    {
+      "path": "public/legacy/ledger-chess/game.html",
+      "bytes": 85994,
+      "sha256": "ec5785630439ab4a9c64935b5112702fb158d81353b4cd001401e29dbb3185c6",
+      "source": {
+        "kind": "onchain-scroll-recovery",
+        "manifestTxHash": "322a7cf4e6c4eb66e33480c957d426682904711e7a9ea166640b5c272d5a09e3",
+        "pageTxHashes": [
+          "843716a7a87cc37b9ac48ab258a8e72bf9d692f80c7b6c1a577fd6749733cd11",
+          "a229ca5f3689c248fe3fcfb1f7068c05ee69097a092038f6a77eae8d0ceac79d"
+        ],
+        "metadataLabel": 22025,
+        "codec": "gzip",
+        "retrievedAt": "2026-09-06T21:49:59.518785+00:00",
+        "endpoint": "https://koios.beacn.workers.dev/api/v1/tx_metadata"
+      }
+    },
+    {
+      "path": "public/legacy/ledger-chess/onchain-reader.html",
+      "bytes": 27362,
+      "sha256": "f609ebe471fcea96fce5c8b25b635f2da12c5c42c403580200ee2f8549fdf15f",
+      "source": {
+        "kind": "onchain-scroll-recovery",
+        "manifestTxHash": "5c0e0e1f12cd0c076fd5cfaea6dab60dbd2cdc35c9835c1c99a6add37f57d572",
+        "pageTxHashes": [
+          "c4350c4712b1f57060fd8fa2c46625ce6a41787324f7cc382b1b63b82414dba4"
+        ],
+        "metadataLabel": 22025,
+        "codec": "gzip",
+        "retrievedAt": "2026-09-06T21:49:59.518785+00:00",
+        "endpoint": "https://koios.beacn.workers.dev/api/v1/tx_metadata"
+      }
+    },
+    {
+      "path": "public/presets/studio-pulse/program.html",
+      "bytes": 4725,
+      "sha256": "a30030f13a8452592d55a8899def56d70a71f200345b3b77384ca407e326d4bf",
+      "source": {
+        "kind": "configured-existing-template",
+        "project": "BMKR",
+        "relativePath": "lib/interactive.ts",
+        "templateSourceSHA256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b",
+        "configuration": {
+          "version": 1,
+          "kind": "beats",
+          "bpm": 92,
+          "pattern": [
+            137,
+            16,
+            255
+          ],
+          "accent": "#dfba6d"
+        },
+        "title": "Studio Pulse",
+        "generatedAt": "2026-09-06T21:51:10.148Z"
+      }
+    },
+    {
+      "path": "public/presets/studio-pulse/cover.svg",
+      "bytes": 2391,
+      "sha256": "08d07bbe650c7843bf6e5b4af1650084907b1bfeb547596b62fc2df8a768831d",
+      "source": {
+        "kind": "configured-existing-template",
+        "project": "BMKR",
+        "relativePath": "lib/interactive.ts",
+        "templateSourceSHA256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b",
+        "configuration": {
+          "version": 1,
+          "kind": "beats",
+          "bpm": 92,
+          "pattern": [
+            137,
+            16,
+            255
+          ],
+          "accent": "#dfba6d"
+        },
+        "title": "Studio Pulse",
+        "generatedAt": "2026-09-06T21:51:10.148Z"
+      }
+    },
+    {
+      "path": "public/presets/studio-pulse/HOW-TO.txt",
+      "bytes": 1087,
+      "sha256": "2b9179ca0a44e4ba0e4c291b4042b484c3da81376b3de85f0ccf2765852411ae",
+      "source": {
+        "kind": "configured-existing-template",
+        "project": "BMKR",
+        "relativePath": "lib/interactive.ts",
+        "templateSourceSHA256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b",
+        "configuration": {
+          "version": 1,
+          "kind": "beats",
+          "bpm": 92,
+          "pattern": [
+            137,
+            16,
+            255
+          ],
+          "accent": "#dfba6d"
+        },
+        "title": "Studio Pulse",
+        "generatedAt": "2026-09-06T21:51:10.148Z"
+      }
+    },
+    {
+      "path": "public/presets/amber-steps/program.html",
+      "bytes": 4728,
+      "sha256": "505c95c60977b99d8b9cf7b0c241878bc2293647fc21e7ed7d664cec286c05fa",
+      "source": {
+        "kind": "configured-existing-template",
+        "project": "BMKR",
+        "relativePath": "lib/interactive.ts",
+        "templateSourceSHA256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b",
+        "configuration": {
+          "version": 1,
+          "kind": "beats",
+          "bpm": 120,
+          "pattern": [
+            85,
+            68,
+            170
+          ],
+          "accent": "#ffb86b"
+        },
+        "title": "Amber Steps",
+        "generatedAt": "2026-09-06T21:51:10.148Z"
+      }
+    },
+    {
+      "path": "public/presets/amber-steps/cover.svg",
+      "bytes": 2392,
+      "sha256": "078403b380a258009482e8ea8c3f5d4725b20c26200f583bc4ba7eeb4e69302f",
+      "source": {
+        "kind": "configured-existing-template",
+        "project": "BMKR",
+        "relativePath": "lib/interactive.ts",
+        "templateSourceSHA256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b",
+        "configuration": {
+          "version": 1,
+          "kind": "beats",
+          "bpm": 120,
+          "pattern": [
+            85,
+            68,
+            170
+          ],
+          "accent": "#ffb86b"
+        },
+        "title": "Amber Steps",
+        "generatedAt": "2026-09-06T21:51:10.148Z"
+      }
+    },
+    {
+      "path": "public/presets/amber-steps/HOW-TO.txt",
+      "bytes": 1086,
+      "sha256": "4b02ab6771173956d42666957bd1062ec000563488bbd3d41a6370c1dc276506",
+      "source": {
+        "kind": "configured-existing-template",
+        "project": "BMKR",
+        "relativePath": "lib/interactive.ts",
+        "templateSourceSHA256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b",
+        "configuration": {
+          "version": 1,
+          "kind": "beats",
+          "bpm": 120,
+          "pattern": [
+            85,
+            68,
+            170
+          ],
+          "accent": "#ffb86b"
+        },
+        "title": "Amber Steps",
+        "generatedAt": "2026-09-06T21:51:10.148Z"
+      }
+    },
+    {
+      "path": "public/presets/night-signal/program.html",
+      "bytes": 4733,
+      "sha256": "6536a4781d96841735acf3cd2bbb2d4fa561bfedb2a0141938fd53388ff4a7d5",
+      "source": {
+        "kind": "configured-existing-template",
+        "project": "BMKR",
+        "relativePath": "lib/interactive.ts",
+        "templateSourceSHA256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b",
+        "configuration": {
+          "version": 1,
+          "kind": "beats",
+          "bpm": 72,
+          "pattern": [
+            65,
+            16,
+            85
+          ],
+          "accent": "#a995ff"
+        },
+        "title": "Night Signal",
+        "generatedAt": "2026-09-06T21:51:10.148Z"
+      }
+    },
+    {
+      "path": "public/presets/night-signal/cover.svg",
+      "bytes": 2391,
+      "sha256": "3aa0e5c9dbdca757729711d9cc1376b4a769a14c1e5ec010ebe78a3f50b74383",
+      "source": {
+        "kind": "configured-existing-template",
+        "project": "BMKR",
+        "relativePath": "lib/interactive.ts",
+        "templateSourceSHA256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b",
+        "configuration": {
+          "version": 1,
+          "kind": "beats",
+          "bpm": 72,
+          "pattern": [
+            65,
+            16,
+            85
+          ],
+          "accent": "#a995ff"
+        },
+        "title": "Night Signal",
+        "generatedAt": "2026-09-06T21:51:10.148Z"
+      }
+    },
+    {
+      "path": "public/presets/night-signal/HOW-TO.txt",
+      "bytes": 1087,
+      "sha256": "63d036770138682e9bc53490f2b9cc2f3d699b4eee64e18899f55b8b1d4ff74b",
+      "source": {
+        "kind": "configured-existing-template",
+        "project": "BMKR",
+        "relativePath": "lib/interactive.ts",
+        "templateSourceSHA256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b",
+        "configuration": {
+          "version": 1,
+          "kind": "beats",
+          "bpm": 72,
+          "pattern": [
+            65,
+            16,
+            85
+          ],
+          "accent": "#a995ff"
+        },
+        "title": "Night Signal",
+        "generatedAt": "2026-09-06T21:51:10.148Z"
+      }
+    },
+    {
+      "path": "public/presets/deep-work/program.html",
+      "bytes": 3975,
+      "sha256": "2e5a4a8bfd6ac6b734e4a5796e5e2df77010a2a13b4cfcfdc1dd3848ba676a53",
+      "source": {
+        "kind": "configured-existing-template",
+        "project": "BMKR",
+        "relativePath": "lib/interactive.ts",
+        "templateSourceSHA256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b",
+        "configuration": {
+          "version": 1,
+          "kind": "focus",
+          "work": 25,
+          "rest": 5,
+          "accent": "#a5f3c4"
+        },
+        "title": "Deep Work",
+        "generatedAt": "2026-09-06T21:51:10.148Z"
+      }
+    },
+    {
+      "path": "public/presets/deep-work/cover.svg",
+      "bytes": 1275,
+      "sha256": "bbed4929b5f8c676e57bf0458d2a4b45bde3e9f5dd9a08663d9b56e368323eab",
+      "source": {
+        "kind": "configured-existing-template",
+        "project": "BMKR",
+        "relativePath": "lib/interactive.ts",
+        "templateSourceSHA256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b",
+        "configuration": {
+          "version": 1,
+          "kind": "focus",
+          "work": 25,
+          "rest": 5,
+          "accent": "#a5f3c4"
+        },
+        "title": "Deep Work",
+        "generatedAt": "2026-09-06T21:51:10.148Z"
+      }
+    },
+    {
+      "path": "public/presets/deep-work/HOW-TO.txt",
+      "bytes": 921,
+      "sha256": "61754e84519be94f9c36534500f7d33dda3630b61b61a85382fc1ddfaf334b24",
+      "source": {
+        "kind": "configured-existing-template",
+        "project": "BMKR",
+        "relativePath": "lib/interactive.ts",
+        "templateSourceSHA256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b",
+        "configuration": {
+          "version": 1,
+          "kind": "focus",
+          "work": 25,
+          "rest": 5,
+          "accent": "#a5f3c4"
+        },
+        "title": "Deep Work",
+        "generatedAt": "2026-09-06T21:51:10.148Z"
+      }
+    },
+    {
+      "path": "public/presets/small-start/program.html",
+      "bytes": 3979,
+      "sha256": "b61240d58afc852642fb9c9257c445d2c0be93a1f2e87f7511638bedc92bb599",
+      "source": {
+        "kind": "configured-existing-template",
+        "project": "BMKR",
+        "relativePath": "lib/interactive.ts",
+        "templateSourceSHA256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b",
+        "configuration": {
+          "version": 1,
+          "kind": "focus",
+          "work": 10,
+          "rest": 2,
+          "accent": "#8ee8e1"
+        },
+        "title": "Small Start",
+        "generatedAt": "2026-09-06T21:51:10.148Z"
+      }
+    },
+    {
+      "path": "public/presets/small-start/cover.svg",
+      "bytes": 1275,
+      "sha256": "57ce437af90a2907ba0f91882a5c06ffe7323d2e810273c6e33802d1385e888a",
+      "source": {
+        "kind": "configured-existing-template",
+        "project": "BMKR",
+        "relativePath": "lib/interactive.ts",
+        "templateSourceSHA256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b",
+        "configuration": {
+          "version": 1,
+          "kind": "focus",
+          "work": 10,
+          "rest": 2,
+          "accent": "#8ee8e1"
+        },
+        "title": "Small Start",
+        "generatedAt": "2026-09-06T21:51:10.148Z"
+      }
+    },
+    {
+      "path": "public/presets/small-start/HOW-TO.txt",
+      "bytes": 923,
+      "sha256": "025f6a0382aaf5f6a456b2a460753664da5c894116afaf1200e809a7ae048afa",
+      "source": {
+        "kind": "configured-existing-template",
+        "project": "BMKR",
+        "relativePath": "lib/interactive.ts",
+        "templateSourceSHA256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b",
+        "configuration": {
+          "version": 1,
+          "kind": "focus",
+          "work": 10,
+          "rest": 2,
+          "accent": "#8ee8e1"
+        },
+        "title": "Small Start",
+        "generatedAt": "2026-09-06T21:51:10.148Z"
+      }
+    },
+    {
+      "path": "public/presets/creative-compass/program.html",
+      "bytes": 3374,
+      "sha256": "4282d06c780ef36b516f22c00dd1e97601d865fec3ca942b1ea9e6a37bb4f629",
+      "source": {
+        "kind": "configured-existing-template",
+        "project": "BMKR",
+        "relativePath": "lib/interactive.ts",
+        "templateSourceSHA256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b",
+        "configuration": {
+          "version": 1,
+          "kind": "decision",
+          "choices": [
+            "Change one color",
+            "Use only circles",
+            "Remove one layer",
+            "Make it move",
+            "Write one honest line",
+            "Start with silence"
+          ],
+          "accent": "#c1b4ff"
+        },
+        "title": "Creative Compass",
+        "generatedAt": "2026-09-06T21:51:10.148Z"
+      }
+    },
+    {
+      "path": "public/presets/creative-compass/cover.svg",
+      "bytes": 1314,
+      "sha256": "b93fb780aaaf8731a66eb379ae151877cd4b915306969efb459fe6878748468c",
+      "source": {
+        "kind": "configured-existing-template",
+        "project": "BMKR",
+        "relativePath": "lib/interactive.ts",
+        "templateSourceSHA256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b",
+        "configuration": {
+          "version": 1,
+          "kind": "decision",
+          "choices": [
+            "Change one color",
+            "Use only circles",
+            "Remove one layer",
+            "Make it move",
+            "Write one honest line",
+            "Start with silence"
+          ],
+          "accent": "#c1b4ff"
+        },
+        "title": "Creative Compass",
+        "generatedAt": "2026-09-06T21:51:10.148Z"
+      }
+    },
+    {
+      "path": "public/presets/creative-compass/HOW-TO.txt",
+      "bytes": 908,
+      "sha256": "5b7133b6507131c4f235badbd832f9c693c68f81bee21c00dd2f4b3b6c5411fe",
+      "source": {
+        "kind": "configured-existing-template",
+        "project": "BMKR",
+        "relativePath": "lib/interactive.ts",
+        "templateSourceSHA256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b",
+        "configuration": {
+          "version": 1,
+          "kind": "decision",
+          "choices": [
+            "Change one color",
+            "Use only circles",
+            "Remove one layer",
+            "Make it move",
+            "Write one honest line",
+            "Start with silence"
+          ],
+          "accent": "#c1b4ff"
+        },
+        "title": "Creative Compass",
+        "generatedAt": "2026-09-06T21:51:10.148Z"
+      }
+    },
+    {
+      "path": "public/presets/tiny-adventures/program.html",
+      "bytes": 3359,
+      "sha256": "5a69db1ca5a77814a1295849a92e29fbcff853ee92b3a4ef93b41e8cd5990feb",
+      "source": {
+        "kind": "configured-existing-template",
+        "project": "BMKR",
+        "relativePath": "lib/interactive.ts",
+        "templateSourceSHA256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b",
+        "configuration": {
+          "version": 1,
+          "kind": "decision",
+          "choices": [
+            "Take a different path",
+            "Sketch what you can see",
+            "Ask someone a new question",
+            "Make a four-bar groove"
+          ],
+          "accent": "#f4c882"
+        },
+        "title": "Tiny Adventures",
+        "generatedAt": "2026-09-06T21:51:10.148Z"
+      }
+    },
+    {
+      "path": "public/presets/tiny-adventures/cover.svg",
+      "bytes": 1314,
+      "sha256": "c060ac81062eb9b7f76554ba4368169849796710b0e8303a7f007d73687b2cfa",
+      "source": {
+        "kind": "configured-existing-template",
+        "project": "BMKR",
+        "relativePath": "lib/interactive.ts",
+        "templateSourceSHA256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b",
+        "configuration": {
+          "version": 1,
+          "kind": "decision",
+          "choices": [
+            "Take a different path",
+            "Sketch what you can see",
+            "Ask someone a new question",
+            "Make a four-bar groove"
+          ],
+          "accent": "#f4c882"
+        },
+        "title": "Tiny Adventures",
+        "generatedAt": "2026-09-06T21:51:10.148Z"
+      }
+    },
+    {
+      "path": "public/presets/tiny-adventures/HOW-TO.txt",
+      "bytes": 907,
+      "sha256": "580a2a89d8d9b7876a2a1dacc9105b392f16cb0b8e1847684d8a3e7a59385a2c",
+      "source": {
+        "kind": "configured-existing-template",
+        "project": "BMKR",
+        "relativePath": "lib/interactive.ts",
+        "templateSourceSHA256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b",
+        "configuration": {
+          "version": 1,
+          "kind": "decision",
+          "choices": [
+            "Take a different path",
+            "Sketch what you can see",
+            "Ask someone a new question",
+            "Make a four-bar groove"
+          ],
+          "accent": "#f4c882"
+        },
+        "title": "Tiny Adventures",
+        "generatedAt": "2026-09-06T21:51:10.148Z"
+      }
+    },
+    {
+      "path": "public/art/creation-engine/v02-640-crf45.avif",
+      "bytes": 10231,
+      "sha256": "37093fb68de3aaa2520fe9a449daa49018de9e59e73590dda21aed33124d7e4c",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/art/creation-engine/v02-640-crf45.avif",
+        "retrievedAt": "2026-09-06T21:56:49.269056+00:00"
+      }
+    },
+    {
+      "path": "public/art/creation-engine/v02-448-q19-10264.webp",
+      "bytes": 10264,
+      "sha256": "0318e54a66c831fc75f5230c4fc0b365c54dd7b9032147070825bcc35ddfa42f",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/art/creation-engine/v02-448-q19-10264.webp",
+        "retrievedAt": "2026-09-06T21:56:49.269056+00:00"
+      }
+    },
+    {
+      "path": "public/art/creation-engine/BMKR-remix-starter.prism.json",
+      "bytes": 990,
+      "sha256": "515e017d4e0c824f22328f013e4e548fabe6ff3b0ff220ab4a5af3ce128f19b8",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/art/creation-engine/BMKR-remix-starter.prism.json",
+        "retrievedAt": "2026-09-06T21:56:49.269056+00:00"
+      }
+    },
+    {
+      "path": "public/art/creation-engine/BMKR-remix-starter.png",
+      "bytes": 121239,
+      "sha256": "70b797447c476a4b347fdeebbf2dbb67f50619825d49b366ae983ec73c787cb5",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/art/creation-engine/BMKR-remix-starter.png",
+        "retrievedAt": "2026-09-06T21:56:49.269056+00:00"
+      }
+    },
+    {
+      "path": "public/art/kayfabe/onchain-512.avif",
+      "bytes": 4890,
+      "sha256": "d44f36b34509dc21712778e63923946682d6b31b852b5964a9a0c996a9dd5e5b",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/art/kayfabe/onchain-512.avif",
+        "retrievedAt": "2026-09-06T21:56:49.269056+00:00"
+      }
+    },
+    {
+      "path": "public/art/kayfabe/beat-lab.html",
+      "bytes": 4749,
+      "sha256": "096d6539fe125f83f37344aee6b82eb1f8a77b9d874c59830505d1ddfb169110",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/art/kayfabe/beat-lab.html",
+        "retrievedAt": "2026-09-06T21:56:49.269056+00:00"
+      }
+    },
+    {
+      "path": "public/art/chroma.webp",
+      "bytes": 577236,
+      "sha256": "3413092a5a69b56b740270eb34c901fd5e07bfa607aa2b01ec27ac90e5ae8a3d",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/art/chroma.webp",
+        "retrievedAt": "2026-09-06T21:56:49.269056+00:00"
+      }
+    },
+    {
+      "path": "public/art/solar.webp",
+      "bytes": 538192,
+      "sha256": "1a6ec4b3d5d1f662f158e20c6bd0327ef682c283846727cac6330f738b17b4c3",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/art/solar.webp",
+        "retrievedAt": "2026-09-06T21:56:49.269056+00:00"
+      }
+    },
+    {
+      "path": "public/art/tidal.webp",
+      "bytes": 465176,
+      "sha256": "701866cfe8116f919ff18d36bd5e436c548c1ca4a95e68253af6db7d07909c87",
+      "source": {
+        "kind": "public-release",
+        "url": "https://beacnpool.github.io/ABCDE/BMKR/art/tidal.webp",
+        "retrievedAt": "2026-09-06T21:56:49.269056+00:00"
+      }
+    }
+  ],
+  "templateSource": {
+    "project": "BMKR",
+    "sourceCommit": "ffff24d49e16746436adbb5d531f0a4c68677f94",
+    "files": [
+      {
+        "relativePath": "lib/interactive.ts",
+        "sha256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b"
+      },
+      {
+        "relativePath": "lib/beat-lab.ts",
+        "sha256": "97921de051a019acbdbb794a4621bbc4b9833c62d89f8c0de0ae940fd6c4b993"
+      },
+      {
+        "relativePath": "lib/beat-lab-template.json",
+        "sha256": "bab18dc6cacdc85d9853ceda58cd2e819ece641620f6db49928d75f3e3f25b25"
+      },
+      {
+        "relativePath": "scripts/beat-lab/source.html",
+        "sha256": "abb405f58e823f01f0868dc812d8a32ad5541e492b1315177ce85a0024a7aa98"
+      },
+      {
+        "relativePath": "scripts/build-beat-lab.mjs",
+        "sha256": "8206e26d9b2c35dc4d94ae45875a41d9bee92951fae58614ec983fc8815dd1ee"
+      }
+    ],
+    "runtimeDependencies": {
+      "fflate": "0.8.3"
+    }
+  }
+}

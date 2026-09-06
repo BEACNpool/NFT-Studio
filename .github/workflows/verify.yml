@@ -1,0 +1,35 @@
+name: Verify NFT Studio
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run verify:mint
+      - run: npm run verify:design
+      - run: npm run verify:interactive
+      - run: npm run verify:games
+      - run: npm run verify:studio
+      - run: node scripts/verify-mint-receipt.mjs
+      - run: node scripts/verify-recovery-catalog.mjs
+      - run: npm run build:pages
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nft-studio-static
+          path: dist/github-pages
+          include-hidden-files: true
+          retention-days: 14

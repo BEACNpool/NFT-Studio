@@ -1,0 +1,306 @@
+{
+  "starfall": {
+    "id": "starfall",
+    "title": "STARFALL",
+    "number": "07",
+    "asset": "Starfall",
+    "description": "A tactical deckbuilding roguelite. Carry the last sun across twelve destinations. Draft cards, bend gravity, turn enemy fire against itself and face three guardians. Complete game, art and synthesized sound on chain.",
+    "subtitle": "Carry the last sun.",
+    "accent": "#f4c882",
+    "instructions": [
+      "Choose an expedition, then a route. Each turn draws five cards and gives three energy and two walking steps. Tap a card, then a highlighted target. Self cards act immediately.",
+      "Enemies commit to their attacks before you act and resolve in number order. Gravity moves a gunner's firing lane; mortar impact tiles stay fixed. Friendly fire, collisions and falls can decide a battle. After turn HP previews the exact resolution.",
+      "Draft cards, upgrade your deck and combine relics across twelve destinations and three bosses. Keep a portable save code to continue across devices. Undo is free. Standard is Voyage; Drift gives more health and Eclipse strengthens enemies.",
+      "Everything runs locally. No time pressure, wagering, server or wallet access. Modern browser required for the packed game; the expanded HTML is included for archival playback."
+    ],
+    "genre": "Tactical deckbuilding roguelite",
+    "features": [
+      "3 starting builds",
+      "14 cards + upgrades",
+      "9 relics",
+      "3 guardians"
+    ],
+    "programBytes": 5257,
+    "programSHA256": "4b4a4d9d9e787444be4a88a03be86c49df853ac239a28ae13bfee03e980a1826",
+    "coverBytes": 1055,
+    "coverSHA256": "6b6bdb701837352583c5a8580dfb8e06b8e03e732351045f2c433335190f2704",
+    "original": {
+      "fingerprint": "asset1s3ca6lu6gzc3gy35y4ne4sllluefh7vy059den",
+      "policy": "f20c3309ed68213239106a80ac8e5be37adacfe185d9c1301b896434",
+      "assetHex": "5374617266616c6c",
+      "txHash": "1b15c12dff8be789abe18d3d0e2cd9e74d9a305b3420cb0bd6d09259b9c8acf9"
+    },
+    "cartridge": {
+      "expandedBytes": 42600,
+      "expandedSHA256": "a339a49b4c926ab4bd2fa891c5141f371ecc11f7ca0d8771647419872aef4f3a",
+      "gzipSHA256": "1bb852d30ff4e3abeb17049be55dbb0b586709058c918ac03ef50e56830286b0",
+      "parts": [
+        {
+          "part": 0,
+          "bytes": 8554,
+          "sha256": "75981356c101f9965e4f836ed7631685402f7f80ab3e363739dadc4459106e84",
+          "fingerprint": "asset1htf5f6el4vcpfthztt3j5qll7kj448jwn5t6e3",
+          "policy": "8de58044b3526248c14081a4305eb83c5f061fdc80ed41cfe66b10be"
+        },
+        {
+          "part": 1,
+          "bytes": 8553,
+          "sha256": "2abbca40d3387bcb8dbf5abfff6da8dc77579fd54e31bb205260ed56699d0937",
+          "fingerprint": "asset187tt6cecvag9694cqhqmtjg88thulkysl0hl8t",
+          "policy": "0d854956d5b7106815eff367d512d1eb392d08335ac16d648c87194f"
+        }
+      ]
+    }
+  },
+  "prismwake": {
+    "id": "prismwake",
+    "title": "PRISM WAKE",
+    "number": "01",
+    "asset": "PrismWake",
+    "description": "A living circuit puzzle. Rotate conduits, mix light and wake every tile without contaminating the receivers. Twelve chapters, seeded challenges and portable saves. Complete code on chain.",
+    "subtitle": "Teach the dark to carry color.",
+    "accent": "#8ee8e1",
+    "instructions": [
+      "Tap a conduit to rotate it clockwise. Round light sources are fixed. Wake every tile and match the exact letters shown inside every diamond receiver.",
+      "R + G makes RG; R + B makes RB; G + B makes GB. Extra colors contaminate a receiver. Break unwanted links while building the routes you need.",
+      "Use arrow keys to select a tile and Enter or Space to rotate. Hint highlights one step toward a working arrangement. Alternate solutions are welcome."
+    ],
+    "genre": "Color circuit puzzle",
+    "programBytes": 12843,
+    "programSHA256": "abcb80ad71973837b54ad38e6c8d2ddaca0b175643073d40d38ddd273eda417d",
+    "coverBytes": 628,
+    "coverSHA256": "2c354a43d8050ddb9a621e3044134d8a6eff57e42a66570e4c8d31d49e459ac5",
+    "original": {
+      "fingerprint": "asset1tyvu2xrfgx7hvr8sh2v93mzj6lsz5dswecwf9n",
+      "txHash": "21b0b8efe313f5a5c85cbf27d17e4c2e5795a55d4be8a0794b6f3d7e53de76f0",
+      "policy": "300783f441737d5adba0e1760025e061b2537ee2c97ac39b01f5ac83",
+      "assetHex": "507269736d57616b65"
+    },
+    "features": [
+      "12 chapters",
+      "Seeded challenges",
+      "Undo + hints",
+      "Portable saves"
+    ]
+  },
+  "tidelock": {
+    "id": "tidelock",
+    "title": "TIDELOCK",
+    "number": "02",
+    "asset": "Tidelock",
+    "description": "An opposing-gravity puzzle. Two moons fall in opposite directions through color gates. Dock them together. Twelve chapters, solvable seeded challenges, undo and portable saves. All code on chain.",
+    "subtitle": "Two moons. One impossible tide.",
+    "accent": "#a8d5ff",
+    "instructions": [
+      "Choose a tide with the arrows. The blue moon slides that way until blocked; the amber moon slides in the opposite direction. Land both on their matching ring docks at the same time.",
+      "Moons pass through each other. Blue bars let the blue moon through and stop amber; amber bars do the reverse. Docks do not stop a moon by themselves.",
+      "Arrow keys or WASD control tides. The charted route is the shortest route from the starting position. Some wrong turns need Undo; Hint checks the route from your current position."
+    ],
+    "genre": "Paired gravity puzzle",
+    "programBytes": 12511,
+    "programSHA256": "40100157cc78aa436116fe7b4dda9896bceff2fa3f38db86301f349bee93b7ca",
+    "coverBytes": 698,
+    "coverSHA256": "d23d771e2799b3c95a9775e2b162bfb5a4b01bea44ba78c5bfbdf946337ab06d",
+    "original": {
+      "fingerprint": "asset1d7y7kkxyf2j2xyw9rsetp489k0n50ak9a758h0",
+      "txHash": "73a15eb3b5b4b596ea50b944cde7675a82a1eba40789e2e6a8d01dd38f152e3e",
+      "policy": "8d9f851502a6f64b0c1dc9a99c04e3e2d52964d5d322ab9da16de963",
+      "assetHex": "546964656c6f636b"
+    },
+    "features": [
+      "12 chapters",
+      "Seeded challenges",
+      "Undo + hints",
+      "Portable saves"
+    ]
+  },
+  "lastember": {
+    "id": "lastember",
+    "title": "LAST EMBER",
+    "number": "03",
+    "asset": "LastEmber",
+    "description": "A turn-based survival game with committed enemy attacks, shoves, collisions and a rechargeable flare. Twelve contracts, seeded arenas, undo and portable saves. The complete game lives on chain.",
+    "subtitle": "Outthink the dark. Keep one spark.",
+    "accent": "#f4be81",
+    "instructions": [
+      "Red arrows show the enemies' next strikes. You act first; then those attacks happen even if you moved. Clear every wave while keeping at least one of your three hearts.",
+      "Step into a shadow to shove it and cancel its attack. Shove it into a wall, the edge or another shadow to burn it. Shadows landing together also burn. A strike that hits you costs one heart and burns the attacker.",
+      "Flare pushes all adjacent shadows and spends three charge. Each ordinary step or Hold restores one charge. Double-chevron hunters can strike two tiles. Arrow keys or WASD move, Space holds, F flares. Hint suggests one turn; it does not guarantee victory."
+    ],
+    "genre": "Turn-based survival",
+    "programBytes": 13795,
+    "programSHA256": "fc60cd20c3d11b47197ef0252a7c7007eb7d440353c72e0cd50f77836725fec9",
+    "coverBytes": 604,
+    "coverSHA256": "5c47b09ea7509987711b611deabd74d4cb391ae47a07636e05a375d4a0623cb9",
+    "original": {
+      "fingerprint": "asset1ju706ve23zj048t5vwds8wskp5f3qreh5w23wm",
+      "txHash": "7cb5d5bb34cbe56e1e48772d829ff83d6962728a52a070d31bbbf25df3568f1a",
+      "policy": "12ef0bb2a1d7d539ab48507e19a444594fd0a55591b5e91db0130c23",
+      "assetHex": "4c617374456d626572"
+    },
+    "features": [
+      "12 chapters",
+      "Seeded challenges",
+      "Undo + hints",
+      "Portable saves"
+    ]
+  },
+  "chess": {
+    "id": "chess",
+    "title": "LEDGER CHESS: POCKET",
+    "number": "04",
+    "asset": "PocketChess",
+    "description": "Chess with the unchanged MIT Ledger Chess referee. Two players or computer, two search depths, castling, en passant, all promotions, undo and replay-checked saves. Complete program on chain.",
+    "subtitle": "A quiet board. A dangerous idea.",
+    "accent": "#dec89c",
+    "instructions": [
+      "Play White, Black or both sides. Tap a piece, then a highlighted square. Choose queen, rook, bishop or knight when a pawn promotes. Castling and en passant follow the referee's legal moves.",
+      "The computer uses fixed-depth search: Gentle is depth 1; Deeper is depth 2. It may pause briefly while thinking. Hint is a suggestion, not a guaranteed win. Undo restores your previous turn against the computer.",
+      "This edition automatically ends on checkmate, stalemate, threefold repetition, the 50-move rule, or the referee's conservative insufficient-material test. It has no clock or tournament claim procedure. Save codes replay legal moves from the initial position.",
+      "Engine: Ledger Chess 1.0.0, MIT licensed. The original referee source is preserved unchanged; this edition supplies a new compact interface."
+    ],
+    "genre": "Chess",
+    "features": [
+      "Computer opponent",
+      "Two players",
+      "All promotions",
+      "Undo + saves"
+    ],
+    "programBytes": 13290,
+    "programSHA256": "9c83ada6615599b88e5f6773a3f9d4c24d1ebb4ae2c0fd88d1ff39b79367fae3",
+    "coverBytes": 748,
+    "coverSHA256": "c15abbf218f86aa69a66f3f031e9b1a6229c09d84f39458141aadadac1afd084",
+    "original": {
+      "fingerprint": "asset1xq2kmrwj4gf6l65q252wul9754ewv0rwhvs6nr",
+      "txHash": "eb6739b8781bf4261805e5f2755b051a0303e9c4699ba2c222e1d4f6023b6ca4",
+      "policy": "fb8db5f09d027cb5add2e72591a757f56873ea382c2a329fb970ca1a",
+      "assetHex": "506f636b65744368657373"
+    }
+  },
+  "checkers": {
+    "id": "checkers",
+    "title": "CROWNLINE CHECKERS",
+    "number": "05",
+    "asset": "Crownline",
+    "description": "American checkers with compulsory captures, full multiple jumps, kings, two players or computer, undo and replay-checked saves. Promotion ends the turn. The complete game lives on chain.",
+    "subtitle": "Every jump changes the kingdom.",
+    "accent": "#f0c197",
+    "instructions": [
+      "Ivory moves first. Men move one diagonal square forward. Captures are mandatory: jump an adjacent enemy onto an empty square beyond it. When several capture routes exist, choose any route; you must complete it.",
+      "Continue a multiple jump with the same piece. Reaching the far row crowns a king and ends that turn. Kings move and capture one diagonal step in either direction. Men capture forward only, following American checkers rules.",
+      "Win by leaving your opponent with no legal move. This edition automatically draws on three identical positions or 80 consecutive king moves without a capture or man move. Undo during a jump cancels the unfinished selection; after a turn it restores the board.",
+      "Choose two players or a computer opponent. Gentle searches three plies; Deeper searches five. Hint is a suggestion. Keep a portable save to resume; all moves are replayed and checked before a save loads."
+    ],
+    "genre": "American checkers",
+    "features": [
+      "Forced captures",
+      "Multiple jumps",
+      "Computer opponent",
+      "Undo + saves"
+    ],
+    "programBytes": 9486,
+    "programSHA256": "0b57d01a46bb85e2bd215b85270e13e51f2f64289c46c3462a2532fdc3b38cef",
+    "coverBytes": 792,
+    "coverSHA256": "4aa0ab78a078dbda6e4bfb684a4c5b63f62fce9ebc3d5b9cdb041741a9805dcd",
+    "original": {
+      "fingerprint": "asset1ergjzsh67llzmamcuke2s3u55v08a9ve7xkk8k",
+      "txHash": "ad9ed75b8f84f9fd88a8a3fd1df18c992d6acd04a27bed2bae367520328e369e",
+      "policy": "fecd03d93369d613c0d94c5d6037c892e99282ef1a7ba35ecdaa6929",
+      "assetHex": "43726f776e6c696e65"
+    }
+  },
+  "solitaire": {
+    "id": "solitaire",
+    "title": "VELVET SOLITAIRE",
+    "number": "06",
+    "asset": "VelvetSolitaire",
+    "description": "Draw-one Klondike solitaire with seeded deals, unlimited stock recycling, undo, hints and portable saves. Includes a solvable Open Book practice deal. Complete game and cover live on chain.",
+    "subtitle": "Fifty-two cards. One way home.",
+    "accent": "#e5cf9d",
+    "instructions": [
+      "Build tableau columns downward in alternating colors. Move a face-up sequence by tapping its first card, then its destination. Only kings can fill an empty column. Newly exposed tableau cards turn face up automatically.",
+      "Build the four suit foundations from ace to king. Tap a selected single card again to send it to a legal foundation, or tap the foundation explicitly. Foundation cards may return to the tableau. Tap the stock to draw one card; recycle the waste when the stock is empty.",
+      "Choose Open Book for a solvable practice deal: free the four aces in the right-hand columns, then build foundations. Seeded deals are shuffled normally and are not guaranteed solvable. The same seed reproduces the same deal.",
+      "Hints suggest a move; they do not solve the whole deal. Undo freely and keep a portable save to resume. The game has no wagering, prizes, wallet access or blockchain moves."
+    ],
+    "genre": "Klondike solitaire",
+    "features": [
+      "Seeded deals",
+      "Solvable practice",
+      "Undo + hints",
+      "Portable saves"
+    ],
+    "programBytes": 9802,
+    "programSHA256": "1450b76a2fc147775f45ca075a68d5e347f9ec3ea30885f699f6c490beeefe80",
+    "coverBytes": 779,
+    "coverSHA256": "685ec81c1898bb8c38f5f6a726c0cf0fef000af9f4802d3ae0045f16ac7e3d41",
+    "original": {
+      "fingerprint": "asset143m8w9qyn5ejcq095ey7vk884n0gelzpctq52k",
+      "txHash": "aaa87d5fe95f1746356d5d01ea68fd01cec4eb43c1cec08f2759d1ed8ae4d57e",
+      "policy": "5eec7df24b5441b56e839279f6ecfd2f3ba32f6472c1e972e44aab79",
+      "assetHex": "56656c766574536f6c697461697265"
+    }
+  },
+  "ninefold": {
+    "id": "ninefold",
+    "title": "NINEFOLD SUDOKU",
+    "number": "08",
+    "asset": "NINEFOLD",
+    "subtitle": "An endless study in nine.",
+    "accent": "#edbc80",
+    "genre": "Seeded Sudoku",
+    "description": "Seeded Sudoku with verified unique solutions, notes, hints, undo and portable saves. Calm, Focus and Deep clue targets. Complete game on chain.",
+    "instructions": [
+      "Fill every row, column and 3 by 3 box with the digits 1 through 9. Tap a blank cell, then a digit; fixed clues cannot be changed.",
+      "Calm, Focus and Deep describe clue targets, not calibrated human difficulty. Use Notes for pencil marks, Check to inspect entries, or Hint for the next step. Undo and redo are available.",
+      "New puzzle generates another board. Keep a puzzle or progress code before closing the page; saves travel with you and do not write to Cardano."
+    ],
+    "features": [
+      "Seeded puzzles",
+      "Unique solutions",
+      "Notes + hints",
+      "Portable saves"
+    ],
+    "original": {
+      "fingerprint": "asset15tu4ws2lm4gk9spsacv4wdq07q7c2dm3g8ens6",
+      "policy": "458368bd5bc2a7f3bdea809db9a48b1dafd3cceb5de2da2d468a5118",
+      "assetHex": "4e494e45464f4c44",
+      "txHash": "bc859794dca634dd214d4ecb81eedc07c8da2c6d26bb433c1a7cbfe57abe589b"
+    },
+    "programSHA256": "9fbb6f610f16896420385fd5bc690f96e403e9d07cc15db47745d6e5331de4f0",
+    "coverSHA256": "114252c4f30a6fd12a5033832de07fdc2e585f44304aad7bc4e31de0a5c120c6",
+    "programBytes": 13490,
+    "coverBytes": 804
+  },
+  "afterlight": {
+    "id": "afterlight",
+    "title": "AFTERLIGHT",
+    "number": "09",
+    "asset": "AFTERLIGHT",
+    "subtitle": "Make a memory. Open a path.",
+    "accent": "#ffd08b",
+    "genre": "Time-echo puzzle instrument",
+    "description": "A time-echo puzzle instrument. Record earlier routes, synchronize gates and turn your moves into music. Six rooms, a room editor and portable saves. Complete code on chain.",
+    "instructions": [
+      "Move to the exit. Runes open their matching gates on the next destination turn; your earlier recordings replay as you move.",
+      "Record a route, then rewind to leave an echo behind. Up to three recordings can cooperate with you. Undo moves every timeline back; echoes hold their final tile.",
+      "Listen turns your routes into a musical canon. The room editor and portable memory codes let you create and share puzzles. Custom rooms are not guaranteed solvable. Save a memory code before closing the page."
+    ],
+    "features": [
+      "6 authored rooms",
+      "3 cooperating echoes",
+      "Music from moves",
+      "Room editor"
+    ],
+    "original": {
+      "fingerprint": "asset1s5gq0j7rflmhznqg048fzern0lnjycvznrmc8a",
+      "policy": "328a7e3b6cf58cfce51bb002c6c863a279e7c26a49c738117b06e7c1",
+      "assetHex": "41465445524c49474854",
+      "txHash": "7894f35a22825a7827f87968de81b55296ca2b0e6380ea1f245c378db03c61f6"
+    },
+    "programSHA256": "1f7c467ad3dfcaf2180ba7959a84d9da1a865eed111e3eadf177f2e4667c34e4",
+    "coverSHA256": "e846b261b69e03821c5f068fd71a8a0c2fc52e475dcfec3839284b007a357825",
+    "programBytes": 13298,
+    "coverBytes": 807
+  }
+}

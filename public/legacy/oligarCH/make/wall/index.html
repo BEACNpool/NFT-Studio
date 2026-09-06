@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>oligarCH — the wall of oligarCHs</title>
+<style>
+ :root{--ink:#eceaea;--dim:#9a9aa4;--gold:#c9a227}
+ *{box-sizing:border-box}
+ body{margin:0;color:var(--ink);
+   background:#131015 radial-gradient(1100px 700px at 50% 240px,#221d26,#131015);
+   font:16px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+ .wrap{max-width:980px;margin:0 auto;padding:26px 16px 70px}
+ .kicker{font:700 11px/1 sans-serif;letter-spacing:.18em;color:var(--gold)}
+ h1{font:900 clamp(30px,8vw,52px)/1 sans-serif;letter-spacing:-.03em;margin:4px 0 6px}
+ .sub{color:var(--dim);font-size:14.5px;margin:0 0 6px;max-width:640px}
+ #tally{font:800 13px ui-monospace,monospace;color:var(--gold);margin:10px 0 4px}
+ .warn{margin:12px 0 4px;padding:11px 13px;border:1px solid #8a6a25;border-radius:12px;
+   background:#1c1712cc;color:#d8c9a4;font-size:13.5px;max-width:640px}
+ /* the wall itself: framed pictures, hung centred, rows fill in as mints arrive */
+ .grid{display:flex;flex-wrap:wrap;justify-content:center;gap:38px;padding:30px 0 10px}
+ .card{width:min(252px,80vw);background:#26231d;padding:12px 12px 9px;
+   border:9px solid #7c5d20;outline:2px solid #47360f;
+   box-shadow:inset 0 0 0 3px var(--gold),0 20px 34px #000d,0 5px 10px #0009}
+ .art{aspect-ratio:1;background:#141416;border:1px solid #0009}
+ .art img{width:100%;height:100%;display:block}
+ .noart{display:flex;align-items:center;justify-content:center;height:100%;
+   color:#5a5a64;font:700 12px sans-serif}
+ .plq{margin:10px auto 0;width:fit-content;max-width:100%;padding:4px 12px;border-radius:3px;
+   background:linear-gradient(#e0c25a,#a8842a);color:#241c08;border:1px solid #6b5316;
+   font:800 11px ui-monospace,monospace;letter-spacing:.04em;white-space:nowrap;
+   overflow:hidden;text-overflow:ellipsis}
+ .plq a{color:#241c08;text-decoration:none}
+ .cline{text-align:center;padding:7px 4px 0;font:800 14px sans-serif;color:#d8c9a4;
+   word-break:break-word}
+ .cwho{display:flex;justify-content:space-between;gap:6px;padding:7px 2px 0;
+   color:#8a8a94;font:10.5px ui-monospace,monospace}
+ .cwho a{color:#8a8a94} .cwho a:hover{color:var(--gold)}
+ .fresh{box-shadow:inset 0 0 0 3px var(--gold),0 0 0 3px var(--gold),0 20px 34px #000d}
+ .of{color:var(--gold);font-style:italic}
+ .cta{display:inline-block;margin-top:26px;padding:14px 22px;border-radius:12px;
+   background:var(--gold);color:#141414;font:900 15px sans-serif;text-decoration:none}
+ .foot{margin-top:26px;color:var(--dim);font-size:12.5px}
+ code{font:11px ui-monospace,monospace;color:var(--dim);word-break:break-all}
+</style></head><body><div class="wrap">
+ <div class="kicker">oligarCH &middot; PIECE 9 &middot; MINTED BY THE HOLDERS</div>
+ <h1>THE WALL <span class="of">of oligarCHs</span></h1>
+ <p class="sub">The ninth piece of oligarCH is not one picture — it&rsquo;s <b>yours</b>.
+   Hold <b>any one</b> of the eight, make your own, and it lands on this wall automatically:
+   the page reads the chain itself. Every picture lives <b>entirely inside its minting
+   transaction</b> — pull the metadata apart and this exact image falls out.</p>
+ <div id="tally">1 ON THE WALL &middot; FOREVER OPEN</div>
+
+ <p class="warn">Any one of the eight pieces is your key. They close
+   <b>August 8&ndash;9, 2026</b> and can never be minted again — the ninth itself
+   <b>never closes</b>.</p>
+
+ <div class="grid" id="grid"><div class="card"><div class="art"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxkZWZzPjxwYXRoIGlkPSJociIgZD0iTTQ2MiAyOTJxNi0xMDQgMTIzLTEwNnQxMjMgMTA2cS0yNC01Mi02Mi03Mi02MSAyNC0xMjIgMC0zOCAyMC02MiA3MnoiLz48cGF0aCBpZD0iYmQiIGQ9Ik00NzYgMzQ0cTM0IDYyIDEwOSA2NHQxMDktNjRxMTMgNjQtMjMgOTYtMzAgMzAtODYgMzB0LTg2LTMwcS0zNi0zMi0yMy05NnoiLz48cGF0aCBpZD0ibXMiIGQ9Ik01MjAgMzY0cTY1LTE0IDEzMCAwLTYgMjAtNjUgMjB0LTY1LTIweiIvPjxwYXRoIGlkPSJzcCIgZD0iTTUxMiAyMThsLTUtMTNNNTMyIDIwNmwtMTEtMjVNNTU0IDE5OGwtNC0xNU01NzYgMTkzbDYtMjFNNjAwIDE5NWw3LTEzTTYyMiAyMDNsOC0yM002NDQgMjE1bDEyLTE1TTY2NCAyMzBsNy0xMiIvPjxwYXR0ZXJuIGlkPSJoIiB3aWR0aD0iMTEiIGhlaWdodD0iMTEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgyOCkiPjxwYXRoIGQ9Ik0zIDB2N004IDR2NyIgc3Ryb2tlPSIjMjQxYTBlIiBzdHJva2Utd2lkdGg9IjIuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9wYXR0ZXJuPjxwYXR0ZXJuIGlkPSJnIiB3aWR0aD0iMjYiIGhlaWdodD0iMjYiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgtNDIpIj48cmVjdCB3aWR0aD0iMTEiIGhlaWdodD0iMjYiIGZpbGw9IiNmZmYiLz48L3BhdHRlcm4+PHBhdGggaWQ9IkRMIiBkPSJNMTUgNFE4LTIgMyA1dDYgOSA2IDEwLTEzIDJNOS0ydjMyIi8+PHBhdGggaWQ9IkEiIGQ9Ik0wIDI4IDggMCAxNiAyOE0zIDE5aDEwIi8+PHBhdGggaWQ9IkIiIGQ9Ik0wIDI4VjBoOHE4IDAgOCA3dC04IDdIMG04IDBxOCAwIDggN3QtOCA3SDAiLz48cGF0aCBpZD0iQyIgZD0iTTE1IDVxLTEzLTctMTMgOXQxMyA5Ii8+PHBhdGggaWQ9IkUiIGQ9Ik0xNiAwSDB2MjhoMTZNMCAxNGgxMiIvPjxwYXRoIGlkPSJOIiBkPSJNMCAyOFYwbDE2IDI4VjAiLz48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMjQiIGhlaWdodD0iMTAyNCIgZmlsbD0iIzIyMTQxOSIvPjxnIGZpbGw9IiM1YzFmMjYiIHN0cm9rZT0iIzExMSIgc3Ryb2tlLXdpZHRoPSI4Ij48cGF0aCBkPSJNLTEwLTEwaDE3NnE0NCAzMjAtMzAgNjQwbC0xNDYgNjB6Ii8+PHBhdGggZD0iTTEwMzQtMTBIODU4cS00NCAzMjAgMzAgNjQwbDE0NiA2MHoiLz48L2c+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM2QxNTFiIiBzdHJva2Utd2lkdGg9IjkiPjxwYXRoIGQ9Ik02NCAzMHEzNiAyODAtMTggNTYwTTk2MCAzMHEtMzYgMjgwIDE4IDU2MCIvPjwvZz48cmVjdCB4PSIyMTAiIHk9IjI2IiB3aWR0aD0iNjA0IiBoZWlnaHQ9Ijg2IiByeD0iMTQiIGZpbGw9IiMxMDEwMTIiIHN0cm9rZT0iI2VkMWMyNCIgc3Ryb2tlLXdpZHRoPSI5Ii8+PGcgZmlsbD0iI2UwYjAyYyI+PGNpcmNsZSBjeD0iMjUyIiBjeT0iNjkiIHI9IjkiLz48Y2lyY2xlIGN4PSIzNDIiIGN5PSI2OSIgcj0iOSIvPjxjaXJjbGUgY3g9IjQzMiIgY3k9IjY5IiByPSI5Ii8+PGNpcmNsZSBjeD0iNTEyIiBjeT0iNjkiIHI9IjkiLz48Y2lyY2xlIGN4PSI1OTIiIGN5PSI2OSIgcj0iOSIvPjxjaXJjbGUgY3g9IjY4MiIgY3k9IjY5IiByPSI5Ii8+PGNpcmNsZSBjeD0iNzcyIiBjeT0iNjkiIHI9IjkiLz48L2c+PGcgZmlsbD0iI2U3ZTVlMSIgb3BhY2l0eT0iLjkyIj48Y2lyY2xlIGN4PSIxMjAiIGN5PSI3MjAiIHI9IjYyIi8+PGNpcmNsZSBjeD0iMjM2IiBjeT0iNzYwIiByPSI0NiIvPjxjaXJjbGUgY3g9IjkwNCIgY3k9IjcyMCIgcj0iNjIiLz48Y2lyY2xlIGN4PSI3ODgiIGN5PSI3NjAiIHI9IjQ2Ii8+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zMjAgLTUpIHNjYWxlKDEuNDIpIj48ZyBzdHJva2U9IiMxMTEiIHN0cm9rZS13aWR0aD0iOSIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj48cGF0aCBkPSJNMzAwIDYwNHE0Ni0xMDQgMjg2LTEwNHQyODYgMTA0djIyMEgzMDB6IiBmaWxsPSIjNmJhM2QwIi8+PC9nPjxnIHN0cm9rZT0iIzExMSIgc3Ryb2tlLXdpZHRoPSI5IiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48ZWxsaXBzZSBjeD0iNDU0IiBjeT0iMzMwIiByeD0iMTkiIHJ5PSIyNyIgZmlsbD0iI2YyY2ZhNiIvPjxlbGxpcHNlIGN4PSI3MTYiIGN5PSIzMzAiIHJ4PSIxOSIgcnk9IjI3IiBmaWxsPSIjZjJjZmE2Ii8+PHVzZSBocmVmPSIjc3AiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzMzMjQwZiIgc3Ryb2tlLXdpZHRoPSI3IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48ZWxsaXBzZSBjeD0iNTg1IiBjeT0iMzEwIiByeD0iMTMwIiByeT0iMTIyIiBmaWxsPSIjZjJjZmE2Ii8+PHVzZSBocmVmPSIjaHIiIGZpbGw9IiM0NjMzMjAiLz48L2c+PGcgc3Ryb2tlPSJub25lIj48dXNlIGhyZWY9IiNociIgZmlsbD0idXJsKCNoKSIvPjx1c2UgaHJlZj0iI2JkIiBmaWxsPSIjYmI5NjY4Ii8+PHVzZSBocmVmPSIjbXMiIGZpbGw9IiNiYjk2NjgiLz48dXNlIGhyZWY9IiNiZCIgZmlsbD0idXJsKCNoKSIgb3BhY2l0eT0iLjU1Ii8+PHVzZSBocmVmPSIjbXMiIGZpbGw9InVybCgjaCkiLz48L2c+PHBhdGggZD0iTTY5NCAzNDRxMTMgNjQtMjMgOTYtMzAgMzAtODYgMzB0LTg2LTMwcS0zNi0zMi0yMy05NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTExIiBzdHJva2Utd2lkdGg9IjkiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxnIHN0cm9rZT0iIzExMSIgc3Ryb2tlLXdpZHRoPSI5IiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNNTMwIDM5MiA2NDYgMzc4cS01OCA3Ny0xMTYgMTR6IiBmaWxsPSIjM2EyMTE4Ii8+PGcgZmlsbD0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSI1Ij48cmVjdCB4PSI1NzAiIHk9IjM4NyIgd2lkdGg9IjE5IiBoZWlnaHQ9IjI1IiByeD0iMyIvPjxyZWN0IHg9IjU5MyIgeT0iMzg1IiB3aWR0aD0iMTgiIGhlaWdodD0iMjQiIHJ4PSIzIi8+PC9nPjwvZz48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMxMTEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTU3NyAzMzZxLTIzIDI0LTYgMzcgMjAgMTQgMzctNSIgc3Ryb2tlLXdpZHRoPSI3Ii8+PHBhdGggZD0iTTUwNCAyODhxMzAtMTMgNjAtM002MTAgMjY4cTMyLTE0IDYwIDYiIHN0cm9rZS13aWR0aD0iOSIvPjxwYXRoIGQ9Ik00OTAgMzQwbC0xNiA4TTQ5MiAzNTJsLTE0IDEwTTY4MCAzMzhsMTYgOE02NzggMzUwbDE0IDEwIiBzdHJva2Utd2lkdGg9IjQiLz48cGF0aCBkPSJNNTMwIDM5MHEtMTUtMy0yMy0xNE02NDYgMzc2cTE1LTMgMjMtMTQiIHN0cm9rZS13aWR0aD0iNSIvPjwvZz48ZyBzdHJva2U9IiMxMTEiIHN0cm9rZS13aWR0aD0iNCI+PGVsbGlwc2UgY3g9IjUzOSIgY3k9IjMzMSIgcng9IjE4IiByeT0iMTEiIGZpbGw9IiNmZmYiLz48ZWxsaXBzZSBjeD0iNjMzIiBjeT0iMzMwIiByeD0iMTgiIHJ5PSIxMSIgZmlsbD0iI2ZmZiIvPjwvZz48ZyBmaWxsPSIjMTExIiBzdHJva2U9Im5vbmUiPjxlbGxpcHNlIGN4PSI1NTMiIGN5PSIzMzEiIHJ4PSI2IiByeT0iNyIvPjxlbGxpcHNlIGN4PSI2NDciIGN5PSIzMzAiIHJ4PSI2IiByeT0iNyIvPjwvZz48cGF0aCBkPSJNNTIyIDMzMXExOC0xNSAzNS0yTTYxNiAzMzBxMTgtMTQgMzUgMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTExIiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxnIHN0cm9rZT0ibm9uZSI+PGNpcmNsZSBjeD0iNTQwIiBjeT0iMzI1IiByPSIzMCIgZmlsbD0iI2RmZjFmYSIgb3BhY2l0eT0iLjMiLz48Y2lyY2xlIGN4PSI2MzIiIGN5PSIzMjUiIHI9IjMwIiBmaWxsPSIjZGZmMWZhIiBvcGFjaXR5PSIuMyIvPjxjaXJjbGUgY3g9IjU0MCIgY3k9IjMyNSIgcj0iMzAiIGZpbGw9InVybCgjZykiIG9wYWNpdHk9Ii4zOCIvPjwvZz48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMxMTEiIHN0cm9rZS13aWR0aD0iNS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiPjxjaXJjbGUgY3g9IjU0MCIgY3k9IjMyNSIgcj0iMzAiLz48Y2lyY2xlIGN4PSI2MzIiIGN5PSIzMjUiIHI9IjMwIi8+PHBhdGggZD0iTTU3MCAzMjBxMTYtOSAzMiAwTTUxMCAzMjBsLTMyLTdNNjYyIDMyMGwzMi03Ii8+PC9nPjxnIGZpbGw9IiM4ZmQwZWUiIHN0cm9rZT0iIzExMSIgc3Ryb2tlLXdpZHRoPSI1Ij48cGF0aCBkPSJNNzAwIDI1MHEtMTggMjYgMCAzOHQxOC0zOHoiLz48L2c+PGcgc3Ryb2tlPSIjMTExIiBzdHJva2Utd2lkdGg9IjkiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTU5NiAzODRoMTgwdjM0SDU5NnoiIGZpbGw9IiM2YjRhMmEiLz48cGF0aCBkPSJNNzU2IDM4NGgzMHYzNGgtMzB6IiBmaWxsPSIjZTBiMDJjIi8+PC9nPjxnIGZpbGw9IiNjM2MzYzMiIHN0cm9rZT0ibm9uZSIgb3BhY2l0eT0iLjc1Ij48Y2lyY2xlIGN4PSI4MTIiIGN5PSIzNzgiIHI9IjEzIi8+PGNpcmNsZSBjeD0iODQyIiBjeT0iMzQ4IiByPSIxOCIvPjxjaXJjbGUgY3g9Ijg3OCIgY3k9IjMxMCIgcj0iMjQiLz48L2c+PGcgZmlsbD0iIzFmMWYyMyI+PHJlY3QgeD0iNDUyIiB5PSIyOTIiIHdpZHRoPSIyNjgiIGhlaWdodD0iMzAiLz48cmVjdCB4PSI0NjYiIHk9IjMyMiIgd2lkdGg9Ijk4IiBoZWlnaHQ9IjQ0Ii8+PHJlY3QgeD0iNjA4IiB5PSIzMjIiIHdpZHRoPSI5OCIgaGVpZ2h0PSI0NCIvPjwvZz48ZyBzdHJva2U9IiMxMTEiIHN0cm9rZS13aWR0aD0iOSIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj48cGF0aCBkPSJNNDQ2IDE5NmgyODBNNDcwIDE5NHYtMTUwaDIzMnYxNTAiIGZpbGw9IiMxZjFmMjMiLz48cGF0aCBkPSJNNDcwIDE2OGgyMzIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2VkMWMyNCIgc3Ryb2tlLXdpZHRoPSIyMiIvPjwvZz48ZyBmaWxsPSIjZTBiMDJjIiBzdHJva2U9IiMxMTEiIHN0cm9rZS13aWR0aD0iNiI+PGNpcmNsZSBjeD0iNDUxIiBjeT0iNDYzIiByPSIxNiIvPjxjaXJjbGUgY3g9IjQ1OSIgY3k9IjQ4OCIgcj0iMTYiLz48Y2lyY2xlIGN4PSI0NzMiIGN5PSI1MTEiIHI9IjE2Ii8+PGNpcmNsZSBjeD0iNDkwIiBjeT0iNTMxIiByPSIxNiIvPjxjaXJjbGUgY3g9IjUxMSIgY3k9IjU0NyIgcj0iMTYiLz48Y2lyY2xlIGN4PSI1MzUiIGN5PSI1NjAiIHI9IjE2Ii8+PGNpcmNsZSBjeD0iNTYwIiBjeT0iNTY3IiByPSIxNiIvPjxjaXJjbGUgY3g9IjU4NiIgY3k9IjU3MCIgcj0iMTYiLz48Y2lyY2xlIGN4PSI2MTIiIGN5PSI1NjciIHI9IjE2Ii8+PGNpcmNsZSBjeD0iNjM3IiBjeT0iNTYwIiByPSIxNiIvPjxjaXJjbGUgY3g9IjY2MSIgY3k9IjU0NyIgcj0iMTYiLz48Y2lyY2xlIGN4PSI2ODIiIGN5PSI1MzEiIHI9IjE2Ii8+PGNpcmNsZSBjeD0iNjk5IiBjeT0iNTExIiByPSIxNiIvPjxjaXJjbGUgY3g9IjcxMyIgY3k9IjQ4OCIgcj0iMTYiLz48Y2lyY2xlIGN4PSI3MjEiIGN5PSI0NjMiIHI9IjE2Ii8+PC9nPjxnIHN0cm9rZT0iIzExMSIgc3Ryb2tlLXdpZHRoPSI5IiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbGluZWNhcD0icm91bmQiPjxwYXRoIGQ9Ik01NTggNTc4aDU2djU0aC01NnoiIGZpbGw9IiNlMGIwMmMiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzg1IDU5MCkgc2NhbGUoMS4zKSB0cmFuc2xhdGUoLTc4NSAtNTkwKSIgc3Ryb2tlPSIjMTExIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTc3MiA1OTJ2LTMyTTc5NCA1OTJ2LTM0IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTgxNCA1MThxMjggNCAyNCAzMi0xOCAwLTMwLTE0eiIgZmlsbD0iIzNkNDM0ZSIvPjxlbGxpcHNlIGN4PSI3ODIiIGN5PSI1MzQiIHJ4PSI0MCIgcnk9IjI4IiBmaWxsPSIjNWE2MjcwIi8+PGVsbGlwc2UgY3g9Ijc2NiIgY3k9IjUzNCIgcng9IjE1IiByeT0iMTgiIGZpbGw9IiNlOWU3ZTMiLz48cGF0aCBkPSJNNzU4IDUxNnEtMTItMjItOC01MCIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxMiIvPjxwYXRoIGQ9Ik03NTggNTE2cS0xMi0yMi04LTUwIiBmaWxsPSJub25lIiBzdHJva2U9IiM1YTYyNzAiIHN0cm9rZS13aWR0aD0iNiIvPjxjaXJjbGUgY3g9Ijc0OCIgY3k9IjQ1NiIgcj0iMTMiIGZpbGw9IiMyNjI2MmMiLz48Y2lyY2xlIGN4PSI3NTMiIGN5PSI0NTkiIHI9IjUiIGZpbGw9IiNlOWU3ZTMiIHN0cm9rZS13aWR0aD0iMyIvPjxwYXRoIGQ9Ik03MzYgNDU0bC0xNSA1IDE1IDV6IiBmaWxsPSIjMjYyNjJjIiBzdHJva2Utd2lkdGg9IjMiLz48cGF0aCBkPSJNNzQ0IDQ3MnE0IDkgMTAgOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWQxYzI0IiBzdHJva2Utd2lkdGg9IjUiLz48ZyBzdHJva2U9IiNlMGIwMmMiIHN0cm9rZS13aWR0aD0iNCIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTc0OCA0NDRsLTktMTdNNzUzIDQ0M2wtMi0xOU03NTggNDQ0bDUtMThNNzYyIDQ0N2wxMi0xNE03NDQgNDQ4bC0xMy0xMiIvPjwvZz48L2c+PC9nPjxyZWN0IHg9IjAiIHk9Ijg4NCIgd2lkdGg9IjEwMjQiIGhlaWdodD0iMTQwIiBmaWxsPSIjMWYxZjIzIiBvcGFjaXR5PSIuOTIiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyOTggODgxKSBzY2FsZSgzLjQwMDApIiBmaWxsPSJub25lIiBzdHJva2U9IiNmMmVjZTAiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48dXNlIGhyZWY9IiNETCIgeD0iMCIvPjx1c2UgaHJlZj0iI0IiIHg9IjIyIi8+PHVzZSBocmVmPSIjRSIgeD0iNDQiLz48dXNlIGhyZWY9IiNBIiB4PSI2NiIvPjx1c2UgaHJlZj0iI0MiIHg9Ijg4Ii8+PHVzZSBocmVmPSIjTiIgeD0iMTEwIi8+PC9nPjwvc3ZnPg==" alt="PFPcd663ea2" loading="lazy"></div><div class="plq">&#8470;1 &middot; <a href="https://cexplorer.io/tx/a37b987402eb24553ab10e1ea33ad7008568089e444adfee920e1ab3c61dd85e" target="_blank" rel="noopener">PFPcd663ea2</a></div><div class="cline">&ldquo;$BEACN&rdquo;</div><div class="cwho"><a href="https://pool.pm/addr1q9tc7xx0wvqm6swrz2zc4hcqnhc4md5v4xlxyaewy889tdxmnyl6uvy3smpa2qjhzmm8z62ghxh95xhj2q86hgr8z85s3chnw6" target="_blank" rel="noopener">addr1q9tc7xx0w…hnw6</a><span>2026-08-01</span></div></div></div>
+ <a class="cta" href="../">Make yours &rarr;</a>
+ <p class="foot">Reads live from Koios on every visit — a fresh mint appears here on its own.<br>
+ Open source, no server: even if this site disappears, the policy lives on — anyone can clone
+ the page, or hand-build the transaction, and keep minting oligarCHs forever.<br>
+ <code>policy 534066fa3a4cc90aa9b01a0daa68a27fc5a98b466d1e519ff1cf82bd</code></p>
+
+<script>
+// ⚠️ api.koios.rest sends no CORS headers — a browser cannot call it directly. The BEACN
+// Cloudflare worker mirrors /api/v1/* with CORS (same trick the Ledger Scrolls readers use),
+// so it goes first; bare Koios stays as a fallback in case the worker ever grows CORS.
+const SOURCES = ['https://koios.beacn.workers.dev/api/v1', "https://api.koios.rest/api/v1"];
+const POLICY = "534066fa3a4cc90aa9b01a0daa68a27fc5a98b466d1e519ff1cf82bd";
+async function kget(path, opts) {
+  let last;
+  for (const s of SOURCES) {
+    try { const r = await fetch(s + path, opts); if (r.ok) return await r.json();
+          last = new Error('http ' + r.status); }
+    catch (e) { last = e; }
+  }
+  throw last;
+}
+const HAVE = new Set(["5046506364363633656132"]);
+const BLOCK = new Set([]);
+let COUNT = 1;
+const $ = s => document.querySelector(s);
+const el = (t, cls, txt) => { const e = document.createElement(t);
+  if (cls) e.className = cls; if (txt !== undefined) e.textContent = txt; return e; };
+
+// the live top-up: anything minted since the bake appears without a redeploy
+(async () => {
+  try {
+    const list = await kget('/policy_asset_list?_asset_policy=' + POLICY);
+    const fresh = list.map(x => x.asset_name).filter(n => !HAVE.has(n) && !BLOCK.has(n));
+    if (!fresh.length) return;
+    const infos = await kget('/asset_info', {method:'POST',
+      headers:{'content-type':'application/json'},
+      body: JSON.stringify({_asset_list: fresh.map(n => [POLICY, n])})});
+    for (const inf of infos) {
+      const name = inf.asset_name_ascii ||
+        (inf.asset_name.match(/../g)||[]).map(h=>String.fromCharCode(parseInt(h,16))).join('');
+      const md = ((inf.minting_tx_metadata||{})['721']||{})[POLICY]?.[name] || {};
+      const img = Array.isArray(md.image) ? md.image.join('') : (md.image || '');
+      const card = el('div','card fresh');
+      const art = el('div','art');
+      if (img.startsWith('data:image/svg+xml;base64,')) {
+        const im = el('img'); im.src = img; im.alt = name; art.appendChild(im);
+      } else art.appendChild(el('div','noart','not renderable'));
+      card.appendChild(art);
+      const plq = el('div','plq'); COUNT += 1;
+      plq.appendChild(document.createTextNode('\u2116' + COUNT + ' \u00b7 '));
+      const nm = el('a','',name);
+      nm.href = 'https://cexplorer.io/tx/' + encodeURIComponent(inf.minting_tx_hash||'');
+      nm.target = '_blank'; nm.rel = 'noopener'; plq.appendChild(nm);
+      card.appendChild(plq);
+      if (md.Line) card.appendChild(el('div','cline','\u201c' + md.Line + '\u201d'));
+      const t = inf.creation_time;
+      const day = typeof t === 'number' ? new Date(t*1000).toISOString().slice(0,10)
+                                        : String(t||'').slice(0,10);
+      const who = el('div','cwho');
+      who.appendChild(el('span','', 'just minted'));
+      who.appendChild(el('span','', day));
+      card.appendChild(who);
+      $('#grid').prepend(card);
+    }
+    $('#tally').textContent = COUNT + ' ON THE WALL \u00b7 FOREVER OPEN';
+  } catch (e) { /* koios down -> the baked wall stands */ }
+})();
+</script></body></html>

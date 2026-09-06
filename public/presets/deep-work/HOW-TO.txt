@@ -1,0 +1,12 @@
+Deep Work
+Focus capsule · BMKR interactive utility v1
+
+1. Open the interactive file
+2. Choose focus or a break
+3. Start, pause, and reset
+
+The HTML program is embedded in the mint transaction alongside the image. Open the interactive attachment in a viewer that supports HTML, or download interactive.html and open it in a current browser. Some wallets show only the cover. The standalone file works offline.
+
+This is a public, reusable tool, not holder-only access. Anyone with a copy can run it. Session state resets on reload. The program does not access a wallet, send transactions, or fetch external data. Keep the page open; device suspension can delay its display. It is not an alarm service.
+
+Your title and configuration are public and fixed in the minted program. Transferring the token transfers the collectible, not exclusive use of its public code. The mint policy expiry does not stop the program running.

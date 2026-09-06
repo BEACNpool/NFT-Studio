@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; frame-src blob:; font-src 'self'; manifest-src 'self'; connect-src https:; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>The Reader lives on-chain — Ledger Scrolls</title>
+<meta name="description" content="The hosted reader page is retired. The Reader is minted on Cardano itself — and the best reader is the one you build. Everything you need is one click away.">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="canonical" href="https://beacnpool.github.io/ledger-scrolls/build-a-reader/">
+<style>
+:root{--bg:#f6f5f1;--ink:#14161b;--ink2:#3a4049;--mut:#6b7280;--line:#dbd6ca;--acc:#2f53ff;--accink:#0d228f;--accsoft:#ebefff;--amber:#b27a1e;--ambersoft:#f6eedd;--mono:ui-monospace,Menlo,Consolas,monospace;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 16.5px/1.6 var(--sans);display:grid;place-items:center;min-height:100vh;padding:24px}
+main{max-width:640px;text-align:center}
+.mark{font-size:44px}
+h1{font:700 clamp(24px,5vw,34px)/1.2 var(--sans);letter-spacing:-.02em;margin:14px 0 10px}
+p{color:var(--ink2);margin:10px 0}
+.mono{font-family:var(--mono);font-size:12.5px;word-break:break-all;color:var(--mut)}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:22px 0 8px}
+a.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 20px;border-radius:999px;background:var(--acc);color:#fff;font:600 15px/1 var(--sans);text-decoration:none;border:1px solid var(--acc)}
+a.btn.sub{background:#fff;color:var(--accink);border-color:var(--line)}
+a{color:var(--accink)}
+.note{margin-top:20px;padding:12px 16px;border-radius:10px;background:var(--ambersoft);border:1px solid #e3cf9e;font-size:14px;color:#6d4d0a;text-align:left}
+</style>
+</head>
+<body>
+<main>
+  <div class="mark">📜</div>
+  <h1>The Reader's real home is the chain.</h1>
+  <p>This hosted page is retired — on purpose. A reader you reach through <em>our</em> URL is a
+  dependency; the mission is a thousand independent ones. The complete minimal reader is
+  <strong>minted on Cardano as a scroll</strong>, forever:</p>
+  <p class="mono">9a564165ebdc4e0c4a2e1163b5cf9355604ecb8e163b425d834570e5b9007de2#0</p>
+  <div class="btns">
+    <a class="btn" href="./build-a-reader/">🛠 Build your own reader</a>
+    <a class="btn sub" href="./index.html">📚 Browse the Library</a>
+    <a class="btn sub" href="./calculator.html">⚡ Mint a scroll</a>
+  </div>
+  <div class="note"><b>Need the old file?</b> The exact reader, byte-identical to the on-chain copy,
+  is preserved with receipts at
+  <a href="https://github.com/BEACNpool/ledger-scrolls/tree/main/examples/the-reader">examples/the-reader/</a> —
+  download it, open it locally, point it at any Koios endpoint or your own Blockfrost key. It will
+  work when every website is gone. That's the point.</div>
+</main>
+</body>
+</html>

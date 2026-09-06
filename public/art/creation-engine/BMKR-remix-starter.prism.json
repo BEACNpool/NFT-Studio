@@ -1,0 +1,47 @@
+{
+  "schema": "prism.artwork.v2",
+  "artwork": {
+    "name": "BMKR / public remix starter",
+    "source": "blank",
+    "description": "",
+    "seed": 0,
+    "hue": 0,
+    "detail": 0,
+    "scale": 40,
+    "rotation": 0,
+    "background": "#090d16",
+    "signature": false,
+    "license": "No license specified",
+    "design": {
+      "backdrop": "radial",
+      "accent": "#35214f",
+      "offsetX": 0,
+      "offsetY": 0,
+      "flipX": false,
+      "flipY": false,
+      "copies": 1,
+      "opacity": 100,
+      "contrast": 100,
+      "saturation": 100,
+      "frame": "corners",
+      "frameColor": "#57ddeb",
+      "frameWidth": 3,
+      "texts": [
+        {
+          "id": "text-0",
+          "text": "MAKE IT\nON CHAIN.",
+          "x": 512,
+          "y": 800,
+          "size": 86,
+          "color": "#f3cb77",
+          "font": "sans",
+          "rotation": 0,
+          "align": "center"
+        }
+      ],
+      "strokes": []
+    },
+    "traits": [],
+    "utilities": []
+  }
+}

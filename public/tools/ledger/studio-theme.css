@@ -1,0 +1,23 @@
+/* The surrounding Studio chooses studio=1 to use the embedded visual skin.
+   Standalone originals retain their product identity and complete controls. */
+.nft-studio-embedded,.nft-studio-embedded body {
+  color-scheme: dark;
+  --bg:#101211; --bg-2:#171b17; --card:#171b17; --panel:#171b17; --surface:#171b17; --surface-2:#1f261c;
+  --ink:#f1f2e8; --ink-2:#d4d9cb; --muted:#aab3a2; --faint:#89937f;
+  --accent:#d7f98a; --accent-ink:#d7f98a; --accent-soft:#2d3923; --blue:#b7d974; --line:#353e31; --line-2:#45513d;
+  --sans:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:#101211;
+}
+.nft-studio-embedded body {background:#101211;color:#f1f2e8;font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.nft-studio-embedded h1,.nft-studio-embedded h2,.nft-studio-embedded h3 {font-family:inherit;letter-spacing:-.025em}
+.nft-studio-embedded .ls-nav,.nft-studio-embedded .ls-foot {display:none!important}
+.nft-studio-embedded .hero {background:none}
+.nft-studio-embedded [data-page="calculator"] .hero {padding-top:24px;padding-bottom:24px}
+.nft-studio-embedded .hero h1 {font-size:clamp(28px,4vw,40px)}
+.nft-studio-embedded label {font-size:14px}
+.nft-studio-embedded input,.nft-studio-embedded textarea,.nft-studio-embedded select {font-family:inherit;font-size:16px}
+.nft-studio-embedded :focus-visible {outline:2px solid #d7f98a;outline-offset:3px}
+.nft-studio-embedded .btn,.nft-studio-embedded .btn.primary {background:#d7f98a;color:#15200b;border-color:#d7f98a;box-shadow:none}
+.nft-studio-embedded .btn.sub,.nft-studio-embedded .btn.ghost {background:#1f261c;color:#d7f98a;border-color:#45513d}
+.nft-studio-embedded .btn.primary:hover {background:#e5ffb1}
+@media(prefers-reduced-motion:reduce){.nft-studio-embedded *{scroll-behavior:auto!important}}

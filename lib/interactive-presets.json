@@ -1,0 +1,241 @@
+[
+  {
+    "id": "studio-pulse",
+    "title": "Studio Pulse",
+    "category": "music",
+    "description": "A steady starting groove. Change any step.",
+    "spec": {
+      "version": 1,
+      "kind": "beats",
+      "bpm": 92,
+      "pattern": [
+        137,
+        16,
+        255
+      ],
+      "accent": "#dfba6d"
+    },
+    "media": [
+      {
+        "path": "public/presets/studio-pulse/program.html",
+        "bytes": 4725,
+        "sha256": "a30030f13a8452592d55a8899def56d70a71f200345b3b77384ca407e326d4bf"
+      },
+      {
+        "path": "public/presets/studio-pulse/cover.svg",
+        "bytes": 2391,
+        "sha256": "08d07bbe650c7843bf6e5b4af1650084907b1bfeb547596b62fc2df8a768831d"
+      },
+      {
+        "path": "public/presets/studio-pulse/HOW-TO.txt",
+        "bytes": 1087,
+        "sha256": "2b9179ca0a44e4ba0e4c291b4042b484c3da81376b3de85f0ccf2765852411ae"
+      }
+    ],
+    "minted": false
+  },
+  {
+    "id": "amber-steps",
+    "title": "Amber Steps",
+    "category": "music",
+    "description": "Four-on-the-floor kick and alternating hats.",
+    "spec": {
+      "version": 1,
+      "kind": "beats",
+      "bpm": 120,
+      "pattern": [
+        85,
+        68,
+        170
+      ],
+      "accent": "#ffb86b"
+    },
+    "media": [
+      {
+        "path": "public/presets/amber-steps/program.html",
+        "bytes": 4728,
+        "sha256": "505c95c60977b99d8b9cf7b0c241878bc2293647fc21e7ed7d664cec286c05fa"
+      },
+      {
+        "path": "public/presets/amber-steps/cover.svg",
+        "bytes": 2392,
+        "sha256": "078403b380a258009482e8ea8c3f5d4725b20c26200f583bc4ba7eeb4e69302f"
+      },
+      {
+        "path": "public/presets/amber-steps/HOW-TO.txt",
+        "bytes": 1086,
+        "sha256": "4b02ab6771173956d42666957bd1062ec000563488bbd3d41a6370c1dc276506"
+      }
+    ],
+    "minted": false
+  },
+  {
+    "id": "night-signal",
+    "title": "Night Signal",
+    "category": "music",
+    "description": "A sparse slow groove for an original card.",
+    "spec": {
+      "version": 1,
+      "kind": "beats",
+      "bpm": 72,
+      "pattern": [
+        65,
+        16,
+        85
+      ],
+      "accent": "#a995ff"
+    },
+    "media": [
+      {
+        "path": "public/presets/night-signal/program.html",
+        "bytes": 4733,
+        "sha256": "6536a4781d96841735acf3cd2bbb2d4fa561bfedb2a0141938fd53388ff4a7d5"
+      },
+      {
+        "path": "public/presets/night-signal/cover.svg",
+        "bytes": 2391,
+        "sha256": "3aa0e5c9dbdca757729711d9cc1376b4a769a14c1e5ec010ebe78a3f50b74383"
+      },
+      {
+        "path": "public/presets/night-signal/HOW-TO.txt",
+        "bytes": 1087,
+        "sha256": "63d036770138682e9bc53490f2b9cc2f3d699b4eee64e18899f55b8b1d4ff74b"
+      }
+    ],
+    "minted": false
+  },
+  {
+    "id": "deep-work",
+    "title": "Deep Work",
+    "category": "tools",
+    "description": "25 minutes of attention, five minutes of space.",
+    "spec": {
+      "version": 1,
+      "kind": "focus",
+      "work": 25,
+      "rest": 5,
+      "accent": "#a5f3c4"
+    },
+    "media": [
+      {
+        "path": "public/presets/deep-work/program.html",
+        "bytes": 3975,
+        "sha256": "2e5a4a8bfd6ac6b734e4a5796e5e2df77010a2a13b4cfcfdc1dd3848ba676a53"
+      },
+      {
+        "path": "public/presets/deep-work/cover.svg",
+        "bytes": 1275,
+        "sha256": "bbed4929b5f8c676e57bf0458d2a4b45bde3e9f5dd9a08663d9b56e368323eab"
+      },
+      {
+        "path": "public/presets/deep-work/HOW-TO.txt",
+        "bytes": 921,
+        "sha256": "61754e84519be94f9c36534500f7d33dda3630b61b61a85382fc1ddfaf334b24"
+      }
+    ],
+    "minted": false
+  },
+  {
+    "id": "small-start",
+    "title": "Small Start",
+    "category": "tools",
+    "description": "Ten minutes to begin; two minutes to reset.",
+    "spec": {
+      "version": 1,
+      "kind": "focus",
+      "work": 10,
+      "rest": 2,
+      "accent": "#8ee8e1"
+    },
+    "media": [
+      {
+        "path": "public/presets/small-start/program.html",
+        "bytes": 3979,
+        "sha256": "b61240d58afc852642fb9c9257c445d2c0be93a1f2e87f7511638bedc92bb599"
+      },
+      {
+        "path": "public/presets/small-start/cover.svg",
+        "bytes": 1275,
+        "sha256": "57ce437af90a2907ba0f91882a5c06ffe7323d2e810273c6e33802d1385e888a"
+      },
+      {
+        "path": "public/presets/small-start/HOW-TO.txt",
+        "bytes": 923,
+        "sha256": "025f6a0382aaf5f6a456b2a460753664da5c894116afaf1200e809a7ae048afa"
+      }
+    ],
+    "minted": false
+  },
+  {
+    "id": "creative-compass",
+    "title": "Creative Compass",
+    "category": "tools",
+    "description": "Six specific prompts for your next creative move.",
+    "spec": {
+      "version": 1,
+      "kind": "decision",
+      "choices": [
+        "Change one color",
+        "Use only circles",
+        "Remove one layer",
+        "Make it move",
+        "Write one honest line",
+        "Start with silence"
+      ],
+      "accent": "#c1b4ff"
+    },
+    "media": [
+      {
+        "path": "public/presets/creative-compass/program.html",
+        "bytes": 3374,
+        "sha256": "4282d06c780ef36b516f22c00dd1e97601d865fec3ca942b1ea9e6a37bb4f629"
+      },
+      {
+        "path": "public/presets/creative-compass/cover.svg",
+        "bytes": 1314,
+        "sha256": "b93fb780aaaf8731a66eb379ae151877cd4b915306969efb459fe6878748468c"
+      },
+      {
+        "path": "public/presets/creative-compass/HOW-TO.txt",
+        "bytes": 908,
+        "sha256": "5b7133b6507131c4f235badbd832f9c693c68f81bee21c00dd2f4b3b6c5411fe"
+      }
+    ],
+    "minted": false
+  },
+  {
+    "id": "tiny-adventures",
+    "title": "Tiny Adventures",
+    "category": "tools",
+    "description": "A pocketful of ordinary possibilities.",
+    "spec": {
+      "version": 1,
+      "kind": "decision",
+      "choices": [
+        "Take a different path",
+        "Sketch what you can see",
+        "Ask someone a new question",
+        "Make a four-bar groove"
+      ],
+      "accent": "#f4c882"
+    },
+    "media": [
+      {
+        "path": "public/presets/tiny-adventures/program.html",
+        "bytes": 3359,
+        "sha256": "5a69db1ca5a77814a1295849a92e29fbcff853ee92b3a4ef93b41e8cd5990feb"
+      },
+      {
+        "path": "public/presets/tiny-adventures/cover.svg",
+        "bytes": 1314,
+        "sha256": "c060ac81062eb9b7f76554ba4368169849796710b0e8303a7f007d73687b2cfa"
+      },
+      {
+        "path": "public/presets/tiny-adventures/HOW-TO.txt",
+        "bytes": 907,
+        "sha256": "580a2a89d8d9b7876a2a1dacc9105b392f16cb0b8e1847684d8a3e7a59385a2c"
+      }
+    ],
+    "minted": false
+  }
+]

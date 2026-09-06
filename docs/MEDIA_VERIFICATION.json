@@ -1,0 +1,730 @@
+{
+  "schema": "nft-studio.catalog-verification.v1",
+  "generatedAt": "2026-09-06T21:47:14.888700+00:00",
+  "checks": [
+    {
+      "id": "light-we-leave",
+      "check": "current-chain-byte-recovery",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "id": "impossible-dawn",
+      "check": "current-chain-byte-recovery",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "id": "keep-growing",
+      "check": "current-chain-byte-recovery",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "id": "boss-fight",
+      "check": "current-chain-byte-recovery",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "id": "chain-pressure",
+      "check": "current-chain-byte-recovery",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "id": "starfall",
+      "check": "current-chain-byte-recovery",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "id": "prismwake",
+      "check": "current-chain-byte-recovery",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "id": "tidelock",
+      "check": "current-chain-byte-recovery",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "id": "lastember",
+      "check": "current-chain-byte-recovery",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "id": "chess",
+      "check": "current-chain-byte-recovery",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "id": "checkers",
+      "check": "current-chain-byte-recovery",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "id": "solitaire",
+      "check": "current-chain-byte-recovery",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "id": "ninefold",
+      "check": "current-chain-byte-recovery",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "id": "afterlight",
+      "check": "current-chain-byte-recovery",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/starfall/game.html",
+      "bytes": 5257,
+      "sha256": "4b4a4d9d9e787444be4a88a03be86c49df853ac239a28ae13bfee03e980a1826",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/starfall/cover.svg",
+      "bytes": 1055,
+      "sha256": "6b6bdb701837352583c5a8580dfb8e06b8e03e732351045f2c433335190f2704",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/starfall/expanded.html",
+      "bytes": 42600,
+      "sha256": "a339a49b4c926ab4bd2fa891c5141f371ecc11f7ca0d8771647419872aef4f3a",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/starfall/cartridges.zip",
+      "bytes": 17836,
+      "sha256": "65ed2ab0cf1d01a15f244f03b16407a58dca524b15e2b73808e72f21a6205391",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/prismwake/game.html",
+      "bytes": 12843,
+      "sha256": "abcb80ad71973837b54ad38e6c8d2ddaca0b175643073d40d38ddd273eda417d",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/prismwake/cover.svg",
+      "bytes": 628,
+      "sha256": "2c354a43d8050ddb9a621e3044134d8a6eff57e42a66570e4c8d31d49e459ac5",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/prismwake/expanded.html",
+      "bytes": 21665,
+      "sha256": "107624b3f7ecb67cc8b5adbe6e3b5516625a69a0ee30608f92d4e89afac30348",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/tidelock/game.html",
+      "bytes": 12511,
+      "sha256": "40100157cc78aa436116fe7b4dda9896bceff2fa3f38db86301f349bee93b7ca",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/tidelock/cover.svg",
+      "bytes": 698,
+      "sha256": "d23d771e2799b3c95a9775e2b162bfb5a4b01bea44ba78c5bfbdf946337ab06d",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/tidelock/expanded.html",
+      "bytes": 20982,
+      "sha256": "d2900d96f5e7d272a51ca43f8141ef55622e807e110303d0c7e9b6f11845a6d7",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/lastember/game.html",
+      "bytes": 13795,
+      "sha256": "fc60cd20c3d11b47197ef0252a7c7007eb7d440353c72e0cd50f77836725fec9",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/lastember/cover.svg",
+      "bytes": 604,
+      "sha256": "5c47b09ea7509987711b611deabd74d4cb391ae47a07636e05a375d4a0623cb9",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/lastember/expanded.html",
+      "bytes": 23352,
+      "sha256": "149c08f2bb59c06d4c9e541a7d7b945b0f1b696a4473cf3a153d534369b45b64",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/chess/game.html",
+      "bytes": 13290,
+      "sha256": "9c83ada6615599b88e5f6773a3f9d4c24d1ebb4ae2c0fd88d1ff39b79367fae3",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/chess/cover.svg",
+      "bytes": 748,
+      "sha256": "c15abbf218f86aa69a66f3f031e9b1a6229c09d84f39458141aadadac1afd084",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/chess/expanded.html",
+      "bytes": 23047,
+      "sha256": "dc39faa8003ef1252d67b889d0c783d261db1cde5b913b86ed89c7c0d0e8090c",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/checkers/game.html",
+      "bytes": 9486,
+      "sha256": "0b57d01a46bb85e2bd215b85270e13e51f2f64289c46c3462a2532fdc3b38cef",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/checkers/cover.svg",
+      "bytes": 792,
+      "sha256": "4aa0ab78a078dbda6e4bfb684a4c5b63f62fce9ebc3d5b9cdb041741a9805dcd",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/checkers/expanded.html",
+      "bytes": 15118,
+      "sha256": "b12a37ca5c7ce6af27367a40e2a3d6dc53c37d7c9b4dd4edcc42a7dfb703d8d2",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/solitaire/game.html",
+      "bytes": 9802,
+      "sha256": "1450b76a2fc147775f45ca075a68d5e347f9ec3ea30885f699f6c490beeefe80",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/solitaire/cover.svg",
+      "bytes": 779,
+      "sha256": "685ec81c1898bb8c38f5f6a726c0cf0fef000af9f4802d3ae0045f16ac7e3d41",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/solitaire/expanded.html",
+      "bytes": 15776,
+      "sha256": "3d660631b13c35ab927c4457dc50e320a921f6b07767ef435ee088aad4cc1e68",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/ninefold/game.html",
+      "bytes": 13490,
+      "sha256": "9fbb6f610f16896420385fd5bc690f96e403e9d07cc15db47745d6e5331de4f0",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/ninefold/cover.svg",
+      "bytes": 804,
+      "sha256": "114252c4f30a6fd12a5033832de07fdc2e585f44304aad7bc4e31de0a5c120c6",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/ninefold/expanded.html",
+      "bytes": 24285,
+      "sha256": "5fa1d72c1a6ee1064520d311cd9b11a59a78be4cba0cb73fb49431cb83471f4f",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/afterlight/game.html",
+      "bytes": 13298,
+      "sha256": "1f7c467ad3dfcaf2180ba7959a84d9da1a865eed111e3eadf177f2e4667c34e4",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/afterlight/cover.svg",
+      "bytes": 807,
+      "sha256": "e846b261b69e03821c5f068fd71a8a0c2fc52e475dcfec3839284b007a357825",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/arcade/afterlight/expanded.html",
+      "bytes": 22941,
+      "sha256": "5992a9e400579bdea29c7ef0ddbfd1ff63c779b4035e9871f65bab8b4182872b",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "at": "2026-09-06T21:47:14.888700+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/oligarCH/index.html",
+      "bytes": 95968,
+      "sha256": "f2d692726886293c4c661fe319e1ab9b60c2db3f9aac0e65d036702d66daf4a0",
+      "check": "public-static-page-copied-intact",
+      "passed": true,
+      "at": "2026-09-06T21:49:59.518785+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/oligarCH/make/index.html",
+      "bytes": 57447,
+      "sha256": "df12738481d9902aaff062abf9ce377d314a724b1a7eabd865ac23faf644a0f1",
+      "check": "public-static-page-copied-intact",
+      "passed": true,
+      "at": "2026-09-06T21:49:59.518785+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/oligarCH/make/wall/index.html",
+      "bytes": 16868,
+      "sha256": "9e1d4e85924ec237bb0ec9096fdfda200eec1acfa77e71af2815b9546e6d1900",
+      "check": "public-static-page-copied-intact",
+      "passed": true,
+      "at": "2026-09-06T21:49:59.518785+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/oligarCH/byttg/index.html",
+      "bytes": 27370,
+      "sha256": "3ec5b9ac8def292e2d21b739e4aff1a27430ea0b3e41a91271846b3e8b1435a6",
+      "check": "public-static-page-copied-intact",
+      "passed": true,
+      "at": "2026-09-06T21:49:59.518785+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/oligarCH/tgm/index.html",
+      "bytes": 28685,
+      "sha256": "8c17a85344ea8ab032f12ba42f76ddc5811ce142786c7ecb8791daf1a3ad68d5",
+      "check": "public-static-page-copied-intact",
+      "passed": true,
+      "at": "2026-09-06T21:49:59.518785+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/oligarCH/ivyom/index.html",
+      "bytes": 28075,
+      "sha256": "f9090a58b5245babf876f937b8436ba3ca08cd5cea2b7a07b1bb5fb2d6a4aa16",
+      "check": "public-static-page-copied-intact",
+      "passed": true,
+      "at": "2026-09-06T21:49:59.518785+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/oligarCH/org/index.html",
+      "bytes": 27806,
+      "sha256": "b28daf0905c0a303c772184586aed687e6e483a5596cc7ead644d14ebdc41419",
+      "check": "public-static-page-copied-intact",
+      "passed": true,
+      "at": "2026-09-06T21:49:59.518785+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/oligarCH/hotel/index.html",
+      "bytes": 26336,
+      "sha256": "b6f7668a9db3318028204526f67573cf6ad387a041542d214303a81ea9bc4fef",
+      "check": "public-static-page-copied-intact",
+      "passed": true,
+      "at": "2026-09-06T21:49:59.518785+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/oligarCH/ndl/index.html",
+      "bytes": 26995,
+      "sha256": "1d94ecc1b3a6ad00ee0b12c33e6b71d842f5ce12f887c4623165f813f29e532c",
+      "check": "public-static-page-copied-intact",
+      "passed": true,
+      "at": "2026-09-06T21:49:59.518785+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/oligarCH/dnpg/index.html",
+      "bytes": 29042,
+      "sha256": "ec792337c970ec6d93b81f3d1e819f020c9416bdf85afc2fce254d13f817c01b",
+      "check": "public-static-page-copied-intact",
+      "passed": true,
+      "at": "2026-09-06T21:49:59.518785+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/oligarCH/smoke/index.html",
+      "bytes": 28598,
+      "sha256": "701708a31166fb5fdfa3172e2ac0ff45a9f715b403194e61042b66edee49e131",
+      "check": "public-static-page-copied-intact",
+      "passed": true,
+      "at": "2026-09-06T21:49:59.518785+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/tipsy/index.html",
+      "bytes": 9884,
+      "sha256": "3f316ec5944e3c63e38a7fe8c05d75e18b958dd757eac35496504ea5ad082de4",
+      "check": "public-static-page-copied-intact",
+      "passed": true,
+      "at": "2026-09-06T21:49:59.518785+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/tipsy/tipsy/index.html",
+      "bytes": 30532,
+      "sha256": "6d85775f2b3f9e776083ce0fc1d2ee4e5815155d3de8f5a8ec7de32fd5ec588f",
+      "check": "public-static-page-copied-intact",
+      "passed": true,
+      "at": "2026-09-06T21:49:59.518785+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/tipsy/ghost/index.html",
+      "bytes": 29902,
+      "sha256": "55485d4a614c6802bca85ff9732c07e4bcf631d793434bb685c13ba60ddabf38",
+      "check": "public-static-page-copied-intact",
+      "passed": true,
+      "at": "2026-09-06T21:49:59.518785+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/tipsy/vote/index.html",
+      "bytes": 25120,
+      "sha256": "aa952a546c34967cf71d111b8b3da88f0182b511f727740d2a7428b77564e24a",
+      "check": "public-static-page-copied-intact",
+      "passed": true,
+      "at": "2026-09-06T21:49:59.518785+00:00"
+    },
+    {
+      "id": "ledger-chess-original",
+      "check": "current-chain-scroll-recovery",
+      "passed": true,
+      "at": "2026-09-06T21:49:59.518785+00:00",
+      "gameBytes": 85994,
+      "readerBytes": 27362
+    },
+    {
+      "id": "studio-pulse",
+      "check": "validated-deterministic-existing-template",
+      "passed": true,
+      "programBytes": 4725,
+      "at": "2026-09-06T21:51:10.148Z"
+    },
+    {
+      "id": "amber-steps",
+      "check": "validated-deterministic-existing-template",
+      "passed": true,
+      "programBytes": 4728,
+      "at": "2026-09-06T21:51:10.148Z"
+    },
+    {
+      "id": "night-signal",
+      "check": "validated-deterministic-existing-template",
+      "passed": true,
+      "programBytes": 4733,
+      "at": "2026-09-06T21:51:10.148Z"
+    },
+    {
+      "id": "deep-work",
+      "check": "validated-deterministic-existing-template",
+      "passed": true,
+      "programBytes": 3975,
+      "at": "2026-09-06T21:51:10.148Z"
+    },
+    {
+      "id": "small-start",
+      "check": "validated-deterministic-existing-template",
+      "passed": true,
+      "programBytes": 3979,
+      "at": "2026-09-06T21:51:10.148Z"
+    },
+    {
+      "id": "creative-compass",
+      "check": "validated-deterministic-existing-template",
+      "passed": true,
+      "programBytes": 3374,
+      "at": "2026-09-06T21:51:10.148Z"
+    },
+    {
+      "id": "tiny-adventures",
+      "check": "validated-deterministic-existing-template",
+      "passed": true,
+      "programBytes": 3359,
+      "at": "2026-09-06T21:51:10.148Z"
+    },
+    {
+      "id": "studio-pulse",
+      "check": "native-browser-audio-and-four-bar-PCM-export",
+      "passed": true,
+      "sound": {
+        "frames": 57522,
+        "finite": true,
+        "peak": 0.6055815815925598,
+        "energy": 287.5689644515536
+      },
+      "wav": {
+        "bytes": 460220,
+        "header": "RIFF",
+        "channels": 1,
+        "rate": 22050,
+        "bits": 16,
+        "frames": 230088,
+        "repeats": true,
+        "sha256": "2eed8b43efbbb6c659c2aed6dae54213e4a17a349aa2ed949203afa535d26b02"
+      },
+      "at": "2026-09-06T21:53:21.386Z"
+    },
+    {
+      "id": "studio-pulse",
+      "check": "opaque-mobile-browser-control-flow",
+      "passed": true,
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "externalRequests": 0,
+      "at": "2026-09-06T21:53:21.386Z"
+    },
+    {
+      "id": "amber-steps",
+      "check": "native-browser-audio-and-four-bar-PCM-export",
+      "passed": true,
+      "sound": {
+        "frames": 44100,
+        "finite": true,
+        "peak": 0.6941920518875122,
+        "energy": 368.6239445549295
+      },
+      "wav": {
+        "bytes": 352844,
+        "header": "RIFF",
+        "channels": 1,
+        "rate": 22050,
+        "bits": 16,
+        "frames": 176400,
+        "repeats": true,
+        "sha256": "3cd92d5db459306e86289605bb3e40024ee710b0d5b6eea36c55f17e8aabcb18"
+      },
+      "at": "2026-09-06T21:53:21.386Z"
+    },
+    {
+      "id": "amber-steps",
+      "check": "opaque-mobile-browser-control-flow",
+      "passed": true,
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "externalRequests": 0,
+      "at": "2026-09-06T21:53:21.386Z"
+    },
+    {
+      "id": "night-signal",
+      "check": "native-browser-audio-and-four-bar-PCM-export",
+      "passed": true,
+      "sound": {
+        "frames": 73500,
+        "finite": true,
+        "peak": 0.6055815815925598,
+        "energy": 196.38897396917537
+      },
+      "wav": {
+        "bytes": 588044,
+        "header": "RIFF",
+        "channels": 1,
+        "rate": 22050,
+        "bits": 16,
+        "frames": 294000,
+        "repeats": true,
+        "sha256": "02f3c3ef3574f15c2ad248259440510f447a06d788100cae54fbf5fb0d4906c0"
+      },
+      "at": "2026-09-06T21:53:21.386Z"
+    },
+    {
+      "id": "night-signal",
+      "check": "opaque-mobile-browser-control-flow",
+      "passed": true,
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "externalRequests": 0,
+      "at": "2026-09-06T21:53:21.386Z"
+    },
+    {
+      "id": "deep-work",
+      "check": "opaque-mobile-browser-control-flow",
+      "passed": true,
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "externalRequests": 0,
+      "at": "2026-09-06T21:53:21.386Z"
+    },
+    {
+      "id": "small-start",
+      "check": "opaque-mobile-browser-control-flow",
+      "passed": true,
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "externalRequests": 0,
+      "at": "2026-09-06T21:53:21.386Z"
+    },
+    {
+      "id": "creative-compass",
+      "check": "opaque-mobile-browser-control-flow",
+      "passed": true,
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "externalRequests": 0,
+      "at": "2026-09-06T21:53:21.386Z"
+    },
+    {
+      "id": "tiny-adventures",
+      "check": "opaque-mobile-browser-control-flow",
+      "passed": true,
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "externalRequests": 0,
+      "at": "2026-09-06T21:53:21.386Z"
+    },
+    {
+      "id": "oligarch-maker",
+      "check": "untouched-maker-parameters-vs-current-epoch",
+      "passed": true,
+      "details": {
+        "epoch": 654,
+        "minFeeA": true,
+        "minFeeB": true,
+        "utxoByte": true,
+        "maxTx": true,
+        "maxValue": true,
+        "priceMemory": true,
+        "priceSteps": true,
+        "plutusV3CostModel": true
+      },
+      "at": "2026-09-06T21:54:33.434506+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/art/creation-engine/v02-640-crf45.avif",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "sha256": "37093fb68de3aaa2520fe9a449daa49018de9e59e73590dda21aed33124d7e4c",
+      "at": "2026-09-06T21:56:49.269056+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/art/creation-engine/v02-448-q19-10264.webp",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "sha256": "0318e54a66c831fc75f5230c4fc0b365c54dd7b9032147070825bcc35ddfa42f",
+      "at": "2026-09-06T21:56:49.269056+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/art/creation-engine/BMKR-remix-starter.prism.json",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "sha256": "515e017d4e0c824f22328f013e4e548fabe6ff3b0ff220ab4a5af3ce128f19b8",
+      "at": "2026-09-06T21:56:49.269056+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/art/creation-engine/BMKR-remix-starter.png",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "sha256": "70b797447c476a4b347fdeebbf2dbb67f50619825d49b366ae983ec73c787cb5",
+      "at": "2026-09-06T21:56:49.269056+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/art/kayfabe/onchain-512.avif",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "sha256": "d44f36b34509dc21712778e63923946682d6b31b852b5964a9a0c996a9dd5e5b",
+      "at": "2026-09-06T21:56:49.269056+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/art/kayfabe/beat-lab.html",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "sha256": "096d6539fe125f83f37344aee6b82eb1f8a77b9d874c59830505d1ddfb169110",
+      "at": "2026-09-06T21:56:49.269056+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/art/chroma.webp",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "sha256": "3413092a5a69b56b740270eb34c901fd5e07bfa607aa2b01ec27ac90e5ae8a3d",
+      "at": "2026-09-06T21:56:49.269056+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/art/solar.webp",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "sha256": "1a6ec4b3d5d1f662f158e20c6bd0327ef682c283846727cac6330f738b17b4c3",
+      "at": "2026-09-06T21:56:49.269056+00:00"
+    },
+    {
+      "url": "https://beacnpool.github.io/ABCDE/BMKR/art/tidal.webp",
+      "check": "current-public-release-byte-match",
+      "passed": true,
+      "sha256": "701866cfe8116f919ff18d36bd5e436c548c1ca4a95e68253af6db7d07909c87",
+      "at": "2026-09-06T21:56:49.269056+00:00"
+    },
+    {
+      "id": "creation-engine",
+      "check": "current-chain-byte-recovery",
+      "passed": true,
+      "at": "2026-09-06T21:56:49.269056+00:00"
+    }
+  ],
+  "summary": {
+    "catalogCreatorsAndPlans": 16,
+    "originalEntries": 15,
+    "nativeAssetChainRecoveries": 15,
+    "scrollProgramsRecovered": 2,
+    "publicCopies": 52,
+    "presets": 7,
+    "browserChecks": 10,
+    "allChecksPassed": true
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "upstream": "500d0c73b724060e477d9a5d88d31816ac68e341",
+  "originalWorkingTree": "clean, unchanged",
+  "browserReports": {
+    "browser-regression-verified": {
+      "passed": 37,
+      "failed": 0,
+      "pageErrors": 0,
+      "base": "http://127.0.0.1:8948/"
+    },
+    "studio-integration-final": {
+      "passed": 9,
+      "failed": 0,
+      "pageErrors": 0,
+      "base": "http://127.0.0.1:8948/"
+    },
+    "studio-integration-prefix": {
+      "passed": 9,
+      "failed": 0,
+      "pageErrors": 0,
+      "base": "http://127.0.0.1:8949/NFT-Studio/tools/ledger/"
+    }
+  },
+  "protocolVectors": {
+    "python": 32,
+    "javascript": 31
+  },
+  "schemas": 17,
+  "pythonReaderTests": 26,
+  "pythonRegistryToolingTests": 11,
+  "frozenFilesIntact": 11,
+  "sourceChecks": [
+    "inline JavaScript and TTL",
+    "cost model synchronization",
+    "mirror lists",
+    "generated navigation"
+  ],
+  "changedUpstreamFiles": [
+    "calculator.html",
+    "index.html",
+    "ledger-book.html",
+    "sw.js"
+  ],
+  "newFiles": [
+    "studio-bridge.js",
+    "studio-ledger-client.mjs",
+    "studio-theme.css",
+    "studio-tx-guard.js"
+  ],
+  "fileCount": 205,
+  "sourceBytes": 3615799,
+  "scope": "All network submissions and indexer data in browser tests are intercepted synthetic fixtures. No real wallet, key file, mainnet submit, node action, push or deployment."
+}

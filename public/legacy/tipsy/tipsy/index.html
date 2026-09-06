@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tipsy Turtles_Bonus Snippet_1 — on chain</title>
+<meta name="description" content="Tipsy Turtles_Bonus Snippet_1 redrawn as vector art and stored entirely inside its minting transaction — 14,349 bytes, no IPFS, no gateway.">
+<link rel="canonical" href="https://beacnpool.github.io/ABCDE/tipsy/tipsy/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://beacnpool.github.io/ABCDE/tipsy/tipsy/">
+<meta property="og:title" content="Tipsy Turtles_Bonus Snippet_1 — on chain">
+<meta property="og:description" content="Tipsy Turtles_Bonus Snippet_1 redrawn as vector art and stored entirely inside its minting transaction — 14,349 bytes, no IPFS, no gateway.">
+<meta property="og:image" content="https://beacnpool.github.io/ABCDE/tipsy/tipsy/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tipsy Turtles_Bonus Snippet_1 — on chain">
+<meta name="twitter:description" content="Tipsy Turtles_Bonus Snippet_1 redrawn as vector art and stored entirely inside its minting transaction — 14,349 bytes, no IPFS, no gateway.">
+<meta name="twitter:image" content="https://beacnpool.github.io/ABCDE/tipsy/tipsy/og.png">
+<style>
+*{box-sizing:border-box}
+:root{--bg:#0d0d10;--panel:#16161b;--line:#2a2a33;--ink:#f2f2f4;--dim:#8b8b96;
+      --gold:#ffc94a;--red:#e5484d;--ok:#3dd68c;--warn:#f5a524}
+html,body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.55 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:30px 18px 60px}
+.kicker{font:700 12px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--dim)}
+h1{margin:8px 0 0;font:800 clamp(28px,6vw,46px)/1.05 ui-sans-serif,system-ui,sans-serif;
+  letter-spacing:-.025em}
+h2{margin:38px 0 12px;font:800 clamp(19px,3.4vw,24px)/1.2 ui-sans-serif,system-ui,sans-serif;
+  letter-spacing:-.015em}
+p{margin:12px 0}
+a{color:var(--gold)}
+.sub{font-size:17px;color:#d5d5da;max-width:70ch}
+.sub b{color:var(--ink)}
+
+/* the two panels — same frame, two storage models */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+@media(max-width:720px){.vs{grid-template-columns:1fr}}
+.pane{border:1px solid var(--line);border-radius:14px;background:var(--panel);overflow:hidden}
+.pane .frame{aspect-ratio:1024/576;background:#0a0a0c;display:block;position:relative}
+.pane .frame img{width:100%;height:100%;display:block;object-fit:cover}
+.pane .meta{padding:13px 15px;font-size:13.5px;color:#c8c8d0;border-top:1px solid var(--line)}
+.pane .meta b{color:var(--ink)}
+.tag{display:inline-block;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.1em;
+  text-transform:uppercase;padding:6px 9px;border-radius:6px;margin-bottom:9px}
+.tag.ipfs{background:#3a2a12;color:var(--warn)}
+.tag.chain{background:#0f2a1c;color:var(--ok)}
+.dead{position:absolute;inset:0;display:none;place-items:center;padding:22px;text-align:center;
+  font-size:14px;color:var(--warn);background:#14100a}
+.dead.on{display:grid}
+code{font:13px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;overflow-wrap:anywhere;
+  color:#b9b9c4}
+
+.bar{height:9px;border-radius:5px;background:#26262e;overflow:hidden;margin:6px 0 3px}
+.bar i{display:block;height:100%;background:var(--ok)}
+
+table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14.5px}
+td{padding:9px 0;border-top:1px solid var(--line);vertical-align:top}
+td:first-child{color:var(--dim);width:34%}
+
+button{font:700 17px/1 inherit;padding:15px 20px;width:100%;border-radius:12px;
+  border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
+button:hover:not(:disabled){border-color:#3d3d47}
+button:disabled{opacity:.45;cursor:not-allowed}
+button.go{background:var(--ok);border-color:var(--ok);color:#04150c}
+.wallets{display:grid;gap:9px;margin-top:16px}
+.row{display:flex;align-items:center;justify-content:center;gap:10px}
+.row img{width:22px;height:22px;border-radius:5px}
+#status{margin-top:14px;padding:13px 15px;border-radius:11px;background:var(--panel);
+  border:1px solid var(--line);font-size:14.5px;display:none;overflow-wrap:anywhere}
+#status.on{display:block}
+#status.err{border-color:#7f1d1d;background:#1d1112}
+#status.ok{border-color:#14532d;background:#0f1a13}
+.clock{display:flex;gap:9px;margin-top:14px}
+.clock div{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:11px;
+  padding:11px 4px;text-align:center}
+.clock b{display:block;font:800 23px/1 ui-sans-serif,system-ui,sans-serif}
+.clock span{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--dim)}
+.note{margin-top:22px;padding:14px 16px;border:1px solid var(--line);
+  border-left:3px solid var(--warn);border-radius:0 11px 11px 0;background:var(--panel);
+  font-size:14px;color:#cfcfd6}
+.note b{color:var(--ink)}
+.credit{margin-top:22px;padding:14px 16px;border:1px solid var(--line);border-radius:11px;
+  background:var(--panel);font-size:14px;color:#cfcfd6}
+.hint{font-size:14px;color:var(--dim)}
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:13px;color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="nav"><a href="../">← all three frames</a></p>
+  <div class="kicker">Tipsy Turtles · frame 1 of 3</div>
+  <h1>Tipsy Turtles_Bonus Snippet_1</h1>
+  <p class="sub">Their file is a <b>2.12 MB</b> PNG
+     (2530x1414) pinned on IPFS. What is on Cardano is a <b>pointer</b> to it —
+     <code>ipfs://QmaHHqybfwzf…</code> — and a pointer is only as permanent as
+     whoever keeps paying to pin it.</p>
+  <p class="sub">On the right is the same frame redrawn as vector art and written
+     <b>into the minting transaction itself</b>: 9,854 bytes of SVG, no gateway,
+     no pin, no bill.</p>
+
+  <div class="vs">
+    <div class="pane">
+      <div class="frame">
+        <img id="theirs" src="https://c-ipfs-gw.nmkr.io/ipfs/QmaHHqybfwzfZHC9vJmuG7EV3aGnfwTmXRzUhQNUi1LzrT" alt="Tipsy Turtles_Bonus Snippet_1 from IPFS"
+             loading="lazy">
+        <div class="dead" id="deadgw"><div><b>The gateway did not answer.</b><br>
+          That is the entire point of this page.</div></div>
+      </div>
+      <div class="meta">
+        <span class="tag ipfs">stored on IPFS</span><br>
+        <b>Theirs.</b> Fetched live from <code>c-ipfs-gw.nmkr.io</code>, exactly as their auction
+        site fetches it. On chain there is only the pointer.
+      </div>
+    </div>
+    <div class="pane">
+      <div class="frame"><img id="art" alt="the same frame, decoded from the transaction"></div>
+      <div class="meta">
+        <span class="tag chain">stored on Cardano</span><br>
+        <b>Ours.</b> Decoded from the same base64 string that rides in the transaction
+        below. Nothing was fetched to draw it.
+        <div class="bar"><i style="width:87.6%"></i></div>
+        <span style="color:var(--dim)">14,349 of 16,384 bytes
+        &middot; 88% of one transaction</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>Mint it yourself</h2>
+  <p class="sub">Open policy, no signature required, <b>no payment output</b> — nobody
+     takes a cut. You pay the network fee and a min-UTxO that stays in your own wallet
+     holding the token. The window closes at the slot below, after which this policy is
+     dead forever.</p>
+
+  <div class="clock">
+    <div><b id="d">--</b><span>days</span></div>
+    <div><b id="h">--</b><span>hrs</span></div>
+    <div><b id="m">--</b><span>min</span></div>
+    <div><b id="s">--</b><span>sec</span></div>
+  </div>
+
+  <div id="pick" class="wallets"></div>
+  <p class="hint" id="nowallet" hidden>No wallet reached this page. To mint, open it in a
+     wallet's dapp browser — <b>Vespr</b> on a phone, or the <b>Eternl</b> extension on
+     desktop. An ordinary mobile browser cannot talk to your wallet.</p>
+  <div id="status"></div>
+
+  <table>
+    <tr><td>policy id</td><td><code id="pid">computing…</code></td></tr>
+    <tr><td>policy script</td>
+        <td><code>{ "type": "before", "slot": 196010381 }</code> — no signature
+        required, so anyone may mint until that slot</td></tr>
+    <tr><td>closes</td><td>24 Aug 2026 13:04 UTC</td></tr>
+    <tr><td>asset name</td><td><code>TIPSY&lt;8 hex&gt;</code> — derived from the
+        UTxO you spend, so every mint is a distinct token</td></tr>
+    <tr><td>image</td><td><code>9,854 bytes</code> of SVG, base64 in CIP-25 metadata</td></tr>
+    <tr><td>you pay</td><td><b>~0.79 ADA</b> network fee, plus
+        <b>~1.18 ADA</b> min-UTxO that stays in your wallet</td></tr>
+    <tr><td>creator takes</td><td><b>nothing</b> — there is no payment address in this
+        transaction</td></tr>
+  </table>
+
+  <h2>How faithful this one is</h2>
+  <p class="sub">A character bust with a hand-lettered subtitle. Stubble is individual strokes, not a hatch fill; the hat flap is drawn as its own lobe. Its caption, <b>DON'T WORRY ABOUT IT.</b>, is drawn as outline paths — a font would render with whatever fallback the viewer has and drift out of place, permanently. The silhouettes were traced from the colour regions of
+     the original and simplified until they fit the budget; the linework was rebuilt. Held
+     beside the original at full size the differences are visible — that is the honest
+     trade for a picture that never needs anything else to survive.</p>
+
+  <div class="credit">
+    <b>Attribution.</b> Tipsy Turtles own the artwork, the characters and the frames.
+    This is an unaffiliated technical demonstration made to show them what their own
+    work looks like with no IPFS under it — it is not an official Tipsy Turtles release
+    and does not claim to be. Their collection is at
+    <a href="https://tipsyturtles.nmkr.io/">tipsyturtles.nmkr.io</a> (policy
+    <code>b2dd37065c35e5d0…</code>) and they are on <a href="https://x.com/tipsy__turtles">X</a>.
+    If they would rather this did not exist, it comes down.
+  </div>
+  <div class="note">
+    <b>Open policy, honestly stated.</b> The policy requires no signature, which is what
+    makes the mint free and permissionless. It also means supply is unlimited and anyone
+    can mint anything under this policy id until the deadline. Do not treat this as a
+    scarce collectible — it is a proof of a storage method.
+  </div>
+
+  <footer>no backend · no tracking · your wallet builds, signs and submits the
+    transaction · <a href="../">all three frames</a></footer>
+
+</div>
+<script id="art-src" type="image/svg+xml"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576"><defs><path id="fp" d="M556 164Q557 164 584 166Q612 169 616 174Q619 178 631 182Q643 186 652 200Q661 210 663 225Q666 240 664 255Q662 265 663 270Q665 278 668 285Q672 293 673 300Q675 310 676 320Q676 335 675 350Q673 362 670 372Q666 383 662 392Q658 399 655 405Q650 410 645 414Q642 423 636 424Q629 424 631 445Q633 466 631 466Q629 467 629 474Q629 481 632 484Q634 487 632 498Q631 510 637 510Q643 511 623 514Q603 518 602 512Q602 507 597 504Q592 501 584 501Q577 501 576 511Q574 521 574 512Q574 503 580 502Q587 500 587 492Q587 483 579 482Q571 482 570 484Q570 486 566 474Q563 463 539 448Q515 432 512 432Q508 432 512 432Q515 431 515 422Q515 413 490 400Q464 387 456 378Q447 368 446 362Q446 355 439 355Q432 355 432 360Q431 364 428 364Q424 364 416 352Q407 341 410 323Q414 305 426 306Q439 308 440 290Q442 272 439 272Q436 271 437 258Q438 246 447 233Q456 220 479 202Q502 183 529 174Q556 165 556 164Z"/><clipPath id="fc"><use href="#fp"/></clipPath><path id="A" d="M0 28 8 0 16 28M3 19h10"/><path id="B" d="M0 28V0h8q8 0 8 7t-8 7H0m8 0q8 0 8 7t-8 7H0"/><path id="D" d="M0 0h7q9 0 9 14t-9 14H0z"/><path id="I" d="M2 0h12M8 0v28M2 28h12"/><path id="N" d="M0 28V0l16 28V0"/><path id="O" d="M8 0a8 14 0 0 0 0 28a8 14 0 0 0 0-28z"/><path id="R" d="M0 28V0h7q9 0 9 8t-9 8H0m7 0 9 12"/><path id="T" d="M0 0h16M8 0v28"/><path id="U" d="M0 0v18q0 10 8 10t8-10V0"/><path id="W" d="M0 0 4 28 8 12 12 28 16 0"/><path id="Y" d="M0 0 8 14 16 0M8 14v14"/><path id="k" d="M8 0v9"/><path id="p" d="M8 27v1"/><g id="cp" transform="translate(380 532)scale(0.73)"><use href="#D" x="0"/><use href="#O" x="20"/><use href="#N" x="40"/><use href="#k" x="60"/><use href="#T" x="72"/><use href="#W" x="102"/><use href="#O" x="122"/><use href="#R" x="142"/><use href="#R" x="162"/><use href="#Y" x="182"/><use href="#A" x="212"/><use href="#B" x="232"/><use href="#O" x="252"/><use href="#U" x="272"/><use href="#T" x="292"/><use href="#I" x="322"/><use href="#T" x="342"/><use href="#p" x="362"/></g></defs><path d="M0 0h1024v576H0z" fill="#b8e6f4"/><path d="M86 0h60v520H86z" fill="#425a98"/><path d="M86 0h7v520h-7zm25 0h10v520h-10zm29 0h7v520h-7z" fill="#0c0e14"/><path d="M840 0h50v448h-50z" fill="#425a98"/><path d="M840 0h9v448h-9zm23 0h9v448h-9zm19 0h8v448h-8z" fill="#0c0e14"/><path d="M0 508h446v68H0z" fill="#3b4b7c"/><path d="M0 543h446v33H0z" fill="#0e1454"/><path d="M0 505h446v8H0z" fill="#0c0e14"/><path d="M660 466 1024 414v162H660z" fill="#0e1454"/><path d="M660 466 1024 414v24L660 490z" fill="#3b4b7c"/><path d="M660 461 1024 409v8L660 469z" fill="#0c0e14"/><path d="M892 478h132v98H892z" fill="#1d1d1d"/><path d="M892 478h132v8H892z" fill="#4a4a4a"/><g stroke="#161616" stroke-width="6" stroke-linejoin="round"><path d="M454 244Q455 244 463 261Q471 278 491 290Q511 302 478 291Q446 280 445 300Q444 319 430 316Q416 313 415 334Q414 356 417 360Q420 365 432 362Q444 358 454 374Q463 389 487 401Q511 413 510 420Q510 427 500 430Q489 432 489 440Q489 448 479 446Q469 444 459 453Q449 462 449 470Q449 478 465 485Q481 492 489 502Q497 513 504 533Q511 553 506 560Q500 567 496 561Q491 555 436 554Q381 554 382 547Q384 540 441 539Q498 538 492 518Q487 499 465 488Q443 478 418 484Q393 489 359 528Q325 567 262 567Q200 567 200 540Q200 514 208 512Q216 511 217 429Q218 347 228 322Q239 298 260 282Q282 265 314 257Q346 249 368 286Q389 324 398 325Q407 326 420 289Q432 252 434 249Q436 246 436 253Q437 260 445 260Q453 260 454 252Q454 245 454 244Z" fill="#161616"/><use href="#fp" fill="#f6cfc6"/><path d="M377 287Q392 295 409 289Q415 306 402 323Q384 324 376 305Z" fill="#f6cfc6" stroke="none"/><g clip-path="url(#fc)" fill="none" stroke="#2a1a14" stroke-linecap="round"><path d="M634 407 L626 373M498 395 L499 399M570 424 L567 399M591 488 L594 494M535 398 L535 406M563 314 L556 323M633 376 L631 371M569 325 L574 313M448 355 L453 362M536 333 L539 321M494 396 L490 384M471 366 L473 385M581 324 L585 312M624 396 L630 415M520 414 L519 396M542 413 L543 419M518 364 L517 356M643 399 L643 392M567 313 L562 324M515 346 L517 355M529 340 L532 324M554 423 L554 395M512 352 L514 366 L512 370M528 413 L527 396M604 422 L598 385M508 361 L511 370M613 316 L611 311M522 342 L521 332M523 394 L524 416M601 309 L602 319M589 313 L588 324M455 365 L461 378M521 420 L519 429M570 389 L573 418M579 389 L580 403M539 343 L544 340M636 387 L634 382M463 373 L465 380M419 317 L431 333M547 321 L551 313M594 395 L594 401M517 336 L520 350M533 408 L534 416M511 371 L513 379M624 315 L618 307M592 402 L591 395M621 416 L616 393M575 327 L581 314M579 403 L577 395M602 386 L608 421M426 354 L418 347 L415 340M560 411 L562 418M535 407 L536 415M594 311 L593 321M574 365 L628 353M590 410 L593 424M599 322 L598 310M570 281 L567 286 L568 296 L575 300 L587 300 L615 290 L619 284 L618 279M523 343 L527 329M567 467 L574 476 L579 477M596 413 L594 407M533 346 L538 344M633 309 L627 302M591 394 L590 386M546 395 L549 421M544 418 L543 413M636 377 L642 391M606 381 L613 419M519 415 L516 413 L515 406 L511 404 L506 383M506 369 L512 391M594 393 L593 388M624 304 L631 312M589 404 L585 391M613 309 L618 315M621 376 L621 371M477 376 L478 388M503 392 L508 406M608 320 L605 310M531 397 L533 407M553 321 L558 313M625 499 L627 484" stroke-width="1.4"/><path d="M541 399 L543 412M428 311 L437 312M561 424 L554 423M571 425 L580 425M417 318 L416 330 L422 341M554 423 L549 422M445 321 L439 315M564 424 L569 425M525 417 L533 419M639 326 L629 333 L589 344 L564 348 L544 348 L539 345M622 417 L628 416M438 312 L441 303M594 425 L604 423M621 417 L614 420M563 418 L562 410M521 350 L522 344M586 424 L585 406M438 348 L433 349M561 409 L562 393M581 424 L580 404M484 381 L490 395M592 425 L587 425M462 360 L463 372" stroke-width="3"/></g><path d="M518 84Q519 83 542 84Q566 85 596 92Q625 98 629 109Q633 120 633 138Q633 156 636 166Q638 176 628 171Q618 166 600 163Q581 160 565 161Q549 162 530 168Q511 175 498 182Q486 189 486 194Q485 198 478 200Q471 201 458 215Q445 229 434 248Q423 267 417 288Q411 308 410 304Q408 299 400 293Q392 287 384 288Q376 289 376 294Q375 299 364 284Q352 268 350 250Q347 231 341 219Q335 207 334 194Q333 181 362 164Q392 146 410 130Q427 114 461 100Q495 86 506 85Q518 84 518 84Z" fill="#ad614a"/><path d="M400 158Q360 150 336 176Q328 210 348 258Q360 292 382 300Q404 286 396 244Q384 200 400 170Z" fill="#ad614a"/><path d="M482 186q-38 30-64 60-20 32-22 62" fill="none" stroke="#8f4d38" stroke-width="4"/><path d="M366 172q-14 34-8 62" fill="none" stroke="#8f4d38" stroke-width="4"/><path d="M618 96q18 4 16 28" fill="none" stroke="#8f4d38" stroke-width="4"/><circle cx="508" cy="251" r="45" fill="#fff"/><circle cx="616" cy="222" r="42" fill="#fff"/><ellipse cx="618" cy="228" rx="7" ry="16" fill="#161616"/><path d="M492 252q12-8 24 0" fill="none" stroke="#161616" stroke-width="4" stroke-linecap="round"/><path d="M461 266 434 284l4 24 19-16z" fill="#161616" stroke="none"/><g fill="none" stroke="#161616"><circle cx="508" cy="251" r="49" stroke-width="8"/><circle cx="616" cy="222" r="46" stroke-width="9"/></g><path d="M300 550h241v26H300z" fill="#572f23"/><path d="M541 550h39v26h-39z" fill="#febb4e"/><path d="M578 550h120v26H578z" fill="#301e1b"/><path d="M696 550h30v26h-30z" fill="#febb4e"/><path d="M724 550h144v26H724z" fill="#703a2d"/><path d="M673 416Q673 416 682 422Q691 429 710 434Q729 438 794 504Q859 569 778 570Q697 570 694 560Q691 551 699 551Q707 551 708 546Q708 540 696 512Q683 485 678 484Q673 484 678 474Q684 464 678 440Q673 417 673 416Z" fill="#703a2d"/><path d="M641 404Q650 420 655 432Q660 444 663 456L667 452Q662 438 657 426Q650 412 645 400Z" fill="#703a2d"/><path d="M490 400Q490 400 494 405Q499 410 506 410Q514 410 516 406Q518 401 530 403Q543 405 544 409Q544 413 532 416Q521 419 520 422Q520 426 518 420Q516 414 505 412Q494 410 492 416Q491 422 484 421Q476 420 476 426Q476 432 490 448Q504 463 525 476Q546 490 541 490Q536 491 538 517Q539 543 542 544Q546 544 546 549Q547 554 554 554Q560 554 551 554Q542 554 542 562Q541 570 540 564Q538 559 526 558Q513 556 478 556Q442 556 412 563Q383 570 354 570Q324 570 358 530Q392 491 414 485Q435 479 456 459Q476 439 477 424Q478 409 484 405Q490 401 490 400Z" fill="#572f23"/><path d="M480 492Q480 492 487 499Q494 506 499 521Q504 536 519 536Q534 536 534 540Q535 545 553 543Q571 541 571 528Q571 516 580 519Q588 522 630 514Q672 505 681 528Q690 552 710 550Q729 548 729 558Q729 569 724 566Q718 562 708 562Q699 562 698 566Q698 569 638 569Q577 569 576 562Q574 554 558 554Q542 554 542 562Q541 569 510 569Q480 569 480 554Q480 539 489 538Q498 536 497 525Q496 514 488 504Q480 493 480 492Z" fill="#301e1b"/><path d="M630 418Q630 418 638 422Q646 427 650 436Q655 444 658 467Q661 490 664 491Q666 492 668 498Q670 504 624 512Q578 520 576 518Q573 516 572 500Q571 485 568 477Q564 469 586 488Q609 507 616 508Q623 510 628 489Q634 468 632 444Q630 419 630 418Z" fill="#ffffff"/><path d="M482 404Q482 403 488 406Q494 409 494 418Q494 426 526 446Q559 467 559 512Q559 556 554 557Q548 558 544 555Q539 552 540 546Q540 539 535 539Q530 539 526 546Q522 552 496 551Q470 550 472 544Q473 539 479 538Q485 537 486 540Q486 543 490 543Q495 543 496 540Q498 538 519 538Q540 537 538 510Q537 482 508 458Q478 433 480 418Q482 404 482 404Z" fill="#febb4e"/><path d="M543 456L557 464L563 472L566 480L568 488L569 496L570 505L570 513L570 521L570 530L544 530L544 522L544 514L544 506L543 498L542 490L540 482L536 474L531 466L544 456Z" fill="#febb4e"/><path d="M658 398Q658 397 668 414Q678 430 680 440Q683 450 681 466Q679 481 694 516Q710 550 706 554Q703 559 698 554Q692 548 678 518Q665 487 664 460Q662 432 656 420Q651 407 654 402Q658 398 658 398Z" fill="#febb4e"/><g fill="none" stroke="#febb4e" stroke-width="8"><circle cx="706" cy="558" r="12"/><path d="M718 556h20"/></g><ellipse cx="744" cy="556" rx="7" ry="10" fill="#febb4e"/></g><g fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#cp" stroke="#603428" stroke-width="11"/><use href="#cp" stroke="#ffff69" stroke-width="5"/></g></svg></script>
+<script type="module">
+const ANCHOR_SLOT = 193727336, ANCHOR_UNIX = 1785293627;
+const DEADLINE_SLOT = 196010381, TICKER = 'TIPSY';
+const DISPLAY = 'Tipsy Turtles_Bonus Snippet_1 (on-chain demo)', META_DESC = "Tipsy Turtles_Bonus Snippet_1, redrawn as vector art and stored entirely inside this transaction. No IPFS, no gateway, no pin. Artwork and characters are Tipsy Turtles'.";
+// The art is read out of the page and base64'd here, so what the right-hand panel
+// renders and what goes on chain are the SAME bytes by construction — there is no
+// second copy that could drift. textContent.trim() is why the .svg file must not
+// end with a newline.
+const B64 = btoa(String.fromCharCode(...new TextEncoder().encode(
+  document.getElementById('art-src').textContent.trim())));
+const ART = 'data:image/svg+xml;base64,' + B64;
+const $ = id => document.getElementById(id);
+const nowSlot = () => ANCHOR_SLOT + Math.floor(Date.now() / 1000) - ANCHOR_UNIX;
+const pad = n => String(n).padStart(2, '0');
+function parts(slot) {
+  let s = slot - nowSlot(); if (s < 0) s = 0;
+  return [Math.floor(s / 86400), Math.floor(s % 86400 / 3600), Math.floor(s % 3600 / 60), s % 60, s];
+}
+const hasWallet = () => {
+  const c = window.cardano || {};
+  return Object.keys(c).some(k => c[k] && typeof c[k].enable === 'function' && c[k].apiVersion);
+};
+// Extensions inject window.cardano AFTER load, so a bare check would flash the hint at
+// desktop users who do have a wallet. Poll ~3s, then conclude.
+async function walletHint() {
+  for (let i = 0; i < 30; i++) {
+    if (hasWallet()) return true;
+    await new Promise(r => setTimeout(r, 100));
+  }
+  const el = $('nowallet'); if (el) el.hidden = false;
+  return false;
+}
+
+const PP = {feeA:'44', feeB:'155381', utxoByte:'4310', maxTx:16384, maxVal:5000,
+            poolDep:'500000000', keyDep:'2000000'};
+const CDN = 'https://cdn.jsdelivr.net/npm/@emurgo/cardano-serialization-lib-browser@15.0.3/';
+$('art').src = ART;
+
+// If their gateway does not answer, say so in the panel rather than showing a broken
+// image icon. A silent broken image would weaken exactly the point being made.
+$('theirs').addEventListener('error', () => { $('deadgw').classList.add('on'); });
+
+const hex = b => [...b].map(x => x.toString(16).padStart(2, '0')).join('');
+const unhex = s => new Uint8Array(s.match(/../g).map(x => parseInt(x, 16)));
+function say(msg, kind) { const el = $('status'); el.className = 'on ' + (kind || ''); el.innerHTML = msg; }
+
+function tick() {
+  const [d, h, m, s, left] = parts(DEADLINE_SLOT);
+  $('d').textContent = d; $('h').textContent = pad(h);
+  $('m').textContent = pad(m); $('s').textContent = pad(s);
+  if (!left) {
+    $('pick').innerHTML = '';
+    say('<b>The mint window has closed.</b> The policy expired at slot ' + DEADLINE_SLOT +
+        '. Nothing further can ever be minted under this policy id.', 'err');
+  }
+}
+tick(); setInterval(tick, 1000);
+
+let CSL, script, policyId;
+async function loadCSL() {
+  const bg = await import(CDN + 'cardano_serialization_lib_bg.js');
+  const { instance } = await WebAssembly.instantiateStreaming(
+    fetch(CDN + 'cardano_serialization_lib_bg.wasm'),
+    { './cardano_serialization_lib_bg.js': bg });
+  bg.__wbg_set_wasm(instance.exports);
+  if (instance.exports.__wbindgen_start) instance.exports.__wbindgen_start();
+  CSL = bg;
+  script = CSL.NativeScript.new_timelock_expiry(
+    CSL.TimelockExpiry.new_timelockexpiry(CSL.BigNum.from_str(String(DEADLINE_SLOT))));
+  policyId = script.hash();
+  $('pid').textContent = hex(policyId.to_bytes());
+}
+
+function listWallets() {
+  const c = window.cardano || {};
+  const keys = Object.keys(c).filter(k => c[k] && typeof c[k].enable === 'function' && c[k].apiVersion);
+  const box = $('pick');
+  if (!keys.length) {
+    box.innerHTML = '<button disabled>No wallet here — open this page in a dapp browser</button>';
+    return;
+  }
+  box.innerHTML = '';
+  for (const k of keys) {
+    const b = document.createElement('button');
+    b.innerHTML = `<span class="row">${c[k].icon ? `<img src="${c[k].icon}" alt="">` : ''}
+                   <span>Mint with ${c[k].name || k}</span></span>`;
+    b.className = 'go';
+    b.onclick = () => mint(k, b);
+    box.appendChild(b);
+  }
+}
+
+async function mint(key, btn) {
+  const all = [...document.querySelectorAll('#pick button')];
+  all.forEach(b => b.disabled = true);
+  try {
+    if (nowSlot() >= DEADLINE_SLOT) throw new Error('The mint window has closed.');
+    say('Connecting to your wallet…');
+    const api = await window.cardano[key].enable();
+
+    const netId = await api.getNetworkId();
+    if (netId !== 1) throw new Error('Switch your wallet to mainnet (it is on the testnet).');
+
+    const addr = CSL.Address.from_bytes(unhex(await api.getChangeAddress()));
+    const raw = await api.getUtxos();
+    if (!raw || !raw.length) throw new Error('That wallet has no UTxOs — it needs a little ADA.');
+    const utxos = raw.map(h => CSL.TransactionUnspentOutput.from_hex(h));
+
+    // Spend one specific UTxO as the "seed". Because it is consumed, the asset name
+    // derived from it can never be produced twice -> every mint is a unique token.
+    const pure = utxos.filter(u => !u.output().amount().multiasset() ||
+                                    u.output().amount().multiasset().len() === 0);
+    const pool = (pure.length ? pure : utxos).slice().sort((a, b) =>
+      Number(b.output().amount().coin().to_str()) - Number(a.output().amount().coin().to_str()));
+    const seed = pool[0];
+    const nameStr = TICKER + hex(seed.input().transaction_id().to_bytes()).slice(0, 8);
+    const assetName = CSL.AssetName.new(new TextEncoder().encode(nameStr));
+
+    say('Building the transaction — the whole picture goes in it…');
+
+    // every metadata string is capped at 64 BYTES by the ledger, so long values
+    // become arrays of chunks — consumers concatenate them back
+    const cut = s => s.match(/.{1,64}/g);
+    const uri = 'data:image/svg+xml;base64,' + B64;
+    const meta = {};
+    meta[hex(policyId.to_bytes())] = {};
+    meta[hex(policyId.to_bytes())][nameStr] = {
+      name: DISPLAY, mediaType: 'image/svg+xml', image: cut(uri),
+      description: cut(META_DESC)
+    };
+    const aux = CSL.AuxiliaryData.new();
+    const gtm = CSL.GeneralTransactionMetadata.new();
+    gtm.insert(CSL.BigNum.from_str('721'),
+      CSL.encode_json_str_to_metadatum(JSON.stringify(meta), CSL.MetadataJsonSchema.NoConversions));
+    aux.set_metadata(gtm);
+
+    const cfg = CSL.TransactionBuilderConfigBuilder.new()
+      .fee_algo(CSL.LinearFee.new(CSL.BigNum.from_str(PP.feeA), CSL.BigNum.from_str(PP.feeB)))
+      .pool_deposit(CSL.BigNum.from_str(PP.poolDep))
+      .key_deposit(CSL.BigNum.from_str(PP.keyDep))
+      .max_value_size(PP.maxVal).max_tx_size(PP.maxTx)
+      .coins_per_utxo_byte(CSL.BigNum.from_str(PP.utxoByte))
+      .build();
+    const tb = CSL.TransactionBuilder.new(cfg);
+
+    const mb = CSL.MintBuilder.new();
+    mb.add_asset(CSL.MintWitness.new_native_script(CSL.NativeScriptSource.new(script)),
+                 assetName, CSL.Int.new_i32(1));
+    tb.set_mint_builder(mb);
+    tb.set_auxiliary_data(aux);
+    // the timelock only passes if the tx says it is invalid at/after the deadline
+    tb.set_ttl_bignum(CSL.BigNum.from_str(String(Math.min(DEADLINE_SLOT, nowSlot() + 7200))));
+
+    const ma = CSL.MultiAsset.new(), assets = CSL.Assets.new();
+    assets.insert(assetName, CSL.BigNum.from_str('1'));
+    ma.insert(CSL.ScriptHash.from_bytes(policyId.to_bytes()), assets);
+    const probe = CSL.Value.new(CSL.BigNum.from_str('2000000')); probe.set_multiasset(ma);
+    const minAda = CSL.min_ada_for_output(CSL.TransactionOutput.new(addr, probe),
+      CSL.DataCost.new_coins_per_byte(CSL.BigNum.from_str(PP.utxoByte)));
+    const val = CSL.Value.new(minAda); val.set_multiasset(ma);
+    tb.add_output(CSL.TransactionOutput.new(addr, val));
+
+    tb.add_regular_input(seed.output().address(), seed.input(), seed.output().amount());
+    const rest = CSL.TransactionUnspentOutputs.new();
+    utxos.forEach(u => { if (u !== seed) rest.add(u); });
+    if (rest.len()) {
+      try { tb.add_inputs_from(rest, CSL.CoinSelectionStrategyCIP2.LargestFirst); } catch (e) {}
+    }
+    tb.add_change_if_needed(addr);
+
+    const tx = tb.build_tx();
+    const size = tx.to_bytes().length;
+    if (size > PP.maxTx) throw new Error(`Transaction is ${size} bytes, over the ${PP.maxTx} limit.`);
+    const fee = Number(tx.body().fee().to_str()) / 1e6;
+
+    say(`Sign to mint <b>${nameStr}</b>.<br>Fee ${fee.toFixed(3)} ADA · ` +
+        `${(Number(minAda.to_str()) / 1e6).toFixed(3)} ADA stays with your token · ` +
+        `tx ${size.toLocaleString()} / ${PP.maxTx.toLocaleString()} bytes.`);
+
+    const unsignedHex = hex(tx.to_bytes());
+    const wsHex = await api.signTx(unsignedHex, true);
+
+    // Merge the wallet's signature into a FixedTransaction, which keeps the ORIGINAL
+    // body bytes. Rebuilding the tx instead can re-serialise the body differently and
+    // silently invalidate the signature the wallet just produced.
+    const ftx = CSL.FixedTransaction.from_hex(unsignedHex);
+    const vk = CSL.TransactionWitnessSet.from_hex(wsHex).vkeys();
+    if (!vk || !vk.len()) throw new Error('The wallet returned no signature.');
+    for (let i = 0; i < vk.len(); i++) ftx.add_vkey_witness(vk.get(i));
+
+    say('Submitting…');
+    const txHash = await api.submitTx(hex(ftx.to_bytes()));
+    say(`<b>Minted.</b> ${nameStr} is yours, picture and all, on chain forever.<br>` +
+        `<a href="https://cexplorer.io/tx/${txHash}" target="_blank" rel="noopener">${txHash}</a>`, 'ok');
+  } catch (e) {
+    const m = (e && (e.info || e.message)) || String(e);
+    say('<b>Not minted.</b> ' + m, 'err');
+    all.forEach(b => b.disabled = false);
+  }
+}
+
+try { await loadCSL(); listWallets(); walletHint(); }
+catch (e) { say('Could not load the Cardano library: ' + e, 'err'); }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tipsy Turtles_Bonus Snippet_2 — on chain</title>
+<meta name="description" content="Tipsy Turtles_Bonus Snippet_2 redrawn as vector art and stored entirely inside its minting transaction — 7,182 bytes, no IPFS, no gateway.">
+<link rel="canonical" href="https://beacnpool.github.io/ABCDE/tipsy/vote/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://beacnpool.github.io/ABCDE/tipsy/vote/">
+<meta property="og:title" content="Tipsy Turtles_Bonus Snippet_2 — on chain">
+<meta property="og:description" content="Tipsy Turtles_Bonus Snippet_2 redrawn as vector art and stored entirely inside its minting transaction — 7,182 bytes, no IPFS, no gateway.">
+<meta property="og:image" content="https://beacnpool.github.io/ABCDE/tipsy/vote/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tipsy Turtles_Bonus Snippet_2 — on chain">
+<meta name="twitter:description" content="Tipsy Turtles_Bonus Snippet_2 redrawn as vector art and stored entirely inside its minting transaction — 7,182 bytes, no IPFS, no gateway.">
+<meta name="twitter:image" content="https://beacnpool.github.io/ABCDE/tipsy/vote/og.png">
+<style>
+*{box-sizing:border-box}
+:root{--bg:#0d0d10;--panel:#16161b;--line:#2a2a33;--ink:#f2f2f4;--dim:#8b8b96;
+      --gold:#ffc94a;--red:#e5484d;--ok:#3dd68c;--warn:#f5a524}
+html,body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.55 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:30px 18px 60px}
+.kicker{font:700 12px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--dim)}
+h1{margin:8px 0 0;font:800 clamp(28px,6vw,46px)/1.05 ui-sans-serif,system-ui,sans-serif;
+  letter-spacing:-.025em}
+h2{margin:38px 0 12px;font:800 clamp(19px,3.4vw,24px)/1.2 ui-sans-serif,system-ui,sans-serif;
+  letter-spacing:-.015em}
+p{margin:12px 0}
+a{color:var(--gold)}
+.sub{font-size:17px;color:#d5d5da;max-width:70ch}
+.sub b{color:var(--ink)}
+
+/* the two panels — same frame, two storage models */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+@media(max-width:720px){.vs{grid-template-columns:1fr}}
+.pane{border:1px solid var(--line);border-radius:14px;background:var(--panel);overflow:hidden}
+.pane .frame{aspect-ratio:1024/576;background:#0a0a0c;display:block;position:relative}
+.pane .frame img{width:100%;height:100%;display:block;object-fit:cover}
+.pane .meta{padding:13px 15px;font-size:13.5px;color:#c8c8d0;border-top:1px solid var(--line)}
+.pane .meta b{color:var(--ink)}
+.tag{display:inline-block;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.1em;
+  text-transform:uppercase;padding:6px 9px;border-radius:6px;margin-bottom:9px}
+.tag.ipfs{background:#3a2a12;color:var(--warn)}
+.tag.chain{background:#0f2a1c;color:var(--ok)}
+.dead{position:absolute;inset:0;display:none;place-items:center;padding:22px;text-align:center;
+  font-size:14px;color:var(--warn);background:#14100a}
+.dead.on{display:grid}
+code{font:13px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;overflow-wrap:anywhere;
+  color:#b9b9c4}
+
+.bar{height:9px;border-radius:5px;background:#26262e;overflow:hidden;margin:6px 0 3px}
+.bar i{display:block;height:100%;background:var(--ok)}
+
+table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14.5px}
+td{padding:9px 0;border-top:1px solid var(--line);vertical-align:top}
+td:first-child{color:var(--dim);width:34%}
+
+button{font:700 17px/1 inherit;padding:15px 20px;width:100%;border-radius:12px;
+  border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
+button:hover:not(:disabled){border-color:#3d3d47}
+button:disabled{opacity:.45;cursor:not-allowed}
+button.go{background:var(--ok);border-color:var(--ok);color:#04150c}
+.wallets{display:grid;gap:9px;margin-top:16px}
+.row{display:flex;align-items:center;justify-content:center;gap:10px}
+.row img{width:22px;height:22px;border-radius:5px}
+#status{margin-top:14px;padding:13px 15px;border-radius:11px;background:var(--panel);
+  border:1px solid var(--line);font-size:14.5px;display:none;overflow-wrap:anywhere}
+#status.on{display:block}
+#status.err{border-color:#7f1d1d;background:#1d1112}
+#status.ok{border-color:#14532d;background:#0f1a13}
+.clock{display:flex;gap:9px;margin-top:14px}
+.clock div{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:11px;
+  padding:11px 4px;text-align:center}
+.clock b{display:block;font:800 23px/1 ui-sans-serif,system-ui,sans-serif}
+.clock span{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--dim)}
+.note{margin-top:22px;padding:14px 16px;border:1px solid var(--line);
+  border-left:3px solid var(--warn);border-radius:0 11px 11px 0;background:var(--panel);
+  font-size:14px;color:#cfcfd6}
+.note b{color:var(--ink)}
+.credit{margin-top:22px;padding:14px 16px;border:1px solid var(--line);border-radius:11px;
+  background:var(--panel);font-size:14px;color:#cfcfd6}
+.hint{font-size:14px;color:var(--dim)}
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:13px;color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="nav"><a href="../">← all three frames</a></p>
+  <div class="kicker">Tipsy Turtles · frame 3 of 3</div>
+  <h1>Tipsy Turtles_Bonus Snippet_2</h1>
+  <p class="sub">Their file is a <b>0.49 MB</b> PNG
+     (2543x1429) pinned on IPFS. What is on Cardano is a <b>pointer</b> to it —
+     <code>ipfs://QmVw9uSfVeqW…</code> — and a pointer is only as permanent as
+     whoever keeps paying to pin it.</p>
+  <p class="sub">On the right is the same frame redrawn as vector art and written
+     <b>into the minting transaction itself</b>: 4,630 bytes of SVG, no gateway,
+     no pin, no bill.</p>
+
+  <div class="vs">
+    <div class="pane">
+      <div class="frame">
+        <img id="theirs" src="https://c-ipfs-gw.nmkr.io/ipfs/QmVw9uSfVeqWT5LxfVgZX9mtMsfe2ZKCU3wYkkF6JWcGxb" alt="Tipsy Turtles_Bonus Snippet_2 from IPFS"
+             loading="lazy">
+        <div class="dead" id="deadgw"><div><b>The gateway did not answer.</b><br>
+          That is the entire point of this page.</div></div>
+      </div>
+      <div class="meta">
+        <span class="tag ipfs">stored on IPFS</span><br>
+        <b>Theirs.</b> Fetched live from <code>c-ipfs-gw.nmkr.io</code>, exactly as their auction
+        site fetches it. On chain there is only the pointer.
+      </div>
+    </div>
+    <div class="pane">
+      <div class="frame"><img id="art" alt="the same frame, decoded from the transaction"></div>
+      <div class="meta">
+        <span class="tag chain">stored on Cardano</span><br>
+        <b>Ours.</b> Decoded from the same base64 string that rides in the transaction
+        below. Nothing was fetched to draw it.
+        <div class="bar"><i style="width:43.8%"></i></div>
+        <span style="color:var(--dim)">7,182 of 16,384 bytes
+        &middot; 44% of one transaction</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>Mint it yourself</h2>
+  <p class="sub">Open policy, no signature required, <b>no payment output</b> — nobody
+     takes a cut. You pay the network fee and a min-UTxO that stays in your own wallet
+     holding the token. The window closes at the slot below, after which this policy is
+     dead forever.</p>
+
+  <div class="clock">
+    <div><b id="d">--</b><span>days</span></div>
+    <div><b id="h">--</b><span>hrs</span></div>
+    <div><b id="m">--</b><span>min</span></div>
+    <div><b id="s">--</b><span>sec</span></div>
+  </div>
+
+  <div id="pick" class="wallets"></div>
+  <p class="hint" id="nowallet" hidden>No wallet reached this page. To mint, open it in a
+     wallet's dapp browser — <b>Vespr</b> on a phone, or the <b>Eternl</b> extension on
+     desktop. An ordinary mobile browser cannot talk to your wallet.</p>
+  <div id="status"></div>
+
+  <table>
+    <tr><td>policy id</td><td><code id="pid">computing…</code></td></tr>
+    <tr><td>policy script</td>
+        <td><code>{ "type": "before", "slot": 196010383 }</code> — no signature
+        required, so anyone may mint until that slot</td></tr>
+    <tr><td>closes</td><td>24 Aug 2026 13:04 UTC</td></tr>
+    <tr><td>asset name</td><td><code>VOTE&lt;8 hex&gt;</code> — derived from the
+        UTxO you spend, so every mint is a distinct token</td></tr>
+    <tr><td>image</td><td><code>4,630 bytes</code> of SVG, base64 in CIP-25 metadata</td></tr>
+    <tr><td>you pay</td><td><b>~0.47 ADA</b> network fee, plus
+        <b>~1.17 ADA</b> min-UTxO that stays in your wallet</td></tr>
+    <tr><td>creator takes</td><td><b>nothing</b> — there is no payment address in this
+        transaction</td></tr>
+  </table>
+
+  <h2>How faithful this one is</h2>
+  <p class="sub">A user interface, which is vector-native content photographed as a raster. This is the one that comes back essentially exact. The silhouettes were traced from the colour regions of
+     the original and simplified until they fit the budget; the linework was rebuilt. Held
+     beside the original at full size the differences are visible — that is the honest
+     trade for a picture that never needs anything else to survive.</p>
+
+  <div class="credit">
+    <b>Attribution.</b> Tipsy Turtles own the artwork, the characters and the frames.
+    This is an unaffiliated technical demonstration made to show them what their own
+    work looks like with no IPFS under it — it is not an official Tipsy Turtles release
+    and does not claim to be. Their collection is at
+    <a href="https://tipsyturtles.nmkr.io/">tipsyturtles.nmkr.io</a> (policy
+    <code>b2dd37065c35e5d0…</code>) and they are on <a href="https://x.com/tipsy__turtles">X</a>.
+    If they would rather this did not exist, it comes down.
+  </div>
+  <div class="note">
+    <b>Open policy, honestly stated.</b> The policy requires no signature, which is what
+    makes the mint free and permissionless. It also means supply is unlimited and anyone
+    can mint anything under this policy id until the deadline. Do not treat this as a
+    scarce collectible — it is a proof of a storage method.
+  </div>
+
+  <footer>no backend · no tracking · your wallet builds, signs and submits the
+    transaction · <a href="../">all three frames</a></footer>
+
+</div>
+<script id="art-src" type="image/svg+xml"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576"><defs><pattern id="pv" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0 0h6v13H0z" fill="#d9ae1c"/></pattern><pattern id="ph" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0 0h13v6H0z" fill="#d9ae1c"/></pattern><path id="D" d="M0 0h7q9 0 9 14t-9 14H0z"/><path id="E" d="M16 0H0v28h16M0 14h12"/><path id="F" d="M16 0H0v28M0 14h11"/><path id="M" d="M0 28V0l8 15 8-15v28"/><path id="N" d="M0 28V0l16 28V0"/><path id="O" d="M8 0a8 14 0 0 0 0 28a8 14 0 0 0 0-28z"/><path id="S" d="M15 4Q8-2 3 5t6 9 6 10-13 2"/><path id="T" d="M0 0h16M8 0v28"/><path id="V" d="M0 0 8 28 16 0"/><path id="Y" d="M0 0 8 14 16 0M8 14v14"/><path id="lc" d="M14 13q-12-6-12 4t12 4"/><path id="ld" d="M14 0v28M14 13Q2 7 2 18t12 5"/><path id="le" d="M2 18h12q1-8-6-8T2 19t12 4"/><path id="li" d="M4 9h2v19M5 2v2"/><path id="lm" d="M2 28V9m0 5q1-6 6-6t5 6v14m0-14q1-6 6-6t5 6v14"/><path id="ln" d="M3 28V9m0 5q1-6 6-6t6 6v14"/><path id="lo" d="M8 8a7 10 0 0 0 0 20a7 10 0 0 0 0-20z"/><path id="lp" d="M3 36V9m0 5Q4 8 9 8t6 10-6 10-6-6"/><path id="lr" d="M4 28V9m0 6q2-7 10-6"/><g id="ls" transform="translate(1 8)scale(.88 .715)"><use href="#S"/></g><path id="lu" d="M2 8v11q0 9 6 9t6-9V8M14 8v20"/><g id="t1" transform="translate(284 235)scale(1.60714)"><use href="#F" x="0"/><use href="#lu" x="24.7521"/><use href="#ln" x="47.5043"/><use href="#ld" x="70.2564"/><use href="#M" x="107.761"/><use href="#le" x="132.513"/><use href="#lm" x="154.265"/><use href="#le" x="185.017"/><use href="#lc" x="206.769"/><use href="#lo" x="227.521"/><use href="#li" x="250.274"/><use href="#ln" x="264.026"/><use href="#ls" x="286.778"/></g><g id="t2" transform="translate(463 312)scale(1.17857)"><use href="#D" x="0"/><use href="#lr" x="25.803"/><use href="#le" x="43.6061"/><use href="#lp" x="66.4091"/><use href="#ls" x="90.2121"/></g><g id="t3" transform="translate(128 394)scale(1.07143)"><use href="#V" x="0"/><use href="#O" x="23.6381"/><use href="#T" x="47.2762"/><use href="#E" x="70.9143"/><use href="#Y" x="108.19"/><use href="#E" x="131.829"/><use href="#S" x="155.467"/></g><g id="t4" transform="translate(728 391)scale(1.07143)"><use href="#V" x="0"/><use href="#O" x="25.8667"/><use href="#T" x="51.7333"/><use href="#E" x="77.6"/><use href="#N" x="119.333"/><use href="#O" x="145.2"/></g></defs><path d="M0 0h1024v576H0z" fill="#ffffff"/><path d="M0 566h1024v3H0z" fill="#e6e6e6"/><path d="M438 65h147v146H438z" fill="#ffe215"/><path d="M438 65h147v8H438zm0 138h147v8H438z" fill="url(#pv)"/><path d="M438 65h8v146h-8zm139 0h8v146h-8z" fill="url(#ph)"/><g transform="translate(465 91)scale(4.69 4.65)"><path d="M5 0h2v1h-2zM13 0h2v1h-2zM4 1h1v1h-1zM6 1h1v1h-1zM13 1h1v1h-1zM15 1h1v1h-1zM3 2h1v2h-1zM7 2h1v3h-1zM12 2h1v3h-1zM16 2h1v2h-1zM2 4h1v4h-1zM17 4h1v4h-1zM7 5h6v1h-6zM6 6h8v1h-8zM5 7h3v1h-3zM9 7h2v3h-2zM13 7h2v1h-2zM2 8h4v1h-4zM14 8h4v1h-4zM1 9h5v1h-5zM14 9h5v1h-5zM0 10h6v2h-6zM14 10h6v2h-6zM0 12h3v2h-3zM9 12h2v2h-2zM17 12h3v2h-3zM1 14h3v2h-3zM16 14h3v2h-3zM7 15h1v2h-1zM9 15h2v1h-2zM12 15h1v2h-1zM2 16h3v1h-3zM15 16h3v1h-3zM3 17h3v1h-3zM8 17h1v1h-1zM11 17h1v1h-1zM14 17h3v1h-3zM4 18h3v1h-3zM9 18h2v1h-2zM13 18h3v1h-3zM6 19h2v1h-2zM12 19h2v1h-2zM8 20h1v1h-1zM11 20h1v1h-1z" fill="#141414"/><path d="M5 1h1v1h-1zM14 1h1v1h-1zM4 2h3v2h-3zM13 2h2v1h-2zM13 3h3v2h-3zM3 4h4v2h-4zM13 5h4v1h-4zM3 6h3v1h-3zM14 6h3v1h-3zM3 7h2v1h-2zM15 7h2v1h-2zM7 8h2v1h-2zM11 8h2v1h-2zM6 9h2v1h-2zM13 9h1v2h-1zM6 10h1v1h-1zM9 10h2v1h-2zM7 11h6v1h-6zM3 12h6v2h-6zM11 12h6v2h-6zM4 14h12v1h-12zM4 15h3v1h-3zM8 15h1v1h-1zM11 15h1v1h-1zM13 15h3v1h-3zM5 16h2v1h-2zM13 16h2v1h-2zM6 17h2v1h-2zM12 17h2v1h-2zM7 18h2v1h-2zM11 18h2v1h-2zM8 19h4v1h-4zM9 20h2v1h-2z" fill="#fafafa"/><path d="M15 2h1v1h-1zM16 4h1v1h-1zM8 7h1v1h-1zM11 7h2v1h-2zM6 8h1v1h-1zM13 8h1v1h-1zM8 9h1v1h-1zM11 9h2v2h-2zM7 10h2v1h-2zM6 11h1v1h-1zM13 11h1v1h-1zM8 16h4v1h-4zM9 17h2v1h-2z" fill="#e48a9e"/></g><rect x="57" y="372" width="333" height="80" rx="40" fill="#7fb8ed"/><rect x="661" y="371" width="310" height="80" rx="40" fill="#ff182b"/><use href="#t3" fill="none" stroke="#141414" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><use href="#t4" fill="none" stroke="#141414" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><use href="#t1" fill="none" stroke="#141414" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><use href="#t2" fill="none" stroke="#141414" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M240 404l0 22 5-6 4 8 4-2-4-8h7z" fill="#fff" stroke="#141414" stroke-width="2.5" stroke-linejoin="round"/></svg></script>
+<script type="module">
+const ANCHOR_SLOT = 193727336, ANCHOR_UNIX = 1785293627;
+const DEADLINE_SLOT = 196010383, TICKER = 'VOTE';
+const DISPLAY = 'Tipsy Turtles_Bonus Snippet_2 (on-chain demo)', META_DESC = "Tipsy Turtles_Bonus Snippet_2, redrawn as vector art and stored entirely inside this transaction. No IPFS, no gateway, no pin. Artwork and characters are Tipsy Turtles'.";
+// The art is read out of the page and base64'd here, so what the right-hand panel
+// renders and what goes on chain are the SAME bytes by construction — there is no
+// second copy that could drift. textContent.trim() is why the .svg file must not
+// end with a newline.
+const B64 = btoa(String.fromCharCode(...new TextEncoder().encode(
+  document.getElementById('art-src').textContent.trim())));
+const ART = 'data:image/svg+xml;base64,' + B64;
+const $ = id => document.getElementById(id);
+const nowSlot = () => ANCHOR_SLOT + Math.floor(Date.now() / 1000) - ANCHOR_UNIX;
+const pad = n => String(n).padStart(2, '0');
+function parts(slot) {
+  let s = slot - nowSlot(); if (s < 0) s = 0;
+  return [Math.floor(s / 86400), Math.floor(s % 86400 / 3600), Math.floor(s % 3600 / 60), s % 60, s];
+}
+const hasWallet = () => {
+  const c = window.cardano || {};
+  return Object.keys(c).some(k => c[k] && typeof c[k].enable === 'function' && c[k].apiVersion);
+};
+// Extensions inject window.cardano AFTER load, so a bare check would flash the hint at
+// desktop users who do have a wallet. Poll ~3s, then conclude.
+async function walletHint() {
+  for (let i = 0; i < 30; i++) {
+    if (hasWallet()) return true;
+    await new Promise(r => setTimeout(r, 100));
+  }
+  const el = $('nowallet'); if (el) el.hidden = false;
+  return false;
+}
+
+const PP = {feeA:'44', feeB:'155381', utxoByte:'4310', maxTx:16384, maxVal:5000,
+            poolDep:'500000000', keyDep:'2000000'};
+const CDN = 'https://cdn.jsdelivr.net/npm/@emurgo/cardano-serialization-lib-browser@15.0.3/';
+$('art').src = ART;
+
+// If their gateway does not answer, say so in the panel rather than showing a broken
+// image icon. A silent broken image would weaken exactly the point being made.
+$('theirs').addEventListener('error', () => { $('deadgw').classList.add('on'); });
+
+const hex = b => [...b].map(x => x.toString(16).padStart(2, '0')).join('');
+const unhex = s => new Uint8Array(s.match(/../g).map(x => parseInt(x, 16)));
+function say(msg, kind) { const el = $('status'); el.className = 'on ' + (kind || ''); el.innerHTML = msg; }
+
+function tick() {
+  const [d, h, m, s, left] = parts(DEADLINE_SLOT);
+  $('d').textContent = d; $('h').textContent = pad(h);
+  $('m').textContent = pad(m); $('s').textContent = pad(s);
+  if (!left) {
+    $('pick').innerHTML = '';
+    say('<b>The mint window has closed.</b> The policy expired at slot ' + DEADLINE_SLOT +
+        '. Nothing further can ever be minted under this policy id.', 'err');
+  }
+}
+tick(); setInterval(tick, 1000);
+
+let CSL, script, policyId;
+async function loadCSL() {
+  const bg = await import(CDN + 'cardano_serialization_lib_bg.js');
+  const { instance } = await WebAssembly.instantiateStreaming(
+    fetch(CDN + 'cardano_serialization_lib_bg.wasm'),
+    { './cardano_serialization_lib_bg.js': bg });
+  bg.__wbg_set_wasm(instance.exports);
+  if (instance.exports.__wbindgen_start) instance.exports.__wbindgen_start();
+  CSL = bg;
+  script = CSL.NativeScript.new_timelock_expiry(
+    CSL.TimelockExpiry.new_timelockexpiry(CSL.BigNum.from_str(String(DEADLINE_SLOT))));
+  policyId = script.hash();
+  $('pid').textContent = hex(policyId.to_bytes());
+}
+
+function listWallets() {
+  const c = window.cardano || {};
+  const keys = Object.keys(c).filter(k => c[k] && typeof c[k].enable === 'function' && c[k].apiVersion);
+  const box = $('pick');
+  if (!keys.length) {
+    box.innerHTML = '<button disabled>No wallet here — open this page in a dapp browser</button>';
+    return;
+  }
+  box.innerHTML = '';
+  for (const k of keys) {
+    const b = document.createElement('button');
+    b.innerHTML = `<span class="row">${c[k].icon ? `<img src="${c[k].icon}" alt="">` : ''}
+                   <span>Mint with ${c[k].name || k}</span></span>`;
+    b.className = 'go';
+    b.onclick = () => mint(k, b);
+    box.appendChild(b);
+  }
+}
+
+async function mint(key, btn) {
+  const all = [...document.querySelectorAll('#pick button')];
+  all.forEach(b => b.disabled = true);
+  try {
+    if (nowSlot() >= DEADLINE_SLOT) throw new Error('The mint window has closed.');
+    say('Connecting to your wallet…');
+    const api = await window.cardano[key].enable();
+
+    const netId = await api.getNetworkId();
+    if (netId !== 1) throw new Error('Switch your wallet to mainnet (it is on the testnet).');
+
+    const addr = CSL.Address.from_bytes(unhex(await api.getChangeAddress()));
+    const raw = await api.getUtxos();
+    if (!raw || !raw.length) throw new Error('That wallet has no UTxOs — it needs a little ADA.');
+    const utxos = raw.map(h => CSL.TransactionUnspentOutput.from_hex(h));
+
+    // Spend one specific UTxO as the "seed". Because it is consumed, the asset name
+    // derived from it can never be produced twice -> every mint is a unique token.
+    const pure = utxos.filter(u => !u.output().amount().multiasset() ||
+                                    u.output().amount().multiasset().len() === 0);
+    const pool = (pure.length ? pure : utxos).slice().sort((a, b) =>
+      Number(b.output().amount().coin().to_str()) - Number(a.output().amount().coin().to_str()));
+    const seed = pool[0];
+    const nameStr = TICKER + hex(seed.input().transaction_id().to_bytes()).slice(0, 8);
+    const assetName = CSL.AssetName.new(new TextEncoder().encode(nameStr));
+
+    say('Building the transaction — the whole picture goes in it…');
+
+    // every metadata string is capped at 64 BYTES by the ledger, so long values
+    // become arrays of chunks — consumers concatenate them back
+    const cut = s => s.match(/.{1,64}/g);
+    const uri = 'data:image/svg+xml;base64,' + B64;
+    const meta = {};
+    meta[hex(policyId.to_bytes())] = {};
+    meta[hex(policyId.to_bytes())][nameStr] = {
+      name: DISPLAY, mediaType: 'image/svg+xml', image: cut(uri),
+      description: cut(META_DESC)
+    };
+    const aux = CSL.AuxiliaryData.new();
+    const gtm = CSL.GeneralTransactionMetadata.new();
+    gtm.insert(CSL.BigNum.from_str('721'),
+      CSL.encode_json_str_to_metadatum(JSON.stringify(meta), CSL.MetadataJsonSchema.NoConversions));
+    aux.set_metadata(gtm);
+
+    const cfg = CSL.TransactionBuilderConfigBuilder.new()
+      .fee_algo(CSL.LinearFee.new(CSL.BigNum.from_str(PP.feeA), CSL.BigNum.from_str(PP.feeB)))
+      .pool_deposit(CSL.BigNum.from_str(PP.poolDep))
+      .key_deposit(CSL.BigNum.from_str(PP.keyDep))
+      .max_value_size(PP.maxVal).max_tx_size(PP.maxTx)
+      .coins_per_utxo_byte(CSL.BigNum.from_str(PP.utxoByte))
+      .build();
+    const tb = CSL.TransactionBuilder.new(cfg);
+
+    const mb = CSL.MintBuilder.new();
+    mb.add_asset(CSL.MintWitness.new_native_script(CSL.NativeScriptSource.new(script)),
+                 assetName, CSL.Int.new_i32(1));
+    tb.set_mint_builder(mb);
+    tb.set_auxiliary_data(aux);
+    // the timelock only passes if the tx says it is invalid at/after the deadline
+    tb.set_ttl_bignum(CSL.BigNum.from_str(String(Math.min(DEADLINE_SLOT, nowSlot() + 7200))));
+
+    const ma = CSL.MultiAsset.new(), assets = CSL.Assets.new();
+    assets.insert(assetName, CSL.BigNum.from_str('1'));
+    ma.insert(CSL.ScriptHash.from_bytes(policyId.to_bytes()), assets);
+    const probe = CSL.Value.new(CSL.BigNum.from_str('2000000')); probe.set_multiasset(ma);
+    const minAda = CSL.min_ada_for_output(CSL.TransactionOutput.new(addr, probe),
+      CSL.DataCost.new_coins_per_byte(CSL.BigNum.from_str(PP.utxoByte)));
+    const val = CSL.Value.new(minAda); val.set_multiasset(ma);
+    tb.add_output(CSL.TransactionOutput.new(addr, val));
+
+    tb.add_regular_input(seed.output().address(), seed.input(), seed.output().amount());
+    const rest = CSL.TransactionUnspentOutputs.new();
+    utxos.forEach(u => { if (u !== seed) rest.add(u); });
+    if (rest.len()) {
+      try { tb.add_inputs_from(rest, CSL.CoinSelectionStrategyCIP2.LargestFirst); } catch (e) {}
+    }
+    tb.add_change_if_needed(addr);
+
+    const tx = tb.build_tx();
+    const size = tx.to_bytes().length;
+    if (size > PP.maxTx) throw new Error(`Transaction is ${size} bytes, over the ${PP.maxTx} limit.`);
+    const fee = Number(tx.body().fee().to_str()) / 1e6;
+
+    say(`Sign to mint <b>${nameStr}</b>.<br>Fee ${fee.toFixed(3)} ADA · ` +
+        `${(Number(minAda.to_str()) / 1e6).toFixed(3)} ADA stays with your token · ` +
+        `tx ${size.toLocaleString()} / ${PP.maxTx.toLocaleString()} bytes.`);
+
+    const unsignedHex = hex(tx.to_bytes());
+    const wsHex = await api.signTx(unsignedHex, true);
+
+    // Merge the wallet's signature into a FixedTransaction, which keeps the ORIGINAL
+    // body bytes. Rebuilding the tx instead can re-serialise the body differently and
+    // silently invalidate the signature the wallet just produced.
+    const ftx = CSL.FixedTransaction.from_hex(unsignedHex);
+    const vk = CSL.TransactionWitnessSet.from_hex(wsHex).vkeys();
+    if (!vk || !vk.len()) throw new Error('The wallet returned no signature.');
+    for (let i = 0; i < vk.len(); i++) ftx.add_vkey_witness(vk.get(i));
+
+    say('Submitting…');
+    const txHash = await api.submitTx(hex(ftx.to_bytes()));
+    say(`<b>Minted.</b> ${nameStr} is yours, picture and all, on chain forever.<br>` +
+        `<a href="https://cexplorer.io/tx/${txHash}" target="_blank" rel="noopener">${txHash}</a>`, 'ok');
+  } catch (e) {
+    const m = (e && (e.info || e.message)) || String(e);
+    say('<b>Not minted.</b> ' + m, 'err');
+    all.forEach(b => b.disabled = false);
+  }
+}
+
+try { await loadCSL(); listWallets(); walletHint(); }
+catch (e) { say('Could not load the Cardano library: ' + e, 'err'); }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tipsy Turtles, on chain</title>
+<meta name="description" content="Three Tipsy Turtles frames redrawn as vector art and stored entirely inside their minting transactions — 35.2 kB of chain against 4.1 MB of pinned PNG.">
+<link rel="canonical" href="https://beacnpool.github.io/ABCDE/tipsy/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://beacnpool.github.io/ABCDE/tipsy/">
+<meta property="og:title" content="Tipsy Turtles, on chain">
+<meta property="og:description" content="Three Tipsy Turtles frames redrawn as vector art and stored entirely inside their minting transactions — 35.2 kB of chain against 4.1 MB of pinned PNG.">
+<meta property="og:image" content="https://beacnpool.github.io/ABCDE/tipsy/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tipsy Turtles, on chain">
+<meta name="twitter:description" content="Three Tipsy Turtles frames redrawn as vector art and stored entirely inside their minting transactions — 35.2 kB of chain against 4.1 MB of pinned PNG.">
+<meta name="twitter:image" content="https://beacnpool.github.io/ABCDE/tipsy/og.png">
+<style>
+*{box-sizing:border-box}
+:root{--bg:#0d0d10;--panel:#16161b;--line:#2a2a33;--ink:#f2f2f4;--dim:#8b8b96;
+      --gold:#ffc94a;--red:#e5484d;--ok:#3dd68c;--warn:#f5a524}
+html,body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.55 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:30px 18px 60px}
+.kicker{font:700 12px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--dim)}
+h1{margin:8px 0 0;font:800 clamp(28px,6vw,46px)/1.05 ui-sans-serif,system-ui,sans-serif;
+  letter-spacing:-.025em}
+h2{margin:38px 0 12px;font:800 clamp(19px,3.4vw,24px)/1.2 ui-sans-serif,system-ui,sans-serif;
+  letter-spacing:-.015em}
+p{margin:12px 0}
+a{color:var(--gold)}
+.sub{font-size:17px;color:#d5d5da;max-width:70ch}
+.sub b{color:var(--ink)}
+
+/* the two panels — same frame, two storage models */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+@media(max-width:720px){.vs{grid-template-columns:1fr}}
+.pane{border:1px solid var(--line);border-radius:14px;background:var(--panel);overflow:hidden}
+.pane .frame{aspect-ratio:1024/576;background:#0a0a0c;display:block;position:relative}
+.pane .frame img{width:100%;height:100%;display:block;object-fit:cover}
+.pane .meta{padding:13px 15px;font-size:13.5px;color:#c8c8d0;border-top:1px solid var(--line)}
+.pane .meta b{color:var(--ink)}
+.tag{display:inline-block;font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.1em;
+  text-transform:uppercase;padding:6px 9px;border-radius:6px;margin-bottom:9px}
+.tag.ipfs{background:#3a2a12;color:var(--warn)}
+.tag.chain{background:#0f2a1c;color:var(--ok)}
+.dead{position:absolute;inset:0;display:none;place-items:center;padding:22px;text-align:center;
+  font-size:14px;color:var(--warn);background:#14100a}
+.dead.on{display:grid}
+code{font:13px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;overflow-wrap:anywhere;
+  color:#b9b9c4}
+
+.bar{height:9px;border-radius:5px;background:#26262e;overflow:hidden;margin:6px 0 3px}
+.bar i{display:block;height:100%;background:var(--ok)}
+
+table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14.5px}
+td{padding:9px 0;border-top:1px solid var(--line);vertical-align:top}
+td:first-child{color:var(--dim);width:34%}
+
+button{font:700 17px/1 inherit;padding:15px 20px;width:100%;border-radius:12px;
+  border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
+button:hover:not(:disabled){border-color:#3d3d47}
+button:disabled{opacity:.45;cursor:not-allowed}
+button.go{background:var(--ok);border-color:var(--ok);color:#04150c}
+.wallets{display:grid;gap:9px;margin-top:16px}
+.row{display:flex;align-items:center;justify-content:center;gap:10px}
+.row img{width:22px;height:22px;border-radius:5px}
+#status{margin-top:14px;padding:13px 15px;border-radius:11px;background:var(--panel);
+  border:1px solid var(--line);font-size:14.5px;display:none;overflow-wrap:anywhere}
+#status.on{display:block}
+#status.err{border-color:#7f1d1d;background:#1d1112}
+#status.ok{border-color:#14532d;background:#0f1a13}
+.clock{display:flex;gap:9px;margin-top:14px}
+.clock div{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:11px;
+  padding:11px 4px;text-align:center}
+.clock b{display:block;font:800 23px/1 ui-sans-serif,system-ui,sans-serif}
+.clock span{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--dim)}
+.note{margin-top:22px;padding:14px 16px;border:1px solid var(--line);
+  border-left:3px solid var(--warn);border-radius:0 11px 11px 0;background:var(--panel);
+  font-size:14px;color:#cfcfd6}
+.note b{color:var(--ink)}
+.credit{margin-top:22px;padding:14px 16px;border:1px solid var(--line);border-radius:11px;
+  background:var(--panel);font-size:14px;color:#cfcfd6}
+.hint{font-size:14px;color:var(--dim)}
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:13px;color:var(--dim)}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;
+  margin-top:26px}
+.card{border:1px solid var(--line);border-radius:14px;background:var(--panel);
+  overflow:hidden;text-decoration:none;color:inherit;display:block}
+.card:hover{border-color:#3d3d47}
+.card .frame{aspect-ratio:1024/576;background:#0a0a0c;display:block}
+.card .frame img{width:100%;height:100%;display:block;object-fit:cover}
+.card .meta{padding:13px 15px;font-size:13.5px;color:#c8c8d0}
+.card .meta b{color:var(--ink);display:block;margin-bottom:5px;font-size:15px}
+.ratio{display:flex;gap:14px;margin-top:9px;font-size:12.5px;color:var(--dim)}
+.ratio b{color:var(--ok);font-size:12.5px}
+.nav{margin-bottom:14px;font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="kicker">a demonstration, for the Tipsy Turtles team</div>
+  <h1>Three of your frames,<br>with nothing underneath them.</h1>
+  <p class="sub">Your snippets are PNGs pinned on IPFS. What is on Cardano is a
+     <b>pointer</b> — and a pointer is only as permanent as whoever keeps paying to pin
+     it. Each of these is the same frame redrawn as vector art and written
+     <b>into the minting transaction itself</b>. No gateway, no pin, no bill.</p>
+  <p class="sub">Together that is <b>4.1 MB</b> of pinned PNG on one side
+     and <b>35.2 kB</b> of transaction on the other. Open any of them: the
+     left panel is fetched live from your gateway, the right is decoded from the chain.</p>
+
+  <div class="cards">
+      <a class="card" href="tipsy/">
+        <span class="frame"><img src="tipsy/tipsy.svg"
+              alt="Tipsy Turtles_Bonus Snippet_1" loading="lazy"></span>
+        <span class="meta"><b>Tipsy Turtles_Bonus Snippet_1</b>A character bust with a hand-lettered subtitle. Stubble is individual strokes, not a hatch fill; the hat flap is drawn as its own lobe.
+          <span class="ratio"><span>their PNG <b>2.12 MB</b></span>
+          <span>our transaction <b>14.3 kB</b></span></span>
+        </span>
+      </a>
+      <a class="card" href="ghost/">
+        <span class="frame"><img src="ghost/ghost.svg"
+              alt="Tipsy Turtles_Chapter 2 Snippet" loading="lazy"></span>
+        <span class="meta"><b>Tipsy Turtles_Chapter 2 Snippet</b>Traced from their frame in MY.DRAW, then crushed 110 KB → 9.4 KB so the transaction still fits. Same pose; the outlines are faceted on purpose.
+          <span class="ratio"><span>their PNG <b>1.49 MB</b></span>
+          <span>our transaction <b>13.7 kB</b></span></span>
+        </span>
+      </a>
+      <a class="card" href="vote/">
+        <span class="frame"><img src="vote/vote.svg"
+              alt="Tipsy Turtles_Bonus Snippet_2" loading="lazy"></span>
+        <span class="meta"><b>Tipsy Turtles_Bonus Snippet_2</b>A user interface, which is vector-native content photographed as a raster. This is the one that comes back essentially exact.
+          <span class="ratio"><span>their PNG <b>0.49 MB</b></span>
+          <span>our transaction <b>7.2 kB</b></span></span>
+        </span>
+      </a></div>
+
+  <h2>They are not equally faithful, and that is the point</h2>
+  <p class="sub">A user interface comes back essentially exact — its pixel art is not even
+     a recreation, it is the same grid of cells, extracted and re-encoded. A calm bust is a
+     faithful redraw. A face pulled into a shout is the hardest of the three, because the
+     expression lives in exactly the small shapes a byte budget wants to delete. Held beside
+     the originals at full size the differences are visible, and they are stated on each
+     page rather than glossed.</p>
+  <p class="sub">What none of them need is a gateway, a pin, or anyone still paying a bill
+     in ten years.</p>
+
+  <div class="credit">
+    <b>Attribution.</b> Tipsy Turtles own the artwork, the characters and the frames.
+    This is an unaffiliated technical demonstration made to show them what their own
+    work looks like with no IPFS under it — it is not an official Tipsy Turtles release
+    and does not claim to be. Their collection is at
+    <a href="https://tipsyturtles.nmkr.io/">tipsyturtles.nmkr.io</a> (policy
+    <code>b2dd37065c35e5d0…</code>) and they are on <a href="https://x.com/tipsy__turtles">X</a>.
+    If they would rather this did not exist, it comes down.
+  </div>
+  <footer>no backend · no tracking · your wallet builds, signs and submits the
+    transaction · built with the same toolchain as <a href="../oligarCH/">oligarCH</a></footer>
+
+</div>
+
+</body>
+</html>
