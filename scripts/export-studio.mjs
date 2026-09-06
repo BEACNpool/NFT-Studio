@@ -32,7 +32,7 @@ try {
   if (!response.ok)
     throw Error('Prefixed page render failed: ' + response.status);
   const html = await response.text();
-  if (!html.includes('NFT STUDIO') || !html.includes(prefix + '/_next/'))
+  if (!html.includes('NFT-Studio') || !html.includes('id="studio-main"') || !html.includes(prefix + '/_next/'))
     throw Error('Public prefix or page content missing');
   const rsc = extractRscPayloadFromPrerenderedHtml(html);
   if (!rsc?.length) throw Error('The static React payload is missing');
