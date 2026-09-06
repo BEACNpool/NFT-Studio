@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; frame-src blob:; font-src 'self'; manifest-src 'self'; connect-src https:; object-src 'none'; base-uri 'none'; form-action 'none'">
+<script src="studio-wallet.js"></script>
 <title>Preserve a file — Ledger Scrolls</title>
 <meta name="description" content="Prepare a file or local text draft, inspect storage and cost, and publish public original bytes with your Cardano wallet.">
 <meta name="theme-color" content="#0d1015">
@@ -681,8 +682,8 @@ body[data-page="media"] .hero .eyebrow{background:none;border:0;padding:0;font-s
   <div class="card">
     <label class="drop" id="drop">
       <input type="file" id="file">
-      <div class="big">Drop a file here, or click to choose</div>
-      <div class="hint">HTML · PDF · JPG/PNG · TXT/MD · MP4/WebM (films) · MP3/Opus · JSON/CSV — any size; large files mint as Chain Scrolls via Eternl</div>
+      <div class="big">Choose a file</div>
+      <div class="hint">HTML · PDF · JPG/PNG · TXT/MD · MP4/WebM (films) · MP3/Opus · JSON/CSV · large files use multipart Scrolls</div>
     </label>
     <details class="text-composer"><summary>Or write a letter, release note, or statement</summary>
       <label for="draft-title">Title</label><input id="draft-title" placeholder="What are you preserving?" maxlength="120">
@@ -736,7 +737,7 @@ body[data-page="media"] .hero .eyebrow{background:none;border:0;padding:0;font-s
 
     <!-- STEP 1 · CONNECT -->
     <div class="wizstep" id="wiz1">
-      <div class="wizhd"><span class="wizn">1</span> Connect Eternl</div>
+      <div class="wizhd"><span class="wizn">1</span> Connect wallet</div>
       <p class="wizsub">I need a wallet to build the mint transactions. Connecting only links the app —
       <b>no ADA moves</b> until you approve a mint later.</p>
       <div id="wiz1body"></div>
@@ -745,7 +746,7 @@ body[data-page="media"] .hero .eyebrow{background:none;border:0;padding:0;font-s
         <ol class="steps" style="margin-top:10px">
           <li>Install <a href="https://eternl.io">Eternl</a> (laptop extension or phone app). Write the seed on paper.</li>
           <li>Send it ADA from an exchange (use the price above + a few ADA spare).</li>
-          <li><b>Laptop:</b> same browser as the extension. <b>Phone:</b> open this page in <b>Eternl → Browser</b>, not Safari/Chrome.</li>
+          <li><b>Laptop:</b> same browser as the extension. <b>Phone:</b> open this page in <b>VESPR → Browser</b>, not Safari/Chrome.</li>
         </ol>
       </details>
       <details class="assump" style="margin-top:8px">
@@ -1203,7 +1204,7 @@ async function analyzeFile(file){
       Tips: ≤480p, CRF 28–32, <code>-movflags +faststart</code>, prefer WebM/AV1 when you can.
       ${pagesGuess>150?`<br><span style="color:var(--warn)">⚠ Long session — laptop + Eternl extension; leave this tab open.</span>`:""}</dd>`;
   } else if(pagesGuess > 20){
-    kvHtml += `<dt>Browser mint</dt><dd>Chain Scroll · ${fmtN(totalSig)} Eternl signatures (pages + seal). Gzip applied when it shrinks the file.</dd>`;
+    kvHtml += `<dt>Browser mint</dt><dd>Chain Scroll · ${fmtN(totalSig)} wallet signatures (pages + seal). Gzip applied when it shrinks the file.</dd>`;
   }
   // one write, THEN bind — innerHTML += would destroy the listener's node
   $("kv").innerHTML = kvHtml;
@@ -1648,64 +1649,26 @@ async function refreshPacking(net){
 }
 
 /* ── CIP-30 ── */
-/* We officially support Eternl for now (the wallet the mint flow is tested
-   and proven against). `ccvault` is Eternl's legacy injection key.
-   Mobile Safari/Chrome never inject CIP-30 — only Eternl's in-app dApp browser does. */
+/* Discover CIP-30 wallets, including VESPR in its mobile dApp browser. */
 function isMobileUA(){
   return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent||"")
     || ((navigator.maxTouchPoints||0)>1 && Math.min(screen.width,screen.height)<900);
 }
 function listWallets(){
-  const out=[];
-  const cardano=window.cardano||{};
-  for(const k of Object.keys(cardano)){
-    const w=cardano[k];
-    if(!(w && typeof w.enable==="function")) continue;
-    const id=(k+" "+(w.name||"")+" "+(w.id||"")).toLowerCase();
-    // Eternl only (incl. legacy ccvault key; some builds omit apiVersion briefly)
-    if(!/eternl|ccvault/.test(id) && k!=="eternl" && k!=="ccvault") continue;
-    out.push({key:k,name:w.name||"Eternl",icon:w.icon});
-  }
-  // Prefer the modern key if both inject
-  out.sort((a,b)=>(a.key==="eternl"?-1:0)-(b.key==="eternl"?-1:0));
-  const seen=new Set();
-  return out.filter(w=>{ const n=(w.key+"|"+w.name).toLowerCase(); if(seen.has(n))return false; seen.add(n); return true; });
+  return Object.entries(studioWalletProviders())
+    .filter(([,w])=>w && typeof w.enable === 'function')
+    .map(([key,w])=>({key,name:w.name||key,icon:w.icon}))
+    .sort((a,b)=>Number(/vespr/i.test(b.key+' '+b.name))-Number(/vespr/i.test(a.key+' '+a.name)));
 }
 function noWalletHelpHTML(){
-  const mobile=isMobileUA();
-  const here=location.href.split("#")[0];
-  if(mobile){
-    return `<div class="warnbox" id="nowallet">
-      <b>No wallet detected in this browser — normal on phones.</b>
-      <p style="margin:8px 0 0">Cardano wallets <b>do not</b> connect from Safari/Chrome mobile.
-      Open this page <b>inside the Eternl app</b> (its built-in browser), then the Connect button appears.</p>
-      <ol class="steps" style="margin-top:10px">
-        <li>Install <a href="https://eternl.io">Eternl</a> (App Store / Play Store) if you haven't.</li>
-        <li>Open <b>Eternl → Browser</b> (sometimes labeled dApps / Discover).</li>
-        <li>Paste this URL and go:<br>
-          <code style="word-break:break-all;font-size:12px">${esc(here)}</code>
-          <button type="button" class="wchip" id="wc-copyurl" style="margin-left:6px">copy URL</button></li>
-        <li>Drop your file again → tap <b>Connect Eternl</b>.</li>
-      </ol>
-      <p style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px">
-        <button type="button" class="btn" id="wc-rescan">🔍 Look for Eternl again</button>
-        <a class="btn ghost" href="https://eternl.io" target="_blank" rel="noopener">Get Eternl</a>
-      </p>
-      <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0">Easiest path for big files / films: a <b>laptop</b> with the Eternl browser extension.</p>
-    </div>`;
-  }
-  return `<div class="warnbox" id="nowallet">
-    <b>Eternl not found in this browser.</b>
-    <ol class="steps" style="margin-top:10px">
-      <li>Install the <a href="https://eternl.io" target="_blank" rel="noopener">Eternl</a> extension for Chrome/Brave/Edge/Firefox.</li>
-      <li>Pin it, unlock it, then refresh this page.</li>
-      <li>Tap <b>Look for Eternl again</b> if you just installed it.</li>
-    </ol>
-    <p style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px">
-      <button type="button" class="btn" id="wc-rescan">🔍 Look for Eternl again</button>
-      <a class="btn ghost" href="https://eternl.io" target="_blank" rel="noopener">Install Eternl</a>
-    </p>
-  </div>`;
+  const here=location.href.split('#')[0];
+  return `<div class="warnbox" id="nowallet"><b>Connect from your wallet browser.</b>
+    <p style="margin:8px 0">On your phone, open this link inside VESPR’s dApp browser. On desktop, enable a Cardano wallet extension.</p>
+    <p style="word-break:break-all;font-size:13px">${esc(here)}</p>
+    <p style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+      <button type="button" class="btn" id="wc-rescan">Refresh wallets</button>
+      <button type="button" class="btn ghost" id="wc-copyurl">Copy app link</button>
+    </p><p class="hint" style="margin-top:10px">If you switch browsers, choose your file again there. Local drafts do not travel with the link.</p></div>`;
 }
 function bindNoWalletHelp(){
   $("wc-copyurl")?.addEventListener("click",e=>copyText(e.target, location.href.split("#")[0]));
@@ -1840,9 +1803,9 @@ function decodeBalance(hex){ try{ const [v]=cborD(hexB(hex));
   return typeof v==="number" ? v : (Array.isArray(v)?v[0]:0); }catch(e){ return null; } }
 async function refreshBalance(){ try{ M.balance=decodeBalance(await M.wapi.getBalance()); }catch(e){ M.balance=null; } renderWalletCtl(); }
 async function connectWallet(key){
-  const w=window.cardano&&window.cardano[key]; if(!w) return;
+  const w=studioWalletProviders()&&studioWalletProviders()[key]; if(!w) return;
   try{
-    M.wapi=await w.enable(); M.walletKey=key; M.wname=w.name||"Eternl";
+    M.wapi=await w.enable(); M.walletKey=key; M.wname=w.name||"Wallet";
     M.net=await M.wapi.getNetworkId(); if(!(M.net in NETS)) throw new Error("Unknown network id "+M.net);
     try{ localStorage.setItem("ls.wallet",key); }catch(e){ void e; }
     try{ M.changeB=hexB(await M.wapi.getChangeAddress()); M.addrBech=b32encode(M.net===1?"addr":"addr_test", M.changeB); }catch(e){ void e; }
@@ -1892,8 +1855,8 @@ function renderWalletCtl(){
 async function autoReconnect(){
   try{
     const key=localStorage.getItem("ls.wallet");
-    const w=key && window.cardano && window.cardano[key];
-    if(w && typeof w.isEnabled==="function" && await w.isEnabled() && /eternl|ccvault/i.test(key+(w.name||""))) await connectWallet(key);
+    const w=key && studioWalletProviders() && studioWalletProviders()[key];
+    if(w && typeof w.isEnabled==="function" && await w.isEnabled()) await connectWallet(key);
   }catch(e){ void e; }
 }
 const mlog = (cls,msg)=>{ const el=$("mlog"); if(!el) return; const d=document.createElement("div");
@@ -1931,11 +1894,11 @@ function renderCoach(){
   if(n<=1 && !M.wapi && !S.manual){
     const wl=listWallets();
     coachSay("Step 1 of 3 — Connect",
-      wl.length ? `I found ${esc(wl[0].name)}. Tap Connect so we can talk to your wallet.` : "I don't see Eternl in this browser yet.",
+      wl.length ? `I found ${esc(wl[0].name)}. Tap Connect so we can talk to your wallet.` : "I don’t see a Cardano wallet in this browser yet.",
       wl.length
         ? "Connecting spends nothing. We'll only move ADA when you approve the mint."
         : (isMobileUA()
-          ? "On a phone: open this page inside <b>Eternl → Browser</b> (not Safari/Chrome), then come back here."
+          ? "On a phone: open this page inside <b>VESPR → Browser</b> (not Safari/Chrome), then come back here."
           : "Install the Eternl extension, unlock it, refresh this page, then connect."),
       wl.length
         ? `<button class="btn" type="button" data-coach="connect">🔌 Connect ${esc(wl[0].name)}</button>`
@@ -1965,13 +1928,13 @@ function renderCoach(){
     coachSay("Ready for step 3",
       "Questions done. Next I'll hand you the mint button.",
       useStd ? "One wallet approval and it's permanent."
-        : `Expect about ${fmtN(ch.pages+ch.links)} approvals in Eternl. Leave this tab open — you can resume if interrupted.`,
+        : `Expect about ${fmtN(ch.pages+ch.links)} approvals in your wallet. Leave this tab open — you can resume if interrupted.`,
       `<button class="btn" type="button" data-coach="wiz3">Continue to mint →</button>`);
     return;
   }
   // step 3
   if(SGN.running){
-    coachSay("Minting…", `Approving page ${SGN.done+1} of ${SGN.pages.length} in Eternl…`,
+    coachSay("Minting…", `Approving page ${SGN.done+1} of ${SGN.pages.length} in your wallet…`,
       "Don't close this tab. If you cancel a popup, hit Resume when ready.");
     return;
   }
@@ -1981,15 +1944,15 @@ function renderCoach(){
     return;
   }
   if(M.state==="minting"||M.state==="quoted"){
-    coachSay("Almost forever", "Approve the seal in Eternl when it asks.",
+    coachSay("Almost forever", "Approve the seal in your wallet when it asks.",
       "I'm waiting on your wallet signature, then I'll verify the bytes from the chain.");
     return;
   }
   coachSay("Step 3 of 3 — Mint",
     useStd ? "One signature will lock this file forever."
-      : `I'll build ${fmtN(ch.pages)} page transactions + ${ch.links} seal${ch.links>1?"s":""}. You approve each in Eternl.`,
+      : `I'll build ${fmtN(ch.pages)} page transactions + ${ch.links} seal${ch.links>1?"s":""}. You approve each in your wallet.`,
     S.q.net==="preview"
-      ? "You chose Preview practice — make sure Eternl is on the <b>Preview</b> network."
+      ? "You chose Preview practice — make sure your wallet is on the <b>Preview</b> network."
       : "You chose mainnet — real ADA, permanent.",
     `<button class="btn" type="button" data-coach="mintstart">I'm ready — show mint controls</button>`);
 }
@@ -2023,7 +1986,7 @@ function renderQuestions(){
     <p class="why">Mainnet is permanent and costs real ADA. Preview is free practice with test ADA (same steps).</p>
     <div class="qchoices">
       ${choiceHTML("net","main","Mainnet — forever, real ADA", `About ${fmtA(useStd?st.total:ch.total)} ADA once. No undo.`)}
-      ${choiceHTML("net","preview","Preview — rehearse free", "Switch Eternl to the Preview network first, then connect.")}
+      ${choiceHTML("net","preview","Preview — rehearse free", "Switch your wallet to the Preview network first, then connect.")}
     </div>
     ${S.q.net?`<div class="qdone">✓ Got it — ${S.q.net==="main"?"mainnet":"preview practice"}</div>`:""}
   </div>`;
@@ -2121,11 +2084,11 @@ function renderWiz(){
   // network mismatch soft-warn after questions
   if(M.wapi && S.q.net==="preview" && M.net===1){
     const c=$("coach"); if(c) c.insertAdjacentHTML("beforeend",
-      `<p class="hint" style="color:var(--warn)">⚠ Eternl looks like <b>mainnet</b> but you chose Preview — switch the wallet network, reconnect, or change your answer.</p>`);
+      `<p class="hint" style="color:var(--warn)">⚠ Your wallet looks like <b>mainnet</b> but you chose Preview — switch the wallet network, reconnect, or change your answer.</p>`);
   }
   if(M.wapi && S.q.net==="main" && M.net===0){
     const c=$("coach"); if(c) c.insertAdjacentHTML("beforeend",
-      `<p class="hint" style="color:var(--warn)">⚠ Eternl is on <b>Preview</b> but you chose mainnet — switch network or change your answer.</p>`);
+      `<p class="hint" style="color:var(--warn)">⚠ Your wallet is on <b>Preview</b> but you chose mainnet — switch network or change your answer.</p>`);
   }
   bar.hidden=false;
   const fill=$("wizfill"); if(fill) fill.style.width=((n-1)/2*100)+"%";
@@ -2174,10 +2137,10 @@ function renderMint(){
       ? (M.balance/1e6 >= feeGuess+3
           ? `<span style="color:var(--ok)">Wallet has ${fmtA(M.balance/1e6)} ADA — enough for this mint.</span>`
           : `<span style="color:var(--warn)">Wallet has ${fmtA(M.balance/1e6)} ADA; budget ≈ <b>${fmtA(feeGuess+3)} ADA</b> (fees + seal + float). Send more ADA first.</span>`)
-      : `Fund Eternl with about <b>${fmtA(feeGuess+3)} ADA</b> (fees + seal + a little float).`;
+      : `Fund your wallet with about <b>${fmtA(feeGuess+3)} ADA</b> (fees + seal + a little float).`;
     const planLine = S.q.net==="preview"
-      ? `<div class="nextcue">You chose <b>Preview practice</b> — confirm Eternl is on Preview before signing.</div>`
-      : `<div class="nextcue">You chose <b>mainnet</b> — real ADA, permanent. Next: start the mint and approve each Eternl popup.</div>`;
+      ? `<div class="nextcue">You chose <b>Preview practice</b> — confirm your wallet is on Preview before signing.</div>`
+      : `<div class="nextcue">You chose <b>mainnet</b> — real ADA, permanent. Next: start the mint and approve each wallet request.</div>`;
     body.innerHTML=`
       ${planLine}
       <div class="cmp"><b>${isFilm?"Film / large file → Chain Scroll":"Chain Scroll"}</b> — ${reason}.
@@ -2204,11 +2167,11 @@ function renderMint(){
       ${connected || wl.length ? `
         <div class="wbtns" style="margin-top:14px">
           <button class="btn" id="chain-go" style="min-height:48px;font-size:16px">
-            📜 ${connected?"Mint this file with "+esc(M.wname):"Connect Eternl & mint"} — ${fmtN(totalTx)} signatures
+            📜 ${connected?"Mint this file with "+esc(M.wname):"Connect wallet & mint"} — ${fmtN(totalTx)} signatures
           </button>
         </div>
         <p style="font-size:13px;color:var(--muted);margin:8px 0 0">
-          Laptop + Eternl extension recommended. Leave this tab open; each Eternl popup is one page.
+          Laptop + Eternl extension recommended. Leave this tab open; each wallet request is one page.
           Hardware wallets (Ledger/Trezor): use a software Eternl account funded with fee ADA only.
         </p>
         ${hwNote()}
@@ -2218,9 +2181,9 @@ function renderMint(){
           <p style="font-size:12.5px;color:var(--muted);margin-top:8px">Or download the build bundle above and mint with the
           <a href="https://github.com/BEACNpool/ledger-scrolls/blob/main/docs/YOUR_FIRST_SCROLL.md">CLI toolkit</a>.</p>
         </details>`
-      : `<div class="warnbox" style="margin-top:12px"><b>Eternl not detected here.</b>
+      : `<div class="warnbox" style="margin-top:12px"><b>No Cardano wallet detected here.</b>
         ${isMobileUA()
-          ? `<p style="margin:8px 0 0">On a phone, open this page in <b>Eternl → Browser</b> (not Safari/Chrome), then reload. Or use a laptop with the Eternl extension — much easier for films.</p>`
+          ? `<p style="margin:8px 0 0">On a phone, open this page in <b>VESPR → Browser</b> (not Safari/Chrome), then reload. Or use a laptop with the Eternl extension — much easier for films.</p>`
           : `<ol class="steps" style="margin-top:8px">
           <li>Install the <a href="https://eternl.io">Eternl</a> browser extension.</li>
           <li>Fund it with ~${fmtA(feeGuess+3)} ADA.</li>
@@ -2662,8 +2625,8 @@ function updateMintDash(phase){
   const bar=d.querySelector("#dash-bar"); if(bar) bar.style.width=pct+"%";
   put("dash-msg",
     phase==="paused" ? "⏸ Paused — no new signatures until you resume."
-    : phase==="waiting" ? "Waiting for Eternl to see the previous transaction…"
-    : phase==="sign" ? "→ Approve the open Eternl popup."
+    : phase==="waiting" ? "Waiting for your wallet to see the previous transaction…"
+    : phase==="sign" ? "→ Approve the open wallet request."
     : phase==="done-pages" ? "All pages on chain — seal when ready."
     : "Minting… leave this tab open.");
   put("dash-pause", SGN.paused?"▶ Resume signing":"⏸ Pause after this page");
@@ -2689,14 +2652,14 @@ async function signAllPages(){
       let utxos=await freshSpendable(), waited=0;
       while(!utxos.length && waited<180){
         updateMintDash("waiting");
-        sgnStatus(k+1,"sign",`waiting for Eternl to see the previous tx… (${waited}s)`);
+        sgnStatus(k+1,"sign",`waiting for your wallet to see the previous tx… (${waited}s)`);
         await new Promise(r=>setTimeout(r,5000)); waited+=5; utxos=await freshSpendable();
       }
-      if(!utxos.length) throw new Error("wallet shows no spendable ADA yet — give Eternl ~30s after the last transaction, then Resume.");
+      if(!utxos.length) throw new Error("wallet shows no spendable ADA yet — give your wallet ~30s after the last transaction, then Resume.");
       const plan=planPage(utxos, aux, auxHash, selfB, M.params, await fetchTipSlot(M.net)+TTL_HORIZON);
       SGN.lastFee=plan.fee;
       const unsigned=catB([u8([0x84]), plan.body, u8([0xa0]), u8([0xf5]), aux]);
-      sgnStatus(k+1,"sign","→ approve page "+(k+1)+" of "+n+" in Eternl…"+eta);
+      sgnStatus(k+1,"sign","→ approve page "+(k+1)+" of "+n+" in your wallet…"+eta);
       updateMintDash("sign");
       const witHex=await NFTStudioTxGuard.sign(M.wapi, bHex(unsigned), false, M.net);
       const wit=hexB(witHex);
@@ -2751,7 +2714,7 @@ function sgnDoneUI(){
   box.innerHTML=`<div class="okbox"><b>All ${SGN.pages.length} pages are on the chain.</b>
     ${seals===1
       ? "One last signature seals them into a scroll — a locked coin listing every page and your file's fingerprint."
-      : `This film needs <b>${seals} seal transactions</b> (manifest chain — automatic). Approve each in Eternl; the first seal is your permanent pointer.`}</div>
+      : `This film needs <b>${seals} seal transactions</b> (manifest chain — automatic). Approve each in your wallet; the first seal is your permanent pointer.`}</div>
     <p style="margin-top:10px"><button class="btn" id="sgnlock">📜 Sign the seal${seals>1?"s":""} — finish the scroll</button></p>
     <div id="mintstage"></div>`;
   $("sgnlock").addEventListener("click",()=>sealChainManifests());
@@ -2764,7 +2727,7 @@ async function sealChainManifests(){
   const btn=$("sgnlock"); if(btn) btn.disabled=true;
   if(!stage.querySelector("#mlog")) stage.insertAdjacentHTML("beforeend",`<div id="mlog" class="mlog"></div>`);
   try{
-    if(!M.wapi) throw new Error("Wallet disconnected — reconnect Eternl and try again.");
+    if(!M.wapi) throw new Error("Wallet disconnected — reconnect your wallet and try again.");
     M.net=await M.wapi.getNetworkId();
     M.params=await fetchNetParams(M.net);
     M.changeB=hexB(await M.wapi.getChangeAddress());
@@ -2924,8 +2887,8 @@ async function startWalletSign(key, resume){
   stage.dataset.live="1";
   stage.innerHTML=`<div class="cmp">Connecting to ${esc(key||"wallet")}…</div>`;
   try{
-    if(!key) throw new Error("No wallet selected — install Eternl and refresh.");
-    M.wapi=(M.wapi && M.walletKey===key)?M.wapi:await window.cardano[key].enable(); M.wname=window.cardano[key].name||key; M.walletKey=key;
+    if(!key) throw new Error("No wallet selected — open in VESPR or enable a Cardano wallet extension.");
+    M.wapi=(M.wapi && M.walletKey===key)?M.wapi:await studioWalletProviders()[key].enable(); M.wname=studioWalletProviders()[key].name||key; M.walletKey=key;
     M.net=await M.wapi.getNetworkId();
     if(!(M.net in NETS)) throw new Error("Unknown network id "+M.net);
     setWalletBadge();
@@ -3000,7 +2963,7 @@ async function startWalletSign(key, resume){
           ${bulk?`<button class="btn ghost" id="sgnbulk" disabled>⚡ One approval (CIP-103)</button>`:`<span id="sgnbulk" hidden></span>`}
         </p>
         <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0">
-          <b>Recommended:</b> sign each page (reliable). Keep Eternl open; approve every popup.
+          <b>Recommended:</b> sign each page (reliable). Keep your wallet open; approve each request.
           ${seals>1?` After pages, you'll seal ${seals} times (automatic multi-part manifest).`:""}
           Leave this tab open — reloading mid-mint is OK (resume).
         </p>
@@ -3192,11 +3155,11 @@ async function checkPages(){
         <div class="okbox"><b>All ${n} page${n>1?"s":""} verified from the chain, byte for byte.</b>
         ${seals===1
           ? "One step left: lock the manifest — a small coin that lists your pages and seals the fingerprint."
-          : `This file needs <b>${seals} seal transactions</b> (multi-part manifest). Eternl will sign each automatically.`}</div>
+          : `This file needs <b>${seals} seal transactions</b> (multi-part manifest). Approve each transaction in your wallet.`}</div>
         ${wallets.length?`<div class="wbtns">${wallets.map(w=>`
           <button class="wbtn" data-w="${esc(w.key)}">${w.icon?`<img src="${w.icon}" alt="">`:"👛"}
             Lock the seal${seals>1?"s":""} with ${esc(w.name)}</button>`).join("")}</div>`
-        :`<div class="warnbox">No Eternl in this browser for the seal step — use the CLI below (single-seal files only) or the build bundle.</div>`}
+        :`<div class="warnbox">No Cardano wallet in this browser for the seal step — use the CLI below (single-seal files only) or the build bundle.</div>`}
         ${seals===1?`<details class="assump" style="margin-top:12px"><summary>CLI instead (cardano-cli)</summary>
         <pre>echo "${bHex(datum)}" | xxd -r -p &gt; manifest.cbor
 cardano-cli conway transaction build ${CP.net===1?"--mainnet":"--testnet-magic 2"} \\
@@ -3210,8 +3173,8 @@ cardano-cli conway transaction build ${CP.net===1?"--mainnet":"--testnet-magic 2
         b.addEventListener("click",async()=>{
           const key=b.dataset.w;
           try{
-            M.wapi=(M.wapi&&M.walletKey===key)?M.wapi:await window.cardano[key].enable();
-            M.walletKey=key; M.wname=window.cardano[key].name||key;
+            M.wapi=(M.wapi&&M.walletKey===key)?M.wapi:await studioWalletProviders()[key].enable();
+            M.walletKey=key; M.wname=studioWalletProviders()[key].name||key;
             M.net=await M.wapi.getNetworkId();
             if(M.net!==CP.net) throw new Error("Wallet network must match the page network selector.");
             SGN.pages=SGN.pages.length?SGN.pages:buildSignPages(S.encBytes);
@@ -3233,8 +3196,8 @@ async function connectAndQuote(key, mode="std"){
   stage.innerHTML=`<div class="cmp">Connecting to ${esc(key)}…</div>`;
   try{
     M.mode = mode;
-    M.wapi = (M.wapi && M.walletKey===key) ? M.wapi : await window.cardano[key].enable();
-    M.walletKey = key; M.wname = window.cardano[key].name||key;
+    M.wapi = (M.wapi && M.walletKey===key) ? M.wapi : await studioWalletProviders()[key].enable();
+    M.walletKey = key; M.wname = studioWalletProviders()[key].name||key;
     M.net = await M.wapi.getNetworkId();
     if(!(M.net in NETS)) throw new Error("Unknown network id "+M.net);
     setWalletBadge();
@@ -3675,7 +3638,7 @@ function drawShareCard(r, link, canvas){
 
 /* ══════════ UTxO readiness ══════════ */
 async function assessUtxoReadiness(){
-  if(!M.wapi) return { ok:false, html:`<div class="readybox warn">Connect Eternl first so I can check spendable ADA.</div>` };
+  if(!M.wapi) return { ok:false, html:`<div class="readybox warn">Connect wallet first so I can check spendable ADA.</div>` };
   try{
     const utxos=parseWalletUtxos(await M.wapi.getUtxos());
     const bal=utxos.reduce((s,u)=>s+u.coin,0);
@@ -3786,7 +3749,7 @@ function renderCountersign(){
       <input type="text" id="cs-name" placeholder="Ada Lovelace" style="width:100%;max-width:320px;padding:9px 12px;border:1px solid var(--line-2);border-radius:var(--radius-sm)">
     </div>
     <div id="cswallet" style="margin-top:12px"></div>
-    <p style="margin-top:14px"><button class="btn" type="button" id="cs-go">✓ Sign acceptance with Eternl</button></p>
+    <p style="margin-top:14px"><button class="btn" type="button" id="cs-go">✓ Sign acceptance with wallet</button></p>
     <div id="csout" style="margin-top:12px"></div>`;
   $("cs-pick")?.addEventListener("change",()=>{
     const r=vaultLoad()[+$("cs-pick").value]; if(!r) return;
@@ -3806,7 +3769,7 @@ function renderCountersign(){
 async function doCountersign(){
   const out=$("csout"); if(!out) return;
   try{
-    if(!M.wapi){ const wl=listWallets(); if(!wl.length) throw new Error("Connect Eternl first"); await connectWallet(wl[0].key); }
+    if(!M.wapi){ const wl=listWallets(); if(!wl.length) throw new Error("Connect wallet first"); await connectWallet(wl[0].key); }
     let ptr=($("cs-ptr")?.value||"").trim().toLowerCase();
     let ix=0, th=ptr;
     const m=ptr.match(/^([0-9a-f]{64})(?:#(\d+))?$/);

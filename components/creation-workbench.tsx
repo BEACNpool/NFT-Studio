@@ -31,11 +31,11 @@ export function CreationWorkbench({
     <section className="ns-workbench">
       <button className="ns-back" onClick={onBack}>
         <ArrowLeft size={16} />
-        All formats
+        Change format
       </button>
       <div className="ns-heading ns-workbench-heading">
         <div>
-          <p className="ns-eyebrow">YOUR CREATIVE WORKBENCH</p>
+          <p className="ns-eyebrow">NEW CREATION</p>
           <h1>{MODES.find((m) => m.id === mode)!.title}</h1>
         </div>
         {mode === 'music' && (

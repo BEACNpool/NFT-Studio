@@ -47,7 +47,7 @@ import { loadSaved, saveRecords, removeRecord } from '@/lib/storage';
 import { download, filename, jsonBlob, packageArtworks } from '@/lib/export';
 import type { CreationMode } from '@/lib/studio-modes';
 
-const stages = ['Build', 'Personalize', 'Add an app', 'Review'];
+const stages = ['Create', 'Details', 'Extras', 'Review'];
 export function ArtWorkbench({
   mode,
   initialArt,
@@ -666,7 +666,7 @@ export function ArtWorkbench({
               <div className="ns-review-art">
                 <ArtPreview art={art} size={800} />
                 <span>
-                  WORKING ORIGINAL · MINT REVIEW SHOWS THE EXACT ENCODING
+                  YOUR CREATION · EXACT ON-CHAIN PREVIEW AT WALLET REVIEW
                 </span>
               </div>
               <div className="ns-review-summary">
@@ -711,6 +711,16 @@ export function ArtWorkbench({
                     <dd>Calculated with your wallet</dd>
                   </div>
                 </dl>
+                <div className="ns-metadata-ready">
+                  <Check size={18} />
+                  <div>
+                    <strong>Metadata handled for you</strong>
+                    <p>
+                      Your title, artwork, attributes and extras become the
+                      NFT’s on-chain metadata.
+                    </p>
+                  </div>
+                </div>
                 <MintDialog art={art} triggerLabel="Review with my wallet" />
                 <p className="ns-hint">
                   Connect, review the exact content and transaction, then

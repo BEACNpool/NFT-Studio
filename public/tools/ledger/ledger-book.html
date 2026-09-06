@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; frame-src blob:; font-src 'self'; manifest-src 'self'; connect-src https:; object-src 'none'; base-uri 'none'; form-action 'none'">
+<script src="studio-wallet.js"></script>
 <title>Ledger Book — A record that grows</title>
 <meta name="description" content="Create a public book for a person, project, or occasion. Collect wallet-attributed entries over time; optionally attach an original from Ledger Scrolls.">
 <meta property="og:title" content="Ledger Book — A record that grows">
@@ -1172,17 +1173,9 @@ async function sha256hex(bytes){
 /* ═══ CIP-30 wallet (parent side only — Eternl, as proven by calculator.html) ═══ */
 var W={ api:null, net:null, params:null, tipSlot:null };
 function pickWallet(){
-  var c=window.cardano||{};
-  if(c.eternl) return c.eternl;
-  if(c.ccvault) return c.ccvault;      // Eternl legacy injection key
-  if(c.vespr) return c.vespr;          // VESPR dapp browser (experimental)
-  // last resort: any CIP-30 provider (untested wallets — may work, unsupported)
-  var keys=Object.keys(c);
-  for(var i=0;i<keys.length;i++){
-    var w=c[keys[i]];
-    if(w && typeof w.enable==="function" && typeof w.apiVersion!=="undefined") return w;
-  }
-  return null;
+  var c=studioWalletProviders();
+  if(c.vespr && typeof c.vespr.enable==='function') return c.vespr;
+  return Object.values(c).find(w=>w && typeof w.enable==='function') || null;
 }
 async function connectWallet(){
   var w=pickWallet();

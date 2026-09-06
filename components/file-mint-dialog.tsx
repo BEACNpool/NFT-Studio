@@ -9,6 +9,7 @@ import {
   ArrowUpRight,
 } from 'lucide-react';
 import { Button } from './ui/button';
+import { WalletBrowserHelp } from './studio-wallet';
 import {
   Dialog,
   DialogContent,
@@ -341,11 +342,7 @@ export function FileMintDialog({
                   </Button>
                 ))
               ) : (
-                <p>
-                  Open this site in a Cardano wallet browser, or use a desktop
-                  browser with a CIP-30 wallet extension. Your work is ready to
-                  export while you set that up.
-                </p>
+                <WalletBrowserHelp />
               )}
               <Button variant="ghost" onClick={() => setWallets(findWallets())}>
                 <RefreshCw size={16} />

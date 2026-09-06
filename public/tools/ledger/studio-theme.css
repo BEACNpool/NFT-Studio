@@ -2,13 +2,13 @@
    Standalone originals retain their product identity and complete controls. */
 .nft-studio-embedded,.nft-studio-embedded body {
   color-scheme: dark;
-  --bg:#101211; --bg-2:#171b17; --card:#171b17; --panel:#171b17; --surface:#171b17; --surface-2:#1f261c;
-  --ink:#f1f2e8; --ink-2:#d4d9cb; --muted:#aab3a2; --faint:#89937f;
-  --accent:#d7f98a; --accent-ink:#d7f98a; --accent-soft:#2d3923; --blue:#b7d974; --line:#353e31; --line-2:#45513d;
+  --bg:#0d0d12; --bg-2:#18121f; --card:#18121f; --panel:#18121f; --surface:#18121f; --surface-2:#251b30;
+  --ink:#f3eaf9; --ink-2:#dbcee6; --muted:#b3a4bf; --faint:#a191af;
+  --accent:#c4b0ff; --accent-ink:#c4b0ff; --accent-soft:#342442; --blue:#c4b0ff; --line:#392b46; --line-2:#554065;
   --sans:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:#101211;
+  background:#0d0d12;
 }
-.nft-studio-embedded body {background:#101211;color:#f1f2e8;font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.nft-studio-embedded body {background:#0d0d12;color:#f3eaf9;font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .nft-studio-embedded h1,.nft-studio-embedded h2,.nft-studio-embedded h3 {font-family:inherit;letter-spacing:-.025em}
 .nft-studio-embedded .ls-nav,.nft-studio-embedded .ls-foot {display:none!important}
 .nft-studio-embedded .hero {background:none}
@@ -16,8 +16,16 @@
 .nft-studio-embedded .hero h1 {font-size:clamp(28px,4vw,40px)}
 .nft-studio-embedded label {font-size:14px}
 .nft-studio-embedded input,.nft-studio-embedded textarea,.nft-studio-embedded select {font-family:inherit;font-size:16px}
-.nft-studio-embedded :focus-visible {outline:2px solid #d7f98a;outline-offset:3px}
-.nft-studio-embedded .btn,.nft-studio-embedded .btn.primary {background:#d7f98a;color:#15200b;border-color:#d7f98a;box-shadow:none}
-.nft-studio-embedded .btn.sub,.nft-studio-embedded .btn.ghost {background:#1f261c;color:#d7f98a;border-color:#45513d}
-.nft-studio-embedded .btn.primary:hover {background:#e5ffb1}
+.nft-studio-embedded :focus-visible {outline:2px solid #c4b0ff;outline-offset:3px}
+.nft-studio-embedded .btn,.nft-studio-embedded .btn.primary {background:#c4b0ff;color:#24163f;border-color:#c4b0ff;box-shadow:none}
+.nft-studio-embedded .btn.sub,.nft-studio-embedded .btn.ghost {background:#251b30;color:#c4b0ff;border-color:#554065}
+.nft-studio-embedded .btn.primary:hover {background:#d6c5ff}
 @media(prefers-reduced-motion:reduce){.nft-studio-embedded *{scroll-behavior:auto!important}}
+
+.nft-studio-embedded .hero {display:none}
+.nft-studio-embedded .wiz,.nft-studio-embedded .card {border-radius:14px}
+.nft-studio-embedded .drop {background:#21162c;border:1px dashed #78528e;border-radius:14px;padding:28px 20px}
+.nft-studio-embedded .drop .big {font-size:23px;color:#edddfb}
+.nft-studio-embedded .drop .hint {color:#bba2cd;font-size:14px;margin-top:12px}
+.nft-studio-embedded .card {background:#18121f;border-color:#3a2b47}
+.nft-studio-embedded .section {margin-top:16px}

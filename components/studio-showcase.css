@@ -1,8 +1,8 @@
 .ns-gallery {
-  --gallery-line: #36452c;
-  --gallery-muted: #a0b18e;
-  --gallery-surface: #1b2616;
-  color: #e4efd8;
+  --gallery-line: #382f42;
+  --gallery-muted: #a193ac;
+  --gallery-surface: #1e1923;
+  color: #e4e0e7;
 }
 .ns-gallery-heading {
   display: flex;
@@ -48,18 +48,18 @@
   border: 1px solid transparent;
   border-radius: 5px;
   background: none;
-  color: #a7b898;
+  color: #a99db3;
   padding: 8px 11px;
   font-size: 12px;
   min-height: 38px;
 }
 .ns-gallery-toolbar [data-slot='tabs-trigger'][data-active] {
-  color: #e5f4d5;
-  background: #2b3b20;
-  border-color: #4f683c;
+  color: #e5e1e8;
+  background: #2d2635;
+  border-color: #53475d;
 }
 .ns-gallery-toolbar [data-slot='tabs-trigger']:hover {
-  color: #e5f4d5;
+  color: #e5e1e8;
 }
 .ns-gallery-toolbar [data-slot='tabs-trigger'] span {
   font-size: 9px;
@@ -67,7 +67,7 @@
 }
 .ns-gallery-count {
   font-size: 11px;
-  color: #91a37f;
+  color: #93839f;
   white-space: nowrap;
 }
 .ns-gallery-grid {
@@ -86,7 +86,7 @@
     transform 0.2s;
 }
 .ns-gallery-card:hover {
-  border-color: #617a49;
+  border-color: #63556e;
   transform: translateY(-3px);
 }
 .ns-gallery-visual {
@@ -95,7 +95,7 @@
   padding: 0;
   display: block;
   border: 0;
-  background: #10160e;
+  background: #120f15;
   position: relative;
   overflow: hidden;
   text-align: left;
@@ -117,9 +117,9 @@
   gap: 7px;
   right: 13px;
   bottom: 13px;
-  background: #0b120ce8;
-  border: 1px solid #61704b;
-  color: #e6f1d7;
+  background: #0e0c11e8;
+  border: 1px solid #5f516a;
+  color: #e4e0e8;
   font-size: 11px;
   min-height: 34px;
   padding: 7px 10px;
@@ -134,11 +134,11 @@
   align-items: center;
   padding: 6px 8px;
   border-radius: 4px;
-  background: #10170eea;
-  color: #d0e6b5;
+  background: #120f16ea;
+  color: #cec7d4;
   font-size: 8px;
   letter-spacing: 1px;
-  border: 1px solid #526442;
+  border: 1px solid #54485e;
 }
 .ns-gallery-card-body {
   padding: 21px 21px 0;
@@ -167,7 +167,7 @@
   line-height: inherit;
 }
 .ns-gallery-description {
-  color: #a8b899;
+  color: #aa9db4;
   font-size: 12px;
   line-height: 1.75;
   display: -webkit-box;
@@ -182,31 +182,31 @@
   gap: 10px;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid #34472a;
+  border-top: 1px solid #382f42;
   margin-top: 20px;
   padding: 13px 0;
 }
 .ns-gallery-card footer > span {
   font-size: 10px;
-  color: #8fa579;
+  color: #91809e;
   line-height: 1.6;
 }
 .ns-gallery-card footer > button {
   border: 0;
   background: none;
   padding: 5px;
-  color: #c8e0aa;
+  color: #c6bdcd;
 }
 .ns-gallery-symbol {
   height: 100%;
   display: grid;
   place-items: center;
   background:
-    radial-gradient(ellipse at 30% 30%, #435b2b, transparent 65%), #142111;
-  color: #d4ebbe;
+    radial-gradient(ellipse at 30% 30%, #43384e, transparent 65%), #19151d;
+  color: #d5cfda;
 }
 .ns-gallery-chess {
-  background: repeating-conic-gradient(#24301d 0 25%, #162110 0 50%) 50% / 70px
+  background: repeating-conic-gradient(#26202d 0 25%, #18141d 0 50%) 50% / 70px
     70px;
 }
 .ns-gallery-end {
@@ -218,7 +218,7 @@
   justify-content: space-between;
   gap: 24px;
   align-items: center;
-  background: #1c2815;
+  background: #1e1924;
 }
 .ns-gallery-end > div {
   display: flex;
@@ -226,7 +226,7 @@
   align-items: center;
 }
 .ns-gallery-end svg {
-  color: #bbd79e;
+  color: #bcb2c3;
 }
 .ns-gallery-end p {
   display: flex;
@@ -240,7 +240,7 @@
 .ns-gallery-end p span {
   font-size: 12px;
   line-height: 1.7;
-  color: #96ac81;
+  color: #9889a4;
 }
 .ns-gallery-end > button {
   background: none;
@@ -248,16 +248,16 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #c9e4af;
+  color: #cac3d0;
   font-size: 12px;
   white-space: nowrap;
 }
 .ns-work-dialog {
   padding: 0;
-  border: 1px solid #526742;
+  border: 1px solid #564a5f;
   border-radius: 12px;
-  background: #182313;
-  color: #e5f1d9;
+  background: #1b1620;
+  color: #e5e2e8;
   width: min(1130px, calc(100vw - 48px));
   max-width: none;
   max-height: calc(100svh - 48px);
@@ -265,7 +265,7 @@
   box-shadow: 0 30px 140px #000b;
 }
 .ns-work-dialog::backdrop {
-  background: #070d09cf;
+  background: #0a080ccf;
   backdrop-filter: blur(7px);
 }
 .ns-work-top {
@@ -277,20 +277,20 @@
   align-items: center;
   gap: 16px;
   padding: 13px 20px;
-  border-bottom: 1px solid #3b4e2e;
-  background: #1c2a16;
+  border-bottom: 1px solid #3e3349;
+  background: #201b25;
 }
 .ns-work-top > span {
   font-size: 9px;
   letter-spacing: 1.3px;
-  color: #a2ba8c;
+  color: #a497af;
 }
 .ns-work-close {
   display: grid;
   place-items: center;
-  border: 1px solid #4c613c;
+  border: 1px solid #504459;
   background: none;
-  color: #d0e6b9;
+  color: #d0c9d6;
   border-radius: 5px;
   width: 36px;
   height: 36px;
@@ -306,7 +306,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0c110b;
+  background: #0e0c10;
   position: sticky;
   top: 64px;
   overflow: hidden;
@@ -322,14 +322,14 @@
   height: 650px;
   display: block;
   border: 0;
-  background: #0c110b;
+  background: #0e0c10;
 }
 .ns-work-loading {
   display: flex;
   flex-direction: column;
   gap: 15px;
   align-items: center;
-  color: #a9be95;
+  color: #ab9eb5;
   font-size: 13px;
 }
 .ns-work-loading > svg,
@@ -351,11 +351,11 @@
 .ns-work-description {
   font-size: 14px;
   line-height: 1.8;
-  color: #b1c39f;
+  color: #b2a7bb;
 }
 .ns-work-verified {
   font-size: 10px;
-  color: #b2ca92;
+  color: #afa3b9;
   display: flex;
   gap: 7px;
   align-items: center;
@@ -371,21 +371,21 @@
 .ns-work-hint {
   font-size: 11px;
   line-height: 1.8;
-  color: #91a77d;
+  color: #9484a0;
   margin: 13px 0 24px;
 }
 .ns-work-note {
   font-size: 12px;
   line-height: 1.8;
-  border-left: 2px solid #657e46;
+  border-left: 2px solid #64556f;
   padding: 3px 0 3px 13px;
-  color: #bfd2a9;
+  color: #bfb5c6;
   margin: 20px 0;
 }
 .ns-work-details {
-  border-top: 1px solid #3b4e2e;
+  border-top: 1px solid #3e3349;
   padding: 16px 0;
-  color: #c1d5ae;
+  color: #c2bac9;
   font-size: 12px;
 }
 .ns-work-details > summary {
@@ -395,7 +395,7 @@
 }
 .ns-work-details > ol {
   padding: 0 0 0 18px;
-  color: #a8be93;
+  color: #aa9db4;
   line-height: 1.8;
 }
 .ns-work-details li {
@@ -404,7 +404,7 @@
 .ns-work-details > small {
   display: block;
   margin: 16px 0 7px;
-  color: #92ad7b;
+  color: #9686a2;
   font-size: 10px;
 }
 .ns-work-details > code {
@@ -413,8 +413,8 @@
   font:
     10px/1.9 ui-monospace,
     monospace;
-  color: #bed5a6;
-  background: #111c0d;
+  color: #bfb5c6;
+  background: #141118;
   padding: 10px;
   border-radius: 4px;
 }
@@ -423,7 +423,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #cae2ad;
+  color: #c8c0cf;
   font-size: 12px;
   line-height: 1.7;
   margin-top: 17px;
@@ -442,9 +442,9 @@
   gap: 15px;
   align-items: center;
   border: 0;
-  border-bottom: 1px solid #35472a;
+  border-bottom: 1px solid #382f42;
   background: none;
-  color: #c6ddb0;
+  color: #c7bfce;
   font-size: 11px;
   padding: 14px 0;
   text-align: left;
@@ -452,7 +452,7 @@
 }
 .ns-work-downloads > button small {
   display: block;
-  color: #8ca676;
+  color: #907f9d;
   font-size: 9px;
   margin-top: 5px;
   line-height: 1.7;
@@ -460,7 +460,7 @@
 .ns-work-attribution {
   font-size: 10px;
   line-height: 1.8;
-  color: #94ad7e;
+  color: #9788a3;
   margin-top: 17px;
 }
 .ns-work-status {
@@ -468,7 +468,7 @@
   align-items: center;
   gap: 9px;
   font-size: 12px;
-  color: #cce7ad;
+  color: #cbc3d1;
   margin-top: 16px;
 }
 .ns-work-error {
@@ -495,14 +495,14 @@
   text-align: center;
   gap: 22px;
   padding: 40px;
-  color: #b5cd9a;
+  color: #b5aabd;
 }
 .ns-work-legacy h2 {
   font-size: 30px;
   letter-spacing: -1px;
   line-height: 1.2;
   font-weight: 500;
-  color: #e3f1d6;
+  color: #e4e0e7;
 }
 .ns-work-legacy p {
   font-size: 14px;
@@ -513,15 +513,15 @@
   display: flex;
   gap: 10px;
   align-items: center;
-  border: 1px solid #526e3b;
+  border: 1px solid #564a5f;
   padding: 13px 18px;
   border-radius: 5px;
-  color: #d5edbd;
+  color: #d6d0da;
   font-size: 13px;
 }
 .ns-gallery :focus-visible,
 .ns-work-dialog :focus-visible {
-  outline: 2px solid #d7f98a;
+  outline: 2px solid #c4b0ff;
   outline-offset: 4px;
 }
 @keyframes ns-gallery-spin {
@@ -665,7 +665,7 @@
   }
 }
 .ns-work-primary {
-  border: 1px solid #c6e77c;
+  border: 1px solid #b3a7bc;
   margin-top: 4px;
 }
 .ns-work-unverified > svg {
@@ -707,6 +707,6 @@ body:has(.ns-work-dialog) [data-slot='dialog-overlay'] {
   position: fixed;
   inset: 0;
   z-index: 50;
-  background: #070d09cf;
+  background: #0a080ccf;
   backdrop-filter: blur(7px);
 }

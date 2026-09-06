@@ -1,13 +1,26 @@
-# NFT Studio by BEACN
+# NFT-Studio
 
 [Open NFT Studio](https://beacn-nft-studio.davidmjensen17.chatgpt.site) · [Build verification](https://github.com/BEACNpool/NFT-Studio/actions/workflows/verify.yml)
 
-A creative workbench for putting the **actual content on Cardano**: art, sound,
+A mobile dApp and desktop creative workspace for putting the **actual content on Cardano**: art, sound,
 playable games, useful apps, complete Ledger Scrolls and ongoing Ledger Books.
 Start without a wallet. Build your creation, review the exact transaction, then
-approve it in your wallet.
+approve it in your wallet. NFT-Studio constructs the metadata from your visual creation and settings.
 
 ![NFT Studio creative workbench](docs/studio-preview.png)
+
+## Open in VESPR
+
+Open the Studio URL inside VESPR’s dApp browser. The app has touch-friendly
+navigation and a visual Create → Details → Extras → Review flow. Wallet access
+can be approved from the header; signing only happens at the final mint review.
+The wallet dialog also offers an [open-in-wallet-browser link](https://cips.cardano.org/cip/CIP-0158)
+and a copy-link fallback. Switching browsers transfers the URL, not local files or drafts.
+
+The trusted embedded Scroll and Book creators can discover a same-origin parent’s
+CIP-30 wallet, including late VESPR injection. Opaque artwork frames cannot access
+that wallet. Source and browser tests use synthetic providers; actual VESPR device
+acceptance is still required before retiring the original sites.
 
 ## Create
 
@@ -50,7 +63,7 @@ and exported; metadata alone does not activate those services or contracts.
   and use Web Locks across tabs. An ambiguous response is checked by transaction
   ID instead of automatically resubmitted. Clearing site data or changing device
   is outside this local replay guard.
-- Receipts, editable projects and files can be downloaded. Read & recover checks
+- Receipts, editable projects and files can be downloaded. Activity checks
   current chain inclusion and reconstructs embedded content. A hash match verifies
   bytes against their metadata commitment, not authorship or copyright.
 

@@ -155,8 +155,8 @@ export function FileWorkbench({
   return (
     <div className="ns-files">
       <div className="ns-tool-intro">
-        <span className="ns-eyebrow">EXACT FILES. REAL CHAIN DATA.</span>
-        <h2>A little package with a permanent home.</h2>
+        <span className="ns-eyebrow">YOUR CONTENT</span>
+        <h2>Add your files.</h2>
         <p>
           Small audio, moving artwork, HTML, documents or structured data. Files
           stay byte-for-byte intact. Larger works belong in a Ledger Scroll.

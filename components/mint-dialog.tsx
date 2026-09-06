@@ -10,6 +10,7 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 import { Button } from './ui/button';
+import { WalletBrowserHelp } from './studio-wallet';
 import {
   Dialog,
   DialogContent,
@@ -532,14 +533,7 @@ export function MintDialog({
                       </Button>
                     ))}
                   </div>
-                  {!wallets.length && (
-                    <p className="mint-note">
-                      No Cardano wallet detected. Open this page in your
-                      wallet’s dApp browser, or in a browser with a Cardano
-                      wallet extension enabled. Embedded previews may not expose
-                      extensions.
-                    </p>
-                  )}
+                  {!wallets.length && <WalletBrowserHelp />}
                   <button
                     className="text-link"
                     disabled={!!busy || restoring || !!restoreError}

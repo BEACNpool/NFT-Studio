@@ -83,10 +83,10 @@ export function LedgerWorkbench({
         <div>
           <span className="ns-eyebrow">
             {kind === 'book'
-              ? 'AN OPEN BOOK, ON CHAIN'
+              ? 'LEDGER BOOK'
               : kind === 'reader'
                 ? 'READ. VERIFY. KEEP.'
-                : 'GIVE THE WHOLE FILE A HOME'}
+                : 'LEDGER SCROLL'}
           </span>
           <h2>
             {kind === 'book'
@@ -97,16 +97,15 @@ export function LedgerWorkbench({
           </h2>
           <p>
             {kind === 'book'
-              ? 'Mint a Book, then collect public entries and replies. Entries are open, and the current holder receives the entry’s minimum-ADA anchor.'
+              ? 'Create a Book and collect public entries over time.'
               : kind === 'reader'
                 ? 'Open a Scroll pointer or Book identity, inspect the original content, and keep a verified local copy.'
-                : 'Compose writing or publish a complete file. A Scroll stores data without creating an NFT. Review the network fees and permanently locked ADA before approving.'}
+                : 'Publish writing or files. Scrolls store data without minting a token.'}
           </p>
         </div>
         <a
           className="ns-secondary"
           href={assetPath('/tools/ledger/' + path)}
-          target="_blank"
           rel="noreferrer"
         >
           Open full page
@@ -143,11 +142,17 @@ export function LedgerWorkbench({
           {error}
         </p>
       )}
-      <p className="ns-fineprint">
-        Some wallet extensions work best in the full-page creator. Files held in
-        this tab must be reselected there. Keep receipts before changing browser
-        or hostname.
-      </p>
+      <details className="ns-ledger-help">
+        <summary>Costs & wallet help</summary>
+        <p>
+          {kind === 'book'
+            ? 'Book entries are public. The current holder receives each entry’s minimum-ADA anchor.'
+            : 'Scrolls require network fees and permanently lock ADA in data outputs. Review the full cost before signing.'}{' '}
+          If an embedded wallet connection is unavailable, open the full-page
+          creator. Select your files again there and keep your receipts before
+          switching browsers.
+        </p>
+      </details>
       <div className="ns-ledger-frame" ref={host} />
     </div>
   );

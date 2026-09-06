@@ -52,7 +52,7 @@ const fixture={changeHex:addr.to_hex(),utxos:[u.to_hex()]},params={epoch_no:653,
    const downloads=fs.mkdtempSync(path.join(process.cwd(),'receipt-download-'));const cdp=await page.createCDPSession();await cdp.send('Page.setDownloadBehavior',{behavior:'allow',downloadPath:downloads});await click(page,'Save receipt');let names=[];for(let i=0;i<50;i++){names=fs.readdirSync(downloads).filter(n=>n.endsWith('.json'));if(names.length)break;await new Promise(resolve=>setTimeout(resolve,100));}assert.equal(names.length,1);const packet=JSON.parse(fs.readFileSync(path.join(downloads,names[0])));assert.equal(packet.hash,qa.last.hash);assert.equal(C.FixedTransaction.from_hex(packet.signedHex).transaction_hash().to_hex(),qa.last.hash);fs.rmSync(downloads,{recursive:true});
 
    // Close the dialog and use the actual shell Recovery panel.
-   await page.waitForFunction(()=>!document.querySelector('.ns-file-mint .ns-busy'));await page.keyboard.press('Escape');await page.waitForFunction(()=>!document.querySelector('.ns-file-mint'));await click(page,'Read & recover');await click(page,'Check & recover');await has(page,'Metadata hash matches');
+   await page.waitForFunction(()=>!document.querySelector('.ns-file-mint .ns-busy'));await page.keyboard.press('Escape');await page.waitForFunction(()=>!document.querySelector('.ns-file-mint'));await click(page,'Activity');await click(page,'Check & recover');await has(page,'Metadata hash matches');
    const recovered=await page.$eval('.ns-recovery-grid code',e=>e.textContent).catch(()=>null);
    if(mode==='nft')await click(page,'creation-1.txt');const frame=await(await page.$('.ns-recovery-grid iframe')).contentFrame();await frame.waitForSelector('pre');assert.equal(await frame.$eval('pre',e=>e.textContent),'The bytes are the point. 🦾');
 
@@ -70,7 +70,7 @@ const fixture={changeHex:addr.to_hex(),utxos:[u.to_hex()]},params={epoch_no:653,
   {const {page,context}=await makePage();await prepare(page,'data');await page.evaluate(()=>{const original=Date.now;Date.now=()=>original()+241001;});await click(page,'Sign & submit');await has(page,'review expired');assert.deepEqual(await page.evaluate(()=>[__qa.sign,__qa.submit]),[0,0]);results.push({behavior:'stale-review',sign:0,submit:0});await context.close();}
   const {page,context}=await makePage('delay');await prepare(page,'data');await click(page,'Sign & submit');await page.waitForFunction(()=>typeof __qa.releaseSign==='function');
   // Root's Back control actually unmounts the creator even while a wallet is open.
-  await page.evaluate(()=>{const button=Array.from(document.querySelectorAll('button')).find(e=>e.textContent.includes('All formats'));if(!button)throw Error('No All formats navigation');button.click();__qa.releaseSign();});
+  await page.evaluate(()=>{const button=Array.from(document.querySelectorAll('button')).find(e=>e.textContent.includes('Change format'));if(!button)throw Error('No format navigation');button.click();__qa.releaseSign();});
   await page.waitForFunction(()=>__qa.afterSign);await page.waitForNetworkIdle({idleTime:500});assert.equal(await page.evaluate(()=>__qa.submit),0);results.push({behavior:'unmount-during-sign',submit:0});await context.close();
   console.log(JSON.stringify(results,null,2));
  }finally{await browser.close();}

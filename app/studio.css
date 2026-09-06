@@ -1,17 +1,17 @@
 :root {
   --background: #101211;
-  --foreground: #f1f2e9;
-  --primary: #d7f98a;
-  --primary-foreground: #17200e;
-  --secondary: #1a1e1b;
+  --foreground: #eeebf0;
+  --primary: #c4b0ff;
+  --primary-foreground: #17131b;
+  --secondary: #1c1721;
   --border: #303631;
   --muted: #a9b2aa;
-  --sidebar: #121612;
-  --sidebar-foreground: #eff2e9;
-  --sidebar-accent: #283124;
-  --sidebar-accent-foreground: #def69d;
-  --sidebar-border: #2b342a;
-  --sidebar-ring: #d7f98a;
+  --sidebar: #141117;
+  --sidebar-foreground: #eeebf0;
+  --sidebar-accent: #2a2332;
+  --sidebar-accent-foreground: #cac3d0;
+  --sidebar-border: #2f2737;
+  --sidebar-ring: #c4b0ff;
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-accent: var(--sidebar-accent);
@@ -46,7 +46,7 @@
   top: -100px;
   z-index: 1000;
   background: var(--primary);
-  color: #17200e;
+  color: #17131b;
   padding: 12px;
 }
 .ns-skip:focus {
@@ -104,7 +104,7 @@
 }
 .ns-nav [data-slot='sidebar-menu-button'][data-active] {
   color: var(--primary);
-  background: #293225;
+  background: #2b2433;
 }
 .ns-nav svg {
   width: 18px !important;
@@ -123,12 +123,12 @@
   font-size: 10px;
   letter-spacing: 1.25px;
   font-weight: 600;
-  color: #82917d;
+  color: #887d91;
 }
 .ns-sidebar-note p {
   font-size: 20px;
   line-height: 1.5;
-  color: #ced6c7;
+  color: #cfc8d5;
   margin: 12px 0;
 }
 .ns-sidebar-note > span {
@@ -144,7 +144,7 @@
   align-items: center;
   gap: 10px;
   font-size: 13px;
-  color: #aab6a6;
+  color: #afa6b6;
 }
 .ns-sidebar-footer > a svg:last-child {
   margin-left: auto;
@@ -164,7 +164,7 @@
 .ns-footer-brand span {
   width: 100%;
   font-size: 11px;
-  color: #8c9988;
+  color: #928899;
   margin-left: 31px;
   margin-top: -3px;
 }
@@ -193,19 +193,19 @@
   letter-spacing: 1.4px;
 }
 .ns-topbar > div > svg {
-  color: #576350;
+  color: #5b5063;
 }
 .ns-topbar strong {
   font-size: 13px;
   font-weight: 500;
-  color: #c4cebc;
+  color: #c6bdcd;
 }
 .ns-menu-toggle {
   display: none;
 }
 .ns-network {
   font-size: 12px;
-  color: #abb9a2;
+  color: #afa3b8;
   display: flex;
   gap: 8px;
   align-items: center;
@@ -215,7 +215,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #b8caab;
+  background: #bcb2c3;
 }
 .ns-main {
   width: 100%;
@@ -232,7 +232,7 @@
   margin-bottom: 30px;
 }
 .ns-eyebrow {
-  color: #a2b58d;
+  color: #a295ad;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 1.6px;
@@ -251,7 +251,7 @@
 .ns-page-intro > p:not(.ns-eyebrow) {
   font-size: 15px;
   line-height: 1.65;
-  color: #a5b19e;
+  color: #a99eb1;
 }
 .ns-step-intro {
   display: flex;
@@ -260,24 +260,24 @@
   flex-shrink: 0;
 }
 .ns-step-intro > span {
-  border: 1px solid #455039;
+  border: 1px solid #443950;
   border-radius: 50%;
   width: 39px;
   height: 39px;
   display: grid;
   place-items: center;
   font-size: 12px;
-  color: #d3e6b9;
+  color: #d0c9d6;
 }
 .ns-step-intro > div {
   font-size: 10px;
   letter-spacing: 1px;
-  color: #c7d7b8;
+  color: #c8c0cf;
 }
 .ns-step-intro small {
   display: block;
   font-size: 11px;
-  color: #83927a;
+  color: #877a92;
   letter-spacing: 0;
   margin-top: 6px;
 }
@@ -287,12 +287,12 @@
   gap: 15px;
 }
 .ns-mode {
-  border: 1px solid #32392f;
+  border: 1px solid #342b3d;
   border-radius: 11px;
   min-width: 0;
   position: relative;
   overflow: hidden;
-  background: #1a2019;
+  background: #1c1821;
   isolation: isolate;
   text-align: left;
   display: flex;
@@ -308,7 +308,7 @@
 .ns-mode:hover {
   transform: translateY(-3px);
   border-color: var(--mode-accent);
-  background: #232c1f;
+  background: #251f2c;
   color: var(--foreground);
 }
 .ns-mode-top {
@@ -340,7 +340,7 @@
 .ns-mode p {
   font-size: 13px;
   line-height: 1.65;
-  color: #a6b19e;
+  color: #a99eb1;
   max-width: 32ch;
   margin-top: 10px;
 }
@@ -354,12 +354,12 @@
 .ns-mode-bottom small {
   font-size: 10px;
   line-height: 1.6;
-  color: #87987c;
+  color: #8c7c98;
 }
 .ns-round-arrow {
   width: 31px;
   height: 31px;
-  border: 1px solid #3d4735;
+  border: 1px solid #3e3349;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -381,10 +381,10 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    #11181130 0%,
-    #11181100 22%,
-    #111811d6 70%,
-    #111811 100%
+    #14111830 0%,
+    #14111800 22%,
+    #141118d6 70%,
+    #141118 100%
   );
   z-index: -1;
 }
@@ -393,7 +393,7 @@
   grid-row: span 2;
   min-height: 494px;
   padding: 27px;
-  background: #101710;
+  background: #131017;
 }
 .ns-mode-art .ns-mode-image {
   opacity: 0.97;
@@ -407,7 +407,7 @@
 .ns-mode-art p {
   max-width: 36ch;
   font-size: 15px;
-  color: #c4cfba;
+  color: #c5bdcc;
 }
 .ns-mode-art .ns-mode-bottom {
   margin-top: 23px;
@@ -416,11 +416,11 @@
   width: 43px;
   height: 43px;
   background: var(--primary);
-  color: #263119;
+  color: #251f2b;
   border: 0;
 }
 .ns-mode-art .ns-mode-top {
-  color: #e3f2ce;
+  color: #e0dce4;
 }
 .ns-mode-game .ns-mode-image {
   opacity: 0.25;
@@ -441,7 +441,7 @@
   background: #261f1a;
 }
 .ns-mode-utility {
-  background: #1d251b;
+  background: #201b25;
 }
 .ns-mode-data {
   background: #192623;
@@ -458,10 +458,10 @@
   gap: 9px;
   align-items: center;
   font-size: 11px;
-  color: #8b9980;
+  color: #8e8099;
 }
 .ns-home-notes svg {
-  color: #acc395;
+  color: #ada1b7;
 }
 .ns-main-footer {
   border-top: 1px solid #282e29;
@@ -470,7 +470,7 @@
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  color: #6f7d65;
+  color: #72657d;
   font-size: 10px;
   letter-spacing: 1.1px;
 }
@@ -489,7 +489,7 @@
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 12px;
-  background: #191f18;
+  background: #1b1720;
   text-align: left;
 }
 .ns-showcase-card > img,
@@ -497,12 +497,12 @@
   width: 100%;
   height: 230px;
   object-fit: cover;
-  background: #101710;
+  background: #131017;
 }
 .ns-showcase-symbol {
   display: grid;
   place-items: center;
-  color: #c7dcab;
+  color: #c4bccb;
 }
 .ns-showcase-card > div:last-child {
   padding: 22px;
@@ -516,7 +516,7 @@
 .ns-showcase-card p {
   font-size: 14px;
   line-height: 1.6;
-  color: #a0af95;
+  color: #a396ae;
 }
 .ns-text-link {
   display: flex;
@@ -532,7 +532,7 @@
 }
 .ns-primary {
   background: var(--primary) !important;
-  color: #182310 !important;
+  color: #19151e !important;
   min-height: 44px;
   padding: 11px 19px !important;
   border-radius: 7px;
@@ -543,7 +543,7 @@
   margin-top: 22px;
 }
 .ns-primary:hover {
-  background: #e6ffaf !important;
+  background: #d8d2dc !important;
 }
 .ns-guide {
   max-width: 890px;
@@ -559,7 +559,7 @@
 }
 .ns-guide article > span {
   font-size: 12px;
-  color: #b9d395;
+  color: #b5aabe;
   padding-top: 5px;
 }
 .ns-guide h2 {
@@ -570,13 +570,13 @@
 .ns-guide p {
   font-size: 16px;
   line-height: 1.8;
-  color: #a6b39b;
+  color: #a89cb2;
   margin-top: 11px;
 }
 .ns-guide aside {
   margin-top: 30px;
-  background: #20251c;
-  border: 1px solid #3b442e;
+  background: #201b26;
+  border: 1px solid #392f43;
   padding: 25px;
   border-radius: 9px;
 }
@@ -585,7 +585,7 @@
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: #9eae91;
+  color: #a193ac;
   background: none;
   border: 0;
   margin-bottom: 23px;
@@ -694,7 +694,7 @@
 @media (max-width: 767px) {
   .ns-menu-toggle {
     display: inline-flex;
-    color: #c6d8b6;
+    color: #c8c0ce;
   }
   .ns-topbar {
     height: 64px;
@@ -855,7 +855,7 @@
   padding: 0 12px 19px 0;
   background: none;
   border: 0;
-  color: #91a087;
+  color: #9587a0;
   font-size: 14px;
   position: relative;
   width: 100%;
@@ -865,7 +865,7 @@
   place-items: center;
   width: 26px;
   height: 26px;
-  border: 1px solid #404d34;
+  border: 1px solid #40364b;
   border-radius: 50%;
   font-size: 10px;
   flex-shrink: 0;
@@ -884,8 +884,8 @@
 }
 .ns-stage-list .current button > span,
 .ns-stage-list .complete button > span {
-  background: #303f22;
-  border-color: #516638;
+  background: #302839;
+  border-color: #504559;
 }
 .ns-stage-list button:disabled {
   opacity: 0.5;
@@ -898,11 +898,11 @@
 }
 .ns-upload-zone {
   padding: 43px 30px;
-  border: 1px dashed #63704f;
+  border: 1px dashed #61536c;
   border-radius: 12px;
   background:
-    radial-gradient(ellipse at 50% 25%, #2a382280, transparent 70%), #182015;
-  color: #e7eddc;
+    radial-gradient(ellipse at 50% 25%, #2d253580, transparent 70%), #1a161f;
+  color: #e5e1e8;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -914,10 +914,10 @@
   width: 72px;
   height: 72px;
   border-radius: 20px;
-  background: #303f22;
+  background: #302839;
   display: grid;
   place-items: center;
-  color: #c4e194;
+  color: #bcb2c3;
   margin-bottom: 24px;
 }
 .ns-upload-zone h2 {
@@ -927,13 +927,13 @@
 }
 .ns-upload-zone p {
   font-size: 15px;
-  color: #a4b297;
+  color: #a699b0;
   line-height: 1.7;
   margin-top: 11px;
 }
 .ns-upload-zone small {
   font-size: 12px;
-  color: #879b75;
+  color: #8a7997;
   margin-top: 16px;
 }
 .ns-start-options > button {
@@ -942,12 +942,12 @@
   gap: 15px;
   align-items: center;
   text-align: left;
-  background: #1c2418;
-  border: 1px solid #36412d;
+  background: #1e1923;
+  border: 1px solid #372e40;
   padding: 23px 20px;
   border-radius: 9px;
   margin-bottom: 15px;
-  color: #d3dec8;
+  color: #d4cdd9;
 }
 .ns-start-options > button > div {
   flex: 1;
@@ -960,7 +960,7 @@
 .ns-start-options > button span {
   display: block;
   font-size: 13px;
-  color: #94a486;
+  color: #9787a3;
   line-height: 1.6;
   margin-top: 6px;
 }
@@ -975,7 +975,7 @@
 .ns-starters button {
   border: 0;
   background: none;
-  color: #afbf9e;
+  color: #b0a4b9;
   padding: 0;
   text-align: left;
 }
@@ -983,7 +983,7 @@
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  border: 1px solid #38482a;
+  border: 1px solid #392f43;
   border-radius: 7px;
 }
 .ns-starters span {
@@ -1010,13 +1010,13 @@
 }
 .ns-workbench-footer > div > span {
   font-size: 13px;
-  color: #aabd96;
+  color: #ab9eb5;
 }
 .ns-secondary {
   min-height: 42px;
-  background: #21291c !important;
-  border: 1px solid #435038 !important;
-  color: #cbdcba !important;
+  background: #221d28 !important;
+  border: 1px solid #443850 !important;
+  color: #ccc4d2 !important;
   border-radius: 6px;
   padding: 10px 16px;
   display: inline-flex;
@@ -1027,8 +1027,8 @@
   font-weight: 500;
 }
 .ns-secondary:hover {
-  background: #303d26 !important;
-  color: #e4facd !important;
+  background: #31293a !important;
+  color: #e4e0e7 !important;
 }
 .ns-wide {
   width: 100%;
@@ -1037,12 +1037,12 @@
 .ns-icon-button {
   width: 42px;
   height: 42px;
-  border: 1px solid #39492a;
+  border: 1px solid #393043;
   border-radius: 6px;
   display: grid;
   place-items: center;
   background: transparent;
-  color: #b7cba0;
+  color: #b7acbf;
 }
 .ns-back-button {
   border: 0;
@@ -1051,7 +1051,7 @@
   align-items: center;
   gap: 8px;
   font-size: 14px;
-  color: #9bab8d;
+  color: #9e8fa9;
   padding: 10px;
 }
 .ns-error,
@@ -1068,9 +1068,9 @@
   color: #f2c7bb;
 }
 .ns-notice {
-  background: #26321e;
-  border: 1px solid #4f613c;
-  color: #d0e4b5;
+  background: #28212f;
+  border: 1px solid #504459;
+  color: #cdc6d3;
 }
 .ns-notice button {
   border: 0;
@@ -1082,14 +1082,14 @@
 .ns-editor-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
-  border: 1px solid #323d29;
+  border: 1px solid #332a3c;
   border-radius: 10px;
   overflow: hidden;
-  background: #192015;
+  background: #1a161f;
 }
 .ns-canvas-panel {
   min-width: 0;
-  background: #10170d;
+  background: #120f15;
 }
 .ns-canvas-panel > canvas,
 .ns-canvas-panel > .art-preview,
@@ -1108,13 +1108,13 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px 21px;
-  background: #1a2314;
-  border-bottom: 1px solid #323d29;
+  background: #1b1720;
+  border-bottom: 1px solid #332a3c;
 }
 .ns-canvas-toolbar > span {
   font-size: 11px;
   letter-spacing: 1px;
-  color: #9bab8a;
+  color: #9c8da8;
 }
 .ns-canvas-toolbar > div {
   display: flex;
@@ -1124,7 +1124,7 @@
   border: 0;
   background: none;
   padding: 2px;
-  color: #a9be93;
+  color: #aa9db4;
 }
 .ns-canvas-caption {
   display: flex;
@@ -1133,14 +1133,14 @@
   padding: 14px 18px;
   font-size: 9px;
   line-height: 1.6;
-  color: #819770;
+  color: #857394;
 }
 .ns-canvas-caption > span:first-child {
   letter-spacing: 1px;
-  color: #a4b68f;
+  color: #a496af;
 }
 .ns-control-panel {
-  border-left: 1px solid #323d29;
+  border-left: 1px solid #332a3c;
   padding: 24px;
   min-width: 0;
 }
@@ -1151,7 +1151,7 @@
 }
 .ns-panel-heading p {
   font-size: 14px;
-  color: #9aaf87;
+  color: #9d8ea8;
   line-height: 1.6;
   margin-top: 8px;
 }
@@ -1160,7 +1160,7 @@
 }
 .ns-hint {
   font-size: 12px;
-  color: #91a77e;
+  color: #9484a1;
   line-height: 1.7;
   margin-top: 12px;
 }
@@ -1189,10 +1189,10 @@
   justify-content: space-between;
   margin-bottom: 15px;
   font-size: 13px;
-  color: #b9caa6;
+  color: #b9afc1;
 }
 .ns-range label > span {
-  color: #8ca572;
+  color: #8d7c9b;
   font-size: 12px;
 }
 .ns-color-field {
@@ -1201,7 +1201,7 @@
   align-items: center;
   font-size: 13px;
   margin: 23px 0;
-  color: #b9caa6;
+  color: #b9afc1;
 }
 .ns-color-field input {
   width: 32px;
@@ -1222,14 +1222,14 @@
   align-items: center;
   background: none;
   border: 1px solid transparent;
-  color: #bdceab;
+  color: #beb4c5;
   border-radius: 5px;
   padding: 7px;
   text-align: left;
 }
 .ns-source-list button[aria-pressed='true'] {
-  border-color: #5b7342;
-  background: #28381c;
+  border-color: #5c4f66;
+  background: #2a2331;
 }
 .ns-source-list img {
   width: 36px;
@@ -1244,7 +1244,7 @@
 .ns-source-list small {
   display: block;
   font-size: 10px;
-  color: #8da277;
+  color: #8e7e9b;
   margin-top: 3px;
 }
 .ns-details-grid {
@@ -1267,7 +1267,7 @@
   font-size: 12px;
   text-align: center;
   line-height: 1.6;
-  color: #8ea479;
+  color: #90809d;
   margin-top: 16px;
 }
 .ns-detail-fields h2 {
@@ -1280,18 +1280,18 @@
   flex-direction: column;
   gap: 10px;
   font-size: 14px;
-  color: #c5d6b3;
+  color: #c5bdcc;
   margin-top: 24px;
 }
 .ns-field input,
 .ns-field textarea,
 .ns-trait input {
   width: 100%;
-  border: 1px solid #45533a;
+  border: 1px solid #463b52;
   border-radius: 6px;
-  background: #1c2715;
+  background: #1e1923;
   padding: 12px 14px;
-  color: #e6f4d8;
+  color: #e6e3e9;
   font-size: 15px;
   line-height: 1.6;
   min-width: 0;
@@ -1299,21 +1299,21 @@
 .ns-field input::placeholder,
 .ns-field textarea::placeholder,
 .ns-trait input::placeholder {
-  color: #799267;
+  color: #7e6c8d;
 }
 .ns-field textarea {
   resize: vertical;
 }
 .ns-field small {
   font-size: 12px;
-  color: #8ba275;
+  color: #8d7c9b;
   line-height: 1.6;
 }
 .ns-select {
   width: 100%;
   min-height: 47px;
-  border-color: #45533a !important;
-  background: #1c2715 !important;
+  border-color: #463b52 !important;
+  background: #1e1923 !important;
   font-size: 14px;
 }
 .ns-traits-heading {
@@ -1349,7 +1349,7 @@
 .ns-trait button {
   border: 0;
   background: none;
-  color: #9cb987;
+  color: #a194ac;
 }
 .ns-embedded-lab {
   min-width: 0;
@@ -1379,10 +1379,10 @@
   gap: 13px;
   align-items: flex-start;
   padding: 20px;
-  border: 1px solid #425233;
-  background: #223019;
+  border: 1px solid #42374e;
+  background: #241e2b;
   border-radius: 8px;
-  color: #a9bf95;
+  color: #ab9fb5;
   margin-top: 25px;
 }
 .ns-inline-note p {
@@ -1390,7 +1390,7 @@
   line-height: 1.75;
 }
 .ns-inline-note svg {
-  color: #c2df9f;
+  color: #c0b7c7;
   margin-top: 3px;
 }
 .ns-review-grid {
@@ -1407,7 +1407,7 @@
   display: block;
   font-size: 9px;
   letter-spacing: 0.7px;
-  color: #8ca571;
+  color: #8d7c9a;
   line-height: 1.7;
   margin-top: 13px;
 }
@@ -1421,7 +1421,7 @@
 .ns-review-summary > p:not(.ns-eyebrow):not(.ns-hint) {
   font-size: 15px;
   line-height: 1.7;
-  color: #a5b98f;
+  color: #a598b0;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
@@ -1434,17 +1434,17 @@
   justify-content: space-between;
   gap: 15px;
   padding: 13px 0;
-  border-bottom: 1px solid #37482a;
+  border-bottom: 1px solid #392f43;
   font-size: 13px;
   line-height: 1.6;
 }
 .ns-review-summary dt {
-  color: #8da576;
+  color: #8f7f9c;
 }
 .ns-review-summary dd {
   margin: 0;
   text-align: right;
-  color: #cfdfbe;
+  color: #cfc8d5;
 }
 .ns-review-summary .mint-trigger {
   width: 100%;
@@ -1465,12 +1465,12 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  border: 1px dashed #425535;
+  border: 1px dashed #453951;
   border-radius: 12px;
   margin-top: 25px;
 }
 .ns-empty svg {
-  color: #a9c889;
+  color: #aa9db4;
   margin-bottom: 23px;
 }
 .ns-empty h2 {
@@ -1481,7 +1481,7 @@
 .ns-empty p {
   font-size: 15px;
   line-height: 1.7;
-  color: #9cb584;
+  color: #9e90a9;
   max-width: 45ch;
   margin-top: 13px;
 }
@@ -1492,8 +1492,8 @@
 }
 .ns-project-grid article {
   overflow: hidden;
-  background: #1b2615;
-  border: 1px solid #36492a;
+  background: #1d1823;
+  border: 1px solid #393043;
   border-radius: 9px;
 }
 .ns-project-open {
@@ -1503,7 +1503,7 @@
   background: none;
   border: 0;
   text-align: left;
-  color: #dceece;
+  color: #dfdae2;
 }
 .ns-project-open img {
   width: 100%;
@@ -1520,14 +1520,14 @@
 }
 .ns-project-open p {
   font-size: 12px;
-  color: #8da977;
+  color: #92829e;
   padding: 0 19px 18px;
 }
 .ns-project-grid article > div {
   display: flex;
   justify-content: space-between;
   padding: 14px 19px;
-  border-top: 1px solid #36492a;
+  border-top: 1px solid #393043;
 }
 .ns-project-grid article > div > button {
   display: flex;
@@ -1536,7 +1536,7 @@
   font-size: 12px;
   background: none;
   border: 0;
-  color: #a7c58a;
+  color: #a99cb3;
 }
 @media (max-width: 1180px) {
   .ns-start-art {
@@ -1631,7 +1631,7 @@
     gap: 15px;
     position: sticky;
     bottom: 0;
-    background: #10180efa;
+    background: #131016fa;
     backdrop-filter: blur(14px);
     z-index: 5;
     padding: 16px 0;
@@ -1737,7 +1737,7 @@
 }
 .ns-segment {
   display: flex;
-  background: #0b100e;
+  background: #0d0b10;
   border: 1px solid var(--ns-line);
   padding: 4px;
   border-radius: 7px;
@@ -1751,13 +1751,13 @@
   color: var(--ns-muted);
 }
 .ns-segment button[aria-pressed='true'] {
-  background: #2a3427;
+  background: #2d2635;
   color: var(--ns-lime);
 }
 .ns-file-drop {
   width: 100%;
-  border: 1px dashed #475340;
-  background: #151b15;
+  border: 1px dashed #493d56;
+  background: #18141c;
   border-radius: 9px;
   display: flex;
   align-items: center;
@@ -1814,7 +1814,7 @@
 }
 .ns-byte-meter {
   height: 4px;
-  background: #323a2f;
+  background: #342c3d;
   margin: 23px 0 10px;
 }
 .ns-byte-meter > div {
@@ -1877,9 +1877,9 @@
   overflow-wrap: anywhere;
 }
 .ns-file-tabs button[aria-pressed='true'] {
-  background: #d7f98a;
-  color: #151a12;
-  border-color: #d7f98a;
+  background: #c4b0ff;
+  color: #16121a;
+  border-color: #c4b0ff;
 }
 .ns-button-row {
   display: flex;
@@ -1949,7 +1949,7 @@
   font: 12px/1.5 monospace;
   max-height: 240px;
   overflow: auto;
-  background: #0d110d;
+  background: #0f0c12;
   padding: 18px;
   margin-top: 10px;
 }
@@ -1987,7 +1987,7 @@
   display: block;
   overflow-wrap: anywhere;
   font-size: 13px;
-  background: #11160f;
+  background: #120f16;
   padding: 15px;
   margin: 20px 0;
 }
@@ -2014,14 +2014,14 @@
   border: 1px solid var(--ns-line);
   border-radius: 10px;
   overflow: hidden;
-  background: #0d110e;
+  background: #0f0c12;
 }
 .ns-handoff {
   display: flex;
   gap: 15px;
   align-items: center;
-  background: #202b1e;
-  border: 1px solid #617549;
+  background: #241e2b;
+  border: 1px solid #60536b;
   padding: 20px;
   border-radius: 9px;
   margin: 20px 0;
@@ -2178,10 +2178,10 @@
 }
 :root {
   --ns-muted: #a5afa4;
-  --ns-line: #303830;
-  --ns-panel: #171c18;
-  --ns-lime: #d7f98a;
-  --ns-ink: #f1f2e9;
+  --ns-line: #342b3d;
+  --ns-panel: #19151e;
+  --ns-lime: #c4b0ff;
+  --ns-ink: #eeebf0;
 }
 .ns-eyebrow,
 .ns-tiny-label,
@@ -2213,10 +2213,10 @@
 }
 .ns-file-mint {
   color: var(--ns-ink);
-  background: #171c18;
+  background: #19151e;
 }
 .ns-file-mint input {
-  accent-color: #d7f98a;
+  accent-color: #c4b0ff;
 }
 .ns-build-tabs {
   margin-bottom: 24px;
@@ -2235,11 +2235,11 @@
   max-width: 185px;
 }
 .ns-sidebar {
-  border-color: #303830 !important;
+  border-color: #342b3d !important;
 }
 .ns-control-panel,
 .ns-canvas-toolbar {
-  background: #1a2119;
+  background: #1d1822;
 }
 .ns-main {
   scroll-margin-top: 80px;
