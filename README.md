@@ -1,6 +1,6 @@
 # NFT-Studio
 
-[Open NFT Studio](https://beacn-nft-studio.davidmjensen17.chatgpt.site) · [Build verification](https://github.com/BEACNpool/NFT-Studio/actions/workflows/verify.yml)
+[Open NFT Studio](https://beacnpool.github.io/NFT-Studio/) · [Build verification](https://github.com/BEACNpool/NFT-Studio/actions/workflows/verify.yml)
 
 A mobile dApp and desktop creative workspace for putting the **actual content on Cardano**: art, sound,
 playable games, useful apps, complete Ledger Scrolls and ongoing Ledger Books.
@@ -98,9 +98,11 @@ npm run build
 
 `npm run build` produces the root deployment in `dist/client`.
 `npm run build:pages` produces a GitHub Pages subdirectory export in
-`dist/github-pages`, configured for `/NFT-Studio/`. The CI workflow verifies
-and uploads that static artifact; enabling a Pages deployment is a separate
-repository hosting setting. No secret belongs in a static build.
+`dist/github-pages`, configured for `/NFT-Studio/`. **GitHub Pages publishes the
+`gh-pages` branch at the repository’s public URL.** The `main` branch holds source;
+CI verifies it and uploads a build artifact. A source push alone does not update
+the live branch. See [publishing instructions](docs/PUBLISHING.md).
+No secret belongs in a static build.
 
 ## What has been verified
 
