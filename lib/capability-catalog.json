@@ -317,7 +317,7 @@
     },
     {
       "id": "tipsy-demo",
-      "title": "Tipsy Turtles · on-chain demo",
+      "title": "Tipsy Turtles \u00b7 on-chain demo",
       "category": "specialty-art",
       "capability": "attributed-demonstration",
       "creatorReady": false,
@@ -402,7 +402,7 @@
     },
     {
       "id": "kayfabe",
-      "title": "Lil Rogers · KAYFABE",
+      "title": "Lil Rogers \u00b7 KAYFABE",
       "category": "music",
       "capability": "fixed-campaign",
       "creatorReady": true,
@@ -1249,7 +1249,7 @@
     },
     {
       "id": "ledger-chess-original",
-      "title": "Ledger Chess · The Immortal Referee",
+      "title": "Ledger Chess \u00b7 The Immortal Referee",
       "category": "games",
       "capability": "frozen-scroll-original",
       "creatorReady": false,
@@ -1280,6 +1280,359 @@
         "Opening the standalone game plays locally. On-chain win claims require its reader, a compatible wallet, a network fee and 2 ADA locked forever per claim.",
         "Parent/iframe verification messaging is part of the reader; do not imply an isolated standalone preview has the complete claim flow."
       ]
+    },
+    {
+      "id": "harmonic-atlas",
+      "title": "HARMONIC ATLAS",
+      "category": "music",
+      "description": "A complete generative music instrument: four sound worlds, flowing chord voicings, a recurring melody, bass and drums. Lock harmony, melody or rhythm while finding a new sixteen-bar composition.",
+      "format": "html-and-cover",
+      "signedOriginalBytes": 15741,
+      "capability": "fixed-original",
+      "creatorReady": false,
+      "runtimeConfigurable": true,
+      "fileBuilderSupported": false,
+      "accent": "#ffc4a8",
+      "original": {
+        "policy": "cfcee282b2b1ea7bc8c9235a9c5a5694c251797a78de65371f5b6b73",
+        "asset": "HarmonicAtlas",
+        "assetHex": "4861726d6f6e696341746c6173",
+        "txHash": "9de5d5116b3f406dd8aeebe40e148efa35b2592ff87c92ae7cb63f4c96c51d6e",
+        "fingerprint": "asset1n7gtjr58aah3up9j9wq9x7vpdd5s85244re0pg"
+      },
+      "originalURL": "https://pool.pm/asset1n7gtjr58aah3up9j9wq9x7vpdd5s85244re0pg",
+      "media": [
+        {
+          "path": "public/originals/harmonic-atlas/cover.svg",
+          "bytes": 743,
+          "sha256": "d772d59145975c50f0046b30385c2f2870d6766776ce897f3c33299ef0294c39"
+        },
+        {
+          "path": "public/originals/harmonic-atlas/program.html",
+          "bytes": 13169,
+          "sha256": "d7923a358774c1cfed012a201b68923c4e33fe566b90af3fcf76dbfbbd38c3f6"
+        },
+        {
+          "path": "public/originals/harmonic-atlas/expanded.html",
+          "bytes": 21281,
+          "sha256": "84957d7fe51e0b1b19a69439a53ae9fc46da87779e894be54e546fbfde71b90c"
+        },
+        {
+          "path": "public/originals/harmonic-atlas/original-seed.mid",
+          "bytes": 3201,
+          "sha256": "c21f653b15e78aba36c6a40d42687a7fd8c06710163bd58c3e2cd8012df3e1d5"
+        },
+        {
+          "path": "public/originals/harmonic-atlas/original-seed.wav",
+          "bytes": 6107476,
+          "sha256": "9162322769093a74aa47a6771474506c269f6bc91dc25edf0706966249efea2e"
+        },
+        {
+          "path": "public/originals/harmonic-atlas/original-seed.txt",
+          "bytes": 148,
+          "sha256": "5a3558ee5566ed19ae63f83b5ba2f20b3122f0690b3068625d3590a2147335c6"
+        },
+        {
+          "path": "public/originals/harmonic-atlas/config.json",
+          "bytes": 857,
+          "sha256": "7dfd4b305429e658e61b5e518b10a4b3876650f81008269fc2d0f76053da8287"
+        }
+      ],
+      "configuration": {
+        "runtimeOnly": true,
+        "soundWorlds": [
+          "Velvet room",
+          "Golden hour",
+          "Glass harbor",
+          "Night drive"
+        ],
+        "keys": 12,
+        "tempoBPM": {
+          "min": 48,
+          "max": 156
+        },
+        "energyLevels": 3,
+        "songCodeVersion": 1,
+        "exports": [
+          "stereo PCM16 WAV at 32000 Hz",
+          "standard MIDI notes",
+          "validated song code"
+        ],
+        "defaultParameters": {
+          "seed": 730519,
+          "key": 9,
+          "bpm": 84,
+          "palettes": [
+            "Velvet room",
+            "Golden hour",
+            "Glass harbor",
+            "Night drive"
+          ],
+          "energy": 1
+        }
+      },
+      "instructions": [
+        "Press Play to start audio. Pause, resume or stop the performance.",
+        "Choose a sound world, key, tempo and energy. Changing settings stops playback.",
+        "Save the song code to keep musical settings; loading a compatible code restores them.",
+        "Export WAV for the synthesized sound or MIDI notes for your music software. MIDI instrument sounds depend on that software."
+      ],
+      "combinations": {
+        "customCover": false,
+        "extraProgram": false,
+        "extraTraits": false
+      },
+      "limits": [
+        "Exact original instrument, with working composition controls inside the player. A configurable NFT mint template is not implemented.",
+        "Compact HTML exceeds the Studio generic file-builder 12 KB cap. Original signed size is historical; a new identity, metadata and wallet require an independently measured mint path.",
+        "Original supply is one and its mint policy is closed. Playback and generated downloads are public and do not consume the NFT.",
+        "The score, synthesizer and exporters are on chain. Generated WAV/MIDI sample files are local exports, not additional embedded media.",
+        "Song codes reproduce musical decisions; browser DSP and floating-point differences may affect waveform bytes. Save codes explicitly; they are not automatically persisted."
+      ],
+      "attribution": "Original BEACN Harmonic Machines instrument. Exact chain source and original export files preserved.",
+      "viewerEvidence": {
+        "existingConfirmedPoolPM": "PASS",
+        "checkedAt": "2026-09-06T22:03:36.898Z",
+        "naturalEnd": true,
+        "exportsByteIdenticalToNode": true,
+        "externalRequests": 0
+      }
+    },
+    {
+      "id": "orbital-choir",
+      "title": "ORBITAL CHOIR",
+      "category": "music",
+      "description": "Four melodic clocks move through five, seven, eleven and thirteen half-beat cycles. Set their phases, choose a sound world and hear a sixteen-bar performance with harmonic beds and spatial echoes.",
+      "format": "html-and-cover",
+      "signedOriginalBytes": 15746,
+      "capability": "fixed-original",
+      "creatorReady": false,
+      "runtimeConfigurable": true,
+      "fileBuilderSupported": false,
+      "accent": "#e9d59d",
+      "original": {
+        "policy": "dd556792783e87b876e19059e68a8383725b5d5431644609354501e1",
+        "asset": "OrbitalChoir",
+        "assetHex": "4f72626974616c43686f6972",
+        "txHash": "46b4f6010e275d29e7b08beb0388900ae2c99945d066873dbecbae14f47d7544",
+        "fingerprint": "asset1s5mwcuxczqj0ut8uc77cs0vml9qpr40mwd3wrc"
+      },
+      "originalURL": "https://pool.pm/asset1s5mwcuxczqj0ut8uc77cs0vml9qpr40mwd3wrc",
+      "media": [
+        {
+          "path": "public/originals/orbital-choir/cover.svg",
+          "bytes": 795,
+          "sha256": "b17a37aa1e93f980d22bbe952853c8cdea062fe5b232250a1f920c750440c9ac"
+        },
+        {
+          "path": "public/originals/orbital-choir/program.html",
+          "bytes": 13111,
+          "sha256": "628dc26cc936ae9837353037577146208805e244c9e211b29c0b64e5e27943ee"
+        },
+        {
+          "path": "public/originals/orbital-choir/expanded.html",
+          "bytes": 21317,
+          "sha256": "b3c694b764d63f83cb75020e857784cf40e22cddd4ea90aa8bd11dd02eb7485a"
+        },
+        {
+          "path": "public/originals/orbital-choir/original-seed.mid",
+          "bytes": 1956,
+          "sha256": "d5bcde9a834f54a3652d0769650c1bc393b2293b9dbb266958730c45a8871cfe"
+        },
+        {
+          "path": "public/originals/orbital-choir/original-seed.wav",
+          "bytes": 8448044,
+          "sha256": "ca4ac1b07778273f38b158fc24ebfe958f21894e10c95ba3420050b6d3cf3d9c"
+        },
+        {
+          "path": "public/originals/orbital-choir/original-seed.txt",
+          "bytes": 149,
+          "sha256": "bce50b0f243a0875d8d931d635cff71c7d9285693c78638708e9d21b1e03b211"
+        },
+        {
+          "path": "public/originals/orbital-choir/config.json",
+          "bytes": 901,
+          "sha256": "16f0258b8ce08b4852b400fc44e594a46afcd98c1575fd58681b0d89cf797b77"
+        }
+      ],
+      "configuration": {
+        "runtimeOnly": true,
+        "soundWorlds": [
+          "Starlit glass",
+          "Velvet eclipse",
+          "Copper moons",
+          "String nebula"
+        ],
+        "keys": 12,
+        "tempoBPM": {
+          "min": 48,
+          "max": 156
+        },
+        "energyLevels": 3,
+        "songCodeVersion": 1,
+        "exports": [
+          "stereo PCM16 WAV at 32000 Hz",
+          "standard MIDI notes",
+          "validated song code"
+        ],
+        "defaultParameters": {
+          "seed": 193719,
+          "key": 2,
+          "bpm": 60,
+          "palettes": [
+            "Starlit glass",
+            "Velvet eclipse",
+            "Copper moons",
+            "String nebula"
+          ],
+          "energy": 1
+        }
+      },
+      "instructions": [
+        "Press Play to start audio. Pause, resume or stop the performance.",
+        "Choose a sound world, key, tempo and energy. Changing settings stops playback.",
+        "Save the song code to keep musical settings; loading a compatible code restores them.",
+        "Export WAV for the synthesized sound or MIDI notes for your music software. MIDI instrument sounds depend on that software."
+      ],
+      "combinations": {
+        "customCover": false,
+        "extraProgram": false,
+        "extraTraits": false
+      },
+      "limits": [
+        "Exact original instrument, with working composition controls inside the player. A configurable NFT mint template is not implemented.",
+        "Compact HTML exceeds the Studio generic file-builder 12 KB cap. Original signed size is historical; a new identity, metadata and wallet require an independently measured mint path.",
+        "Original supply is one and its mint policy is closed. Playback and generated downloads are public and do not consume the NFT.",
+        "The score, synthesizer and exporters are on chain. Generated WAV/MIDI sample files are local exports, not additional embedded media.",
+        "Song codes reproduce musical decisions; browser DSP and floating-point differences may affect waveform bytes. Save codes explicitly; they are not automatically persisted.",
+        "The 5005-step clock phase cycle is a mathematical repeat period; each performance is sixteen bars, not an infinite or 5005-song playlist."
+      ],
+      "attribution": "Original BEACN Harmonic Machines instrument. Exact chain source and original export files preserved.",
+      "viewerEvidence": {
+        "existingConfirmedPoolPM": "PASS",
+        "checkedAt": "2026-09-06T22:09:46.619Z",
+        "naturalEnd": true,
+        "exportsByteIdenticalToNode": true,
+        "externalRequests": 0
+      }
+    },
+    {
+      "id": "pulse-foundry",
+      "title": "PULSE FOUNDRY",
+      "category": "music",
+      "description": "An editable four-track, sixteen-step drum and pitched-chime grid with a moving bass line, melody and arranged breakdown. Shape the pattern, choose a sound world, then export your performance.",
+      "format": "html-and-cover",
+      "signedOriginalBytes": 15762,
+      "capability": "fixed-original",
+      "creatorReady": false,
+      "runtimeConfigurable": true,
+      "fileBuilderSupported": false,
+      "accent": "#9ff5da",
+      "original": {
+        "policy": "5f8e5a5ca1fe65c5ef599182af49843eaeee15d2bfe2bc59ab7652eb",
+        "asset": "PulseFoundry",
+        "assetHex": "50756c7365466f756e647279",
+        "txHash": "40e5799790c92f5bef3af6af1fda36fc28b282b91d4c0647f2f44016df2dbd60",
+        "fingerprint": "asset1dz788eryhfhm66edc8qtw5lja2hlytac8tvljr"
+      },
+      "originalURL": "https://pool.pm/asset1dz788eryhfhm66edc8qtw5lja2hlytac8tvljr",
+      "media": [
+        {
+          "path": "public/originals/pulse-foundry/cover.svg",
+          "bytes": 762,
+          "sha256": "57075b01e0562fec9e0211096d2c219fc5828c2985e4d40b21382beae434f880"
+        },
+        {
+          "path": "public/originals/pulse-foundry/program.html",
+          "bytes": 13171,
+          "sha256": "66c8aae33e7321217d8b3e774c3b397d4e09b0dc4cd7e5f2918f2a305ef23662"
+        },
+        {
+          "path": "public/originals/pulse-foundry/expanded.html",
+          "bytes": 21268,
+          "sha256": "2dc6fe5c3ac8d8e5da61a5402445ec46ded32e8bcc490deaf4950725ae6a71d2"
+        },
+        {
+          "path": "public/originals/pulse-foundry/original-seed.mid",
+          "bytes": 3018,
+          "sha256": "bdc058d4a86065dc58897a32a6ede4c25400c3bf9118296d657183d9111042d4"
+        },
+        {
+          "path": "public/originals/pulse-foundry/original-seed.wav",
+          "bytes": 4352044,
+          "sha256": "c5d2de2896a7c34e576e4dc094f457704bff4499b96fed63853adb4cd4ebf94b"
+        },
+        {
+          "path": "public/originals/pulse-foundry/original-seed.txt",
+          "bytes": 148,
+          "sha256": "8182cb9c21168a048cd27a00650b6ddc6fa1203ee3ec8e36fd1e716fae81685a"
+        },
+        {
+          "path": "public/originals/pulse-foundry/config.json",
+          "bytes": 873,
+          "sha256": "a9f0e39d589b0a931ee6a173b1bd8ba4046cb4416cbab841ecd1c1bb7f30748d"
+        }
+      ],
+      "configuration": {
+        "runtimeOnly": true,
+        "soundWorlds": [
+          "Neon drive",
+          "Subterranean",
+          "Broken glass",
+          "Afterhours"
+        ],
+        "keys": 12,
+        "tempoBPM": {
+          "min": 48,
+          "max": 156
+        },
+        "energyLevels": 3,
+        "songCodeVersion": 1,
+        "exports": [
+          "stereo PCM16 WAV at 32000 Hz",
+          "standard MIDI notes",
+          "validated song code"
+        ],
+        "defaultParameters": {
+          "seed": 918273,
+          "key": 5,
+          "bpm": 120,
+          "palettes": [
+            "Neon drive",
+            "Subterranean",
+            "Broken glass",
+            "Afterhours"
+          ],
+          "energy": 1
+        }
+      },
+      "instructions": [
+        "Press Play to start audio. Pause, resume or stop the performance.",
+        "Choose a sound world, key, tempo and energy. Changing settings stops playback.",
+        "Save the song code to keep musical settings; loading a compatible code restores them.",
+        "Export WAV for the synthesized sound or MIDI notes for your music software. MIDI instrument sounds depend on that software."
+      ],
+      "combinations": {
+        "customCover": false,
+        "extraProgram": false,
+        "extraTraits": false
+      },
+      "limits": [
+        "Exact original instrument, with working composition controls inside the player. A configurable NFT mint template is not implemented.",
+        "Compact HTML exceeds the Studio generic file-builder 12 KB cap. Original signed size is historical; a new identity, metadata and wallet require an independently measured mint path.",
+        "Original supply is one and its mint policy is closed. Playback and generated downloads are public and do not consume the NFT.",
+        "The score, synthesizer and exporters are on chain. Generated WAV/MIDI sample files are local exports, not additional embedded media.",
+        "Song codes reproduce musical decisions; browser DSP and floating-point differences may affect waveform bytes. Save codes explicitly; they are not automatically persisted.",
+        "The 64 editable cells permit 2^64 raw on/off grids, including silent or unhelpful patterns; this is not a count of distinct useful songs."
+      ],
+      "attribution": "Original BEACN Harmonic Machines instrument. Exact chain source and original export files preserved.",
+      "viewerEvidence": {
+        "existingConfirmedPoolPM": "PASS",
+        "checkedAt": "2026-09-06T22:10:26.231Z",
+        "naturalEnd": true,
+        "exportsByteIdenticalToNode": true,
+        "externalRequests": 0
+      }
     }
   ],
   "globalLimits": {

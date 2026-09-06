@@ -49,6 +49,7 @@ type Original = {
   fingerprint?: string;
 };
 type Entry = {
+  fileBuilderSupported?: boolean;
   id: string;
   title: string;
   description: string;
@@ -127,6 +128,9 @@ const items: Item[] = [
   ...[
     'starfall',
     'chain-pressure',
+    'harmonic-atlas',
+    'orbital-choir',
+    'pulse-foundry',
     'keep-growing',
     'impossible-dawn',
     'afterlight',
@@ -525,7 +529,10 @@ function WorkDialog({
   const downloadable = item.legacy ? [] : item.media || [];
   const libraryGame = item.capability === 'fixed-original-copy';
   const canBuildCopy =
-    !!onUseFiles && item.id !== 'ledger-chess-original' && !libraryGame;
+    !!onUseFiles &&
+    item.fileBuilderSupported !== false &&
+    item.id !== 'ledger-chess-original' &&
+    !libraryGame;
   return (
     <Dialog
       open
@@ -648,19 +655,23 @@ function WorkDialog({
                 >
                   {canBuildCopy
                     ? 'Build a new copy'
-                    : libraryGame
-                      ? 'Open the mintable games library'
-                      : item.id === 'ledger-chess-original'
-                        ? 'Explore Ledger Scrolls'
-                        : 'Create something like this'}
+                    : item.fileBuilderSupported === false
+                      ? 'Explore music tools'
+                      : libraryGame
+                        ? 'Open the mintable games library'
+                        : item.id === 'ledger-chess-original'
+                          ? 'Explore Ledger Scrolls'
+                          : 'Create something like this'}
                   <ArrowRight size={17} />
                 </button>
                 <p className="ns-work-hint">
                   {canBuildCopy
                     ? 'A new asset in your wallet. The original stays unchanged. Your complete transaction must fit before you sign.'
-                    : libraryGame
-                      ? 'Choose this game in the library to use its exact, compact minting format.'
-                      : 'Use the Studio’s tools to create and review your own work.'}
+                    : item.fileBuilderSupported === false
+                      ? 'Compose and export inside this original. The Studio’s smaller Beat Lab is available for creating a new music NFT.'
+                      : libraryGame
+                        ? 'Choose this game in the library to use its exact, compact minting format.'
+                        : 'Use the Studio’s tools to create and review your own work.'}
                 </p>
               </>
             )}

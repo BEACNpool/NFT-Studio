@@ -1,0 +1,28 @@
+{
+  "slug": "atlas",
+  "id": "HA",
+  "kind": 0,
+  "title": "HARMONIC ATLAS",
+  "asset": "HarmonicAtlas",
+  "number": "01",
+  "tagline": "Find a chord. Follow a melody. Keep a little world.",
+  "color": "#ffc4a8",
+  "second": "#cbadff",
+  "seed": 730519,
+  "key": 9,
+  "bpm": 84,
+  "minor": [
+    true,
+    false,
+    false,
+    true
+  ],
+  "scenes": [
+    "Velvet room",
+    "Golden hour",
+    "Glass harbor",
+    "Night drive"
+  ],
+  "help": "Lock Harmony, Melody or Rhythm before New song to preserve that part. Chord voices move between nearby notes; melodies reuse a motif across an arranged sixteen-bar performance. Sound worlds change instruments and harmony color. The quiet Glass harbor world leaves space around the notes.",
+  "seeds": "Three independent 32-bit seeds guide harmony, melody and rhythm. Different codes can produce related music."
+}

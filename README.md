@@ -1,9 +1,13 @@
 # NFT Studio by BEACN
 
+[Open NFT Studio](https://beacn-nft-studio.davidmjensen17.chatgpt.site) · [Build verification](https://github.com/BEACNpool/NFT-Studio/actions/workflows/verify.yml)
+
 A creative workbench for putting the **actual content on Cardano**: art, sound,
 playable games, useful apps, complete Ledger Scrolls and ongoing Ledger Books.
 Start without a wallet. Build your creation, review the exact transaction, then
 approve it in your wallet.
+
+![NFT Studio creative workbench](docs/studio-preview.png)
 
 ## Create
 
@@ -19,7 +23,7 @@ approve it in your wallet.
 | Files & data | Package up to eight exact files with an image-cover NFT, or publish a metadata record without minting a token. |
 
 The showcase includes original transaction identities, exact media checksums,
-seven configurable presets, historical editions, the fixed oligarCH holder-gated
+seven configurable presets, three complete Harmonic Machines with composition, song codes and WAV/MIDI exports, historical editions, the fixed oligarCH holder-gated
 maker, and attributed Tipsy Turtles demonstrations. Expired demo policies remain
 historical. The original Ledger Chess referee remains unchanged.
 

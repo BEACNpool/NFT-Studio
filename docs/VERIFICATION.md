@@ -35,6 +35,8 @@ synthetic transaction control flow, live read-only recovery and real-wallet acce
 See the machine-readable media and Ledger evidence alongside this document. Browser
 screenshots and local harness output are development evidence, not on-chain receipts.
 
+- Three Harmonic Machines were added from fresh chain recovery: 21 media files match their hashes, and song-code/WAV/MIDI container checks pass. The instruments run inside the existing opaque showcase runner; their larger programs are not routed into the generic copy builder.
+
 ## Remaining acceptance boundaries
 
 No real wallet was connected and no new mainnet transaction was sent during this

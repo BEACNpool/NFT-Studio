@@ -1,0 +1,88 @@
+{
+  "schema": "nft-studio.harmonic-verification.v1",
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "harmonic-atlas",
+      "chainRecovery": "PASS",
+      "compactAndExpandedMatchOriginalDelivery": true,
+      "wav": {
+        "channels": 2,
+        "sampleWidthBytes": 2,
+        "sampleRate": 32000,
+        "frames": 1526858,
+        "seconds": 47.7143125
+      },
+      "wavSHA256": "9162322769093a74aa47a6771474506c269f6bc91dc25edf0706966249efea2e",
+      "midi": {
+        "format": 1,
+        "tracks": 5,
+        "ticksPerBeat": 480
+      },
+      "songSchema": "PASS",
+      "mediaFiles": 7,
+      "existingLiveViewerEvidence": {
+        "existingConfirmedPoolPM": "PASS",
+        "checkedAt": "2026-09-06T22:03:36.898Z",
+        "naturalEnd": true,
+        "exportsByteIdenticalToNode": true,
+        "externalRequests": 0
+      }
+    },
+    {
+      "id": "orbital-choir",
+      "chainRecovery": "PASS",
+      "compactAndExpandedMatchOriginalDelivery": true,
+      "wav": {
+        "channels": 2,
+        "sampleWidthBytes": 2,
+        "sampleRate": 32000,
+        "frames": 2112000,
+        "seconds": 66.0
+      },
+      "wavSHA256": "ca4ac1b07778273f38b158fc24ebfe958f21894e10c95ba3420050b6d3cf3d9c",
+      "midi": {
+        "format": 1,
+        "tracks": 5,
+        "ticksPerBeat": 480
+      },
+      "songSchema": "PASS",
+      "mediaFiles": 7,
+      "existingLiveViewerEvidence": {
+        "existingConfirmedPoolPM": "PASS",
+        "checkedAt": "2026-09-06T22:09:46.619Z",
+        "naturalEnd": true,
+        "exportsByteIdenticalToNode": true,
+        "externalRequests": 0
+      }
+    },
+    {
+      "id": "pulse-foundry",
+      "chainRecovery": "PASS",
+      "compactAndExpandedMatchOriginalDelivery": true,
+      "wav": {
+        "channels": 2,
+        "sampleWidthBytes": 2,
+        "sampleRate": 32000,
+        "frames": 1088000,
+        "seconds": 34.0
+      },
+      "wavSHA256": "c5d2de2896a7c34e576e4dc094f457704bff4499b96fed63853adb4cd4ebf94b",
+      "midi": {
+        "format": 1,
+        "tracks": 5,
+        "ticksPerBeat": 480
+      },
+      "songSchema": "PASS",
+      "mediaFiles": 7,
+      "existingLiveViewerEvidence": {
+        "existingConfirmedPoolPM": "PASS",
+        "checkedAt": "2026-09-06T22:10:26.231Z",
+        "naturalEnd": true,
+        "exportsByteIdenticalToNode": true,
+        "externalRequests": 0
+      }
+    }
+  ],
+  "scope": "Fresh read-only chain metadata recovery, SHA-256 equality with frozen delivery, decompression, WAV container, MIDI track container and song settings schema. Existing original live-viewer results are attributed historical evidence, not rerun claims."
+}
