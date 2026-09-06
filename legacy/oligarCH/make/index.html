@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>oligarCH — make your own</title>
+<style>
+ :root{--bg:#101012;--panel:#18181c;--line:#2a2a31;--ink:#eceaea;--dim:#9a9aa4;
+       --red:#ed1c24;--gold:#c9a227;--ok:#4ade80}
+ *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+ html{scrollbar-gutter:stable}
+ body{margin:0;background:var(--bg);color:var(--ink);
+   font:16px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+ .wrap{max-width:520px;margin:0 auto;padding:14px 16px calc(96px + env(safe-area-inset-bottom))}
+ .kicker{font:700 11px/1 sans-serif;letter-spacing:.18em;color:var(--gold)}
+ h1{font:900 clamp(22px,6vw,30px)/1 sans-serif;letter-spacing:-.03em;margin:2px 0 8px}
+ .need{margin:0 0 10px;padding:8px 11px;border:1px solid #8a6a25;border-radius:10px;
+   background:#1c1712;color:#d8c9a4;font-size:12.5px;line-height:1.45}
+ .need a{color:var(--gold)}
+ #stage{border:1.5px solid #8a6a25;border-radius:16px;overflow:hidden;background:#141416;
+   aspect-ratio:1;position:sticky;top:10px;z-index:5;width:min(100%,44vh);margin:0 auto;
+   box-shadow:0 10px 30px #000a}
+ #stage svg{width:100%;height:100%;display:block}
+ #rand{position:absolute;top:10px;right:10px;z-index:6;width:42px;height:42px;border-radius:12px;
+   border:1px solid #8a6a25;background:#141416e6;color:var(--ink);font-size:20px;cursor:pointer}
+ #size{position:absolute;left:10px;top:14px;z-index:6;font:700 11px ui-monospace,monospace;
+   color:#eceaea;background:#101012b8;padding:3px 8px;border-radius:8px}
+ .prog{display:flex;align-items:center;gap:6px;margin:14px 2px 4px}
+ .dot{width:9px;height:9px;border-radius:50%;background:var(--line);border:0;padding:0;
+   cursor:pointer;transition:all .18s}
+ .dot.done{background:#8a6a25}
+ .dot.cur{background:var(--gold);transform:scale(1.45)}
+ .stepno{margin-left:auto;color:var(--dim);font:700 12px ui-monospace,monospace}
+ .panel{display:none;animation:in .22s ease}
+ .panel.on{display:block}
+ @keyframes in{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
+ .panel h2{font:900 20px sans-serif;margin:10px 0 2px}
+ .panel .sub{color:var(--dim);font-size:13.5px;margin:0 0 12px}
+ .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+ .chip{padding:0;border-radius:14px;border:1.5px solid var(--line);background:var(--panel);
+   color:var(--ink);cursor:pointer;overflow:hidden;text-align:center}
+ .chip .th{display:block;aspect-ratio:1;background:#141416}
+ .chip .th svg{width:100%;height:100%;display:block}
+ .chip .lb{display:block;font:700 12.5px sans-serif;padding:7px 4px 8px;white-space:nowrap;
+   overflow:hidden;text-overflow:ellipsis}
+ .chip.on{border-color:var(--gold);box-shadow:0 0 0 1.5px var(--gold)}
+ .chip.on .lb{color:var(--gold)}
+ .txt{display:flex;gap:8px;align-items:center;margin-top:8px}
+ .txt input{flex:1;min-width:0;padding:13px;border-radius:12px;border:1.5px solid var(--line);
+   background:var(--panel);color:var(--ink);font:800 17px ui-monospace,monospace;
+   letter-spacing:.06em;text-transform:uppercase}
+ .txt input:focus{outline:none;border-color:var(--gold)}
+ .txt span{color:var(--dim);font:700 13px ui-monospace,monospace;min-width:48px;text-align:right}
+ .hint{color:var(--dim);font-size:13px;margin:10px 0 0}
+ .forever{margin-top:14px;padding:11px 13px;border:1px solid #8a6a25;border-radius:12px;
+   background:#1c1712;color:#d8c9a4;font-size:13.5px}
+ .sum{border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden;
+   margin-top:10px}
+ .sum .row{display:flex;justify-content:space-between;gap:10px;padding:8px 12px;
+   border-bottom:1px solid var(--line);font-size:13.5px}
+ .sum .row:last-child{border-bottom:0}
+ .sum .row b{font-weight:800} .sum .row span{color:var(--dim)}
+ .meta{display:flex;justify-content:space-between;color:var(--dim);font-size:12.5px;margin-top:10px}
+ .gate{margin-top:12px;border:1px solid var(--line);border-radius:12px;background:var(--panel);
+   overflow:hidden}
+ .row2{display:flex;align-items:center;gap:9px;padding:8px 12px;border-bottom:1px solid var(--line);
+   font-size:13.5px}
+ .row2:last-child{border-bottom:0}
+ .row2 .t{font-weight:800;min-width:58px} .row2 .p{color:var(--dim);flex:1;font-size:12px}
+ .mark{width:20px;text-align:center;font-weight:900} .yes{color:var(--ok)} .no{color:#6b6b74}
+ #mint{width:100%;margin-top:12px;padding:16px;border-radius:14px;border:1px solid #8a6a25;
+   background:var(--gold);color:#141414;font:900 17px sans-serif;cursor:pointer}
+ #mint[disabled]{opacity:.45;cursor:not-allowed}
+ #reset{width:100%;margin-top:10px;padding:10px;border-radius:10px;border:1px solid var(--line);
+   background:none;color:var(--dim);font:700 13px sans-serif;cursor:pointer}
+ #status{display:none;margin-top:12px;padding:11px 13px;border-radius:10px;background:var(--panel);
+   border:1px solid var(--line);font-size:14px;word-break:break-word}
+ #status.on{display:block} #status.err{border-color:#7a2b2b;color:#ffb4b4}
+ #status.ok{border-color:#2b7a3f;color:#b4ffc8}
+ #status a{color:var(--gold)}
+ .nav{position:fixed;left:0;right:0;bottom:0;z-index:9;display:flex;gap:10px;
+   padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+   background:linear-gradient(#10101200,#101012 34%)}
+ .nav .inner{display:flex;gap:10px;width:100%;max-width:488px;margin:0 auto}
+ #back{flex:1;padding:14px;border-radius:14px;border:1.5px solid var(--line);background:var(--panel);
+   color:var(--ink);font:800 15px sans-serif;cursor:pointer}
+ #back[disabled]{opacity:.35;cursor:default}
+ #next{flex:2.2;padding:14px;border-radius:14px;border:1px solid #8a6a25;background:var(--gold);
+   color:#141414;font:900 15px sans-serif;cursor:pointer}
+ code{font:12px ui-monospace,monospace;color:var(--dim);word-break:break-all}
+</style></head><body><div class="wrap">
+ <div class="kicker">oligarCH &middot; HOLDERS ONLY</div>
+ <h1>Make your own</h1>
+ <!-- The gate warning lives HERE, on screen one, not buried on the review step — nobody
+      should dress the man for ten steps and only then learn they cannot mint (David). -->
+ <div class="need">&#128273; Minting needs an oligarCH in your wallet &mdash; <b>any one of
+   the eight</b> unlocks it. Don&rsquo;t hold one? <a href="../">Grab a piece first</a>.
+   You can still design without one &mdash; you just can&rsquo;t mint.</div>
+
+ <div id="stage"><button id="rand" title="Randomise">🎲</button><span id="size"></span></div>
+
+ <div class="prog" id="prog"></div>
+ <div id="panels"></div>
+</div>
+
+<div class="nav"><div class="inner">
+  <button id="back">&larr; Back</button>
+  <button id="next">Next &rarr;</button>
+</div></div>
+
+<script type="module">
+const TRAITS = {"bg": {"byttg": "<rect width=\"1024\" height=\"1024\" fill=\"#c3c3c3\"/>", "tgm": "<rect width=\"1024\" height=\"1024\" fill=\"#e9e7e3\"/><rect width=\"1024\" height=\"86\" fill=\"#17171b\"/><rect y=\"860\" width=\"1024\" height=\"164\" fill=\"#17171b\"/><rect x=\"28\" y=\"21\" width=\"64\" height=\"44\" rx=\"12\" fill=\"#ed1c24\"/><path d=\"M50 32v22l20-11z\" fill=\"#fff\"/><path d=\"M0 860h1024\" stroke=\"#3a3a42\" stroke-width=\"9\"/><path d=\"M0 860h430\" stroke=\"#ed1c24\" stroke-width=\"9\"/><circle cx=\"430\" cy=\"860\" r=\"15\" fill=\"#ed1c24\"/><path d=\"M38 912v44l36-22z\" fill=\"#fff\"/>", "ivyom": "<rect width=\"1024\" height=\"1024\" fill=\"#c9c7c3\"/><g stroke=\"#111\" stroke-width=\"8\"><rect x=\"14\" y=\"14\" width=\"306\" height=\"430\" fill=\"#4a4a52\"/><rect x=\"46\" y=\"46\" width=\"242\" height=\"366\" fill=\"#3a3a42\"/><circle cx=\"167\" cy=\"229\" r=\"64\" fill=\"#75757c\"/><path d=\"M167 173v112M111 229h112M128 190l78 78M206 190l-78 78\" fill=\"none\"/></g><g stroke=\"#111\" stroke-width=\"7\"><path d=\"M886 128l-16 30q-50 16-50 62 0 54 66 54t66-54q0-46-50-62l-16-30z\" fill=\"#e0b02c\"/><path d=\"M870 240l16-44 16 44M864 222h44M861 232h50\" fill=\"none\" stroke-width=\"5\" stroke-linecap=\"round\"/></g>", "org": "<rect width=\"1024\" height=\"1024\" fill=\"#cfcdc9\"/><g stroke=\"#111\" stroke-width=\"8\" transform=\"rotate(14 118 140)\"><rect x=\"72\" y=\"-40\" width=\"92\" height=\"330\" fill=\"#8a8a92\"/><rect x=\"72\" y=\"-40\" width=\"92\" height=\"330\" fill=\"url(#h)\" opacity=\".3\"/></g><g stroke=\"#111\" stroke-width=\"7\"><circle cx=\"200\" cy=\"356\" r=\"24\" fill=\"#e0b02c\"/><circle cx=\"242\" cy=\"436\" r=\"18\" fill=\"#e0b02c\"/></g><g stroke=\"#111\" stroke-width=\"8\"><circle cx=\"856\" cy=\"196\" r=\"128\" fill=\"#f2ece0\"/><circle cx=\"856\" cy=\"196\" r=\"128\" fill=\"url(#h)\" opacity=\".35\"/><circle cx=\"818\" cy=\"166\" r=\"26\" fill=\"#e0b02c\"/><circle cx=\"898\" cy=\"228\" r=\"26\" fill=\"#c3c3c3\"/><circle cx=\"888\" cy=\"146\" r=\"21\" fill=\"#c08f57\"/></g>", "hotel": "<rect width=\"1024\" height=\"1024\" fill=\"#efe9df\"/><circle cx=\"200\" cy=\"150\" r=\"64\" fill=\"#2b2b31\"/><circle cx=\"228\" cy=\"132\" r=\"56\" fill=\"#efe9df\"/><g fill=\"#26262c\"><rect x=\"700\" y=\"60\" width=\"70\" height=\"96\"/><rect x=\"820\" y=\"60\" width=\"70\" height=\"96\"/><rect x=\"700\" y=\"210\" width=\"70\" height=\"96\"/><rect x=\"820\" y=\"210\" width=\"70\" height=\"96\"/></g><path d=\"M262 1024V620q250-210 500 0v404z\" fill=\"#3a3a40\"/>", "ndl": "<rect width=\"1024\" height=\"1024\" fill=\"#e7e2d8\"/><rect x=\"392\" y=\"0\" width=\"240\" height=\"324\" fill=\"#1c1c22\"/><g stroke=\"#111\" stroke-width=\"8\"><rect x=\"36\" y=\"70\" width=\"184\" height=\"430\" rx=\"12\" fill=\"#c08f57\"/><rect x=\"804\" y=\"70\" width=\"184\" height=\"430\" rx=\"12\" fill=\"#c08f57\"/></g><g fill=\"#111\"><circle cx=\"196\" cy=\"290\" r=\"10\"/><circle cx=\"828\" cy=\"290\" r=\"10\"/></g><g fill=\"#ed1c24\"><ellipse cx=\"128\" cy=\"530\" rx=\"92\" ry=\"17\"/><ellipse cx=\"896\" cy=\"530\" rx=\"92\" ry=\"17\"/></g>", "dnpg": "<rect width=\"1024\" height=\"1024\" fill=\"#f2ece0\"/><rect x=\"-10\" y=\"-10\" width=\"1044\" height=\"160\" fill=\"#ed1c24\" stroke=\"#111\" stroke-width=\"8\"/><path d=\"M0 176h1024M0 196h1024\" stroke=\"#111\" stroke-width=\"6\"/><g fill=\"#ed1c24\" stroke=\"#111\" stroke-width=\"6\"><path d=\"M56 560v-26l32-22 32 22v26z\"/><path d=\"M148 560v-26l32-22 32 22v26z\"/><path d=\"M808 560v-26l32-22 32 22v26z\"/><path d=\"M900 560v-26l32-22 32 22v26z\"/></g>", "smoke": "<rect width=\"1024\" height=\"1024\" fill=\"#221419\"/><g fill=\"#5c1f26\" stroke=\"#111\" stroke-width=\"8\"><path d=\"M-10-10h176q44 320-30 640l-146 60z\"/><path d=\"M1034-10H858q-44 320 30 640l146 60z\"/></g><g fill=\"none\" stroke=\"#3d151b\" stroke-width=\"9\"><path d=\"M64 30q36 280-18 560M960 30q-36 280 18 560\"/></g><rect x=\"210\" y=\"26\" width=\"604\" height=\"86\" rx=\"14\" fill=\"#101012\" stroke=\"#ed1c24\" stroke-width=\"9\"/><g fill=\"#e0b02c\"><circle cx=\"252\" cy=\"69\" r=\"9\"/><circle cx=\"342\" cy=\"69\" r=\"9\"/><circle cx=\"432\" cy=\"69\" r=\"9\"/><circle cx=\"512\" cy=\"69\" r=\"9\"/><circle cx=\"592\" cy=\"69\" r=\"9\"/><circle cx=\"682\" cy=\"69\" r=\"9\"/><circle cx=\"772\" cy=\"69\" r=\"9\"/></g><g fill=\"#e7e5e1\" opacity=\".92\"><circle cx=\"120\" cy=\"720\" r=\"62\"/><circle cx=\"236\" cy=\"760\" r=\"46\"/><circle cx=\"904\" cy=\"720\" r=\"62\"/><circle cx=\"788\" cy=\"760\" r=\"46\"/></g>", "bars": "<rect width=\"1024\" height=\"1024\" fill=\"#3a3a42\"/><g stroke=\"#75757c\" stroke-width=\"26\" stroke-linecap=\"round\"><path d=\"M96 0v1024\"/><path d=\"M256 0v1024\"/><path d=\"M416 0v1024\"/><path d=\"M576 0v1024\"/><path d=\"M736 0v1024\"/><path d=\"M896 0v1024\"/></g>"}, "hat": {"none": "", "top": "<g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M446 196h280M470 194v-150h232v150\" fill=\"#1f1f23\"/><path d=\"M470 168h232\" fill=\"none\" stroke=\"#ed1c24\" stroke-width=\"22\"/></g>", "crown": "<g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M452 200 470 78l72 62 44-90 44 90 72-62 18 122z\" fill=\"#e0b02c\"/></g><g fill=\"#ed1c24\" stroke=\"#111\" stroke-width=\"6\"><circle cx=\"512\" cy=\"152\" r=\"13\"/><circle cx=\"586\" cy=\"140\" r=\"13\"/><circle cx=\"660\" cy=\"152\" r=\"13\"/></g>", "cap": "<g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M456 202q4-124 130-124t130 124z\" fill=\"#6ba3d0\"/><path d=\"M716 202q76 4 94 30-116 18-214 0z\" fill=\"#4d7fa8\"/></g>", "durag": "<g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M452 208q6-136 134-136t134 136q-70-40-134-40t-134 40z\" fill=\"#2b2b31\"/><path d=\"M452 190q-70 22-96 74 66 6 104-34z\" fill=\"#2b2b31\"/></g>", "halo": "<g fill=\"none\" stroke=\"#e0b02c\" stroke-width=\"16\"><ellipse cx=\"586\" cy=\"96\" rx=\"118\" ry=\"28\"/></g>", "horns": "<g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\" fill=\"#ed1c24\"><path d=\"M474 176q-52-40-46-96 44 14 70 66z\"/><path d=\"M698 176q52-40 46-96-44 14-70 66z\"/></g>", "band": "<g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M456 250q130 40 260 0l-6-46q-124 36-248 0z\" fill=\"#ed1c24\"/><path d=\"M456 226q-56 10-74 44 50 12 82-16z\" fill=\"#ed1c24\"/></g>", "wizard": "<g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\" fill=\"#5b3fa0\"><path d=\"M470 206Q446 90 526 38Q572 8 544 60Q608 78 606 206Z\"/><ellipse cx=\"586\" cy=\"206\" rx=\"150\" ry=\"20\"/></g><path d=\"M480 148Q560 176 598 146\" fill=\"none\" stroke=\"#e0b02c\" stroke-width=\"11\"/><g fill=\"#e0b02c\"><path d=\"M534 81L539 91L549 96L539 101L534 111L529 101L519 96L529 91Z\"/></g>"}, "eyes": {"none": "", "shades": "<g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M470 306h232l-8 30q-6 46-52 46t-54-44h-4q-2 44-52 44t-54-46z\" fill=\"#1f1f23\"/><path d=\"M470 300h232\" fill=\"none\" stroke-width=\"12\"/></g>", "thug": "<g fill=\"#1f1f23\"><rect x=\"452\" y=\"292\" width=\"268\" height=\"30\"/><rect x=\"466\" y=\"322\" width=\"98\" height=\"44\"/><rect x=\"608\" y=\"322\" width=\"98\" height=\"44\"/></g>", "laser": "<g><path d=\"M540 314h-540v22h540z\" fill=\"#ed1c24\" opacity=\".85\"/><path d=\"M632 314h392v22H632z\" fill=\"#ed1c24\" opacity=\".85\"/><circle cx=\"540\" cy=\"325\" r=\"18\" fill=\"#ed1c24\"/><circle cx=\"632\" cy=\"325\" r=\"18\" fill=\"#ed1c24\"/></g>", "monocle": "<g fill=\"none\" stroke=\"#111\"><circle cx=\"632\" cy=\"325\" r=\"52\" stroke-width=\"11\"/><circle cx=\"632\" cy=\"325\" r=\"52\" stroke=\"#e0b02c\" stroke-width=\"5\"/><path d=\"M676 356q30 60 10 118\" stroke-width=\"6\"/></g>", "patch": "<g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M498 296h84v58h-84z\" fill=\"#1f1f23\"/><path d=\"M470 292 700 274\" fill=\"none\" stroke-width=\"10\"/></g>", "dollar": "<g fill=\"none\" stroke=\"#2f7a3f\" stroke-width=\"11\" stroke-linecap=\"round\"><path d=\"M556 306q-26-8-26 8t26 12 0 20-26-6M540 296v62\"/><path d=\"M648 306q-26-8-26 8t26 12 0 20-26-6M632 296v62\"/></g>", "x": "<g fill=\"none\" stroke=\"#111\" stroke-width=\"13\" stroke-linecap=\"round\"><path d=\"M522 308l36 34M558 308l-36 34M614 308l36 34M650 308l-36 34\"/></g>", "glow": "<g fill=\"#bfe9f5\" opacity=\".35\"><circle cx=\"540\" cy=\"325\" r=\"42\"/><circle cx=\"632\" cy=\"325\" r=\"42\"/></g><g fill=\"#bfe9f5\"><circle cx=\"540\" cy=\"325\" r=\"24\"/><circle cx=\"632\" cy=\"325\" r=\"24\"/></g>"}, "mouth": {"signature": "", "gold": "<g fill=\"#e0b02c\" stroke=\"#111\" stroke-width=\"5\"><rect x=\"570\" y=\"387\" width=\"19\" height=\"25\" rx=\"3\"/><rect x=\"593\" y=\"385\" width=\"18\" height=\"24\" rx=\"3\"/></g>", "diamond": "<g stroke=\"#111\" stroke-width=\"5\"><path d=\"M570 387h19l-9 25z\" fill=\"#bfe9f5\"/><path d=\"M593 385h18l-9 24z\" fill=\"#eaf9ff\"/></g><g fill=\"#fff\" stroke=\"none\" opacity=\".9\"><circle cx=\"576\" cy=\"393\" r=\"4\"/><circle cx=\"599\" cy=\"391\" r=\"4\"/></g>", "grill": "<ellipse cx=\"588\" cy=\"398\" rx=\"74\" ry=\"34\" fill=\"#bb9668\"/><ellipse cx=\"588\" cy=\"398\" rx=\"74\" ry=\"34\" fill=\"url(#h)\" opacity=\".55\"/><g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M528 384h120v34H528z\" fill=\"#e0b02c\"/></g><g stroke=\"#111\" stroke-width=\"4\" fill=\"none\"><path d=\"M552 384v34\"/><path d=\"M576 384v34\"/><path d=\"M600 384v34\"/><path d=\"M624 384v34\"/></g>", "duck": "<ellipse cx=\"588\" cy=\"398\" rx=\"74\" ry=\"34\" fill=\"#bb9668\"/><ellipse cx=\"588\" cy=\"398\" rx=\"74\" ry=\"34\" fill=\"url(#h)\" opacity=\".55\"/><g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M556 396q30-26 60 0-30 30-60 0z\" fill=\"#d98f8f\"/><path d=\"M586 380v-8\" stroke-width=\"7\"/></g>", "mad": "<ellipse cx=\"588\" cy=\"398\" rx=\"74\" ry=\"34\" fill=\"#bb9668\"/><ellipse cx=\"588\" cy=\"398\" rx=\"74\" ry=\"34\" fill=\"url(#h)\" opacity=\".55\"/><path d=\"M544 414q42-26 84 0\" fill=\"none\" stroke=\"#111\" stroke-width=\"9\" stroke-linecap=\"round\"/><g fill=\"none\" stroke=\"#111\" stroke-width=\"13\" stroke-linecap=\"round\"><path d=\"M500 268 566 292M672 268 606 292\"/></g>", "cigar": "<g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M596 384h180v34H596z\" fill=\"#6b4a2a\"/><path d=\"M756 384h30v34h-30z\" fill=\"#e0b02c\"/></g><g fill=\"#c3c3c3\" stroke=\"none\" opacity=\".75\"><circle cx=\"812\" cy=\"378\" r=\"13\"/><circle cx=\"842\" cy=\"348\" r=\"18\"/><circle cx=\"878\" cy=\"310\" r=\"24\"/></g>", "joint": "<g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M600 392 742 350l-8-26-142 42z\" fill=\"#f2ece0\"/><path d=\"M742 350l-10-26\" fill=\"none\" stroke=\"#8a5a2a\" stroke-width=\"10\"/></g><circle cx=\"748\" cy=\"322\" r=\"9\" fill=\"#ed1c24\"/><g fill=\"#c3c3c3\" stroke=\"none\" opacity=\".7\"><circle cx=\"782\" cy=\"292\" r=\"14\"/><circle cx=\"816\" cy=\"256\" r=\"19\"/><circle cx=\"856\" cy=\"214\" r=\"25\"/></g>", "cig": "<g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M604 396h120v20H604z\" fill=\"#f2ece0\"/><path d=\"M704 396h20v20h-20z\" fill=\"#e0b02c\"/></g><g fill=\"#c3c3c3\" stroke=\"none\" opacity=\".7\"><circle cx=\"758\" cy=\"386\" r=\"11\"/><circle cx=\"786\" cy=\"360\" r=\"15\"/></g>", "tongue": "<g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M552 404q34 74 76 0z\" fill=\"#d76a7a\"/></g>"}, "neck": {"none": "", "thug": "<g fill=\"#e0b02c\" stroke=\"#111\" stroke-width=\"6\"><circle cx=\"451\" cy=\"463\" r=\"16\"/><circle cx=\"459\" cy=\"488\" r=\"16\"/><circle cx=\"473\" cy=\"511\" r=\"16\"/><circle cx=\"490\" cy=\"531\" r=\"16\"/><circle cx=\"511\" cy=\"547\" r=\"16\"/><circle cx=\"535\" cy=\"560\" r=\"16\"/><circle cx=\"560\" cy=\"567\" r=\"16\"/><circle cx=\"586\" cy=\"570\" r=\"16\"/><circle cx=\"612\" cy=\"567\" r=\"16\"/><circle cx=\"637\" cy=\"560\" r=\"16\"/><circle cx=\"661\" cy=\"547\" r=\"16\"/><circle cx=\"682\" cy=\"531\" r=\"16\"/><circle cx=\"699\" cy=\"511\" r=\"16\"/><circle cx=\"713\" cy=\"488\" r=\"16\"/><circle cx=\"721\" cy=\"463\" r=\"16\"/></g><g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M558 578h56v54h-56z\" fill=\"#e0b02c\"/></g>", "ice": "<g fill=\"#bfe9f5\" stroke=\"#111\" stroke-width=\"6\"><circle cx=\"451\" cy=\"463\" r=\"14\"/><circle cx=\"459\" cy=\"488\" r=\"14\"/><circle cx=\"473\" cy=\"511\" r=\"14\"/><circle cx=\"490\" cy=\"531\" r=\"14\"/><circle cx=\"511\" cy=\"547\" r=\"14\"/><circle cx=\"535\" cy=\"560\" r=\"14\"/><circle cx=\"560\" cy=\"567\" r=\"14\"/><circle cx=\"586\" cy=\"570\" r=\"14\"/><circle cx=\"612\" cy=\"567\" r=\"14\"/><circle cx=\"637\" cy=\"560\" r=\"14\"/><circle cx=\"661\" cy=\"547\" r=\"14\"/><circle cx=\"682\" cy=\"531\" r=\"14\"/><circle cx=\"699\" cy=\"511\" r=\"14\"/><circle cx=\"713\" cy=\"488\" r=\"14\"/><circle cx=\"721\" cy=\"463\" r=\"14\"/></g><g stroke=\"#111\" stroke-width=\"6\"><path d=\"M586 570 622 604 586 646 550 604z\" fill=\"#eaf9ff\"/></g>", "ada": "<g fill=\"#e0b02c\" stroke=\"#111\" stroke-width=\"6\"><circle cx=\"451\" cy=\"463\" r=\"13\"/><circle cx=\"459\" cy=\"488\" r=\"13\"/><circle cx=\"473\" cy=\"511\" r=\"13\"/><circle cx=\"490\" cy=\"531\" r=\"13\"/><circle cx=\"511\" cy=\"547\" r=\"13\"/><circle cx=\"535\" cy=\"560\" r=\"13\"/><circle cx=\"560\" cy=\"567\" r=\"13\"/><circle cx=\"586\" cy=\"570\" r=\"13\"/><circle cx=\"612\" cy=\"567\" r=\"13\"/><circle cx=\"637\" cy=\"560\" r=\"13\"/><circle cx=\"661\" cy=\"547\" r=\"13\"/><circle cx=\"682\" cy=\"531\" r=\"13\"/><circle cx=\"699\" cy=\"511\" r=\"13\"/><circle cx=\"713\" cy=\"488\" r=\"13\"/><circle cx=\"721\" cy=\"463\" r=\"13\"/></g><g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><circle cx=\"586\" cy=\"602\" r=\"36\" fill=\"#e0b02c\"/></g><g fill=\"none\" stroke=\"#111\" stroke-width=\"8\" stroke-linecap=\"round\"><path d=\"M570 622l16-42 16 42M566 606h40M562 615h48\"/></g>", "tie": "<g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M566 556h44l-12 30 24 82-34 34-34-34 24-82z\" fill=\"#ed1c24\"/></g>"}, "mark": {"none": "", "teardrop": "<path d=\"M516 366q-16 22 0 32t16-32z\" fill=\"#2f6fd0\" stroke=\"#111\" stroke-width=\"5\"/>", "teardrop2": "<g fill=\"#2f6fd0\" stroke=\"#111\" stroke-width=\"5\"><path d=\"M516 366q-16 22 0 32t16-32z\"/><path d=\"M516 410q-16 22 0 32t16-32z\"/></g>", "tattoo": "<g fill=\"none\" stroke=\"#3a4a6b\" stroke-width=\"9\" stroke-linecap=\"round\"><path d=\"M488 292v44M472 310h32\"/><path d=\"M676 286 690 314 662 314z\"/></g>", "star": "<path d=\"M482 300 492 322 516 324 498 340 504 364 482 351 460 364 466 340 448 324 472 322z\" fill=\"#3a4a6b\" stroke=\"#111\" stroke-width=\"4\"/>", "scar": "<g fill=\"none\" stroke=\"#b05a5a\" stroke-width=\"8\" stroke-linecap=\"round\"><path d=\"M492 268 508 372\"/><path d=\"M478 292h30M482 330h30\"/></g>", "sweat": "<g fill=\"#8fd0ee\" stroke=\"#111\" stroke-width=\"5\"><path d=\"M700 250q-18 26 0 38t18-38z\"/></g>"}, "beard": {"none": "", "long": "<g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\" fill=\"#d8d3c8\"><path d=\"M470 430q-30 96-10 190t54 108q34 24 72 24t72-24q34-14 54-108t-10-190q-44 40-116 40t-116-40z\"/></g>"}, "pet": {"none": "", "crane": "<g transform=\"translate(785 590) scale(1.3) translate(-785 -590)\" stroke=\"#111\" stroke-width=\"6\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M772 592v-32M794 592v-34\" fill=\"none\"/><path d=\"M814 518q28 4 24 32-18 0-30-14z\" fill=\"#3d434e\"/><ellipse cx=\"782\" cy=\"534\" rx=\"40\" ry=\"28\" fill=\"#5a6270\"/><ellipse cx=\"766\" cy=\"534\" rx=\"15\" ry=\"18\" fill=\"#e9e7e3\"/><path d=\"M758 516q-12-22-8-50\" fill=\"none\" stroke-width=\"12\"/><path d=\"M758 516q-12-22-8-50\" fill=\"none\" stroke=\"#5a6270\" stroke-width=\"6\"/><circle cx=\"748\" cy=\"456\" r=\"13\" fill=\"#26262c\"/><circle cx=\"753\" cy=\"459\" r=\"5\" fill=\"#e9e7e3\" stroke-width=\"3\"/><path d=\"M736 454l-15 5 15 5z\" fill=\"#26262c\" stroke-width=\"3\"/><path d=\"M744 472q4 9 10 8\" fill=\"none\" stroke=\"#ed1c24\" stroke-width=\"5\"/><g stroke=\"#e0b02c\" stroke-width=\"4\" fill=\"none\"><path d=\"M748 444l-9-17M753 443l-2-19M758 444l5-18M762 447l12-14M744 448l-13-12\"/></g></g>", "roller": "<g transform=\"translate(785 590) scale(1.3) translate(-785 -590)\" stroke=\"#111\" stroke-width=\"6\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M778 588v-24M794 588v-26\" fill=\"none\"/><path d=\"M810 540q20 30 6 52-14-6-20-24z\" fill=\"#2e6db8\" stroke-width=\"5\"/><ellipse cx=\"786\" cy=\"538\" rx=\"32\" ry=\"25\" fill=\"#49b8d4\"/><ellipse cx=\"768\" cy=\"546\" rx=\"15\" ry=\"13\" fill=\"#c79ad0\"/><circle cx=\"762\" cy=\"514\" r=\"14\" fill=\"#d9c39a\"/><circle cx=\"757\" cy=\"511\" r=\"2.5\" fill=\"#111\" stroke=\"none\"/><path d=\"M750 516l-13 4 13 4z\" fill=\"#26262c\" stroke-width=\"3\"/></g>", "grey": "<g transform=\"translate(785 590) scale(1.3) translate(-785 -590)\" stroke=\"#111\" stroke-width=\"6\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M778 590v-24M794 590v-26\" fill=\"none\"/><path d=\"M806 552q18 20 10 38-16-2-24-20z\" fill=\"#ed1c24\" stroke-width=\"5\"/><ellipse cx=\"784\" cy=\"536\" rx=\"34\" ry=\"29\" fill=\"#c3c3c3\"/><circle cx=\"764\" cy=\"502\" r=\"17\" fill=\"#aeb0b4\"/><circle cx=\"758\" cy=\"499\" r=\"7\" fill=\"#f2ece0\" stroke-width=\"3\"/><circle cx=\"758\" cy=\"499\" r=\"2.5\" fill=\"#111\" stroke=\"none\"/><path d=\"M748 508q-11 1-9 12 9 3 13-4z\" fill=\"#75757c\" stroke-width=\"4\"/></g>", "flamingo": "<g transform=\"translate(785 590) scale(1.3) translate(-785 -590)\" stroke=\"#111\" stroke-width=\"6\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M790 592v-28M806 592v-30\" fill=\"none\"/><ellipse cx=\"800\" cy=\"544\" rx=\"36\" ry=\"25\" fill=\"#f0879e\"/><path d=\"M778 534q-28-12-24-54 3-38 22-58\" fill=\"none\" stroke-width=\"15\"/><path d=\"M778 534q-28-12-24-54 3-38 22-58\" fill=\"none\" stroke=\"#f0879e\" stroke-width=\"9\"/><circle cx=\"778\" cy=\"420\" r=\"13\" fill=\"#f0879e\"/><path d=\"M768 424q-15 2-13 14l11 1z\" fill=\"#26262c\" stroke-width=\"3\"/><circle cx=\"782\" cy=\"416\" r=\"2.5\" fill=\"#111\" stroke=\"none\"/></g>"}, "staff": {"none": "", "orb": "<path d=\"M382 620 402 148\" stroke=\"#6b4a2a\" stroke-width=\"16\" stroke-linecap=\"round\"/><g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\" fill=\"#bfe9f5\"><circle cx=\"404\" cy=\"122\" r=\"30\"/></g><circle cx=\"395\" cy=\"111\" r=\"9\" fill=\"#fff\" opacity=\".6\"/>"}, "robe": {"none": "", "robe": "<g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\" fill=\"#5b3fa0\"><path d=\"M300 604Q330 508 468 500L392 824L300 824Q286 710 300 604Z\"/><path d=\"M872 604Q842 508 704 500L780 824L872 824Q886 710 872 604Z\"/></g>"}};
+const ORDER  = ["bg", "hat", "eyes", "mouth", "neck", "mark", "beard", "pet", "staff", "robe"];
+const LABEL  = {"bg": "Background", "hat": "Headwear", "eyes": "Eyes", "mouth": "Mouth", "neck": "Neck", "mark": "Face", "beard": "Beard", "pet": "Accessory", "staff": "Staff", "robe": "Robe"};
+const PRETTY = {"none": "None", "signature": "Signature grin", "thug": "Thug", "ice": "Iced", "ada": "ADA", "x": "X eyes", "dollar": "Dollar eyes", "teardrop2": "Two tears", "grill": "Gold grill", "cig": "Cigarette", "top": "Top hat", "band": "Bandana", "bars": "Prison bars", "gold": "Gold", "wizard": "Wizard hat", "glow": "Glowing eyes", "long": "Wizard beard", "orb": "Wizard staff", "robe": "Wizard robe", "byttg": "BYTTG", "tgm": "TGM", "ivyom": "IVYOM", "org": "ORG", "hotel": "HOTEL", "ndl": "NDL", "dnpg": "DNPG", "smoke": "SMOKE", "crane": "Crowned crane", "roller": "Lilac roller", "grey": "Grey parrot", "flamingo": "Flamingo"};
+const MOODS  = ["signature", "mad", "duck", "tongue"];
+const PROPS  = ["none", "gold", "diamond", "grill", "cigar", "joint", "cig"];
+const STEPS  = [{"id": "mood", "cat": "mood", "title": "The face", "sub": "How is he feeling today?"}, {"id": "eyes", "cat": "eyes", "title": "Eyes & shades", "sub": "What the world gets to see."}, {"id": "hat", "cat": "hat", "title": "Headwear", "sub": "Crown him. Or don&rsquo;t."}, {"id": "neck", "cat": "neck", "title": "The chain", "sub": "Weight around the neck."}, {"id": "prop", "cat": "prop", "title": "Smoke &amp; grillz", "sub": "Worn over the mouth \u2014 <b>None</b> keeps the face you chose."}, {"id": "mark", "cat": "mark", "title": "Face marks", "sub": "Scars tell stories."}, {"id": "beard", "cat": "beard", "title": "Beard", "sub": "Let it grow."}, {"id": "pet", "cat": "pet", "title": "Accessories", "sub": "An exotic African bird for the shoulder."}, {"id": "staff", "cat": "staff", "title": "Staff", "sub": "Something to lean on."}, {"id": "robe", "cat": "robe", "title": "Robe", "sub": "Reskins the shoulders."}, {"id": "bg", "cat": "bg", "title": "Background", "sub": "Straight off the eight pieces \u2014 or the pen."}, {"id": "text", "cat": null, "title": "Your line", "sub": "Name, ticker, handle \u2014 or a saying."}, {"id": "mint", "cat": null, "title": "Review &amp; mint", "sub": "Look him over. Then make him real."}];
+const HEAD_DEFS = "<path id=\"hr\" d=\"M462 292q6-104 123-106t123 106q-24-52-62-72-61 24-122 0-38 20-62 72z\"/><path id=\"bd\" d=\"M476 344q34 62 109 64t109-64q13 64-23 96-30 30-86 30t-86-30q-36-32-23-96z\"/><path id=\"ms\" d=\"M520 364q65-14 130 0-6 20-65 20t-65-20z\"/><path id=\"sp\" d=\"M512 218l-5-13M532 206l-11-25M554 198l-4-15M576 193l6-21M600 195l7-13M622 203l8-23M644 215l12-15M664 230l7-12\"/><pattern id=\"h\" width=\"11\" height=\"11\" patternUnits=\"userSpaceOnUse\" patternTransform=\"rotate(28)\"><path d=\"M3 0v7M8 4v7\" stroke=\"#241a0e\" stroke-width=\"2.4\" stroke-linecap=\"round\"/></pattern><pattern id=\"g\" width=\"26\" height=\"26\" patternUnits=\"userSpaceOnUse\" patternTransform=\"rotate(-42)\"><rect width=\"11\" height=\"26\" fill=\"#fff\"/></pattern>";
+const HEAD = "<g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\"><ellipse cx=\"454\" cy=\"330\" rx=\"19\" ry=\"27\" fill=\"#f2cfa6\"/><ellipse cx=\"716\" cy=\"330\" rx=\"19\" ry=\"27\" fill=\"#f2cfa6\"/><use href=\"#sp\" fill=\"none\" stroke=\"#33240f\" stroke-width=\"7\" stroke-linecap=\"round\"/><ellipse cx=\"585\" cy=\"310\" rx=\"130\" ry=\"122\" fill=\"#f2cfa6\"/><use href=\"#hr\" fill=\"#463320\"/></g><g stroke=\"none\"><use href=\"#hr\" fill=\"url(#h)\"/><use href=\"#bd\" fill=\"#bb9668\"/><use href=\"#ms\" fill=\"#bb9668\"/><use href=\"#bd\" fill=\"url(#h)\" opacity=\".55\"/><use href=\"#ms\" fill=\"url(#h)\"/></g><path d=\"M694 344q13 64-23 96-30 30-86 30t-86-30q-36-32-23-96\" fill=\"none\" stroke=\"#111\" stroke-width=\"9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><g stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\"><path d=\"M530 392 646 378q-58 77-116 14z\" fill=\"#3a2118\"/><g fill=\"#fff\" stroke-width=\"5\"><rect x=\"570\" y=\"387\" width=\"19\" height=\"25\" rx=\"3\"/><rect x=\"593\" y=\"385\" width=\"18\" height=\"24\" rx=\"3\"/></g></g><g fill=\"none\" stroke=\"#111\" stroke-linecap=\"round\"><path d=\"M577 336q-23 24-6 37 20 14 37-5\" stroke-width=\"7\"/><path d=\"M504 288q30-13 60-3M610 268q32-14 60 6\" stroke-width=\"9\"/><path d=\"M490 340l-16 8M492 352l-14 10M680 338l16 8M678 350l14 10\" stroke-width=\"4\"/><path d=\"M530 390q-15-3-23-14M646 376q15-3 23-14\" stroke-width=\"5\"/></g><g stroke=\"#111\" stroke-width=\"4\"><ellipse cx=\"539\" cy=\"331\" rx=\"18\" ry=\"11\" fill=\"#fff\"/><ellipse cx=\"633\" cy=\"330\" rx=\"18\" ry=\"11\" fill=\"#fff\"/></g><g fill=\"#111\" stroke=\"none\"><ellipse cx=\"553\" cy=\"331\" rx=\"6\" ry=\"7\"/><ellipse cx=\"647\" cy=\"330\" rx=\"6\" ry=\"7\"/></g><path d=\"M522 331q18-15 35-2M616 330q18-14 35 2\" fill=\"none\" stroke=\"#111\" stroke-width=\"8\" stroke-linecap=\"round\"/><g stroke=\"none\"><circle cx=\"540\" cy=\"325\" r=\"30\" fill=\"#dff1fa\" opacity=\".3\"/><circle cx=\"632\" cy=\"325\" r=\"30\" fill=\"#dff1fa\" opacity=\".3\"/><circle cx=\"540\" cy=\"325\" r=\"30\" fill=\"url(#g)\" opacity=\".38\"/></g><g fill=\"none\" stroke=\"#111\" stroke-width=\"5.5\" stroke-linecap=\"round\"><circle cx=\"540\" cy=\"325\" r=\"30\"/><circle cx=\"632\" cy=\"325\" r=\"30\"/><path d=\"M570 320q16-9 32 0M510 320l-32-7M662 320l32-7\"/></g>";
+const GLY = {"6": "M14 3Q2 3 2 16t7 12 6-6-5-6-8 3", "A": "M0 28 8 0 16 28M3 19h10", "B": "M0 28V0h8q8 0 8 7t-8 7H0m8 0q8 0 8 7t-8 7H0", "C": "M15 5q-13-7-13 9t13 9", "D": "M0 0h7q9 0 9 14t-9 14H0z", "E": "M16 0H0v28h16M0 14h12", "F": "M16 0H0v28M0 14h11", "G": "M15 5q-13-7-13 9t13 9v-9h-6", "H": "M0 0v28M16 0v28M0 14h16", "I": "M2 0h12M8 0v28M2 28h12", "L": "M0 0v28h14", "M": "M0 28V0l8 15 8-15v28", "N": "M0 28V0l16 28V0", "O": "M8 0a8 14 0 0 0 0 28a8 14 0 0 0 0-28z", "P": "M0 28V0h7q9 0 9 8t-9 8H0", "R": "M0 28V0h7q9 0 9 8t-9 8H0m7 0 9 12", "S": "M15 4Q8-2 3 5t6 9 6 10-13 2", "T": "M0 0h16M8 0v28", "U": "M0 0v18q0 10 8 10t8-10V0", "V": "M0 0 8 28 16 0", "W": "M0 0 4 28 8 12 12 28 16 0", "Y": "M0 0 8 14 16 0M8 14v14", "0": "M8 0a8 14 0 0 0 0 28a8 14 0 0 0 0-28z", "1": "M3 6 8 0v28", "2": "M1 7q1-7 7-7t7 7q0 7-14 21h15", "3": "M2 3q6-5 11-1t-4 11q9 0 8 8t-12 6-6-3", "4": "M13 28V2L0 20h16", "5": "M15 0H3v10q10-2 12 4t-3 13-9 1", "7": "M0 0h16L6 28", "8": "M8 0a7 7 0 1 0 0 14a7 7 0 1 0 0-14m0 14a7 7 0 1 0 0 14a7 7 0 1 0 0-14", "9": "M14 10a6 9 0 1 0-12 0 6 9 0 1 0 12 0v18", "J": "M16 0v20q0 8-7 8t-7-7", "K": "M0 0v28M15 0 2 15M6 11 16 28", "Q": "M8 0a8 14 0 0 0 0 28a8 14 0 0 0 0-28zM9 20 16 29", "X": "M0 0 16 28M16 0 0 28", "Z": "M0 0h16L0 28h16", "$": "M15 4Q8-2 3 5t6 9 6 10-13 2M9-2v32"};
+const GID = {"$": "DL"};
+const ADV = {"I": 17, "L": 17};
+const MAXT = 32;
+const K = "stroke=\"#111\" stroke-width=\"9\" stroke-linejoin=\"round\" stroke-linecap=\"round\"";
+const SHIRT = "#6ba3d0", DARK = "#1f1f23", CREAM = "#f2ece0";
+const GATE = [{"t": "BYTTG", "ph": "BURN YOU TO THE GROUND", "p": "2ef849a4e7742f0705f41c7b2195bb828b934ee48dcfa0c204ae2a8d"}, {"t": "TGM", "ph": "THE GREAT MIGRATION", "p": "7ba4e6b009013f83cae317390fd88c1b734154cc110ab1b31fbc4ac5"}, {"t": "IVYOM", "ph": "I VOTE YES ON ME", "p": "5d1b3f818c42a9621cc8348ab4ae89eace761b53ecb725b3ff62f56e"}, {"t": "ORG", "ph": "ORGANIC DISTRIBUTION", "p": "80f626b1d5ad7a53478d9aced308f570e2cf47746a1cdaaef4e8013b"}, {"t": "HOTEL", "ph": "YOU CAN NEVER LEAVE", "p": "d91bc5bcfe52b93baea834cb754b7b835021676225ba235a82fb2d89"}, {"t": "NDL", "ph": "NO DOORS LEFT", "p": "64996c3bdad619660de1236b82547e8421abeb7029630389cb1f7361"}, {"t": "DNPG", "ph": "DO NOT PASS GO", "p": "3e499ba0420b657eda31c61622a17c3d53edc1db0f5225022c3a2b00"}, {"t": "SMOKE", "ph": "DECENTRALIZED", "p": "9079019e845fe096bb3783b1ccfb0dc4f340ea1edeeb31c71d88a5cc"}];
+const SCRIPT_HEX = "5902a10101003229800aba2aba1aba0aab9faab9eaab9dab9a9bae0024888888896600264646644b30013370e900018039baa00189991192cc004c03c006264b30013370e90011bad300c0018acc004cdc7cc00520009b8d0099bae300b0015c60026264660020026eb0c040010896600200314a1159800991980080099198008009bab32300130113754600260226ea8c0500108c050c054004896600200314bd7044cc04cc040c050004cc008008c054005012112cc00400629422b30013232330010014bd70811e581c2ef849a4e7742f0705f41c7b2195bb828b934ee48dcfa0c204ae2a8d00811e581c7ba4e6b009013f83cae317390fd88c1b734154cc110ab1b31fbc4ac500811e581c5d1b3f818c42a9621cc8348ab4ae89eace761b53ecb725b3ff62f56e00811e581c80f626b1d5ad7a53478d9aced308f570e2cf47746a1cdaaef4e8013b00811e581cd91bc5bcfe52b93baea834cb754b7b835021676225ba235a82fb2d8900811e581c64996c3bdad619660de1236b82547e8421abeb7029630389cb1f736100811e581c3e499ba0420b657eda31c61622a17c3d53edc1db0f5225022c3a2b0000811e581c9079019e845fe096bb3783b1ccfb0dc4f340ea1edeeb31c71d88a5cc00112cc00400629422b30013371e6eb8c05800400e2946266004004602e00280890141bae30130018a51899801001180a000a01c404514a313300200230120014030807a2c80522c8050c0380062c8060c8c8cc004004dd598079808180818081808001912cc004006007132325980099b910070018acc004cdc7803800c4dd59807801401500d44cc010010c04c00d00d1bae300d00130100014038297adef6c60375c601660106ea8004c020dd51805802459006180480098049805000980480098021baa0098a4d1365640084c104435046500001";
+const POLICY_EXPECT = "534066fa3a4cc90aa9b01a0daa68a27fc5a98b466d1e519ff1cf82bd";
+const COSTS = [100788, 420, 1, 1, 1000, 173, 0, 1, 1000, 59957, 4, 1, 11183, 32, 201305, 8356, 4, 16000, 100, 16000, 100, 16000, 100, 16000, 100, 16000, 100, 16000, 100, 100, 100, 16000, 100, 94375, 32, 132994, 32, 61462, 4, 72010, 178, 0, 1, 22151, 32, 91189, 769, 4, 2, 85848, 123203, 7305, -900, 1716, 960, 57, 85848, 0, 1, 1, 1000, 42921, 4, 2, 30623, 28755, 75, 1, 898148, 27279, 1, 51775, 558, 1, 39184, 1000, 60594, 1, 141895, 32, 83150, 32, 15299, 32, 76049, 1, 13169, 4, 22100, 10, 28999, 74, 1, 28999, 74, 1, 43285, 552, 1, 44749, 541, 1, 33852, 32, 68246, 32, 72362, 32, 7243, 32, 7391, 32, 11546, 32, 85848, 123203, 7305, -900, 1716, 960, 57, 85848, 0, 1, 90434, 519, 0, 1, 74433, 32, 85848, 123203, 7305, -900, 1716, 960, 57, 85848, 0, 1, 1, 85848, 123203, 7305, -900, 1716, 960, 57, 85848, 0, 1, 955506, 213312, 0, 2, 270652, 22588, 4, 1457325, 64566, 4, 20467, 1, 4, 0, 141992, 32, 100788, 420, 1, 1, 81663, 32, 59498, 32, 20142, 32, 24588, 32, 20744, 32, 25933, 32, 24623, 32, 43053543, 10, 53384111, 14333, 10, 43574283, 26308, 10, 16000, 100, 16000, 100, 962335, 18, 2780678, 6, 442008, 1, 52538055, 3756, 18, 267929, 18, 76433006, 8868, 18, 52948122, 18, 1995836, 36, 3227919, 12, 901022, 1, 166917843, 4307, 36, 284546, 36, 158221314, 26549, 36, 74698472, 36, 333849714, 1, 254006273, 72, 2174038, 72, 2261318, 64571, 4, 207616, 8310, 4, 1293828, 28716, 63, 0, 1, 1006041, 43623, 251, 0, 1, 100181, 726, 719, 0, 1, 100181, 726, 719, 0, 1, 100181, 726, 719, 0, 1, 107878, 680, 0, 1, 95336, 1, 281145, 18848, 0, 1, 180194, 159, 1, 1, 158519, 8942, 0, 1, 159378, 8813, 0, 1, 107490, 3298, 1, 106057, 655, 1, 1964219, 24520, 3, 607153, 231697, 53144, 0, 1, 116711, 1957, 4, 231883, 10, 1000, 24838, 7, 1, 232010, 32, 321837444, 25087669, 18, 617887431, 67302824, 36, 356924, 18413, 45, 21, 219951, 9444, 1, 1000, 172116, 183150, 6, 24, 21, 213283, 618401, 1998, 28258, 1, 1000, 38159, 2, 22, 1000, 95933, 1, 1, 11, 1000, 277577, 12, 21];
+const TICKER = 'PFP';
+const PP = {feeA:'44',feeB:'155381',utxoByte:'4310',maxTx:16384,maxVal:5000,
+  poolDep:'500000000',keyDep:'2000000',pmN:'577',pmD:'10000',psN:'721',psD:'10000000'};
+const EX_MEM='2000000', EX_STEPS='700000000';
+const CDN='https://cdn.jsdelivr.net/npm/@emurgo/cardano-serialization-lib-browser@15.0.3/';
+
+// ⚠️ Math.round(-5.5) is -5 in JS but -6 under python's '.0f' banker's rounding. The preview
+// must be byte-identical to what the python reference builds, so both use floor(v + 0.5).
+const R = v => Math.floor(v + 0.5);
+const $ = id => document.getElementById(id);
+const hex = b => [...b].map(x=>x.toString(16).padStart(2,'0')).join('');
+const unhex = s => new Uint8Array(s.match(/../g).map(x=>parseInt(x,16)));
+const say = (m,k) => { const e=$('status'); e.className='on '+(k||''); e.innerHTML=m; };
+const nice = v => PRETTY[v] || (v[0].toUpperCase()+v.slice(1));
+
+// ── state ─────────────────────────────────────────────────────────────────────
+// The mouth is ONE slot: a prop covers the mood; 'none' hands the mouth back to the mood.
+const pick = { mood: MOODS[0], prop: 'none' };
+ORDER.filter(k => k !== 'mouth').forEach(k => pick[k] = Object.keys(TRAITS[k])[0]);
+const mouthVal = () => pick.prop !== 'none' ? pick.prop : pick.mood;
+const catVal = k => k === 'mouth' ? mouthVal() : pick[k];
+const optionsOf = c => c === 'mood' ? MOODS : c === 'prop' ? PROPS : Object.keys(TRAITS[c]);
+
+// ── the text engine — MUST mirror build_pfp.band_text() byte for byte ────────
+const adv = c => c === ' ' ? 12 : (ADV[c] || 22);
+const widthOf = s => [...s].reduce((a,c)=>a+adv(c),0) - adv(s[s.length-1]) + 16;
+function runOf(s, cx, y, sc) {
+  let x = 0; const uses = [], need = new Set();
+  for (const c of s) {
+    if (c !== ' ') { need.add(c); uses.push(`<use href="#${GID[c]||c}" x="${x}"/>`); }
+    x += adv(c);
+  }
+  const w = widthOf(s);
+  return [`<g transform="translate(${R(cx-w*sc/2)} ${R(y-28*sc)}) scale(${sc.toFixed(4)})" `
+    + `fill="none" stroke="${CREAM}" stroke-width="8" stroke-linecap="round" `
+    + `stroke-linejoin="round">${uses.join('')}</g>`, need];
+}
+function bandText(t) {
+  const sc1 = Math.min(3.4, 880 / widthOf(t));
+  let lines = [t];
+  if (sc1 < 2.0 && t.includes(' ')) {
+    let best = null, bw = null;
+    for (let i = 0; i < t.length; i++) {
+      if (t[i] !== ' ') continue;
+      const a = t.slice(0, i).replace(/ +$/,''), b = t.slice(i+1).replace(/^ +/,'');
+      if (!a || !b) continue;
+      const m = Math.max(widthOf(a), widthOf(b));
+      if (bw === null || m < bw) { best = [a, b]; bw = m; }
+    }
+    if (best) lines = best;
+  }
+  let sc, ys;
+  if (lines.length === 1) { sc = sc1; ys = [976]; }
+  else { sc = Math.min(2.1, 880 / Math.max(...lines.map(widthOf))); ys = [944, 1010]; }
+  const runs = [], need = new Set();
+  lines.forEach((l, i) => {
+    const [g, n] = runOf(l, 512, ys[i], sc);
+    runs.push(g); n.forEach(c => need.add(c));
+  });
+  const glyphs = [...need].sort().map(c=>`<path id="${GID[c]||c}" d="${GLY[c]}"/>`).join('');
+  return [runs.join(''), glyphs];
+}
+
+// ⚠️ MUST mirror build_pfp.build() exactly — this string is what goes on chain, and the
+// python builder is the reference. Any divergence means the preview lies about the artifact.
+function assembleFrom(st, text) {
+  const mouth = st.prop !== 'none' ? st.prop : st.mood;
+  const t = (text || '').toUpperCase().trim();
+  let glyphs = '', band = '';
+  if (t) {
+    const [runs, g] = bandText(t);
+    glyphs = g;
+    band = `<rect x="0" y="884" width="1024" height="140" fill="${DARK}" opacity=".92"/>${runs}`;
+  }
+  const S = 1.42;
+  // order MUST mirror build_pfp.build(): beard after neck (drapes over a chain), robe last
+  // of all (it reskins the shoulders on top of the shirt it's replacing).
+  const inner = `<g ${K}><path d="M300 604q46-104 286-104t286 104v220H300z" fill="${SHIRT}"/></g>`
+    + HEAD + TRAITS.mark[st.mark] + TRAITS.mouth[mouth]
+    + TRAITS.eyes[st.eyes] + TRAITS.hat[st.hat] + TRAITS.neck[st.neck] + TRAITS.beard[st.beard]
+    + TRAITS.pet[st.pet] + TRAITS.staff[st.staff] + TRAITS.robe[st.robe];
+  const face = `<g transform="translate(${R(512-586*S)} ${R(456-325*S)}) `
+    + `scale(${S})">${inner}</g>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">`
+    + `<defs>${HEAD_DEFS}${glyphs}</defs>${TRAITS.bg[st.bg]}${face}${band}</svg>`;
+}
+const assemble = () => assembleFrom(pick, $('text').value);
+
+// ── wizard scaffolding ───────────────────────────────────────────────────────
+let CUR = 0;
+$('prog').innerHTML = STEPS.map((s,i)=>`<button class="dot" data-step="${i}"></button>`).join('')
+  + `<span class="stepno" id="stepno"></span>`;
+
+$('panels').innerHTML = STEPS.map((s, i) => {
+  let body = '';
+  if (s.cat) {
+    body = `<div class="cards">` + optionsOf(s.cat).map(v =>
+      `<button class="chip" data-cat="${s.cat}" data-val="${v}">`
+      + `<span class="th"></span><span class="lb">${nice(v)}</span></button>`).join('')
+      + `</div>`;
+  } else if (s.id === 'text') {
+    body = `<div class="txt">
+        <input id="text" maxlength="${MAXT}" placeholder="YOUR NAME · YOUR SAYING"
+               autocomplete="off" spellcheck="false">
+        <span id="count">0/${MAXT}</span></div>
+      <p class="hint">Up to ${MAXT} characters — A&ndash;Z, 0&ndash;9, $ and spaces.
+        A long line wraps onto two.</p>
+      <div class="forever">Whatever you write is <b>permanent and public</b> — it rides inside
+        the minting transaction, on chain forever, signed by your own wallet.</div>`;
+  } else {
+    body = `<div class="sum" id="sum"></div>
+      <div class="meta"><span id="combo"></span><span></span></div>
+      <div class="gate" id="gate"></div>
+      <button id="mint">Connect wallet &amp; mint</button>
+      <button id="reset">Start over</button>
+      <div id="status"></div>
+      <div class="forever" style="margin-top:12px">This is <b>piece 9 of oligarCH</b> — and
+        it&rsquo;s yours to make. Hold <b>any one</b> of the eight and mint as many as you
+        like, <b>forever</b>: no deadline, no supply cap, and the policy can never be changed
+        or shut down. This page is open source — if it ever disappears, clone it and keep
+        minting. The policy is the artifact, not the website.</div>
+      <p class="meta" style="border:0"><code>policy ${POLICY_EXPECT}</code></p>`;
+  }
+  return `<section class="panel" data-panel="${i}">
+    <h2>${s.title}</h2><p class="sub">${s.sub}</p>${body}</section>`;
+}).join('');
+
+function thumbs() {
+  const s = STEPS[CUR];
+  if (!s.cat) return;
+  document.querySelectorAll(`.panel[data-panel="${CUR}"] .chip`).forEach(ch => {
+    const st = Object.assign({}, pick);
+    st[ch.dataset.cat] = ch.dataset.val;
+    // no caption band on thumbnails — the card is selling the TRAIT, not the line
+    ch.querySelector('.th').innerHTML = assembleFrom(st, '');
+  });
+}
+
+let CURRENT = '';
+function render() {
+  CURRENT = assemble();
+  window.__svg = CURRENT;        // module scope is not global; tests read the EXACT string
+                                 // rather than stage.innerHTML, which the DOM re-serialises
+  $('stage').querySelectorAll('svg').forEach(e => e.remove());
+  $('stage').insertAdjacentHTML('beforeend', CURRENT);
+  const n = new TextEncoder().encode(CURRENT).length;
+  $('size').textContent = n.toLocaleString() + ' B on chain';
+  const c = $('count'); if (c) c.textContent = ($('text').value||'').length + '/' + MAXT;
+  document.querySelectorAll('.chip').forEach(ch =>
+    ch.classList.toggle('on', pick[ch.dataset.cat] === ch.dataset.val));
+  const sum = $('sum');
+  if (sum) {
+    const line = ($('text').value||'').toUpperCase().trim();
+    sum.innerHTML = ORDER.map(k =>
+      `<div class="row"><b>${LABEL[k]}</b><span>${nice(catVal(k))}</span></div>`).join('')
+      + (line ? `<div class="row"><b>Line</b><span>${line}</span></div>` : '');
+  }
+  thumbs();
+}
+
+function show(i) {
+  CUR = Math.max(0, Math.min(STEPS.length - 1, i));
+  document.querySelectorAll('.panel').forEach(p =>
+    p.classList.toggle('on', +p.dataset.panel === CUR));
+  document.querySelectorAll('.dot').forEach((d, j) => {
+    d.classList.toggle('cur', j === CUR); d.classList.toggle('done', j < CUR);
+  });
+  $('stepno').textContent = (CUR + 1) + ' / ' + STEPS.length;
+  $('back').disabled = CUR === 0;
+  $('next').style.display = CUR === STEPS.length - 1 ? 'none' : '';
+  $('next').textContent = CUR === STEPS.length - 2 ? 'Review →' : 'Next →';
+  $('back').style.flex = CUR === STEPS.length - 1 ? '1' : '';
+  window.scrollTo({top: 0, behavior: 'smooth'});
+  render();
+}
+window.__goto = show;
+
+document.querySelectorAll('.dot').forEach(d => d.onclick = () => show(+d.dataset.step));
+$('back').onclick = () => show(CUR - 1);
+$('next').onclick = () => show(CUR + 1);
+document.querySelectorAll('.chip').forEach(ch => ch.onclick = () => {
+  pick[ch.dataset.cat] = ch.dataset.val; render(); });
+$('text').oninput = e => {
+  const el = e.target, v = el.value.toUpperCase().replace(/[^A-Z0-9$ ]/g, '');
+  if (v !== el.value) el.value = v;
+  render();
+};
+$('text').onkeydown = e => { if (e.key === 'Enter') { e.target.blur(); show(CUR + 1); } };
+$('rand').onclick = () => {
+  pick.mood = MOODS[Math.floor(Math.random()*MOODS.length)];
+  pick.prop = PROPS[Math.floor(Math.random()*PROPS.length)];
+  ORDER.filter(k=>k!=='mouth').forEach(k => { const o = Object.keys(TRAITS[k]);
+    pick[k] = o[Math.floor(Math.random()*o.length)]; });
+  render();
+};
+
+// swipe between steps — the phone gesture; ignore swipes that start on the input
+let tx0 = null, ty0 = null;
+document.addEventListener('touchstart', e => {
+  if (e.target.closest('input')) { tx0 = null; return; }
+  tx0 = e.touches[0].clientX; ty0 = e.touches[0].clientY;
+}, {passive: true});
+document.addEventListener('touchend', e => {
+  if (tx0 === null) return;
+  const dx = e.changedTouches[0].clientX - tx0, dy = e.changedTouches[0].clientY - ty0;
+  tx0 = null;
+  if (Math.abs(dx) > 64 && Math.abs(dy) < 46) show(CUR + (dx < 0 ? 1 : -1));
+}, {passive: true});
+
+// ── the gate + mint ──────────────────────────────────────────────────────────
+function drawGate(held) {
+  const n = held ? held.filter(Boolean).length : 0;
+  $('gate').innerHTML =
+    `<div class="row2" style="background:#1c1712;color:#d8c9a4">`
+    + `<span class="mark">&#9733;</span><b>Hold at least ONE of the eight</b>`
+    + `<span class="p" style="text-align:right">${held ? n + ' / 8 held' : 'any will do'}</span></div>`
+    + GATE.map((p,i) => {
+      const ok = held && held[i];
+      return `<div class="row2"><span class="mark ${ok?'yes':'no'}">${ok?'&#10003;':'&#9679;'}</span>`
+        + `<span class="t">${p.t}</span><span class="p">${p.ph}</span></div>`;
+    }).join('');
+}
+drawGate(null);
+
+$('reset').onclick = () => {
+  pick.mood = MOODS[0]; pick.prop = 'none';
+  ORDER.filter(k=>k!=='mouth').forEach(k => pick[k] = Object.keys(TRAITS[k])[0]);
+  $('text').value = ''; show(0);
+};
+$('combo').textContent = ORDER.reduce((a,k)=>a*Object.keys(TRAITS[k]).length,1)
+  .toLocaleString() + ' possible oligarCHs';
+
+let CSL;
+async function loadCSL() {
+  const bg = await import(CDN + 'cardano_serialization_lib_bg.js');
+  const { instance } = await WebAssembly.instantiateStreaming(
+    fetch(CDN + 'cardano_serialization_lib_bg.wasm'),
+    { './cardano_serialization_lib_bg.js': bg });
+  bg.__wbg_set_wasm(instance.exports);
+  if (instance.exports.__wbindgen_start) instance.exports.__wbindgen_start();
+  CSL = bg;
+  const got = hex(CSL.PlutusScript.new_v3(unhex(SCRIPT_HEX)).hash().to_bytes());
+  if (got !== POLICY_EXPECT) throw new Error('policy id mismatch: ' + got);
+}
+function costmdls() {
+  const cm = CSL.CostModel.new();
+  COSTS.forEach((v,i) => cm.set(i, v < 0
+    ? CSL.Int.new_negative(CSL.BigNum.from_str(String(-v)))
+    : CSL.Int.new(CSL.BigNum.from_str(String(v)))));
+  const c = CSL.Costmdls.new(); c.insert(CSL.Language.new_plutus_v3(), cm); return c;
+}
+function wallets() {
+  const c = window.cardano || {};
+  return Object.keys(c).filter(k => c[k] && typeof c[k].enable === 'function' && c[k].apiVersion);
+}
+
+$('mint').onclick = async () => {
+  $('mint').disabled = true;
+  try {
+    const ws = wallets();
+    if (!ws.length) throw new Error('No wallet found — open this in Vespr or Eternl.');
+    say('Loading…'); if (!CSL) await loadCSL();
+    const api = await window.cardano[ws[0]].enable();
+    if (await api.getNetworkId() !== 1) throw new Error('Switch the wallet to mainnet.');
+    const addr = CSL.Address.from_bytes(unhex(await api.getChangeAddress()));
+    const utxos = (await api.getUtxos()).map(h => CSL.TransactionUnspentOutput.from_hex(h));
+
+    const carriers = [];
+    const held = GATE.map(p => {
+      const hit = utxos.find(u => { const ma = u.output().amount().multiasset();
+        if (!ma) return false; const a = ma.get(CSL.ScriptHash.from_hex(p.p));
+        return a && a.len() > 0; });
+      if (hit && !carriers.some(c => c.to_hex() === hit.to_hex())) carriers.push(hit);
+      return !!hit;
+    });
+    drawGate(held);
+    if (!held.some(h => h)) throw new Error('You need <b>at least one</b> of the eight '
+      + 'oligarCH pieces — any of them — to mint your own.');
+
+    say('Building — your picture goes inside the transaction…');
+    const cfg = CSL.TransactionBuilderConfigBuilder.new()
+      .fee_algo(CSL.LinearFee.new(CSL.BigNum.from_str(PP.feeA),CSL.BigNum.from_str(PP.feeB)))
+      .pool_deposit(CSL.BigNum.from_str(PP.poolDep)).key_deposit(CSL.BigNum.from_str(PP.keyDep))
+      .max_value_size(PP.maxVal).max_tx_size(PP.maxTx)
+      .coins_per_utxo_byte(CSL.BigNum.from_str(PP.utxoByte))
+      .ex_unit_prices(CSL.ExUnitPrices.new(
+        CSL.UnitInterval.new(CSL.BigNum.from_str(PP.pmN),CSL.BigNum.from_str(PP.pmD)),
+        CSL.UnitInterval.new(CSL.BigNum.from_str(PP.psN),CSL.BigNum.from_str(PP.psD)))).build();
+    const tb = CSL.TransactionBuilder.new(cfg);
+
+    // ⚠️ REGRESSION FIXED 2026-07-30 (David's footage): this used to REQUIRE a pure-ada UTxO
+    // and threw "Need one plain-ada UTxO to seed the name" on a wallet whose every UTxO
+    // carries tokens — which is most collectors' wallets. The seed only has to be a UTxO this
+    // transaction SPENDS, so the derived asset name can never repeat; it does NOT have to be
+    // pure ada. Prefer pure (a tidier tx), fall back to any. The proven series page always
+    // did this and the fallback was lost in the rewrite.
+    const byCoin = (a,b) => Number(b.output().amount().coin().to_str())
+                          - Number(a.output().amount().coin().to_str());
+    const pure = utxos.filter(u => { const m=u.output().amount().multiasset();
+      return !m || m.len()===0; });
+    const pool = (pure.length ? pure : utxos).slice().sort(byCoin);
+    if (!pool.length) throw new Error('That wallet has no UTxOs — it needs a little ada.');
+    const seed = pool[0];
+    const nameStr = TICKER + hex(seed.input().transaction_id().to_bytes()).slice(0,8);
+    const assetName = CSL.AssetName.new(new TextEncoder().encode(nameStr));
+    const script = CSL.PlutusScript.new_v3(unhex(SCRIPT_HEX));
+    const redeemer = CSL.Redeemer.new(CSL.RedeemerTag.new_mint(), CSL.BigNum.from_str('0'),
+      CSL.PlutusData.new_empty_constr_plutus_data(CSL.BigNum.from_str('0')),
+      CSL.ExUnits.new(CSL.BigNum.from_str(EX_MEM), CSL.BigNum.from_str(EX_STEPS)));
+    const mb = CSL.MintBuilder.new();
+    mb.add_asset(CSL.MintWitness.new_plutus_script(CSL.PlutusScriptSource.new(script), redeemer),
+      assetName, CSL.Int.new_i32(1));
+    tb.set_mint_builder(mb);
+
+    // the artwork exactly as previewed, plus the traits as CIP-25 attributes so marketplaces
+    // show them as real traits
+    const b64 = btoa(String.fromCharCode(...new TextEncoder().encode(CURRENT)));
+    const cut = s => s.match(/.{1,64}/g);
+    const pid = hex(script.hash().to_bytes());
+    const meta = {}; meta[pid] = {};
+    const entry = { name: 'oligarCH PFP', mediaType: 'image/svg+xml',
+      image: cut('data:image/svg+xml;base64,' + b64),
+      description: cut('Your own oligarCH. Fully on-chain, holders only.') };
+    ORDER.forEach(k => entry[LABEL[k]] = nice(catVal(k)));
+    const line = ($('text').value||'').toUpperCase().trim();
+    if (line) entry['Line'] = line;
+    meta[pid][nameStr] = entry;
+    const aux = CSL.AuxiliaryData.new();
+    const gtm = CSL.GeneralTransactionMetadata.new();
+    gtm.insert(CSL.BigNum.from_str('721'), CSL.encode_json_str_to_metadatum(
+      JSON.stringify(meta), CSL.MetadataJsonSchema.NoConversions));
+    aux.set_metadata(gtm); tb.set_auxiliary_data(aux);
+
+    const ma = CSL.MultiAsset.new(), as = CSL.Assets.new();
+    as.insert(assetName, CSL.BigNum.from_str('1'));
+    ma.insert(CSL.ScriptHash.from_bytes(script.hash().to_bytes()), as);
+    const probe = CSL.Value.new(CSL.BigNum.from_str('3000000')); probe.set_multiasset(ma);
+    const minAda = CSL.min_ada_for_output(CSL.TransactionOutput.new(addr, probe),
+      CSL.DataCost.new_coins_per_byte(CSL.BigNum.from_str(PP.utxoByte)));
+    const outV = CSL.Value.new(minAda); outV.set_multiasset(ma);
+    tb.add_output(CSL.TransactionOutput.new(addr, outV));
+
+    // ONE carrier is all the validator wants — extra pieces would only fatten the tx
+    const seen = new Set();
+    for (const u of [seed, ...carriers.slice(0,1), ...pool.slice(1,5)]) {
+      const k = u.to_hex(); if (seen.has(k)) continue; seen.add(k);
+      tb.add_regular_input(u.output().address(), u.input(), u.output().amount());
+    }
+    let col = await api.getCollateral();
+    if (!col || !col.length) col = (await api.experimental?.getCollateral?.()) || [];
+    if (!col.length) throw new Error('No collateral set — add some in your wallet settings.');
+    const cib = CSL.TxInputsBuilder.new();
+    for (const h of col) { const u = CSL.TransactionUnspentOutput.from_hex(h);
+      cib.add_regular_input(u.output().address(), u.input(), u.output().amount()); }
+    tb.set_collateral(cib);
+    tb.calc_script_data_hash(costmdls());
+    tb.add_change_if_needed(addr);
+
+    const tx = tb.build_tx();
+    const unsignedHex = hex(tx.to_bytes());
+    window.__unsigned = unsignedHex;
+    const size = tx.to_bytes().length;
+    if (size > PP.maxTx) throw new Error('Too large (' + size + ' B). Simplify a trait.');
+    say('Sign to mint — tx ' + size.toLocaleString() + ' bytes.');
+    const wsHex = await api.signTx(unsignedHex, true);
+    // MERGE, never replace: the wallet returns only its vkeys, and assigning that whole
+    // witness set over ours would wipe the plutus script and the redeemer.
+    const ftx = CSL.FixedTransaction.from_hex(unsignedHex);
+    const vk = CSL.TransactionWitnessSet.from_hex(wsHex).vkeys();
+    if (!vk || !vk.len()) throw new Error('The wallet returned no signature.');
+    for (let i=0;i<vk.len();i++) ftx.add_vkey_witness(vk.get(i));
+    say('Submitting…');
+    const txHash = await api.submitTx(hex(ftx.to_bytes()));
+    say('<b>Minted.</b> ' + nameStr + ' is yours, picture and all, on chain forever.<br>'
+      + '<a href="https://cexplorer.io/tx/' + txHash + '" target="_blank" rel="noopener">'
+      + txHash + '</a><br><a href="wall/">&rarr; See yourself on THE WALL</a>', 'ok');
+  } catch (e) {
+    // CIP-30 throws {code, info} with no .message — never let this become "[object Object]"
+    let m = '';
+    if (e && typeof e === 'object') {
+      m = [e.info, e.message, e.code!==undefined?('code '+e.code):''].filter(Boolean).join(' · ');
+      if (!m) { try { m = JSON.stringify(e); } catch(_) { m = String(e); } }
+    } else m = String(e);
+    say('<b>Not minted.</b> ' + m, 'err');
+  }
+  $('mint').disabled = false;
+};
+
+show(0);
+</script></body></html>

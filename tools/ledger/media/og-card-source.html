@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ledger Scrolls — share card</title>
+<!-- Source for media/og-card.png (1200x630). Regenerate every card with:
+       node scripts/build_og_cards.mjs
+     Night Ledger palette, and the same constellation mark the site wears. -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{
+  font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:#eef4ff;
+  background:
+    radial-gradient(1000px 620px at 78% -12%,rgba(47,107,255,.20),transparent 62%),
+    radial-gradient(760px 480px at 2% 106%,rgba(246,180,90,.09),transparent 60%),
+    linear-gradient(to right,rgba(158,195,255,.05) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(158,195,255,.05) 1px,transparent 1px),
+    radial-gradient(130% 90% at 50% 0%,#0f1a34 0%,#080d1a 52%,#04060c 100%);
+  background-size:100% 100%,100% 100%,48px 48px,48px 48px,100% 100%;
+  position:relative;display:flex;flex-direction:column;justify-content:center;
+  padding:0 84px;
+}
+/* the mark sits in the right third; the copy never crosses into it */
+.constellation{position:absolute;right:-118px;top:50%;transform:translateY(-50%);
+  width:560px;height:560px}
+.eyebrow{display:inline-flex;width:fit-content;align-items:center;
+  font-size:19px;font-weight:600;letter-spacing:.17em;text-transform:uppercase;
+  color:#9ec3ff;background:rgba(47,107,255,.14);border:1px solid rgba(47,107,255,.42);
+  padding:11px 22px;border-radius:999px}
+h1{font-size:100px;line-height:.98;letter-spacing:-.028em;font-weight:800;margin-top:26px;
+  max-width:700px}
+/* stop the gradient short of the final glyph — running it to 100% bleaches the
+   last letter into the background */
+h1 .b{background:linear-gradient(90deg,#9ec3ff 10%,#f6b45a 78%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{margin-top:18px;font-size:38px;line-height:1.2;color:#c6d4ef;
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-style:italic}
+.facts{display:flex;gap:12px;margin-top:36px}
+.fact{font-size:19px;color:#c6d4ef;background:#0c1526;border:1px solid #263760;
+  border-radius:999px;padding:12px 20px;white-space:nowrap}
+.fact b{color:#eef4ff}
+.fact .ok{color:#3fd68f}
+</style>
+</head>
+<body>
+<svg class="constellation" viewBox="-360 -360 720 720" aria-hidden="true">
+  <g opacity=".92">
+    <g fill="#aecbff"><circle cx="105" cy="0" r="12"/><circle cx="52.5" cy="90.9" r="12"/><circle cx="-52.5" cy="90.9" r="12"/><circle cx="-105" cy="0" r="12"/><circle cx="-52.5" cy="-90.9" r="12"/><circle cx="52.5" cy="-90.9" r="12"/></g>
+    <g fill="#8fb4ff" fill-opacity=".6"><circle cx="160.2" cy="92.5" r="8"/><circle cx="0" cy="185" r="8"/><circle cx="-160.2" cy="92.5" r="8"/><circle cx="-160.2" cy="-92.5" r="8"/><circle cx="0" cy="-185" r="8"/><circle cx="160.2" cy="-92.5" r="8"/></g>
+    <g fill="#7ca2f4" fill-opacity=".42"><circle cx="255" cy="0" r="6.5"/><circle cx="127.5" cy="220.8" r="6.5"/><circle cx="-127.5" cy="220.8" r="6.5"/><circle cx="-127.5" cy="-220.8" r="6.5"/><circle cx="127.5" cy="-220.8" r="6.5"/></g>
+    <circle cx="-255" cy="0" r="6.5" fill="#f6b45a" fill-opacity=".9"/>
+    <circle r="34" fill="#2f6bff"/>
+    <circle r="34" fill="none" stroke="#cfe0ff" stroke-opacity=".55" stroke-width="2"/>
+  </g>
+</svg>
+
+<div class="eyebrow">Immutable media on Cardano</div>
+<h1>Ledger <span class="b">Scrolls</span></h1>
+<div class="sub">A library that cannot burn.</div>
+<div class="facts">
+  <div class="fact"><span class="ok">&#10003;</span> <b>verified</b> on every read</div>
+  <div class="fact">uncensorable &middot; timestamped</div>
+  <div class="fact"><b>one fee</b> &middot; zero subscriptions</div>
+</div>
+</body>
+</html>

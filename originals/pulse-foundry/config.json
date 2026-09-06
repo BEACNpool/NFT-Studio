@@ -1,0 +1,28 @@
+{
+  "slug": "pulse",
+  "id": "PF",
+  "kind": 2,
+  "title": "PULSE FOUNDRY",
+  "asset": "PulseFoundry",
+  "number": "03",
+  "tagline": "Draw the pulse. Shape the bass. Light up the room.",
+  "color": "#9ff5da",
+  "second": "#dfabff",
+  "seed": 918273,
+  "key": 5,
+  "bpm": 120,
+  "minor": [
+    true,
+    true,
+    true,
+    false
+  ],
+  "scenes": [
+    "Neon drive",
+    "Subterranean",
+    "Broken glass",
+    "Afterhours"
+  ],
+  "help": "Tap the sixteen-step grid: K kick, S snare, H hat, C pitched chime. Your pattern develops through a sixteen-bar arrangement with a breakdown, bass movement, melodic variations and a final return. Radiant energy adds fills. Lock Rhythm to preserve your grid when generating a new song.",
+  "seeds": "The grid has 64 editable on/off cells. That is 2^64 raw patterns, including silence and patterns that may not be musically useful."
+}

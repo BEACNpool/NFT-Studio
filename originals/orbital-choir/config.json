@@ -1,0 +1,28 @@
+{
+  "slug": "orbit",
+  "id": "OC",
+  "kind": 1,
+  "title": "ORBITAL CHOIR",
+  "asset": "OrbitalChoir",
+  "number": "02",
+  "tagline": "Four clocks. One sky. A constellation you can hear.",
+  "color": "#e9d59d",
+  "second": "#9fbeff",
+  "seed": 193719,
+  "key": 2,
+  "bpm": 60,
+  "minor": [
+    false,
+    true,
+    false,
+    true
+  ],
+  "scenes": [
+    "Starlit glass",
+    "Velvet eclipse",
+    "Copper moons",
+    "String nebula"
+  ],
+  "help": "Four melodic orbits have cycles of 5, 7, 11 and 13 steps. Tap a phase button to rotate that orbit against the others. All notes follow the changing harmony. The complete clock-phase pattern repeats after 5,005 half-beat steps; each export is a sixteen-bar composition through that larger pattern.",
+  "seeds": "The orbital clock period describes rhythm phase, not 5,005 different songs. Sound, harmony and seed choices create additional variations."
+}

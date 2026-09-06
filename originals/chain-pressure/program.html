@@ -1,0 +1,132 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none';script-src 'unsafe-inline';style-src 'unsafe-inline';media-src blob:;connect-src 'none';base-uri 'none';form-action 'none'"><title>CHAIN PRESSURE / BMKR</title><style>*{box-sizing:border-box}body{margin:0;background:#11100f;color:#fff3df;font:15px system-ui,sans-serif;min-height:100vh;display:grid;place-items:center;padding:24px}main{width:min(100%,640px)}header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #53483d;padding-bottom:16px;font-size:12px;letter-spacing:2px}header b{font-size:20px;letter-spacing:-1px}small{color:#c9bca9}h1{font-size:clamp(48px,12vw,88px);line-height:.88;letter-spacing:-4px;margin:40px 0 24px}h1 span{color:#ff6b35}.disc{height:112px;display:flex;align-items:center;gap:4px;overflow:hidden;margin:32px 0;background:linear-gradient(90deg,#ff6b3515,transparent);padding:16px;border-left:4px solid #ff6b35}.disc i{flex:1;background:#ff6b35;height:var(--h);opacity:.7}p{line-height:1.5;margin:12px 0}.row{display:flex;gap:12px;margin-top:24px}button{font:700 14px system-ui;letter-spacing:1px;min-height:52px;cursor:pointer;padding:12px 24px;background:#ff6b35;color:#17100b;border:1px solid #ff6b35;border-radius:0}button:hover{background:#ff956d}button:focus-visible{outline:3px solid #fff3df;outline-offset:4px}button:disabled{opacity:.4;cursor:wait}#dl,#stop{background:none;color:#fff3df;border-color:#756555}#dl:hover,#stop:hover{background:#30251d}progress{width:100%;height:4px;accent-color:#ff6b35;display:block;margin-top:24px}footer{display:flex;justify-content:space-between;gap:16px;margin-top:16px;font-size:12px;color:#c9bca9}#status{min-height:24px;font-size:13px;color:#c9bca9}@media(max-width:480px){body{padding:24px 16px}.row{gap:8px}button{padding:12px 16px}#dl{margin-left:auto}h1{letter-spacing:-3px}header{letter-spacing:1px}}</style><main><header><b>BMKR</b><small>BMKR ORIGINAL / 001</small></header><h1>CHAIN<br><span>PRESSURE.</span></h1><p>Heavy 808. Cold hook. No backing down.</p><div class="disc" aria-hidden="true"></div><div class="row"><button id="play">PLAY BEAT</button><button id="stop">STOP</button><button id="dl">WAV ↓</button></div><progress id="progress" value="0" max="20" aria-label="Playback progress"></progress><footer><span>144 BPM / 20 SECONDS</span><span>ORIGINAL INSTRUMENTAL</span></footer><p id="status" role="status">20-second original · generated locally</p></main><script>
+function render(sr=44100){
+if(!Number.isInteger(sr)||sr<8000||sr>96000)throw Error("sampleRate 8000..96000");
+const N=sr*20,T=2*Math.PI,beat=60/144,bar=beat*4;
+const drums=new Float32Array(N),bass=new Float32Array(N);
+const left=new Float32Array(N),right=new Float32Array(N),duck=new Float32Array(N);
+let seed=730519;
+const noise=()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return (seed>>>0)/2147483648-1;};
+const hz=m=>440*2**((m-69)/12),sin=Math.sin,exp=Math.exp;
+function voice(dst,start,len,fn,gain=1){
+let at=Math.round(start*sr),n=Math.min(Math.round(len*sr),N-at);
+for(let i=0;i<n;i++){
+const t=i/sr,edge=Math.min(1,i/(sr*.0015),(n-1-i)/(sr*.006));
+dst[at+i]+=gain*Math.max(0,edge)*fn(t,i);
+}
+}
+function kick(t,v=1){
+voice(drums,t,.38,x=>1.2*sin(T*(48*x+2.8*(1-exp(-x/ .019))))*exp(-x/ .11)+noise()*.22*exp(-x/ .004),v);
+let at=Math.round(t*sr);
+for(let i=0;i<sr*.23&&at+i<N;i++)duck[at+i]=Math.max(duck[at+i],exp(-i/sr/.075));
+}
+function snare(t,v=1){
+let z=0;
+voice(drums,t,.23,x=>{
+const r=noise(),h=r-z;z=r;
+const clap=[0,.011,.024].reduce((a,c)=>a+(x>c?exp(-(x-c)/.018):0),0);
+return .17*h*(.65*exp(-x/.065)+clap)+.26*sin(T*183*x)*exp(-x/.026);
+},v);
+}
+function hat(t,v=.6,open=false){
+let z=0;
+voice(drums,t,open?.2:.07,x=>{
+const r=noise(),hp=r-z;z=r;
+return .14*(hp+.15*sin(T*6871*x))*(1-exp(-x/.0007))*exp(-x/(open?.065:.013));
+},v);
+}
+function sub(t,m,len,v=1,to=m){
+let phase=0;
+voice(bass,t,len,(x)=>{
+const f=hz(m+(to-m)*Math.max(0,1-x/.09));
+phase+=T*f/sr;
+const env=(1-exp(-x/.004))*Math.min(1,(len-x)/.045)*exp(-x/1.25);
+const s=sin(phase),rich=Math.tanh(2.8*(s+.12*sin(phase*2)));
+return (.72*s+.28*rich)*env*.63;
+},v);
+}
+function bell(t,m,v=1,pan=0){
+const f=hz(m),a=.42;
+const note=x=>(sin(T*f*x+2.3*sin(T*f*2*x)*exp(-x/.07))+.2*sin(T*f*3.01*x))*exp(-x/.48)*(1-exp(-x/.002));
+voice(left,t,1.5,note,a*v*(1-pan*.35));
+voice(right,t,1.5,note,a*v*(1+pan*.35));
+voice(left,t+beat*.75,1.1,note,.1*v);
+voice(right,t+beat*1.5,1.1,note,.07*v);
+}
+// Sixteenth-note kick cells. Half-time backbeat is cell 8.
+const kicks=[[0,3,6,10,14],[0,6,7,11,14],[0,5,10,12,15],[0,3,6,10,13,15]];
+const roots=[29,29,37,39,29,32,37,36,29,37,36,29];
+const motif=[[[0,77],[6,84],[11,80],[14,79]],[[0,77],[7,75],[11,72],[14,76]]];
+for(let b=0;b<12;b++){
+const t=b*bar,last=b===11,drop=b===7,root=roots[b];
+if(last){
+kick(t,1.2);snare(t,.55);sub(t,29,1.6,1.05);
+bell(t,77,1.05,-.4);bell(t,84,.55,.4);
+for(let h=0;h<4;h++)hat(t+h*beat/8,.55-h*.1);
+continue;
+}
+const pattern=kicks[b%4];
+for(const s of pattern)if(!drop||s<8)kick(t+s*beat/4,s===0?1.05:.8);
+if(!drop){snare(t+2*beat);if(b%4===3)snare(t+3.75*beat,.3);}
+else snare(t+beat,.65);
+for(let s=0;s<16;s++){
+if(drop&&s>=8)continue;
+if(b===0&&s%2)continue;
+hat(t+s*beat/4,(s%4===0?.85:s%2?.34:.6)*(b>=8?1.1:1));
+}
+if(!drop){
+hat(t+3.5*beat,.5,true);
+if(b%2===1||b>=8)for(let j=0;j<6;j++)hat(t+(3.5+j/12)*beat,.35+j*.06);
+}
+const seq=b%2?[[0,root,1.15],[1.5,root,.55],[2.75,root+7,.4],[3.5,root,.43]]:[[0,root,1.4],[1.75,root,.7],[3,root+12,.65]];
+for(const [at,m,len] of seq)if(!drop||at<2)sub(t+at*beat,m,Math.min(len*beat,(drop?2-at:4-at)*beat),.95,b%4===3?m+7:m);
+if(b!==7)for(const [s,m]of motif[b%2])bell(t+s*beat/4,m,b<4?.52:.65,s%3-1);
+else bell(t,72,.48,-.5);
+if(b===6||b===10)bell(t+3.5*beat,89,.28,.7);
+}
+// Small diffuse reflections stay above the mono low end.
+const taps=[.031,.047,.079];
+for(let i=N-1;i>=0;i--)for(let k=0;k<3;k++){
+const j=i-Math.round(sr*taps[k]);
+if(j>=0){left[i]+=right[j]*(.045-k*.008);right[i]+=left[j]*(.045-k*.008);}
+}
+let dl=0,dr=0,xl=0,xr=0,peak=0;
+for(let i=0;i<N;i++){
+const fade=Math.min(1,i/(sr*.002),(N-1-i)/(sr*.09));
+const low=bass[i]*(1-.69*duck[i]),d=drums[i];
+const l=Math.tanh((d+low+left[i]*.66)*1.22),r=Math.tanh((d+low+right[i]*.66)*1.22);
+dl=l-xl+.9975*dl;dr=r-xr+.9975*dr;xl=l;xr=r;
+left[i]=dl*Math.max(0,fade);right[i]=dr*Math.max(0,fade);
+peak=Math.max(peak,Math.abs(left[i]),Math.abs(right[i]));
+}
+const gain=.85/(peak||1);
+for(let i=0;i<N;i++){left[i]*=gain;right[i]*=gain;}
+return {left,right};
+}
+if(typeof module!=="undefined")module.exports={render};
+function encodeWav(channels,sampleRate){
+const c=channels instanceof Float32Array?[channels]:Array.isArray(channels)?channels:[channels.left,channels.right];
+const n=c[0].length,block=c.length*3,size=n*block,pad=size&1;
+if(!Number.isInteger(sampleRate)||sampleRate<8000||sampleRate>96000||c.length<1||c.length>2||c.some(x=>x.length!==n))throw Error("Invalid PCM shape");
+const u=new Uint8Array(44+size+pad),d=new DataView(u.buffer);
+const text=(p,s)=>{for(let i=0;i<s.length;i++)u[p+i]=s.charCodeAt(i);};
+text(0,"RIFF");d.setUint32(4,36+size+pad,true);text(8,"WAVEfmt ");d.setUint32(16,16,true);
+d.setUint16(20,1,true);d.setUint16(22,c.length,true);d.setUint32(24,sampleRate,true);
+d.setUint32(28,sampleRate*block,true);d.setUint16(32,block,true);d.setUint16(34,24,true);
+text(36,"data");d.setUint32(40,size,true);
+for(let i=0,p=44;i<n;i++)for(const ch of c){
+const x=ch[i];if(!Number.isFinite(x)||Math.abs(x)>1)throw Error("Invalid PCM sample");
+const v=Math.max(-8388608,Math.min(8388607,Math.round(x*8388607)));
+u[p++]=v&255;u[p++]=(v>>8)&255;u[p++]=(v>>16)&255;
+}
+return u;
+}
+if(typeof module!=="undefined")module.exports={encodeWav};
+const $=id=>document.getElementById(id),S=44100;let c,b,s,ch,offset=0,started=0,playing=false,ready=false,url,busy=false;
+for(let i=0;i<40;i++){let e=document.createElement('i');e.style.setProperty('--h',(12+(i*73%83))+'%');document.querySelector('.disc').append(e)}
+function init(){if(!c)c=new AudioContext({sampleRate:S});if(!ready){ch=render(S);b=c.createBuffer(2,ch.left.length,S);b.copyToChannel(ch.left,0);b.copyToChannel(ch.right,1);ready=true}return c.resume()}
+function halt(reset){if(s){s.onended=null;s.stop();s=null}if(playing)offset+=c.currentTime-started;playing=false;if(reset)offset=0;$('play').textContent=offset?'RESUME':'PLAY BEAT'}
+async function prepare(){if(!ready){$('status').textContent='Building the beat…';await new Promise(r=>setTimeout(r,20))}await init()}
+$('play').onclick=async()=>{if(busy)return;busy=true;try{if(playing){halt(false);return}await prepare();if(offset>=20)offset=0;s=c.createBufferSource();s.buffer=b;s.connect(c.destination);s.start(0,offset);started=c.currentTime;playing=true;$('play').textContent='PAUSE';$('status').textContent='CHAIN PRESSURE · original synthesized audio';s.onended=()=>{playing=false;offset=20;$('play').textContent='PLAY AGAIN'}}catch(e){$('status').textContent='Audio could not start. Open this file in a browser and try again.'}finally{busy=false}};
+$('stop').onclick=()=>halt(true);$('dl').onclick=async()=>{if(busy)return;busy=true;try{await prepare();if(!url)url=URL.createObjectURL(new Blob([encodeWav(ch,S)],{type:'audio/wav'}));let a=document.createElement('a');a.href=url;a.download='CHAIN-PRESSURE.wav';a.click();$('status').textContent='WAV ready · generated from this exact score'}catch(e){$('status').textContent='WAV export is unavailable in this viewer. Open the player separately.'}finally{busy=false}};
+function tick(){let t=playing?offset+c.currentTime-started:offset;$('progress').value=t;requestAnimationFrame(tick)}tick();
+</script></html>
