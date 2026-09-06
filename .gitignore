@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Owner-private Sites hosting identity; public source builds without it.
 .openai/hosting.json
+
+# Local browser verification captures
+/live-file-*.png
