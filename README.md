@@ -35,7 +35,7 @@ does not require a wallet.
 | Knowledge | Search 58 curated research entries and a separate library of 148 original CIP documents. Inspect source text, licensing, lifecycle limits and pinned implementation evidence. Proposal status remains separate from adoption or tested behavior. |
 | Asset inspector | Derive CIP-14 fingerprints, verify CIP-67 checksums and locate paired CIP-68 asset names from exact bytes. It does not assert chain existence or ownership. |
 | Registry signatures | Inspect exact CIP-26 scalar signatures, compare signer keys with separately selected trust rules, and detect stale or conflicting sequence observations locally. |
-| Agent minting | Import a content-bound MCP request, inspect exact files, then use the existing wallet review, signing and receipt flow. |
+| Agent minting | Ask your configured agent for a compact NFT, open its content-bound review link, inspect the files, then connect your wallet and approve the mint. JSON import remains available. |
 
 The [repository-hosted MCP setup page](https://beacnpool.github.io/NFT-Studio/mcp/)
 shows how to run **17 tools and 61 resources locally from this repo**: Cardano knowledge,
@@ -44,6 +44,13 @@ unsigned transactions and external witness verification. Your wallet retains sig
 authority. The setup page is not an HTTP MCP endpoint; operators can separately deploy
 the 15-tool Worker on their own HTTPS host. [Connection guide](docs/MCP.md#public-connection). The [knowledge repository](knowledge/)
 is reusable data with source hashes, attribution and an explicit evidence policy.
+
+For Codex, the guide includes an installer and the repository’s `$nft-studio` skill.
+The ordinary native mint charges **0 ADA Studio fee**; Cardano network fees apply,
+and minimum ADA stays with the NFT in your output. A real Codex session has created
+and verified the direct review request; wallet signing and receipt handling have
+passed synthetic browser tests. **Named-wallet acceptance and a confirmed live mint
+remain the release gate.** See [the acceptance evidence](docs/AGENT_ACCEPTANCE.md).
 
 Read [State Capsules](docs/STATE_CAPSULES.md),
 [music formats and limits](docs/MUSIC_RELEASE.md),

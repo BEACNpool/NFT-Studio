@@ -1,0 +1,223 @@
+{
+  "schema": "beacn.synthetic-agent-wallet-summary.v1",
+  "status": "PASS_SYNTHETIC_ONLY",
+  "checkedAt": "2026-09-07T16:02:27.760Z",
+  "durationMs": 53598,
+  "scenarios": 20,
+  "viewports": [
+    1440,
+    390
+  ],
+  "reportSha256": "7006727105d87c174dbd40cba7a4289bc893017d66cb3f34d699f52762f46f15",
+  "mcpProtocolEra": "legacy",
+  "sourceInputs": [
+    {
+      "path": "components/agent-mint-panel.tsx",
+      "bytes": 13533,
+      "sha256": "16e995023ec8fbc846e0189a3bcb0ea9985223db599c20f693e139bc37e8fda5"
+    },
+    {
+      "path": "components/file-mint-dialog.tsx",
+      "bytes": 18291,
+      "sha256": "754aa11c6232cc517b956f28c8dbe4bb2de0947b724df2d5606a99baa0729646"
+    },
+    {
+      "path": "lib/studio-review-link.ts",
+      "bytes": 2856,
+      "sha256": "717916e9d49f6fed6bc82605efb305cd79ccf09829e4d2205fb4e3018a6c0c4c"
+    },
+    {
+      "path": "lib/studio-intent.ts",
+      "bytes": 5176,
+      "sha256": "61f677bb7c5208be84ef35c5699457510e5b15cd8d4eb9af20e1594c32883883"
+    },
+    {
+      "path": "lib/studio-transaction.ts",
+      "bytes": 10377,
+      "sha256": "38d6275b30cac4ff214025702326c09ad257783fa8dd8a2f5c251277c996bd6a"
+    },
+    {
+      "path": "lib/cardano.ts",
+      "bytes": 16679,
+      "sha256": "359e145cfa457f2b2355ce560aa1ba356102467a74f2a5caec9bfbaf4cd37b02"
+    },
+    {
+      "path": "lib/studio-submission.ts",
+      "bytes": 7017,
+      "sha256": "43bcf881ef9ca20546c707edce464537b1a0e3682ff581834e1c336c653f7bfb"
+    },
+    {
+      "path": "lib/studio-receipts.ts",
+      "bytes": 1200,
+      "sha256": "4d685a726104bfaa1c8042e8dbdaac9dd3ecfb3d120b5b38199948912f5eba09"
+    },
+    {
+      "path": "mcp/dist/cli.mjs",
+      "bytes": 4389987,
+      "sha256": "55e0d1dac6153477ba526db8c7859abad5030e2076c8a03faa1fd59d4a232e19"
+    },
+    {
+      "path": "mcp/package-lock.json",
+      "bytes": 59857,
+      "sha256": "9e25fc1e9f86b7b5d786e58d080ff3bd95ee32651a73cdec368f3170d69205cc"
+    }
+  ],
+  "servedFileHashes": [
+    {
+      "path": "_next/static/chunks/cardano_serialization_lib-COs8BxK3.js",
+      "bytes": 4091288,
+      "sha256": "13345f81869fef51ecd83468bccb998522d8c398e21ab7575de7557c9c7c4c44"
+    },
+    {
+      "path": "_next/static/chunks/framework-DTZGTDtF.js",
+      "bytes": 190109,
+      "sha256": "2a1edf81f32a49b1eacafc3546b371bca024c82a9191836e274d90890212e9df"
+    },
+    {
+      "path": "_next/static/chunks/index-wZQdrio4.js",
+      "bytes": 109839,
+      "sha256": "24584f7c22cf953e8a71e84c39cba88ca8a6986c7625692291548e6bf901395b"
+    },
+    {
+      "path": "_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "bytes": 496,
+      "sha256": "68f441bf53f90572c4ebe12e8423ccab347c4509ef7c11f624519ad1c31619c6"
+    },
+    {
+      "path": "_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "bytes": 716,
+      "sha256": "580ad8c58061a4dde99bde0a56905e382f0568516ee2f5b84dbfb52085709021"
+    },
+    {
+      "path": "_next/static/chunks/script-OiLC3mth.js",
+      "bytes": 3811,
+      "sha256": "c1d7e5b1439e9a1d4500ed84f29fb75477b84f502fa847ef352638ad53fe1f97"
+    },
+    {
+      "path": "_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "bytes": 9763,
+      "sha256": "2c9cb096614b8fb4c45e3ee640b61ae66b50ee7e6a8018d0453de97149d1b6e4"
+    },
+    {
+      "path": "_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "bytes": 887152,
+      "sha256": "b7ea14001262ec08864979b318ef333a5096f1e563dbf8ed4b5045c261d11556"
+    },
+    {
+      "path": "_next/static/chunks/vinext-DKMKDpID.js",
+      "bytes": 111011,
+      "sha256": "463df95bf3d7b3021f6303850be3d0b1b76385614d3bc3836f23f1617af7d859"
+    },
+    {
+      "path": "_next/static/css/index.Fhi1Lbch.css",
+      "bytes": 342486,
+      "sha256": "e67e0fc7a2e048c3d22eaf83146c66c3723aa53b60f8225b14f44d70e2541431"
+    },
+    {
+      "path": "_next/static/css/studio-shell.B1XB9nNM.css",
+      "bytes": 28370,
+      "sha256": "3c4754d2e58f43cc0ae2fd9312d3fd35d73ffe8f3e17a403429b0bad69eacf6c"
+    },
+    {
+      "path": "brand/nft-studio.svg",
+      "bytes": 330,
+      "sha256": "24c2f1b60f9d38a21cc762e6a4a1821b03c4787c733e09aaa10adc56ebcc1989"
+    },
+    {
+      "path": "index.html",
+      "bytes": 23729,
+      "sha256": "fd6afb606a13291be1c359dc44cc944d2a28877fef1fa3a9f5d694afed48bdb4"
+    },
+    {
+      "path": "studio-navigation.js",
+      "bytes": 524,
+      "sha256": "a019607ba8a1fa24e421260d397d0d8321544573cefbfe8bb0b1a543f0c5591c"
+    }
+  ],
+  "observations": {
+    "directOrdinaryIntentHandoff": true,
+    "fragmentRemovedBeforeAsyncVerification": true,
+    "fragmentAbsentFromActualHttpRequestsAndReferer": true,
+    "autoWalletCallsOnImport": 0,
+    "explicitSyntheticConnectAndSignApproval": true,
+    "actualSignedCborChecked": true,
+    "networkAndMetadataIntegrity": true,
+    "soleMintQuantity": "1",
+    "allOutputsToSyntheticWallet": true,
+    "adaAndNativeTokenConservation": true,
+    "platformFeeLovelace": "0",
+    "signedReceiptPersistedBeforeStubSubmission": true,
+    "atMostOneStubSubmissionPerTestedPacket": true,
+    "exportedMockConfirmedReceipt": true,
+    "externalRequests": 0,
+    "pageErrors": 0,
+    "interceptedProtocolRequests": 70
+  },
+  "measurements": [
+    {
+      "case": "success-1440",
+      "signedBytes": 1827,
+      "networkFeeLovelace": "235945",
+      "platformFeeLovelace": "0"
+    },
+    {
+      "case": "success-390",
+      "signedBytes": 1826,
+      "networkFeeLovelace": "235901",
+      "platformFeeLovelace": "0"
+    },
+    {
+      "case": "unknown",
+      "signedBytes": 1822,
+      "networkFeeLovelace": "235725",
+      "platformFeeLovelace": "0"
+    }
+  ],
+  "rejectionAndCancellation": [
+    "connection rejected",
+    "signature rejected",
+    "wrong network",
+    "expired transaction review",
+    "changed wallet account",
+    "input changed after signing",
+    "wrong required key witness",
+    "receipt storage failure before submit",
+    "clear creator while signature pending",
+    "changed content without valid commitment",
+    "noncanonical padded base64url",
+    "extra packet field",
+    "fragment bound",
+    "raw packet byte bound",
+    "invalid UTF-8"
+  ],
+  "limits": {
+    "realWalletExtensionTested": false,
+    "namedWalletCompatibilityEstablished": false,
+    "codexSubscriberFlowTested": false,
+    "freshDependencyInstallTested": false,
+    "liveChainVerified": false,
+    "realFundsSpent": false,
+    "realKeysAccessed": false,
+    "privateSyntheticKeysExported": false,
+    "productionSourceEdited": false,
+    "allMcpToolsUseDirectHandoff": false
+  },
+  "scope": "Browser and stdio integration only. Confirmed receipt screenshots use intercepted synthetic status responses. Do not present them as a real mint. Independent expected-content reconstruction and raw body/aux/script BLAKE2b use Node crypto/noble, while CBOR parsing and signature verification share CSL17 with production. No full security audit or independent ledger evaluation claim.",
+  "testedHarnessSha256": "a05a01d73bb8931b406f1e3cd752c3ecbf339c45390f33f9a167b867631fcc1b",
+  "testedOracleSha256": "25b672fddc093c1062f4f9c26628f9b8c11ba11e35012137152e6dcbc01adbbf",
+  "portableHarnessActuallyReplayed": true,
+  "setupFollowup": {
+    "checkedAt": "2026-09-07T16:03:54.422Z",
+    "htmlSha256": "290996b7a7926c6f674f1f57915a0fbdc543dd13d9ace89ec2893a6da58a805c",
+    "reportSha256": "223c183418949540581186f5387a820b91c81366f8ee6987b143106365af4967",
+    "targetHeightPx": 45.59375,
+    "keyboardFocusOutlinePx": 3,
+    "keyboardExpansionAndCollapse": true,
+    "viewports": [
+      1440,
+      390
+    ],
+    "noOverflowOrErrors": true
+  },
+  "developmentStrictModeReplayTestedHere": false
+}

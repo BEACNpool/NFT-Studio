@@ -14,8 +14,15 @@ Clone https://github.com/BEACNpool/NFT-Studio and run:
   npm --prefix mcp run build
 Configure your MCP client with command node and args containing the absolute
 checkout path to NFT-Studio/mcp/dist/cli.mjs. Transport: local stdio.
-Node22.13+ required. No model-provider credentials are needed.
-Local server:17 tools and61 resources; use tool discovery for the running version.
+Node 22.13+ required. No extra model-provider credentials are needed by this MCP.
+For Codex CLI, signed in with your existing login, run from the checkout:
+  node mcp/install-codex.mjs --check
+  node mcp/install-codex.mjs --install
+  codex
+This explicitly registers the built local server and refuses conflicting settings.
+The repo includes .agents/skills/nft-studio/SKILL.md. Open Codex in the checkout
+and ask: $nft-studio Create a pixel-art spaceship NFT and give me its review link.
+Local server: 17 tools and 61 resources; use discovery for the running version.
 Tools: studio_capabilities, search_knowledge, read_knowledge,
 search_cip_sources, get_cip_source_chunk, validate_payload, validate_metadata,
 create_mint_intent, verify_mint_intent, create_proof_record, verify_proof_record,
@@ -27,9 +34,17 @@ No personal hosting address is advertised here.
 Begin with studio_capabilities for current limits and evidence boundaries.
 File inputs contain explicit canonical base64 bytes, never local paths or URLs.
 The local server receives the content explicitly supplied by its client.
-For a mint, save create_mint_intent.packetJson as its suggested filename and
-return review.url to the human. The human imports it in Labs / Agent minting,
-inspects exact files and approves any transaction in their own wallet.
+For an ordinary mint, return create_mint_intent.review.url exactly to the human.
+It opens the exact content directly in Labs / Agent minting. Save packetJson
+under its suggested filename as a file-import fallback. The URL fragment holds
+the same content as the file; share only with intended reviewers. Studio clears
+it from the current history entry before parsing and verifying content hashes.
+The user inspects the files, connects a compatible browser wallet, reviews the
+transaction and approves signing/submission. Opening a link takes none of those
+wallet actions. Never reconstruct a truncated URL.
+Studio platform fee: 0 ADA. Cardano network fees still apply, and minimum ADA
+kept with the NFT remains in the user's output. An AI subscription does not
+fund those costs. A request, signature or submitted hash is not a confirmed mint.
 prepare_unsigned_transaction receives an explicitly authorized CIP-30 change
 address and UTxO snapshot and builds native NFT/data unsigned CBOR. The local server receives that snapshot; it does not prove wallet ownership or
 unspent chain state. Ordinary Node preparation retains a bounded temporary packet

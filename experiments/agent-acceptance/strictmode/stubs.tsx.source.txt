@@ -1,0 +1,10 @@
+import React from 'react';
+export const Bot=()=>null,Download=()=>null,FileCheck2=()=>null,Upload=()=>null,X=()=>null,ExternalLink=()=>null,Copy=()=>null;
+export function Button({variant,size,nativeButton,render,children,...props}:any){return render?React.cloneElement(render,props,children):<button {...props}>{children}</button>;}
+export const Textarea=(props:any)=><textarea {...props}/>;
+export function FileMintDialog(){return <button onClick={()=>{(window as any).walletCalls++;}}>Wallet stub — do not click</button>;}
+export function PayloadPreview({file}:any){return <div data-testid="payload-preview">{file.name}</div>;}
+export const errorText=(error:any)=>error instanceof Error?error.message:'Unknown error';
+export const filename=(name:string)=>name;
+export const jsonBlob=(value:any)=>new Blob([JSON.stringify(value)],{type:'application/json'});
+export const download=()=>{(window as any).downloads++;};

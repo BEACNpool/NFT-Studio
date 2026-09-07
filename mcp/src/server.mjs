@@ -11,6 +11,7 @@ import catalog from '@knowledge/catalog.json';
 import { searchKnowledge, getEntry, validateCatalog } from '@knowledge/lib.mjs';
 import { preparePayloadBundle, payloadMetadata, PAYLOAD_TYPES, DATA_LABEL } from '@studio/studio-payload.ts';
 import { createMintIntent, verifyMintIntent } from '@studio/studio-intent.ts';
+import { createMintReviewUrl } from '@studio/studio-review-link.ts';
 import { buildStudioTransaction } from '@studio/studio-transaction.ts';
 import { assertWalletUnchanged, mergeAndCheckSignatures, inputRef } from '@studio/cardano.ts';
 import { preflightCbor } from './cbor-preflight.mjs';
@@ -46,6 +47,8 @@ export const CAPABILITIES = Object.freeze({
   ],
   networkReads:'Only the fixed public Studio protocol-parameter feed. The service does not independently query chain UTxOs or confirmation.',
   publicEndpoint:null, studioReviewUrl:STUDIO_REVIEW_URL,
+    reviewHandoff:{transport:'url-fragment',schema:'nft-studio.intent.v1',maxFragmentCharacters:106700,openingConnectsWallet:false},
+    fees:{studioLovelace:'0',network:'Cardano network fees apply; minimum ADA stays in the user output.'},
 });
 const READ_ONLY = {readOnlyHint:true,destructiveHint:false,idempotentHint:true,openWorldHint:false};
 const NETWORK_READ = {...READ_ONLY,openWorldHint:true};
@@ -109,9 +112,9 @@ export function createService(options={}) {
       const bundle=await payload(args);return {bundle,dataMetadata:payloadMetadata(bundle),dataMeasurement:metadataMeasure(payloadMetadata(bundle))};
     });
     register('validate_metadata','Validate a canonical decimal-label map of ledger metadata. Rejects null, booleans, floats, oversized UTF-8 items, depth and size overflow; measures actual CSL auxiliary CBOR. This does not validate every CIP or build a transaction.',z.strictObject({metadata:z.record(z.string(),z.unknown())}),({metadata})=>({valid:true,...metadataMeasure(metadata)}));
-    register('create_mint_intent','Create a deterministic, hashed NFT/data intent from exact base64 files. Save packetJson to filename and import in Studio for visible review. No wallet, address, transaction or signing authority is included.',intentSchema,async ({mode,...args})=>{
+    register('create_mint_intent','Create a deterministic, hashed NFT/data intent from exact base64 files. Open review.url for a direct content review in Studio; save packetJson as a fallback. No wallet, address, transaction or signing authority is included.',intentSchema,async ({mode,...args})=>{
       const intent=await createMintIntent(await payload(args),mode);
-      return {intent,filename:`nft-studio-${intent.intentHash.slice(0,12)}.intent.json`,packetJson:JSON.stringify(intent,null,2),review:{url:STUDIO_REVIEW_URL,action:'Open Labs → Agent minting, import this intent file, inspect every file, and explicitly continue to wallet review.'},status:'intent-only; no transaction prepared'};
+      return {intent,filename:`nft-studio-${intent.intentHash.slice(0,12)}.intent.json`,packetJson:JSON.stringify(intent,null,2),review:{url:await createMintReviewUrl(intent,STUDIO_REVIEW_URL),baseUrl:STUDIO_REVIEW_URL,transport:'url-fragment',action:'Open this exact review link, inspect the files, connect your wallet, review the network fee and destination, then approve signing. Opening the link never signs or submits.',privacy:'The link contains your content in its fragment. Treat it like the request file; share only with intended reviewers. Studio removes the fragment from browser history before inspecting it.'},status:'intent-only; no transaction prepared'};
     });
     register('verify_mint_intent','Rebuild and verify an intent using shared browser/server canonicalization. Rejects changed bytes, mismatched hashes, extra fields and oversized packets.',z.strictObject({intent:z.unknown()}),async ({intent})=>({valid:true,intent:await verifyMintIntent(intent)}));
     register('prepare_unsigned_transaction','Build an actual unsigned mainnet NFT or data transaction with the shared Studio builder and live bounded protocol feed. Caller supplies CIP-30 change address and UTxO CBOR, kept in RAM for four minutes. Inputs are caller assertions; chain unspent state is not independently verified. All outputs return to that wallet. Does not sign or submit.',prepareSchema,async ({intent,wallet})=>preparationGate.run(async ()=>{

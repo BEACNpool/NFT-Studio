@@ -19,11 +19,11 @@ and external witness verification. No tool holds a signing key, connects to a
 wallet or submits a transaction. Unsigned preparation queries public Cardano
 network parameters; the bot supplies its explicitly authorized wallet snapshot.
 
-Ask your bot: “Use BEACN NFT Studio to prepare a mint request for these files.
-Return the request JSON for me to inspect in Studio.” It saves
-`create_mint_intent.packetJson` using the returned filename and gives you
-`review.url`. Import that file under **Labs → Agent minting** and continue through
-visible wallet review. Music packets open under **Music release**.
+Ask your bot: “Use NFT-Studio to create a pixel-art spaceship NFT and give me its
+review link.” `create_mint_intent.review.url` opens the exact verified content in
+**Labs → Agent minting**. Inspect it, connect a compatible browser wallet, then
+review and approve the mint. Keep `packetJson` under its returned filename as a
+file-import fallback. Dedicated music packages still use **Music release** import.
 
 The separately deployable Worker has a 15-tool subset. It requires an operator's
 own HTTPS host; no hosted address is advertised in this repository. A setup-page
@@ -62,6 +62,30 @@ npm --prefix mcp run build
 ```
 
 Run `npm --prefix mcp test` to reproduce the MCP verification suite.
+
+### Codex CLI and the included agent skill
+
+With Codex installed and signed in, run from the repository:
+
+```sh
+node mcp/install-codex.mjs --check
+node mcp/install-codex.mjs --install
+codex
+```
+
+The default/`--check` only discovers the local MCP. Explicit `--install` adds the
+`nft-studio` server using this checkout's absolute compiled path, verifies the
+saved configuration, and refuses to overwrite a different existing entry.
+Starting Codex in this checkout exposes the public
+[NFT-Studio skill](../.agents/skills/nft-studio/SKILL.md). Ask
+`$nft-studio Create a pixel-art spaceship NFT and give me its review link.`
+The skill teaches tool selection, exact files, supported limits, research and
+wallet handoff; it does not retrain the model. Your existing Codex login supplies
+the AI service, subject to your plan's limits. No extra model-provider key is
+required by this MCP. See [official Codex MCP setup](https://learn.chatgpt.com/docs/extend/mcp?surface=cli).
+
+The Studio fee is **0 ADA**. Network fees still apply; minimum ADA kept with an
+NFT remains in the user's output. An AI subscription does not fund the wallet.
 
 No root Studio dependency install is required. The Worker build resolves the shared
 TypeScript modules' npm imports from `mcp/node_modules`, using this package's lockfile.
@@ -111,12 +135,28 @@ Scroll and Book use different protocols and remain browser creators. Some existi
 ## Intent → visible browser review
 
 1. Call `create_mint_intent` with `mode`, `name`, optional `description`, `files`, and optional `coverIndex`.
-2. Save the returned `packetJson` exactly to its suggested `.intent.json` filename.
-3. Open the returned Studio link directly to **Labs → Agent minting** and import the packet. The link uses `?view=labs&lab=agents`; it contains no packet or file content.
+2. Retain the returned `packetJson` as its suggested `.intent.json` fallback file.
+3. Open the exact returned `review.url`. Its `#mint=v1.` fragment contains unpadded base64url UTF-8 canonical intent JSON; the query selects **Labs → Agent minting**. Studio clears a recognized fragment from the current history entry before parsing and checking it, then shows its content for review. No manual import is needed for this path.
 4. Inspect its title, description, exact files and hashes. Explicitly continue to wallet review.
 5. The browser builds afresh with the user's connected wallet, then follows the existing signing, submission and receipt flow.
 
-The URL carries no file content. The packet contains no wallet address or transaction. Its hash binds content, not authorship or approval. A valid packet does not prove that its embedded artwork or code is trustworthy; imported HTML stays inert in Studio previews.
+The review link contains the same content as the request file. Share it only
+with intended reviewers. URL fragments are not sent in HTTP requests or Referer
+headers, but the link is visible to your MCP client, agent, browser and anyone
+you give it to; clearing current history is not a promise to erase copies or
+browser synchronization. No URL shortener or third-party upload is used.
+
+Decoding accepts only canonical unpadded base64url, strict UTF-8, canonical
+intent JSON and matching file/content hashes. Bounds are 80,000 decoded bytes
+and 106,700 fragment characters. Malformed recognized links clear and display
+an error; unrelated fragments are ignored. Requests have no expiry because they
+contain content, not transaction authorization. The browser builds a fresh
+transaction and performs its existing wallet, fee and validity checks.
+
+The packet contains no wallet address or transaction. Its hash binds content,
+not authorship or approval. A valid packet does not prove that its artwork or
+code is trustworthy; imported HTML stays inert in Studio previews. Opening any
+link never connects a wallet, signs, submits or establishes chain confirmation.
 
 Schema `nft-studio.intent.v1` is shared in `lib/studio-intent.ts`. Canonical core order is `schema`, `mode`, `bundle`; bundle order is `schema`, `name`, `description`, `cover`, `bytes`, `files`, `sha256`; each file orders `name`, `mediaType`, `bytes`, `sha256`, `uri`. `intentHash` is SHA-256 over UTF-8 `JSON.stringify(core)`. Verification reconstructs actual files, checks the existing payload hash and rejects unknown/missing fields. The compact serialized packet is capped at 80,000 UTF-8 bytes.
 

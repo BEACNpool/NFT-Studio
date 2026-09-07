@@ -1,0 +1,2349 @@
+{
+  "schema": "beacn.synthetic-agent-wallet-acceptance.v1",
+  "status": "PASS",
+  "startedAt": "2026-09-07T16:01:34.162Z",
+  "checkedAt": "2026-09-07T16:02:27.760Z",
+  "browser": "Chrome/152.0.7977.64",
+  "mcpProtocolEra": "legacy",
+  "sourceInputs": [
+    {
+      "path": "components/agent-mint-panel.tsx",
+      "bytes": 13533,
+      "sha256": "16e995023ec8fbc846e0189a3bcb0ea9985223db599c20f693e139bc37e8fda5"
+    },
+    {
+      "path": "components/file-mint-dialog.tsx",
+      "bytes": 18291,
+      "sha256": "754aa11c6232cc517b956f28c8dbe4bb2de0947b724df2d5606a99baa0729646"
+    },
+    {
+      "path": "lib/studio-review-link.ts",
+      "bytes": 2856,
+      "sha256": "717916e9d49f6fed6bc82605efb305cd79ccf09829e4d2205fb4e3018a6c0c4c"
+    },
+    {
+      "path": "lib/studio-intent.ts",
+      "bytes": 5176,
+      "sha256": "61f677bb7c5208be84ef35c5699457510e5b15cd8d4eb9af20e1594c32883883"
+    },
+    {
+      "path": "lib/studio-transaction.ts",
+      "bytes": 10377,
+      "sha256": "38d6275b30cac4ff214025702326c09ad257783fa8dd8a2f5c251277c996bd6a"
+    },
+    {
+      "path": "lib/cardano.ts",
+      "bytes": 16679,
+      "sha256": "359e145cfa457f2b2355ce560aa1ba356102467a74f2a5caec9bfbaf4cd37b02"
+    },
+    {
+      "path": "lib/studio-submission.ts",
+      "bytes": 7017,
+      "sha256": "43bcf881ef9ca20546c707edce464537b1a0e3682ff581834e1c336c653f7bfb"
+    },
+    {
+      "path": "lib/studio-receipts.ts",
+      "bytes": 1200,
+      "sha256": "4d685a726104bfaa1c8042e8dbdaac9dd3ecfb3d120b5b38199948912f5eba09"
+    },
+    {
+      "path": "mcp/dist/cli.mjs",
+      "bytes": 4389987,
+      "sha256": "55e0d1dac6153477ba526db8c7859abad5030e2076c8a03faa1fd59d4a232e19"
+    },
+    {
+      "path": "mcp/package-lock.json",
+      "bytes": 59857,
+      "sha256": "9e25fc1e9f86b7b5d786e58d080ff3bd95ee32651a73cdec368f3170d69205cc"
+    }
+  ],
+  "servedFiles": [
+    {
+      "path": "_next/static/chunks/cardano_serialization_lib-COs8BxK3.js",
+      "bytes": 4091288,
+      "sha256": "13345f81869fef51ecd83468bccb998522d8c398e21ab7575de7557c9c7c4c44"
+    },
+    {
+      "path": "_next/static/chunks/framework-DTZGTDtF.js",
+      "bytes": 190109,
+      "sha256": "2a1edf81f32a49b1eacafc3546b371bca024c82a9191836e274d90890212e9df"
+    },
+    {
+      "path": "_next/static/chunks/index-wZQdrio4.js",
+      "bytes": 109839,
+      "sha256": "24584f7c22cf953e8a71e84c39cba88ca8a6986c7625692291548e6bf901395b"
+    },
+    {
+      "path": "_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "bytes": 496,
+      "sha256": "68f441bf53f90572c4ebe12e8423ccab347c4509ef7c11f624519ad1c31619c6"
+    },
+    {
+      "path": "_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "bytes": 716,
+      "sha256": "580ad8c58061a4dde99bde0a56905e382f0568516ee2f5b84dbfb52085709021"
+    },
+    {
+      "path": "_next/static/chunks/script-OiLC3mth.js",
+      "bytes": 3811,
+      "sha256": "c1d7e5b1439e9a1d4500ed84f29fb75477b84f502fa847ef352638ad53fe1f97"
+    },
+    {
+      "path": "_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "bytes": 9763,
+      "sha256": "2c9cb096614b8fb4c45e3ee640b61ae66b50ee7e6a8018d0453de97149d1b6e4"
+    },
+    {
+      "path": "_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "bytes": 887152,
+      "sha256": "b7ea14001262ec08864979b318ef333a5096f1e563dbf8ed4b5045c261d11556"
+    },
+    {
+      "path": "_next/static/chunks/vinext-DKMKDpID.js",
+      "bytes": 111011,
+      "sha256": "463df95bf3d7b3021f6303850be3d0b1b76385614d3bc3836f23f1617af7d859"
+    },
+    {
+      "path": "_next/static/css/index.Fhi1Lbch.css",
+      "bytes": 342486,
+      "sha256": "e67e0fc7a2e048c3d22eaf83146c66c3723aa53b60f8225b14f44d70e2541431"
+    },
+    {
+      "path": "_next/static/css/studio-shell.B1XB9nNM.css",
+      "bytes": 28370,
+      "sha256": "3c4754d2e58f43cc0ae2fd9312d3fd35d73ffe8f3e17a403429b0bad69eacf6c"
+    },
+    {
+      "path": "brand/nft-studio.svg",
+      "bytes": 330,
+      "sha256": "24c2f1b60f9d38a21cc762e6a4a1821b03c4787c733e09aaa10adc56ebcc1989"
+    },
+    {
+      "path": "index.html",
+      "bytes": 23729,
+      "sha256": "fd6afb606a13291be1c359dc44cc944d2a28877fef1fa3a9f5d694afed48bdb4"
+    },
+    {
+      "path": "studio-navigation.js",
+      "bytes": 524,
+      "sha256": "a019607ba8a1fa24e421260d397d0d8321544573cefbfe8bb0b1a543f0c5591c"
+    }
+  ],
+  "results": [
+    {
+      "case": "success-1440",
+      "expected": {
+        "sign": 1,
+        "approved": 1,
+        "submit": 1,
+        "persistedBeforeSubmit": true
+      },
+      "behavior": "ok",
+      "enabled": 1,
+      "sign": 1,
+      "approved": 1,
+      "submit": 1,
+      "network": 1,
+      "changed": false,
+      "spent": false,
+      "confirmation": null,
+      "events": [
+        "connect approve",
+        "sign requested",
+        "sign approve",
+        "submit requested"
+      ],
+      "forbidden": [],
+      "inertMessages": 0,
+      "last": {
+        "transactionHash": "ad00cf7adac7831f9f7533ce1243c7fea0ec5500d5b94ff19d03b5886f34e0b0",
+        "auxiliaryHash": "5d1bd2c9852719c6339f603175724a5ca54ba65f7d83058b0b93e8baf120ed37",
+        "policyId": "8152ad4b09ad39d50e842bd4fac33ca2955cceac46ea8ecf2785749b",
+        "assetNameHex": "4e46545339633633646466613866643966633765346532353063636264306537",
+        "quantity": "1",
+        "signedBytes": 1827,
+        "networkFeeLovelace": "235945",
+        "platformFeeLovelace": "0",
+        "allOutputsToSuppliedWallet": true,
+        "adaConservation": true,
+        "tokenConservation": true,
+        "exactFilesAndMetadata": true,
+        "outputs": [
+          {
+            "index": 0,
+            "address": "addr1qy7l39exxfmfcg5fdvu5zrw5rvlp2hghttew44h2vjc783falztjvvnkns3gj6eegyxagxe7z4w3wkhjattw5e93u0zsxc2dqs",
+            "lovelace": "1262830",
+            "minimumLovelace": "1262830"
+          },
+          {
+            "index": 1,
+            "address": "addr1qy7l39exxfmfcg5fdvu5zrw5rvlp2hghttew44h2vjc783falztjvvnkns3gj6eegyxagxe7z4w3wkhjattw5e93u0zsxc2dqs",
+            "lovelace": "18501225",
+            "minimumLovelace": "1168010"
+          }
+        ],
+        "metadata": {
+          "721": {
+            "8152ad4b09ad39d50e842bd4fac33ca2955cceac46ea8ecf2785749b": {
+              "NFTS9c63ddfa8fd9fc7e4e250ccbd0e7": {
+                "name": "Agent acceptance success-1440",
+                "image": [
+                  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcm",
+                  "cvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgMTYwIj48cmVjdCB3aWR0aD0iMj",
+                  "QwIiBoZWlnaHQ9IjE2MCIgcng9IjE2IiBmaWxsPSIjMjExOTJmIi8+PGNpcmNsZS",
+                  "BjeD0iMTIwIiBjeT0iNjIiIHI9IjI4IiBmaWxsPSIjYzRiMGZmIi8+PHRleHQgeD",
+                  "0iMTIwIiB5PSIxMjUiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT",
+                  "0iMjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIj5CRUFDTiBRQT",
+                  "wvdGV4dD48L3N2Zz4="
+                ],
+                "mediaType": "image/svg+xml",
+                "image_name": "cover.svg",
+                "image_sha256": "6d945e7a3bb30d7d70ecc56cafcf83e9fcc2afc7d4b40443cb445d127e31cfac",
+                "image_bytes": 281,
+                "description": "Synthetic fixture: no real wallet or chain mint.",
+                "files": [
+                  {
+                    "name": "hello.html",
+                    "mediaType": "text/html",
+                    "src": [
+                      "data:text/html;base64,PCFkb2N0eXBlIGh0bWw+PGh0bWw+PGJvZHk+PGgxPk",
+                      "V4YWN0IGJ5dGVzIPCfpr48L2gxPjxzY3JpcHQ+cGFyZW50LnBvc3RNZXNzYWdlKC",
+                      "JTSE9VTERfTk9UX0VYRUNVVEUiLCAiKiIpO2ZldGNoKCJodHRwczovL2V4YW1wbG",
+                      "UuaW52YWxpZC9mb3JiaWRkZW4iKTwvc2NyaXB0PjwvYm9keT48L2h0bWw+"
+                    ],
+                    "sha256": "73b1d9676e665c95dab0644aada2e58f00639e9ba0e60b54f6018d5828265c12",
+                    "bytes": 171
+                  }
+                ],
+                "schema": "nft-studio.payload.v1",
+                "content_sha256": "b7c873d8d27bea6e77d41786b1e0c5ae9f19a2a464d833821700703abaf8bb16"
+              }
+            },
+            "version": "1.0"
+          }
+        },
+        "chainStateVerified": false
+      },
+      "persistedBeforeSubmit": true
+    },
+    {
+      "case": "success-390",
+      "expected": {
+        "sign": 1,
+        "approved": 1,
+        "submit": 1,
+        "persistedBeforeSubmit": true
+      },
+      "behavior": "ok",
+      "enabled": 1,
+      "sign": 1,
+      "approved": 1,
+      "submit": 1,
+      "network": 1,
+      "changed": false,
+      "spent": false,
+      "confirmation": null,
+      "events": [
+        "connect approve",
+        "sign requested",
+        "sign approve",
+        "submit requested"
+      ],
+      "forbidden": [],
+      "inertMessages": 0,
+      "last": {
+        "transactionHash": "df8453309ea47414569794a6fda7d2a18218f9f56d423619df1a5f7d2c6707fa",
+        "auxiliaryHash": "f39a4416c5b9a65a123e3c663ade2ede874e786addd853e43e4f31961026fd8c",
+        "policyId": "8152ad4b09ad39d50e842bd4fac33ca2955cceac46ea8ecf2785749b",
+        "assetNameHex": "4e46545366323833333365316138636434363835373961613630666438313430",
+        "quantity": "1",
+        "signedBytes": 1826,
+        "networkFeeLovelace": "235901",
+        "platformFeeLovelace": "0",
+        "allOutputsToSuppliedWallet": true,
+        "adaConservation": true,
+        "tokenConservation": true,
+        "exactFilesAndMetadata": true,
+        "outputs": [
+          {
+            "index": 0,
+            "address": "addr1qy7l39exxfmfcg5fdvu5zrw5rvlp2hghttew44h2vjc783falztjvvnkns3gj6eegyxagxe7z4w3wkhjattw5e93u0zsxc2dqs",
+            "lovelace": "1262830",
+            "minimumLovelace": "1262830"
+          },
+          {
+            "index": 1,
+            "address": "addr1qy7l39exxfmfcg5fdvu5zrw5rvlp2hghttew44h2vjc783falztjvvnkns3gj6eegyxagxe7z4w3wkhjattw5e93u0zsxc2dqs",
+            "lovelace": "18501269",
+            "minimumLovelace": "1168010"
+          }
+        ],
+        "metadata": {
+          "721": {
+            "8152ad4b09ad39d50e842bd4fac33ca2955cceac46ea8ecf2785749b": {
+              "NFTSf28333e1a8cd468579aa60fd8140": {
+                "name": "Agent acceptance success-390",
+                "image": [
+                  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcm",
+                  "cvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgMTYwIj48cmVjdCB3aWR0aD0iMj",
+                  "QwIiBoZWlnaHQ9IjE2MCIgcng9IjE2IiBmaWxsPSIjMjExOTJmIi8+PGNpcmNsZS",
+                  "BjeD0iMTIwIiBjeT0iNjIiIHI9IjI4IiBmaWxsPSIjYzRiMGZmIi8+PHRleHQgeD",
+                  "0iMTIwIiB5PSIxMjUiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT",
+                  "0iMjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIj5CRUFDTiBRQT",
+                  "wvdGV4dD48L3N2Zz4="
+                ],
+                "mediaType": "image/svg+xml",
+                "image_name": "cover.svg",
+                "image_sha256": "6d945e7a3bb30d7d70ecc56cafcf83e9fcc2afc7d4b40443cb445d127e31cfac",
+                "image_bytes": 281,
+                "description": "Synthetic fixture: no real wallet or chain mint.",
+                "files": [
+                  {
+                    "name": "hello.html",
+                    "mediaType": "text/html",
+                    "src": [
+                      "data:text/html;base64,PCFkb2N0eXBlIGh0bWw+PGh0bWw+PGJvZHk+PGgxPk",
+                      "V4YWN0IGJ5dGVzIPCfpr48L2gxPjxzY3JpcHQ+cGFyZW50LnBvc3RNZXNzYWdlKC",
+                      "JTSE9VTERfTk9UX0VYRUNVVEUiLCAiKiIpO2ZldGNoKCJodHRwczovL2V4YW1wbG",
+                      "UuaW52YWxpZC9mb3JiaWRkZW4iKTwvc2NyaXB0PjwvYm9keT48L2h0bWw+"
+                    ],
+                    "sha256": "73b1d9676e665c95dab0644aada2e58f00639e9ba0e60b54f6018d5828265c12",
+                    "bytes": 171
+                  }
+                ],
+                "schema": "nft-studio.payload.v1",
+                "content_sha256": "ff6a121203f3fe8c7c94319ef2d2aaa98df1ce432ff926c3f92f83d805b5c8e2"
+              }
+            },
+            "version": "1.0"
+          }
+        },
+        "chainStateVerified": false
+      },
+      "persistedBeforeSubmit": true
+    },
+    {
+      "case": "connect-reject",
+      "expected": {
+        "enabled": 1,
+        "sign": 0,
+        "submit": 0
+      },
+      "behavior": "connect-reject",
+      "enabled": 1,
+      "sign": 0,
+      "approved": 0,
+      "submit": 0,
+      "network": 1,
+      "changed": false,
+      "spent": false,
+      "confirmation": null,
+      "events": [
+        "connect reject"
+      ],
+      "forbidden": [],
+      "inertMessages": 0
+    },
+    {
+      "case": "sign-reject",
+      "expected": {
+        "sign": 1,
+        "approved": 0,
+        "submit": 0
+      },
+      "behavior": "sign-reject",
+      "enabled": 1,
+      "sign": 1,
+      "approved": 0,
+      "submit": 0,
+      "network": 1,
+      "changed": false,
+      "spent": false,
+      "confirmation": null,
+      "events": [
+        "connect approve",
+        "sign requested",
+        "sign reject"
+      ],
+      "forbidden": [],
+      "inertMessages": 0
+    },
+    {
+      "case": "wrong-network",
+      "expected": {
+        "sign": 0,
+        "submit": 0
+      },
+      "behavior": "wrong-network",
+      "enabled": 1,
+      "sign": 0,
+      "approved": 0,
+      "submit": 0,
+      "network": 0,
+      "changed": false,
+      "spent": false,
+      "confirmation": null,
+      "events": [
+        "connect approve"
+      ],
+      "forbidden": [],
+      "inertMessages": 0
+    },
+    {
+      "case": "stale-review",
+      "expected": {
+        "sign": 0,
+        "submit": 0
+      },
+      "behavior": "stale-review",
+      "enabled": 1,
+      "sign": 0,
+      "approved": 0,
+      "submit": 0,
+      "network": 1,
+      "changed": false,
+      "spent": false,
+      "confirmation": null,
+      "events": [
+        "connect approve"
+      ],
+      "forbidden": [],
+      "inertMessages": 0
+    },
+    {
+      "case": "wrong-account",
+      "expected": {
+        "sign": 0,
+        "submit": 0
+      },
+      "behavior": "wrong-account",
+      "enabled": 1,
+      "sign": 0,
+      "approved": 0,
+      "submit": 0,
+      "network": 1,
+      "changed": true,
+      "spent": false,
+      "confirmation": null,
+      "events": [
+        "connect approve"
+      ],
+      "forbidden": [],
+      "inertMessages": 0
+    },
+    {
+      "case": "spent-after-sign",
+      "expected": {
+        "sign": 1,
+        "submit": 0
+      },
+      "behavior": "spent-after-sign",
+      "enabled": 1,
+      "sign": 1,
+      "approved": 1,
+      "submit": 0,
+      "network": 1,
+      "changed": false,
+      "spent": true,
+      "confirmation": null,
+      "events": [
+        "connect approve",
+        "sign requested",
+        "sign approve"
+      ],
+      "forbidden": [],
+      "inertMessages": 0
+    },
+    {
+      "case": "bad-signature",
+      "expected": {
+        "sign": 1,
+        "submit": 0
+      },
+      "behavior": "bad-signature",
+      "enabled": 1,
+      "sign": 1,
+      "approved": 1,
+      "submit": 0,
+      "network": 1,
+      "changed": false,
+      "spent": false,
+      "confirmation": null,
+      "events": [
+        "connect approve",
+        "sign requested",
+        "sign approve"
+      ],
+      "forbidden": [],
+      "inertMessages": 0
+    },
+    {
+      "case": "storage-failure",
+      "expected": {
+        "sign": 1,
+        "submit": 0
+      },
+      "behavior": "storage-failure",
+      "enabled": 1,
+      "sign": 1,
+      "approved": 1,
+      "submit": 0,
+      "network": 1,
+      "changed": false,
+      "spent": false,
+      "confirmation": null,
+      "events": [
+        "connect approve",
+        "sign requested",
+        "sign approve"
+      ],
+      "forbidden": [],
+      "inertMessages": 0
+    },
+    {
+      "case": "unknown",
+      "expected": {
+        "sign": 1,
+        "submit": 1
+      },
+      "behavior": "unknown",
+      "enabled": 1,
+      "sign": 1,
+      "approved": 1,
+      "submit": 1,
+      "network": 1,
+      "changed": false,
+      "spent": false,
+      "confirmation": 0,
+      "events": [
+        "connect approve",
+        "sign requested",
+        "sign approve",
+        "submit requested"
+      ],
+      "forbidden": [],
+      "inertMessages": 0,
+      "last": {
+        "transactionHash": "3fef757bb50354195e724ffd7ac8a992c27c3d4014a015cde945fc9cd6709349",
+        "auxiliaryHash": "ddf9675c02ad1a60f1f7e01cd288de121fe8efc6935a23bed1e3a56bbf50a438",
+        "policyId": "8152ad4b09ad39d50e842bd4fac33ca2955cceac46ea8ecf2785749b",
+        "assetNameHex": "4e46545338373733363333376432323634303535383036303838363430336665",
+        "quantity": "1",
+        "signedBytes": 1822,
+        "networkFeeLovelace": "235725",
+        "platformFeeLovelace": "0",
+        "allOutputsToSuppliedWallet": true,
+        "adaConservation": true,
+        "tokenConservation": true,
+        "exactFilesAndMetadata": true,
+        "outputs": [
+          {
+            "index": 0,
+            "address": "addr1qy7l39exxfmfcg5fdvu5zrw5rvlp2hghttew44h2vjc783falztjvvnkns3gj6eegyxagxe7z4w3wkhjattw5e93u0zsxc2dqs",
+            "lovelace": "1262830",
+            "minimumLovelace": "1262830"
+          },
+          {
+            "index": 1,
+            "address": "addr1qy7l39exxfmfcg5fdvu5zrw5rvlp2hghttew44h2vjc783falztjvvnkns3gj6eegyxagxe7z4w3wkhjattw5e93u0zsxc2dqs",
+            "lovelace": "18501445",
+            "minimumLovelace": "1168010"
+          }
+        ],
+        "metadata": {
+          "721": {
+            "8152ad4b09ad39d50e842bd4fac33ca2955cceac46ea8ecf2785749b": {
+              "NFTS87736337d22640558060886403fe": {
+                "name": "Agent acceptance unknown",
+                "image": [
+                  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcm",
+                  "cvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgMTYwIj48cmVjdCB3aWR0aD0iMj",
+                  "QwIiBoZWlnaHQ9IjE2MCIgcng9IjE2IiBmaWxsPSIjMjExOTJmIi8+PGNpcmNsZS",
+                  "BjeD0iMTIwIiBjeT0iNjIiIHI9IjI4IiBmaWxsPSIjYzRiMGZmIi8+PHRleHQgeD",
+                  "0iMTIwIiB5PSIxMjUiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT",
+                  "0iMjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIj5CRUFDTiBRQT",
+                  "wvdGV4dD48L3N2Zz4="
+                ],
+                "mediaType": "image/svg+xml",
+                "image_name": "cover.svg",
+                "image_sha256": "6d945e7a3bb30d7d70ecc56cafcf83e9fcc2afc7d4b40443cb445d127e31cfac",
+                "image_bytes": 281,
+                "description": "Synthetic fixture: no real wallet or chain mint.",
+                "files": [
+                  {
+                    "name": "hello.html",
+                    "mediaType": "text/html",
+                    "src": [
+                      "data:text/html;base64,PCFkb2N0eXBlIGh0bWw+PGh0bWw+PGJvZHk+PGgxPk",
+                      "V4YWN0IGJ5dGVzIPCfpr48L2gxPjxzY3JpcHQ+cGFyZW50LnBvc3RNZXNzYWdlKC",
+                      "JTSE9VTERfTk9UX0VYRUNVVEUiLCAiKiIpO2ZldGNoKCJodHRwczovL2V4YW1wbG",
+                      "UuaW52YWxpZC9mb3JiaWRkZW4iKTwvc2NyaXB0PjwvYm9keT48L2h0bWw+"
+                    ],
+                    "sha256": "73b1d9676e665c95dab0644aada2e58f00639e9ba0e60b54f6018d5828265c12",
+                    "bytes": 171
+                  }
+                ],
+                "schema": "nft-studio.payload.v1",
+                "content_sha256": "219ab69cfd9d17125affda56c3e3b88d32321c66d666b16923da3c9a04e8af1b"
+              }
+            },
+            "version": "1.0"
+          }
+        },
+        "chainStateVerified": false
+      },
+      "persistedBeforeSubmit": true
+    },
+    {
+      "case": "clear-during-sign",
+      "sign": 1,
+      "approved": 1,
+      "submit": 0,
+      "scope": "Clear app action dispatched through its real button while the synthetic wallet overlay is open; not a native pointer click through a modal."
+    },
+    {
+      "case": "remove-before-verify",
+      "fragmentRemovedBeforeDigestResolution": true,
+      "walletCalls": 0,
+      "scope": "One private SubtleCrypto digest promise gate; production app source and response bytes unchanged."
+    },
+    {
+      "case": "tampered-content",
+      "recognizedFragmentRemoved": true,
+      "walletCalls": 0,
+      "visibleError": true
+    },
+    {
+      "case": "padding",
+      "recognizedFragmentRemoved": true,
+      "walletCalls": 0,
+      "visibleError": true
+    },
+    {
+      "case": "extra-field",
+      "recognizedFragmentRemoved": true,
+      "walletCalls": 0,
+      "visibleError": true
+    },
+    {
+      "case": "oversized",
+      "recognizedFragmentRemoved": true,
+      "walletCalls": 0,
+      "visibleError": true
+    },
+    {
+      "case": "raw-byte-bound",
+      "recognizedFragmentRemoved": true,
+      "walletCalls": 0,
+      "visibleError": true
+    },
+    {
+      "case": "invalid-utf8",
+      "recognizedFragmentRemoved": true,
+      "walletCalls": 0,
+      "visibleError": true
+    },
+    {
+      "case": "unknown-fragment",
+      "recognizedFragmentRemoved": false,
+      "walletCalls": 0,
+      "visibleError": false
+    }
+  ],
+  "screenshots": [
+    "handoff-1440.png",
+    "review-1440.png",
+    "synthetic-wallet-1440.png",
+    "synthetic-confirmation-1440.png",
+    "handoff-390.png",
+    "review-390.png",
+    "synthetic-wallet-390.png",
+    "synthetic-confirmation-390.png"
+  ],
+  "downloads": [
+    {
+      "case": "success-1440",
+      "file": "download-success-1440/Agent-acceptance-success-1440.receipt.json",
+      "bytes": 13998,
+      "sha256": "966949cead1e3d62a1d78e9e2e683c4adba55ede7afa1ff92af20989a53bf93e",
+      "state": "confirmed",
+      "syntheticConfirmation": true
+    },
+    {
+      "case": "success-390",
+      "file": "download-success-390/Agent-acceptance-success-390.receipt.json",
+      "bytes": 13989,
+      "sha256": "f270bf0e2547162b6f51bf52964ea2a1e99112098212a2225fa3f8c0812bc10d",
+      "state": "confirmed",
+      "syntheticConfirmation": true
+    }
+  ],
+  "interceptedProtocolCalls": [
+    {
+      "case": "success-1440",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-1440",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-1440",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-1440",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-1440",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-1440",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-1440",
+      "path": "/api/v1/tx_status",
+      "method": "OPTIONS",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-1440",
+      "path": "/api/v1/tx_status",
+      "method": "POST",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-1440",
+      "path": "/api/v1/tx_status",
+      "method": "OPTIONS",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-1440",
+      "path": "/api/v1/tx_status",
+      "method": "POST",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-1440",
+      "path": "/api/v1/tx_status",
+      "method": "OPTIONS",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-1440",
+      "path": "/api/v1/tx_status",
+      "method": "POST",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-390",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-390",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-390",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-390",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-390",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-390",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-390",
+      "path": "/api/v1/tx_status",
+      "method": "OPTIONS",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-390",
+      "path": "/api/v1/tx_status",
+      "method": "POST",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-390",
+      "path": "/api/v1/tx_status",
+      "method": "OPTIONS",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-390",
+      "path": "/api/v1/tx_status",
+      "method": "POST",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-390",
+      "path": "/api/v1/tx_status",
+      "method": "OPTIONS",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "success-390",
+      "path": "/api/v1/tx_status",
+      "method": "POST",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "sign-reject",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "sign-reject",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "sign-reject",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "sign-reject",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "stale-review",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "stale-review",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "stale-review",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "stale-review",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "wrong-account",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "wrong-account",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "wrong-account",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "wrong-account",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "spent-after-sign",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "spent-after-sign",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "spent-after-sign",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "spent-after-sign",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "spent-after-sign",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "spent-after-sign",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "bad-signature",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "bad-signature",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "bad-signature",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "bad-signature",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "bad-signature",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "bad-signature",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "storage-failure",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "storage-failure",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "storage-failure",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "storage-failure",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "storage-failure",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "storage-failure",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "unknown",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "unknown",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "unknown",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "unknown",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "unknown",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "unknown",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "unknown",
+      "path": "/api/v1/tx_status",
+      "method": "OPTIONS",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "unknown",
+      "path": "/api/v1/tx_status",
+      "method": "POST",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "unknown",
+      "path": "/api/v1/tx_status",
+      "method": "OPTIONS",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "unknown",
+      "path": "/api/v1/tx_status",
+      "method": "POST",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "clear-during-sign",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "clear-during-sign",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "clear-during-sign",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "clear-during-sign",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "clear-during-sign",
+      "path": "/api/v1/tip",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    },
+    {
+      "case": "clear-during-sign",
+      "path": "/api/v1/epoch_params",
+      "method": "GET",
+      "interceptedBeforeNetwork": true
+    }
+  ],
+  "actualHttpRequests": [
+    {
+      "path": "/NFT-Studio/?view=labs&lab=agents",
+      "referer": null
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/studio-shell.B1XB9nNM.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/framework-DTZGTDtF.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/vinext-DKMKDpID.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/script-OiLC3mth.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/index-wZQdrio4.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/cardano_serialization_lib-COs8BxK3.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/?view=labs&lab=agents",
+      "referer": null
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/studio-shell.B1XB9nNM.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/framework-DTZGTDtF.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/vinext-DKMKDpID.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/script-OiLC3mth.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/index-wZQdrio4.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/cardano_serialization_lib-COs8BxK3.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/?view=labs&lab=agents",
+      "referer": null
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/studio-shell.B1XB9nNM.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/framework-DTZGTDtF.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/vinext-DKMKDpID.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/script-OiLC3mth.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/index-wZQdrio4.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/?view=labs&lab=agents",
+      "referer": null
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/studio-shell.B1XB9nNM.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/framework-DTZGTDtF.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/vinext-DKMKDpID.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/script-OiLC3mth.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/index-wZQdrio4.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/cardano_serialization_lib-COs8BxK3.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/?view=labs&lab=agents",
+      "referer": null
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/studio-shell.B1XB9nNM.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/framework-DTZGTDtF.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/vinext-DKMKDpID.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/script-OiLC3mth.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/index-wZQdrio4.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/?view=labs&lab=agents",
+      "referer": null
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/studio-shell.B1XB9nNM.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/framework-DTZGTDtF.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/vinext-DKMKDpID.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/script-OiLC3mth.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/index-wZQdrio4.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/cardano_serialization_lib-COs8BxK3.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/?view=labs&lab=agents",
+      "referer": null
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/studio-shell.B1XB9nNM.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/framework-DTZGTDtF.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/vinext-DKMKDpID.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/script-OiLC3mth.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/index-wZQdrio4.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/cardano_serialization_lib-COs8BxK3.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/?view=labs&lab=agents",
+      "referer": null
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/studio-shell.B1XB9nNM.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/framework-DTZGTDtF.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/vinext-DKMKDpID.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/script-OiLC3mth.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/index-wZQdrio4.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/cardano_serialization_lib-COs8BxK3.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/?view=labs&lab=agents",
+      "referer": null
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/studio-shell.B1XB9nNM.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/framework-DTZGTDtF.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/vinext-DKMKDpID.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/script-OiLC3mth.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/index-wZQdrio4.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/cardano_serialization_lib-COs8BxK3.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/?view=labs&lab=agents",
+      "referer": null
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/studio-shell.B1XB9nNM.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/framework-DTZGTDtF.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/vinext-DKMKDpID.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/script-OiLC3mth.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/index-wZQdrio4.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/cardano_serialization_lib-COs8BxK3.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/?view=labs&lab=agents",
+      "referer": null
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/studio-shell.B1XB9nNM.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/framework-DTZGTDtF.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/vinext-DKMKDpID.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/script-OiLC3mth.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/index-wZQdrio4.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/cardano_serialization_lib-COs8BxK3.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/?view=labs&lab=agents",
+      "referer": null
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/studio-shell.B1XB9nNM.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/framework-DTZGTDtF.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/vinext-DKMKDpID.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/script-OiLC3mth.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/index-wZQdrio4.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/cardano_serialization_lib-COs8BxK3.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/?view=labs&lab=agents",
+      "referer": null
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/studio-shell.B1XB9nNM.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/framework-DTZGTDtF.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/vinext-DKMKDpID.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/script-OiLC3mth.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/index-wZQdrio4.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/?view=labs&lab=agents",
+      "referer": null
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/studio-shell.B1XB9nNM.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/framework-DTZGTDtF.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/vinext-DKMKDpID.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/script-OiLC3mth.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/index-wZQdrio4.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/?view=labs&lab=agents",
+      "referer": null
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/studio-shell.B1XB9nNM.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/framework-DTZGTDtF.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/vinext-DKMKDpID.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/script-OiLC3mth.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/index-wZQdrio4.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/?view=labs&lab=agents",
+      "referer": null
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/studio-shell.B1XB9nNM.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/framework-DTZGTDtF.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/vinext-DKMKDpID.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/script-OiLC3mth.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/index-wZQdrio4.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/?view=labs&lab=agents",
+      "referer": null
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/studio-shell.B1XB9nNM.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/framework-DTZGTDtF.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/vinext-DKMKDpID.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/script-OiLC3mth.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/index-wZQdrio4.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/?view=labs&lab=agents",
+      "referer": null
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/studio-shell.B1XB9nNM.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/framework-DTZGTDtF.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/vinext-DKMKDpID.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/script-OiLC3mth.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/index-wZQdrio4.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/?view=labs&lab=agents",
+      "referer": null
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/studio-shell.B1XB9nNM.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/framework-DTZGTDtF.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/vinext-DKMKDpID.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/script-OiLC3mth.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/index-wZQdrio4.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/?view=labs&lab=agents",
+      "referer": null
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/css/studio-shell.B1XB9nNM.css",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/framework-DTZGTDtF.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/vinext-DKMKDpID.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/layout-segment-context-Du57c-dq.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/script-OiLC3mth.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/studio-navigation.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-shell-nPoBrX7T.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/studio-payload-D1XsTFBW.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/_next/static/chunks/index-wZQdrio4.js",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    },
+    {
+      "path": "/NFT-Studio/brand/nft-studio.svg",
+      "referer": "http://127.0.0.1:39419/NFT-Studio/?view=labs&lab=agents"
+    }
+  ],
+  "externalRequests": [],
+  "pageErrors": [],
+  "liveChainVerified": false,
+  "realWalletExtensionTested": false,
+  "codexSubscriberFlowTested": false,
+  "fixturePrivateKeysExported": false,
+  "platformFeeLovelace": "0",
+  "scope": "Actual local MCP stdio creates exact requests. Browser runs held production build with a synthetic injected CIP-30 provider, visibly separate fixture connect/sign prompts, ephemeral synthetic signing keys and intercepted local protocol/status responses. Mock confirmation exercises the UI and receipt path; it proves no chain inclusion, real wallet compatibility, subscription authentication or installation path. No real wallet funds, signing keys, provider disclosure or chain submission."
+}

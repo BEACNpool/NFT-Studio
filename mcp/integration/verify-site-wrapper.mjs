@@ -85,7 +85,7 @@ try{
       const search=checked(await client.callTool({name:'search_knowledge',arguments:{query:'CIP-68',limit:2}}));assert.ok(search.results.length>0);
       const intent=checked(await client.callTool({name:'create_mint_intent',arguments:{mode:'data',name:'Wrapped app proof',files:[{name:'hello.txt',mediaType:'text/plain',base64:'SGVsbG8sIENhcmRhbm8h'}]}}));
       const verified=checked(await client.callTool({name:'verify_mint_intent',arguments:{intent:intent.intent}}));assert.equal(verified.intent.intentHash,intent.intent.intentHash);
-      assert.equal(intent.review.url,'https://beacnpool.github.io/NFT-Studio/?view=labs&lab=agents');
+      assert.equal(intent.review.baseUrl,'https://beacnpool.github.io/NFT-Studio/?view=labs&lab=agents');assert.equal(intent.review.url,intent.review.baseUrl+'#mint=v1.'+Buffer.from(JSON.stringify(intent.intent)).toString('base64url'));
       const proofFile={name:'proof.txt',base64:'SGVsbG8sIENhcmRhbm8h'};
       const proof=checked(await client.callTool({name:'create_proof_record',arguments:{files:[proofFile]}}));
       const proofCheck=checked(await client.callTool({name:'verify_proof_record',arguments:{recordCborHex:proof.artifact.recordCborHex,file:proofFile}}));
@@ -94,7 +94,7 @@ try{
       const prepared=checked(await client.callTool({name:'prepare_unsigned_transaction',arguments:{intent:intent.intent,wallet:{changeHex:address().to_hex(),utxos:[utxo(1,{tokens:3})]}}}));
       assert.equal(prepared.schema,'nft-studio.stateless-unsigned.v1');assert.equal(prepared.signed,false);assert.equal(prepared.submitted,false);
       assert.equal(prepared.transactionHash,C.FixedTransaction.from_hex(prepared.unsignedHex).transaction_hash().to_hex());
-      assert.equal(prepared.reviewUrl,intent.review.url);assert.match(prepared.checks.walletInputs,/unverified/);
+      assert.equal(prepared.reviewUrl,intent.review.baseUrl);assert.match(prepared.checks.walletInputs,/unverified/);
       observations.push({route:'/api/mcp',protocolEra:client.getProtocolEra(),tools:tools.length,sourceCorpus,capsuleParameters,musicPackages,unsignedMusic,implementations,unsignedHash:prepared.transactionHash,mode:prepared.mode,resources:resources.length,intentHash:intent.intent.intentHash,proofRecordHash:proof.artifact.recordSha256,proofMatch:true});
     }finally{await client.close();}
   }

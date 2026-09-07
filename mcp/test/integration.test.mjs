@@ -86,7 +86,7 @@ test('Payload, ledger metadata and canonical browser intent validations reject m
     assert.equal((await call(ctx.client,'verify_mint_intent',{intent:bom.intent})).intent.intentHash,bom.intent.intentHash);
 
     const first=await call(ctx.client,'create_mint_intent',{...args,mode:'nft'}), second=await call(ctx.client,'create_mint_intent',{...args,mode:'nft'});
-    assert.equal(first.intent.intentHash,second.intent.intentHash);assert.equal(JSON.parse(first.packetJson).intentHash,first.intent.intentHash);assert.equal(first.review.url,'https://beacnpool.github.io/NFT-Studio/?view=labs&lab=agents');
+    assert.equal(first.intent.intentHash,second.intent.intentHash);assert.equal(JSON.parse(first.packetJson).intentHash,first.intent.intentHash);assert.equal(first.review.baseUrl,'https://beacnpool.github.io/NFT-Studio/?view=labs&lab=agents');assert.equal(new URL(first.review.url).hash,'#mint=v1.'+Buffer.from(JSON.stringify(first.intent)).toString('base64url'));
     const reordered={intentHash:first.intent.intentHash,bundle:first.intent.bundle,mode:'nft',schema:'nft-studio.intent.v1'};
     assert.equal((await call(ctx.client,'verify_mint_intent',{intent:reordered})).intent.intentHash,first.intent.intentHash);
     for(const change of [{bundle:{...first.intent.bundle,name:'Tampered'}},{ignored:true},{intentHash:'0'.repeat(64)}]) await rejected(ctx.client,'verify_mint_intent',{intent:{...first.intent,...change}});

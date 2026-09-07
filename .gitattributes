@@ -6,3 +6,6 @@ experiments/midnight-beacon-demo/** -text
 public/labs/midnight-beacon/** -text
 experiments/music-schnorr-seal/snapshot/** -text
 public/labs/music-seal/** -text
+
+# Dated agent acceptance receipts and exact component/codec snapshots.
+experiments/agent-acceptance/** -text

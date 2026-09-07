@@ -28,7 +28,7 @@ test('Standalone web-standard Worker artifact serves modern and legacy official 
       assert.equal(proofCheck.verification.status,'match');assert.equal(proofCheck.chainInclusionChecked,false);
       assert.equal(proof.processing.networkRequestsByTool,false);
 
-      assert.equal(packet.review.url,'https://beacnpool.github.io/NFT-Studio/?view=labs&lab=agents');
+      assert.equal(packet.review.baseUrl,'https://beacnpool.github.io/NFT-Studio/?view=labs&lab=agents');assert.equal(new URL(packet.review.url).hash,'#mint=v1.'+Buffer.from(JSON.stringify(packet.intent)).toString('base64url'));
       const valid=unpack(await client.callTool({name:'verify_mint_intent',arguments:{intent:JSON.parse(packet.packetJson)}}));assert.equal(valid.intent.intentHash,packet.intent.intentHash);
       const invalid=await client.callTool({name:'create_mint_intent',arguments:{mode:'data',name:'Bad',files:[{...file,name:'../../x'}]}});assert.equal(invalid.isError,true);
       let error=false;try{const bad=await client.callTool({name:'prepare_unsigned_transaction',arguments:{wallet:'disallowed'}});error=bad.isError;}catch{error=true;}assert.ok(error);

@@ -1,0 +1,35 @@
+{
+  "schema": "beacn.setup-disclosure-target-review.v1",
+  "status": "PASS",
+  "checkedAt": "2026-09-07T16:03:54.422Z",
+  "htmlSha256": "290996b7a7926c6f674f1f57915a0fbdc543dd13d9ace89ec2893a6da58a805c",
+  "htmlBytes": 18000,
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 45.59375,
+      "expanded": false,
+      "focused": true,
+      "outlineWidth": "3px",
+      "keyboardExpanded": true,
+      "keyboardCollapsed": true,
+      "noOverflow": true,
+      "screenshot": "1440-summary-expanded.png"
+    },
+    {
+      "width": 390,
+      "height": 45.59375,
+      "expanded": false,
+      "focused": true,
+      "outlineWidth": "3px",
+      "keyboardExpanded": true,
+      "keyboardCollapsed": true,
+      "noOverflow": true,
+      "screenshot": "390-summary-expanded.png"
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "commandsExecuted": false,
+  "scope": "Bounded CSS disclosure target check on copied completed static page; exact served bytes, >=44px target, native keyboard expansion/collapse, both layouts fit, no page/console errors or network/wallet calls. Earlier exact clipboard/download checks were not repeated."
+}

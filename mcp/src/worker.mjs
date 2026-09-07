@@ -14,6 +14,7 @@ import catalog from '@knowledge/catalog.json';
 import { validateCatalog, searchKnowledge, getEntry } from '@knowledge/lib.mjs';
 import { preparePayloadBundle, payloadMetadata, PAYLOAD_TYPES } from '@studio/studio-payload.ts';
 import { createMintIntent, verifyMintIntent } from '@studio/studio-intent.ts';
+import { createMintReviewUrl } from '@studio/studio-review-link.ts';
 import { empty, payloadSchema, intentSchema, decodeFiles } from './schemas.mjs';
 const MAX_BYTES=98304;
 // Reuse immutable validation schemas across per-request SDK server instances.
@@ -48,6 +49,8 @@ export function createPublicMcpHandler(config) {
     stateCapsuleParameterization:CAPSULE_MCP_CAPABILITIES,
     unsignedPreparation:{schema:'nft-studio.stateless-unsigned.v1',limits:UNSIGNED_LIMITS,serverState:'none',network:'mainnet',chainUnspentVerified:false,ownershipVerified:false,signedWitnessVerification:false},
     publicEndpoint:config.publicOrigin+endpointPath,studioReviewUrl:reviewUrl.href,
+    reviewHandoff:{transport:'url-fragment',schema:'nft-studio.intent.v1',maxFragmentCharacters:106700,openingConnectsWallet:false},
+    fees:{studioLovelace:'0',network:'Cardano network fees apply; minimum ADA stays in the user output.'},
     limits:{requestBytes:MAX_BYTES,rawPayloadBytes:12000,files:8,intentJsonBytes:80000},
     mediaTypes:PAYLOAD_TYPES,knowledge:{asOf:catalog.asOf,entries:catalog.entries.length,sources:catalog.sources.length},
     formats:['image','music','games','apps','motion','files'].map(id=>({id,status:'compact file intent; image cover required for NFT mode'})),
@@ -77,9 +80,9 @@ export function createPublicMcpHandler(config) {
     register('validate_payload','Validate up to eight exact base64 files with the shared Studio packager. Returns canonical embedded URIs, hashes and data metadata. Does not execute code or prove complete signed-transaction fit.',payloadSchema,async args=>{
       const bundle=await preparePayloadBundle({...args,files:decodeFiles(args.files)});return {bundle,dataMetadata:payloadMetadata(bundle),completeTransactionFit:'Requires unsigned transaction preparation and exact external wallet witness/fee verification, or visible Studio wallet review.'};
     });
-    register('create_mint_intent','Create a deterministic file-based NFT/data intent for visible Studio review. Save packetJson as the suggested filename and import it. No wallet or signing authority is involved.',intentSchema,async({mode,...args})=>{
+    register('create_mint_intent','Create a deterministic file-based NFT/data intent for visible Studio review. Open review.url for direct Studio review; save packetJson as a fallback. No wallet or signing authority is involved.',intentSchema,async({mode,...args})=>{
       const bundle=await preparePayloadBundle({...args,files:decodeFiles(args.files)}),intent=await createMintIntent(bundle,mode);
-      return {intent,filename:`nft-studio-${intent.intentHash.slice(0,12)}.intent.json`,packetJson:JSON.stringify(intent,null,2),review:{url:reviewUrl.href,action:'Open Labs → Agent minting, import this intent file, inspect every file, and explicitly continue to wallet review.'},status:'intent-only; no transaction prepared'};
+      return {intent,filename:`nft-studio-${intent.intentHash.slice(0,12)}.intent.json`,packetJson:JSON.stringify(intent,null,2),review:{url:await createMintReviewUrl(intent,reviewUrl.href),baseUrl:reviewUrl.href,transport:'url-fragment',action:'Open this exact review link, inspect the files, connect your wallet, review the network fee and destination, then approve signing. Opening the link never signs or submits.',privacy:'The link contains your content in its fragment. Treat it like the request file; share only with intended reviewers. Studio removes the fragment from browser history before inspecting it.'},status:'intent-only; no transaction prepared'};
     });
     register('verify_mint_intent','Reconstruct files and verify a shared-browser canonical intent hash. Rejects modified bytes, extra fields or invalid payloads.',verifyIntentSchema,async({intent})=>({valid:true,intent:await verifyMintIntent(intent)}));
     const resource=(name,uri,value)=>server.registerResource(name,uri,{mimeType:'application/json'},async url=>({contents:[{uri:url.href,mimeType:'application/json',text:JSON.stringify(value)}]}));

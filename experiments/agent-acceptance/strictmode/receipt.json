@@ -1,0 +1,82 @@
+{
+  "schema": "nft-studio.agent-link-strictmode-regression.v1",
+  "status": "pass",
+  "react": "19.2.8",
+  "mode": "actual development StrictMode",
+  "components": "exact before/after snapshots; real shared payload/intent/review codec",
+  "stubbed": [
+    "UI primitives/icons",
+    "PayloadPreview rendering",
+    "FileMintDialog wallet control",
+    "export helpers",
+    "errorText"
+  ],
+  "checks": [
+    {
+      "case": "before-strict",
+      "verified": false,
+      "hashRemoved": true,
+      "walletCalls": 0
+    },
+    {
+      "case": "before-normal",
+      "verified": true,
+      "hashRemoved": true,
+      "walletCalls": 0
+    },
+    {
+      "case": "after-strict",
+      "verified": true,
+      "hashRemoved": true,
+      "walletCalls": 0
+    },
+    {
+      "case": "new-hash-supersedes-held-parse",
+      "pass": true
+    },
+    {
+      "case": "clear-invalidates-result",
+      "pass": true
+    },
+    {
+      "case": "malformed-link-cleared-and-rejected",
+      "pass": true
+    },
+    {
+      "case": "unmount-invalidates-held-result",
+      "pass": true
+    }
+  ],
+  "externalRequests": 0,
+  "walletCalls": 0,
+  "source": [
+    {
+      "path": "agent.after.tsx.source.txt",
+      "sha256": "16e995023ec8fbc846e0189a3bcb0ea9985223db599c20f693e139bc37e8fda5",
+      "bytes": 13533
+    },
+    {
+      "path": "agent.before.tsx.source.txt",
+      "sha256": "af1bc22a12f39e663b1d8c0a3e5245ff598e9d9bec1f86e8bb0b58de4eb31d73",
+      "bytes": 12786
+    },
+    {
+      "path": "shared/studio-intent.ts.source.txt",
+      "sha256": "61f677bb7c5208be84ef35c5699457510e5b15cd8d4eb9af20e1594c32883883",
+      "bytes": 5176
+    },
+    {
+      "path": "shared/studio-payload.ts.source.txt",
+      "sha256": "ed452542debb915ba0983ae4e9e9a86870641c96ba6be69e04b518e06eda460d",
+      "bytes": 18099
+    },
+    {
+      "path": "shared/studio-review-link.ts.source.txt",
+      "sha256": "717916e9d49f6fed6bc82605efb305cd79ccf09829e4d2205fb4e3018a6c0c4c",
+      "bytes": 2856
+    }
+  ],
+  "limits": [
+    "This is a component lifecycle regression, not media preview, actual wallet or production-export acceptance."
+  ]
+}

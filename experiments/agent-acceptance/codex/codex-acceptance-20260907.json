@@ -1,0 +1,206 @@
+{
+  "schema": "nft-studio.codex-acceptance.v1",
+  "status": "pass-through-verified-browser-handoff",
+  "observedAt": "2026-09-07T15:52:44.658297+00:00",
+  "source": {
+    "baseCommit": "6e749b4b59bac81e4fa174695f60b5fb93739d8c",
+    "pendingRootSource": true,
+    "files": [
+      {
+        "path": "lib/studio-review-link.ts",
+        "baseSha256": null,
+        "pendingSha256": "717916e9d49f6fed6bc82605efb305cd79ccf09829e4d2205fb4e3018a6c0c4c",
+        "bytes": 2856
+      },
+      {
+        "path": "mcp/src/server.mjs",
+        "baseSha256": "8c91bb0634fd2f47e6a5f704c61413c36b4c280f985311848b46dcd681057337",
+        "pendingSha256": "e8c8fd2ca1653eeb07d6d0ae3800a0bf36a60c0534e9af57dbfd1c72cd9146ed",
+        "bytes": 17016
+      },
+      {
+        "path": "mcp/src/worker.mjs",
+        "baseSha256": "3ba87ac1f9867b6fca9c8cf19ed8696dd987ccbc0a0ddc4cf76b5cc9e59f7668",
+        "pendingSha256": "5c2d2ee73fb01fedd68e87f0fb6e80c44ddc9f69aec5242738398d1c242f09c4",
+        "bytes": 15512
+      },
+      {
+        "path": "mcp/test/integration.test.mjs",
+        "baseSha256": "a9649ec30b19fcd0916dcf8cc8689f3892b60f36cd78c74cf7b40005f99d7c3e",
+        "pendingSha256": "8f7a49f6580f526907617cddf285a7781387a7aa9fb0fdf35aab749c3acb8b4b",
+        "bytes": 24034
+      },
+      {
+        "path": "mcp/test/worker.test.mjs",
+        "baseSha256": "3e9cac8b7d976e9783a8029ff0299e01eda582ab35e0fb0204254d3effee8bb7",
+        "pendingSha256": "4e68c363328dcd8f8a7a67eb0448fd8ecd707f34374f7cc0dd8f70b3bf947d37",
+        "bytes": 8699
+      },
+      {
+        "path": "mcp/test/review-link.test.mjs",
+        "baseSha256": null,
+        "pendingSha256": "7f51fca0563c42bc6202e93a69ea1652a0e785f4b2c131144cd039bf1b2500ce",
+        "bytes": 3742
+      },
+      {
+        "path": ".agents/skills/nft-studio/SKILL.md",
+        "baseSha256": null,
+        "pendingSha256": "b47142866f11e245f15e1aa9fae90ad0f8a02623d51aedd4df9f921c15ea2486",
+        "bytes": 4144
+      }
+    ]
+  },
+  "environment": {
+    "platform": "Linux x86_64",
+    "node": "22.22.2",
+    "codexCli": "0.153.4",
+    "authentication": "existing ChatGPT session, confirmed by codex login status; no fresh account enrollment tested"
+  },
+  "cleanInstall": {
+    "rootDependenciesInstalled": false,
+    "ancestorDependenciesPresent": false,
+    "dependencyDirectoriesCopied": false,
+    "commands": [
+      "npm --prefix mcp ci --no-fund",
+      "npm --prefix mcp run build"
+    ],
+    "compiledArtifacts": [
+      {
+        "path": "mcp/dist/cardano_serialization_lib_bg.wasm",
+        "bytes": 2791001,
+        "sha256": "30f78ee3d0e5fc2f4cd1c87347b330e69fcdd0acb07d4a6e08ff8278d7d9a40b"
+      },
+      {
+        "path": "mcp/dist/cli.mjs",
+        "bytes": 4389735,
+        "sha256": "1110005cc5b6d0999bf18c3ec7184143362a6fa09db0cd2b95903e7b30a96f50"
+      },
+      {
+        "path": "mcp/dist/http.mjs",
+        "bytes": 4388114,
+        "sha256": "fbb0d9c6a6e137920f4765ab2d521e93dae83451f3ca605e817b223b0fe87346"
+      },
+      {
+        "path": "mcp/dist/public-unsigned.mjs",
+        "bytes": 73885,
+        "sha256": "0ef978ed5ba440e2c79aa32c3b9c3f81c8daa557c749a96cc29ee1f955663f7e"
+      },
+      {
+        "path": "mcp/dist/server.mjs",
+        "bytes": 4381275,
+        "sha256": "1c7d7390ddb0f1e54fffb3051b8328b9a07250217f8e47c7bb1497ab78382f89"
+      },
+      {
+        "path": "mcp/dist/worker.mjs",
+        "bytes": 6925184,
+        "sha256": "19c8d3a184298ae796ff17409bd9054e25e15622489c19c50ec9f67e3567f959"
+      }
+    ]
+  },
+  "sdk": {
+    "tools": 17,
+    "resources": 61,
+    "negativeCases": [
+      "missing-cover",
+      "unknown-field",
+      "noncanonical-base64",
+      "caller-path",
+      "bad-svg-mime",
+      "changed-intent-hash"
+    ],
+    "status": "pass"
+  },
+  "installation": {
+    "command": "node mcp/install-codex.mjs --install",
+    "observedFirstRun": "installed and verified nft-studio",
+    "secondRun": "exact setup preserved as no-op (root operator observation)",
+    "scope": "one user-scoped Codex stdio server; no global skill copied",
+    "checks": "four node:test groups: Node minimum, missing build, nine collisions, CLI response/ambiguity",
+    "undo": "codex mcp remove nft-studio",
+    "configurationOrCredentialValuesPublished": false
+  },
+  "skillDiscovery": {
+    "status": "pass",
+    "publicSkill": ".agents/skills/nft-studio/SKILL.md",
+    "sha256": "b47142866f11e245f15e1aa9fae90ad0f8a02623d51aedd4df9f921c15ea2486",
+    "explicitInvocation": "$nft-studio",
+    "skillBodyInjectedIntoUserPrompt": false,
+    "exactPathReadOnlyOpens": 2,
+    "traceMethod": "strace filtered to this one public SKILL.md path; open/openat/openat2 only, no buffers or other filenames",
+    "quotedRequirementsMatched": true,
+    "rawTracePrivate": true
+  },
+  "agent": {
+    "schema": "nft-studio.codex-agent-acceptance.v1",
+    "status": "pass",
+    "label": "project-skill",
+    "client": {
+      "name": "codex-mcp-client",
+      "title": "Codex",
+      "version": "0.153.4"
+    },
+    "toolsCalled": [
+      "studio_capabilities",
+      "search_knowledge",
+      "read_knowledge",
+      "create_mint_intent",
+      "verify_mint_intent"
+    ],
+    "calls": 5,
+    "svgBytes": 200,
+    "svgSha256": "c5907041266ae75438a80e2555b62b27ae841b7f75a038077a93be4dd4cf928a",
+    "packageHash": "1d2477a3abe6f40732b16ea8dc8e5ec44943d49cde57098b7a4929ceb1dec7ae",
+    "intentHash": "746be31556941c6c34ff39b85ab4631f95404ddac08e3913f8e824bba3a98e19",
+    "packetBytes": 898,
+    "packetSha256": "5d27c6deff5d84b72124fcc7850305c71bd9fb699abb21f9cd302a498bcaa30d",
+    "independentChecks": [
+      "SVG XML and element/attribute allowlist",
+      "exact bytes and file hash",
+      "bundle identity hash",
+      "canonical intent hash",
+      "MCP verify exact request/response equality",
+      "exact returned URL preserved in agent final",
+      "base64url fragment decodes to exact canonical intent"
+    ],
+    "walletConnected": false,
+    "transactionPrepared": false,
+    "signed": false,
+    "submitted": false,
+    "chainInclusion": false,
+    "usage": {
+      "input_tokens": 150657,
+      "cached_input_tokens": 131072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1481,
+      "reasoning_output_tokens": 0
+    },
+    "mcpTranscriptSha256": "e0e83d8f7cf5fc0bbd1fc593db5d69a1cc5f3b9eac9820998e5fceca10f4b15b",
+    "reviewUrlCharacters": 1092,
+    "reviewUrlSha256": "63e1d2436d15b233578e1a90ae9e9fbe5b681482009ea9270869c316504c372a"
+  },
+  "isolation": {
+    "userConfigIgnored": true,
+    "ephemeralCodexSession": true,
+    "homeAndCodexHomeUnchanged": true,
+    "credentialContentsReadOrCopiedByHarness": false,
+    "enabledMcpServers": [
+      "nft_studio"
+    ],
+    "enabledTools": [
+      "studio_capabilities",
+      "search_knowledge",
+      "read_knowledge",
+      "create_mint_intent",
+      "verify_mint_intent",
+      "validate_payload"
+    ],
+    "builtInShellBrowserAppsHooksDisabled": true,
+    "rawCodexAndRpcAndStraceLogsPrivate": true
+  },
+  "limits": [
+    "This proves one controlled real Codex run and Linux setup; it is not a compatibility test of every Codex client, plan, model or operating system.",
+    "The request was independently verified and its complete browser link preserved; browser wallet connection, signing, submission and chain inclusion were not performed by this harness.",
+    "0 ADA Studio platform fee does not remove Cardano network fees or minimum ADA retained in the user output.",
+    "The direct handoff runtime and repository skill were pending source changes over the recorded base commit when tested; listed hashes identify exact candidate bytes."
+  ]
+}

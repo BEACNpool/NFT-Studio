@@ -408,6 +408,10 @@ export function FileMintDialog(input: FileMintInput) {
                       <dd>{ada(prepared.fee)} ADA</dd>
                     </div>
                     <div>
+                      <dt>Studio fee</dt>
+                      <dd>0 ADA</dd>
+                    </div>
+                    <div>
                       <dt>ADA kept with NFT</dt>
                       <dd>{ada(prepared.minimumAda)} ADA</dd>
                     </div>

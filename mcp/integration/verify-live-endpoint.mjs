@@ -75,7 +75,14 @@ for (const mode of ['auto', 'legacy']) {
     const intent = checked(await client.callTool({ name: 'create_mint_intent', arguments: args }));
     const verified = checked(await client.callTool({ name: 'verify_mint_intent', arguments: { intent: intent.intent } }));
     assert.equal(verified.intent.intentHash, intent.intent.intentHash);
-    assert.equal(intent.review.url, 'https://beacnpool.github.io/NFT-Studio/?view=labs&lab=agents');
+    const reviewBase = 'https://beacnpool.github.io/NFT-Studio/?view=labs&lab=agents';
+    if (caps.reviewHandoff?.transport === 'url-fragment') {
+      assert.equal(intent.review.baseUrl, reviewBase);
+      assert.equal(intent.review.transport, 'url-fragment');
+      assert.equal(intent.review.url, reviewBase + '#mint=v1.' + Buffer.from(JSON.stringify(intent.intent)).toString('base64url'));
+    } else {
+      assert.equal(intent.review.url, reviewBase);
+    }
     const file = { name: 'hello.txt', base64: args.files[0].base64 };
     const proof = checked(await client.callTool({ name: 'create_proof_record', arguments: { files: [file] } }));
     const match = checked(await client.callTool({ name: 'verify_proof_record', arguments: { recordCborHex: proof.artifact.recordCborHex, file } }));

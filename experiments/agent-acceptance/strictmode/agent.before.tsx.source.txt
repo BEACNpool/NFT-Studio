@@ -44,66 +44,53 @@ export function AgentMintPanel() {
   const [connectionStatus, setConnectionStatus] = useState('');
   const input = useRef<HTMLInputElement>(null);
   const generation = useRef(0);
-  const pendingLink = useRef<Promise<MintIntent | null> | null>(null);
   useEffect(() => {
-    const lifecycle = generation;
-    const openLink = (resumePending = false) => {
+    const openLink = () => {
       const hash = location.hash;
-      const hasLink = isMintReviewFragment(hash);
-      if (!hasLink && !(resumePending && pendingLink.current)) return;
-      const current = ++lifecycle.current;
+      if (!isMintReviewFragment(hash)) return;
+      const current = ++generation.current;
       setBusy(true);
       setIntent(null);
       setError('');
       setText('');
       // Remove content from the current history entry before parsing it. No
       // URL parameters, wallet state or receipt are trusted as authorization.
-      if (hasLink) {
-        try {
-          history.replaceState(
-            history.state,
-            '',
-            location.pathname + location.search,
-          );
-        } catch {
-          pendingLink.current = null;
-          setBusy(false);
-          setError(
-            'The review link could not be cleared from this browser. Open the request JSON instead.',
-          );
-          return;
-        }
-        pendingLink.current = parseMintReviewFragment(hash);
+      try {
+        history.replaceState(
+          history.state,
+          '',
+          location.pathname + location.search,
+        );
+      } catch {
+        setBusy(false);
+        setError(
+          'The review link could not be cleared from this browser. Open the request JSON instead.',
+        );
+        return;
       }
-      // StrictMode replays effects after clearing the URL. Reattach to the same
-      // verification promise while keeping stale results invalidated on cleanup.
-      void pendingLink.current!.then(
+      void parseMintReviewFragment(hash).then(
         (result) => {
-          if (current !== lifecycle.current) return;
-          pendingLink.current = null;
+          if (current !== generation.current) return;
           setIntent(result);
           setSelected(0);
           setBusy(false);
         },
         (cause) => {
-          if (current !== lifecycle.current) return;
-          pendingLink.current = null;
+          if (current !== generation.current) return;
           setError(errorText(cause));
           setBusy(false);
         },
       );
     };
-    openLink(true);
-    const onHashChange = () => openLink();
-    window.addEventListener('hashchange', onHashChange);
+    openLink();
+    window.addEventListener('hashchange', openLink);
     return () => {
-      window.removeEventListener('hashchange', onHashChange);
-      ++lifecycle.current;
+      window.removeEventListener('hashchange', openLink);
+      ++generation.current;
     };
   }, []);
   async function inspect(source: string, current = ++generation.current) {
     if (current !== generation.current) return;
-    pendingLink.current = null;
     setBusy(true);
     setError('');
     setIntent(null);
@@ -122,7 +109,6 @@ export function AgentMintPanel() {
   async function openFile(file?: File) {
     if (!file) return;
     const current = ++generation.current;
-    pendingLink.current = null;
     setBusy(true);
     setIntent(null);
     setError('');
@@ -299,7 +285,6 @@ export function AgentMintPanel() {
                   aria-label="Clear agent request"
                   onClick={() => {
                     ++generation.current;
-                    pendingLink.current = null;
                     setIntent(null);
                     setBusy(false);
                     setError('');
