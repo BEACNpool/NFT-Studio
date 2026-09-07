@@ -1,0 +1,37 @@
+name: Cardano knowledge drift report
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 9 * * 1'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: knowledge-drift
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4, resolved 2026-09-07
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4, resolved 2026-09-07
+        with:
+          node-version: '22'
+      - name: Verify deterministic checker fixtures
+        run: node knowledge/verify-cip-drift.mjs
+      - name: Produce read-only upstream report
+        run: node knowledge/cip-drift.mjs --online > "$RUNNER_TEMP/cip-drift-report.json"
+      - name: Retain report for manual review
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4, resolved 2026-09-07
+        with:
+          name: cardano-cip-drift-${{ github.run_id }}
+          path: ${{ runner.temp }}/cip-drift-report.json
+          if-no-files-found: warn
+          retention-days: 30

@@ -4,6 +4,7 @@ import './globals.css';
 import './studio.css';
 import './studio-app.css';
 import './mobile-shell.css';
+import './labs.css';
 import { assetPath } from '@/lib/paths';
 export const metadata: Metadata = {
   title: 'NFT-Studio — Create on Cardano',

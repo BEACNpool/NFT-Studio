@@ -1,0 +1,17 @@
+NFT-Studio / BEACN Labs
+Copyright 2026 BEACNpool and contributors.
+
+Original BEACN source code, documentation, knowledge summaries and research
+data in this repository are provided under the Apache License, Version 2.0,
+unless a file or directory identifies different terms.
+
+The copied Ledger tools retain their MIT license and copyright notice in
+public/tools/ledger/LICENSE. Third-party dependencies, Cardano specifications
+and copied test vectors retain their upstream licenses and attribution.
+See knowledge/ATTRIBUTION.md, the catalogue's source records and
+tests/fixtures/proof-of-existence/UPSTREAM-LICENSE.
+
+Showcased third-party artwork, collection names, trademarks and externally
+linked media are not relicensed by this notice. Software availability does
+not grant rights to mint another creator's artwork. Existing media-specific
+attribution and notices remain applicable.

@@ -1,0 +1,31 @@
+{
+  "evaluatedAt": "2026-09-07T04:51:05.161Z",
+  "endpoint": "https://cardano-mainnet.blockfrost.io/api/v0/utils/txs/evaluate?version=6",
+  "httpStatus": 200,
+  "response": {
+    "jsonrpc": "2.0",
+    "method": "evaluateTransaction",
+    "error": {
+      "code": 3010,
+      "message": "Some scripts of the transactions terminated with error(s).",
+      "data": [
+        {
+          "validator": {
+            "index": 0,
+            "purpose": "mint"
+          },
+          "error": {
+            "code": 3004,
+            "message": "Unable to create the evaluation context from the given transaction.",
+            "data": {
+              "reason": "Unknown transaction input (missing from UTxO set): 1111111111111111111111111111111111111111111111111111111111111111#0"
+            }
+          }
+        }
+      ]
+    },
+    "id": "d33e7501-569e-4fd0-8072-2c9e753869b2"
+  },
+  "syntheticInput": true,
+  "noSubmission": true
+}

@@ -27,6 +27,11 @@ jobs:
       - run: node scripts/verify-wallet-providers.cjs
       - run: node scripts/verify-mint-receipt.mjs
       - run: node scripts/verify-recovery-catalog.mjs
+      - run: npm run verify:labs
+      - run: npm run verify:knowledge
+      - run: npm run verify:capsules
+      - run: npm --prefix mcp ci
+      - run: npm run verify:mcp
       - run: npm run build:pages
       - uses: actions/upload-artifact@v4
         with:
@@ -34,3 +39,32 @@ jobs:
           path: dist/github-pages
           include-hidden-files: true
           retention-days: 14
+  state-capsule-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install verified Aiken v1.1.23
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --proto '=https' --tlsv1.2 --output "$RUNNER_TEMP/aiken.tar.gz" https://github.com/aiken-lang/aiken/releases/download/v1.1.23/aiken-x86_64-unknown-linux-musl.tar.gz
+          echo "b98c4ccbada5e35f15ba417a52872aeaf0c65998aed77351769ce5fd2506b570  $RUNNER_TEMP/aiken.tar.gz" | sha256sum --check
+          mkdir "$RUNNER_TEMP/aiken"
+          tar -xzf "$RUNNER_TEMP/aiken.tar.gz" -C "$RUNNER_TEMP/aiken"
+          echo "$RUNNER_TEMP/aiken/aiken-x86_64-unknown-linux-musl" >> "$GITHUB_PATH"
+      - run: npm ci
+      - run: aiken check -D --max-success 500 --seed 20260906
+        working-directory: contracts/state-capsule
+      - run: aiken build -D
+        working-directory: contracts/state-capsule
+      - run: git diff --exit-code -- contracts/state-capsule/plutus.json
+      - run: node scripts/apply-demo.mjs
+        working-directory: contracts/state-capsule
+      - run: git diff --exit-code -- contracts/state-capsule/fixtures/applied-demo.json
+      - run: node scripts/verify-transactions.mjs --uplc
+        working-directory: contracts/state-capsule

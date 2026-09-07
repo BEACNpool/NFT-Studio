@@ -1,0 +1,185 @@
+{
+  "schema": "beacn.state-capsule.transaction-verification.v1",
+  "status": "pass",
+  "network": "synthetic-testnet",
+  "parameterEpoch": 654,
+  "policyId": "a3ef3e0109b585376e6366833f022964dbf487da828fcfd35ee28d1d",
+  "scriptBytes": 3100,
+  "smallDatumBytes": 76,
+  "largeDatumBytes": 3693,
+  "transactions": {
+    "mint": {
+      "signedBytes": 3798,
+      "feeLovelace": "661619",
+      "declaredExecutionBudget": {
+        "memory": 4000000,
+        "cpu": 1500000000
+      },
+      "outputCount": 3,
+      "scriptWitnesses": 1,
+      "keyWitnesses": 1,
+      "collateralLovelace": "2000000",
+      "collateralReturnedLovelace": "8000000"
+    },
+    "evolve": {
+      "signedBytes": 3869,
+      "feeLovelace": "664743",
+      "declaredExecutionBudget": {
+        "memory": 4000000,
+        "cpu": 1500000000
+      },
+      "outputCount": 3,
+      "scriptWitnesses": 1,
+      "keyWitnesses": 1,
+      "collateralLovelace": "2000000",
+      "collateralReturnedLovelace": "8000000"
+    },
+    "freeze": {
+      "signedBytes": 3869,
+      "feeLovelace": "664743",
+      "declaredExecutionBudget": {
+        "memory": 4000000,
+        "cpu": 1500000000
+      },
+      "outputCount": 3,
+      "scriptWitnesses": 1,
+      "keyWitnesses": 1,
+      "collateralLovelace": "2000000",
+      "collateralReturnedLovelace": "8000000"
+    },
+    "largeMint": {
+      "signedBytes": 7416,
+      "feeLovelace": "820811",
+      "declaredExecutionBudget": {
+        "memory": 4000000,
+        "cpu": 1500000000
+      },
+      "outputCount": 3,
+      "scriptWitnesses": 1,
+      "keyWitnesses": 1,
+      "collateralLovelace": "2000000",
+      "collateralReturnedLovelace": "8000000"
+    },
+    "largeEvolve": {
+      "signedBytes": 7462,
+      "feeLovelace": "822835",
+      "declaredExecutionBudget": {
+        "memory": 4000000,
+        "cpu": 1500000000
+      },
+      "outputCount": 3,
+      "scriptWitnesses": 1,
+      "keyWitnesses": 1,
+      "collateralLovelace": "2000000",
+      "collateralReturnedLovelace": "8000000"
+    }
+  },
+  "checks": [
+    "Plutus V3 hash parity",
+    "mint/spend script identity",
+    "all parameters applied",
+    "negative cost-model values preserved",
+    "CIP-68 inline datum",
+    "one reference and one user token",
+    "wallet signature verification",
+    "script witness retained after wallet merge",
+    "script-data hash",
+    "complete input/mint/output/fee conservation",
+    "min ADA per output",
+    "full signed transaction size",
+    "full signed fee including Plutus budget",
+    "distinct collateral and return",
+    "required signer",
+    "spend redeemer reindexing"
+  ],
+  "limitation": "Synthetic signed serialization only. No ledger phase-1 check, node execution, real wallet, submission or chain confirmation. Fixed fixture slot interval is intentionally expired; ephemeral key discarded.",
+  "unsignedBuilder": {
+    "exactBodyParity": true,
+    "noSignatures": true,
+    "rejectionCases": 8
+  },
+  "compiledWrapper": {
+    "evaluator": "aiken uplc eval (offline CEK evaluator; local cost model)",
+    "results": [
+      {
+        "title": "mint",
+        "expected": "accept",
+        "status": "pass",
+        "cpu": 137553568,
+        "memory": 385110
+      },
+      {
+        "title": "evolve",
+        "expected": "accept",
+        "status": "pass",
+        "cpu": 268037780,
+        "memory": 691495
+      },
+      {
+        "title": "freeze",
+        "expected": "accept",
+        "status": "pass",
+        "cpu": 273759724,
+        "memory": 694414
+      },
+      {
+        "title": "largeMint",
+        "expected": "accept",
+        "status": "pass",
+        "cpu": 442546812,
+        "memory": 950178
+      },
+      {
+        "title": "largeEvolve",
+        "expected": "accept",
+        "status": "pass",
+        "cpu": 1040425605,
+        "memory": 1818967
+      },
+      {
+        "title": "missing holder signer",
+        "expected": "reject",
+        "status": "pass",
+        "cpu": 125864126,
+        "memory": 336036
+      },
+      {
+        "title": "reference-only holder",
+        "expected": "reject",
+        "status": "pass",
+        "cpu": 99010363,
+        "memory": 252153
+      },
+      {
+        "title": "unknown redeemer constructor",
+        "expected": "reject",
+        "status": "pass",
+        "cpu": 5060635,
+        "memory": 20652
+      },
+      {
+        "title": "unsupported withdrawal purpose",
+        "expected": "reject",
+        "status": "pass",
+        "cpu": 1022845,
+        "memory": 424
+      },
+      {
+        "title": "wrong minting policy identity",
+        "expected": "reject",
+        "status": "pass",
+        "cpu": 8737436,
+        "memory": 21688
+      },
+      {
+        "title": "malformed script context",
+        "expected": "reject",
+        "status": "pass",
+        "cpu": 599598,
+        "memory": 356
+      }
+    ],
+    "passed": 11,
+    "limitation": "The supported CSL fixtures supply every resolved input/output. Synthetic POSIX interval replaces network slot mapping; no ledger phase-1 validation or independent node evaluation."
+  }
+}

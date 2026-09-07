@@ -1,0 +1,997 @@
+{
+  "seed": 20260906,
+  "summary": {
+    "total": 81,
+    "passed": 81,
+    "failed": 0,
+    "kind": {
+      "unit": 79,
+      "property": 2
+    }
+  },
+  "modules": [
+    {
+      "name": "capsule",
+      "summary": {
+        "total": 81,
+        "passed": 81,
+        "failed": 0,
+        "kind": {
+          "unit": 79,
+          "property": 2
+        }
+      },
+      "tests": [
+        {
+          "title": "mint_pair",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 502255,
+            "cpu": 170559499
+          }
+        },
+        {
+          "title": "evolve_valid",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 783553,
+            "cpu": 306009025
+          }
+        },
+        {
+          "title": "freeze_valid",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 785546,
+            "cpu": 308594840
+          }
+        },
+        {
+          "title": "mint_fails_reference_only_seed",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 191402,
+            "cpu": 56752923
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect [seed_input] = list.filter(\n      self.inputs,\n      fn(i) { i.output_reference == seed },\n    )"
+          ]
+        },
+        {
+          "title": "mint_fails_wrong_seed",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 211820,
+            "cpu": 62309305
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect [seed_input] = list.filter(\n      self.inputs,\n      fn(i) { i.output_reference == seed },\n    )"
+          ]
+        },
+        {
+          "title": "mint_fails_missing_signer",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 191269,
+            "cpu": 59101504
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect list.has(self.extra_signatories, issuer)"
+          ]
+        },
+        {
+          "title": "mint_fails_wrong_signer",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 191399,
+            "cpu": 59524557
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect list.has(self.extra_signatories, issuer)"
+          ]
+        },
+        {
+          "title": "mint_fails_script_seed",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 254552,
+            "cpu": 74948842
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect VerificationKey(issuer) = seed_input.output.address.payment_credential"
+          ]
+        },
+        {
+          "title": "mint_fails_inflation",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 358489,
+            "cpu": 101240916
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect\n      dict.to_pairs(assets.tokens(self.mint, own_policy)) == [\n        Pair(reference, 1), Pair(user, 1),\n      ]"
+          ]
+        },
+        {
+          "title": "mint_fails_only_user_token",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 169730,
+            "cpu": 49692193
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect\n      dict.to_pairs(assets.tokens(self.mint, own_policy)) == [\n        Pair(reference, 1), Pair(user, 1),\n      ]"
+          ]
+        },
+        {
+          "title": "mint_fails_wrong_names",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 191182,
+            "cpu": 58015950
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect\n      dict.to_pairs(assets.tokens(self.mint, own_policy)) == [\n        Pair(reference, 1), Pair(user, 1),\n      ]"
+          ]
+        },
+        {
+          "title": "mint_fails_third_token",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 358481,
+            "cpu": 100847636
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect\n      dict.to_pairs(assets.tokens(self.mint, own_policy)) == [\n        Pair(reference, 1), Pair(user, 1),\n      ]"
+          ]
+        },
+        {
+          "title": "mint_fails_burn",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 318346,
+            "cpu": 93221519
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect\n      dict.to_pairs(assets.tokens(self.mint, own_policy)) == [\n        Pair(reference, 1), Pair(user, 1),\n      ]"
+          ]
+        },
+        {
+          "title": "mint_fails_reference_escape",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 337923,
+            "cpu": 103675413
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect\n      output.address == Address {\n        payment_credential: Script(own_policy),\n        stake_credential: None,\n      }"
+          ]
+        },
+        {
+          "title": "mint_fails_holder_escape",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 544412,
+            "cpu": 181849105
+          }
+        },
+        {
+          "title": "mint_fails_genesis_sequence",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 491110,
+            "cpu": 180533416
+          }
+        },
+        {
+          "title": "mint_fails_genesis_frozen",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 494823,
+            "cpu": 166570535
+          }
+        },
+        {
+          "title": "mint_fails_genesis_hash",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 422786,
+            "cpu": 130499185
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect\n    bytearray.length(datum.extra.previous_datum_hash) == if datum.extra.sequence == 0 {\n      0\n    } else {\n      32\n    }"
+          ]
+        },
+        {
+          "title": "mint_fails_reissuance_existing_pair",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 275846,
+            "cpu": 84358656
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect\n      list.all(\n        self.inputs,\n        fn(i) { dict.is_empty(assets.tokens(i.output.value, own_policy)) },\n      )"
+          ]
+        },
+        {
+          "title": "mint_fails_empty_base",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 148250,
+            "cpu": 41686443
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect bytearray.length(base_name) >= 1 && bytearray.length(base_name) <= 28"
+          ]
+        },
+        {
+          "title": "mint_fails_long_base",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 148250,
+            "cpu": 41686443
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect bytearray.length(base_name) >= 1 && bytearray.length(base_name) <= 28"
+          ]
+        },
+        {
+          "title": "update_fails_reference_only_holder",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 402748,
+            "cpu": 154900124
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect [holder_input] = list.filter(\n      self.inputs,\n      fn(i) { assets.quantity_of(i.output.value, own_policy, user) != 0 },\n    )"
+          ]
+        },
+        {
+          "title": "update_fails_missing_signer",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 443927,
+            "cpu": 170141605
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect list.has(self.extra_signatories, holder)"
+          ]
+        },
+        {
+          "title": "update_fails_wrong_signer",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 444057,
+            "cpu": 170564658
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect list.has(self.extra_signatories, holder)"
+          ]
+        },
+        {
+          "title": "update_fails_script_holder",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 527630,
+            "cpu": 190177643
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect VerificationKey(holder) = holder_input.output.address.payment_credential"
+          ]
+        },
+        {
+          "title": "update_fails_wrong_policy",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 485942,
+            "cpu": 177565646
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect [holder_input] = list.filter(\n      self.inputs,\n      fn(i) { assets.quantity_of(i.output.value, own_policy, user) != 0 },\n    )"
+          ]
+        },
+        {
+          "title": "update_fails_wrong_user_name",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 486270,
+            "cpu": 178812838
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect [holder_input] = list.filter(\n      self.inputs,\n      fn(i) { assets.quantity_of(i.output.value, own_policy, user) != 0 },\n    )"
+          ]
+        },
+        {
+          "title": "update_fails_user_quantity_two",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 507144,
+            "cpu": 184864557
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect assets.quantity_of(holder_input.output.value, own_policy, user) == 1"
+          ]
+        },
+        {
+          "title": "update_fails_duplicate_holder_input",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 548636,
+            "cpu": 197968788
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect [holder_input] = list.filter(\n      self.inputs,\n      fn(i) { assets.quantity_of(i.output.value, own_policy, user) != 0 },\n    )"
+          ]
+        },
+        {
+          "title": "update_fails_user_not_returned",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 507349,
+            "cpu": 203184028
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect [output] = list.filter(\n    outputs,\n    fn(o) { assets.quantity_of(o.value, policy, name) != 0 },\n  )"
+          ]
+        },
+        {
+          "title": "update_fails_user_returned_to_stranger",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 569837,
+            "cpu": 221122893
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect\n      retained_user(self.outputs, own_policy, user, holder_input.output.address)"
+          ]
+        },
+        {
+          "title": "update_fails_duplicate_user_output",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 611711,
+            "cpu": 231187327
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect [output] = list.filter(\n    outputs,\n    fn(o) { assets.quantity_of(o.value, policy, name) != 0 },\n  )"
+          ]
+        },
+        {
+          "title": "update_fails_user_return_quantity_two",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 590614,
+            "cpu": 226380117
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect\n      retained_user(self.outputs, own_policy, user, holder_input.output.address)"
+          ]
+        },
+        {
+          "title": "update_fails_same_payment_different_stake",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 570029,
+            "cpu": 221539498
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect\n      retained_user(self.outputs, own_policy, user, holder_input.output.address)"
+          ]
+        },
+        {
+          "title": "update_fails_state_not_continued",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 547977,
+            "cpu": 200194410
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect [output] = list.filter(\n    outputs,\n    fn(o) { assets.quantity_of(o.value, policy, name) != 0 },\n  )"
+          ]
+        },
+        {
+          "title": "update_fails_reference_escape",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 653888,
+            "cpu": 251085766
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect next_output.address == own_input.output.address"
+          ]
+        },
+        {
+          "title": "update_fails_duplicate_state_output",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 716603,
+            "cpu": 278770253
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect [output] = list.filter(\n    outputs,\n    fn(o) { assets.quantity_of(o.value, policy, name) != 0 },\n  )"
+          ]
+        },
+        {
+          "title": "update_fails_duplicate_state_input",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 465492,
+            "cpu": 172629065
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect [state_input] = list.filter(\n      self.inputs,\n      fn(i) { assets.quantity_of(i.output.value, own_policy, reference) != 0 },\n    )"
+          ]
+        },
+        {
+          "title": "update_fails_wrong_state_quantity",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 653208,
+            "cpu": 246028574
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect\n    assets.without_lovelace(output.value) == assets.from_asset(policy, name, 1)"
+          ]
+        },
+        {
+          "title": "update_fails_state_drain",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 778868,
+            "cpu": 299121773
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect\n      assets.lovelace_of(next_output.value) >= assets.lovelace_of(\n        own_input.output.value,\n      )"
+          ]
+        },
+        {
+          "title": "update_can_add_lovelace",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 937340,
+            "cpu": 378471485
+          }
+        },
+        {
+          "title": "update_fails_foreign_token_in_state",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 716688,
+            "cpu": 278856533
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect\n    assets.without_lovelace(output.value) == assets.from_asset(policy, name, 1)"
+          ]
+        },
+        {
+          "title": "update_fails_inline_datum_removed",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 653564,
+            "cpu": 247631454
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect InlineDatum(_) = output.datum"
+          ]
+        },
+        {
+          "title": "update_fails_hash_datum",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 675237,
+            "cpu": 269349003
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect InlineDatum(_) = output.datum"
+          ]
+        },
+        {
+          "title": "update_fails_reference_script_added",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 653790,
+            "cpu": 249283335
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect output.reference_script == None"
+          ]
+        },
+        {
+          "title": "update_fails_state_version_change",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 737757,
+            "cpu": 276152375
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect datum.version == 1"
+          ]
+        },
+        {
+          "title": "update_fails_schema_change",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 759656,
+            "cpu": 298509209
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect datum.extra.schema == 1"
+          ]
+        },
+        {
+          "title": "update_fails_sequence_replay",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 792925,
+            "cpu": 324600208
+          }
+        },
+        {
+          "title": "update_fails_sequence_skip",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 864323,
+            "cpu": 343858977
+          }
+        },
+        {
+          "title": "update_fails_wrong_prior_hash",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 873295,
+            "cpu": 362036577
+          }
+        },
+        {
+          "title": "update_fails_zero_prior_hash",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 781242,
+            "cpu": 305999540
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect\n    bytearray.length(datum.extra.previous_datum_hash) == if datum.extra.sequence == 0 {\n      0\n    } else {\n      32\n    }"
+          ]
+        },
+        {
+          "title": "update_fails_burn_user",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 360022,
+            "cpu": 144684207
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect dict.is_empty(assets.tokens(self.mint, own_policy))"
+          ]
+        },
+        {
+          "title": "update_fails_burn_reference",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 360022,
+            "cpu": 144684207
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect dict.is_empty(assets.tokens(self.mint, own_policy))"
+          ]
+        },
+        {
+          "title": "update_fails_mint_another",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 360022,
+            "cpu": 144684207
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect dict.is_empty(assets.tokens(self.mint, own_policy))"
+          ]
+        },
+        {
+          "title": "frozen_fails_evolve",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 234100,
+            "cpu": 115793305
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect !old.extra.frozen"
+          ]
+        },
+        {
+          "title": "frozen_fails_freeze_again",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 234100,
+            "cpu": 115793305
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect !old.extra.frozen"
+          ]
+        },
+        {
+          "title": "evolve_fails_sneaky_freeze",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 783553,
+            "cpu": 306009025
+          }
+        },
+        {
+          "title": "freeze_fails_mutable_successor",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 783753,
+            "cpu": 306041025
+          }
+        },
+        {
+          "title": "freeze_fails_metadata_change",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 858547,
+            "cpu": 344280096
+          }
+        },
+        {
+          "title": "datum_fails_duplicate_keys",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 44130,
+            "cpu": 33711230
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "keys in associative list aren't in ascending order"
+          ]
+        },
+        {
+          "title": "datum_fails_unsorted_keys",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 43690,
+            "cpu": 30183718
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "keys in associative list aren't in ascending order"
+          ]
+        },
+        {
+          "title": "datum_fails_missing_name",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 43086,
+            "cpu": 25842291
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect Some(name_data) = dict.get(metadata, \"name\")"
+          ]
+        },
+        {
+          "title": "datum_fails_missing_image",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 63494,
+            "cpu": 29847036
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect Some(image_data) = dict.get(metadata, \"image\")"
+          ]
+        },
+        {
+          "title": "datum_fails_name_type",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 43848,
+            "cpu": 30192289
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect name: ByteArray = name_data"
+          ]
+        },
+        {
+          "title": "datum_fails_name_too_long",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 63920,
+            "cpu": 35402899
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect bytearray.length(name) >= 1 && bytearray.length(name) <= 64"
+          ]
+        },
+        {
+          "title": "datum_fails_empty_image",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 64415,
+            "cpu": 34581356
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect list.length(chunks) >= 1 && list.length(chunks) <= 48"
+          ]
+        },
+        {
+          "title": "datum_fails_many_image_chunks",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 581044,
+            "cpu": 232711355
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect list.length(chunks) >= 1 && list.length(chunks) <= 48"
+          ]
+        },
+        {
+          "title": "datum_fails_large_image_chunk",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 95554,
+            "cpu": 43948057
+          }
+        },
+        {
+          "title": "datum_fails_serialized_size",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 207000,
+            "cpu": 241308340
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect bytearray.length(cbor.serialise(datum)) <= 4_096"
+          ]
+        },
+        {
+          "title": "datum_fails_negative_sequence",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 22187,
+            "cpu": 8110522
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect datum.extra.sequence >= 0 && datum.extra.sequence <= max_sequence"
+          ]
+        },
+        {
+          "title": "datum_fails_sequence_overflow",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 44446,
+            "cpu": 46199476
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect datum.extra.sequence >= 0 && datum.extra.sequence <= max_sequence"
+          ]
+        },
+        {
+          "title": "max_sequence_cannot_advance",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 276383,
+            "cpu": 142250221
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect old.extra.sequence < max_sequence"
+          ]
+        },
+        {
+          "title": "property_accepts_each_valid_sequence",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "iterations": 500,
+          "counterexample": null
+        },
+        {
+          "title": "property_rejects_every_quantity_except_one",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "iterations": 500,
+          "counterexample": null
+        },
+        {
+          "title": "serialise_genesis_golden",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 5019,
+            "cpu": 16045690
+          }
+        },
+        {
+          "title": "hash_genesis_golden",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 5223,
+            "cpu": 16362105
+          }
+        },
+        {
+          "title": "metadata_really_can_evolve",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 856558,
+            "cpu": 342120905
+          }
+        },
+        {
+          "title": "new_holder_can_evolve_after_ordinary_token_transfer",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 924906,
+            "cpu": 360439042
+          }
+        },
+        {
+          "title": "former_holder_cannot_evolve_after_transfer",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 592610,
+            "cpu": 226146675
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect list.has(self.extra_signatories, holder)"
+          ]
+        },
+        {
+          "title": "wrong_supplied_old_datum_rejected",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 276152,
+            "cpu": 132276225
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect raw_old == expected_old"
+          ]
+        },
+        {
+          "title": "caller_without_state_token_rejected",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 382381,
+            "cpu": 147132503
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect\n      assets.without_lovelace(own_input.output.value) == assets.from_asset(\n        own_policy,\n        reference,\n        1,\n      )"
+          ]
+        }
+      ]
+    }
+  ]
+}

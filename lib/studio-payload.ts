@@ -54,6 +54,9 @@ export type LedgerValue =
 export type PayloadMetadata = Record<string, LedgerValue>;
 const enc = new TextEncoder();
 const dec = new TextDecoder('utf-8', { fatal: true });
+// URI generation must preserve an initial UTF-8 BOM as part of the exact file.
+// Validation/preview may interpret it, but a transport encoder must not discard it.
+const losslessDec = new TextDecoder('utf-8', { fatal: true, ignoreBOM: true });
 const fail = (message: string): never => {
   throw new Error(message);
 };
@@ -181,7 +184,7 @@ function base64(bytes: Uint8Array) {
 function makeURI(mime: PayloadMime, bytes: Uint8Array): string {
   const binary = `data:${mime};base64,${base64(bytes)}`;
   if (!isText(mime) || mime.startsWith('image/')) return binary;
-  const text = `data:${mime},${encodeURIComponent(dec.decode(bytes))}`;
+  const text = `data:${mime},${encodeURIComponent(losslessDec.decode(bytes))}`;
   return text.length < binary.length ? text : binary;
 }
 export function decodePayloadURI(uri: string, mime: PayloadMime): Uint8Array {

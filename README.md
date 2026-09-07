@@ -16,6 +16,30 @@ Help and Wallet stay in the header. Switching tabs keeps the current creation
 open, and browser Back/Forward follows the app screens. Saved projects and
 receipts remain local to the current browser and origin.
 
+## BEACN Labs
+
+[Open Labs](https://beacnpool.github.io/NFT-Studio/?view=labs) to explore working
+tools and experimental contract technology:
+
+| Lab | What works today |
+| --- | --- |
+| State capsule | Evolve an embedded artwork, inspect linked CIP-68 datum revisions, freeze and export its history. The one-shot Aiken contract has compiled Plutus V3 tests and independent node issuance evaluation. The browser demo is local; this is experimental contract code. |
+| Proof of existence | Hash up to 16 local files incrementally, export exact label-309 metadata using the public hash-only profile of proposed CIP-190, and verify original bytes. Exporting does not publish a transaction. |
+| Knowledge | Search 53 sourced Cardano entries, inspect enforcement and lifecycle limits, follow pinned primary sources and export research. Proposal status is separate from implementation evidence. |
+| Asset inspector | Derive CIP-14 fingerprints, verify CIP-67 checksums and locate paired CIP-68 asset names from exact bytes. It does not assert chain existence or ownership. |
+| Agent minting | Import a content-bound MCP request, inspect exact files, then use the existing wallet review, signing and receipt flow. |
+
+The [MCP service](docs/MCP.md) offers public knowledge and content tools plus a
+self-hosted Node service for unsigned mint construction and external signature
+verification. It never holds a signing key. The [knowledge repository](knowledge/)
+is reusable data with source hashes, attribution and an explicit evidence policy.
+
+Read [State Capsules](docs/STATE_CAPSULES.md),
+[proof encoding and vectors](docs/PROOF_OF_EXISTENCE.md), and
+[knowledge architecture](docs/KNOWLEDGE_BASE.md) before building on these tools.
+These are implementations and research built on existing Cardano standards;
+their individual evidence and open limitations are recorded in the repository.
+
 ## Open in VESPR
 
 Open the Studio URL inside VESPR’s dApp browser. The app has touch-friendly
@@ -99,6 +123,9 @@ npm run verify:design
 npm run verify:interactive
 npm run verify:games
 npm run verify:studio
+npm run verify:labs
+npm run verify:knowledge
+npm run verify:capsules
 node scripts/verify-mint-receipt.mjs
 npm run build
 ```
@@ -131,6 +158,10 @@ See [architecture and limits](docs/ARCHITECTURE.md),
 [verification scope](docs/VERIFICATION.md).
 
 ## Attribution
+
+Original BEACN source, documentation and knowledge summaries are available under
+[Apache-2.0](LICENSE). See [NOTICE](NOTICE) for retained licenses and media
+boundaries, and [CONTRIBUTING.md](CONTRIBUTING.md) to build on the work.
 
 Created by BEACN from its BMKR / BEACN PRISM and Ledger projects. Ledger Scrolls
 retains its upstream MIT license at `public/tools/ledger/LICENSE`. Original media,

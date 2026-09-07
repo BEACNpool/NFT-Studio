@@ -19,6 +19,7 @@ import {
   CircleHelp,
   ArrowLeft,
   ChevronRight,
+  FlaskConical,
 } from 'lucide-react';
 import {
   MODES,
@@ -34,6 +35,7 @@ import type { Artwork } from '@/lib/art';
 import type { FileSeed } from './file-workbench';
 import { StudioWallet } from './studio-wallet';
 import { registerStudioTools } from '@/lib/studio-webmcp';
+import { BeacnLabs } from './beacn-labs';
 declare global {
   interface Window {
     NFTStudioNavigation?: {
@@ -71,7 +73,7 @@ function readRoute() {
   const params = new URLSearchParams(location.search);
   const requestedView = params.get('view');
   const view: StudioView =
-    requestedView === 'guide' || views.some((v) => v.id === requestedView)
+    requestedView === 'guide' || requestedView === 'labs' || views.some((v) => v.id === requestedView)
       ? (requestedView as StudioView)
       : 'create';
   const requestedMode = params.get('create');
@@ -216,6 +218,11 @@ function StudioSurface() {
                   <ArrowUpRight size={15} />
                 </button>
               </div>
+              <button className="ns-lab-entry" onClick={() => navigate('labs')}>
+                <FlaskConical size={28} strokeWidth={1.6} />
+                <span><strong>BEACN Labs</strong><small>Explore Cardano. Create with your agent.</small></span>
+                <ChevronRight size={22} />
+              </button>
               <div className="ns-mode-grid">
                 {homeFormats.map(([id, title, detail]) => {
                   const item = MODES.find((mode) => mode.id === id)!;
@@ -293,6 +300,7 @@ function StudioSurface() {
             />
           )}
           {view === 'recover' && <RecoveryPanel />}
+          {view === 'labs' && <BeacnLabs onBack={() => navigate('create')} />}
           {view === 'guide' && (
             <>
               <button className="ns-back" onClick={() => navigate('create')}>

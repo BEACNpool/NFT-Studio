@@ -1,0 +1,11 @@
+{
+  "schema": "beacn.state-capsule.codec-verification.v1",
+  "status": "pass",
+  "independentSerializer": "cardano-serialization-lib 17.0.0",
+  "parityFixtures": 256,
+  "historyStates": 258,
+  "rejectionCases": 34,
+  "aikenGoldenDatumBytes": 76,
+  "aikenGoldenDatumHash": "b8ecd637e8cc8f5bddbf3d288517880a397166aa3e39670520c7beb408fb273a",
+  "evidence": "Synthetic local serialization and history verification. Not chain inclusion or transaction evaluation."
+}

@@ -1,0 +1,387 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://beacnpool.github.io/NFT-Studio/knowledge/schema.json",
+  "title": "BEACN Labs knowledge catalog v1",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "asOf": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "sourceRevision": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2400
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source"
+      },
+      "maxItems": 256,
+      "minItems": 1
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/entry"
+      },
+      "maxItems": 256,
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "asOf",
+    "sourceRevision",
+    "description",
+    "sources",
+    "entries"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "source": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]{0,79}$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://",
+          "maxLength": 1200
+        },
+        "rawUrl": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://",
+          "maxLength": 1200
+        },
+        "sourceCommit": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "accessedAt": {
+          "type": "string",
+          "format": "date-time",
+          "maxLength": 64
+        },
+        "declaredStatus": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300
+        },
+        "created": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "attribution": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2400
+        },
+        "sourceType": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300
+        },
+        "release": {
+          "type": "object",
+          "properties": {
+            "tag_name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1200
+            },
+            "published_at": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1200
+            },
+            "html_url": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https://",
+              "maxLength": 1200
+            },
+            "prerelease": {
+              "type": "boolean"
+            },
+            "status": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1200
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1200
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "url",
+        "rawUrl",
+        "sourceCommit",
+        "sha256",
+        "accessedAt",
+        "declaredStatus",
+        "license",
+        "attribution",
+        "sourceType"
+      ],
+      "additionalProperties": false
+    },
+    "entry": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]{0,79}$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300
+        },
+        "kind": {
+          "enum": [
+            "standard",
+            "tool",
+            "pattern"
+          ]
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1600
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "maxItems": 20,
+          "minItems": 1
+        },
+        "sourceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,79}$"
+          },
+          "maxItems": 24,
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "facts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2400
+              },
+              "sourceIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9-]{0,79}$"
+                },
+                "maxItems": 24,
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "text",
+              "sourceIds"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 16,
+          "minItems": 0
+        },
+        "designNotes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2400
+          },
+          "maxItems": 24,
+          "minItems": 1
+        },
+        "enforcement": {
+          "type": "object",
+          "properties": {
+            "layer": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "guarantees": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2400
+              },
+              "maxItems": 16,
+              "minItems": 1
+            },
+            "doesNotGuarantee": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2400
+              },
+              "maxItems": 16,
+              "minItems": 1
+            }
+          },
+          "required": [
+            "layer",
+            "guarantees",
+            "doesNotGuarantee"
+          ],
+          "additionalProperties": false
+        },
+        "lifecycle": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2400
+          },
+          "maxItems": 24,
+          "minItems": 1
+        },
+        "risks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2400
+          },
+          "maxItems": 24,
+          "minItems": 1
+        },
+        "interoperability": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2400
+          },
+          "maxItems": 24,
+          "minItems": 1
+        },
+        "maturity": {
+          "type": "object",
+          "properties": {
+            "standardStatus": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            },
+            "studioStatus": {
+              "const": "research-only"
+            },
+            "evidenceLevel": {
+              "enum": [
+                "primary-source-reviewed",
+                "design-proposal"
+              ]
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            }
+          },
+          "required": [
+            "standardStatus",
+            "studioStatus",
+            "evidenceLevel",
+            "version"
+          ],
+          "additionalProperties": false
+        },
+        "opportunities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2400
+          },
+          "maxItems": 24,
+          "minItems": 1
+        },
+        "relatedIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,79}$"
+          },
+          "maxItems": 24,
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "kind",
+        "summary",
+        "tags",
+        "sourceIds",
+        "facts",
+        "designNotes",
+        "enforcement",
+        "lifecycle",
+        "risks",
+        "interoperability",
+        "maturity",
+        "opportunities",
+        "relatedIds"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

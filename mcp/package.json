@@ -1,0 +1,33 @@
+{
+  "name": "@beacn/nft-studio-mcp",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "private": true,
+  "description": "Noncustodial Cardano NFT Studio tools, knowledge and unsigned mint preparation over MCP",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "node dist/cli.mjs",
+    "start:http": "node dist/cli.mjs --http",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "test:clean": "node integration/verify-clean-install.mjs",
+    "check": "node --check src/server.mjs && node --check src/http.mjs && node --check src/cli.mjs"
+  },
+  "dependencies": {
+    "@emurgo/cardano-serialization-lib-nodejs": "17.0.0",
+    "@modelcontextprotocol/node": "2.0.0",
+    "@modelcontextprotocol/server": "2.0.0",
+    "@noble/hashes": "2.4.0",
+    "fflate": "0.8.3",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "2.0.0",
+    "@types/node": "22.19.19",
+    "esbuild": "0.28.2",
+    "typescript": "5.9.3"
+  }
+}

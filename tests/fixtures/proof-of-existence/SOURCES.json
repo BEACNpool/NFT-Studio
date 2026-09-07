@@ -1,0 +1,82 @@
+{
+  "description": "Unmodified selected primary conformance vectors and their source pins. These cover only the stated public hashes profile.",
+  "sources": [
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/cardanowall/label-309/98e1f25674baf977ecec5828895d4305147115dd/LICENSE",
+      "sourceCommit": "98e1f25674baf977ecec5828895d4305147115dd",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "accessedAt": "2026-09-07T04:40:03.395588+00:00"
+    },
+    {
+      "path": "registries/hash-algorithms.json",
+      "url": "https://raw.githubusercontent.com/cardanowall/label-309/98e1f25674baf977ecec5828895d4305147115dd/registries/hash-algorithms.json",
+      "sourceCommit": "98e1f25674baf977ecec5828895d4305147115dd",
+      "sha256": "6993b195eb6c87288ff33f0ae2891f169956921e75f52f7316972f43eb5dd934",
+      "accessedAt": "2026-09-07T04:40:03.385428+00:00"
+    },
+    {
+      "path": "conformance/hash/sha256-kat.json",
+      "url": "https://raw.githubusercontent.com/cardanowall/label-309/98e1f25674baf977ecec5828895d4305147115dd/conformance/hash/sha256-kat.json",
+      "sourceCommit": "98e1f25674baf977ecec5828895d4305147115dd",
+      "sha256": "144fafea5f7a084861cd883c3f767f1bf3058a19d99293948773d116dda5ae42",
+      "accessedAt": "2026-09-07T04:40:03.382356+00:00"
+    },
+    {
+      "path": "conformance/hash/blake2b256-kat.json",
+      "url": "https://raw.githubusercontent.com/cardanowall/label-309/98e1f25674baf977ecec5828895d4305147115dd/conformance/hash/blake2b256-kat.json",
+      "sourceCommit": "98e1f25674baf977ecec5828895d4305147115dd",
+      "sha256": "c840e5ff5716c22ae6e7852a1609d640ce7aff21d038fe30d5055e4c170ca408",
+      "accessedAt": "2026-09-07T04:40:03.512388+00:00"
+    },
+    {
+      "path": "conformance/hash/dual-hash-equivalence.json",
+      "url": "https://raw.githubusercontent.com/cardanowall/label-309/98e1f25674baf977ecec5828895d4305147115dd/conformance/hash/dual-hash-equivalence.json",
+      "sourceCommit": "98e1f25674baf977ecec5828895d4305147115dd",
+      "sha256": "8467dc516f4ae9f771228ecc285f6f25b0166ab6fefc155c2b760096536a42cf",
+      "accessedAt": "2026-09-07T04:40:03.553784+00:00"
+    },
+    {
+      "path": "conformance/carriage/chunk-array-positive.json",
+      "url": "https://raw.githubusercontent.com/cardanowall/label-309/98e1f25674baf977ecec5828895d4305147115dd/conformance/carriage/chunk-array-positive.json",
+      "sourceCommit": "98e1f25674baf977ecec5828895d4305147115dd",
+      "sha256": "ec3166b995ac2388e00eee107505d2aff6c400c4d33cfdb6d34877c3988deb10",
+      "accessedAt": "2026-09-07T04:40:03.507494+00:00"
+    },
+    {
+      "path": "conformance/carriage/chunk-array-negative.json",
+      "url": "https://raw.githubusercontent.com/cardanowall/label-309/98e1f25674baf977ecec5828895d4305147115dd/conformance/carriage/chunk-array-negative.json",
+      "sourceCommit": "98e1f25674baf977ecec5828895d4305147115dd",
+      "sha256": "6233dfa1c65646ee924b39c5ce703da2e4b25dcd443b8976ccec983357d989aa",
+      "accessedAt": "2026-09-07T04:40:03.512134+00:00"
+    },
+    {
+      "path": "conformance/cbor/canonical-decode-negative.json",
+      "url": "https://raw.githubusercontent.com/cardanowall/label-309/98e1f25674baf977ecec5828895d4305147115dd/conformance/cbor/canonical-decode-negative.json",
+      "sourceCommit": "98e1f25674baf977ecec5828895d4305147115dd",
+      "sha256": "898d7efc7943e1bcc01d1718c754781f681711a639e3eb733a27fce64a1462b1",
+      "accessedAt": "2026-09-07T04:40:03.514157+00:00"
+    },
+    {
+      "path": "conformance/validator/validator-positive.json",
+      "url": "https://raw.githubusercontent.com/cardanowall/label-309/98e1f25674baf977ecec5828895d4305147115dd/conformance/validator/validator-positive.json",
+      "sourceCommit": "98e1f25674baf977ecec5828895d4305147115dd",
+      "sha256": "88a740329c7485834b7d1e19e79b1b4677ac1f8b4703eece9e1472f5c60b0f0f",
+      "accessedAt": "2026-09-07T04:40:03.626650+00:00"
+    },
+    {
+      "path": "cddl/label-309.cddl",
+      "url": "https://raw.githubusercontent.com/cardanowall/label-309/98e1f25674baf977ecec5828895d4305147115dd/cddl/label-309.cddl",
+      "sourceCommit": "98e1f25674baf977ecec5828895d4305147115dd",
+      "sha256": "8f0e3d3cb8151636afa142affbb47d316a856a35c34e724b099ed93b65927208",
+      "accessedAt": "2026-09-07T04:40:03.643993+00:00"
+    },
+    {
+      "path": "CIP-0190/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0190/README.md",
+      "sourceCommit": "05ee6bb05982289dbe00c4187b9d54cf90e2e276",
+      "sha256": "941641f40924960674e7388b2a57eba7ded35c303f1f3d85cc5171864c5157e9",
+      "accessedAt": "2026-09-07"
+    }
+  ]
+}

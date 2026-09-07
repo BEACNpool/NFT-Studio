@@ -1,0 +1,44 @@
+{
+  "schema": "beacn.state-capsule.provider-evaluation.v1",
+  "evaluatedAt": "2026-09-07T04:50:16.640Z",
+  "endpoint": "https://cardano-mainnet.blockfrost.io/api/v0/utils/txs/evaluate/utxos",
+  "mode": "unsigned-synthetic-additional-utxo-set",
+  "results": [
+    {
+      "name": "synthetic-pair-mint",
+      "expected": "accept",
+      "httpStatus": 200,
+      "response": {
+        "type": "jsonwsp/fault",
+        "version": "1.0",
+        "servicename": "ogmios",
+        "fault": {
+          "code": "client",
+          "string": "Invalid request: failed to decode payload from base64 or base16."
+        },
+        "reflection": {
+          "id": "5d2dfdfe-0635-4b1f-944e-f4941494412e"
+        }
+      }
+    },
+    {
+      "name": "synthetic-pair-mint-missing-signer",
+      "expected": "reject",
+      "httpStatus": 200,
+      "response": {
+        "type": "jsonwsp/fault",
+        "version": "1.0",
+        "servicename": "ogmios",
+        "fault": {
+          "code": "client",
+          "string": "Invalid request: failed to decode payload from base64 or base16."
+        },
+        "reflection": {
+          "id": "189789f3-9fe5-430e-8a61-47e872eadaf9"
+        }
+      }
+    }
+  ],
+  "noSubmission": true,
+  "noSigningKeys": true
+}

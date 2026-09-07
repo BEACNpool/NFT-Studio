@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-09-07",
+  "description": "Observed source limitations and BEACN implementation admission gates; no upstream issue or message was submitted.",
+  "issues": [
+    {
+      "id": "cip68-datum-examples",
+      "sourceIds": [
+        "cip-0068"
+      ],
+      "status": "open-research-limitation",
+      "observedAt": "2026-09-07",
+      "observation": "The normative datum describes metadata, version and required extra, while displayed JSON examples omit the third field.",
+      "consequence": "Copying an example can produce a datum that does not satisfy the declared shape.",
+      "currentHandling": "Use the normative three-field profile in proposed builders; do not treat examples as passing vectors.",
+      "acceptanceGate": "Serialize and independently decode the chosen datum profile, test missing extra rejection, and obtain target-viewer evidence."
+    },
+    {
+      "id": "cip68-new-version-compatibility",
+      "sourceIds": [
+        "cip-0068"
+      ],
+      "status": "open-research-limitation",
+      "observedAt": "2026-09-07",
+      "observation": "The current document includes nested version-4 metadata in addition to direct versions; its presence is not a wallet support matrix.",
+      "consequence": "A newly selected version can reduce interoperability even under an Active CIP.",
+      "currentHandling": "Version-pin each implementation and report unknown consumer support.",
+      "acceptanceGate": "Exercise exact version-4 fixtures in named consumers before enabling that profile."
+    },
+    {
+      "id": "cip60-ledger-type-conflict",
+      "sourceIds": [
+        "cip-0060",
+        "cip-0060-v3-cddl",
+        "cip-0025-v1-cddl"
+      ],
+      "status": "open-research-limitation",
+      "observedAt": "2026-09-07",
+      "observation": "CIP-60 prose and v3 CDDL include boolean fields; ordinary transaction metadata does not directly admit JSON booleans. The v3 CDDL also includes conditional expressions that need parser/profile review.",
+      "consequence": "Naively converting the sample JSON may fail ledger serialization; replacing booleans with strings without disclosure is not demonstrated conformance.",
+      "currentHandling": "Keep music-profile implementation research-only and omit unsupported optional fields in any narrow experiment.",
+      "acceptanceGate": "Document a ledger-valid profile, test the selected CDDL/tooling behavior, and verify it with an independent consumer or upstream clarification."
+    },
+    {
+      "id": "cip60-version-wording",
+      "sourceIds": [
+        "cip-0060"
+      ],
+      "status": "open-research-limitation",
+      "observedAt": "2026-09-07",
+      "observation": "The current README links v3 CDDL and marks v1/v2 deprecated while retaining a heading describing v3 changes as proposed.",
+      "consequence": "A reader can confuse the parent CIP Active status with a separately proven v3 consumer profile.",
+      "currentHandling": "Record exact version and this inconsistency; avoid a blanket music-CIP compatibility claim.",
+      "acceptanceGate": "Version-specific encoding and player acceptance evidence."
+    },
+    {
+      "id": "cip86-null-delete",
+      "sourceIds": [
+        "cip-0086",
+        "cip-0025-v1-cddl"
+      ],
+      "status": "open-research-limitation",
+      "observedAt": "2026-09-07",
+      "observation": "CIP-86 prose describes deleting a field by assigning null, which ordinary ledger transaction metadata cannot directly encode.",
+      "consequence": "A deletion builder needs an agreed valid wire representation rather than a copied JSON null.",
+      "currentHandling": "Do not ship a deletion profile from the prose alone.",
+      "acceptanceGate": "Resolve against normative artifacts/upstream and independent reconstruction fixtures."
+    },
+    {
+      "id": "cip86-update-and-regex-conflicts",
+      "sourceIds": [
+        "cip-0086",
+        "cip-0025"
+      ],
+      "status": "open-research-limitation",
+      "observedAt": "2026-09-07",
+      "observation": "CIP-86 background describes mint/burn CIP-25 updates, while current CIP-25 constrains metadata updates to positive minting. CIP-86 also names PCRE but later cites ECMAScript regex grammar.",
+      "consequence": "A reader can accept invalid baseline updates or reconstruct different states across implementations.",
+      "currentHandling": "Treat CIP-25 positive-mint semantics explicitly; leave regex update support unavailable until a precise bounded profile is tested.",
+      "acceptanceGate": "Cross-implementation ordered-history fixtures including rollback, invalid baseline events and regex edge cases."
+    },
+    {
+      "id": "cip124-object-or-uri",
+      "sourceIds": [
+        "cip-0124"
+      ],
+      "status": "open-research-limitation",
+      "observedAt": "2026-09-07",
+      "observation": "The proposal declares strings objects while later prose/examples discuss externally hosted strings via a URI.",
+      "consequence": "An implementation that accepts both without an explicit profile may claim more compatibility than its schema proves.",
+      "currentHandling": "Prioritize a bounded inline-object profile with canonical fallbacks.",
+      "acceptanceGate": "Confirm exact object/URI representation and test selected viewers; keep externally mutable content visibly distinct."
+    },
+    {
+      "id": "cip102-v2-reference-gap",
+      "sourceIds": [
+        "cip-0102"
+      ],
+      "status": "open-research-limitation",
+      "observedAt": "2026-09-07",
+      "observation": "Current text defines royalty version 2 and numeric postfixes but labels the linked reference implementation as v1, with v2 forthcoming.",
+      "consequence": "A v1 implementation is insufficient evidence for v2 conformance.",
+      "currentHandling": "Separate version-1 and version-2 claims and retain experimental status.",
+      "acceptanceGate": "V2 derivation, selection, rounding and payment fixtures with an independent validator/consumer."
+    },
+    {
+      "id": "cip143-inactive",
+      "sourceIds": [
+        "cip-0143"
+      ],
+      "status": "open-research-limitation",
+      "observedAt": "2026-09-07",
+      "observation": "Upstream marks CIP-143 Inactive and incorporated into candidate CIP-0113.",
+      "consequence": "A copied tooling list can send new implementations toward a retired standalone proposal.",
+      "currentHandling": "Keep historical entry searchable with explicit inactive reason.",
+      "acceptanceGate": "Research and pin the candidate replacement independently before implementation."
+    },
+    {
+      "id": "cip188-authority-hazards",
+      "sourceIds": [
+        "cip-0188"
+      ],
+      "status": "open-research-limitation",
+      "observedAt": "2026-09-07",
+      "observation": "Canonical proposed v1 uses consumed controlling-asset presence; self-deposit deliberately enables permissionless spending, and historical uniqueness is outside its predicate.",
+      "consequence": "A generic private-vault UX can make dangerous promises even if it reproduces the canonical validator perfectly.",
+      "currentHandling": "Limit immediate work to derivation, policy classification and hazard explanation; no funded-vault admission.",
+      "acceptanceGate": "Canonical vector agreement, adversarial lifecycle/evaluator tests, escrow/cycle analysis and independent security review."
+    },
+    {
+      "id": "cip190-review-scope",
+      "sourceIds": [
+        "cip-0190"
+      ],
+      "status": "open-research-limitation",
+      "observedAt": "2026-09-07",
+      "observation": "This research reviewed the commitment purpose and structure, not every encryption profile, algorithm registry or conformance vector in the long proposal.",
+      "consequence": "A minimal digest feature cannot be described as fully CIP-190 compliant or as reviewed cryptography.",
+      "currentHandling": "Keep a narrow research entry and explicit profile-level admission.",
+      "acceptanceGate": "Dedicated profile implementation, full vector tests and appropriate cryptographic review."
+    },
+    {
+      "id": "tool-release-is-not-package",
+      "sourceIds": [
+        "tool-lucid-evolution"
+      ],
+      "status": "open-research-limitation",
+      "observedAt": "2026-09-07",
+      "observation": "The latest-release endpoint returned a scalus-uplc workspace package release, not necessarily the principal Lucid package version.",
+      "consequence": "A repository latest-release tag can install or document the wrong component.",
+      "currentHandling": "Capture it as an observed release only.",
+      "acceptanceGate": "Resolve exact package manifest, release and lockfile before adoption."
+    },
+    {
+      "id": "tool-beta-flag",
+      "sourceIds": [
+        "tool-yaci-devkit"
+      ],
+      "status": "open-research-limitation",
+      "observedAt": "2026-09-07",
+      "observation": "The latest GitHub release was tagged v0.12.0-beta5 with prerelease false; the README explicitly identifies beta and stable tracks.",
+      "consequence": "Automating stability decisions from the API boolean misclassifies the release.",
+      "currentHandling": "Read the maintained node/protocol compatibility table and tag semantics.",
+      "acceptanceGate": "Choose a tested release/era pair and record that choice."
+    }
+  ]
+}

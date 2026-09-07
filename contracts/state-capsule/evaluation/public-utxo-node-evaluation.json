@@ -1,0 +1,121 @@
+{
+  "schema": "beacn.state-capsule.independent-node-evaluation.v1",
+  "evaluatedAt": "2026-09-07T04:58:11.770Z",
+  "endpoint": "https://cardano-mainnet.blockfrost.io/api/v0/utils/txs/evaluate?version=6",
+  "scope": "unsigned-transaction-with-current-public-chain-utxos",
+  "parameterEpoch": 654,
+  "tipSlot": 197190784,
+  "inputCount": 7,
+  "preservedExistingAssetPolicies": 69,
+  "feeLovelace": "916071",
+  "scriptPolicyId": "560147d06f52d121a591f4f07a63ea54c501215f116f448076b00e96",
+  "appliedScriptBytes": 3112,
+  "datumBytes": 82,
+  "estimatedSignedBytes": 9581,
+  "results": [
+    {
+      "name": "current-public-seed-pair-mint",
+      "expected": "accept",
+      "status": "pass",
+      "unsignedBytes": 9475,
+      "unsignedSha256": "6c92fde07be934f79bc25557691f45a3950278db190373ad996a3f0700b3d614",
+      "httpStatus": 200,
+      "response": {
+        "jsonrpc": "2.0",
+        "method": "evaluateTransaction",
+        "result": [
+          {
+            "validator": {
+              "index": 0,
+              "purpose": "mint"
+            },
+            "budget": {
+              "memory": 894708,
+              "cpu": 296197894
+            }
+          }
+        ],
+        "id": "98f4063a-0067-4379-95f9-2e3877b0b8cd"
+      }
+    },
+    {
+      "name": "current-public-seed-missing-required-signer",
+      "expected": "reject",
+      "status": "pass",
+      "unsignedBytes": 9440,
+      "unsignedSha256": "13c2f3a02faca3684464408daae6446077d6393db9e9c6ec6f42edd45e2096c9",
+      "httpStatus": 200,
+      "response": {
+        "jsonrpc": "2.0",
+        "method": "evaluateTransaction",
+        "error": {
+          "code": 3010,
+          "message": "Some scripts of the transactions terminated with error(s).",
+          "data": [
+            {
+              "validator": {
+                "index": 0,
+                "purpose": "mint"
+              },
+              "error": {
+                "code": 3012,
+                "message": "Some of the scripts failed to evaluate to a positive outcome. The field 'data.validationError' informs about the nature of the error, and 'data.traces' lists all the execution traces collected during the script execution.",
+                "data": {
+                  "validationError": "An error has occurred:\nThe machine terminated because of an error, either from a built-in function or from an explicit use of 'error'.\nCaused by: (error)",
+                  "traces": []
+                }
+              }
+            }
+          ]
+        },
+        "id": "3c6dcf02-c278-466c-8776-652100f5297b"
+      }
+    },
+    {
+      "name": "current-public-seed-reference-only",
+      "expected": "reject",
+      "status": "pass",
+      "unsignedBytes": 9480,
+      "unsignedSha256": "a65fd66cda39d5d62cdfb3dcdce28bf34d144edb8dc74cfe41c19f7df4edf036",
+      "httpStatus": 200,
+      "response": {
+        "jsonrpc": "2.0",
+        "method": "evaluateTransaction",
+        "error": {
+          "code": 3010,
+          "message": "Some scripts of the transactions terminated with error(s).",
+          "data": [
+            {
+              "validator": {
+                "index": 0,
+                "purpose": "mint"
+              },
+              "error": {
+                "code": 3012,
+                "message": "Some of the scripts failed to evaluate to a positive outcome. The field 'data.validationError' informs about the nature of the error, and 'data.traces' lists all the execution traces collected during the script execution.",
+                "data": {
+                  "validationError": "An error has occurred:\nThe machine terminated because of an error, either from a built-in function or from an explicit use of 'error'.\nCaused by: [ (force (builtin tailList)) (con (list data) []) ]",
+                  "traces": [
+                    "Expected a non-empty list but got an empty one"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "id": "a0e4a96a-9b8f-41fe-876d-4d7c23bcad80"
+      }
+    }
+  ],
+  "noSubmission": true,
+  "includesRealCurrentUtxos": true,
+  "includesSyntheticAdditionalUtxos": false,
+  "limitations": [
+    "No key signatures were created or supplied.",
+    "Evaluation does not perform all ledger phase-1 checks or guarantee submission acceptance.",
+    "No capsule exists on-chain because this transaction was never submitted.",
+    "Only issuance can use real current UTxOs before a capsule is minted; evolution/freeze remain locally executed fixtures.",
+    "Public holder addresses, balances, exact UTxOs and unsigned CBOR are deliberately omitted from this shareable receipt."
+  ],
+  "noSigningKeyMaterial": true
+}

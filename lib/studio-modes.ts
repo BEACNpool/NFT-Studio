@@ -86,6 +86,7 @@ export type StudioView =
   | 'showcase'
   | 'projects'
   | 'recover'
+  | 'labs'
   | 'guide';
 export const isCreationMode = (v: unknown): v is CreationMode =>
   MODES.some((m) => m.id === v);

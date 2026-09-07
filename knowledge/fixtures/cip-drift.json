@@ -1,0 +1,84 @@
+{
+  "description": "Original deterministic monitor fixtures; not copied CIP content or live claims.",
+  "baselineBody": "---\nCIP: 1\nStatus: Proposed\n---\n\nOriginal fixture prose.\n",
+  "baselineSha256": "aefe99d2e771bf66caa6fecb0b0fe03dcc29c2114e03016d014eb4cb2481257f",
+  "cases": [
+    {
+      "name": "unchanged",
+      "head": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "status": 200,
+      "body": "---\nCIP: 1\nStatus: Proposed\n---\n\nOriginal fixture prose.\n",
+      "expected": {
+        "outcome": "unchanged",
+        "complete": true,
+        "shaChanged": false,
+        "statusChanged": false
+      },
+      "bodySha256": "aefe99d2e771bf66caa6fecb0b0fe03dcc29c2114e03016d014eb4cb2481257f"
+    },
+    {
+      "name": "changed-status",
+      "head": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "status": 200,
+      "body": "---\nCIP: 1\nStatus: Active\n---\n\nOriginal fixture prose.\n",
+      "expected": {
+        "outcome": "changed",
+        "complete": true,
+        "shaChanged": true,
+        "statusChanged": true
+      },
+      "bodySha256": "c2dc22a1ba80e74e83d94589787b9bf05817c7618f43172354ea4fda46295229"
+    },
+    {
+      "name": "changed-content",
+      "head": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "status": 200,
+      "body": "---\nCIP: 1\nStatus: Proposed\n---\n\nOriginal fixture prose.\nMore original fixture prose.\n",
+      "expected": {
+        "outcome": "changed",
+        "complete": true,
+        "shaChanged": true,
+        "statusChanged": false
+      },
+      "bodySha256": "64f6deabd1f128d75aca96e3607a43cd1db064e461c8bf7e319b9cedffe3a31d"
+    },
+    {
+      "name": "missing-http",
+      "head": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "status": 404,
+      "body": "Missing fixture file.",
+      "expected": {
+        "outcome": "unavailable",
+        "complete": false,
+        "errorCode": "HTTP_ERROR",
+        "httpStatus": 404
+      },
+      "bodySha256": "7dd9c764b91bdbff24d626a02e70d69cb55a2626b7c0b0608c326ff0748d211f"
+    },
+    {
+      "name": "malformed-head",
+      "head": "not-a-commit",
+      "status": 200,
+      "body": "---\nCIP: 1\nStatus: Proposed\n---\n\nOriginal fixture prose.\n",
+      "expected": {
+        "outcome": "not-checked",
+        "complete": false,
+        "headErrorCode": "MALFORMED_HEAD"
+      },
+      "bodySha256": "aefe99d2e771bf66caa6fecb0b0fe03dcc29c2114e03016d014eb4cb2481257f"
+    },
+    {
+      "name": "ambiguous-status",
+      "head": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "status": 200,
+      "body": "---\nCIP: 1\nStatus: Proposed\nStatus: Active\n---\n\nOriginal fixture prose.\n",
+      "expected": {
+        "outcome": "status-unreadable",
+        "complete": false,
+        "errorCode": "STATUS_UNREADABLE",
+        "shaChanged": true
+      },
+      "bodySha256": "ee66543d67a5e71d7947147227e1f81b24c568118b2fe59a50449b159e878054"
+    }
+  ]
+}

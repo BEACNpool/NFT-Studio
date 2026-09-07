@@ -1,6 +1,7 @@
 {
   "name": "nft-studio",
   "version": "1.0.0",
+  "license": "Apache-2.0",
   "private": true,
   "engines": {
     "node": ">=22.13.0"
@@ -21,7 +22,11 @@
     "build:abcde": "PRISM_BASE_PATH=/ABCDE/BMKR vinext build && node scripts/export-abcde.mjs",
     "build:pages": "NFT_STUDIO_BASE_PATH=/NFT-Studio vinext build && node scripts/export-studio.mjs",
     "verify:studio": "node scripts/verify-studio.mjs",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "verify:labs": "node scripts/verify-labs.mjs && node scripts/verify-proof-of-existence.mjs",
+    "verify:knowledge": "node knowledge/verify.mjs && node knowledge/verify-cip-drift.mjs",
+    "verify:capsules": "node contracts/state-capsule/scripts/verify-codec.mjs && node contracts/state-capsule/scripts/verify-transactions.mjs && node contracts/state-capsule/scripts/build-demo.mjs --check",
+    "verify:mcp": "npm --prefix mcp test"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",
