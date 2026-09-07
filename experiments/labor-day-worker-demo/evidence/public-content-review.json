@@ -1,0 +1,70 @@
+{
+  "schema": "beacn.labor-day.public-content-review.v1",
+  "checkedAt": "2026-09-07T17:01:47.595Z",
+  "status": "PASS_CONTENT_REVIEW_ONLY",
+  "sourceCommit": "b8b416ae2ee922b6cbdf4e8d12187e6c79da2c3e",
+  "browser": "Chrome/152.0.7977.64",
+  "intentHash": "7b62df3ce92b69b7ee3d149eb3f757c1cd17e79f80ddbafd1bb04810b944d0a1",
+  "rawBytes": 8146,
+  "files": [
+    {
+      "name": "happy-labor-day.svg",
+      "bytes": 1880,
+      "sha256": "789acd5c1b5fa11cdf7041e486833c41f32712fff0066afa5e743f608b93a857"
+    },
+    {
+      "name": "original-whistle-march.ogg",
+      "bytes": 6266,
+      "sha256": "ff4a427f455c2f95c7a01461a103eabddcbfde9d0a7a5b45a3f5dc05e7e3a3a9"
+    }
+  ],
+  "reviewUrlCharacters": 15684,
+  "reviewUrlSha256": "f747afdd977a34ae13eea43d699fa7e8bb2f7ade166da031e3cf6bce59b63972",
+  "views": [
+    {
+      "width": 1440,
+      "title": "Happy Labor Day 2026",
+      "overflow": false,
+      "walletAbsent": true,
+      "walletDialog": false,
+      "runtimeCalls": [],
+      "fragmentCleared": true,
+      "exactCover": true,
+      "exactAudio": true,
+      "playback": {
+        "currentTime": 1.367788,
+        "duration": 7.2065,
+        "paused": false,
+        "error": null
+      },
+      "exportMatches": true
+    },
+    {
+      "width": 390,
+      "title": "Happy Labor Day 2026",
+      "overflow": false,
+      "walletAbsent": true,
+      "walletDialog": false,
+      "runtimeCalls": [],
+      "fragmentCleared": true,
+      "exactCover": true,
+      "exactAudio": true,
+      "playback": {
+        "currentTime": 1.461901,
+        "duration": 7.2065,
+        "paused": false,
+        "error": null
+      },
+      "exportMatches": null
+    }
+  ],
+  "errors": [],
+  "outside": [],
+  "httpFailures": [],
+  "walletConnected": false,
+  "signed": false,
+  "submitted": false,
+  "chainConfirmed": false,
+  "humanListeningReview": false,
+  "scope": "Actual public GitHub Pages cover/audio tabs and exact request export in clean Chromium. Technical playback only. No Eternl extension or wallet interaction."
+}

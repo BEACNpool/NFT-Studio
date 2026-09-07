@@ -1,0 +1,15 @@
+# Native Windows local MCP installation observation
+
+This bounded observation exercised a fresh native Windows checkout and the repo-local Codex installer. It installed and verified only `nft-studio`, and the second invocation confirmed an exact-match no-op. Discovery returned **17 tools and 61 resources**. It did not run a Codex inference task, launch a desktop app, connect a wallet, mint, or record a demonstration.
+
+The original installer used `spawnSync('codex', args)`. On the observed npm-installed Windows CLI this returned ENOENT; directly spawning codex.cmd returned EINVAL. The three hash-bound source files here retain the Linux/macOS invocation and resolve either native codex.exe or the standard npm package's verified JavaScript entry on Windows. Arguments remain an array, with no shell. This is executable selection, not an authenticity/signature check of installed software. Unsupported shim layouts fail before changing Codex configuration.
+
+The correction was tested as three reviewed files over the immutable public base named in `public-verification.json`. It was not yet a new published commit during this run. The actual Windows built CLI hash is reported without claiming cross-platform bundle byte identity. Historical Linux or browser receipts remain separate.
+
+Six launcher tests passed in memory on Windows, alongside actual CLI version and absent-server checks. The actual installed checkout later passed the ten focused installer/launcher tests; a private Linux candidate also passed those ten. These are distinct execution observations, not a combined test-count claim.
+
+The first checkout exposed a real Windows long-path issue: Git returned success but omitted two archived source files. The redacted installation log retains those warnings and deleted-file status. A separately authorized repair enabled `core.longpaths=true` only in the new repository, restored just those two paths from the pinned base, and verified their SHA-256 hashes. Final tracked content had only the intended three installer changes. A reproducible future Windows clone should use both `--config core.autocrlf=false` and `--config core.longpaths=true`, and verify clean checkout status before proceeding. No global Windows or Git settings were changed.
+
+The included source and focused test logs are exact bytes. The installation log redacts private absolute paths; the compact JSON omits private infrastructure/account identifiers. No authentication configuration values were read or emitted. The final private readback also rechecked the retained original installer backup, installed source hashes and compiled CLI hash.
+
+References: [Node Windows batch-file limitation](https://nodejs.org/api/child_process.html#spawning-bat-and-cmd-files-on-windows), [official Codex MCP setup](https://learn.chatgpt.com/docs/extend/mcp?surface=cli), [native Windows environment](https://learn.chatgpt.com/docs/windows/windows-sandbox). The direct local observations establish the specific installed versions and outcomes in this receipt.

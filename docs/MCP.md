@@ -25,6 +25,13 @@ review link.” `create_mint_intent.review.url` opens the exact verified content
 review and approve the mint. Keep `packetJson` under its returned filename as a
 file-import fallback. Dedicated music packages still use **Music release** import.
 
+For audio, binary files or larger agent results, use the included
+[local-file review exporter](MCP_LOCAL_FILES.md). It sends exact file bytes through
+the local MCP and saves a complete review page and request without copying media
+or a long link through model prose. A prepared
+[Labor Day flag and original whistle march](../experiments/labor-day-worker-demo/README.md)
+demonstrates this path; it is not a confirmed mint.
+
 The separately deployable Worker has a 15-tool subset. It requires an operator's
 own HTTPS host; no hosted address is advertised in this repository. A setup-page
 URL cannot substitute for that endpoint. The [operator integration guide](../mcp/integration/README.md)
@@ -83,6 +90,21 @@ The skill teaches tool selection, exact files, supported limits, research and
 wallet handoff; it does not retrain the model. Your existing Codex login supplies
 the AI service, subject to your plan's limits. No extra model-provider key is
 required by this MCP. See [official Codex MCP setup](https://learn.chatgpt.com/docs/extend/mcp?surface=cli).
+
+On Windows, the installer supports a native `codex.exe` or the standard npm
+`@openai/codex` installation. It invokes the npm JavaScript entry with Node and
+preserves arguments without a command shell. Unsupported shims fail before any
+configuration change. Open a new terminal after installing Codex.
+
+For a Windows checkout in a deep folder, use repository-local long-path support:
+
+```sh
+git clone --config core.longpaths=true https://github.com/BEACNpool/NFT-Studio.git
+```
+
+Some archived research filenames are long. Check clone/checkout warnings even if
+Git returns success; a partially checked-out research corpus is not a clean
+installation. This option changes only the new repository's Git setting.
 
 The Studio fee is **0 ADA**. Network fees still apply; minimum ADA kept with an
 NFT remains in the user's output. An AI subscription does not fund the wallet.

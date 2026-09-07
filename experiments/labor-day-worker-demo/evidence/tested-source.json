@@ -1,0 +1,57 @@
+{
+  "schema": "beacn.labor-day-tested-source.v1",
+  "baseCommit": "b8b416ae2ee922b6cbdf4e8d12187e6c79da2c3e",
+  "scope": "Trusted local Studio build used by the observed SDK and synthetic transaction checks. File identities are recorded separately from the base commit; no assertion that unrelated pending source was committed.",
+  "files": [
+    {
+      "path": "lib/studio-payload.ts",
+      "bytes": 18099,
+      "sha256": "ed452542debb915ba0983ae4e9e9a86870641c96ba6be69e04b518e06eda460d"
+    },
+    {
+      "path": "lib/studio-intent.ts",
+      "bytes": 5176,
+      "sha256": "61f677bb7c5208be84ef35c5699457510e5b15cd8d4eb9af20e1594c32883883"
+    },
+    {
+      "path": "lib/studio-review-link.ts",
+      "bytes": 2856,
+      "sha256": "717916e9d49f6fed6bc82605efb305cd79ccf09829e4d2205fb4e3018a6c0c4c"
+    },
+    {
+      "path": "lib/studio-transaction.ts",
+      "bytes": 10377,
+      "sha256": "38d6275b30cac4ff214025702326c09ad257783fa8dd8a2f5c251277c996bd6a"
+    },
+    {
+      "path": "lib/cardano.ts",
+      "bytes": 16679,
+      "sha256": "359e145cfa457f2b2355ce560aa1ba356102467a74f2a5caec9bfbaf4cd37b02"
+    },
+    {
+      "path": "mcp/src/server.mjs",
+      "bytes": 17256,
+      "sha256": "3ac44e672ba40a0b6a02afdd11eec1e3bb8a039894b5930403bd747d6382e294"
+    },
+    {
+      "path": "mcp/src/schemas.mjs",
+      "bytes": 3707,
+      "sha256": "9d55f7814799cbe57c1010f851f129606cf5a0c5d0f67455b66cd9b6388ca57b"
+    },
+    {
+      "path": "mcp/src/protocol.mjs",
+      "bytes": 2467,
+      "sha256": "f3346d4db173f5917ec9b69c245bfccaf86340805df841822beb2ff847e15a88"
+    },
+    {
+      "path": "mcp/dist/cli.mjs",
+      "bytes": 4389987,
+      "sha256": "55e0d1dac6153477ba526db8c7859abad5030e2076c8a03faa1fd59d4a232e19"
+    },
+    {
+      "path": "mcp/package-lock.json",
+      "bytes": 59857,
+      "sha256": "9e25fc1e9f86b7b5d786e58d080ff3bd95ee32651a73cdec368f3170d69205cc"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: Linux and macOS retain literal codex command and unchanged argument array/options
+ok 1 - Linux and macOS retain literal codex command and unchanged argument array/options
+  ---
+  duration_ms: 2.377923
+  type: 'test'
+  ...
+# Subtest: Windows native executable is used shell-free
+ok 2 - Windows native executable is used shell-free
+  ---
+  duration_ms: 0.48079
+  type: 'test'
+  ...
+# Subtest: standard npm shim resolves verified JavaScript entry with Node; shell characters remain literal
+ok 3 - standard npm shim resolves verified JavaScript entry with Node; shell characters remain literal
+  ---
+  duration_ms: 0.969323
+  type: 'test'
+  ...
+# Subtest: first supported PATH directory wins; quoted absolute entries work; relative and empty entries never search cwd
+ok 4 - first supported PATH directory wins; quoted absolute entries work; relative and empty entries never search cwd
+  ---
+  duration_ms: 0.557704
+  type: 'test'
+  ...
+# Subtest: a malformed first shim does not fall through to another installation
+ok 5 - a malformed first shim does not fall through to another installation
+  ---
+  duration_ms: 1.959402
+  type: 'test'
+  ...
+# Subtest: missing Windows launcher refuses before spawning or changing any configuration
+ok 6 - missing Windows launcher refuses before spawning or changing any configuration
+  ---
+  duration_ms: 0.538201
+  type: 'test'
+  ...
+# Subtest: installer adds only absent server and preserves exact same setup
+ok 7 - installer adds only absent server and preserves exact same setup
+  ---
+  duration_ms: 1.531208
+  type: 'test'
+  ...
+# Subtest: installer preserves conflicting commands, environment, disabled server and tool filters
+ok 8 - installer preserves conflicting commands, environment, disabled server and tool filters
+  ---
+  duration_ms: 0.560877
+  type: 'test'
+  ...
+# Subtest: installer accepts exact CLI response and fails closed on ambiguous output
+ok 9 - installer accepts exact CLI response and fails closed on ambiguous output
+  ---
+  duration_ms: 0.657944
+  type: 'test'
+  ...
+# Subtest: installer requires Node 22.13 and an existing compiled build
+ok 10 - installer requires Node 22.13 and an existing compiled build
+  ---
+  duration_ms: 6.621777
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 260.341911

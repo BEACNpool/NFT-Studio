@@ -1,0 +1,44 @@
+{
+  "schema": "beacn.labor-day.browser-preview.v1",
+  "status": "pass",
+  "browser": "Chrome/152.0.7977.64",
+  "checks": [
+    {
+      "width": 1440,
+      "duration": 7.2065,
+      "currentTime": 1.216,
+      "paused": false,
+      "error": null,
+      "audioRms": 0.41974863150293446,
+      "walletCalls": 0,
+      "overflow": false,
+      "canPlay": "probably",
+      "animationFramesDiffer": true,
+      "frameSha256": [
+        "1005ca4f5cf9027ff0d120f918930a2788198072fabb7e5d17fbaad0430e6836",
+        "c99662e935887e6b35afceba0b20c6b744869fabf260fe8c25c4a6b99996d38a"
+      ]
+    },
+    {
+      "width": 390,
+      "duration": 7.2065,
+      "currentTime": 1.215424,
+      "paused": false,
+      "error": null,
+      "audioRms": 0.41974863150293446,
+      "walletCalls": 0,
+      "overflow": false,
+      "canPlay": "probably",
+      "animationFramesDiffer": true,
+      "frameSha256": [
+        "a9d149f628fff75aaf037b2a8cc27d1b0e46c6f41885f3d64b06b09829a0557f",
+        "9b6a5be54b4b4960383bc0accc65e809d631197cde6edb77213f6db5796fbbc0"
+      ]
+    }
+  ],
+  "externalRequests": 0,
+  "errors": [],
+  "walletCalls": 0,
+  "humanListeningClaim": false,
+  "scope": "Exact SVG animation and Ogg playback in local Chromium preview; no Eternl or minted-viewer compatibility claim."
+}

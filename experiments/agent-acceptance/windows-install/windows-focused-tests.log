@@ -1,0 +1,18 @@
+✔ Linux and macOS retain literal codex command and unchanged argument array/options (4.0156ms)
+✔ Windows native executable is used shell-free (0.6526ms)
+✔ standard npm shim resolves verified JavaScript entry with Node; shell characters remain literal (1.1944ms)
+✔ first supported PATH directory wins; quoted absolute entries work; relative and empty entries never search cwd (0.5703ms)
+✔ a malformed first shim does not fall through to another installation (1.7352ms)
+✔ missing Windows launcher refuses before spawning or changing any configuration (0.3465ms)
+✔ installer adds only absent server and preserves exact same setup (2.6569ms)
+✔ installer preserves conflicting commands, environment, disabled server and tool filters (0.8019ms)
+✔ installer accepts exact CLI response and fails closed on ambiguous output (1.7285ms)
+✔ installer requires Node 22.13 and an existing compiled build (10.938ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 553.2725

@@ -1,0 +1,19 @@
+--- a/mcp/install-codex.mjs
++++ b/mcp/install-codex.mjs
+@@ -1,6 +1,6 @@
+ #!/usr/bin/env node
+ /** Repo-local Codex setup. Default is a read-only preflight; --install explicitly adds one server. */
+-import {spawnSync} from 'node:child_process';
++import {createCodexRunner} from './codex-launcher.mjs';
+ import {access} from 'node:fs/promises';
+ import {fileURLToPath} from 'node:url';
+ import {Client} from '@modelcontextprotocol/client';
+@@ -39,7 +39,7 @@
+  console.log(`Local MCP ready: ${counts.tools} tools, ${counts.resources} resources.`);
+  const command=['codex','mcp','add',SERVER_NAME,'--',node,entry];
+  if(argv[0]!=='--install'){console.log('No Codex configuration changed. Explicit install: node mcp/install-codex.mjs --install');console.log('Equivalent command arguments (JSON array; do not paste as a shell command): '+JSON.stringify(command));return;}
+- const run=args=>spawnSync('codex',args,{encoding:'utf8',timeout:20000,maxBuffer:1024*1024,windowsHide:true});
++ const run=createCodexRunner();
+  const plan=installPlan(readExisting(run),node,entry);
+  if(plan.action==='already-installed'){console.log('The same local MCP is already installed. Nothing changed.');return;}
+  const added=run(plan.args);if(added.status!==0)throw new Error('Codex did not confirm installation. Inspect codex mcp get nft-studio before retrying.');

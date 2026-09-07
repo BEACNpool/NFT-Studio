@@ -1,0 +1,20 @@
+{
+  "schema": "beacn.original-whistle-encoding.v1",
+  "status": "pass",
+  "encodedBytes": 6266,
+  "encodedSha256": "ff4a427f455c2f95c7a01461a103eabddcbfde9d0a7a5b45a3f5dc05e7e3a3a9",
+  "repeatedSynthesisAndEncodeByteEqual": true,
+  "opusOutputGainDb": -6.0,
+  "decodedFrames": 345600,
+  "decodedDurationSeconds": 7.2,
+  "decodedPeak": 0.7449111342430115,
+  "decodedRms": 0.23596370206618159,
+  "clippedSamples": 0,
+  "decodedPcmSha256": "30f032abc7f8227db9adab8ab1fca7c0145a6e333ee7ce785092e95a1e63623f",
+  "humanListeningClaim": false,
+  "ffmpeg": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+  "decoderWarning": " invalid, non monotonically increasing dts to muxer in stream 0: 345288 >= 345288",
+  "warningScope": "FFmpeg raw muxer reports repeated final packet timestamp; exact decoded frame count is 345600. Browser playback checked separately.",
+  "python": "3.12.3",
+  "libopusPackage": "1.4-1build1"
+}

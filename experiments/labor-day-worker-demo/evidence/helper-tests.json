@@ -1,0 +1,21 @@
+{
+  "schema": "nft-studio.create-review-tests.v1",
+  "status": "pass",
+  "node": "22.22.2",
+  "groups": 6,
+  "realLocalSdkGroups": 4,
+  "cases": [
+    "large exact files and15K+URL",
+    "explicitcoverreorderUnicodepercenttext",
+    "boundedinputpathandnonregularnegatives",
+    "responsecapandstructuredtextagreement",
+    "changedpacketfilehashdestinationnegatives",
+    "datawithoutcover"
+  ],
+  "walletCalls": 0,
+  "signed": false,
+  "submitted": false,
+  "platform": "Linux",
+  "sourceSha256": "c1091cd398759bbea4d2102eda07ea523a350e0a77fd58175af9502f9f091b95",
+  "testSha256": "26b5abb02129194c99cad5d0f87457635324dc9bc95ee00d42c44e78bd4481e2"
+}

@@ -1,0 +1,56 @@
+{
+  "schema": "beacn.labor-day.agent-materialization.v1",
+  "status": "pass",
+  "codexVersion": "codex-cli 0.153.4",
+  "invocationScope": "One explicit local shell command invoking the reviewed exact-file helper; actual SDK MCP calls happen in that helper, not in model-authored base64 tool arguments.",
+  "modelCommandCount": 1,
+  "commandExitCode": 0,
+  "helperSha256": "c1091cd398759bbea4d2102eda07ea523a350e0a77fd58175af9502f9f091b95",
+  "requestSha256": "ac342e0046e0bdd1da657a1816a5cdf5a3b8531782f2c4628530620d5efb740f",
+  "intentHash": "7b62df3ce92b69b7ee3d149eb3f757c1cd17e79f80ddbafd1bb04810b944d0a1",
+  "bundleHash": "792a824a384ec7f58004ce4528f44b783e9a950e0cd7f70b9d6f5e4d8261975a",
+  "rawBytes": 8146,
+  "reviewUrlCharacters": 15684,
+  "files": [
+    {
+      "name": "intent.json",
+      "bytes": 11906,
+      "sha256": "2d4b3f43453b62c23665b4a0ed0303960b8cc0c7f2288a061556605af926ada6"
+    },
+    {
+      "name": "review-url.txt",
+      "bytes": 15685,
+      "sha256": "2b79c9259ae3eb0409e6516a3b6ff54c9424a166a1ae32ba48f2bbca517932e3"
+    },
+    {
+      "name": "review.html",
+      "bytes": 16356,
+      "sha256": "cf615d5720582c185c14dbcc8d702a3d153f27c1c71ea030b3e45c5cebdf0ffa"
+    }
+  ],
+  "mcpCalls": [
+    "studio_capabilities",
+    "create_mint_intent",
+    "verify_mint_intent"
+  ],
+  "exactPacketAndUrlMatchIndependentSdkRun": true,
+  "finalAgentReportedExactHashAndSavedFilePaths": true,
+  "elapsedSeconds": 16.062,
+  "privateEvidenceSha256": {
+    "events": "55cc35e81ca2816a257a066a8869042a77afe31e66633868feeaff525712d5ce",
+    "final": "b4584af3682a9b193c0be93ce36b13dd268771cdeebbc4a40dadb5485a837c67"
+  },
+  "rawLogsPublished": false,
+  "sandboxScope": "Workspace sandbox attempt failed before command with a local bwrap loopback namespace error; successful retry used host execution for this one explicitly authorized command. No sandbox isolation claim.",
+  "homeOrCodexHomeChanged": false,
+  "credentialsReadByHarness": false,
+  "walletCalls": 0,
+  "signed": false,
+  "submitted": false,
+  "chainInclusion": false,
+  "priorOpaqueInputAttempt": {
+    "outcome": "NEED_PROGRAMMATIC_EXPORT before any MCP tool call",
+    "scope": "Earlier same-size draft; cannot infer output truncation because no create tool was invoked.",
+    "reasonForHelper": "Exact opaque media and long URLs are read and saved programmatically."
+  }
+}

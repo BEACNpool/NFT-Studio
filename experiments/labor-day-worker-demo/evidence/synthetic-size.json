@@ -1,0 +1,78 @@
+{
+  "schema": "beacn.labor-day.synthetic-size.v1",
+  "status": "synthetic-unsigned-only",
+  "rawBytes": 8146,
+  "files": [
+    {
+      "name": "happy-labor-day.svg",
+      "mediaType": "image/svg+xml",
+      "bytes": 1880,
+      "sha256": "789acd5c1b5fa11cdf7041e486833c41f32712fff0066afa5e743f608b93a857"
+    },
+    {
+      "name": "original-whistle-march.ogg",
+      "mediaType": "audio/ogg",
+      "bytes": 6266,
+      "sha256": "ff4a427f455c2f95c7a01461a103eabddcbfde9d0a7a5b45a3f5dc05e7e3a3a9"
+    }
+  ],
+  "intentHash": "7b62df3ce92b69b7ee3d149eb3f757c1cd17e79f80ddbafd1bb04810b944d0a1",
+  "bundleHash": "792a824a384ec7f58004ce4528f44b783e9a950e0cd7f70b9d6f5e4d8261975a",
+  "packetBytes": 11906,
+  "packetSha256": "2d4b3f43453b62c23665b4a0ed0303960b8cc0c7f2288a061556605af926ada6",
+  "reviewUrlCharacters": 15684,
+  "reviewUrlSha256": "f747afdd977a34ae13eea43d699fa7e8bb2f7ade166da031e3cf6bce59b63972",
+  "mcpCreateResponseJsonBytes": 80394,
+  "mcpCreateTextBytes": 40027,
+  "unsignedBytes": 12369,
+  "estimatedSignedBytes": 12475,
+  "actualPlaceholderWitnessTransactionBytes": 12475,
+  "placeholderSignatureValid": false,
+  "minimumFeeLovelace": "704281",
+  "preparedFeeLovelace": "704457",
+  "studioFeeLovelace": "0",
+  "protocol": {
+    "epoch": 654,
+    "blockTime": 1788800142,
+    "fetchedAt": 1788800164265,
+    "slot": 197233851,
+    "maxTx": 16384,
+    "maxValue": 5000,
+    "feeA": 44,
+    "feeB": 155381,
+    "coinsPerByte": "4310",
+    "keyDeposit": "2000000",
+    "poolDeposit": "500000000"
+  },
+  "protocolSources": [
+    "https://koios.beacn.workers.dev/api/v1/tip",
+    "https://koios.beacn.workers.dev/api/v1/epoch_params?order=epoch_no.desc&limit=1"
+  ],
+  "outputs": [
+    {
+      "lovelace": "1142150",
+      "minimumLovelace": "1142150",
+      "syntheticDestination": true
+    },
+    {
+      "lovelace": "28153393",
+      "minimumLovelace": "1017160",
+      "syntheticDestination": true
+    }
+  ],
+  "checks": {
+    "actualLocalMcp": true,
+    "actualSharedBuilder": true,
+    "bodyHash": true,
+    "auxiliaryHash": true,
+    "exactFiles": true,
+    "allOutputsToSyntheticAddress": true,
+    "adaAndTokenConservation": true
+  },
+  "walletConnected": false,
+  "realInputs": false,
+  "signed": false,
+  "submitted": false,
+  "chainInclusion": false,
+  "warning": "Size and fees are for this synthetic input shape and observed parameters only. The actual Eternl wallet must rebuild, review, sign and confirm. The sizing transaction contains an invalid placeholder witness and must never be submitted."
+}

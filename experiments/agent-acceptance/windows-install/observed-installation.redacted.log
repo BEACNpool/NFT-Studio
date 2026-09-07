@@ -1,0 +1,34 @@
+Cloning into '<fresh-checkout>'...
+From https://github.com/BEACNpool/NFT-Studio
+ * branch            b8b416ae2ee922b6cbdf4e8d12187e6c79da2c3e -> FETCH_HEAD
+D	knowledge/research/2026-09-07-nft-agent-primitives/evidence/cardano-foundation--cardano-connect-with-wallet--react--src--components--ConnectWalletButton--ConnectWalletButton.tsx.source.txt
+D	knowledge/research/2026-09-07-nft-agent-primitives/evidence/input-output-hk--offchain-metadata-tools--token-metadata-creator--src--Cardano--Metadata--Validation--Wallet.hs.source.txt
+error: unable to create file knowledge/research/2026-09-07-nft-agent-primitives/evidence/cardano-foundation--cardano-connect-with-wallet--react--src--components--ConnectWalletButton--ConnectWalletButton.tsx.source.txt: Filename too long
+error: unable to create file knowledge/research/2026-09-07-nft-agent-primitives/evidence/input-output-hk--offchain-metadata-tools--token-metadata-creator--src--Cardano--Metadata--Validation--Wallet.hs.source.txt: Filename too long
+HEAD is now at b8b416a Add verified Codex mint requests and direct wallet review
+b8b416ae2ee922b6cbdf4e8d12187e6c79da2c3e
+
+added 62 packages, and audited 63 packages in 33s
+
+11 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+> @beacn/nft-studio-mcp@0.1.0 build
+> node build.mjs
+
+Built MCP with the shared Studio builder and pinned knowledge catalogue.
+Local MCP ready: 17 tools, 61 resources.
+No Codex configuration changed. Explicit install: node mcp/install-codex.mjs --install
+Equivalent command arguments (JSON array; do not paste as a shell command): ["codex","mcp","add","nft-studio","--","C:\\Program Files\\nodejs\\node.exe","<fresh-checkout>\\mcp\\dist\\cli.mjs"]
+Local MCP ready: 17 tools, 61 resources.
+Installed and verified nft-studio in Codex. Start a new Codex session in this checkout; use $nft-studio. No wallet permission was granted. Undo with: codex mcp remove nft-studio
+Local MCP ready: 17 tools, 61 resources.
+The same local MCP is already installed. Nothing changed.
+ D knowledge/research/2026-09-07-nft-agent-primitives/evidence/cardano-foundation--cardano-connect-with-wallet--react--src--components--ConnectWalletButton--ConnectWalletButton.tsx.source.txt
+ D knowledge/research/2026-09-07-nft-agent-primitives/evidence/input-output-hk--offchain-metadata-tools--token-metadata-creator--src--Cardano--Metadata--Validation--Wallet.hs.source.txt
+ M mcp/install-codex.mjs
+?? mcp/codex-launcher.mjs
+?? mcp/test/codex-launcher.test.mjs
+Staging and local MCP preflight passed. Receipt: <fresh-project>\staging-receipt.json

@@ -22,16 +22,28 @@ local server, not an HTTP MCP address.
    checked later with the wallet. Keep HTML, SVG, games and audio self-contained.
    External image-generation output often needs substantial resizing or a different
    representation before it fits. Never silently change the user's intended content.
-3. Call `create_mint_intent` with `mode: "nft"`, a name, optional description,
+3. For generated audio, binary media, or a large result, use the repository's
+   `mcp/create-review.mjs` client helper. Write a local request JSON whose files
+   have `path`, `name` and `mediaType`, then run:
+   `node mcp/create-review.mjs --request REQUEST.json --output NEW_DIRECTORY`.
+   Paths resolve relative to the request JSON. It reads the exact files, calls
+   capabilities/create/verify over the real local MCP, independently checks the
+   bytes and complete link, and saves `review.html`, `intent.json`,
+   `review-url.txt` and a final receipt. Give the user the saved HTML file to open;
+   its link avoids shell URL-length limits. Never hand-copy large base64 through
+   model prose. This is a local SDK client of the MCP, not an extra MCP tool.
+   See `docs/MCP_LOCAL_FILES.md` and `experiments/labor-day-worker-demo/request.json`.
+4. For a sufficiently small exact payload, call `create_mint_intent` with `mode: "nft"`, a name, optional description,
    exact canonical base64 file bytes and the image's `coverIndex`. Supply bytes,
    not paths or media URLs. Call `verify_mint_intent` on the returned intent.
-4. Give the user the exact `review.url` as **Review and mint in NFT-Studio**.
+5. Give the user the exact `review.url` as **Review and mint in NFT-Studio**,
+   or the complete saved `review.html` when using the local-file helper.
    The link carries the verified content and opens its preview directly. Retain
    `packetJson` as the suggested `.intent.json` fallback file. Never shorten,
    reconstruct or omit part of a returned review link. If your client truncates
    the result, save the complete structured tool output through its file facility
    or use a smaller supported package; do not present a partial link as usable.
-5. The user opens Studio, inspects the files, connects a compatible browser wallet,
+6. The user opens Studio, inspects the files, connects a compatible browser wallet,
    reviews the actual destination/fees/policy, and approves signing and submission.
    Studio builds afresh from the connected wallet. Opening the link is not consent
    to connect a wallet, sign or publish. The link contains their content; share it

@@ -1,0 +1,20 @@
+{
+  "schema": "beacn.nft-demo-assets.v1",
+  "name": "Happy Labor Day 2026",
+  "description": "To the American worker—who builds, serves, repairs, teaches, and keeps this country moving. Happy Labor Day 2026. Original whistle march by BEACN Labs.",
+  "audioSelection": "provisional original whistle march; no supplied named composition",
+  "files": [
+    {
+      "name": "happy-labor-day.svg",
+      "mediaType": "image/svg+xml",
+      "bytes": 1880,
+      "sha256": "789acd5c1b5fa11cdf7041e486833c41f32712fff0066afa5e743f608b93a857"
+    },
+    {
+      "name": "original-whistle-march.ogg",
+      "mediaType": "audio/ogg",
+      "bytes": 6266,
+      "sha256": "ff4a427f455c2f95c7a01461a103eabddcbfde9d0a7a5b45a3f5dc05e7e3a3a9"
+    }
+  ]
+}

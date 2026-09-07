@@ -1,0 +1,53 @@
+{
+  "format": "sha256-file-manifest/v1",
+  "scope": "Public-safe sanitized Windows installation observation",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 3039,
+      "sha256": "3a44229390d1a098263e102087a21a908d589994f243d9c71d61a18ea9bc4e63"
+    },
+    {
+      "path": "installer.patch",
+      "bytes": 1345,
+      "sha256": "a4492d26af43ac2f650ece3876ee32bdab573e9086b4a5900da2a52847e642aa"
+    },
+    {
+      "path": "linux-focused-tests.log",
+      "bytes": 2352,
+      "sha256": "0afbb6de52951c1e393f9c2d5f6550c6f32a2bd821a453c80c90102f5280b466"
+    },
+    {
+      "path": "observed-installation.redacted.log",
+      "bytes": 2582,
+      "sha256": "677f73c553e480e2a51a5f612c26e4051e3585034c39227061b3d087e6ca5f0c"
+    },
+    {
+      "path": "public-verification.json",
+      "bytes": 4563,
+      "sha256": "ea83dff92bb89f8fc143dfa8bc9614dfaf9c57ec6f401162c6eb74303c91a61c"
+    },
+    {
+      "path": "source/mcp/codex-launcher.mjs",
+      "bytes": 2306,
+      "sha256": "dbac89d79932c3295be3ad1f786d96df0a89c9d1d5f7989315bcde64abf29e6c"
+    },
+    {
+      "path": "source/mcp/install-codex.mjs",
+      "bytes": 5081,
+      "sha256": "a6626c3ff23610b4c15a4b7bacbed539aff60b0302bd570a4dccb7601fd4ddfa"
+    },
+    {
+      "path": "source/mcp/test/codex-launcher.test.mjs",
+      "bytes": 2957,
+      "sha256": "e31c615ed58fb0e47f4d34c8300f96ff07de2cb8f9c6cc51e4c1e8b1f50350bb"
+    },
+    {
+      "path": "windows-focused-tests.log",
+      "bytes": 1035,
+      "sha256": "ea18e46fa15df3146f841563dc3155d8250967373062a611ab4f9c923323213c"
+    }
+  ],
+  "fileCount": 9,
+  "totalBytes": 25260
+}

@@ -1,0 +1,106 @@
+{
+  "profile": "nft-studio-native-windows-mcp-installation-observation/v1",
+  "result": "PASS_INSTALLATION_AND_DISCOVERY_ONLY",
+  "checkedAt": "2026-09-07T16:54:44.287Z",
+  "source": {
+    "baseCommit": "b8b416ae2ee922b6cbdf4e8d12187e6c79da2c3e",
+    "state": "Pinned public base plus three reviewed installer files; correction was not yet published during this run.",
+    "beforeInstallerSha256": "e85eddaa17e9893cfc032ef79595d63a88f187c78028965c25388e5a89adaef7",
+    "reviewedFilesSha256": {
+      "mcp/install-codex.mjs": "a6626c3ff23610b4c15a4b7bacbed539aff60b0302bd570a4dccb7601fd4ddfa",
+      "mcp/codex-launcher.mjs": "dbac89d79932c3295be3ad1f786d96df0a89c9d1d5f7989315bcde64abf29e6c",
+      "mcp/test/codex-launcher.test.mjs": "e31c615ed58fb0e47f4d34c8300f96ff07de2cb8f9c6cc51e4c1e8b1f50350bb"
+    }
+  },
+  "runtime": {
+    "platform": "win32",
+    "architecture": "x64",
+    "node": "24.14.0",
+    "npm": "11.9.0",
+    "git": "2.52.0.windows.1",
+    "codex": "0.153.4"
+  },
+  "observations": {
+    "loginStatusCategory": "ChatGPT; credential values were neither read nor emitted",
+    "beforeRegistration": "nft-studio absent",
+    "freshCheckout": true,
+    "npmCi": {
+      "packagesAdded": 62,
+      "exit": 0
+    },
+    "build": {
+      "exit": 0,
+      "cliBytes": 4372276,
+      "cliSha256": "db8b6e2655b89a0f3258dd51df9ed509afa4efe94b3078efbd5933cb160811bc"
+    },
+    "mcpDiscovery": {
+      "tools": 17,
+      "resources": 61
+    },
+    "installer": {
+      "addedAndVerified": true,
+      "secondInvocation": "same configuration; no-op"
+    },
+    "tests": [
+      {
+        "environment": "Linux private candidate",
+        "focusedTests": 10,
+        "passed": 10
+      },
+      {
+        "environment": "Windows in-memory candidate, before staging",
+        "focusedTests": 6,
+        "passed": 6,
+        "additionalReadOnlyChecks": [
+          "Actual runner --version",
+          "Actual runner reports nft-studio absent"
+        ]
+      },
+      {
+        "environment": "Windows actual installed checkout, after archive repair",
+        "focusedTests": 10,
+        "passed": 10
+      }
+    ],
+    "archivedSourceRepair": {
+      "issue": "Git checkout returned 0 while two archived source paths failed the Windows length limit.",
+      "repair": "Set core.longpaths=true only in the new repository and restore only those two missing tracked files from pinned HEAD.",
+      "verifiedAt": "2026-09-07T16:53:12.457Z",
+      "restored": [
+        {
+          "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/cardano-foundation--cardano-connect-with-wallet--react--src--components--ConnectWalletButton--ConnectWalletButton.tsx.source.txt",
+          "bytes": 12791,
+          "sha256": "ce18b6cbfb94c027bc5b2c62d7b512a2e8ac6c46348468ad767c1106711e5888",
+          "actualSha256": "ce18b6cbfb94c027bc5b2c62d7b512a2e8ac6c46348468ad767c1106711e5888"
+        },
+        {
+          "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/input-output-hk--offchain-metadata-tools--token-metadata-creator--src--Cardano--Metadata--Validation--Wallet.hs.source.txt",
+          "bytes": 3094,
+          "sha256": "09ded13bb34168e0ad24eed268db3abd423a1883aff79970fcdd15f5cf06f476",
+          "actualSha256": "09ded13bb34168e0ad24eed268db3abd423a1883aff79970fcdd15f5cf06f476"
+        }
+      ],
+      "remainingWorkingTreeChanges": [
+        "mcp/install-codex.mjs",
+        "mcp/codex-launcher.mjs",
+        "mcp/test/codex-launcher.test.mjs"
+      ]
+    },
+    "originalInstallerBackup": {
+      "bytes": 5150,
+      "sha256": "e85eddaa17e9893cfc032ef79595d63a88f187c78028965c25388e5a89adaef7"
+    }
+  },
+  "limitations": [
+    "No Codex inference task was run in this installation observation.",
+    "No GUI was launched or recording started.",
+    "No wallet was opened, connected, signed, submitted or minted.",
+    "No named wallet compatibility or chain confirmation is claimed.",
+    "The actual Windows installation exercises the npm JavaScript launcher path; native codex.exe resolution and special-character argument forwarding also have focused fixture tests.",
+    "Successful discovery does not exercise every MCP tool.",
+    "Installation and source archives were tested locally; this receipt does not establish all third-party Windows shim layouts."
+  ],
+  "redactions": [
+    "Private host/account identifiers and absolute project/executable paths are omitted from this receipt and replaced with placeholders in the accompanying observed installation log. No auth output values were collected."
+  ]
+}

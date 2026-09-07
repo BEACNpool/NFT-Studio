@@ -1,0 +1,153 @@
+{
+  "schema": "beacn.labor-day-demo-manifest.v1",
+  "status": "unminted-original-demo",
+  "intentHash": "7b62df3ce92b69b7ee3d149eb3f757c1cd17e79f80ddbafd1bb04810b944d0a1",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 4578,
+      "sha256": "3dee1dd092c23ef52e4e112730823225d373738b9653676771d8a5a7dd21a836"
+    },
+    {
+      "path": "asset-manifest.json",
+      "bytes": 740,
+      "sha256": "bc15b1ecbf346db157343b27c6883db11aa567a642d49a7de0d0bb3c95dd534a"
+    },
+    {
+      "path": "assets/happy-labor-day.svg",
+      "bytes": 1880,
+      "sha256": "789acd5c1b5fa11cdf7041e486833c41f32712fff0066afa5e743f608b93a857"
+    },
+    {
+      "path": "assets/original-whistle-march.ogg",
+      "bytes": 6266,
+      "sha256": "ff4a427f455c2f95c7a01461a103eabddcbfde9d0a7a5b45a3f5dc05e7e3a3a9"
+    },
+    {
+      "path": "evidence/audio-check.json",
+      "bytes": 944,
+      "sha256": "d52ff2bc5291b99ff3fe29a28cd90d0b00f9ff2148e4eac6572d598873530678"
+    },
+    {
+      "path": "evidence/audio-recipe.json",
+      "bytes": 1380,
+      "sha256": "4cd8a20bdb1311531482a25753f8bbcfc5f340362130a3e36e0c41f07c04c359"
+    },
+    {
+      "path": "evidence/browser-preview.json",
+      "bytes": 1285,
+      "sha256": "121e41612c319546cd2d46ed4036eb1c796a50513d4b1170672f0ff2527e75cf"
+    },
+    {
+      "path": "evidence/codex-materialization.json",
+      "bytes": 2358,
+      "sha256": "f355cde06a86060e510bd041b278100d144200ba1fafe40a70b9daea65651b4a"
+    },
+    {
+      "path": "evidence/create-intent-args.json",
+      "bytes": 11341,
+      "sha256": "f6d16499e8c171a29eee4ac87a3cac93fc57802f95b0937ac75f25595a001c6e"
+    },
+    {
+      "path": "evidence/flag-1440-a.png",
+      "bytes": 89577,
+      "sha256": "1005ca4f5cf9027ff0d120f918930a2788198072fabb7e5d17fbaad0430e6836"
+    },
+    {
+      "path": "evidence/flag-1440-b.png",
+      "bytes": 90330,
+      "sha256": "c99662e935887e6b35afceba0b20c6b744869fabf260fe8c25c4a6b99996d38a"
+    },
+    {
+      "path": "evidence/flag-390-a.png",
+      "bytes": 39499,
+      "sha256": "a9d149f628fff75aaf037b2a8cc27d1b0e46c6f41885f3d64b06b09829a0557f"
+    },
+    {
+      "path": "evidence/flag-390-b.png",
+      "bytes": 39982,
+      "sha256": "9b6a5be54b4b4960383bc0accc65e809d631197cde6edb77213f6db5796fbbc0"
+    },
+    {
+      "path": "evidence/helper-tests.json",
+      "bytes": 652,
+      "sha256": "9c7ca9be53c2fa97fd9c393580fd9c277b26413b9923073f74250f9c512fe65b"
+    },
+    {
+      "path": "evidence/mcp-calls.json",
+      "bytes": 244755,
+      "sha256": "01e044701f9a8093b29e65051da850ec8d19e17d5dbd415e4ee287499dcf3c22"
+    },
+    {
+      "path": "evidence/preview-1440.png",
+      "bytes": 122429,
+      "sha256": "a66b59afd12dcd234f9aa263a89173522b3ef2a9fec2091ae8736da02e0723e5"
+    },
+    {
+      "path": "evidence/preview-390.png",
+      "bytes": 62320,
+      "sha256": "56675b3587924dbc9bf3bed5493dbfddcaf038f34f4b783d896d92eab7328480"
+    },
+    {
+      "path": "evidence/public-content-review.json",
+      "bytes": 2026,
+      "sha256": "ca31d68d9fa3a403245ffe789de3f01fe94bc93372cbd84b0902402fb7fe3c40"
+    },
+    {
+      "path": "evidence/synthetic-size.json",
+      "bytes": 2528,
+      "sha256": "8f3f6c4a16a87d6b5d63a00d45b269b5fcc1f0ece1221bf9bc73dde3dff549df"
+    },
+    {
+      "path": "evidence/tested-source.json",
+      "bytes": 1905,
+      "sha256": "6f950a1c938d5e49728794e8e814bca3314ece63d7792d2a46b2906dff0e960f"
+    },
+    {
+      "path": "index.html",
+      "bytes": 1436,
+      "sha256": "963a357c42db1696047f508b84329e2e9cc0f0152a881a8ccfcc4b3c0014d40d"
+    },
+    {
+      "path": "intent.json",
+      "bytes": 11906,
+      "sha256": "2d4b3f43453b62c23665b4a0ed0303960b8cc0c7f2288a061556605af926ada6"
+    },
+    {
+      "path": "request.json",
+      "bytes": 532,
+      "sha256": "ac342e0046e0bdd1da657a1816a5cdf5a3b8531782f2c4628530620d5efb740f"
+    },
+    {
+      "path": "review-url.txt",
+      "bytes": 15685,
+      "sha256": "2b79c9259ae3eb0409e6516a3b6ff54c9424a166a1ae32ba48f2bbca517932e3"
+    },
+    {
+      "path": "review.html",
+      "bytes": 16356,
+      "sha256": "cf615d5720582c185c14dbcc8d702a3d153f27c1c71ea030b3e45c5cebdf0ffa"
+    },
+    {
+      "path": "scripts/browser-preview.mjs",
+      "bytes": 4999,
+      "sha256": "acbc20f3f8d158320883b4d7b0fe84009d4cacacbd87b494770d9e920f40ad37"
+    },
+    {
+      "path": "scripts/package-mcp.mjs",
+      "bytes": 7530,
+      "sha256": "ba437f30185eb5584d171a0424dd884a4ac6a0e04a9177cca89affb04190c1a1"
+    },
+    {
+      "path": "scripts/serve-preview.mjs",
+      "bytes": 1445,
+      "sha256": "9abd614738583c89329dc40acea0766fa369eeb4715a341c823b6383785e3d43"
+    },
+    {
+      "path": "scripts/synthesize.py",
+      "bytes": 3116,
+      "sha256": "3de4f2bbfc3bd901aacaecc74bc9bef4a25d5835eaa97add3fae588afc377a9a"
+    }
+  ],
+  "noWalletSigningSubmission": true
+}

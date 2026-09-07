@@ -1,0 +1,7 @@
+/** Fixed local media preview; accepts no user URL or file path. */
+import {createServer} from 'node:http';
+import {readFile} from 'node:fs/promises';
+import {resolve} from 'node:path';
+const root=resolve(import.meta.dirname,'..');
+const map=new Map(await Promise.all([['/','index.html','text/html'],['/assets/happy-labor-day.svg','assets/happy-labor-day.svg','image/svg+xml'],['/assets/original-whistle-march.ogg','assets/original-whistle-march.ogg','audio/ogg']].map(async([url,path,mime])=>[url,{bytes:await readFile(resolve(root,path)),mime}])));
+const server=createServer((req,res)=>{const file=map.get(req.url);if(!file||!['GET','HEAD'].includes(req.method)){res.writeHead(404);res.end();return;}const headers={'Content-Type':file.mime,'Accept-Ranges':'bytes','Cache-Control':'no-store'};const range=/^bytes=(\d+)-(\d*)$/.exec(req.headers.range||'');let start=0,end=file.bytes.length-1;if(range){start=Number(range[1]);end=range[2]?Math.min(Number(range[2]),end):end;if(start>=file.bytes.length||end<start){res.writeHead(416,{'Content-Range':`bytes */${file.bytes.length}`});res.end();return;}headers['Content-Range']=`bytes ${start}-${end}/${file.bytes.length}`;}res.writeHead(range?206:200,{...headers,'Content-Length':end-start+1});res.end(req.method==='HEAD'?undefined:file.bytes.subarray(start,end+1));});server.listen(0,'127.0.0.1',()=>console.log(`Local preview: http://127.0.0.1:${server.address().port}/ — stop with Ctrl+C.`));
