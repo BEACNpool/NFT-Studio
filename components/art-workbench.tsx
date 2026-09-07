@@ -746,10 +746,13 @@ export function ArtWorkbench({
         <div>
           <button
             className="ns-secondary"
+            aria-label="Save project"
+            title="Save project"
             disabled={!ready || !!busy}
             onClick={save}
           >
-            <Save size={16} /> Save project
+            <Save size={20} />{' '}
+            <span className="ns-save-label">Save project</span>
           </button>
           <button
             className="ns-icon-button"
@@ -766,20 +769,26 @@ export function ArtWorkbench({
           {stage > 0 && (
             <button
               className="ns-back-button"
+              aria-label="Back"
+              title="Previous step"
               onClick={() => setStage(stage - 1)}
             >
-              <ArrowLeft size={16} /> Back
+              <ArrowLeft size={20} />{' '}
+              <span className="ns-back-label">Back</span>
             </button>
           )}
           {stage < 3 && (
             <Button
               className="ns-primary"
+              aria-label={
+                stage === 2 && !art.interactive
+                  ? 'Continue without an app'
+                  : 'Continue'
+              }
               disabled={!ready || !!busy}
               onClick={continueStage}
             >
-              {stage === 2 && !art.interactive
-                ? 'Continue without an app'
-                : 'Continue'}
+              Continue
               <ArrowRight size={17} />
             </Button>
           )}

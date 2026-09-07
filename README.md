@@ -10,7 +10,8 @@ approve it in your wallet. NFT-Studio constructs the metadata from your visual c
 ![NFT Studio creative workbench](docs/studio-preview.png)
 
 The same four-tab navigation works on phone, tablet and desktop: **Create,
-Explore, Saved and Activity**. All eight creation formats are on the home screen;
+Explore, Saved and Activity**. All eight creation formats have readable action
+rows on the home screen, with larger text and controls throughout the editors;
 Help and Wallet stay in the header. Switching tabs keeps the current creation
 open, and browser Back/Forward follows the app screens. Saved projects and
 receipts remain local to the current browser and origin.

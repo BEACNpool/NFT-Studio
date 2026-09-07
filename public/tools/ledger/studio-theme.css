@@ -14,18 +14,39 @@
 .nft-studio-embedded .hero {background:none}
 .nft-studio-embedded [data-page="calculator"] .hero {padding-top:24px;padding-bottom:24px}
 .nft-studio-embedded .hero h1 {font-size:clamp(28px,4vw,40px)}
-.nft-studio-embedded label {font-size:14px}
+.nft-studio-embedded body label,.nft-studio-embedded body p,.nft-studio-embedded body summary,.nft-studio-embedded body .hint,.nft-studio-embedded body .hints,.nft-studio-embedded body .pricerow,.nft-studio-embedded body .states li {font-size:16px;line-height:1.55}
 .nft-studio-embedded input,.nft-studio-embedded textarea,.nft-studio-embedded select {font-family:inherit;font-size:16px}
+.nft-studio-embedded body button,.nft-studio-embedded body .btn,.nft-studio-embedded body select {font-size:16px;min-height:48px;white-space:normal}
+.nft-studio-embedded body input:not([type=file]):not([type=checkbox]):not([type=radio]) {font-size:17px;min-height:48px}
 .nft-studio-embedded :focus-visible {outline:2px solid #c4b0ff;outline-offset:3px}
 .nft-studio-embedded .btn,.nft-studio-embedded .btn.primary {background:#c4b0ff;color:#24163f;border-color:#c4b0ff;box-shadow:none}
 .nft-studio-embedded .btn.sub,.nft-studio-embedded .btn.ghost {background:#251b30;color:#c4b0ff;border-color:#554065}
 .nft-studio-embedded .btn.primary:hover {background:#d6c5ff}
 @media(prefers-reduced-motion:reduce){.nft-studio-embedded *{scroll-behavior:auto!important}}
 
-.nft-studio-embedded .hero {display:none}
+.nft-studio-embedded .hero:not(:has(#mintpanel)) {display:none}
+.nft-studio-embedded #landing .hero {padding:16px}
+.nft-studio-embedded #landing .hero .inner > .mark-lg,
+.nft-studio-embedded #landing .hero .inner > .eyebrow,
+.nft-studio-embedded #landing .hero .inner > h1,
+.nft-studio-embedded #landing .hero .inner > .sub,
+.nft-studio-embedded #landing .hero .inner > .ticks,
+.nft-studio-embedded #howitworks {display:none}
+.nft-studio-embedded #landing .centercard {padding:16px;border:0;box-shadow:none}
+.nft-studio-embedded #landing .seg {display:flex;margin-bottom:16px}
+.nft-studio-embedded #landing .seg button {flex:1;min-width:0;padding:10px 8px}
+.nft-studio-embedded .wizsteps {gap:4px;flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto}
+.nft-studio-embedded .wizsteps li {font-size:16px;letter-spacing:0;text-transform:none;flex:0 0 auto}
+.nft-studio-embedded .bytec {font-size:14px}
 .nft-studio-embedded .wiz,.nft-studio-embedded .card {border-radius:14px}
-.nft-studio-embedded .drop {background:#21162c;border:1px dashed #78528e;border-radius:14px;padding:28px 20px}
-.nft-studio-embedded .drop .big {font-size:23px;color:#edddfb}
-.nft-studio-embedded .drop .hint {color:#bba2cd;font-size:14px;margin-top:12px}
+.nft-studio-embedded body .drop {background:#21162c;border:1px dashed #78528e;border-radius:14px;padding:24px 16px}
+.nft-studio-embedded body .drop .big {font-size:23px;color:#edddfb}
+.nft-studio-embedded body .drop .hint {color:#c5bbd0;font-size:16px;margin-top:12px}
 .nft-studio-embedded .card {background:#18121f;border-color:#3a2b47}
 .nft-studio-embedded .section {margin-top:16px}
+.nft-studio-embedded .pagetools a {display:inline-flex;align-items:center;min-height:48px;font-size:16px}
+.nft-studio-embedded .pagetools .lbl {display:none}
+.nft-studio-embedded .book-starters {display:flex;gap:8px;overflow-x:auto}
+.nft-studio-embedded .book-starters button {display:block;flex:0 0 108px;padding:10px 8px;line-height:1.4}
+.nft-studio-embedded .book-starters b {font-size:16px}
+.nft-studio-embedded .book-starters span {display:none}

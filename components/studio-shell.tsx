@@ -18,6 +18,7 @@ import {
   Layers3,
   CircleHelp,
   ArrowLeft,
+  ChevronRight,
 } from 'lucide-react';
 import {
   MODES,
@@ -25,7 +26,6 @@ import {
   type StudioView,
   isCreationMode,
 } from '@/lib/studio-modes';
-import { assetPath } from '@/lib/paths';
 import { CreationWorkbench } from './creation-workbench';
 import { ProjectsPanel } from './art-workbench';
 import { RecoveryPanel } from './recovery-panel';
@@ -205,9 +205,8 @@ function StudioSurface() {
             <>
               <div className="ns-heading ns-home-heading">
                 <div>
-                  <p className="ns-eyebrow">CREATE ON CARDANO</p>
-                  <h1>What will you create?</h1>
-                  <p>Pick a format. Make it yours.</p>
+                  <h1>Let’s create.</h1>
+                  <p>Choose what you’d like to make.</p>
                 </div>
                 <button
                   className="ns-draft-link"
@@ -231,20 +230,13 @@ function StudioSurface() {
                       <span className="ns-format-icon">
                         <Icon size={25} strokeWidth={1.6} />
                       </span>
-                      {item.id === 'art' && (
-                        <img
-                          className="ns-card-art"
-                          src={assetPath('/art/chroma.webp')}
-                          alt=""
-                        />
-                      )}
                       <div className="ns-mode-content">
                         <h2>{title}</h2>
                         <p>{detail}</p>
                       </div>
-                      <ArrowUpRight
+                      <ChevronRight
                         className="ns-card-arrow"
-                        size={18}
+                        size={22}
                         aria-hidden="true"
                       />
                     </button>
@@ -318,7 +310,7 @@ function StudioSurface() {
               aria-current={view === item.id ? 'page' : undefined}
               onClick={() => navigate(item.id)}
             >
-              <item.icon size={21} />
+              <item.icon size={24} />
               <span>{item.label}</span>
             </button>
           ))}
