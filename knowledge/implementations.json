@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "kind": "beacn.implementation-register",
-  "asOf": "2026-09-07T08:15:46.045Z",
+  "asOf": "2026-09-07T09:28:28.526Z",
   "repository": "https://github.com/BEACNpool/NFT-Studio",
   "sourceCatalog": {
     "path": "knowledge/catalog.json",
@@ -960,6 +960,163 @@
         "A separately dated live-service receipt for the deployed 12-tool release using the official MCP client, exact package checks and the admitted implementation-register resource.",
         "An explicitly authorized real-wallet test lifecycle with known transaction inclusion and independent exact-file plus credit recovery; distinguish network, wallet and provider observations.",
         "Documented independent consumer/player interoperability tests and an explicit reviewed adapter for any broader CIP-60 or Artifact Passport profile."
+      ]
+    },
+    {
+      "id": "registry-signatures",
+      "entryIds": [
+        "cip-0026"
+      ],
+      "title": "Registry signatures and explicit local trust",
+      "publication": "published",
+      "summary": "Local inspection of a bounded CIP-26 scalar profile. Signature validity, user-selected key trust and sequence history are separate observations. Original JSON and report hashes remain available for inspection.",
+      "capabilities": [
+        {
+          "id": "scalar-verification",
+          "title": "Scalar property signature inspection",
+          "environment": "node-local",
+          "description": "Verifies exact subject/property/value/sequence commitments and strict Ed25519 signatures within the documented scalar profile.",
+          "evidenceIds": [
+            "inspector-source",
+            "profile-guide",
+            "node-fixtures",
+            "clean-install",
+            "url-review"
+          ]
+        },
+        {
+          "id": "local-trust-sequence",
+          "title": "Explicit trust and prior-observation comparison",
+          "environment": "node-local",
+          "description": "Compares signatures with separately supplied subject-to-key rules and optional prior sequences. Default trust is empty; no key enrollment or sequence persistence occurs.",
+          "evidenceIds": [
+            "inspector-source",
+            "profile-guide",
+            "node-fixtures"
+          ]
+        },
+        {
+          "id": "browser-inspector",
+          "title": "Original record browser inspector",
+          "environment": "browser-local",
+          "description": "Paste or import original JSON, explicitly choose local trust rules and inspect separate verdicts. Edits invalidate prior results; export preserves both original inputs and hashes. Imported values and URLs remain inert.",
+          "evidenceIds": [
+            "registry-ui",
+            "profile-guide",
+            "browser-receipt",
+            "studio-browser-procedure"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "inspector-source",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Scalar CBOR commitments, strict Ed25519 verification, explicit local trust and sequence comparisons; no I/O.",
+          "artifact": {
+            "path": "experiments/cip26-inspector/src/index.mjs",
+            "sha256": "bfe777da648ad22a5cf42fc442bd7b258d91d736e644a9b2cbac2be091b5c58c",
+            "commit": "7b3ff81a57a55f4ccbeed2177870ab5c6e2579dd",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/7b3ff81a57a55f4ccbeed2177870ab5c6e2579dd/experiments/cip26-inspector/src/index.mjs"
+          }
+        },
+        {
+          "id": "registry-ui",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Original record and independent local trust editors, explicit fixed example rules, separate verdicts and original-input report export.",
+          "artifact": {
+            "path": "components/registry-signature-lab.tsx",
+            "sha256": "dc8e8e7032031edd441f6fb221b3b63f84e1a92b21a3c2314e3b9057d9829c24",
+            "commit": "7b3ff81a57a55f4ccbeed2177870ab5c6e2579dd",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/7b3ff81a57a55f4ccbeed2177870ab5c6e2579dd/components/registry-signature-lab.tsx"
+          }
+        },
+        {
+          "id": "profile-guide",
+          "kind": "documentation",
+          "observedAt": null,
+          "description": "Published integration guide, narrow profile boundaries, reproduction and evidence limitations.",
+          "artifact": {
+            "path": "docs/REGISTRY_SIGNATURES.md",
+            "sha256": "20fe3bb1e34bb62a9e31b8bbaa06a1ba229a54cd4da430b64c1a7b08a0a38a48",
+            "commit": "7b3ff81a57a55f4ccbeed2177870ab5c6e2579dd",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/7b3ff81a57a55f4ccbeed2177870ab5c6e2579dd/docs/REGISTRY_SIGNATURES.md"
+          }
+        },
+        {
+          "id": "node-fixtures",
+          "kind": "local-test",
+          "observedAt": "2026-09-07T09:04:23.441Z",
+          "description": "Published procedure for 13 observed Node groups, including 133 independent Python scalar commitments and 59 published signatures cross-checked with Node crypto. This pin identifies procedure source.",
+          "artifact": {
+            "path": "experiments/cip26-inspector/test/inspector.test.mjs",
+            "sha256": "cc4999b326e3ebaded129780cf2289f18d2d5a32025fda500db2adbe608c430d",
+            "commit": "7b3ff81a57a55f4ccbeed2177870ab5c6e2579dd",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/7b3ff81a57a55f4ccbeed2177870ab5c6e2579dd/experiments/cip26-inspector/test/inspector.test.mjs"
+          }
+        },
+        {
+          "id": "browser-receipt",
+          "kind": "local-test",
+          "observedAt": "2026-09-07T09:04:26.415Z",
+          "description": "407 actual Chromium assertions, 133 oracle cases and 59 published attestations; zero external requests, wallet operations or chain queries. Standalone module, not a public deployment receipt.",
+          "artifact": {
+            "path": "experiments/cip26-inspector/evidence/browser-receipt.json",
+            "sha256": "1c5014994e34b609c060beeae3d421b2f8a9c1a223dd4a914c27f64faebc6511",
+            "commit": "7b3ff81a57a55f4ccbeed2177870ab5c6e2579dd",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/7b3ff81a57a55f4ccbeed2177870ab5c6e2579dd/experiments/cip26-inspector/evidence/browser-receipt.json"
+          }
+        },
+        {
+          "id": "clean-install",
+          "kind": "local-test",
+          "observedAt": "2026-09-07T09:06:36.995Z",
+          "description": "Fresh isolated installation with no copied dependencies/build output: 13 Node groups and exact 94,826-byte standalone module reproduction.",
+          "artifact": {
+            "path": "experiments/cip26-inspector/evidence/clean-install-receipt.json",
+            "sha256": "0213cc428947346a75c332145b9f4c0e0ee25681fa6eff9e9a0026de2bc0adbc",
+            "commit": "7b3ff81a57a55f4ccbeed2177870ab5c6e2579dd",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/7b3ff81a57a55f4ccbeed2177870ab5c6e2579dd/experiments/cip26-inspector/evidence/clean-install-receipt.json"
+          }
+        },
+        {
+          "id": "url-review",
+          "kind": "local-test",
+          "observedAt": "2026-09-07T09:06:49.647Z",
+          "description": "Separate Codex agent in this development session: 16 URL regressions, 16,731 differential cases and unchanged prior scalar/signature cases. Shared host parser; not an external security audit.",
+          "artifact": {
+            "path": "experiments/cip26-inspector/evidence/url-profile-review.json",
+            "sha256": "230f9e4150ed34dbd0c5c018b4ea76b5e44529c7ce77010a743f70286c46952c",
+            "commit": "7b3ff81a57a55f4ccbeed2177870ab5c6e2579dd",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/7b3ff81a57a55f4ccbeed2177870ab5c6e2579dd/experiments/cip26-inspector/evidence/url-profile-review.json"
+          }
+        },
+        {
+          "id": "studio-browser-procedure",
+          "kind": "local-test",
+          "observedAt": "2026-09-07T09:10:08.059Z",
+          "description": "Published browser procedure for the observed integrated ten-group Labs check, including Registry signature/trust/conflict/edit invalidation and mobile bounds. Timestamp is the local log observation, not an authenticated receipt.",
+          "artifact": {
+            "path": "scripts/audit-labs.cjs",
+            "sha256": "6f70128690b9a5c2fdbd14847ff1d2e947bebcf338e3b37143a7b1c81170c4b7",
+            "commit": "7b3ff81a57a55f4ccbeed2177870ab5c6e2579dd",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/7b3ff81a57a55f4ccbeed2177870ab5c6e2579dd/scripts/audit-labs.cjs"
+          }
+        }
+      ],
+      "limits": [
+        "No full CIP-26 conformance, native policy authentication, registry membership, issuer ownership or truth-of-content claim. Logos, preimages, array/map values and non-integer numeric tokens are outside this profile.",
+        "A valid signature does not select a trusted key. User-supplied rules are local choices; no remote authority authenticates or stores them.",
+        "Sequence comparisons use explicit prior observations only. No persistent anti-replay store or automatic update authorization is provided.",
+        "Record input is at most 96 KiB, local trust input 48 KiB, eight properties and four signatures per property. Strict point policy can be narrower than other Ed25519 implementations.",
+        "No runtime URL fetching, wallet operation, signing, transaction submission, chain query or deployed authentication service. An inert syntactically accepted URL is not a verified destination.",
+        "Developer receipts and a separate agent review are scoped local evidence. They are not an external cryptographic audit or a production service observation."
+      ],
+      "nextEvidence": [
+        "Interoperability results from independently maintained CIP-26 consumers for this exact bounded profile.",
+        "A separately specified trust authority and durable observation model before any authentication or update-acceptance service."
       ]
     }
   ]

@@ -2,7 +2,7 @@
 
 `implementations.json` records dated observations about NFT-Studio features. It is separate from the frozen `catalog.json`: neither the catalog's research-only maturity nor any upstream CIP status changes when this register changes. The catalog's exact SHA-256 is recorded under `sourceCatalog`; CI checks those bytes and every `entryIds` join.
 
-There are six records at this snapshot. All six have published source. Music release joins CIP-60, CIP-25, CIP-30 and the agent mint contract without changing their research status. Artifact Passport has a browser import/export flow; the holder-proof verifier remains experimental offline code with no deployed authentication service. A record's `publication` describes source availability; each capability's `environment`, evidence and limits describe what was actually exercised. Do not turn these into one overall readiness score.
+There are seven records at this snapshot. All seven have published source. Music release joins CIP-60, CIP-25, CIP-30 and the agent mint contract without changing their research status. Artifact Passport has a browser import/export flow; the holder-proof verifier remains experimental offline code with no deployed authentication service. A record's `publication` describes source availability; each capability's `environment`, evidence and limits describe what was actually exercised. Do not turn these into one overall readiness score.
 
 Capsule issuance has independent node script evaluation using public inputs. Its evolution/freeze tests use synthetic transactions and a local compiled evaluator. The browser's downloadable state history is local data. None of those observations establishes a capsule mint or confirmation.
 
@@ -14,6 +14,8 @@ Music evidence covers the exact-file/credit codec, shared native transaction ada
 
 All 31 earlier evidence objects are preserved unchanged. The added artifacts are pinned to published source commit `e87e2b0b27cd88b380e5b2bab2f7c0034ae03857`. Earlier codec/transaction fixture documents describe their original kit boundaries; the new scoped builder/browser/MCP evidence does not rewrite those historical records. A later deployment observation must carry its own dated immutable receipt.
 
+Registry signatures adds eight evidence pins at source commit `7b3ff81a57a55f4ccbeed2177870ab5c6e2579dd`, preserving all 48 earlier evidence objects unchanged. Its exact scalar profile has local Node, standalone Chromium, isolated-installation and integrated browser observations. The separate original-text URL review came from another Codex agent in the same session; it is not an external security audit. Signature validity, explicitly selected trust and prior-sequence comparison stay separate. No registry authority, durable anti-replay store, native-policy verification or remote authentication service is admitted.
+
 ## Data and validation
 
 Each capability references evidence IDs within its record. Every artifact has a repository-relative path and SHA-256. Published artifacts additionally have a full 40-character commit and the exact `https://github.com/BEACNpool/NFT-Studio/blob/<commit>/<path>` URL. Unpublished candidate artifacts have a null commit and URL; their paths describe intended repository locations. A published experimental implementation can still have an offline-candidate capability environment. Never manufacture a public link for an unpublished file.
@@ -22,7 +24,7 @@ Each capability references evidence IDs within its record. Every artifact has a 
 
 `implementations.schema.json` bounds the document's structure. `implementations.mjs` adds semantic checks: unique IDs, resolved evidence references, candidate publication restrictions, exact commit/path URL correspondence, dated external observations and capability-specific evidence kinds. Pass the validated research catalog's entry IDs to check the join. These validators cannot determine whether natural-language claims are true. Claims still require source review and scoped evidence under [ADMISSION.md](ADMISSION.md).
 
-The pure loader accepts already-read JSON text, at most 65,536 UTF-8 bytes; it performs no file access or fetch. Object validation takes a fresh bounded inert-data snapshot. Limits are eight records, 12 evidence items and eight capabilities per record, depth ten and 4,096 nodes. Imported JSON uses ordinary JSON parsing and is not an authenticated/canonical signing format. Lookup helpers take the validated register and do not mutate or promote it. The list helper defaults to the eight-record cap so a sixth record is not silently omitted.
+The pure loader accepts already-read JSON text, at most 65,536 UTF-8 bytes; it performs no file access or fetch. Object validation takes a fresh bounded inert-data snapshot. Limits are eight records, 12 evidence items and eight capabilities per record, depth ten and 4,096 nodes. Imported JSON uses ordinary JSON parsing and is not an authenticated/canonical signing format. Lookup helpers take the validated register and do not mutate or promote it. The list helper defaults to the eight-record cap so later admitted records are not silently omitted.
 
 ```js
 import research from './catalog.json';

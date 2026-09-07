@@ -33,13 +33,13 @@ const mutate = (change) => {
 };
 const reject = (change) =>
   assert.throws(() => validateImplementations(mutate(change), ids));
-test('six records, strict research join and publication filtering', () => {
+test('seven records, strict research join and publication filtering', () => {
   const register = parseImplementations(text, ids);
-  assert.equal(register.records.length, 6);
-  assert.equal(listImplementations(register).length, 6);
+  assert.equal(register.records.length, 7);
+  assert.equal(listImplementations(register).length, 7);
   assert.equal(
     listImplementations(register, { publication: 'published' }).length,
-    6,
+    7,
   );
   assert.equal(
     listImplementations(register, { publication: 'candidate' }).length,
@@ -109,6 +109,15 @@ test('31 historical evidence pins survive and new observations retain local scop
   }
   assert.deepEqual(music.entryIds, ['cip-0060', 'cip-0025', 'cip-0030', 'agent-mint-contract']);
   assert.equal(implementationsForEntry(raw, 'cip-0060')[0].id, 'music-release');
+});
+test('48 prior evidence objects survive Registry admission', () => {
+  const prior = raw.records.slice(0, 6).map((record) => ({ id: record.id, evidence: record.evidence }));
+  assert.equal(hash(JSON.stringify(prior)), '52956c6f5f27f6821048f564c9eca6aae1cc2125bab40618a51b70fb1744a9e2');
+  const registry = getImplementation(raw, 'registry-signatures');
+  assert.deepEqual(registry.entryIds, ['cip-0026']);
+  assert.equal(implementationsForEntry(raw, 'cip-0026')[0].id, 'registry-signatures');
+  assert.ok(registry.capabilities.every((item) => ['node-local', 'browser-local'].includes(item.environment)));
+  assert.ok(registry.evidence.every((item) => item.artifact.commit === '7b3ff81a57a55f4ccbeed2177870ab5c6e2579dd'));
 });
 test('duplicate IDs, unknown fields and invented readiness values reject', () => {
   reject((r) => (r.records[1].id = r.records[0].id));
