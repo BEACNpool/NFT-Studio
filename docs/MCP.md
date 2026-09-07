@@ -42,14 +42,18 @@ and continue through the existing visible wallet review.
 legacy clients passed knowledge lookup, intent roundtrip/tamper rejection, proof
 match/mismatch, resource discovery, browser-origin checks, and synthetic NFT/data
 unsigned preparation on 2026-09-07. Transaction hashes, exact metadata, output
-destinations and ADA/token conservation were checked independently. These
+destinations and ADA/token conservation were checked independently. Music files/credits
+roundtripped canonically, five Capsule cases per era matched the Aiken oracle and
+independent CSL hashes, and the six-record implementation register matched the
+exact release source. These
 fabricated inputs are not a claim of chain availability or wallet ownership.
 The [initial eight-tool receipt](verification/mcp-public-initial-20260907.json) and
-[first unsigned-builder receipt](verification/mcp-native-20260907.json) are retained.
+[first unsigned-builder receipt](verification/mcp-native-20260907.json), and
+[first implementation-resource receipt](verification/mcp-implementation-register-20260907.json) are retained.
 Reproduce the read-only check using synthetic content:
 
 ```sh
-node mcp/integration/verify-live-endpoint.mjs https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp --expected-tools 9 --expected-resources 56
+node mcp/integration/verify-live-endpoint.mjs https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp --expected-tools 12 --expected-resources 61
 ```
 
 The Sites front dispatcher reserves `/mcp`; this service uses the application's
@@ -229,7 +233,7 @@ Primary implementation sources, checked 2026-09-07: [official SDK stable release
 
 ## Public Worker with stateless unsigned preparation
 
-The public connection above passed all nine tools, including unsigned NFT/data preparation, in both official client protocol eras at 2026-09-07T06:28:25.565Z. This verifies this hosted release; other operators must verify their own deployments.
+The public connection above passed all twelve tools and 61 resources in both official client protocol eras at 2026-09-07T08:24:10.850Z, including music packages, fixed Capsule parameter application and unsigned NFT/data preparation. This verifies this hosted release; other operators must verify their own deployments.
 
 This source package adds a **ninth** public tool, `prepare_unsigned_transaction`, to the eight existing knowledge, payload, intent and proof tools. This is a runtime-tested source capability. The deployed endpoint's `studio_capabilities` and release verification receipt determine whether a particular host has enabled it; a local build does not update the hosted service.
 

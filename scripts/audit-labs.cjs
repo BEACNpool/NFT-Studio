@@ -364,6 +364,60 @@ const fill = (page, selector, text) =>
     results.push(
       'Knowledge keeps research status separate from scoped BEACN implementation evidence and immutable source links',
     );
+    // Long evidence entries open at their heading, even when the first action is far below it.
+    for (const width of [1440, 390]) {
+      await page.setViewport({ width, height: 900 });
+      await fill(page, '#knowledge-query', 'CIP60');
+      await page.waitForFunction(() =>
+        document.querySelector('.ns-kb-card')?.textContent.includes('CIP-0060'),
+      );
+      await page.click('.ns-kb-card');
+      await page.waitForSelector('[data-implementation="music-release"]');
+      await page.waitForFunction(
+        () =>
+          document.querySelector('.ns-kb-dialog')?.scrollTop <= 1 &&
+          document.activeElement?.getAttribute('data-slot') === 'dialog-title',
+      );
+      assert.equal(
+        await page.$$eval(
+          '[data-implementation="music-release"] a',
+          (links) => links.length,
+        ),
+        12,
+      );
+      if (screenshotDir)
+        await page.screenshot({
+          path: path.join(
+            screenshotDir,
+            `knowledge-music-initial-${width}.png`,
+          ),
+        });
+      const related = await page.evaluateHandle(() =>
+        [...document.querySelectorAll('.ns-kb-dialog button')].find(
+          (button) => button.textContent.trim() === 'cip-0025',
+        ),
+      );
+      const relatedButton = related.asElement();
+      assert.ok(relatedButton);
+      await relatedButton.evaluate((button) =>
+        button.scrollIntoView({ block: 'center', behavior: 'instant' }),
+      );
+      await relatedButton.click();
+      await page.waitForFunction(
+        () =>
+          document
+            .querySelector('.ns-kb-dialog [data-slot="dialog-title"]')
+            ?.textContent.includes('CIP-0025') &&
+          document.querySelector('.ns-kb-dialog').scrollTop <= 1 &&
+          document.activeElement?.getAttribute('data-slot') === 'dialog-title',
+      );
+      await page.keyboard.press('Escape');
+      await page.waitForSelector('.ns-kb-dialog', { hidden: true });
+    }
+    await page.setViewport({ width: 1440, height: 1000 });
+    results.push(
+      'Long music knowledge entries and related-entry navigation focus their heading at the top on desktop and mobile',
+    );
     await click(page, 'State capsule');
     await has(page, 'Revision 1');
     assert.equal(

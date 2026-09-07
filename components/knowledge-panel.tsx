@@ -37,8 +37,12 @@ export function KnowledgePanel() {
   const [limit, setLimit] = useState(12);
   const [selected, setSelected] = useState<Entry | null>(null);
   const dialog = useRef<HTMLDivElement>(null);
+  const title = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
-    dialog.current?.scrollTo({ top: 0 });
+    if (selected) {
+      dialog.current?.scrollTo({ top: 0 });
+      title.current?.focus({ preventScroll: true });
+    }
   }, [selected]);
   const results = useMemo(
     () =>
@@ -202,13 +206,19 @@ export function KnowledgePanel() {
           if (!open) setSelected(null);
         }}
       >
-        <DialogContent ref={dialog} className="ns-kb-dialog">
+        <DialogContent
+          ref={dialog}
+          initialFocus={title}
+          className="ns-kb-dialog"
+        >
           {selected && (
             <>
               <div className="ns-lab-kicker">
                 {selected.kind} · {selected.maturity.standardStatus}
               </div>
-              <DialogTitle>{selected.title}</DialogTitle>
+              <DialogTitle ref={title} tabIndex={-1}>
+                {selected.title}
+              </DialogTitle>
               <DialogDescription>{selected.summary}</DialogDescription>
               <p className="ns-kb-evidence">
                 This is a research entry. It does not claim that NFT-Studio
