@@ -57,3 +57,19 @@ test('Public Worker enforces exact host/origin, byte/JSON/method bounds and docu
   }finally{await handler.close();}
   const low=createPublicMcpHandler({...config,rateLimit:1});try{await low.fetch(new Request(origin+'/mcp'));assert.equal((await low.fetch(new Request(origin+'/mcp'))).status,429);}finally{await low.close();}
 });
+
+test('A configured application MCP route advertises its exact path and rejects all other routes',async()=>{
+  for(const endpointPath of ['', '/', '/mcp/', '//mcp', '/a/../mcp', '/mcp?x=1', '/mcp#fragment', '/a%2fb', 1]) assert.throws(()=>createPublicMcpHandler({...config,endpointPath}),/MCP path/);
+  const handler=createPublicMcpHandler({...config,endpointPath:'/api/mcp'});
+  try{
+    assert.equal((await handler.fetch(new Request(origin+'/mcp'))).status,404);
+    assert.equal((await handler.fetch(new Request(origin+'/api/mcp?x=1'))).status,404);
+    const client=new Client({name:'custom-route-check',version:'1.0.0'});
+    try{
+      await client.connect(new StreamableHTTPClientTransport(new URL(origin+'/api/mcp'),{fetch:(input,init)=>handler.fetch(new Request(input,init))}));
+      const caps=unpack(await client.callTool({name:'studio_capabilities',arguments:{}}));
+      assert.equal(caps.publicEndpoint,origin+'/api/mcp');
+      assert.equal((await client.listTools()).tools.length,8);
+    }finally{await client.close();}
+  }finally{await handler.close();}
+});

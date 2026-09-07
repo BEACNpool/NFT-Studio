@@ -55,10 +55,10 @@ try{
   for(const mode of ['auto','legacy']){
     const client=new Client({name:'nft-studio-wrapped-workerd-check',version:'1.0.0'},{versionNegotiation:{mode}});
     try{
-      await client.connect(new StreamableHTTPClientTransport(new URL(origin+'/mcp'),{fetch:(url,init)=>wrapped.dispatchFetch(url,init)}));
+      await client.connect(new StreamableHTTPClientTransport(new URL(origin+'/api/mcp'),{fetch:(url,init)=>wrapped.dispatchFetch(url,init)}));
       const tools=(await client.listTools()).tools;assert.equal(tools.length,8);
       const resources=(await client.listResources()).resources;assert.ok(resources.length>20);
-      const caps=checked(await client.callTool({name:'studio_capabilities',arguments:{}}));assert.equal(caps.publicEndpoint,origin+'/mcp');
+      const caps=checked(await client.callTool({name:'studio_capabilities',arguments:{}}));assert.equal(caps.publicEndpoint,origin+'/api/mcp');
       const search=checked(await client.callTool({name:'search_knowledge',arguments:{query:'CIP-68',limit:2}}));assert.ok(search.results.length>0);
       const intent=checked(await client.callTool({name:'create_mint_intent',arguments:{mode:'data',name:'Wrapped app proof',files:[{name:'hello.txt',mediaType:'text/plain',base64:'SGVsbG8sIENhcmRhbm8h'}]}}));
       const verified=checked(await client.callTool({name:'verify_mint_intent',arguments:{intent:intent.intent}}));assert.equal(verified.intent.intentHash,intent.intent.intentHash);
@@ -68,14 +68,14 @@ try{
       const proofCheck=checked(await client.callTool({name:'verify_proof_record',arguments:{recordCborHex:proof.artifact.recordCborHex,file:proofFile}}));
       assert.equal(proofCheck.verification.status,'match');assert.equal(proofCheck.chainInclusionChecked,false);
 
-      observations.push({route:'/mcp',protocolEra:client.getProtocolEra(),tools:8,resources:resources.length,intentHash:intent.intent.intentHash,proofRecordHash:proof.artifact.recordSha256,proofMatch:true});
+      observations.push({route:'/api/mcp',protocolEra:client.getProtocolEra(),tools:8,resources:resources.length,intentHash:intent.intent.intentHash,proofRecordHash:proof.artifact.recordSha256,proofMatch:true});
     }finally{await client.close();}
   }
   const post=(url,body,headers={})=>wrapped.dispatchFetch(url,{method:'POST',headers:{'content-type':'application/json',...headers},body});
-  assert.equal((await post('https://attacker.example/mcp','{}')).status,403);
-  assert.equal((await post(origin+'/mcp','{}',{origin:'https://attacker.example'})).status,403);
-  assert.equal((await post(origin+'/mcp','x'.repeat(98305))).status,413);
-  assert.equal((await post(origin+'/mcp?payload=forbidden','{}')).status,404);
+  assert.equal((await post('https://attacker.example/api/mcp','{}')).status,403);
+  assert.equal((await post(origin+'/api/mcp','{}',{origin:'https://attacker.example'})).status,403);
+  assert.equal((await post(origin+'/api/mcp','x'.repeat(98305))).status,413);
+  assert.equal((await post(origin+'/api/mcp?payload=forbidden','{}')).status,404);
   const report={schema:'nft-studio.mcp-wrapper-check.v1',status:'pass',runtime:'Miniflare/Workerd',compatibilityDate:config.compatibility_date,sourceAppSha256:record.sourceAppSha256,mcpSha256:record.mcpSha256,observations,negativeChecks:['wrong URL origin','wrong browser Origin','96KiB body cap','query rejection'],deployed:false,networkSubmission:false};
   await writeFile(join(dist,'mcp-wrapper-check.json'),JSON.stringify(report,null,2)+'\n');
   console.log(JSON.stringify(report,null,2));

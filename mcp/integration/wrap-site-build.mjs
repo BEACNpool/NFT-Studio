@@ -21,9 +21,9 @@ await rename(join(output,'server/index.js'),join(output,'server/studio-app.js'))
 await writeFile(join(output,'server/mcp-public.mjs'),mcp,{flag:'wx'});
 const publicOrigin='https://beacn-nft-studio.davidmjensen17.chatgpt.site';
 const studioUrl='https://beacnpool.github.io/NFT-Studio/';
-const wrapper=`// NFT_STUDIO_MCP_WRAPPER: generated release artifact; original app is studio-app.js.\nimport app from './studio-app.js';\nimport { createPublicMcpHandler } from './mcp-public.mjs';\nexport * from './studio-app.js';\nconst mcp = createPublicMcpHandler(${JSON.stringify({publicOrigin,studioUrl,allowedOrigins:[publicOrigin,'https://beacnpool.github.io']})});\nexport default {\n  ...app,\n  fetch(request, env, context) {\n    if (new URL(request.url).pathname === '/mcp') return mcp.fetch(request);\n    return app.fetch(request, env, context);\n  }\n};\n`;
+const wrapper=`// NFT_STUDIO_MCP_WRAPPER: generated release artifact; original app is studio-app.js.\nimport app from './studio-app.js';\nimport { createPublicMcpHandler } from './mcp-public.mjs';\nexport * from './studio-app.js';\nconst mcp = createPublicMcpHandler(${JSON.stringify({publicOrigin,studioUrl,endpointPath:'/api/mcp',allowedOrigins:[publicOrigin,'https://beacnpool.github.io']})});\nexport default {\n  ...app,\n  fetch(request, env, context) {\n    if (new URL(request.url).pathname === '/api/mcp') return mcp.fetch(request);\n    return app.fetch(request, env, context);\n  }\n};\n`;
 await writeFile(join(output,'server/index.js'),wrapper,{flag:'wx'});
 const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
-const receipt={schema:'nft-studio.mcp-wrapper.v1',publicOrigin,studioUrl,route:'/mcp',sourceAppSha256:digest(app),copiedAppSha256:digest(await readFile(join(output,'server/studio-app.js'))),mcpSha256:digest(mcp),wrapperSha256:digest(Buffer.from(wrapper)),sourceHostingConfigChanged:false};
+const receipt={schema:'nft-studio.mcp-wrapper.v1',publicOrigin,studioUrl,route:'/api/mcp',sourceAppSha256:digest(app),copiedAppSha256:digest(await readFile(join(output,'server/studio-app.js'))),mcpSha256:digest(mcp),wrapperSha256:digest(Buffer.from(wrapper)),sourceHostingConfigChanged:false};
 await writeFile(join(output,'mcp-wrapper-receipt.json'),JSON.stringify(receipt,null,2)+'\n',{flag:'wx'});
 console.log(JSON.stringify({output,...receipt},null,2));

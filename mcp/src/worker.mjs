@@ -14,6 +14,8 @@ const error=(status,message,extra={})=>new Response(JSON.stringify({error:messag
 export function createPublicMcpHandler(config) {
   const origin=new URL(config.publicOrigin);
   if(origin.origin!==config.publicOrigin||origin.protocol!=='https:'||origin.username||origin.password) throw new Error('Configure one exact public HTTPS origin.');
+  const endpointPath=config.endpointPath??'/mcp';
+  if(typeof endpointPath!=='string'||!/^\/[a-z0-9_-]+(?:\/[a-z0-9_-]+)*$/.test(endpointPath)||endpointPath.length>100)throw new Error('Configure a bounded absolute MCP path without query or fragment.');
   const studioUrl=new URL(config.studioUrl||'https://beacnpool.github.io/NFT-Studio/');
   if(studioUrl.protocol!=='https:'||studioUrl.username||studioUrl.password||studioUrl.search||studioUrl.hash) throw new Error('Configure an HTTPS Studio review URL without query or fragment.');
   const reviewUrl=new URL('?view=labs&lab=agents',studioUrl);
@@ -26,7 +28,7 @@ export function createPublicMcpHandler(config) {
     transports:['streamable-http'],protocolEras:['2026-07-28','2025 legacy negotiation'],
     actions:['knowledge_search','knowledge_resources','payload_validation','mint_intent','proof_record','proof_verification'],
     proofOfExistence:PROOF_MCP_CAPABILITIES,
-    publicEndpoint:config.publicOrigin+'/mcp',studioReviewUrl:reviewUrl.href,
+    publicEndpoint:config.publicOrigin+endpointPath,studioReviewUrl:reviewUrl.href,
     limits:{requestBytes:MAX_BYTES,rawPayloadBytes:12000,files:8,intentJsonBytes:80000},
     mediaTypes:PAYLOAD_TYPES,knowledge:{asOf:catalog.asOf,entries:catalog.entries.length,sources:catalog.sources.length},
     formats:['image','music','games','apps','motion','files'].map(id=>({id,status:'compact file intent; image cover required for NFT mode'})),
@@ -69,7 +71,7 @@ export function createPublicMcpHandler(config) {
       // Worker Request.url is the authoritative edge routing origin. Proxy-internal raw Host may differ.
       if(url.origin!==config.publicOrigin)return error(403,'Host is not allowed.');
       if(callerOrigin!==null&&!allowedOrigins.has(callerOrigin))return error(403,'Origin is not allowed.');
-      if(url.pathname!=='/mcp'||url.search)return error(404,'Not found.');
+      if(url.pathname!==endpointPath||url.search)return error(404,'Not found.');
       const headers={'cache-control':'no-store','x-content-type-options':'nosniff',...(callerOrigin?{'access-control-allow-origin':callerOrigin,'vary':'Origin','access-control-expose-headers':'MCP-Protocol-Version'}:{})};
       if(Date.now()-windowStart>=60000){windowStart=Date.now();requests=0;}
       if(++requests>rateLimit)return error(429,'Service request limit reached.',{...headers,'retry-after':'60'});
