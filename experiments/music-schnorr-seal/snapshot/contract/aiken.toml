@@ -1,0 +1,6 @@
+name = "beacn/music-schnorr-seal"
+version = "0.0.1"
+compiler = "v1.1.23"
+plutus = "v3"
+license = "Apache-2.0"
+description = "Offline built-in verification harness; not a minting policy or deployment"

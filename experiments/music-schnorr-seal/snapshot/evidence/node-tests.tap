@@ -1,0 +1,68 @@
+
+> @beacn-labs/music-schnorr-seal-candidate@0.0.1 test
+> node --test test/seal.test.mjs
+
+TAP version 13
+# Subtest: all 19 official BIP340 verification vectors match noble
+ok 1 - all 19 official BIP340 verification vectors match noble
+  ---
+  duration_ms: 47.458554
+  type: 'test'
+  ...
+# Subtest: 32 synthetic keys: valid untrusted vs explicit exact package/key trust, no signature distinct
+ok 2 - 32 synthetic keys: valid untrusted vs explicit exact package/key trust, no signature distinct
+  ---
+  duration_ms: 1208.576436
+  type: 'test'
+  ...
+# Subtest: changed credit: valid alternative packet/signature, changed package binding always visible
+ok 3 - changed credit: valid alternative packet/signature, changed package binding always visible
+  ---
+  duration_ms: 1667.951072
+  type: 'test'
+  ...
+# Subtest: changed key/signature/domain/hash rejects, never converts a failure into trust
+ok 4 - changed key/signature/domain/hash rejects, never converts a failure into trust
+  ---
+  duration_ms: 2172.741844
+  type: 'test'
+  ...
+# Subtest: zero r/s profile explicitly unsupported, invalid x/field scalars fail
+ok 5 - zero r/s profile explicitly unsupported, invalid x/field scalars fail
+  ---
+  duration_ms: 70.607963
+  type: 'test'
+  ...
+# Subtest: strict JSON/hex/schema, unknown fields, wrong curve encodings and duplicates rejected
+ok 6 - strict JSON/hex/schema, unknown fields, wrong curve encodings and duplicates rejected
+  ---
+  duration_ms: 2.595286
+  type: 'test'
+  ...
+# Subtest: full canonical package enforced before hash/signature claim
+ok 7 - full canonical package enforced before hash/signature claim
+  ---
+  duration_ms: 9.859455
+  type: 'test'
+  ...
+# Subtest: no caller object/getter/coercion execution; immutable report and challenge
+ok 8 - no caller object/getter/coercion execution; immutable report and challenge
+  ---
+  duration_ms: 29.934639
+  type: 'test'
+  ...
+# Subtest: no fetch during all public operations
+ok 9 - no fetch during all public operations
+  ---
+  duration_ms: 29.939431
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5363.033069

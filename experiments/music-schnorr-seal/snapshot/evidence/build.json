@@ -1,0 +1,100 @@
+{
+  "inputs": [
+    {
+      "path": "node_modules/@noble/curves/abstract/curve.js",
+      "bytes": 35711,
+      "sha256": "dbaeee3b41ff47efb76b78e14170fe4dda7c7ecdc387c402f16c5118e0bac356"
+    },
+    {
+      "path": "node_modules/@noble/curves/abstract/der.js",
+      "bytes": 7401,
+      "sha256": "7f80d698611b131368ecf732b8740bb97f72cd42fef77c4b0bb923e2e2d44159"
+    },
+    {
+      "path": "node_modules/@noble/curves/abstract/fft.js",
+      "bytes": 26024,
+      "sha256": "a4b2ff7ca33f4acc85d61f0e83ec3303c3f6b38ecc19b20d0f6462d820e518cf"
+    },
+    {
+      "path": "node_modules/@noble/curves/abstract/frost.js",
+      "bytes": 45399,
+      "sha256": "9a95f1fdf7e17b9d93a16049db675ee2967ed2a04cf59b1bd981d4662acbedf5"
+    },
+    {
+      "path": "node_modules/@noble/curves/abstract/hash-to-curve.js",
+      "bytes": 26273,
+      "sha256": "e3c97e7d0827b728b14e3311ed11d8e386d8a70d8fc77e0b9fd2a3090f19d955"
+    },
+    {
+      "path": "node_modules/@noble/curves/abstract/modular.js",
+      "bytes": 39844,
+      "sha256": "9ced3aa10598277a735e54f7b61d88e929d565da884ba5385f9006ebb3b6aab2"
+    },
+    {
+      "path": "node_modules/@noble/curves/abstract/weierstrass.js",
+      "bytes": 53654,
+      "sha256": "d007e949c0d5b912e8c54132983219c8ff8f69bda058a70563b5cc7a8783331c"
+    },
+    {
+      "path": "node_modules/@noble/curves/secp256k1.js",
+      "bytes": 20700,
+      "sha256": "b4e7383e0de5064cd200d22f21890bc8730ddaf987b1e989e5e24bbfaae5cf1f"
+    },
+    {
+      "path": "node_modules/@noble/curves/utils.js",
+      "bytes": 23221,
+      "sha256": "be9ff86aef76419376e4d66cf01a134f3117f1f8dd62d81f1b79100145503367"
+    },
+    {
+      "path": "node_modules/@noble/hashes/_md.js",
+      "bytes": 9175,
+      "sha256": "60cf3010fda89e3e4d3f0e7ff1ce249e9c467f34b4fd41b6fd6101d9f69be763"
+    },
+    {
+      "path": "node_modules/@noble/hashes/_u64.js",
+      "bytes": 4794,
+      "sha256": "b09da8c07fe8187c07649494cdb7cd0bcf13df90b506a9473d19e4d5f8c2e102"
+    },
+    {
+      "path": "node_modules/@noble/hashes/hmac.js",
+      "bytes": 3118,
+      "sha256": "fec9f8f3aeda785ea2de91cc4c059d54ef98196261c026c43f48341007ae52c9"
+    },
+    {
+      "path": "node_modules/@noble/hashes/sha2.js",
+      "bytes": 18997,
+      "sha256": "471746bba6ec4c6238ca41358d1d3b40b6ff31cf3363f0b4d550c649c1a8e83b"
+    },
+    {
+      "path": "node_modules/@noble/hashes/utils.js",
+      "bytes": 26035,
+      "sha256": "037ad49adb78168b6b699598fd33f85f7877456b1d28b4d032e2a1a16807947c"
+    },
+    {
+      "path": "src/index.mjs",
+      "bytes": 6194,
+      "sha256": "1dde70f73c1b9c97c165d09d6627bb1891a8f21a2359983c52002f74da967dd2"
+    },
+    {
+      "path": "studio/music-release.ts.source.txt",
+      "bytes": 27933,
+      "sha256": "5eb98cbd6f30e581cec3a48de34a848ed5b7c03f777c909f3383a64d36b08097"
+    },
+    {
+      "path": "studio/strict-json.mjs",
+      "bytes": 2496,
+      "sha256": "48994e51fbd3ab8a02677879b32b7875dbf11feee7c6b38a6b5385b3996b94e2"
+    },
+    {
+      "path": "studio/studio-payload.ts.source.txt",
+      "bytes": 18099,
+      "sha256": "ed452542debb915ba0983ae4e9e9a86870641c96ba6be69e04b518e06eda460d"
+    }
+  ],
+  "output": {
+    "bytes": 104653,
+    "sha256": "9227cd6811f14f3d0092b7bccbfb084e6db6cae72111c292592b5329cad354f1"
+  },
+  "noNodeRuntime": true,
+  "studioSnapshotsInert": true
+}

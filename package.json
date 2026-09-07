@@ -31,7 +31,8 @@
     "verify:holder": "npm --prefix experiments/holder-proof test",
     "verify:music": "node scripts/verify-music-release.mjs && node scripts/verify-music-transactions.mjs && node scripts/verify-music-receipts.mjs",
     "verify:parameters": "npm --prefix experiments/capsule-parameterizer test",
-    "verify:registry": "npm --prefix experiments/cip26-inspector test"
+    "verify:registry": "npm --prefix experiments/cip26-inspector test",
+    "verify:seals": "node scripts/verify-release-seal.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",

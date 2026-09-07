@@ -1,0 +1,2040 @@
+{
+  "seed": 20260907,
+  "summary": {
+    "total": 219,
+    "passed": 219,
+    "failed": 0,
+    "kind": {
+      "unit": 219,
+      "property": 0
+    }
+  },
+  "modules": [
+    {
+      "name": "vectors",
+      "summary": {
+        "total": 219,
+        "passed": 219,
+        "failed": 0,
+        "kind": {
+          "unit": 219,
+          "property": 0
+        }
+      },
+      "tests": [
+        {
+          "title": "official_0_32bytes",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 710,
+            "cpu": 43775615
+          }
+        },
+        {
+          "title": "official_1_32bytes",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 710,
+            "cpu": 43775615
+          }
+        },
+        {
+          "title": "official_2_32bytes",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 710,
+            "cpu": 43775615
+          }
+        },
+        {
+          "title": "official_3_32bytes",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 710,
+            "cpu": 43775615
+          }
+        },
+        {
+          "title": "official_4_32bytes",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 710,
+            "cpu": 43775615
+          }
+        },
+        {
+          "title": "official_5_32bytes",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 110,
+            "cpu": 43679615
+          },
+          "traces": [
+            "malformed public key"
+          ]
+        },
+        {
+          "title": "official_6_32bytes",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 710,
+            "cpu": 43775615
+          }
+        },
+        {
+          "title": "official_7_32bytes",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 710,
+            "cpu": 43775615
+          }
+        },
+        {
+          "title": "official_8_32bytes",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 710,
+            "cpu": 43775615
+          }
+        },
+        {
+          "title": "official_9_32bytes",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 710,
+            "cpu": 43775615
+          }
+        },
+        {
+          "title": "official_10_32bytes",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 710,
+            "cpu": 43775615
+          }
+        },
+        {
+          "title": "official_11_32bytes",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 710,
+            "cpu": 43775615
+          }
+        },
+        {
+          "title": "official_12_32bytes",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 710,
+            "cpu": 43775615
+          }
+        },
+        {
+          "title": "official_13_32bytes",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 710,
+            "cpu": 43775615
+          }
+        },
+        {
+          "title": "official_14_32bytes",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 110,
+            "cpu": 43679615
+          },
+          "traces": [
+            "malformed public key"
+          ]
+        },
+        {
+          "title": "official_15_native_message_gap",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 110,
+            "cpu": 43600691
+          },
+          "traces": [
+            "message was not 32 bytes (do you need to hash?)"
+          ]
+        },
+        {
+          "title": "official_16_native_message_gap",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 110,
+            "cpu": 43600691
+          },
+          "traces": [
+            "message was not 32 bytes (do you need to hash?)"
+          ]
+        },
+        {
+          "title": "official_17_native_message_gap",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 110,
+            "cpu": 43653307
+          },
+          "traces": [
+            "message was not 32 bytes (do you need to hash?)"
+          ]
+        },
+        {
+          "title": "official_18_native_message_gap",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 110,
+            "cpu": 43916387
+          },
+          "traces": [
+            "message was not 32 bytes (do you need to hash?)"
+          ]
+        },
+        {
+          "title": "release_0",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_0",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_0",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_0",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_0",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_0",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_1",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_1",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_1",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_1",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_1",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_1",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_2",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_2",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_2",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_2",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_2",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_2",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_3",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_3",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_3",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_3",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_3",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_3",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_4",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_4",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_4",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_4",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_4",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_4",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_5",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_5",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_5",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_5",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_5",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_5",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_6",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_6",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_6",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_6",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_6",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_6",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_7",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_7",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_7",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_7",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_7",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_7",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_8",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_8",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_8",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_8",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_8",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_8",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_9",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_9",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_9",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_9",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_9",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_9",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_10",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_10",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_10",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_10",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_10",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_10",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_11",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_11",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_11",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_11",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_11",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_11",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_12",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_12",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_12",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_12",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_12",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_12",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_13",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_13",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_13",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_13",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_13",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_13",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_14",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_14",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_14",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_14",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_14",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_14",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_15",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_15",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_15",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_15",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_15",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_15",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_16",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_16",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_16",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_16",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_16",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_16",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_17",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_17",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_17",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_17",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_17",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_17",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_18",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_18",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_18",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_18",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_18",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_18",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_19",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_19",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_19",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_19",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_19",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_19",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_20",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_20",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_20",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_20",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_20",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_20",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_21",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_21",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_21",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_21",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_21",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_21",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_22",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_22",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_22",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_22",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_22",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_22",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_23",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_23",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_23",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_23",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_23",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_23",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_24",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_24",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_24",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_24",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_24",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_24",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_25",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_25",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_25",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_25",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_25",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_25",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_26",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_26",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_26",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_26",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_26",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_26",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_27",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_27",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_27",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_27",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_27",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_27",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_28",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_28",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_28",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_28",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_28",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_28",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_29",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_29",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_29",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_29",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_29",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_29",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_30",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_30",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_30",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_30",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_30",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_30",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "release_31",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "changed_release_31",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_hash_31",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_key_31",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_domain_31",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "wrong_signature_31",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 6221,
+            "cpu": 45752254
+          }
+        },
+        {
+          "title": "digest_original",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 1606,
+            "cpu": 909500
+          }
+        },
+        {
+          "title": "digest_changed",
+          "status": "pass",
+          "on_failure": "fail_immediately",
+          "execution_units": {
+            "mem": 1606,
+            "cpu": 909500
+          }
+        },
+        {
+          "title": "zero_r",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 136,
+            "cpu": 363794
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect builtin.slice_bytearray(0, 32, signature) != #\"0000000000000000000000000000000000000000000000000000000000000000\""
+          ]
+        },
+        {
+          "title": "zero_s",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 138,
+            "cpu": 515892
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect builtin.slice_bytearray(32, 32, signature) != #\"0000000000000000000000000000000000000000000000000000000000000000\""
+          ]
+        },
+        {
+          "title": "invalid_x",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 121,
+            "cpu": 44776254
+          },
+          "traces": [
+            "malformed public key"
+          ]
+        },
+        {
+          "title": "short_key",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 133,
+            "cpu": 135647
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect builtin.length_of_bytearray(public_key) == 32"
+          ]
+        },
+        {
+          "title": "short_signature",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 134,
+            "cpu": 211696
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect builtin.length_of_bytearray(signature) == 64"
+          ]
+        },
+        {
+          "title": "short_hash",
+          "status": "pass",
+          "on_failure": "succeed_eventually",
+          "execution_units": {
+            "mem": 139,
+            "cpu": 591941
+          },
+          "traces": [
+            "the validator crashed / exited prematurely",
+            "expect builtin.length_of_bytearray(package_hash) == 32"
+          ]
+        }
+      ]
+    }
+  ]
+}

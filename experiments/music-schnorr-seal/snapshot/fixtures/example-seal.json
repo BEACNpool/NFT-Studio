@@ -1,0 +1,7 @@
+{
+  "schema": "beacn.music-schnorr-seal.v1",
+  "profile": "bip340-sha256-release-nonzero-rs-v1",
+  "packageHash": "3655e44e6c5a1ddd735c3e60b72e8ef76cecb5749f6763250e6ba629ebb96f65",
+  "publicKeyHex": "f3bb4b6e68b47cdc4c7eea305d5aee40895eadf77300d35a39452fb94ece9156",
+  "signatureHex": "afcebc069f0dd6ea7b439171682ab286e726f3c9b4def2f92add35325728c4eecdec791da4c223f53d3b1da98d4cecb993b281f2b563d1ec5289544174757352"
+}

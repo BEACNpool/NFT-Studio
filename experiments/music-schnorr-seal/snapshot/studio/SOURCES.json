@@ -1,0 +1,24 @@
+{
+  "repository": "https://github.com/BEACNpool/NFT-Studio",
+  "commit": "96a8697c20b3d2fbe218e17bb238dd664fb5c00d",
+  "files": [
+    {
+      "path": "lib/music-release.ts",
+      "local": "studio/music-release.ts.source.txt",
+      "sha256": "5eb98cbd6f30e581cec3a48de34a848ed5b7c03f777c909f3383a64d36b08097",
+      "bytes": 27933
+    },
+    {
+      "path": "lib/studio-payload.ts",
+      "local": "studio/studio-payload.ts.source.txt",
+      "sha256": "ed452542debb915ba0983ae4e9e9a86870641c96ba6be69e04b518e06eda460d",
+      "bytes": 18099
+    },
+    {
+      "path": "experiments/cip26-inspector/src/strict-json.mjs",
+      "local": "studio/strict-json.mjs",
+      "sha256": "48994e51fbd3ab8a02677879b32b7875dbf11feee7c6b38a6b5385b3996b94e2",
+      "bytes": 2496
+    }
+  ]
+}

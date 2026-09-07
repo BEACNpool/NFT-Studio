@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "checkedAt": "2026-09-07T10:52:34.405042+00:00",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/bitcoin/bips/09e21036a4001fe6c9ba65c1d3a39b737768132f/bip-0340.mediawiki",
+      "bytes": 39995,
+      "sha256": "17d64d6dc6bc97f4ecf178697bf810b92aa2a9e41ef13db809c25bc44a9b8109"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/bitcoin/bips/09e21036a4001fe6c9ba65c1d3a39b737768132f/bip-0340/LICENSE",
+      "bytes": 332,
+      "sha256": "e4974cd8532036eda7e540a9930fee0c020cb297d455033232606298a89adbd4"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/bitcoin/bips/09e21036a4001fe6c9ba65c1d3a39b737768132f/bip-0340/test-vectors.csv",
+      "bytes": 6892,
+      "sha256": "34c9d1d9c3a88d524bc80778540dc43f8306ec249a7485293063c376db851c2d"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/paulmillr/noble-curves/656c4364dffa44c64aa0c49914b8000b278b67a9/src/secp256k1.ts",
+      "bytes": 23669,
+      "sha256": "f474017df70d47f2c1afa0798a5be4c20315506d1cc86090c8d60df94f5e70fb"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/paulmillr/noble-curves/656c4364dffa44c64aa0c49914b8000b278b67a9/LICENSE",
+      "bytes": 1109,
+      "sha256": "4f221aee6e072336700c408c68ab3b96a3fc09f6aebe6f48f1bd99e5ef13faec"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/aiken-lang/aiken/8949565a9969278846ffefe30bc3b892029dd318/crates/uplc/src/machine/runtime.rs",
+      "bytes": 73655,
+      "sha256": "28be2febbd423a11690ec24e0be52e065a364fd6af904b9b0e40fdf6ade8bac0"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/aiken-lang/aiken/8949565a9969278846ffefe30bc3b892029dd318/LICENSE",
+      "bytes": 11456,
+      "sha256": "5dcae70ec2e7d4166d33f0546e8e6327e41e8dddf924de16db554085973e1a26"
+    }
+  ],
+  "officialProjectedVectors": 19,
+  "redirectsAllowed": false,
+  "originalCsvPersisted": false
+}

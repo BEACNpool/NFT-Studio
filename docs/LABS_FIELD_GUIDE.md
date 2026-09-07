@@ -46,6 +46,22 @@ explicit upstream schema conflicts. It does not claim universal player support,
 verified copyright, or royalty payments. Compact files are bounded to 12,000 raw
 bytes; larger audio belongs in the separate Ledger Scroll workflow.
 
+## Keep an endorsement with the exact release
+
+In **Release seal**, choose **Try signed example**. Midnight Beacon's synthetic
+signature verifies, but the empty rules trust no keys. Select **Use example trust
+rules** separately and inspect again. Then select **Try a changed credit** and
+inspect: the original signature remains valid, while its package no longer matches
+the edited release. Both package hashes are shown for comparison.
+
+Export the inspection to retain all three original inputs and their hashes. You
+can export the exact challenge for a separately chosen external signer. No signing
+operation or private-key input is provided. This is a portable sidecar using a
+bounded Schnorr/secp256k1 profile; it does not alter the Music package or attach
+itself to an NFT. Key trust remains your explicit configuration and establishes
+neither identity nor rights. Read the [profile and evaluator evidence](../experiments/music-schnorr-seal/)
+before building an adapter.
+
 ## Carry a creation independently of this website
 
 In **Artifact passport**, choose **Try an unminted example**. Export the passport

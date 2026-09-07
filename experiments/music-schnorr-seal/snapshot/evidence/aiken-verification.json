@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "version": "aiken v1.1.23+8949565",
+  "cases": 219,
+  "official32ByteVectors": 15,
+  "officialVariableLengthGapCases": 4,
+  "applicationCases": 200,
+  "validExpected": 71,
+  "rejectionsExpected": 148,
+  "sourceSha256": "24fc8f426e4ad1dd177a3f21b3914ad3226adbf837bcccb814493b372f672f8c",
+  "rawReceiptSha256": "3903e3ec61f13877439627d71a44f17d85f2da6c9be761a214cff42e8705004f",
+  "observations": "Actual Aiken compiler/UPLC evaluator tests. fail tests mean rejected evaluation (false or runtime error), not a uniform Boolean error API. Four BIP340 valid variable-length-message vectors reject in Aiken native 1.1.23; all application messages are locally derived 32-byte SHA256 digests.",
+  "limits": "No ledger node evaluation, compiled mint policy, transaction construction, keys, wallet or submission."
+}

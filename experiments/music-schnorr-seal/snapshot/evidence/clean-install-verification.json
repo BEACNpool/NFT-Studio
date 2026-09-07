@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "checkedAt": "2026-09-07T10:56:02.618267+00:00",
+  "nodeVersion": "v22.22.2",
+  "scope": "Fresh isolated copy excluding node_modules and contract/build; no parent/root node_modules. Pinned npm ci from cache/registry, ignored install lifecycle scripts. Runtime and declarations built locally.",
+  "commands": [
+    {
+      "command": "npm ci --ignore-scripts",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0
+    },
+    {
+      "command": "npm test",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run verify:types",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run verify:sources",
+      "exitCode": 0
+    }
+  ],
+  "nodeTestGroups": 9,
+  "npmAudit": {
+    "packagesAudited": 31,
+    "reportedVulnerabilities": 0
+  },
+  "identicalOutputs": [
+    {
+      "path": "dist/seal.mjs",
+      "bytes": 104653,
+      "sha256": "9227cd6811f14f3d0092b7bccbfb084e6db6cae72111c292592b5329cad354f1"
+    },
+    {
+      "path": "dist/seal.d.mts",
+      "bytes": 2442,
+      "sha256": "07e2ef94942393c8e1fc553918fca37dc3ac53e29b0a9b136e3a1e862af01108"
+    },
+    {
+      "path": "evidence/build.json",
+      "bytes": 3309,
+      "sha256": "1fe04069ff8e24bafa7795f1a4efbd8cb9817ef6366d4aa79d46e16ffd700138"
+    }
+  ]
+}

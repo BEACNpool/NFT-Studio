@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "checkedAt": "2026-09-07T10:55:09.398Z",
+  "browser": "Chrome/152.0.7977.64",
+  "assertions": 255,
+  "officialVectors": 19,
+  "syntheticKeys": 32,
+  "challengeMessageHex": "1e5a280d813866263a58dd48624accf498adce488090e826a9a6493336bc65b2",
+  "noNodeGlobals": true,
+  "deniedCalls": [],
+  "moduleSha256": "9227cd6811f14f3d0092b7bccbfb084e6db6cae72111c292592b5329cad354f1",
+  "requests": [
+    "/",
+    "/seal.mjs",
+    "/vectors.mjs"
+  ],
+  "externalRequests": 0,
+  "errors": [],
+  "scope": "Actual browser pure API and official vector verification; no product UI, wallet, network provider, signing or submission."
+}

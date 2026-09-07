@@ -1,0 +1,33 @@
+{
+  "name": "@beacn-labs/music-schnorr-seal-candidate",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test test/seal.test.mjs",
+    "verify:aiken": "node scripts/verify-aiken.mjs",
+    "verify:browser": "node scripts/verify-browser.mjs",
+    "verify:types": "tsc --noEmit --strict --skipLibCheck --module nodenext --target es2022 test/types.ts",
+    "verify:sources": "node scripts/verify-sources.mjs"
+  },
+  "dependencies": {
+    "@noble/curves": "2.4.0",
+    "@noble/hashes": "2.4.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "puppeteer-core": "25.10.0",
+    "typescript": "5.9.3"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/seal.d.mts",
+      "import": "./dist/seal.mjs"
+    }
+  }
+}

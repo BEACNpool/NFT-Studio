@@ -39,6 +39,13 @@ jobs:
       - run: npm run verify:holder
       - run: npm --prefix experiments/cip26-inspector ci --ignore-scripts
       - run: npm run verify:registry
+      - run: npm run verify:seals
+      - run: npm --prefix experiments/music-schnorr-seal/snapshot ci --ignore-scripts
+      - run: npm --prefix experiments/music-schnorr-seal/snapshot run build
+      - run: npm --prefix experiments/music-schnorr-seal/snapshot test
+      - run: npm --prefix experiments/music-schnorr-seal/snapshot run verify:types
+      - run: npm --prefix experiments/music-schnorr-seal/snapshot run verify:sources
+      - run: npm run verify:seals
       - run: npm run verify:knowledge
       - run: npm run verify:capsules
       - run: npm --prefix mcp ci
@@ -83,3 +90,6 @@ jobs:
       - run: npm --prefix experiments/capsule-parameterizer ci --ignore-scripts
       - run: npm --prefix experiments/capsule-parameterizer run verify:aiken
       - run: git diff --exit-code -- experiments/capsule-parameterizer/fixtures/aiken-oracle.json
+
+      - run: npm --prefix experiments/music-schnorr-seal/snapshot ci --ignore-scripts
+      - run: npm --prefix experiments/music-schnorr-seal/snapshot run verify:aiken

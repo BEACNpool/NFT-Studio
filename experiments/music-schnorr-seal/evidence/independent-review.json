@@ -1,0 +1,100 @@
+{
+  "schema": "beacn.bounded-music-schnorr-review.v1",
+  "checkedAt": "2026-09-07T10:58:33.759734+00:00",
+  "reviewer": "Independent BEACN Labs agent review",
+  "status": "PASS_WITH_DOCUMENTATION_CORRECTION",
+  "candidateManifestSha256": "0a6441fd446f1d8a0298bf1e8c27b3b2a5f19db64cdab75ffcb7dbbdf97a7e32",
+  "candidateListedFilesVerified": 52,
+  "candidateListedBytesVerified": 617209,
+  "reviewedCore": [
+    {
+      "path": "src/index.mjs",
+      "sha256": "1dde70f73c1b9c97c165d09d6627bb1891a8f21a2359983c52002f74da967dd2"
+    },
+    {
+      "path": "dist/seal.mjs",
+      "sha256": "9227cd6811f14f3d0092b7bccbfb084e6db6cae72111c292592b5329cad354f1"
+    },
+    {
+      "path": "contract/lib/seal.ak",
+      "sha256": "22c0c7025e70fa274e023ff4c27575f4b157238cb75d8819a0821810750a3705"
+    },
+    {
+      "path": "PROFILE.md",
+      "sha256": "038b4b5ad8cde152539bf47c3a945b4fbc1db8fe46255b110117ed245c2c0c83"
+    }
+  ],
+  "coreAndBundleChangedDuringReview": false,
+  "findings": [
+    {
+      "severity": "low",
+      "location": "PROFILE.md:36 before final freeze",
+      "issue": "Syntax/schema rejection was documented as always TypeError; inherited Music parsing throws ordinary Error for malformed packet JSON and unsupported package fields.",
+      "reproductions": [
+        {
+          "call": "prepareChallenge('{')",
+          "errorConstructor": "Error",
+          "message": "Invalid music package JSON."
+        },
+        {
+          "call": "inspectSeal('{}')",
+          "errorConstructor": "Error",
+          "message": "Unexpected or missing music release package fields."
+        },
+        {
+          "call": "inspectSeal(validPacket, '{}')",
+          "errorConstructor": "TypeError",
+          "message": "Invalid seal fields"
+        }
+      ],
+      "disposition": "Corrected by author in final frozen PROFILE.md and integration guidance; adapters must catch all rejected input promises. No runtime change."
+    }
+  ],
+  "consequentialCoreFindings": [],
+  "independentResults": {
+    "pythonVerificationAssertions": 237,
+    "officialPublicBip340Vectors": 19,
+    "syntheticPublicKeys": 32,
+    "copiedModuleBoundaryAssertions": 60,
+    "aikenExistingCasesReplayed": 219,
+    "aikenOriginalAddedCases": 15,
+    "aikenTotalPassed": 234,
+    "aikenVersion": "aiken v1.1.23+8949565",
+    "buildInputHashesVerified": 18,
+    "exactStudioGitBlobsVerified": 3,
+    "studioCommit": "96a8697c20b3d2fbe218e17bb238dd664fb5c00d"
+  },
+  "evidence": [
+    {
+      "path": "python-verification.json",
+      "sha256": "e9e3ac34a4b9b36452030eb51ab333a168d45450082011273e3b642fad8f2401"
+    },
+    {
+      "path": "edge-verification.json",
+      "sha256": "e389c5af90bd3ca59d9b4b19ea92ff5a7151e8dca5aeef0e66733a3b152a2a05"
+    },
+    {
+      "path": "aiken-verification.json",
+      "sha256": "a2059e3b3a011bb8756bfdb025c760616189953964417ad61d6fe203c0af2075"
+    },
+    {
+      "path": "source-check.json",
+      "sha256": "6db52ba3c74c4c1daec385b891f4e4002da96a3b41813dab46488c4664c62687"
+    }
+  ],
+  "reviewHarnessCorrection": "Initial three added Aiken rejection tests returned ByteArray instead of Bool/Void; the first attempt did not compile. Private test expressions were corrected and then all234 checks executed. Original candidate source was unchanged.",
+  "reviewerKeysGenerated": 0,
+  "reviewerSigningOperations": 0,
+  "walletOperations": 0,
+  "providerOperations": 0,
+  "repositoryEdits": 0,
+  "scope": "Bounded source/input/trust/hash review plus copied-module, original Python verification arithmetic and actual native Aiken local evaluator checks. Pinned primary BIP340/noble/Aiken/CIP49 texts read. No production operations or adapter admission.",
+  "limits": [
+    "Not a general security audit, constant-time analysis, exhaustive crypto proof or compiler-binary reproducibility attestation.",
+    "The shared Music codec and noble dependencies were not comprehensively re-audited; independent package/signature oracles cover the listed fixtures and edges.",
+    "No hypothetical valid zero-s signature was generated; explicit tested zero encodings were rejected profile mutations.",
+    "Aiken is a local helper over supplied package hashes, not a package parser, trust authority, mint/spend policy, ledger-node result or WASM-path result.",
+    "No browser or clean-install suite was rerun by this reviewer; the author receipts were supporting evidence only.",
+    "Manual primary-source reads are separate from module behavior. The original vector CSV containing secret columns was not refetched by this reviewer."
+  ]
+}

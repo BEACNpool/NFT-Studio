@@ -1,0 +1,276 @@
+{
+  "schema": "beacn.private-candidate-manifest.v1",
+  "candidate": "music-schnorr-seal",
+  "frozenAt": "2026-09-07T10:57:00.869427+00:00",
+  "scope": "Verification-only exact Music release seal; no root edits, deployment, wallet, provider, signing endpoint or chain execution.",
+  "runtimeProfile": "bip340-sha256-release-nonzero-rs-v1",
+  "existingFilesModified": [],
+  "excluded": [
+    "node_modules/",
+    "contract/build/"
+  ],
+  "fileCount": 52,
+  "totalBytes": 617209,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 171,
+      "sha256": "780eae7d2a719e66f2bfff5deb1171e7030cb380b64978eb4d83b6df8e35faa1"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 36,
+      "sha256": "038460e1ccc8113e417e65b2a1780118d07916812c2adc1f53e48dc3d09d4851"
+    },
+    {
+      "path": "ATTRIBUTION.md",
+      "bytes": 3875,
+      "sha256": "50bb1e374718edf04413fb85d06210a6ba0f0623f6214d9b417401a86d374f3f"
+    },
+    {
+      "path": "INTEGRATION.md",
+      "bytes": 2591,
+      "sha256": "f84190172addeeca89f62e82e952230717557bf5a5348a8be2e3187e500a958c"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "PROFILE.md",
+      "bytes": 5557,
+      "sha256": "038b4b5ad8cde152539bf47c3a945b4fbc1db8fe46255b110117ed245c2c0c83"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7764,
+      "sha256": "0ee09ed05e760c3b5bd57c237556136d225aeb82e896164549818a3a75530422"
+    },
+    {
+      "path": "contract/aiken.lock",
+      "bytes": 123,
+      "sha256": "7dc636319536a720197c70a6c9d17d2121d1e51f1df4b682a72bb173fa7580af"
+    },
+    {
+      "path": "contract/aiken.toml",
+      "bytes": 200,
+      "sha256": "2f3121d0cf1b5475edf0256a4d56c731f38508bafeda3cdbd797ae367d12e41d"
+    },
+    {
+      "path": "contract/lib/seal.ak",
+      "bytes": 891,
+      "sha256": "22c0c7025e70fa274e023ff4c27575f4b157238cb75d8819a0821810750a3705"
+    },
+    {
+      "path": "contract/lib/vectors.ak",
+      "bytes": 71189,
+      "sha256": "24fc8f426e4ad1dd177a3f21b3914ad3226adbf837bcccb814493b372f672f8c"
+    },
+    {
+      "path": "dist/seal.d.mts",
+      "bytes": 2442,
+      "sha256": "07e2ef94942393c8e1fc553918fca37dc3ac53e29b0a9b136e3a1e862af01108"
+    },
+    {
+      "path": "dist/seal.mjs",
+      "bytes": 104653,
+      "sha256": "9227cd6811f14f3d0092b7bccbfb084e6db6cae72111c292592b5329cad354f1"
+    },
+    {
+      "path": "evidence/aiken-check.stderr.txt",
+      "bytes": 120,
+      "sha256": "c4e0ed8cb8b7454d2bad07ad46c8a96bf1e8b4d5403762e6ef41a57c4ead7b71"
+    },
+    {
+      "path": "evidence/aiken-check.stdout.json",
+      "bytes": 51800,
+      "sha256": "3903e3ec61f13877439627d71a44f17d85f2da6c9be761a214cff42e8705004f"
+    },
+    {
+      "path": "evidence/aiken-run.txt",
+      "bytes": 926,
+      "sha256": "cadbe1bf64ac6fda39a7061526f434d3fac29d260f540bbca7fea0b6785ef916"
+    },
+    {
+      "path": "evidence/aiken-verification.json",
+      "bytes": 830,
+      "sha256": "fa433fef0b2bb9e65be39fbc07e1973df02e8c5aa0bd180f1f56c94c1679f4d0"
+    },
+    {
+      "path": "evidence/browser-verification.json",
+      "bytes": 640,
+      "sha256": "79b14631afccab08e9b4a1bed9e71c09d10cb30e94bea0b5312546b065e66218"
+    },
+    {
+      "path": "evidence/build.json",
+      "bytes": 3309,
+      "sha256": "1fe04069ff8e24bafa7795f1a4efbd8cb9817ef6366d4aa79d46e16ffd700138"
+    },
+    {
+      "path": "evidence/clean-install-verification.json",
+      "bytes": 1281,
+      "sha256": "efaded64298a089e64a8f8bd57d3adaf6b42e93992cbd332c2cb075e98432d41"
+    },
+    {
+      "path": "evidence/node-tests.tap",
+      "bytes": 2141,
+      "sha256": "129197a4ec516680ee31494f89cddab7765f8f3ceb532c8b4fdfe252a6139826"
+    },
+    {
+      "path": "evidence/online-source-verification.json",
+      "bytes": 1897,
+      "sha256": "2783452fc19befd0d5a5f7e160deec1cf6b82873b3f3757eff4303221469e652"
+    },
+    {
+      "path": "fixtures/bip340-verification.json",
+      "bytes": 8086,
+      "sha256": "b2c057b496a871acf3128a7d57dc827e4f8fc5c069dbe697a8def1e00b72cb4d"
+    },
+    {
+      "path": "fixtures/changed-credit.music-release.json",
+      "bytes": 12899,
+      "sha256": "7c133294341029900dc8728085cdf7b19d2085e115f4834e0eba1951123a8fad"
+    },
+    {
+      "path": "fixtures/example-seal.json",
+      "bytes": 419,
+      "sha256": "cdc234acc1ef3de7160a582cdfbeebe07cbf5ebfeb3f077e08cfce6f711f7ea5"
+    },
+    {
+      "path": "fixtures/example-trust.json",
+      "bytes": 258,
+      "sha256": "519a13a0aaaaee7554ba4866d2681f6de5ee309053a1f196536f8a903f896100"
+    },
+    {
+      "path": "fixtures/midnight-beacon.music-release.json",
+      "bytes": 12901,
+      "sha256": "4b5f37c05e203be42f71db3ef2d6cfdc2362b5872c89082eddcee826ac13a43b"
+    },
+    {
+      "path": "fixtures/synthetic-seals.json",
+      "bytes": 38793,
+      "sha256": "ea8c62039fb4900034bb41b7a966db8272a09a7d4bb53a01d73eddaff3642874"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 27953,
+      "sha256": "b54483a3bbb802f9230d27feeae6c572631fd503b45b6d89d88a88c26d4e91cc"
+    },
+    {
+      "path": "package.json",
+      "bytes": 871,
+      "sha256": "54a1b5d87532134141269db2792b78a9172d8599513ac80fb1abb3973010a679"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "bytes": 1731,
+      "sha256": "630823b4aa381af126c74af3d116a65b047a289427c4b209a8fa6e81970c0052"
+    },
+    {
+      "path": "scripts/make-fixtures.mjs",
+      "bytes": 2717,
+      "sha256": "a00228c71cd430c4c0570769763560f7cef733b3d0a88a0ba1df74e9a083898a"
+    },
+    {
+      "path": "scripts/retrieve.py",
+      "bytes": 2635,
+      "sha256": "cf6bcf0b2a718819474505cffd73f9e1a6a2b540392c30639d8142f95a198a18"
+    },
+    {
+      "path": "scripts/verify-aiken.mjs",
+      "bytes": 4731,
+      "sha256": "6528207fbd795c5ee5edba10c9af685ea3975f9c92d2255775ce4c80a1511316"
+    },
+    {
+      "path": "scripts/verify-browser.mjs",
+      "bytes": 6588,
+      "sha256": "4e267fff96cf8640a9335a15c35a1674879d9338da8ad04f882969ab4466438f"
+    },
+    {
+      "path": "scripts/verify-online.py",
+      "bytes": 2658,
+      "sha256": "9fabb9d3eb7b59f76f04b3b100247e57bfd9a696fe54a0759e4ccf8e99bb105c"
+    },
+    {
+      "path": "scripts/verify-sources.mjs",
+      "bytes": 1273,
+      "sha256": "557007c99230ac6eaaba74036f32010999439dfcc7b813a1912df3892a8b1495"
+    },
+    {
+      "path": "src/index.d.mts",
+      "bytes": 2442,
+      "sha256": "07e2ef94942393c8e1fc553918fca37dc3ac53e29b0a9b136e3a1e862af01108"
+    },
+    {
+      "path": "src/index.mjs",
+      "bytes": 6194,
+      "sha256": "1dde70f73c1b9c97c165d09d6627bb1891a8f21a2359983c52002f74da967dd2"
+    },
+    {
+      "path": "studio/SOURCES.json",
+      "bytes": 778,
+      "sha256": "2d16a943b7ff3a3a0085a4b04e036d23e4b357752c1da2645145e62d25c2d73f"
+    },
+    {
+      "path": "studio/music-release.ts.source.txt",
+      "bytes": 27933,
+      "sha256": "5eb98cbd6f30e581cec3a48de34a848ed5b7c03f777c909f3383a64d36b08097"
+    },
+    {
+      "path": "studio/strict-json.mjs",
+      "bytes": 2496,
+      "sha256": "48994e51fbd3ab8a02677879b32b7875dbf11feee7c6b38a6b5385b3996b94e2"
+    },
+    {
+      "path": "studio/studio-payload.ts.source.txt",
+      "bytes": 18099,
+      "sha256": "ed452542debb915ba0983ae4e9e9a86870641c96ba6be69e04b518e06eda460d"
+    },
+    {
+      "path": "test/seal.test.mjs",
+      "bytes": 6288,
+      "sha256": "c8e40d2734bf2d093943fa1649ede15797fab3a0bf871932d4c6384f9e54d953"
+    },
+    {
+      "path": "test/types.ts",
+      "bytes": 667,
+      "sha256": "b0c5142043592bcc43a74dc9d6515f2f0a8a0b7b7d826d9a8011ff552e606556"
+    },
+    {
+      "path": "upstream/AIKEN-LICENSE.source.txt",
+      "bytes": 11456,
+      "sha256": "5dcae70ec2e7d4166d33f0546e8e6327e41e8dddf924de16db554085973e1a26"
+    },
+    {
+      "path": "upstream/BIP340-LICENSE.source.txt",
+      "bytes": 332,
+      "sha256": "e4974cd8532036eda7e540a9930fee0c020cb297d455033232606298a89adbd4"
+    },
+    {
+      "path": "upstream/NOBLE-LICENSE.source.txt",
+      "bytes": 1109,
+      "sha256": "4f221aee6e072336700c408c68ab3b96a3fc09f6aebe6f48f1bd99e5ef13faec"
+    },
+    {
+      "path": "upstream/SOURCES.json",
+      "bytes": 3789,
+      "sha256": "b845cb26b9279372109cbda04874e13e3d0644c09a446974b7429a956fbe8732"
+    },
+    {
+      "path": "upstream/aiken-runtime.rs.source.txt",
+      "bytes": 73655,
+      "sha256": "28be2febbd423a11690ec24e0be52e065a364fd6af904b9b0e40fdf6ade8bac0"
+    },
+    {
+      "path": "upstream/bip-0340.mediawiki.source.txt",
+      "bytes": 39995,
+      "sha256": "17d64d6dc6bc97f4ecf178697bf810b92aa2a9e41ef13db809c25bc44a9b8109"
+    },
+    {
+      "path": "upstream/noble-secp256k1.ts.source.txt",
+      "bytes": 23669,
+      "sha256": "f474017df70d47f2c1afa0798a5be4c20315506d1cc86090c8d60df94f5e70fb"
+    }
+  ]
+}

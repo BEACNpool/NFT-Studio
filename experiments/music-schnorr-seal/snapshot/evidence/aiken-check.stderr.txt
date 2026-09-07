@@ -1,0 +1,3 @@
+    Compiling beacn/music-schnorr-seal 0.0.1 (.)
+   Collecting all tests scenarios across all modules
+      Testing ...

@@ -11,6 +11,7 @@ import { ArtifactPassportLab } from './artifact-passport-lab';
 import { CapsuleContractLab } from './capsule-contract-lab';
 import { MusicReleaseLab } from './music-release-lab';
 import { RegistrySignatureLab } from './registry-signature-lab';
+import { MusicSealLab } from './music-seal-lab';
 export function BeacnLabs({ onBack }: { onBack: () => void }) {
   const [tab, setTab] = useState(() => {
     const requested =
@@ -27,6 +28,7 @@ export function BeacnLabs({ onBack }: { onBack: () => void }) {
       'contract',
       'music',
       'registry',
+      'seal',
     ].includes(requested || '')
       ? requested!
       : 'capsule';
@@ -65,6 +67,7 @@ export function BeacnLabs({ onBack }: { onBack: () => void }) {
           <TabsTrigger value="capsule">State capsule</TabsTrigger>
           <TabsTrigger value="contract">Contract compiler</TabsTrigger>
           <TabsTrigger value="music">Music release</TabsTrigger>
+          <TabsTrigger value="seal">Release seal</TabsTrigger>
           <TabsTrigger value="proof">Proof of existence</TabsTrigger>
           <TabsTrigger value="passport">Artifact passport</TabsTrigger>
           <TabsTrigger value="knowledge">Knowledge</TabsTrigger>
@@ -80,6 +83,9 @@ export function BeacnLabs({ onBack }: { onBack: () => void }) {
         </TabsContent>
         <TabsContent value="music" keepMounted>
           <MusicReleaseLab active={tab === 'music'} />
+        </TabsContent>
+        <TabsContent value="seal">
+          <MusicSealLab />
         </TabsContent>
         <TabsContent value="proof" keepMounted>
           <ProofOfExistenceLab />

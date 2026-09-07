@@ -1,0 +1,6 @@
+# Byte-bound source/evidence and exact music packages must survive checkout unchanged.
+upstream/** -text
+studio/** -text
+fixtures/** -text
+evidence/** -text
+dist/** -text
