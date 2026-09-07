@@ -1,0 +1,125 @@
+{
+  "privacyRedaction": {
+    "schema": "nft-studio.privacy-redaction.v1",
+    "reason": "Personally identifying deployment hostname removed.",
+    "replacementHost": "redacted-host.invalid",
+    "hostnameReplacements": 1,
+    "originalArtifact": {
+      "commit": "a0a277b45f0d6d9b0a7b06dd8927ab3c912d9fe0",
+      "path": "docs/MCP_PUBLIC_VERIFICATION.json",
+      "sha256": "d57b65d197f0bff1907e16cd45f1982ddf511b5970a6e65808a17a9362cdded6",
+      "bytes": 3537
+    },
+    "evidenceScope": "Historical observation or source snapshot. Original outcomes and dates are unchanged. The replacement hostname was not tested and is not a service endpoint."
+  },
+  "expectedTools": 9,
+  "syntheticWalletDataSent": true,
+  "schema": "nft-studio.public-mcp-check.v1",
+  "checkedAt": "2026-09-07T06:28:25.565Z",
+  "endpoint": "https://redacted-host.invalid/api/mcp",
+  "status": "pass",
+  "checks": [
+    {
+      "unsigned": [
+        {
+          "mode": "nft",
+          "transactionHash": "d17409e431e630757b8e393deb625b2f36e1053b9bc89a9fc5231b8cace1a27a",
+          "unsignedBytes": 1187,
+          "localBundleBytesMatch": true,
+          "bodyHashVerified": true,
+          "auxiliaryCommitmentVerified": true,
+          "allOutputsToSyntheticAddress": true,
+          "valueConservation": true,
+          "chainStateVerified": false,
+          "walletOwnershipVerified": false,
+          "signed": false,
+          "submitted": false
+        },
+        {
+          "mode": "data",
+          "transactionHash": "ee799683db8358e4609675cc0331c7fa0c0ad7d2d9bb0a6032dd3000b224f929",
+          "unsignedBytes": 551,
+          "localBundleBytesMatch": true,
+          "bodyHashVerified": true,
+          "auxiliaryCommitmentVerified": true,
+          "allOutputsToSyntheticAddress": true,
+          "valueConservation": true,
+          "chainStateVerified": false,
+          "walletOwnershipVerified": false,
+          "signed": false,
+          "submitted": false
+        }
+      ],
+      "protocolEra": "modern",
+      "tools": [
+        "create_proof_record",
+        "verify_proof_record",
+        "prepare_unsigned_transaction",
+        "studio_capabilities",
+        "search_knowledge",
+        "read_knowledge",
+        "validate_payload",
+        "create_mint_intent",
+        "verify_mint_intent"
+      ],
+      "resources": 55,
+      "knowledge": "pass",
+      "intentRoundtrip": "pass",
+      "proofMatchAndMismatch": "pass",
+      "changedIntentRejected": true
+    },
+    {
+      "unsigned": [
+        {
+          "mode": "nft",
+          "transactionHash": "42b7d755268b37540df1932fdc6f69b3eb62921ee62d4dc984db5aa0b67830e7",
+          "unsignedBytes": 1187,
+          "localBundleBytesMatch": true,
+          "bodyHashVerified": true,
+          "auxiliaryCommitmentVerified": true,
+          "allOutputsToSyntheticAddress": true,
+          "valueConservation": true,
+          "chainStateVerified": false,
+          "walletOwnershipVerified": false,
+          "signed": false,
+          "submitted": false
+        },
+        {
+          "mode": "data",
+          "transactionHash": "70b6554f540f1172fc0c3f7d39a38b208a446420c7c136bd61948675830b1fdb",
+          "unsignedBytes": 551,
+          "localBundleBytesMatch": true,
+          "bodyHashVerified": true,
+          "auxiliaryCommitmentVerified": true,
+          "allOutputsToSyntheticAddress": true,
+          "valueConservation": true,
+          "chainStateVerified": false,
+          "walletOwnershipVerified": false,
+          "signed": false,
+          "submitted": false
+        }
+      ],
+      "protocolEra": "legacy",
+      "tools": [
+        "create_proof_record",
+        "verify_proof_record",
+        "prepare_unsigned_transaction",
+        "studio_capabilities",
+        "search_knowledge",
+        "read_knowledge",
+        "validate_payload",
+        "create_mint_intent",
+        "verify_mint_intent"
+      ],
+      "resources": 55,
+      "knowledge": "pass",
+      "intentRoundtrip": "pass",
+      "proofMatchAndMismatch": "pass",
+      "changedIntentRejected": true
+    }
+  ],
+  "browserPreflight": "pass",
+  "foreignOriginRejected": true,
+  "walletAccess": false,
+  "chainSubmission": false
+}

@@ -1,0 +1,77 @@
+{
+  "schema": "nft-studio.historical-redaction-map.v1",
+  "createdAt": "2026-09-07T14:04:50.788410+00:00",
+  "sourceRegisterCommit": "fa0a474ea3184fe2bec6bd1a2c35a4c0247c539f",
+  "publishedRedactionCommit": null,
+  "scope": "Four explicitly redacted historical artifacts, not a new deployment verification. Original public Git history is unchanged.",
+  "artifacts": [
+    {
+      "recordId": "agent-mint-contract",
+      "evidenceId": "mcp-live",
+      "original": {
+        "commit": "a0a277b45f0d6d9b0a7b06dd8927ab3c912d9fe0",
+        "path": "docs/MCP_PUBLIC_VERIFICATION.json",
+        "sha256": "d57b65d197f0bff1907e16cd45f1982ddf511b5970a6e65808a17a9362cdded6",
+        "bytes": 3537
+      },
+      "redacted": {
+        "path": "docs/verification/redacted/mcp-live.json",
+        "sha256": "d37afb73f1d3b0a17ea54a9c89dea30d5f40857f2c4370fe8b901abbae0433bd",
+        "bytes": 4168
+      },
+      "hostnameReplacements": 1,
+      "transformation": "Replace exact original deployment hostname only, then prepend an explicit privacy-redaction notice; all other original bytes retained."
+    },
+    {
+      "recordId": "agent-mint-contract",
+      "evidenceId": "mcp-doc",
+      "original": {
+        "commit": "a0a277b45f0d6d9b0a7b06dd8927ab3c912d9fe0",
+        "path": "docs/MCP.md",
+        "sha256": "bb95e170843af9aad75a00960834a6485bc411c9d1d61c9116ea5e6366a2dae0",
+        "bytes": 22455
+      },
+      "redacted": {
+        "path": "docs/verification/redacted/mcp-doc.md.source.txt",
+        "sha256": "e681f33f4e92a96118e3efbe75fb74c857f734d3c2635ed263b4fe49577a2456",
+        "bytes": 22929
+      },
+      "hostnameReplacements": 3,
+      "transformation": "Replace exact original deployment hostname only, then prepend an explicit privacy-redaction notice; all other original bytes retained."
+    },
+    {
+      "recordId": "agent-mint-contract",
+      "evidenceId": "agent-panel",
+      "original": {
+        "commit": "a0a277b45f0d6d9b0a7b06dd8927ab3c912d9fe0",
+        "path": "components/agent-mint-panel.tsx",
+        "sha256": "e36fc895aac8ee0a6bb3e000d26770133f08700cf75bee280dac410180d1eb6a",
+        "bytes": 9997
+      },
+      "redacted": {
+        "path": "docs/verification/redacted/agent-panel.ts.source.txt",
+        "sha256": "8834751e74f57a29e10343f4b6b6ace6f3df993a2d0102aae9408a19f7999838",
+        "bytes": 10533
+      },
+      "hostnameReplacements": 1,
+      "transformation": "Replace exact original deployment hostname only, then prepend an explicit privacy-redaction notice; all other original bytes retained."
+    },
+    {
+      "recordId": "agent-mint-contract",
+      "evidenceId": "mcp-initial-release",
+      "original": {
+        "commit": "58a517f585322ef84fe4e44ca473a71e3ff9f9cd",
+        "path": "docs/MCP_PUBLIC_VERIFICATION.json",
+        "sha256": "23d4fa0d1a82d28133f8f39269a241ba768c188e63e8d0a7426a216fed56be59",
+        "bytes": 1248
+      },
+      "redacted": {
+        "path": "docs/verification/redacted/mcp-initial-release.json",
+        "sha256": "3ecc5120e5e11c35d54c7d3081872106b5aad11b81421254e8593cecbc71a88e",
+        "bytes": 1879
+      },
+      "hostnameReplacements": 1,
+      "transformation": "Replace exact original deployment hostname only, then prepend an explicit privacy-redaction notice; all other original bytes retained."
+    }
+  ]
+}
