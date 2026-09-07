@@ -4,7 +4,7 @@
   "syntheticWalletDataSent": true,
   "schema": "nft-studio.public-mcp-check.v1",
   "checkedAt": "2026-09-07T06:48:45.453Z",
-  "endpoint": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp",
+  "endpoint": "https://redacted-host.invalid/api/mcp",
   "status": "pass",
   "checks": [
     {
@@ -135,5 +135,12 @@
   "browserPreflight": "pass",
   "foreignOriginRejected": true,
   "walletAccess": false,
-  "chainSubmission": false
+  "chainSubmission": false,
+  "privacyRedaction": {
+    "reason": "Personal hosting identity removed from the public record.",
+    "redactedAt": "2026-09-07",
+    "scope": "Original hostname replaced with redacted-host.invalid; timestamps, results and artifact hashes retained.",
+    "originalReceiptSha256": "e934ce275c6d843b3f87446dc0542130f516d4a87431faf03b4c10b60e76efd3",
+    "replacementIsLiveEndpoint": false
+  }
 }

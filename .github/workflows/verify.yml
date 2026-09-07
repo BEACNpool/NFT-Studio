@@ -22,6 +22,7 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm run lint
+      - run: node scripts/verify-public-hosts.mjs
       - run: npm run verify:mint
       - run: npm run verify:design
       - run: npm run verify:interactive

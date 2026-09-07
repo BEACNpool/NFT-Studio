@@ -5,6 +5,7 @@ import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { historicalRegisterForPreservation } from './verify-privacy-redactions.mjs';
 import {
   IMPLEMENTATION_LIMITS,
   parseImplementations,
@@ -18,6 +19,7 @@ const text = readFileSync(
   'utf8',
 );
 const raw = JSON.parse(text);
+const preservedHistory = historicalRegisterForPreservation(raw);
 const ids = [...new Set(raw.records.flatMap((record) => record.entryIds))];
 const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
 let groups = 0;
@@ -93,7 +95,7 @@ test('record/list cap is eight while byte and per-record bounds remain unchanged
 });
 test('31 historical evidence pins survive and new observations retain local scope', () => {
   const counts = [7, 8, 6, 6, 4];
-  const historical = raw.records.slice(0, 5).map((record, index) => ({
+  const historical = preservedHistory.records.slice(0, 5).map((record, index) => ({
     id: record.id, evidence: record.evidence.slice(0, counts[index]),
   }));
   assert.equal(hash(JSON.stringify(historical)), '45b628455b61813e5a52afa5bf8eb5e180a0588d49f609c3f09f1f97e5dc8fba');
@@ -111,7 +113,7 @@ test('31 historical evidence pins survive and new observations retain local scop
   assert.equal(implementationsForEntry(raw, 'cip-0060')[0].id, 'music-release');
 });
 test('48 prior evidence objects survive Registry admission', () => {
-  const prior = raw.records.slice(0, 6).map((record) => ({ id: record.id, evidence: record.evidence }));
+  const prior = preservedHistory.records.slice(0, 6).map((record) => ({ id: record.id, evidence: record.evidence }));
   assert.equal(hash(JSON.stringify(prior)), '52956c6f5f27f6821048f564c9eca6aae1cc2125bab40618a51b70fb1744a9e2');
   const registry = getImplementation(raw, 'registry-signatures');
   assert.deepEqual(registry.entryIds, ['cip-0026']);
@@ -128,6 +130,19 @@ test('duplicate IDs, unknown fields and invented readiness values reject', () =>
   );
   reject((r) => (r.records[0].evidence[1].id = r.records[0].evidence[0].id));
   reject((r) => r.records.push(r.records[0]));
+});
+test('only four authenticated privacy-redacted artifact bindings normalize', () => {
+  for (const field of ['path', 'sha256', 'commit', 'url']) {
+    const changed = structuredClone(raw);
+    const evidence = changed.records.find((r) => r.id === 'agent-mint-contract').evidence.find((e) => e.id === 'mcp-live');
+    evidence.artifact[field] = 'changed';
+    assert.throws(() => historicalRegisterForPreservation(changed));
+  }
+  const changed = structuredClone(raw);
+  changed.records[0].evidence[0].description += ' changed';
+  assert.notEqual(hash(JSON.stringify(historicalRegisterForPreservation(changed))), hash(JSON.stringify(preservedHistory)));
+  assert.notEqual(raw.records.find((r) => r.id === 'agent-mint-contract').evidence.find((e) => e.id === 'mcp-live').artifact.commit,
+    preservedHistory.records.find((r) => r.id === 'agent-mint-contract').evidence.find((e) => e.id === 'mcp-live').artifact.commit);
 });
 test('immutable commit/path/hash binding and candidate boundaries reject false links', () => {
   reject((r) => (r.records[0].evidence[0].artifact.commit = 'main'));

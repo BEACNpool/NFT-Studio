@@ -5,26 +5,35 @@ Open source: https://github.com/BEACNpool/NFT-Studio
 Cardano knowledge: https://github.com/BEACNpool/NFT-Studio/tree/main/knowledge
 MCP documentation: https://github.com/BEACNpool/NFT-Studio/blob/main/docs/MCP.md
 
-## Public MCP
+## Repository MCP
 
-Endpoint: https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp
-Transport: Streamable HTTP. Authentication: none.
-Source tools (discover the running endpoint for its deployed inventory): studio_capabilities, search_knowledge, read_knowledge,
-search_cip_sources, get_cip_source_chunk, validate_payload,
+Setup/share page: https://beacnpool.github.io/NFT-Studio/mcp/
+This is a static setup guide, NOT an HTTP MCP endpoint.
+Clone https://github.com/BEACNpool/NFT-Studio and run:
+  npm --prefix mcp ci
+  npm --prefix mcp run build
+Configure your MCP client with command node and args containing the absolute
+checkout path to NFT-Studio/mcp/dist/cli.mjs. Transport: local stdio.
+Node22.13+ required. No model-provider credentials are needed.
+Local server:17 tools and61 resources; use tool discovery for the running version.
+Tools: studio_capabilities, search_knowledge, read_knowledge,
+search_cip_sources, get_cip_source_chunk, validate_payload, validate_metadata,
 create_mint_intent, verify_mint_intent, create_proof_record, verify_proof_record,
-prepare_unsigned_transaction, apply_state_capsule_parameters,
+prepare_unsigned_transaction, verify_signed_transaction, apply_state_capsule_parameters,
 create_music_release, verify_music_release, prepare_unsigned_music_transaction.
+A separately deployable Worker has15tools. Operators supply their own HTTPS host.
+No personal hosting address is advertised here.
 
 Begin with studio_capabilities for current limits and evidence boundaries.
 File inputs contain explicit canonical base64 bytes, never local paths or URLs.
-The public service receives supplied content; do not supply secrets.
+The local server receives the content explicitly supplied by its client.
 For a mint, save create_mint_intent.packetJson as its suggested filename and
 return review.url to the human. The human imports it in Labs / Agent minting,
 inspects exact files and approves any transaction in their own wallet.
 prepare_unsigned_transaction receives an explicitly authorized CIP-30 change
-address and UTxO snapshot and builds native NFT/data unsigned CBOR. The snapshot
-is disclosed to the service; it does not prove wallet ownership or unspent chain
-state. There is no packet ID or retained preparation. An external signer must
+address and UTxO snapshot and builds native NFT/data unsigned CBOR. The local server receives that snapshot; it does not prove wallet ownership or
+unspent chain state. Ordinary Node preparation retains a bounded temporary packet
+for external-witness verification; the Worker is stateless. An external signer must
 independently check the complete signed transaction and current inputs.
 For files with music credits, call create_music_release and save packetJson
 exactly. Its review.url opens Labs / Music release. verify_music_release checks
@@ -40,7 +49,7 @@ Retain packetJson for fresh visible Music Lab wallet review.
 apply_state_capsule_parameters applies only the pinned experimental Capsule
 program to an exact seed/name; it returns script identity and blueprint, not a
 live mint transaction or proof that the seed exists.
-No public tool signs, submits or connects to a wallet.
+No tool signs, submits or connects to a wallet.
 
 ## Evidence boundaries
 

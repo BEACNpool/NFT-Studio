@@ -294,10 +294,10 @@
           "observedAt": "2026-09-07T06:28:25.565Z",
           "description": "Actual public clients in both protocol eras observed nine tools and 55 resources. Synthetic NFT/data transactions passed independent hash, metadata, output and ADA/token conservation checks; no real wallet or submission.",
           "artifact": {
-            "path": "docs/MCP_PUBLIC_VERIFICATION.json",
-            "sha256": "d57b65d197f0bff1907e16cd45f1982ddf511b5970a6e65808a17a9362cdded6",
-            "commit": "a0a277b45f0d6d9b0a7b06dd8927ab3c912d9fe0",
-            "url": "https://github.com/BEACNpool/NFT-Studio/blob/a0a277b45f0d6d9b0a7b06dd8927ab3c912d9fe0/docs/MCP_PUBLIC_VERIFICATION.json"
+            "path": "docs/verification/redacted/mcp-live.json",
+            "sha256": "d37afb73f1d3b0a17ea54a9c89dea30d5f40857f2c4370fe8b901abbae0433bd",
+            "commit": "98dea9e18d134241792b3ab5d0d443f37ce574d9",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/98dea9e18d134241792b3ab5d0d443f37ce574d9/docs/verification/redacted/mcp-live.json"
           }
         },
         {
@@ -306,10 +306,10 @@
           "observedAt": null,
           "description": "Public versus Node capability boundaries, explicit-byte privacy, review flow and reproducible checks.",
           "artifact": {
-            "path": "docs/MCP.md",
-            "sha256": "bb95e170843af9aad75a00960834a6485bc411c9d1d61c9116ea5e6366a2dae0",
-            "commit": "a0a277b45f0d6d9b0a7b06dd8927ab3c912d9fe0",
-            "url": "https://github.com/BEACNpool/NFT-Studio/blob/a0a277b45f0d6d9b0a7b06dd8927ab3c912d9fe0/docs/MCP.md"
+            "path": "docs/verification/redacted/mcp-doc.md.source.txt",
+            "sha256": "e681f33f4e92a96118e3efbe75fb74c857f734d3c2635ed263b4fe49577a2456",
+            "commit": "98dea9e18d134241792b3ab5d0d443f37ce574d9",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/98dea9e18d134241792b3ab5d0d443f37ce574d9/docs/verification/redacted/mcp-doc.md.source.txt"
           }
         },
         {
@@ -354,10 +354,10 @@
           "observedAt": null,
           "description": "Visible import/inspect/continue interface and public connection instructions.",
           "artifact": {
-            "path": "components/agent-mint-panel.tsx",
-            "sha256": "e36fc895aac8ee0a6bb3e000d26770133f08700cf75bee280dac410180d1eb6a",
-            "commit": "a0a277b45f0d6d9b0a7b06dd8927ab3c912d9fe0",
-            "url": "https://github.com/BEACNpool/NFT-Studio/blob/a0a277b45f0d6d9b0a7b06dd8927ab3c912d9fe0/components/agent-mint-panel.tsx"
+            "path": "docs/verification/redacted/agent-panel.ts.source.txt",
+            "sha256": "8834751e74f57a29e10343f4b6b6ace6f3df993a2d0102aae9408a19f7999838",
+            "commit": "98dea9e18d134241792b3ab5d0d443f37ce574d9",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/98dea9e18d134241792b3ab5d0d443f37ce574d9/docs/verification/redacted/agent-panel.ts.source.txt"
           }
         },
         {
@@ -366,10 +366,10 @@
           "observedAt": "2026-09-07T05:32:06.962Z",
           "description": "Public Streamable HTTP observation: eight tools, 55 resources, content/intent/proof checks and origin rejection; no wallet access or chain submission.",
           "artifact": {
-            "path": "docs/MCP_PUBLIC_VERIFICATION.json",
-            "sha256": "23d4fa0d1a82d28133f8f39269a241ba768c188e63e8d0a7426a216fed56be59",
-            "commit": "58a517f585322ef84fe4e44ca473a71e3ff9f9cd",
-            "url": "https://github.com/BEACNpool/NFT-Studio/blob/58a517f585322ef84fe4e44ca473a71e3ff9f9cd/docs/MCP_PUBLIC_VERIFICATION.json"
+            "path": "docs/verification/redacted/mcp-initial-release.json",
+            "sha256": "3ecc5120e5e11c35d54c7d3081872106b5aad11b81421254e8593cecbc71a88e",
+            "commit": "98dea9e18d134241792b3ab5d0d443f37ce574d9",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/98dea9e18d134241792b3ab5d0d443f37ce574d9/docs/verification/redacted/mcp-initial-release.json"
           }
         },
         {

@@ -1,7 +1,8 @@
 {
   "mcpServers": {
     "beacn-nft-studio": {
-      "url": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp"
+      "command": "node",
+      "args": ["/absolute/path/NFT-Studio/mcp/dist/cli.mjs"]
     }
   }
 }

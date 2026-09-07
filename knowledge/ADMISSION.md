@@ -71,3 +71,18 @@ searchable with explicit replacement pointers.
 
 The process distinction follows the [CIP process](https://cips.cardano.org/cip/CIP-0001).
 The evidence model above is BEACN's own engineering policy, not an additional CIP.
+
+## Privacy corrections to historical evidence
+
+Personal hosting identities may be removed through explicitly marked redacted
+copies. Keep original outcomes, timestamps and non-private bytes; record the
+original and redacted artifact hashes and the precise transformation. A placeholder
+hostname is never evidence of a newly tested service.
+
+The September 7 correction substitutes exactly four immutable artifact bindings
+using `docs/verification/redacted/REDACTION_MAP.json`. Admission authenticates the
+map, both Git blobs and the exact hostname-plus-notice transformation. Only the
+historical-preservation test reconstructs the four original bindings; its existing
+31- and 48-object digests remain unchanged. The runtime register exposes only the
+redacted links. All 56 current artifact hashes still receive ordinary admission
+checks. This corrects current publication; it does not erase public Git history.

@@ -113,7 +113,7 @@
     },
     {
       "target": "sites",
-      "url": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/?view=labs&lab=music",
+      "url": "https://redacted-host.invalid/?view=labs&lab=music",
       "checkedAt": "2026-09-07T10:42:21.864Z",
       "status": "PASS",
       "reportSha256": "f0e7b3906c9fa21db391342c38b3b855ca51dc01628c1dedaac0fcf57958dbe3",
@@ -175,13 +175,13 @@
       "minimumTargetHeight": 44,
       "publicPackageResponses": [
         {
-          "url": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/labs/midnight-beacon/midnight-beacon.music-release.json",
+          "url": "https://redacted-host.invalid/labs/midnight-beacon/midnight-beacon.music-release.json",
           "status": 200,
           "bytes": 12901,
           "sha256": "4b5f37c05e203be42f71db3ef2d6cfdc2362b5872c89082eddcee826ac13a43b"
         },
         {
-          "url": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/labs/midnight-beacon/midnight-beacon.music-release.json",
+          "url": "https://redacted-host.invalid/labs/midnight-beacon/midnight-beacon.music-release.json",
           "status": 200,
           "bytes": 12901,
           "sha256": "4b5f37c05e203be42f71db3ef2d6cfdc2362b5872c89082eddcee826ac13a43b"
@@ -229,5 +229,12 @@
     "No human listening review, full accessibility/security audit, or new mint/transaction claim.",
     "Measurements only cover the five listed visible control variants and two viewport widths.",
     "No responses rewritten, no hosting challenge bypass, no stylesheet or DOM style mutation."
-  ]
+  ],
+  "privacyRedaction": {
+    "reason": "Personal hosting identity removed from the public record.",
+    "redactedAt": "2026-09-07",
+    "scope": "Original hostname replaced with redacted-host.invalid; timestamps, results and artifact hashes retained.",
+    "originalReceiptSha256": "a9fc6184036bd06ae6641f866c7ede7cb35dcc1ef81f317d7dc4e99d55939a57",
+    "replacementIsLiveEndpoint": false
+  }
 }

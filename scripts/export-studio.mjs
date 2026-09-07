@@ -67,10 +67,10 @@ try {
   for (const file of files) {
     if (/\.map$|\.env|\.openai/.test(file))
       throw Error('Private or development output in public export');
-    if (/\.(html|js|css|rsc|json)$/.test(file)) {
+    if (/\.(html|js|css|rsc|json|txt|md)$/.test(file)) {
       const text = await readFile(file, 'utf8');
       if (
-        /\/home\/[^/\s]+|10\.30\.\d+\.\d+|192\.168\.\d+\.\d+|appgprj_|BEGIN [A-Z ]*PRIVATE KEY|[A-Za-z0-9._%+-]+@sites\.test/.test(
+        /\/home\/[^/\s]+|10\.30\.\d+\.\d+|192\.168\.\d+\.\d+|appgprj_|BEGIN [A-Z ]*PRIVATE KEY|[A-Za-z0-9._%+-]+@sites\.test|[a-z0-9-]+\.[a-z0-9-]+\.chatgpt\.site/i.test(
           text,
         )
       )

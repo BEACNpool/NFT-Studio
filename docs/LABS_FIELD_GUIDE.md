@@ -100,11 +100,10 @@ registry. Its documented scalar profile does not authenticate native policies.
 
 ## Give your agent tools it can inspect
 
-Connect a Streamable HTTP MCP client to:
-
-```text
-https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp
-```
+Open the [repository-hosted MCP setup page](https://beacnpool.github.io/NFT-Studio/mcp/).
+Clone NFT-Studio, build the nested MCP package and point your client at its local
+`mcp/dist/cli.mjs` entry point. The setup page is a guide, not an HTTP MCP endpoint.
+Your client runs the server locally over stdio; no model-provider API key is needed.
 
 Start with `studio_capabilities` and tool discovery. Ask for a `create_mint_intent`
 packet containing your exact files. Open the returned review link, import the

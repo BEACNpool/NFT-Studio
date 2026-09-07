@@ -21,8 +21,10 @@ if(!options['--dist']||!options['--project-root'])throw new Error('Staged dist a
 const dist=resolve(options['--dist']),projectRoot=resolve(options['--project-root']);
 const require=createRequire(join(projectRoot,'package.json'));
 const {Miniflare,convertV4MiniflareOptions}=await import(pathToFileURL(require.resolve('miniflare')));
-const origin='https://beacn-nft-studio.davidmjensen17.chatgpt.site';
 const record=JSON.parse(await readFile(join(dist,'mcp-wrapper-receipt.json'),'utf8'));
+const origin=record.publicOrigin;
+assert.equal(new URL(origin).protocol,'https:');
+assert.equal(new URL(origin).origin,origin);
 const config=JSON.parse(await readFile(join(dist,'server/wrangler.json'),'utf8'));
 const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
 assert.equal(record.sourceAppSha256,digest(await readFile(join(dist,'server/studio-app.js'))));

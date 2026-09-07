@@ -1,0 +1,62 @@
+{
+  "schema": "beacn.mcp-setup-page-verification.v1",
+  "checkedAt": "2026-09-07T14:11:16.926Z",
+  "status": "PASS",
+  "candidatePath": "public/mcp/index.html",
+  "candidateBytes": 16345,
+  "candidateSha256": "a63a379b158ff7231c89c9a9991b481e73a1b108c160d1b2d98f40bde17c7042",
+  "viewports": [
+    1440,
+    390
+  ],
+  "browser": "Chrome/152.0.7977.64",
+  "namedChecksPassed": 45,
+  "commandsSha256": "ae8531b1e0036ffb8b7ba487c674b3c7477aa71caece3acb3c63f876ab8ea707",
+  "configurationSha256": "516813f68f6e1e5e473a4778f930d27b251e35155ff49c066e9d97f7604a31d3",
+  "clipboard": "Actual isolated headless Chromium writes/reads matched exact four-line commands and local stdio JSON template.",
+  "download": "Actual nft-studio-mcp.json bytes matched the displayed/copied configuration including final newline.",
+  "keyboard": [
+    "Skip link reaches install action.",
+    "Enter activates install copy and keeps focus on the action.",
+    "Space activates config copy.",
+    "Enter activates config download.",
+    "Clipboard rejection focuses/selects exact visible code with polite manual-copy notice."
+  ],
+  "layout": [
+    "No horizontal overflow at1440 or390.",
+    "All visible action targets at least44px high.",
+    "Code wraps within available width.",
+    "No image/font/CDN dependencies."
+  ],
+  "nonJavascript": "Commands/config remain visible; interactive buttons disabled; manual-copy instruction shown.",
+  "privacy": "Only the intended BEACNpool GitHub repository/clone/guide URLs and relative Studio links are present. Configuration has command node and the absolute checkout placeholder; no remote URL, personal hostname or model-provider credentials.",
+  "network": "Page initiates no fetch/XHR/socket/event-source/wallet calls. Fixed content policy denies connections. Browser observed no external requests.",
+  "applicationErrors": [],
+  "externalRequests": [],
+  "commandsExecuted": false,
+  "configurationExecuted": false,
+  "walletOperations": 0,
+  "signingOperations": 0,
+  "submissionOperations": 0,
+  "sourceEdits": 0,
+  "browserProcessExitCodeObserved": 0,
+  "fullReportSha256": "60856a06a652ed810c09ab4f2363f961434c4f93edca563ecc79fa840213670d",
+  "visuallyReviewedScreenshots": [
+    "qa/run-yAlnp4/390-overview.png",
+    "qa/run-yAlnp4/390-configuration.png",
+    "qa/run-yAlnp4/1440-commands-copy.png",
+    "qa/run-yAlnp4/390-clipboard-fallback.png"
+  ],
+  "correction": {
+    "issue": "Disabling the active Copy button during the clipboard await removed keyboard focus.",
+    "change": "Keep the button focusable, mark aria-busy, and ignore repeated clicks until completion.",
+    "beforeSha256": "08f5dd7c5370e0c51d5d1c0537d4e329475a370b5641e96b8eee6b429829275a",
+    "afterSha256": "a63a379b158ff7231c89c9a9991b481e73a1b108c160d1b2d98f40bde17c7042"
+  },
+  "harnessScope": "The initial permission setup lacked Chromium\u2019s separate clipboard-sanitized-write grant; after correcting the private harness, actual writes passed. The next run exposed keyboard focus loss from temporarily disabling Copy; the candidate now uses aria-busy plus a duplicate-click guard. Final45 checks passed together.",
+  "limits": [
+    "Owned loopback nested-path static page; no public deployment was performed by this agent.",
+    "Counts and minimum Node version follow the root-specified current repository service contract. The instructions/config were verified as text, not executed by this page test.",
+    "Focused responsive/keyboard/copy/download checks and visual inspection; not a whole accessibility or security audit."
+  ]
+}

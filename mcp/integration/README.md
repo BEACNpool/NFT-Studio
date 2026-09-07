@@ -2,9 +2,9 @@
 
 This kit stages and verifies a wrapper around the **existing** application Worker. It does not replace the app server, edit the source checkout, change a hosting manifest, or deploy anything.
 
-The wrapper uses these existing public product URLs:
+The wrapper requires an operator-selected HTTPS origin:
 
-- MCP origin: `https://beacn-nft-studio.davidmjensen17.chatgpt.site`
+- MCP origin: supplied explicitly with `--public-origin`; `https://mcp.example.org` below is an example, not a deployed service.
 - Browser review: `https://beacnpool.github.io/NFT-Studio/`
 
 These are configuration targets. A successful local check does not establish that `/api/mcp` is live.
@@ -26,6 +26,7 @@ npm --prefix /path/to/NFT-Studio/mcp run build
 node /path/to/NFT-Studio/mcp/integration/wrap-site-build.mjs \
   --source-dist /path/to/NFT-Studio/dist \
   --output-dist /path/to/new-staged-dist \
+  --public-origin https://mcp.example.org \
   --worker /path/to/NFT-Studio/mcp/dist/worker.mjs
 
 node /path/to/NFT-Studio/mcp/integration/verify-site-wrapper.mjs \
@@ -51,7 +52,7 @@ The verifier uses the checkout's installed Miniflare/Workerd (including the v4-t
 
 - Representative JavaScript, CSS and SVG/PNG return 200 and match the exact files by SHA-256.
 - The original application's home route still renders through the wrapper. It checks both root and retained `/NFT-Studio/` bases, so a Pages test build can be exercised honestly.
-- Modern and legacy MCP clients discover twelve tools and exactly 61 resources: capabilities, the knowledge index, 58 research entries and the fixed `nft-studio://implementations` register.
+- Modern and legacy MCP clients discover 15 tools and exactly 61 resources: capabilities, the knowledge index, 58 research entries and the fixed `nft-studio://implementations` register.
 - The implementation register passes the bounded shared JSON validator, binds the exact research catalog hash, and resolves its immutable evidence links. Related `read_knowledge` responses and per-entry resources add sibling implementation record IDs; the original research entries and sources remain unchanged. Evidence URLs are validated as data and are never fetched.
 - Capabilities, cited search, intent creation/verification and proof-record creation/verification and actual unsigned data preparation work through the real Worker runtime. Protocol reads are intercepted with fixed synthetic data; no wallet or public network is used.
 - The fixed State Capsule parameter application tool matches five pinned Aiken oracle cases with independent CSL hashes; the returned status remains parameterized only and performs no provider lookup.
@@ -72,8 +73,8 @@ The live verifier keeps compatibility defaults of eight tools and 55 resources. 
 
 ```sh
 node mcp/integration/verify-live-endpoint.mjs \
-  https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp \
-  --expected-tools 13 --expected-resources 61
+  https://mcp.example.org/api/mcp \
+  --expected-tools 15 --expected-resources 61
 ```
 
 Use `--expected-tools 12` for the package-only music release without unsigned Music preparation, `--expected-tools 10` for the Capsule release without the music-package tools, `--expected-tools 9` for a release without the Capsule tool, and `--expected-resources 55` for the earlier resource surface. The 55-resource mode does not read the new register. The 56- and 61-resource modes check the register JSON, fixed research joins and catalog hash against the local source tree; use the source revision that matches the release. These checks validate the evidence records and link syntax, without independently re-running their reported experiments or fetching the linked artifacts. The thirteen-tool mode also prepares an original synthetic Music transaction and directly checks package/credit metadata, sole mint, hashes and value conservation without signing or submitting. The twelve-tool mode additionally creates and verifies the repository’s original synthetic music package; it performs no music transaction preparation. Verification with nine, ten or twelve tools sends only the verifier's synthetic wallet snapshot and prepares unsigned NFT/data transactions; it does not access a wallet, sign or submit.

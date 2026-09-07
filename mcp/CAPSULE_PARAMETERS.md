@@ -2,7 +2,7 @@
 
 `apply_state_capsule_parameters` applies the one trusted experimental State Capsule program to a seed reference and exact UTF-8 base name. It returns the applied script/blueprint and policy hash. It performs no wallet connection, seed lookup, provider request, transaction preparation, node evaluation, signing or submission. A successful result is **parameterized only** and proves no seed existence, ownership, unspent state or chain inclusion.
 
-This source revision exposes twelve public Worker tools and fourteen self-hosted Node tools, with 61 resources in each service. Tests compare exact discovery names from the SDK and derive those counts from the observed lists. The existing native transaction tool keeps its separate behavior. Deployment capabilities must be observed separately.
+This source revision exposes 15 deployable Worker tools and 17 self-hosted Node tools, with 61 resources in each service. Tests compare exact discovery names from the SDK and derive those counts from the observed lists. The existing native transaction tool keeps its separate behavior. Deployment capabilities must be observed separately.
 
 ```json
 {
@@ -31,12 +31,12 @@ Only the exact argument shape above is accepted. The transaction ID is 64 lowerc
 
 The clean-install checker copies the adapter source/evidence subtree as well as Studio/knowledge/MCP source. It installs no root or adapter `node_modules`. The release wrapper checks five synthetic oracle fixtures in each SDK era and retains the usual static-app/assets and native-tool checks.
 
-The live verifier now accepts `--expected-tools 8|9|10|12`, preserving default eight; `--expected-resources 55|56|61` still defaults 55. A release matching this source revision can be checked explicitly:
+The live verifier now accepts `--expected-tools 8|9|10|12|13|15`, preserving default eight; `--expected-resources 55|56|61` still defaults 55. After deploying to your own HTTPS host, replace the example URL before checking:
 
 ```sh
 node mcp/integration/verify-live-endpoint.mjs \
-  https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp \
-  --expected-tools 12 --expected-resources 61
+  https://mcp.example.org/api/mcp \
+  --expected-tools 15 --expected-resources 61
 ```
 
 Eight/nine-tool modes never call the new capsule tool. Ten- and twelve-tool modes send five synthetic seed/name cases per SDK era, plus the existing synthetic native tests. The dated public verification receipt records the independently observed deployment; local tests do not substitute for it.

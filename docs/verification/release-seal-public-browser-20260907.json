@@ -89,7 +89,7 @@
     },
     {
       "target": "sites",
-      "url": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/?view=labs&lab=seal",
+      "url": "https://redacted-host.invalid/?view=labs&lab=seal",
       "checkedAt": "2026-09-07T11:20:53.775Z",
       "status": "PASS",
       "viewports": [
@@ -105,35 +105,35 @@
       "publicFileReceipts": [
         {
           "width": 390,
-          "url": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/labs/music-seal/midnight-beacon.music-release.json",
+          "url": "https://redacted-host.invalid/labs/music-seal/midnight-beacon.music-release.json",
           "status": 200,
           "bytes": 12901,
           "sha256": "4b5f37c05e203be42f71db3ef2d6cfdc2362b5872c89082eddcee826ac13a43b"
         },
         {
           "width": 390,
-          "url": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/labs/music-seal/example-seal.json",
+          "url": "https://redacted-host.invalid/labs/music-seal/example-seal.json",
           "status": 200,
           "bytes": 419,
           "sha256": "cdc234acc1ef3de7160a582cdfbeebe07cbf5ebfeb3f077e08cfce6f711f7ea5"
         },
         {
           "width": 390,
-          "url": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/_next/static/chunks/seal-DIiWekKP.js",
+          "url": "https://redacted-host.invalid/_next/static/chunks/seal-DIiWekKP.js",
           "status": 200,
           "bytes": 55530,
           "sha256": "fa800218922b3ba51167ec285af90a32341c224916850a0dcaff0d9c3735771d"
         },
         {
           "width": 390,
-          "url": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/labs/music-seal/example-trust.json",
+          "url": "https://redacted-host.invalid/labs/music-seal/example-trust.json",
           "status": 200,
           "bytes": 258,
           "sha256": "519a13a0aaaaee7554ba4866d2681f6de5ee309053a1f196536f8a903f896100"
         },
         {
           "width": 390,
-          "url": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/labs/music-seal/changed-credit.music-release.json",
+          "url": "https://redacted-host.invalid/labs/music-seal/changed-credit.music-release.json",
           "status": 200,
           "bytes": 12899,
           "sha256": "7c133294341029900dc8728085cdf7b19d2085e115f4834e0eba1951123a8fad"
@@ -212,5 +212,12 @@
     "No signature creation, real-key identity/rights assessment, wallet, transaction, mint, provider or ledger operation.",
     "Separate prior private evidence covers controlled cancellation races and cryptographic/evaluator tests; those were not repeated or presented as new public ledger evidence.",
     "Pages marker verified directly. Sites deployment success was supplied by root; actual public assets and behavior were independently checked."
-  ]
+  ],
+  "privacyRedaction": {
+    "reason": "Personal hosting identity removed from the public record.",
+    "redactedAt": "2026-09-07",
+    "scope": "Original hostname replaced with redacted-host.invalid; timestamps, results and artifact hashes retained.",
+    "originalReceiptSha256": "eb1fb4249ec1ab2cc219aa5db3c987c130f9eb02c7d11ab7fc4b88cf14daedc9",
+    "replacementIsLiveEndpoint": false
+  }
 }

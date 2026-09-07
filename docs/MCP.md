@@ -4,79 +4,64 @@ NFT Studio ships a real Model Context Protocol service using the official TypeSc
 
 ## Public connection
 
-The public preparation service is live at:
+**Share the repository-hosted setup page:**
+[beacnpool.github.io/NFT-Studio/mcp/](https://beacnpool.github.io/NFT-Studio/mcp/).
 
-```text
-https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp
-```
+The public distribution is the [NFT-Studio repository](https://github.com/BEACNpool/NFT-Studio).
+Your MCP client runs its server locally over stdio. The setup page is a guide,
+**not an HTTP MCP endpoint**: GitHub Pages hosts static files and cannot run the
+server process. See [GitHub's hosting documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages).
 
-Connect with Streamable HTTP and no API key. Use tool/resource discovery for
-the running deployment. This source revision provides **15 public tools** and
-**61 resources**: curated Cardano knowledge, original CIP source search, exact payloads, browser mint requests,
-music releases, proof records, fixed Capsule parameter application, and unsigned
-native NFT/data/music transactions. The unsigned tools
-receive an explicitly supplied wallet snapshot and use fresh public network
-parameters. No tool connects a wallet, signs or submits a transaction.
-The full Node service described below has additional capabilities and remains a
-separately installed package. GitHub Pages serves the app, not the MCP process.
-
-A common MCP client config (clients may use a different settings wrapper):
-
-```json
-{
-  "mcpServers": {
-    "beacn-nft-studio": {
-      "url": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp"
-    }
-  }
-}
-```
+The local Node server provides **17 tools and 61 resources**. It includes Cardano
+knowledge, original CIP source search, exact payloads, music packages, proof
+records, fixed Capsule parameters, unsigned native NFT/data/music transactions
+and external witness verification. No tool holds a signing key, connects to a
+wallet or submits a transaction. Unsigned preparation queries public Cardano
+network parameters; the bot supplies its explicitly authorized wallet snapshot.
 
 Ask your bot: “Use BEACN NFT Studio to prepare a mint request for these files.
-Return the request JSON for me to inspect in Studio.” The bot calls
-`create_mint_intent`, saves its `packetJson` as the returned `filename`, and gives
-you the `review.url`. Open that file under **Labs → Agent minting**, inspect it,
-and continue through the existing visible wallet review.
+Return the request JSON for me to inspect in Studio.” It saves
+`create_mint_intent.packetJson` using the returned filename and gives you
+`review.url`. Import that file under **Labs → Agent minting** and continue through
+visible wallet review. Music packets open under **Music release**.
 
-[Live verification receipt](MCP_PUBLIC_VERIFICATION.json): official current and
-legacy clients passed knowledge lookup, intent roundtrip/tamper rejection, proof
-match/mismatch, resource discovery, original CIP source identity and attribution, browser-origin checks, and synthetic NFT/data/music
-unsigned preparation at 2026-09-07T10:26:58.401Z. Transaction hashes, exact metadata, output
-destinations and ADA/token conservation were checked independently. Music files/credits
-roundtripped canonically, five Capsule cases per era matched the Aiken oracle and
-independent CSL hashes, and the seven-record implementation register matched the
-exact release source. The stateless Music transaction preserved its exact package and credits, sole mint and complete value conservation. These
-fabricated inputs are not a claim of chain availability or wallet ownership.
-The [initial eight-tool receipt](verification/mcp-public-initial-20260907.json) and
-[first unsigned-builder receipt](verification/mcp-native-20260907.json), and
-[first implementation-resource receipt](verification/mcp-implementation-register-20260907.json), and
-[twelve-tool Music package receipt](verification/mcp-music-packages-20260907.json) and
-[thirteen-tool Music unsigned receipt](verification/mcp-music-unsigned-20260907.json) are retained.
-Reproduce the read-only check using synthetic content:
+The separately deployable Worker has a 15-tool subset. It requires an operator's
+own HTTPS host; no hosted address is advertised in this repository. A setup-page
+URL cannot substitute for that endpoint. The [operator integration guide](../mcp/integration/README.md)
+describes explicit host configuration and real-client verification.
 
-```sh
-node mcp/integration/verify-live-endpoint.mjs https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp --expected-tools 15 --expected-resources 61
-```
+### Historical hosted evidence
 
-The [original Midnight Beacon service check](verification/midnight-beacon-public-preparation-20260907.json) separately prepared the complete eight-second release in both protocol eras: 8,600 raw file bytes, 13,194 metadata bytes and 13,697 estimated signed bytes. It used fresh public protocol parameters and invented input references, with independently checked exact credits, transaction commitments and value conservation. The example remains unminted.
+[The dated hosted-service receipt](MCP_PUBLIC_VERIFICATION.json) retains the
+actual modern/legacy client observations from September 7. Its original hostname
+has been explicitly redacted for privacy. The placeholder is not a service URL,
+and these observations do not describe a newly deployed endpoint.
 
-The Sites front dispatcher reserves `/mcp`; this service uses the application's
-`/api/mcp` route. It is ordinary public MCP, not a Sites OAuth integration.
+Earlier [initial](verification/mcp-public-initial-20260907.json),
+[native preparation](verification/mcp-native-20260907.json),
+[implementation-resource](verification/mcp-implementation-register-20260907.json),
+[music package](verification/mcp-music-packages-20260907.json) and
+[unsigned music](verification/mcp-music-unsigned-20260907.json) observations remain
+as explicitly redacted historical records. Results, timestamps and content hashes
+are retained. See [receipt privacy handling](verification/PRIVACY.md).
 
-
-See [original CIP source access](CIP_SOURCE_ACCESS.md) for the source reader and
-exact snapshot scope. Both official protocol eras retrieved original source slices
-and verified whole-document hashes, including the retained license inconsistency.
+The [original Midnight Beacon preparation](verification/midnight-beacon-public-preparation-20260907.json)
+used fresh public parameters and invented inputs: 8,600 raw file bytes,
+13,194 metadata bytes and 13,697 estimated signed bytes. Independent checks bound
+exact credits, transaction commitments and value conservation. It remains unminted.
 
 ## Local connection
 
-From a clean repository checkout (Node **22.13+**):
+Install from the repository with Node **22.13+**:
 
 ```sh
+git clone https://github.com/BEACNpool/NFT-Studio.git
+cd NFT-Studio
 npm --prefix mcp ci
 npm --prefix mcp run build
-npm --prefix mcp test
 ```
+
+Run `npm --prefix mcp test` to reproduce the MCP verification suite.
 
 No root Studio dependency install is required. The Worker build resolves the shared
 TypeScript modules' npm imports from `mcp/node_modules`, using this package's lockfile.

@@ -21,10 +21,14 @@ import {
 import { errorText } from '@/lib/cardano';
 import { download, filename, jsonBlob } from '@/lib/export';
 
-const PUBLIC_MCP_URL =
-  'https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp';
+const MCP_SETUP_URL = 'https://beacnpool.github.io/NFT-Studio/mcp/';
 const MCP_CONFIG = {
-  mcpServers: { 'beacn-nft-studio': { url: PUBLIC_MCP_URL } },
+  mcpServers: {
+    'beacn-nft-studio': {
+      command: 'node',
+      args: ['/absolute/path/NFT-Studio/mcp/dist/cli.mjs'],
+    },
+  },
 };
 
 export function AgentMintPanel() {
@@ -92,45 +96,61 @@ export function AgentMintPanel() {
         </p>
       </div>
       <section className="ns-panel ns-mcp-connect">
-        <span className="ns-lab-kicker">PUBLIC MCP · LIVE</span>
-        <h3>Point your bot here.</h3>
+        <span className="ns-lab-kicker">OPEN-SOURCE MCP</span>
+        <h3>Run NFT-Studio with your agent.</h3>
         <p>
           Tools for Cardano research, exact file packages, music releases, proof
           records, capsule contract identities and unsigned NFT/data
-          transactions. Connect with Streamable HTTP; no API key is needed.
+          transactions. Install the server from the NFT-Studio repository and
+          connect your agent locally. No model-provider API key is needed.
         </p>
-        <code className="ns-mcp-url">{PUBLIC_MCP_URL}</code>
+        <code className="ns-mcp-url">{MCP_SETUP_URL}</code>
         <div className="ns-button-row">
           <Button
             variant="outline"
+            render={
+              <a
+                href={MCP_SETUP_URL}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Open MCP setup guide"
+              />
+            }
+            nativeButton={false}
+          >
+            <ExternalLink size={16} /> Open setup guide
+          </Button>
+          <Button
+            variant="outline"
             onClick={() => {
-              void navigator.clipboard.writeText(PUBLIC_MCP_URL).then(
-                () => setConnectionStatus('Endpoint copied.'),
+              void navigator.clipboard.writeText(MCP_SETUP_URL).then(
+                () => setConnectionStatus('Setup link copied.'),
                 () =>
-                  setConnectionStatus('Select and copy the endpoint above.'),
+                  setConnectionStatus('Select and copy the setup link above.'),
               );
             }}
           >
-            <Copy size={16} /> Copy endpoint
+            <Copy size={16} /> Copy setup link
           </Button>
           <Button
             variant="outline"
             onClick={() => download(jsonBlob(MCP_CONFIG), 'beacn-mcp.json')}
           >
-            <Download size={16} /> Download config
+            <Download size={16} /> Download config template
           </Button>
         </div>
         {connectionStatus && <output>{connectionStatus}</output>}
         <p className="ns-lab-muted">
-          Your bot sends the content you give it to this public service. Ask it
-          to save the returned mint request as JSON, then open that file below.
-          Wallet review and signing happen here in your browser. Music packages
-          open in the Music release lab.
+          This link is a setup guide, not an HTTP MCP endpoint. Replace the
+          template path with your local checkout. Ask your bot to save the
+          returned mint request as JSON, then open that file below. Wallet
+          review and signing happen here in your browser. Music packages open in
+          the Music release lab.
         </p>
         <p className="ns-lab-muted">
-          Advanced clients can also supply an authorized wallet snapshot for
-          unsigned preparation. The service receives that snapshot; signing and
-          submission remain with the wallet.
+          Unsigned preparation uses your supplied wallet snapshot and queries
+          public Cardano parameters. Signing and submission remain with the
+          wallet.
         </p>
       </section>
       <div className="ns-lab-columns">

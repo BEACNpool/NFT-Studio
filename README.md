@@ -37,9 +37,12 @@ does not require a wallet.
 | Registry signatures | Inspect exact CIP-26 scalar signatures, compare signer keys with separately selected trust rules, and detect stale or conflicting sequence observations locally. |
 | Agent minting | Import a content-bound MCP request, inspect exact files, then use the existing wallet review, signing and receipt flow. |
 
-The [MCP implementation](docs/MCP.md#public-connection) provides fifteen public tools for Cardano knowledge,
-original CIP source access, content, music packages, fixed Capsule parameters and unsigned native NFT/data/music transactions. The dated live receipt identifies the deployed release. A separately installed Node
-service also verifies external signatures. Neither holds a signing key. The [knowledge repository](knowledge/)
+The [repository-hosted MCP setup page](https://beacnpool.github.io/NFT-Studio/mcp/)
+shows how to run **17 tools and 61 resources locally from this repo**: Cardano knowledge,
+original CIP source access, exact files and music packages, fixed Capsule parameters,
+unsigned transactions and external witness verification. Your wallet retains signing
+authority. The setup page is not an HTTP MCP endpoint; operators can separately deploy
+the 15-tool Worker on their own HTTPS host. [Connection guide](docs/MCP.md#public-connection). The [knowledge repository](knowledge/)
 is reusable data with source hashes, attribution and an explicit evidence policy.
 
 Read [State Capsules](docs/STATE_CAPSULES.md),
