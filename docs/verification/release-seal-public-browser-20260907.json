@@ -1,0 +1,216 @@
+{
+  "schema": "beacn.public-release-seal-verification.v1",
+  "checkedAt": "2026-09-07T11:22:43.734567+00:00",
+  "status": "PASS",
+  "rootConfirmedSourceCommit": "67e3c0ec34f27bcb511ecd382f5f0028ffe5a129",
+  "candidateManifestSha256": "0a6441fd446f1d8a0298bf1e8c27b3b2a5f19db64cdab75ffcb7dbbdf97a7e32",
+  "fixedVerifierModuleSha256": "9227cd6811f14f3d0092b7bccbfb084e6db6cae72111c292592b5329cad354f1",
+  "actualServedVerifierChunkSha256": "fa800218922b3ba51167ec285af90a32341c224916850a0dcaff0d9c3735771d",
+  "results": [
+    {
+      "target": "pages",
+      "url": "https://beacnpool.github.io/NFT-Studio/?view=labs&lab=seal",
+      "checkedAt": "2026-09-07T11:20:51.710Z",
+      "status": "PASS",
+      "viewports": [
+        1440,
+        390
+      ],
+      "namedAssertionsPassed": 97,
+      "buttonStateObservations": 40,
+      "hashContrastObservations": 4,
+      "minimumButtonContrast": 8.720426844954181,
+      "browser": "Chrome/152.0.7977.64",
+      "pagesReleaseMarker": {
+        "url": "https://beacnpool.github.io/NFT-Studio/nft-studio-release.json",
+        "status": 200,
+        "sha256": "6f3620bdda209b2f749e307850e2140660d6cb1a82b9a5cb4c9cbbcddcaddc41",
+        "value": {
+          "sourceCommit": "67e3c0ec34f27bcb511ecd382f5f0028ffe5a129",
+          "sourceRepository": "https://github.com/BEACNpool/NFT-Studio",
+          "basePath": "/NFT-Studio/"
+        }
+      },
+      "publicFileReceipts": [
+        {
+          "width": 390,
+          "url": "https://beacnpool.github.io/NFT-Studio/labs/music-seal/midnight-beacon.music-release.json",
+          "status": 200,
+          "bytes": 12901,
+          "sha256": "4b5f37c05e203be42f71db3ef2d6cfdc2362b5872c89082eddcee826ac13a43b"
+        },
+        {
+          "width": 390,
+          "url": "https://beacnpool.github.io/NFT-Studio/labs/music-seal/example-seal.json",
+          "status": 200,
+          "bytes": 419,
+          "sha256": "cdc234acc1ef3de7160a582cdfbeebe07cbf5ebfeb3f077e08cfce6f711f7ea5"
+        },
+        {
+          "width": 390,
+          "url": "https://beacnpool.github.io/NFT-Studio/_next/static/chunks/seal-DIiWekKP.js",
+          "status": 200,
+          "bytes": 55530,
+          "sha256": "fa800218922b3ba51167ec285af90a32341c224916850a0dcaff0d9c3735771d"
+        },
+        {
+          "width": 390,
+          "url": "https://beacnpool.github.io/NFT-Studio/labs/music-seal/example-trust.json",
+          "status": 200,
+          "bytes": 258,
+          "sha256": "519a13a0aaaaee7554ba4866d2681f6de5ee309053a1f196536f8a903f896100"
+        },
+        {
+          "width": 390,
+          "url": "https://beacnpool.github.io/NFT-Studio/labs/music-seal/changed-credit.music-release.json",
+          "status": 200,
+          "bytes": 12899,
+          "sha256": "7c133294341029900dc8728085cdf7b19d2085e115f4834e0eba1951123a8fad"
+        }
+      ],
+      "pageErrors": [],
+      "externalRequests": [],
+      "forbiddenApplicationWrites": [],
+      "normalHostingChallengeRequests": 0,
+      "sourceEdits": 0,
+      "walletOperations": 0,
+      "providerOperations": 0,
+      "signingOperations": 0,
+      "submissionOperations": 0,
+      "browserProcessExitCodeObserved": 0,
+      "reportSha256": "c30f2cdcd2806bf796c54c4941e6563c2ea14248074827cb79aa0bce7f147baf",
+      "reportPath": "pages-vLzXPH/report.json",
+      "screenshots": [
+        "pages-vLzXPH/result-focus-390.png",
+        "pages-vLzXPH/different-hashes-390.png",
+        "pages-vLzXPH/inspect-focus-hover-390.png",
+        "pages-vLzXPH/different-hashes-1440.png"
+      ]
+    },
+    {
+      "target": "sites",
+      "url": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/?view=labs&lab=seal",
+      "checkedAt": "2026-09-07T11:20:53.775Z",
+      "status": "PASS",
+      "viewports": [
+        1440,
+        390
+      ],
+      "namedAssertionsPassed": 97,
+      "buttonStateObservations": 40,
+      "hashContrastObservations": 4,
+      "minimumButtonContrast": 8.720426844954181,
+      "browser": "Chrome/152.0.7977.64",
+      "pagesReleaseMarker": null,
+      "publicFileReceipts": [
+        {
+          "width": 390,
+          "url": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/labs/music-seal/midnight-beacon.music-release.json",
+          "status": 200,
+          "bytes": 12901,
+          "sha256": "4b5f37c05e203be42f71db3ef2d6cfdc2362b5872c89082eddcee826ac13a43b"
+        },
+        {
+          "width": 390,
+          "url": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/labs/music-seal/example-seal.json",
+          "status": 200,
+          "bytes": 419,
+          "sha256": "cdc234acc1ef3de7160a582cdfbeebe07cbf5ebfeb3f077e08cfce6f711f7ea5"
+        },
+        {
+          "width": 390,
+          "url": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/_next/static/chunks/seal-DIiWekKP.js",
+          "status": 200,
+          "bytes": 55530,
+          "sha256": "fa800218922b3ba51167ec285af90a32341c224916850a0dcaff0d9c3735771d"
+        },
+        {
+          "width": 390,
+          "url": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/labs/music-seal/example-trust.json",
+          "status": 200,
+          "bytes": 258,
+          "sha256": "519a13a0aaaaee7554ba4866d2681f6de5ee309053a1f196536f8a903f896100"
+        },
+        {
+          "width": 390,
+          "url": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/labs/music-seal/changed-credit.music-release.json",
+          "status": 200,
+          "bytes": 12899,
+          "sha256": "7c133294341029900dc8728085cdf7b19d2085e115f4834e0eba1951123a8fad"
+        }
+      ],
+      "pageErrors": [],
+      "externalRequests": [],
+      "forbiddenApplicationWrites": [],
+      "normalHostingChallengeRequests": 3,
+      "sourceEdits": 0,
+      "walletOperations": 0,
+      "providerOperations": 0,
+      "signingOperations": 0,
+      "submissionOperations": 0,
+      "browserProcessExitCodeObserved": 0,
+      "reportSha256": "27c2cea35900a8e00aa115f31fd8dc019ca4174aa6e20cdaf59d32f58520e1b6",
+      "reportPath": "sites-d9cits/report.json",
+      "screenshots": [
+        "sites-d9cits/result-focus-390.png",
+        "sites-d9cits/different-hashes-390.png",
+        "sites-d9cits/inspect-focus-hover-390.png",
+        "sites-d9cits/different-hashes-1440.png"
+      ]
+    }
+  ],
+  "behavior": [
+    "Original fixed packet and seal load exactly; initial trust is empty and signature is valid-untrusted.",
+    "Explicit example trust is a separate action; old result is removed before re-inspection.",
+    "Changed-credit package retains valid original signature while reporting mismatch and displaying both exact package hashes.",
+    "Exported report preserves exact original packet/seal/trust text, diagnostic hashes and untrusted mismatch.",
+    "Signature mutation is invalid even with a matching trust configuration.",
+    "Exported32-byte challenge matches Node SHA256 of fixed domain bytes plus raw32-byte verified package hash.",
+    "Edited inputs and duplicate JSON rejection clear stale verdict/export/challenge.",
+    "Result heading receives visible focus; responsive grids, readable hash wrapping and minimum44px targets verified at1440/390.",
+    "Five existing button controls checked at default, hover, keyboard focus, and focus-plus-hover; no horizontal overflow.",
+    "Leaving and reopening the Lab clears imported texts and selected trust."
+  ],
+  "hostingScope": "Only four fixed same-origin example GETs allowed through application fetch. Native same-origin challenge-platform XHR allowed only from an injected challenge-platform script call stack; normal hosting challenge traffic counted separately. Other application XHR/fetch/WebSocket/EventSource and wallet capability access rejected; external browser requests and application writes blocked. No bypass token or response rewriting.",
+  "reviewInstrumentation": "No artificial promise delays, verifier/crypto replacement, response-body edits or CSS/DOM style mutation in these public runs.",
+  "componentComparison": {
+    "status": "PASS",
+    "typescript": "5.9.3",
+    "comparison": "TypeScript transpilation with normalized string-literal presentation and the documented /snapshot/ import path alias; all resulting runtime JS identical.",
+    "privateComponentSha256": "0f62f09267987823a0fe6cfcc9e1389e0d9b199287977469fe5750d505bc580d",
+    "rootComponentSha256": "fe259d9888e7dc6309aff0c6e9e21596f529dc6615b026454b38dbd3b3f6a008",
+    "normalizedRuntimeJsSha256": "399e02168823d2349cd357209ed71e3c7f5727f8e6f47753e7eb47b47c81dc4f"
+  },
+  "sourceInputs": {
+    "rootConfirmedCommit": "67e3c0ec34f27bcb511ecd382f5f0028ffe5a129",
+    "files": [
+      {
+        "path": "components/music-seal-lab.tsx",
+        "bytes": 20682,
+        "sha256": "fe259d9888e7dc6309aff0c6e9e21596f529dc6615b026454b38dbd3b3f6a008"
+      },
+      {
+        "path": "components/music-seal-lab.css",
+        "bytes": 4765,
+        "sha256": "367d78f2192ab2349347f0d4c14372747e7afaea0f74df12f5ee462296b07231"
+      },
+      {
+        "path": "experiments/music-schnorr-seal/snapshot/dist/seal.mjs",
+        "bytes": 104653,
+        "sha256": "9227cd6811f14f3d0092b7bccbfb084e6db6cae72111c292592b5329cad354f1"
+      }
+    ]
+  },
+  "visuallyReviewedScreenshots": [
+    "pages-vLzXPH/result-focus-390.png",
+    "sites-d9cits/different-hashes-390.png",
+    "pages-vLzXPH/inspect-focus-hover-1440.png",
+    "sites-d9cits/different-hashes-1440.png"
+  ],
+  "limits": [
+    "Focused Chromium product-flow and contrast observations, not a comprehensive accessibility or security audit.",
+    "No signature creation, real-key identity/rights assessment, wallet, transaction, mint, provider or ledger operation.",
+    "Separate prior private evidence covers controlled cancellation races and cryptographic/evaluator tests; those were not repeated or presented as new public ledger evidence.",
+    "Pages marker verified directly. Sites deployment success was supplied by root; actual public assets and behavior were independently checked."
+  ]
+}

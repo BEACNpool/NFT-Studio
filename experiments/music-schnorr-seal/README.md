@@ -16,6 +16,15 @@ The profile always signs the SHA-256 of a fixed domain plus the raw full-package
 
 The bundled Music parser is an immutable compatibility profile pinned to source `96a8697c20b3d2fbe218e17bb238dd664fb5c00d`. Future codecs or cryptographic profiles require a new reviewed bundle and identity. Static endorsements intentionally replay for the same release; they are unsuitable for login, access authorization or one-time redemption. No Bitcoin address derivation, wallet signing compatibility, rights certification or ledger execution is established.
 
+The [independent UI receipt](evidence/browser-ui-review.json) records 109 checks on
+its private built fixture at desktop and phone widths, including stale-result
+cancellation and exact mismatch exports. The final root build separately passed
+40 browser checks. The [actual public-release receipt](../../docs/verification/release-seal-public-browser-20260907.json)
+then records 97 checks on each public site at 1440/390, including exact examples,
+separate trust, changed-release hashes, challenge/report exports and input rejection.
+Both public builds served the same verified module bytes. No wallet or transaction
+operation occurred; normal Sites hosting-challenge traffic is recorded separately.
+
 ## Reproduction
 
 From the repository root:

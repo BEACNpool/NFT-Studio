@@ -1,0 +1,80 @@
+{
+  "schema": "beacn.bounded-music-seal-ui-review.v1",
+  "checkedAt": "2026-09-07T11:08:59.421Z",
+  "status": "PASS",
+  "viewports": [
+    1440,
+    390
+  ],
+  "namedAssertionsPassed": 109,
+  "buttonStateObservations": 40,
+  "hashContrastObservations": 4,
+  "minimumButtonContrast": 8.720426844954181,
+  "sourceInputs": {
+    "fixture": "private built Music Seal UI",
+    "files": [
+      {
+        "path": "components/music-seal-lab.tsx",
+        "bytes": 20639,
+        "sha256": "0f62f09267987823a0fe6cfcc9e1389e0d9b199287977469fe5750d505bc580d"
+      },
+      {
+        "path": "components/music-seal-lab.css",
+        "bytes": 4765,
+        "sha256": "ce7ed13ec63c2f18d99942eb32bff0d867038cf1fbf9ae7c21bb957f78339c06"
+      },
+      {
+        "path": "experiments/music-schnorr-seal/dist/seal.mjs",
+        "bytes": 104653,
+        "sha256": "9227cd6811f14f3d0092b7bccbfb084e6db6cae72111c292592b5329cad354f1"
+      },
+      {
+        "path": "dist/github-pages/_next/static/chunks/seal-DIiWekKP.js",
+        "bytes": 55530,
+        "sha256": "fa800218922b3ba51167ec285af90a32341c224916850a0dcaff0d9c3735771d"
+      }
+    ]
+  },
+  "reportSha256": "1d5e77669b6faff0150b63b95a9ab7c453b1c0f8ad081868cabd3b46a4f5b2e8",
+  "harnessSha256": "ab49093e20fb1087449b35fdec10fde64e2267b802a9d207fce6f5bc0ee69208",
+  "actualBrowser": "Chrome/152.0.7977.64",
+  "cancellationChecks": [
+    "Fixed example GET held then completed unchanged after leave/re-enter; fresh draft retained.",
+    "One-shot delayed local File.arrayBuffer discarded after a newer edit.",
+    "One-shot delayed local File.arrayBuffer discarded after leave/re-enter.",
+    "One-shot delayed SubtleCrypto.digest completion cannot restore a superseded verdict or export.",
+    "Challenge and prior result/export removed after later inputs change or malformed duplicate JSON rejects."
+  ],
+  "layoutChecks": [
+    "Inspection heading receives focus and is visible below fixed header.",
+    "Current and different signed package hashes both exact, distinct, readable and uncut at both widths.",
+    "Editor/result grids have2/3 desktop columns and1/1 mobile columns.",
+    "Phone action buttons use one full-width column; textareas use16px font.",
+    "All visible interactive targets at least44px; measured buttons at least48px high.",
+    "Zero horizontal overflow."
+  ],
+  "downloads": "Actual report export retained original changed-package, seal and trust texts plus matching exact diagnostic hashes; mismatch cannot be trusted.",
+  "pageErrors": [],
+  "externalRequests": [],
+  "forbiddenRequests": [],
+  "walletOperations": 0,
+  "providerOperations": 0,
+  "signing": 0,
+  "submission": 0,
+  "styleMutations": 0,
+  "sourceEdits": 0,
+  "ownedWrapperExitCodeObserved": 0,
+  "ownedPort8988Released": true,
+  "visuallyInspectedScreenshots": [
+    "different-hashes-390.png",
+    "result-focus-390.png",
+    "inspect-focus-hover-390.png",
+    "different-hashes-1440.png"
+  ],
+  "limits": [
+    "Private built static fixture only; no claim that a public deployment or separately rebuilt root artifact was exercised.",
+    "Promise gates expose selected race orderings in the real UI; they are explicit test instrumentation, not unchanged real-world latency.",
+    "No CSS/DOM style, response-body, verifier-module or source modification. Normal fixed responses were delayed then continued unchanged.",
+    "Focused browser regression and contrast observations, not a complete accessibility/security audit."
+  ]
+}
