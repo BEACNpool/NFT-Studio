@@ -59,7 +59,7 @@ export interface ImplementationRegister {
 }
 export const IMPLEMENTATION_LIMITS: Readonly<{
   bytes: 65536;
-  records: 5;
+  records: 8;
   evidencePerRecord: 12;
   capabilitiesPerRecord: 8;
   depth: 10;

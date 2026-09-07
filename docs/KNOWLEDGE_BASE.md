@@ -16,7 +16,7 @@ or breakthrough claim merely for combining standards.
 - [Machine-readable catalog](../knowledge/catalog.json) — the canonical entries and sources.
 - [JSON Schema](../knowledge/schema.json) — bounded interchange structure.
 - [Admission and evidence rules](../knowledge/ADMISSION.md) — what a claim means.
-- [Implementation evidence register](../knowledge/IMPLEMENTATIONS.md) — five published implementations with separate capability environments, limitations and immutable source links. The browser joins these records to related research entries.
+- [Implementation evidence register](../knowledge/IMPLEMENTATIONS.md) — six published implementations with separate capability environments, limitations and immutable source links. The browser joins these records to related research entries.
 - [Open source-review issues](../knowledge/review-issues.json) — contradictions and missing evidence.
 - [Five additional primitives](../knowledge/guides/underexplored-primitives.md) — scoped CIP-26/45/69/116/170 experiments and source discrepancies.
 - [Opportunity map](../knowledge/guides/opportunity-map.md) — priority, dependencies and acceptance gates.

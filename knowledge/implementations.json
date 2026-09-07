@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "kind": "beacn.implementation-register",
-  "asOf": "2026-09-07T06:31:41.506Z",
+  "asOf": "2026-09-07T08:15:46.045Z",
   "repository": "https://github.com/BEACNpool/NFT-Studio",
   "sourceCatalog": {
     "path": "knowledge/catalog.json",
@@ -49,6 +49,29 @@
           "evidenceIds": [
             "capsule-contract",
             "capsule-transactions"
+          ]
+        },
+        {
+          "id": "fixed-parameter-application",
+          "title": "Fixed contract parameters with Aiken equivalence checks",
+          "environment": "node-local",
+          "description": "Apply an explicit transaction output reference and 1–28 UTF-8-byte base name to the pinned PlutusV3 capsule blueprint. Locally tested applied scripts and policy identities match Aiken across 256 generated cases and CSL 17 independently; seed existence, unspentness and contract spending are not checked.",
+          "evidenceIds": [
+            "capsule-parameter-source",
+            "capsule-parameter-doc",
+            "capsule-parameter-aiken"
+          ]
+        },
+        {
+          "id": "contract-parameter-browser",
+          "title": "Local browser contract parameter review and export",
+          "environment": "browser-local",
+          "description": "The Contract compiler Lab accepts the explicit seed/name, clears old output when any input changes, and exports applied blueprint and identity bytes. Local browser evidence covers 256 compiler-oracle cases plus 15 integrated desktop/mobile UI checks. No wallet or transaction is prepared.",
+          "evidenceIds": [
+            "capsule-parameter-source",
+            "capsule-parameter-doc",
+            "capsule-parameter-browser",
+            "capsule-contract-ui-check"
           ]
         }
       ],
@@ -136,17 +159,79 @@
             "commit": "d2003bec53b944c7b71bd50caa2a14002008c7ea",
             "url": "https://github.com/BEACNpool/NFT-Studio/blob/d2003bec53b944c7b71bd50caa2a14002008c7ea/contracts/state-capsule/evaluation/public-utxo-node-evaluation.json"
           }
+        },
+        {
+          "id": "capsule-parameter-source",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Fixed-blueprint parameter application using pinned Harmonic UPLC libraries. Accepts one explicit seed reference and an exact UTF-8 base name; returns script bytes, hashes and labeled token names without a wallet or transaction.",
+          "artifact": {
+            "path": "experiments/capsule-parameterizer/src/index.mjs",
+            "sha256": "045d38b4cccdf33d4ae592907db3a090d1b537c7de08ea7d878772ab208549f3",
+            "commit": "e87e2b0b27cd88b380e5b2bab2f7c0034ae03857",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/e87e2b0b27cd88b380e5b2bab2f7c0034ae03857/experiments/capsule-parameterizer/src/index.mjs"
+          }
+        },
+        {
+          "id": "capsule-parameter-doc",
+          "kind": "documentation",
+          "observedAt": null,
+          "description": "Parameterizer scope, fixed blueprint/compiler identities, primary application sources, exact UTF-8 and strict input limits, Aiken/CSL comparisons, and explicit absence of a live capsule mint flow.",
+          "artifact": {
+            "path": "experiments/capsule-parameterizer/README.md",
+            "sha256": "4f6f35a625489ef4d6bc67ae79d7fa4762efe9399b6a786d6201684f6645b19e",
+            "commit": "e87e2b0b27cd88b380e5b2bab2f7c0034ae03857",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/e87e2b0b27cd88b380e5b2bab2f7c0034ae03857/experiments/capsule-parameterizer/README.md"
+          }
+        },
+        {
+          "id": "capsule-parameter-aiken",
+          "kind": "local-test",
+          "observedAt": "2026-09-07T06:46:21.290Z",
+          "description": "Local compiler oracle receipt: 256 generated parameter pairs, 512 Aiken CLI invocations and 768 handler-byte comparisons; complete applied blueprints and independent CSL 17 script hashes agree. This is compiler equivalence testing, not independent Cardano node evaluation.",
+          "artifact": {
+            "path": "experiments/capsule-parameterizer/evidence/aiken-parity.json",
+            "sha256": "85a47efaf3cf068c59fe5817ca6fe3e9a8010c87a0891610afe3a1972b3edac2",
+            "commit": "e87e2b0b27cd88b380e5b2bab2f7c0034ae03857",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/e87e2b0b27cd88b380e5b2bab2f7c0034ae03857/experiments/capsule-parameterizer/evidence/aiken-parity.json"
+          }
+        },
+        {
+          "id": "capsule-parameter-browser",
+          "kind": "local-test",
+          "observedAt": "2026-09-07T06:48:27.160Z",
+          "description": "Local Chromium receipt: the same 256 Aiken-oracle cases and 768 handler-byte comparisons pass without Node globals, external requests or wallet APIs. The recorded 442 ms describes one local run only.",
+          "artifact": {
+            "path": "experiments/capsule-parameterizer/evidence/browser-runtime.json",
+            "sha256": "ede9538cd584584740dd9a8a54508b009fe62b2e85f3b564d5ef555b567ff155",
+            "commit": "e87e2b0b27cd88b380e5b2bab2f7c0034ae03857",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/e87e2b0b27cd88b380e5b2bab2f7c0034ae03857/experiments/capsule-parameterizer/evidence/browser-runtime.json"
+          }
+        },
+        {
+          "id": "capsule-contract-ui-check",
+          "kind": "local-test",
+          "observedAt": "2026-09-07T07:38:06.723Z",
+          "description": "Published browser audit procedure. A developer-observed local run passed 15 checks at 1440 and 390 pixels, including exact exports, UTF-8 identity, invalid inputs, no wallet/runtime network operations and stale lazy-import cancellation. The timestamp comes from the local report; this source pin is a procedure, not a published or authenticated run receipt.",
+          "artifact": {
+            "path": "scripts/audit-capsule-contract.mjs",
+            "sha256": "749554b3fcb7570b69f97ad138cc4145189d37c941038c8da7c4756e82232476",
+            "commit": "e87e2b0b27cd88b380e5b2bab2f7c0034ae03857",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/e87e2b0b27cd88b380e5b2bab2f7c0034ae03857/scripts/audit-capsule-contract.mjs"
+          }
         }
       ],
       "limits": [
         "No capsule mint, confirmation, authentic on-chain history or device-wallet acceptance is established.",
         "Independent node evidence covers issuance only; evolution and freeze evidence is synthetic and local.",
-        "Permanent freeze locks reference state and ADA; no recovery, withdrawal, unfreeze or issuer override exists."
+        "Permanent freeze locks reference state and ADA; no recovery, withdrawal, unfreeze or issuer override exists.",
+        "Parameterization is limited to the embedded blueprint identified by its hash and local exact-byte equivalence tests. It is not a general Aiken compiler, a security audit, a seed-availability check, a new node evaluation or a capsule wallet mint flow."
       ],
       "nextEvidence": [
         "Independent spending/evolution/freeze node evaluation.",
         "Complete wallet lifecycle with preproduction inclusion and state recovery.",
-        "External security review and explicit loss/freeze UX."
+        "External security review and explicit loss/freeze UX.",
+        "A separately reviewed capsule transaction and wallet workflow that consumes the exact parameterized identity, plus independent node evaluation of its real lifecycle before any deployment claim."
       ]
     },
     {
@@ -651,6 +736,230 @@
       "nextEvidence": [
         "Independently review a real chain adapter, durable session/nonce storage and protected delivery before any authentication deployment.",
         "Observe actual wallet compatibility before claiming support for named wallets or devices."
+      ]
+    },
+    {
+      "id": "music-release",
+      "entryIds": [
+        "cip-0060",
+        "cip-0025",
+        "cip-0030",
+        "agent-mint-contract"
+      ],
+      "title": "Exact music release packages, native preparation and receipt recovery",
+      "publication": "published",
+      "summary": "Published Studio music extension with exact audio/cover bytes and declared credits, a dedicated browser wallet-review path, strict recovery from transaction metadata, and locally tested package-only MCP tools. Evidence is local or synthetic; public deployment and chain inclusion are separate observations.",
+      "capabilities": [
+        {
+          "id": "music-package-composer",
+          "title": "Exact music files and credit package composition",
+          "environment": "browser-local",
+          "description": "Compose one cover and 1–7 audio files with release, artist and credit data; export and reopen a canonical music package whose hash binds every exact file byte and supported declaration. The local browser run passed seven integrated groups; metadata codec fixtures cover three roundtrips, 56 malformed composers and 128 checksum mutations.",
+          "evidenceIds": [
+            "music-codec",
+            "music-composer",
+            "music-profile-doc",
+            "music-codec-fixtures",
+            "music-browser-check"
+          ]
+        },
+        {
+          "id": "music-native-preparation",
+          "title": "Shared native builder preserving committed credits",
+          "environment": "node-local",
+          "description": "The dedicated music entry point uses the existing Studio constructor, derives asset identity from the full package commitment and preserves its exact music metadata. Ten synthetic integration groups cover credit changes, ADA/assets, signatures, fees and complete size; six ordinary NFT/data preparation baselines remain byte-identical.",
+          "evidenceIds": [
+            "music-builder",
+            "music-transaction-fixtures",
+            "music-profile-doc"
+          ]
+        },
+        {
+          "id": "music-wallet-review-and-recovery",
+          "title": "Local browser review and exact transaction-metadata recovery",
+          "environment": "browser-local",
+          "description": "The Music Lab passes its full package into explicit wallet review and Activity routes actual music CBOR to strict credit/file recovery, including receipts with stripped sidecars. Synthetic browser checks cover receipt-before-submit, stale signing prompts, storage failure and uncertain submission. Eleven recovery groups reject 82 malformed/mismatched cases; imported confirmation remains a receipt-reported declaration.",
+          "evidenceIds": [
+            "music-composer",
+            "music-builder",
+            "music-receipt",
+            "music-transaction-fixtures",
+            "music-receipt-fixtures",
+            "music-browser-check"
+          ]
+        },
+        {
+          "id": "music-package-mcp",
+          "title": "Locally tested bot music-package preparation and verification",
+          "environment": "node-local",
+          "description": "create_music_release and verify_music_release return the same canonical package, its hash, metadata-only budget and a fixed Music Lab review URL. Six music-specific test groups ran within the 37-group local MCP suite and its clean install, using official modern/legacy clients on Node and Workerd. The local Worker exposed 12 tools; Node exposed 14, with 61 resources; these counts are local test observations, not a public deployment receipt.",
+          "evidenceIds": [
+            "music-mcp-source",
+            "music-mcp-doc",
+            "music-mcp-check",
+            "music-codec"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "music-codec",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Strict pure music profile, bounded inert composer values, canonical package commitment, exact embedded-file metadata, independent CBOR writer and exact credit/file reconstruction.",
+          "artifact": {
+            "path": "lib/music-release.ts",
+            "sha256": "5eb98cbd6f30e581cec3a48de34a848ed5b7c03f777c909f3383a64d36b08097",
+            "commit": "e87e2b0b27cd88b380e5b2bab2f7c0034ae03857",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/e87e2b0b27cd88b380e5b2bab2f7c0034ae03857/lib/music-release.ts"
+          }
+        },
+        {
+          "id": "music-builder",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Shared ordinary/music native construction plus current review and signature checks. The explicit trusted music branch preserves credits without accepting arbitrary metadata callbacks or extending ordinary mint intents.",
+          "artifact": {
+            "path": "lib/studio-transaction.ts",
+            "sha256": "38d6275b30cac4ff214025702326c09ad257783fa8dd8a2f5c251277c996bd6a",
+            "commit": "e87e2b0b27cd88b380e5b2bab2f7c0034ae03857",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/e87e2b0b27cd88b380e5b2bab2f7c0034ae03857/lib/studio-transaction.ts"
+          }
+        },
+        {
+          "id": "music-receipt",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Bounded offline receipt routing and recovery through CSL 17. Derives actual mint and metadata identities and rejects mismatches; reported receipt state is distinct from checked local content.",
+          "artifact": {
+            "path": "lib/music-receipt.ts",
+            "sha256": "3f2b8b4d5588d92e253438059679f9c6fabe248c012a76796dec904982e99e07",
+            "commit": "e87e2b0b27cd88b380e5b2bab2f7c0034ae03857",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/e87e2b0b27cd88b380e5b2bab2f7c0034ae03857/lib/music-receipt.ts"
+          }
+        },
+        {
+          "id": "music-composer",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Published browser composer, full package import/export and dedicated musicPackage wallet-review handoff. Draft changes invalidate the prepared package and its open review.",
+          "artifact": {
+            "path": "components/music-release-lab.tsx",
+            "sha256": "ed6cab32c0a5d4697497559d0f015e3cf94022f05bdbbd5045580da78f493e2d",
+            "commit": "e87e2b0b27cd88b380e5b2bab2f7c0034ae03857",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/e87e2b0b27cd88b380e5b2bab2f7c0034ae03857/components/music-release-lab.tsx"
+          }
+        },
+        {
+          "id": "music-profile-doc",
+          "kind": "documentation",
+          "observedAt": null,
+          "description": "CIP-60-aligned Studio extension and primary-source adapter boundary: exact chunked file URIs, required/optional credits and metadata Boolean/CDDL conflicts. Its original codec-kit wallet/MCP omissions are historical; later builder, receipt and service sources in this record provide their separate scope.",
+          "artifact": {
+            "path": "docs/MUSIC_RELEASE.md",
+            "sha256": "6dc3f3881f1869143952efa85c4076603acadc96c663b3e4b4e737db67d98e59",
+            "commit": "e87e2b0b27cd88b380e5b2bab2f7c0034ae03857",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/e87e2b0b27cd88b380e5b2bab2f7c0034ae03857/docs/MUSIC_RELEASE.md"
+          }
+        },
+        {
+          "id": "music-codec-fixtures",
+          "kind": "local-test",
+          "observedAt": null,
+          "description": "Published deterministic codec measurements for three original synthetic roundtrips; the associated verifier documents 285 assertions and independent CSL/Python CBOR and hash agreement. These fixtures do not establish a real recording duration, rights or player support.",
+          "artifact": {
+            "path": "tests/fixtures/music-release/roundtrips.json",
+            "sha256": "e5b90a9cffdc4153333cdb4f84f44cd92c796c37778b9b1d1c8469c8040faba1",
+            "commit": "e87e2b0b27cd88b380e5b2bab2f7c0034ae03857",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/e87e2b0b27cd88b380e5b2bab2f7c0034ae03857/tests/fixtures/music-release/roundtrips.json"
+          }
+        },
+        {
+          "id": "music-transaction-fixtures",
+          "kind": "synthetic-transaction-test",
+          "observedAt": null,
+          "description": "Ten-group synthetic builder evidence, including six unchanged ordinary baselines. The small fixture measures 6,844 metadata bytes and 7,380 complete signed bytes; a 13,717-byte metadata package rejects a fragmented wallet at full signed-size validation. Original fixture flags describe the pre-UI/pre-MCP adapter kit, not later source availability.",
+          "artifact": {
+            "path": "tests/fixtures/music-transactions/verification.json",
+            "sha256": "ca0e2534c32542cdcce58a1ef73cb5c9ccc682399e64855b60652bf1e811a788",
+            "commit": "e87e2b0b27cd88b380e5b2bab2f7c0034ae03857",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/e87e2b0b27cd88b380e5b2bab2f7c0034ae03857/tests/fixtures/music-transactions/verification.json"
+          }
+        },
+        {
+          "id": "music-receipt-fixtures",
+          "kind": "synthetic-transaction-test",
+          "observedAt": null,
+          "description": "Eleven-group strict recovery fixture evidence with 82 rejected cases, exact package identity and byte measurements. All inputs and signatures are synthetic; provider requests and chain submissions are zero.",
+          "artifact": {
+            "path": "tests/fixtures/music-receipts/verification.json",
+            "sha256": "4baa133a0173db6f5e73f5b3c613ae4d209bc85cb1c3d5d84c330dedcc276ba6",
+            "commit": "e87e2b0b27cd88b380e5b2bab2f7c0034ae03857",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/e87e2b0b27cd88b380e5b2bab2f7c0034ae03857/tests/fixtures/music-receipts/verification.json"
+          }
+        },
+        {
+          "id": "music-browser-check",
+          "kind": "local-test",
+          "observedAt": "2026-09-07T08:09:58.746Z",
+          "description": "Published browser audit procedure. A developer-observed local run passed seven integrated groups covering canonical exports, changed credits, synthetic signing and conservation, receipt routing, pending-prompt cancellation, storage failure and uncertain submission. The timestamp is the local log modification time; the source pin identifies the procedure, not a published/authenticated run receipt.",
+          "artifact": {
+            "path": "scripts/audit-music.cjs",
+            "sha256": "585da93ca3bcd99e79ece74030c859e4f6a37ffa93f0edddf4120467434cafd0",
+            "commit": "e87e2b0b27cd88b380e5b2bab2f7c0034ae03857",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/e87e2b0b27cd88b380e5b2bab2f7c0034ae03857/scripts/audit-music.cjs"
+          }
+        },
+        {
+          "id": "music-mcp-source",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Strict package-only MCP schemas and handlers call the trusted shared codec, preserve inert credit links without fetching them, and return a fixed Music Lab review handoff. They neither construct a music transaction nor change the ordinary mint-intent schema.",
+          "artifact": {
+            "path": "mcp/src/music-tools.mjs",
+            "sha256": "63444f71d966b3828c2ac3fcdfa502eb88538e7e96059f278629e4d0504ab2b4",
+            "commit": "e87e2b0b27cd88b380e5b2bab2f7c0034ae03857",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/e87e2b0b27cd88b380e5b2bab2f7c0034ae03857/mcp/src/music-tools.mjs"
+          }
+        },
+        {
+          "id": "music-mcp-doc",
+          "kind": "documentation",
+          "observedAt": null,
+          "description": "Bot package contract, canonical export/import instructions, declared-link treatment, metadata-only budget, local tool/resource checks and explicit separation from unsigned transactions, wallet authority and public deployment.",
+          "artifact": {
+            "path": "mcp/MUSIC_PACKAGES.md",
+            "sha256": "06f1f82b75b94c46e2188454957e977c517aacf8d879445c257153fa382e0b81",
+            "commit": "e87e2b0b27cd88b380e5b2bab2f7c0034ae03857",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/e87e2b0b27cd88b380e5b2bab2f7c0034ae03857/mcp/MUSIC_PACKAGES.md"
+          }
+        },
+        {
+          "id": "music-mcp-check",
+          "kind": "local-test",
+          "observedAt": "2026-09-07T08:05:12.306Z",
+          "description": "Published six-group music MCP test procedure. Developer-observed full local and clean-install MCP runs both passed 37 groups against 58 entries, 73 sources and 61 resources. This includes Node/Workerd and modern/legacy SDK lanes; the timestamp is the clean log modification time, not a deployed-service or authenticated test receipt.",
+          "artifact": {
+            "path": "mcp/test/music-tools.test.mjs",
+            "sha256": "b5125d79d00092490a0b97aa56f303c1d8483e8280d2a9a980ef42d44487794b",
+            "commit": "e87e2b0b27cd88b380e5b2bab2f7c0034ae03857",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/e87e2b0b27cd88b380e5b2bab2f7c0034ae03857/mcp/test/music-tools.test.mjs"
+          }
+        }
+      ],
+      "limits": [
+        "This is the cip60-v3-studio-exact-files extension, not strict CIP-60 v3 CDDL conformance or demonstrated wallet/player interoperability. Research maturity and upstream CIP status are unchanged.",
+        "Audio/cover bytes and metadata declarations are committed; authorship, assignment of identifiers, copyright, share entitlement, royalty payments, recording duration and ownership are not verified.",
+        "A 14,000-byte music metadata cap leaves no guaranteed complete transaction headroom. The browser still needs fresh wallet/protocol inputs, full transaction sizing, fee checks and explicit human signing review.",
+        "MCP tools only prepare or verify a music package; they do not prepare a music transaction, fetch declared links/media, persist packages, authenticate users, sign, submit or verify chain inclusion. The fixed browser review URL is a handoff, not evidence of a deployed service.",
+        "All observed wallet interactions and signed transactions in these tests are synthetic. No live music mint, public music service deployment or chain confirmation is established by this record.",
+        "Receipt recovery checks exact local transaction content. Payment-signature validity, complete ledger validity, inclusion, confirmation, ownership and rights remain unchecked; a receipt state stays an unverified declaration.",
+        "Ordinary mint intents reject music packages. The existing Artifact Passport profile continues to reject music metadata; generic exact-file recovery alone is not credit verification."
+      ],
+      "nextEvidence": [
+        "A separately dated live-service receipt for the deployed 12-tool release using the official MCP client, exact package checks and the admitted implementation-register resource.",
+        "An explicitly authorized real-wallet test lifecycle with known transaction inclusion and independent exact-file plus credit recovery; distinguish network, wallet and provider observations.",
+        "Documented independent consumer/player interoperability tests and an explicit reviewed adapter for any broader CIP-60 or Artifact Passport profile."
       ]
     }
   ]

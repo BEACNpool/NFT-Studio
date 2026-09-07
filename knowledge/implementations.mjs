@@ -1,7 +1,7 @@
 /** Pure implementation-register parsing and lookup. No I/O, fetching, execution or admission. */
 export const IMPLEMENTATION_LIMITS = Object.freeze({
   bytes: 65536,
-  records: 5,
+  records: 8,
   evidencePerRecord: 12,
   capabilitiesPerRecord: 8,
   depth: 10,
@@ -356,14 +356,14 @@ export function listImplementations(register, options = {}) {
     )
   )
     bad('lookup options');
-  const { publication, entryId, limit = 5 } = options;
+  const { publication, entryId, limit = IMPLEMENTATION_LIMITS.records } = options;
   if (
     publication !== undefined &&
     !['published', 'candidate'].includes(publication)
   )
     bad('lookup publication');
   if (entryId !== undefined) id(entryId);
-  if (!Number.isInteger(limit) || limit < 1 || limit > 5) bad('lookup limit');
+  if (!Number.isInteger(limit) || limit < 1 || limit > IMPLEMENTATION_LIMITS.records) bad('lookup limit');
   return register.records
     .filter(
       (record) =>

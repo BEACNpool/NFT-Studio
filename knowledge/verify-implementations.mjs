@@ -6,6 +6,7 @@ import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import {
+  IMPLEMENTATION_LIMITS,
   parseImplementations,
   validateImplementations,
   getImplementation,
@@ -17,16 +18,7 @@ const text = readFileSync(
   'utf8',
 );
 const raw = JSON.parse(text);
-const ids = [
-  'living-artifact',
-  'cip-0067',
-  'cip-0068',
-  'agent-mint-contract',
-  'cip-0030',
-  'standards-observatory',
-  'artifact-passport',
-  'cip-0008',
-];
+const ids = [...new Set(raw.records.flatMap((record) => record.entryIds))];
 const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
 let groups = 0;
 function test(name, run) {
@@ -41,18 +33,19 @@ const mutate = (change) => {
 };
 const reject = (change) =>
   assert.throws(() => validateImplementations(mutate(change), ids));
-test('five records, strict research join and publication filtering', () => {
+test('six records, strict research join and publication filtering', () => {
   const register = parseImplementations(text, ids);
-  assert.equal(register.records.length, 5);
+  assert.equal(register.records.length, 6);
+  assert.equal(listImplementations(register).length, 6);
   assert.equal(
     listImplementations(register, { publication: 'published' }).length,
-    5,
+    6,
   );
   assert.equal(
     listImplementations(register, { publication: 'candidate' }).length,
     0,
   );
-  assert.equal(implementationsForEntry(register, 'cip-0030').length, 2);
+  assert.equal(implementationsForEntry(register, 'cip-0030').length, 3);
   assert.equal(
     getImplementation(register, 'artifact-passport').publication,
     'published',
@@ -64,6 +57,58 @@ test('five records, strict research join and publication filtering', () => {
       ids.filter((id) => id !== 'cip-0030'),
     ),
   );
+});
+test('record/list cap is eight while byte and per-record bounds remain unchanged', () => {
+  assert.deepEqual(IMPLEMENTATION_LIMITS, {
+    bytes: 65536, records: 8, evidencePerRecord: 12,
+    capabilitiesPerRecord: 8, depth: 10, nodes: 4096,
+  });
+  const schema = JSON.parse(readFileSync(new URL('./implementations.schema.json', import.meta.url)));
+  assert.equal(schema.properties.records.maxItems, IMPLEMENTATION_LIMITS.records);
+  const recordSchema = schema.properties.records.items.properties;
+  assert.equal(recordSchema.evidence.maxItems, IMPLEMENTATION_LIMITS.evidencePerRecord);
+  assert.equal(recordSchema.capabilities.maxItems, IMPLEMENTATION_LIMITS.capabilitiesPerRecord);
+  const fixture = structuredClone(raw);
+  const minimal = structuredClone(fixture.records[4]);
+  minimal.entryIds = ['cip-0008'];
+  minimal.evidence = minimal.evidence.filter((e) => ['source', 'documentation'].includes(e.kind)).slice(0, 1)
+    .concat(minimal.evidence.filter((e) => e.kind === 'documentation').slice(0, 1));
+  minimal.capabilities = [{ id: 'local', title: 'Local fixture', environment: 'offline-candidate',
+    description: 'Synthetic capacity fixture.', evidenceIds: minimal.evidence.map((e) => e.id) }];
+  minimal.summary = 'Synthetic capacity fixture.';
+  minimal.limits = ['Capacity test only.']; minimal.nextEvidence = ['No implementation claim.'];
+  while (fixture.records.length < IMPLEMENTATION_LIMITS.records) {
+    const record = structuredClone(minimal); record.id = 'capacity-' + fixture.records.length;
+    fixture.records.push(record);
+  }
+  const valid = validateImplementations(fixture, ids);
+  assert.equal(valid.records.length, 8);
+  assert.equal(listImplementations(valid).length, 8);
+  for (const limit of [6, 7, 8]) assert.equal(listImplementations(valid, { limit }).length, limit);
+  fixture.records.push({ ...minimal, id: 'ninth-record' });
+  assert.throws(() => validateImplementations(fixture, ids), /list length/);
+  reject((r) => r.records[0].evidence.push({ ...r.records[0].evidence[0], id: 'thirteenth-evidence' }));
+  reject((r) => { while (r.records[0].capabilities.length < 9)
+    r.records[0].capabilities.push({ ...r.records[0].capabilities[0], id: 'cap-' + r.records[0].capabilities.length }); });
+});
+test('31 historical evidence pins survive and new observations retain local scope', () => {
+  const counts = [7, 8, 6, 6, 4];
+  const historical = raw.records.slice(0, 5).map((record, index) => ({
+    id: record.id, evidence: record.evidence.slice(0, counts[index]),
+  }));
+  assert.equal(hash(JSON.stringify(historical)), '45b628455b61813e5a52afa5bf8eb5e180a0588d49f609c3f09f1f97e5dc8fba');
+  const capsule = getImplementation(raw, 'living-artifact'), music = getImplementation(raw, 'music-release');
+  assert.equal(capsule.evidence.length, 12); assert.equal(music.evidence.length, 12);
+  assert.equal(music.publication, 'published');
+  for (const record of [music, { capabilities: capsule.capabilities.slice(3), evidence: capsule.evidence.slice(7) }]) {
+    for (const capability of record.capabilities) assert.ok(['node-local', 'browser-local'].includes(capability.environment));
+    for (const item of record.evidence) {
+      assert.equal(item.artifact.commit, 'e87e2b0b27cd88b380e5b2bab2f7c0034ae03857');
+      assert.ok(!['independent-node-evaluation', 'live-service-check', 'upstream-source-check'].includes(item.kind));
+    }
+  }
+  assert.deepEqual(music.entryIds, ['cip-0060', 'cip-0025', 'cip-0030', 'agent-mint-contract']);
+  assert.equal(implementationsForEntry(raw, 'cip-0060')[0].id, 'music-release');
 });
 test('duplicate IDs, unknown fields and invented readiness values reject', () => {
   reject((r) => (r.records[1].id = r.records[0].id));
@@ -170,7 +215,7 @@ test('inert snapshots, cumulative bounds, malformed Unicode and lookup options',
       },
     }),
   );
-  assert.throws(() => listImplementations(raw, { limit: 6 }));
+  assert.throws(() => listImplementations(raw, { limit: IMPLEMENTATION_LIMITS.records + 1 }));
   assert.throws(() => listImplementations(raw, { unknown: true }));
   assert.equal(callbacks, 0);
   const copy = validateImplementations(raw, ids);
