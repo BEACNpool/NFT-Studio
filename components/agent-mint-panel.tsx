@@ -206,11 +206,11 @@ export function AgentMintPanel() {
           <details className="ns-lab-details">
             <summary>Full service and setup details</summary>
             <p>
-              The public endpoint prepares content and answers Cardano
-              questions. The separate open-source Node service also builds
-              unsigned transactions and checks external wallet signatures. It
-              supports local stdio and authenticated Streamable HTTP. Neither
-              service holds a signing key.
+              The repo-local Node server prepares content, answers Cardano
+              questions, builds unsigned transactions and checks external wallet
+              signatures. Connect over local stdio, or operate its authenticated
+              HTTP service on your own host. It never holds a signing key or
+              submits transactions.
             </p>
             <a
               className="ns-text-link"
