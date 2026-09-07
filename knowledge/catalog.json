@@ -748,6 +748,310 @@
       "license": "See parent CIP",
       "attribution": "Cardano Improvement Proposal authors; see linked parent specification",
       "sourceType": "primary-schema"
+    },
+    {
+      "url": "https://github.com/cardano-foundation/CIPs/blob/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0026/README.md",
+      "rawUrl": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0026/README.md",
+      "sourceCommit": "05ee6bb05982289dbe00c4187b9d54cf90e2e276",
+      "sha256": "f339b6909d989f1c36339742255ecc0274470eb3ce8f48bbd11b9df2a0e3ee42",
+      "accessedAt": "2026-09-07T07:29:16.483274+00:00",
+      "id": "cip-0026",
+      "title": "CIP-0026: Cardano Off-Chain Metadata",
+      "declaredStatus": "Active",
+      "license": "CC-BY-4.0",
+      "attribution": "Matthias Benkort; Michael Peyton Jones; Polina Vinogradova",
+      "sourceType": "primary-specification",
+      "created": "2021-08-10"
+    },
+    {
+      "url": "https://github.com/cardano-foundation/CIPs/blob/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0045/README.md",
+      "rawUrl": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0045/README.md",
+      "sourceCommit": "05ee6bb05982289dbe00c4187b9d54cf90e2e276",
+      "sha256": "ee3886da41e945cb4098ad55c6c5b730c2575bff2bc01a0bd032db0cf87ed198",
+      "accessedAt": "2026-09-07T07:29:16.611135+00:00",
+      "id": "cip-0045",
+      "title": "CIP-0045: Decentralized WebRTC dApp-Wallet Communication",
+      "declaredStatus": "Active",
+      "license": "CC-BY-4.0",
+      "attribution": "Fabian Bormann; Jaime Caso",
+      "sourceType": "primary-specification",
+      "created": "2022-11-29"
+    },
+    {
+      "url": "https://github.com/cardano-foundation/CIPs/blob/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0069/README.md",
+      "rawUrl": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0069/README.md",
+      "sourceCommit": "05ee6bb05982289dbe00c4187b9d54cf90e2e276",
+      "sha256": "4379ebd20b48a958135f72dc54bd20b20d323a4a850796565f464ad2443bfc91",
+      "accessedAt": "2026-09-07T07:29:16.716498+00:00",
+      "id": "cip-0069",
+      "title": "CIP-0069: Plutus Script Type Uniformization",
+      "declaredStatus": "Active",
+      "license": "CC-BY-4.0",
+      "attribution": "Maksymilian 'zygomeb' Brodowicz",
+      "sourceType": "primary-specification",
+      "created": "2022-08-23"
+    },
+    {
+      "url": "https://github.com/cardano-foundation/CIPs/blob/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0116/README.md",
+      "rawUrl": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0116/README.md",
+      "sourceCommit": "05ee6bb05982289dbe00c4187b9d54cf90e2e276",
+      "sha256": "1091764a5a20d34afbadc96720c2d00a694ffc941a5ad7813c8c5bfbdaa70a62",
+      "accessedAt": "2026-09-07T07:29:16.950134+00:00",
+      "id": "cip-0116",
+      "title": "CIP-0116: Canonical JSON Encoding for Domain Types",
+      "declaredStatus": "Proposed",
+      "license": "CC-BY-4.0",
+      "attribution": "Vladimir Kalnitsky",
+      "sourceType": "primary-specification",
+      "created": "2024-02-22"
+    },
+    {
+      "url": "https://github.com/cardano-foundation/CIPs/blob/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0170/README.md",
+      "rawUrl": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0170/README.md",
+      "sourceCommit": "05ee6bb05982289dbe00c4187b9d54cf90e2e276",
+      "sha256": "cd7bd9153bd773aacdd53b0fdbd028c6d7b962a6422057bfe21da50056a45bc2",
+      "accessedAt": "2026-09-07T07:29:17.339261+00:00",
+      "id": "cip-0170",
+      "title": "CIP-0170: KERI-backed metadata attestations",
+      "declaredStatus": "Proposed",
+      "license": "CC-BY-4.0",
+      "attribution": "Fergal O'Connor; Thomas Kammerlocher",
+      "sourceType": "primary-specification",
+      "created": "2025-11-05"
+    },
+    {
+      "url": "https://github.com/cardano-foundation/cardano-token-registry/blob/8a2cd449b86ac6f27a7de34dd0845160a832266b/README.md",
+      "rawUrl": "https://raw.githubusercontent.com/cardano-foundation/cardano-token-registry/8a2cd449b86ac6f27a7de34dd0845160a832266b/README.md",
+      "sourceCommit": "8a2cd449b86ac6f27a7de34dd0845160a832266b",
+      "sha256": "c55d447771a7fb783b2a99d388df64efee9f33c23f858fd5f6ad1d39325771b7",
+      "accessedAt": "2026-09-07T07:31:51.985567+00:00",
+      "id": "impl-token-registry-readme",
+      "title": "Cardano Token Registry: current registry and trust rules",
+      "declaredStatus": "Repository source inspected; not executed",
+      "license": "No repository license established; source bytes not redistributed",
+      "attribution": "Cardano Foundation",
+      "sourceType": "primary-implementation"
+    },
+    {
+      "url": "https://github.com/input-output-hk/offchain-metadata-tools/blob/91eba72d6e5e3b17cd49f625c9546f2c82df5a65/token-metadata-creator/src/Cardano/Metadata/GoguenRegistry.hs",
+      "rawUrl": "https://raw.githubusercontent.com/input-output-hk/offchain-metadata-tools/91eba72d6e5e3b17cd49f625c9546f2c82df5a65/token-metadata-creator/src/Cardano/Metadata/GoguenRegistry.hs",
+      "sourceCommit": "91eba72d6e5e3b17cd49f625c9546f2c82df5a65",
+      "sha256": "9544bd16c1dda99ad9e855d0965365a7196ed5f8a8a325163d40331c6e88f4e4",
+      "accessedAt": "2026-09-07T07:33:17.602015+00:00",
+      "id": "impl-token-registry-validator",
+      "title": "Goguen registry entry validation",
+      "declaredStatus": "Repository source inspected; not executed",
+      "license": "Apache-2.0",
+      "attribution": "Offchain Metadata Tools contributors",
+      "sourceType": "primary-implementation"
+    },
+    {
+      "url": "https://github.com/input-output-hk/offchain-metadata-tools/blob/91eba72d6e5e3b17cd49f625c9546f2c82df5a65/token-metadata-creator/README.md",
+      "rawUrl": "https://raw.githubusercontent.com/input-output-hk/offchain-metadata-tools/91eba72d6e5e3b17cd49f625c9546f2c82df5a65/token-metadata-creator/README.md",
+      "sourceCommit": "91eba72d6e5e3b17cd49f625c9546f2c82df5a65",
+      "sha256": "534d2fcec9ed0a0f1efbfcd5c610e2d9f51a3ab2907f800498bcaed80041c351",
+      "accessedAt": "2026-09-07T07:31:52.227923+00:00",
+      "id": "impl-token-metadata-cli",
+      "title": "Token metadata creator CLI",
+      "declaredStatus": "Repository source inspected; not executed",
+      "license": "Apache-2.0",
+      "attribution": "Offchain Metadata Tools contributors",
+      "sourceType": "primary-implementation"
+    },
+    {
+      "url": "https://github.com/fabianbormann/cardano-peer-connect/blob/03ae3dc15a1524632faff22b343ce9ea0130a67e/src/DAppPeerConnect.ts",
+      "rawUrl": "https://raw.githubusercontent.com/fabianbormann/cardano-peer-connect/03ae3dc15a1524632faff22b343ce9ea0130a67e/src/DAppPeerConnect.ts",
+      "sourceCommit": "03ae3dc15a1524632faff22b343ce9ea0130a67e",
+      "sha256": "f27bde0d846fb3bfaebdf501cf62cd39947425e9ae503c25e0f3253693e375a3",
+      "accessedAt": "2026-09-07T07:31:53.449979+00:00",
+      "id": "impl-peer-connect-dapp",
+      "title": "PeerJS dApp peer transport",
+      "declaredStatus": "Repository source inspected; not executed",
+      "license": "Apache-2.0",
+      "attribution": "Fabian Bormann and contributors",
+      "sourceType": "primary-implementation"
+    },
+    {
+      "url": "https://github.com/fabianbormann/cardano-peer-connect/blob/03ae3dc15a1524632faff22b343ce9ea0130a67e/src/CardanoPeerConnect.ts",
+      "rawUrl": "https://raw.githubusercontent.com/fabianbormann/cardano-peer-connect/03ae3dc15a1524632faff22b343ce9ea0130a67e/src/CardanoPeerConnect.ts",
+      "sourceCommit": "03ae3dc15a1524632faff22b343ce9ea0130a67e",
+      "sha256": "f257039e6568e1a74e4347865d2370a9663c95d0ee07d37e10b8d60e9ca78e69",
+      "accessedAt": "2026-09-07T07:31:53.722383+00:00",
+      "id": "impl-peer-connect-wallet",
+      "title": "PeerJS wallet peer transport",
+      "declaredStatus": "Repository source inspected; not executed",
+      "license": "Apache-2.0",
+      "attribution": "Fabian Bormann and contributors",
+      "sourceType": "primary-implementation"
+    },
+    {
+      "url": "https://github.com/fabianbormann/cardano-peer-connect/blob/03ae3dc15a1524632faff22b343ce9ea0130a67e/package.json",
+      "rawUrl": "https://raw.githubusercontent.com/fabianbormann/cardano-peer-connect/03ae3dc15a1524632faff22b343ce9ea0130a67e/package.json",
+      "sourceCommit": "03ae3dc15a1524632faff22b343ce9ea0130a67e",
+      "sha256": "392050426001f010ddb69b11ae62b10f4a0e9c5288bc1b95d1f4917d3c1a1c01",
+      "accessedAt": "2026-09-07T07:31:53.336425+00:00",
+      "id": "impl-peer-connect-package",
+      "title": "Cardano peer-connect 1.2.21 manifest",
+      "declaredStatus": "Repository source inspected; not executed",
+      "license": "Apache-2.0",
+      "attribution": "Fabian Bormann and contributors",
+      "sourceType": "primary-implementation"
+    },
+    {
+      "url": "https://github.com/cardano-foundation/cardano-connect-with-wallet/blob/47ceba88338f19b576bf72251e8158a7883a5e45/react/src/components/ConnectWalletButton/ConnectWalletButton.tsx",
+      "rawUrl": "https://raw.githubusercontent.com/cardano-foundation/cardano-connect-with-wallet/47ceba88338f19b576bf72251e8158a7883a5e45/react/src/components/ConnectWalletButton/ConnectWalletButton.tsx",
+      "sourceCommit": "47ceba88338f19b576bf72251e8158a7883a5e45",
+      "sha256": "ce18b6cbfb94c027bc5b2c62d7b512a2e8ac6c46348468ad767c1106711e5888",
+      "accessedAt": "2026-09-07T07:33:17.394701+00:00",
+      "id": "impl-connect-wallet-button",
+      "title": "Connect wallet explicit peer connection UI",
+      "declaredStatus": "Repository source inspected; not executed",
+      "license": "Apache-2.0",
+      "attribution": "Cardano Foundation and contributors",
+      "sourceType": "primary-implementation"
+    },
+    {
+      "url": "https://github.com/cardano-foundation/cardano-connect-with-wallet/blob/47ceba88338f19b576bf72251e8158a7883a5e45/react/package.json",
+      "rawUrl": "https://raw.githubusercontent.com/cardano-foundation/cardano-connect-with-wallet/47ceba88338f19b576bf72251e8158a7883a5e45/react/package.json",
+      "sourceCommit": "47ceba88338f19b576bf72251e8158a7883a5e45",
+      "sha256": "62270ac76cace9d2826cd96b3589dcc2d1c93a195e715afa1dfb345e8f08a769",
+      "accessedAt": "2026-09-07T07:33:17.498856+00:00",
+      "id": "impl-connect-wallet-package",
+      "title": "Connect wallet React dependency manifest",
+      "declaredStatus": "Repository source inspected; not executed",
+      "license": "Apache-2.0",
+      "attribution": "Cardano Foundation and contributors",
+      "sourceType": "primary-implementation"
+    },
+    {
+      "url": "https://github.com/IntersectMBO/plutus/blob/3ab42a1c886ef77dfb3eb25a72dca833fd7280e4/plutus-ledger-api/src/PlutusLedgerApi/V3/Contexts.hs",
+      "rawUrl": "https://raw.githubusercontent.com/IntersectMBO/plutus/3ab42a1c886ef77dfb3eb25a72dca833fd7280e4/plutus-ledger-api/src/PlutusLedgerApi/V3/Contexts.hs",
+      "sourceCommit": "3ab42a1c886ef77dfb3eb25a72dca833fd7280e4",
+      "sha256": "206fe185a66c79df8f095b350b4d23796220001a254ab687a9893ce21b301af4",
+      "accessedAt": "2026-09-07T07:31:53.979915+00:00",
+      "id": "impl-plutus-v3-context",
+      "title": "Plutus V3 ScriptInfo and ScriptContext",
+      "declaredStatus": "Repository source inspected; not executed",
+      "license": "Apache-2.0",
+      "attribution": "Intersect MBO / Plutus contributors",
+      "sourceType": "primary-implementation"
+    },
+    {
+      "url": "https://github.com/IntersectMBO/plutus/blob/3ab42a1c886ef77dfb3eb25a72dca833fd7280e4/plutus-ledger-api/src/PlutusLedgerApi/V3.hs",
+      "rawUrl": "https://raw.githubusercontent.com/IntersectMBO/plutus/3ab42a1c886ef77dfb3eb25a72dca833fd7280e4/plutus-ledger-api/src/PlutusLedgerApi/V3.hs",
+      "sourceCommit": "3ab42a1c886ef77dfb3eb25a72dca833fd7280e4",
+      "sha256": "15228913bc5ba4fd572919e5b745750add35d40ce7b635271eae04450b950b1b",
+      "accessedAt": "2026-09-07T07:33:17.717334+00:00",
+      "id": "impl-plutus-v3-evaluator-api",
+      "title": "Plutus V3 single-argument evaluator API",
+      "declaredStatus": "Repository source inspected; not executed",
+      "license": "Apache-2.0",
+      "attribution": "Intersect MBO / Plutus contributors",
+      "sourceType": "primary-implementation"
+    },
+    {
+      "url": "https://github.com/cardano-foundation/CIPs/blob/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0116/cardano-babbage.json",
+      "rawUrl": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0116/cardano-babbage.json",
+      "sourceCommit": "05ee6bb05982289dbe00c4187b9d54cf90e2e276",
+      "sha256": "0ab592ae5f482b0d0b6e1fe5e100e13961e39a46c4f770d8d6609d98ff9c8771",
+      "accessedAt": "2026-09-07T07:33:17.843878+00:00",
+      "id": "cip-0116-babbage-schema",
+      "title": "CIP-0116 Babbage JSON Schema",
+      "declaredStatus": "Proposed schema artifact",
+      "license": "CC-BY-4.0",
+      "attribution": "Vladimir Kalnitsky",
+      "sourceType": "primary-specification"
+    },
+    {
+      "url": "https://github.com/cardano-foundation/CIPs/blob/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0116/cardano-conway.json",
+      "rawUrl": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0116/cardano-conway.json",
+      "sourceCommit": "05ee6bb05982289dbe00c4187b9d54cf90e2e276",
+      "sha256": "05f1160d4bf4812ab90b4a283957d97d06fe9158210db90c1bd481cae5c1feda",
+      "accessedAt": "2026-09-07T07:33:17.963885+00:00",
+      "id": "cip-0116-conway-schema",
+      "title": "CIP-0116 Conway JSON Schema",
+      "declaredStatus": "Proposed schema artifact",
+      "license": "CC-BY-4.0",
+      "attribution": "Vladimir Kalnitsky",
+      "sourceType": "primary-specification"
+    },
+    {
+      "url": "https://github.com/mlabs-haskell/cip-0116-tests/blob/7e423b1648d52501dff859d44387d21065263261/index.js",
+      "rawUrl": "https://raw.githubusercontent.com/mlabs-haskell/cip-0116-tests/7e423b1648d52501dff859d44387d21065263261/index.js",
+      "sourceCommit": "7e423b1648d52501dff859d44387d21065263261",
+      "sha256": "4a1eedcc2ed0a3db6f7d1a4205fda8567bd911e6fc9c2531c9876589d64a5930",
+      "accessedAt": "2026-09-07T07:31:54.363973+00:00",
+      "id": "impl-cip0116-validator",
+      "title": "CIP-0116 AJV validator utilities",
+      "declaredStatus": "Repository source inspected; not executed",
+      "license": "ISC declared in package.json; no LICENSE file in examined tree; bytes not redistributed",
+      "attribution": "Vladimir Kalnitsky / MLabs contributors",
+      "sourceType": "primary-implementation"
+    },
+    {
+      "url": "https://github.com/mlabs-haskell/cip-0116-tests/blob/7e423b1648d52501dff859d44387d21065263261/package.json",
+      "rawUrl": "https://raw.githubusercontent.com/mlabs-haskell/cip-0116-tests/7e423b1648d52501dff859d44387d21065263261/package.json",
+      "sourceCommit": "7e423b1648d52501dff859d44387d21065263261",
+      "sha256": "690a6a82eed1709b5f58d7ba72b76a881822e5ea300af9f88be30a7c4831719d",
+      "accessedAt": "2026-09-07T07:31:54.231724+00:00",
+      "id": "impl-cip0116-package",
+      "title": "CIP-0116 tests dependency and license manifest",
+      "declaredStatus": "Repository source inspected; not executed",
+      "license": "ISC declared in package.json; no LICENSE file in examined tree; bytes not redistributed",
+      "attribution": "Vladimir Kalnitsky / MLabs contributors",
+      "sourceType": "primary-implementation"
+    },
+    {
+      "url": "https://github.com/cardano-foundation/cip-170-attestation-frontend/blob/41cef0cd7c820bdf169ceaf55e38f85106f1b2a8/lib/keri-utils.ts",
+      "rawUrl": "https://raw.githubusercontent.com/cardano-foundation/cip-170-attestation-frontend/41cef0cd7c820bdf169ceaf55e38f85106f1b2a8/lib/keri-utils.ts",
+      "sourceCommit": "41cef0cd7c820bdf169ceaf55e38f85106f1b2a8",
+      "sha256": "cf7a951cf7dcd44009c68694c4c35d36a6da999666d27008ba8ccea95a2a885c",
+      "accessedAt": "2026-09-07T07:31:55.030270+00:00",
+      "id": "impl-cip170-frontend-hash",
+      "title": "CIP-170 frontend digest and metadata construction",
+      "declaredStatus": "Repository source inspected; not executed",
+      "license": "Apache-2.0",
+      "attribution": "Cardano Foundation and contributors",
+      "sourceType": "primary-implementation"
+    },
+    {
+      "url": "https://github.com/cardano-foundation/cip-170-attestation-frontend/blob/41cef0cd7c820bdf169ceaf55e38f85106f1b2a8/WORKFLOW.md",
+      "rawUrl": "https://raw.githubusercontent.com/cardano-foundation/cip-170-attestation-frontend/41cef0cd7c820bdf169ceaf55e38f85106f1b2a8/WORKFLOW.md",
+      "sourceCommit": "41cef0cd7c820bdf169ceaf55e38f85106f1b2a8",
+      "sha256": "605e4ffec63404aa05ace194c1c688fcd677d4d057304a38be9c57812d62633f",
+      "accessedAt": "2026-09-07T07:31:54.918727+00:00",
+      "id": "impl-cip170-frontend-workflow",
+      "title": "CIP-170 frontend documented workflow",
+      "declaredStatus": "Repository source inspected; not executed",
+      "license": "Apache-2.0",
+      "attribution": "Cardano Foundation and contributors",
+      "sourceType": "primary-implementation"
+    },
+    {
+      "url": "https://github.com/cardano-foundation/cf-reeve-indexer/blob/dc7de3172c3cf0d1c0ae3dd17d0604641b4992bd/src/main/java/org/cardanofoundation/reeve/indexer/yaci/ReeveMetadataStorage.java",
+      "rawUrl": "https://raw.githubusercontent.com/cardano-foundation/cf-reeve-indexer/dc7de3172c3cf0d1c0ae3dd17d0604641b4992bd/src/main/java/org/cardanofoundation/reeve/indexer/yaci/ReeveMetadataStorage.java",
+      "sourceCommit": "dc7de3172c3cf0d1c0ae3dd17d0604641b4992bd",
+      "sha256": "9bcd69ae9def7dfdb781785c72d25e7dac1e37a0cf461f843815c6b1f5eac2d4",
+      "accessedAt": "2026-09-07T07:31:55.515066+00:00",
+      "id": "impl-cip170-indexer-storage",
+      "title": "Reeve metadata hashing and identity-event dispatch",
+      "declaredStatus": "Repository source inspected; not executed",
+      "license": "No repository license established; source bytes not redistributed",
+      "attribution": "Cardano Foundation and contributors",
+      "sourceType": "primary-implementation"
+    },
+    {
+      "url": "https://github.com/cardano-foundation/cf-reeve-indexer/blob/dc7de3172c3cf0d1c0ae3dd17d0604641b4992bd/src/main/java/org/cardanofoundation/reeve/indexer/service/KeriService.java",
+      "rawUrl": "https://raw.githubusercontent.com/cardano-foundation/cf-reeve-indexer/dc7de3172c3cf0d1c0ae3dd17d0604641b4992bd/src/main/java/org/cardanofoundation/reeve/indexer/service/KeriService.java",
+      "sourceCommit": "dc7de3172c3cf0d1c0ae3dd17d0604641b4992bd",
+      "sha256": "740dac8b1d2f5859e85e5882e08d739d6f877a923f2cd68fb31a20c0c2a87a28",
+      "accessedAt": "2026-09-07T07:31:55.388095+00:00",
+      "id": "impl-cip170-indexer-verifier",
+      "title": "Reeve KEL and credential verification service",
+      "declaredStatus": "Repository source inspected; not executed",
+      "license": "No repository license established; source bytes not redistributed",
+      "attribution": "Cardano Foundation and contributors",
+      "sourceType": "primary-implementation"
     }
   ],
   "entries": [
@@ -4415,6 +4719,452 @@
         "cip-0001",
         "cip-0057",
         "cip-0088"
+      ]
+    },
+    {
+      "id": "cip-0026",
+      "title": "CIP-0026: Cardano Off-Chain Metadata",
+      "kind": "standard",
+      "summary": "Signed, versioned off-chain descriptions for opaque Cardano identifiers. Useful for inspecting publisher claims separately from immutable NFT payloads.",
+      "tags": [
+        "metadata",
+        "off-chain",
+        "attestations",
+        "registry",
+        "native-policy",
+        "publisher"
+      ],
+      "sourceIds": [
+        "cip-0026",
+        "impl-token-registry-readme",
+        "impl-token-registry-validator"
+      ],
+      "facts": [
+        {
+          "text": "The Active specification assigns per-property values, sequence numbers and Ed25519 attestations to a subject. It defines a Blake2b-256 commitment over CBOR-encoded subject, property name, value and sequence number.",
+          "sourceIds": [
+            "cip-0026"
+          ]
+        },
+        {
+          "text": "Clients must verify against trusted keys. The native-policy profile binds subject to exact policy ID plus asset-name bytes and evaluates signature requirements while ignoring native time constraints.",
+          "sourceIds": [
+            "cip-0026"
+          ]
+        },
+        {
+          "text": "The registry README describes GitHub review and separate network registries. It states that absent native policy data, signature verification uses trusted keys supplied through another mechanism.",
+          "sourceIds": [
+            "impl-token-registry-readme"
+          ]
+        },
+        {
+          "text": "The examined validateEntry function checks required fields, then returns successfully when policy is absent; its native-policy branch invokes policy and attestation verification. Calling that function alone does not establish trust for policy-free entries.",
+          "sourceIds": [
+            "impl-token-registry-validator"
+          ]
+        }
+      ],
+      "designNotes": [
+        "Candidate: add an explicit imported-registry-record inspector that displays each property signer, sequence and verification basis alongside the exact asset identity.",
+        "Use a caller-independent trust configuration for policy-free records. An agent-supplied public key must not become trusted merely because its signature verifies."
+      ],
+      "enforcement": {
+        "layer": "Off-chain client and registry validation",
+        "guarantees": [
+          "With the specified checks and a trusted key binding, an accepted property commitment is attributable to that key.",
+          "Per-property sequence checks can reject older observed records when the verifier retains appropriate state."
+        ],
+        "doesNotGuarantee": [
+          "No ledger-enforced truth, content availability, transfer restriction, royalty payment or automatic NFT mutation.",
+          "A closed native mint window does not itself prevent off-chain metadata attestations; the profile ignores those time conditions."
+        ]
+      },
+      "lifecycle": [
+        "Establish subject-to-key trust → inspect signed property → remember sequence → accept or reject later updates.",
+        "On issuer-key loss or compromise, recovery requires the chosen trust system; the standard does not supply a universal recovery authority."
+      ],
+      "risks": [
+        "A valid signature can endorse a false name, link or image.",
+        "Fetching arbitrary metadata URLs would add network and privacy exposure; a first Studio experiment should accept explicit local bytes only.",
+        "Policy-free structural validation must not be presented as authenticated issuer verification."
+      ],
+      "interoperability": [
+        "CIP-25 mint metadata and CIP-68 datum metadata remain separate evidence; display their provenance independently.",
+        "Registry membership and a wallet display label are not token identity."
+      ],
+      "maturity": {
+        "standardStatus": "Active",
+        "studioStatus": "research-only",
+        "evidenceLevel": "primary-source-reviewed",
+        "version": "05ee6bb05982289dbe00c4187b9d54cf90e2e276"
+      },
+      "opportunities": [
+        "Research a public property-attestation inspector with stale-sequence, wrong-subject, altered-value and wrong-key fixtures.",
+        "Show why a registry thumbnail may change while the fully on-chain Studio artifact remains byte-identical."
+      ],
+      "relatedIds": [
+        "cip-0025",
+        "cip-0068",
+        "cip-0088",
+        "artifact-passport"
+      ]
+    },
+    {
+      "id": "cip-0045",
+      "title": "CIP-0045: Decentralized WebRTC dApp-Wallet Communication",
+      "kind": "standard",
+      "summary": "Cross-device transport for wallet APIs, with an important difference between the WebTorrent-based specification and current PeerJS implementation sources.",
+      "tags": [
+        "wallet",
+        "cross-device",
+        "webrtc",
+        "agents",
+        "pairing",
+        "transport"
+      ],
+      "sourceIds": [
+        "cip-0045",
+        "impl-peer-connect-package",
+        "impl-peer-connect-dapp",
+        "impl-peer-connect-wallet",
+        "impl-connect-wallet-button",
+        "impl-connect-wallet-package"
+      ],
+      "facts": [
+        {
+          "text": "The Active CIP describes WebTorrent tracker discovery followed by WebRTC data-channel RPC and a CIP-30-like wallet API. It calls for user-mediated connection and origin checks.",
+          "sourceIds": [
+            "cip-0045"
+          ]
+        },
+        {
+          "text": "The examined cardano-peer-connect manifest is version 1.2.21 and depends on PeerJS; both current dApp and wallet classes construct PeerJS peers. These files do not implement the specification's WebTorrent discovery mechanism.",
+          "sourceIds": [
+            "impl-peer-connect-package",
+            "impl-peer-connect-dapp",
+            "impl-peer-connect-wallet"
+          ]
+        },
+        {
+          "text": "The Cardano Foundation React connector depends on cardano-peer-connect and exposes a peer-connection branch with user confirmation before injecting the wallet API. Its dependency range is not a pin to the independently inspected 1.2.21 revision.",
+          "sourceIds": [
+            "impl-connect-wallet-button",
+            "impl-connect-wallet-package"
+          ]
+        },
+        {
+          "text": "In the examined dApp class, verifyConnection is optional and its absence grants connection. Applications must supply their intended consent policy rather than infer it from use of the library.",
+          "sourceIds": [
+            "impl-peer-connect-dapp"
+          ]
+        }
+      ],
+      "designNotes": [
+        "Candidate: a desktop mint review paired to an explicitly approved phone wallet, preserving existing intent/body review before each signing request.",
+        "Treat pairing, wallet-key authentication and spending permission as separate decisions. Keep the MCP server outside the signing channel."
+      ],
+      "enforcement": {
+        "layer": "Wallet and dApp transport/application checks",
+        "guarantees": [
+          "The design transports wallet RPC across devices after connection; the inspected code provides an API bridge."
+        ],
+        "doesNotGuarantee": [
+          "A transport peer ID or QR code alone establishes no Cardano asset holding, human identity or permission for future signatures.",
+          "Active CIP status is not proof that every wallet supports the same pairing transport."
+        ]
+      },
+      "lifecycle": [
+        "Display pairing identifier → confirm on both devices → negotiate allowed API → review each sensitive request → disconnect and invalidate the session."
+      ],
+      "risks": [
+        "WebTorrent and PeerJS discovery are different dependencies; reachability, relay behavior and compatibility need explicit testing.",
+        "Persistent pairing and auto-connect can outlive a user's intended session.",
+        "Cross-device transport can reveal networking metadata; no privacy guarantee was independently tested here."
+      ],
+      "interoperability": [
+        "Pin both wallet and dApp implementations and test the exact transport profile on target mobile platforms.",
+        "CIP-8 verification and fresh holder observations are still needed for holder-authenticated services."
+      ],
+      "maturity": {
+        "standardStatus": "Active",
+        "studioStatus": "research-only",
+        "evidenceLevel": "primary-source-reviewed",
+        "version": "05ee6bb05982289dbe00c4187b9d54cf90e2e276"
+      },
+      "opportunities": [
+        "Prototype a synthetic-only pairing matrix with rejection, timeout, stale connection and account-change tests before enabling a real wallet."
+      ],
+      "relatedIds": [
+        "cip-0030",
+        "cip-0008",
+        "cip-0093",
+        "cip-0186",
+        "agent-mint-contract"
+      ]
+    },
+    {
+      "id": "cip-0069",
+      "title": "CIP-0069: Plutus Script Type Uniformization",
+      "kind": "standard",
+      "summary": "Uniform Plutus V3 script context allows one compiled program to handle minting and spending, which is directly relevant to reproducible State Capsule identities.",
+      "tags": [
+        "plutus-v3",
+        "multi-purpose",
+        "script-context",
+        "state-capsule",
+        "programmability"
+      ],
+      "sourceIds": [
+        "cip-0069",
+        "impl-plutus-v3-context",
+        "impl-plutus-v3-evaluator-api"
+      ],
+      "facts": [
+        {
+          "text": "The Active CIP's normative specification passes one ScriptContext containing the redeemer and ScriptInfo. Its acceptance section records inclusion in Chang #1. The earlier abstract's two-argument wording is superseded by the one-argument specification.",
+          "sourceIds": [
+            "cip-0069"
+          ]
+        },
+        {
+          "text": "Current Plutus V3 source represents minting with a currency symbol and spending with an output reference plus an optional datum. ScriptContext contains both the redeemer and ScriptInfo.",
+          "sourceIds": [
+            "impl-plutus-v3-context"
+          ]
+        },
+        {
+          "text": "The V3 evaluator API forwards one argument to the shared evaluator in both counting and restricting modes. This is implementation-source evidence, not a new node evaluation receipt.",
+          "sourceIds": [
+            "impl-plutus-v3-evaluator-api"
+          ]
+        }
+      ],
+      "designNotes": [
+        "Candidate: explain and inspect purpose dispatch for the existing fixed capsule program, including why identical Plutus version and program bytes yield the same mint policy and spending-script identity.",
+        "Uniform calling convention does not require every compiler to emit identical bytes for every handler: compare the actual exports and their hashes."
+      ],
+      "enforcement": {
+        "layer": "Plutus V3 ledger interface plus validator code",
+        "guarantees": [
+          "V3 exposes purpose-specific execution context through a uniform argument interface.",
+          "Purpose-dependent mint and spend rules can be implemented in one program without separate mutually dependent script hashes."
+        ],
+        "doesNotGuarantee": [
+          "Uniformity does not enforce supply, holder authority, datum correctness, conservation or recovery; the program must enforce those rules.",
+          "This does not retroactively change V1 or V2 script interfaces or make an arbitrary old script V3-compatible."
+        ]
+      },
+      "lifecycle": [
+        "Compile fixed multi-purpose program → bind parameters once → compare handler bytes and V3 hashes → build each supported purpose context → evaluate each lifecycle transition."
+      ],
+      "risks": [
+        "An unintended purpose branch or permissive fallback can admit actions the author never intended.",
+        "Treating a missing datum as authorized recovery without an explicit rule can create an unintended spend path."
+      ],
+      "interoperability": [
+        "Use the exact V3 context and pinned compiler/blueprint; CIP-57 alone does not prove handler identity.",
+        "Reference-script publication changes how bytes are supplied, not the validator's authority rules."
+      ],
+      "maturity": {
+        "standardStatus": "Active",
+        "studioStatus": "research-only",
+        "evidenceLevel": "primary-source-reviewed",
+        "version": "05ee6bb05982289dbe00c4187b9d54cf90e2e276"
+      },
+      "opportunities": [
+        "Add a knowledge explainer linked to capsule byte-identity receipts and negative context-dispatch fixtures."
+      ],
+      "relatedIds": [
+        "cip-0057",
+        "cip-0033",
+        "cip-0068",
+        "cip-0188",
+        "tool-aiken",
+        "living-artifact"
+      ]
+    },
+    {
+      "id": "cip-0116",
+      "title": "CIP-0116: Canonical JSON Encoding for Domain Types",
+      "kind": "standard",
+      "summary": "Proposed JSON representations for Cardano domain types, useful for transparent agent transaction previews but insufficient as a cryptographic byte-canonicalization scheme.",
+      "tags": [
+        "json",
+        "schema",
+        "agents",
+        "interchange",
+        "cbor",
+        "transaction-review"
+      ],
+      "sourceIds": [
+        "cip-0116",
+        "cip-0116-babbage-schema",
+        "cip-0116-conway-schema",
+        "impl-cip0116-validator",
+        "impl-cip0116-package"
+      ],
+      "facts": [
+        {
+          "text": "The Proposed specification uses lowercase hex, tagged variants and explicit key/value arrays. It requires rejecting conflicting map keys and warns that schema validation alone cannot fully establish address validity or UTF-8 byte bounds.",
+          "sourceIds": [
+            "cip-0116"
+          ]
+        },
+        {
+          "text": "The specification allows map-entry ordering variation and multiple CBOR encodings for a JSON fixture. Its use of canonical therefore does not define one JSON byte string or preserve original transaction CBOR.",
+          "sourceIds": [
+            "cip-0116"
+          ]
+        },
+        {
+          "text": "Both Babbage and Conway schema artifacts exist at the pinned CIP commit, although the README's era table lists only Babbage.",
+          "sourceIds": [
+            "cip-0116",
+            "cip-0116-babbage-schema",
+            "cip-0116-conway-schema"
+          ]
+        },
+        {
+          "text": "The linked utility exports mkValidatorForType and registers both era schemas plus custom formats. Its package declares ISC and its manifest omits the directly imported ajv-formats dependency. No clean installation or upstream test run was performed here.",
+          "sourceIds": [
+            "impl-cip0116-validator",
+            "impl-cip0116-package"
+          ]
+        }
+      ],
+      "designNotes": [
+        "Candidate: render a bounded typed transaction explanation beside exact CBOR and body hash, with an explicit era and selected schema revision.",
+        "Keep Studio intent/passport canonical byte commitments unchanged. A CIP-116-shaped JSON display must not replace the original bytes used for signatures."
+      ],
+      "enforcement": {
+        "layer": "Off-chain schema and application validation",
+        "guarantees": [
+          "A complete implementation can reject data outside its selected era/type schema and custom validation profile."
+        ],
+        "doesNotGuarantee": [
+          "Schema success is not ledger validity, conservation, signer authority, transaction inclusion or faithful preservation of original CBOR.",
+          "No unique byte serialization for hashing follows merely from using these JSON shapes."
+        ]
+      },
+      "lifecycle": [
+        "Select era and pinned schema → decode bounded transaction bytes → produce typed view → validate semantic constraints separately → retain original bytes and digest."
+      ],
+      "risks": [
+        "JSON integer handling, duplicate map keys and noncanonical encodings require exact test fixtures.",
+        "The README/schema mismatch and incomplete test manifest must be resolved before treating the linked utilities as a drop-in dependency."
+      ],
+      "interoperability": [
+        "Publish the selected schema commit and define unsupported Conway fields instead of silently treating Babbage as complete.",
+        "Compare independently decoded CSL data to the typed view; neither representation alone proves a transaction was accepted."
+      ],
+      "maturity": {
+        "standardStatus": "Proposed",
+        "studioStatus": "research-only",
+        "evidenceLevel": "primary-source-reviewed",
+        "version": "05ee6bb05982289dbe00c4187b9d54cf90e2e276"
+      },
+      "opportunities": [
+        "Build a read-only transaction explanation adapter with original-body-hash preservation and loss-of-information rejection fixtures."
+      ],
+      "relatedIds": [
+        "cip-0021",
+        "cip-0030",
+        "cip-0057",
+        "tool-csl",
+        "agent-mint-contract",
+        "artifact-passport"
+      ]
+    },
+    {
+      "id": "cip-0170",
+      "title": "CIP-0170: KERI-backed metadata attestations",
+      "kind": "standard",
+      "summary": "Proposed metadata attestations tied to KERI identity history and credential authority. Potentially useful for issuer or laboratory evidence, with unresolved reference-implementation details.",
+      "tags": [
+        "identity",
+        "attestation",
+        "keri",
+        "credentials",
+        "metadata",
+        "issuer"
+      ],
+      "sourceIds": [
+        "cip-0170",
+        "impl-cip170-frontend-hash",
+        "impl-cip170-frontend-workflow",
+        "impl-cip170-indexer-storage",
+        "impl-cip170-indexer-verifier"
+      ],
+      "facts": [
+        {
+          "text": "The Proposed standard uses metadata label 170 for AUTH_BEGIN, ATTEST and AUTH_END. ATTEST points to an identifier, a data digest and a KERI event sequence; verification requires the corresponding key-event and credential history.",
+          "sourceIds": [
+            "cip-0170"
+          ]
+        },
+        {
+          "text": "Its authority lifecycle is interpreted by verifiers and indexers, including revocation. KEL discovery may depend on watcher networks or OOBIs; merely copying label 170 is not verified identity.",
+          "sourceIds": [
+            "cip-0170"
+          ]
+        },
+        {
+          "text": "The examined frontend utility hashes bytes extracted from the first supplied CBOR metadata label through Signify Diger. Its WORKFLOW instead describes hashing a JSON string with Blake2b-256. These source descriptions disagree.",
+          "sourceIds": [
+            "impl-cip170-frontend-hash",
+            "impl-cip170-frontend-workflow"
+          ]
+        },
+        {
+          "text": "The examined Reeve indexer reserializes a selected metadata value and hashes it with Blake3-256. Its AUTH_END branch is unfinished. The KERI service compares an event seal and a stored credential-valid flag when setting a report's identity status.",
+          "sourceIds": [
+            "impl-cip170-indexer-storage",
+            "impl-cip170-indexer-verifier"
+          ]
+        }
+      ],
+      "designNotes": [
+        "Candidate: attach a separately verifiable publisher-attestation panel to an Artifact Passport, leaving the original file commitment and ledger evidence visibly independent.",
+        "Do not deploy an issuer-authentication claim until the hashed byte profile, authorized labels, credential history and revocation behavior have tested interoperable definitions."
+      ],
+      "enforcement": {
+        "layer": "Off-chain KERI/credential verification and application interpretation",
+        "guarantees": [
+          "A verifier implementing the selected trust framework can check a data commitment against a controller's authenticated key-event history and credential authority."
+        ],
+        "doesNotGuarantee": [
+          "Cardano metadata inclusion alone does not validate KERI credentials, organizational identity, the content's truth or copyright ownership.",
+          "An attestation does not grant the issuer any ledger spending or minting authority."
+        ]
+      },
+      "lifecycle": [
+        "Choose credential root and allowed labels → establish authority → anchor data digest in KEL → publish attestation → verify at the relevant chain position → process revocation and later reauthorization."
+      ],
+      "risks": [
+        "Reference code inspected here does not establish full revocation handling or byte-profile interoperability.",
+        "Key-event availability and fork detection depend on the chosen discovery/watch infrastructure.",
+        "Publishing credential chains may reveal organizational relationships; no privacy-preserving profile is asserted."
+      ],
+      "interoperability": [
+        "Record CIP/KERI/ACDC versions and the exact bytes/digest algorithm being attested.",
+        "Separate proposed standard status, reference-code existence and any future observed chain result."
+      ],
+      "maturity": {
+        "standardStatus": "Proposed",
+        "studioStatus": "research-only",
+        "evidenceLevel": "primary-source-reviewed",
+        "version": "05ee6bb05982289dbe00c4187b9d54cf90e2e276"
+      },
+      "opportunities": [
+        "Start with offline attestation fixtures, including wrong digest, unauthorized label, stale authority, revoked credential and divergent KEL observations."
+      ],
+      "relatedIds": [
+        "cip-0008",
+        "cip-0025",
+        "cip-0088",
+        "cip-0190",
+        "artifact-passport"
       ]
     }
   ]

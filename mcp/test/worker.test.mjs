@@ -1,3 +1,4 @@
+import {PUBLIC_TOOL_NAMES} from '../integration/tool-names.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {verifyImplementationResources} from '../integration/verify-implementation-resource.mjs';
@@ -14,8 +15,8 @@ test('Standalone web-standard Worker artifact serves modern and legacy official 
     const transport=new StreamableHTTPClientTransport(new URL(origin+'/mcp'),{fetch:(input,init)=>handler.fetch(new Request(input,init))});
     try{
       await client.connect(transport);assert.equal(client.getProtocolEra(),mode==='auto'?'modern':'legacy');
-      const tools=(await client.listTools()).tools;assert.equal(tools.length,9);assert.ok(tools.every(tool=>tool.annotations.readOnlyHint));assert.ok(!tools.some(tool=>tool.name.includes('signed')&&!tool.name.includes('unsigned')));assert.equal(tools.find(t=>t.name==='prepare_unsigned_transaction').annotations.openWorldHint,true);
-      const resources=(await client.listResources()).resources;assert.equal(resources.length,56);
+      const tools=(await client.listTools()).tools;assert.deepEqual(tools.map(t=>t.name).sort(),PUBLIC_TOOL_NAMES);assert.ok(tools.every(tool=>tool.annotations.readOnlyHint));assert.ok(!tools.some(tool=>tool.name.includes('signed')&&!tool.name.includes('unsigned')));assert.equal(tools.find(t=>t.name==='prepare_unsigned_transaction').annotations.openWorldHint,true);
+      const resources=(await client.listResources()).resources;
       const implementations=await verifyImplementationResources(client,resources);assert.equal(implementations.researchEntriesUnchanged,true);
       await assert.rejects(client.readResource({uri:'nft-studio://implementations?url=https://attacker.invalid'}));
       const caps=unpack(await client.callTool({name:'studio_capabilities',arguments:{}}));assert.equal(caps.publicEndpoint,origin+'/mcp');assert.equal(caps.service,'public content and unsigned native preparation');
@@ -73,7 +74,7 @@ test('A configured application MCP route advertises its exact path and rejects a
       await client.connect(new StreamableHTTPClientTransport(new URL(origin+'/api/mcp'),{fetch:(input,init)=>handler.fetch(new Request(input,init))}));
       const caps=unpack(await client.callTool({name:'studio_capabilities',arguments:{}}));
       assert.equal(caps.publicEndpoint,origin+'/api/mcp');
-      assert.equal((await client.listTools()).tools.length,9);
+      assert.deepEqual((await client.listTools()).tools.map(t=>t.name).sort(),PUBLIC_TOOL_NAMES);
     }finally{await client.close();}
   }finally{await handler.close();}
 });

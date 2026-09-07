@@ -32,6 +32,9 @@ jobs:
       - run: node scripts/verify-recovery-catalog.mjs
       - run: npm run verify:labs
       - run: npm run verify:passport
+      - run: npm run verify:music
+      - run: npm --prefix experiments/capsule-parameterizer ci --ignore-scripts
+      - run: npm run verify:parameters
       - run: npm --prefix experiments/holder-proof ci --ignore-scripts
       - run: npm run verify:holder
       - run: npm run verify:knowledge
@@ -74,3 +77,7 @@ jobs:
       - run: git diff --exit-code -- contracts/state-capsule/fixtures/applied-demo.json
       - run: node scripts/verify-transactions.mjs --uplc
         working-directory: contracts/state-capsule
+
+      - run: npm --prefix experiments/capsule-parameterizer ci --ignore-scripts
+      - run: npm --prefix experiments/capsule-parameterizer run verify:aiken
+      - run: git diff --exit-code -- experiments/capsule-parameterizer/fixtures/aiken-oracle.json

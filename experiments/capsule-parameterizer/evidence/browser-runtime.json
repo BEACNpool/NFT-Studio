@@ -1,0 +1,37 @@
+{
+  "schema": "beacn.capsule-parameter-browser.v1",
+  "status": "pass",
+  "checkedAt": "2026-09-07T06:48:27.160Z",
+  "browser": "Chrome/152.0.7977.64",
+  "matched": 256,
+  "elapsedMs": 442,
+  "nodeGlobalsAbsent": true,
+  "networkAndWalletApisDisabled": true,
+  "deeplyFrozenResults": true,
+  "negativeCases": 4,
+  "handlerByteComparisons": 768,
+  "oracle": "Pinned Aiken v1.1.23+8949565 CLI and independent CSL17",
+  "localOnlyRoutes": [
+    "/",
+    "/capsule-parameterizer.mjs"
+  ],
+  "externalPageRequests": 0,
+  "source": {
+    "repository": "https://github.com/BEACNpool/NFT-Studio",
+    "commit": "d2003bec53b944c7b71bd50caa2a14002008c7ea",
+    "path": "contracts/state-capsule/plutus.json",
+    "url": "https://github.com/BEACNpool/NFT-Studio/blob/d2003bec53b944c7b71bd50caa2a14002008c7ea/contracts/state-capsule/plutus.json",
+    "blueprintSha256": "26f9377baf76d713c1aaa1f447dceb59e7ffa0b58728f59a617ae91e40c738f4",
+    "compiledCodeSha256": "d11df0f4e8b733913eebaedd2eb245bc882fc188bcee0e15f9579cabd73b22bd",
+    "unappliedScriptHash": "4c9c42dbaf549439983db5c82406e423ea821f44a09c91d4b5fc59bc",
+    "compiler": "v1.1.23+8949565",
+    "plutusVersion": "PlutusV3",
+    "uplcVersion": "1.1.0",
+    "applicator": {
+      "package": "@harmoniclabs/uplc",
+      "version": "2.0.7",
+      "commit": "3e10e46e89c184b92886f38c39e9057063dffd9f"
+    }
+  },
+  "liveMintFlow": false
+}

@@ -51,9 +51,10 @@ The verifier uses the checkout's installed Miniflare/Workerd (including the v4-t
 
 - Representative JavaScript, CSS and SVG/PNG return 200 and match the exact files by SHA-256.
 - The original application's home route still renders through the wrapper. It checks both root and retained `/NFT-Studio/` bases, so a Pages test build can be exercised honestly.
-- Modern and legacy MCP clients discover nine tools and exactly 56 resources: capabilities, the knowledge index, 53 research entries and the fixed `nft-studio://implementations` register.
+- Modern and legacy MCP clients discover twelve tools and exactly 61 resources: capabilities, the knowledge index, 58 research entries and the fixed `nft-studio://implementations` register.
 - The implementation register passes the bounded shared JSON validator, binds the exact research catalog hash, and resolves its immutable evidence links. Related `read_knowledge` responses and per-entry resources add sibling implementation record IDs; the original research entries and sources remain unchanged. Evidence URLs are validated as data and are never fetched.
 - Capabilities, cited search, intent creation/verification and proof-record creation/verification and actual unsigned data preparation work through the real Worker runtime. Protocol reads are intercepted with fixed synthetic data; no wallet or public network is used.
+- The fixed State Capsule parameter application tool matches five pinned Aiken oracle cases with independent CSL hashes; the returned status remains parameterized only and performs no provider lookup.
 - Returned intents point to the primary Studio for review.
 - Wrong URL/browser origins, a body above 96 KiB and query-bearing `/api/mcp` requests reject.
 
@@ -65,17 +66,17 @@ Root owns the actual Sites release. A static-only declaration cannot serve an ex
 
 Package/deploy the **verified staged output**, keeping its existing server module tree, original asset configuration and runtime compatibility flags. Do not deploy an older Pages-basepath test artifact as the new root Sites application. Run this check again after the final build changes.
 
-After deployment, verify the actual public `/api/mcp` URL with an official SDK client in both protocol eras and anonymously check the main app and static assets. Keep the distinction clear: this candidate public route adds stateless unsigned native transactions to knowledge, payload validation, browser intents and proof-record exports. External witness verification and retained preparation packets belong to the separate Node service. A source candidate does not establish that the hosted endpoint has enabled the ninth tool.
+After deployment, verify the actual public `/api/mcp` URL with an official SDK client in both protocol eras and anonymously check the main app and static assets. Keep the distinction clear: this public route supports stateless unsigned native transactions, knowledge, payload validation, browser intents, music packages, fixed Capsule parameters and proof-record exports. External witness verification and retained preparation packets belong to the separate Node service. Source availability alone does not establish the running deployment’s capabilities.
 
-The live verifier keeps compatibility defaults of eight tools and 55 resources. Select the expected release explicitly. For a release that includes both public unsigned preparation and the implementation resource, run:
+The live verifier keeps compatibility defaults of eight tools and 55 resources. Select the expected release explicitly. For this source revision, including music packages, Capsule parameters, unsigned preparation and the implementation resource, run:
 
 ```sh
 node mcp/integration/verify-live-endpoint.mjs \
   https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp \
-  --expected-tools 9 --expected-resources 56
+  --expected-tools 12 --expected-resources 61
 ```
 
-Use `--expected-resources 55` for the preceding release. The 55-resource mode does not read the new register. The 56-resource mode checks its JSON, fixed research joins and catalog hash against the local source tree; use the source revision that matches the release. These checks validate the evidence records and link syntax, without independently re-running their reported experiments or fetching the linked artifacts. Nine-tool verification sends only the verifier's synthetic wallet snapshot and prepares unsigned NFT/data transactions; it does not access a wallet, sign or submit.
+Use `--expected-tools 10` for the Capsule release without the music-package tools, `--expected-tools 9` for a release without the Capsule tool, and `--expected-resources 55` for the earlier resource surface. The 55-resource mode does not read the new register. The 56- and 61-resource modes check the register JSON, fixed research joins and catalog hash against the local source tree; use the source revision that matches the release. These checks validate the evidence records and link syntax, without independently re-running their reported experiments or fetching the linked artifacts. The twelve-tool mode additionally creates and verifies the repository’s original synthetic music package; it performs no music transaction preparation. Verification with nine, ten or twelve tools sends only the verifier's synthetic wallet snapshot and prepares unsigned NFT/data transactions; it does not access a wallet, sign or submit.
 
 Rollback is the original unwrapped artifact or previous deployment. `studio-app.js` is preserved byte-for-byte in the staged build, and the source checkout remains untouched.
 

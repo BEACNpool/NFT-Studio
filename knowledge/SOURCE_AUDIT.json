@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-09-07T04:36:07.671Z",
+  "checkedAt": "2026-09-07T07:47:05.427Z",
   "sourceRevision": "05ee6bb05982289dbe00c4187b9d54cf90e2e276",
   "ok": true,
-  "sourceCount": 50,
+  "sourceCount": 73,
   "results": [
     {
       "id": "cip-0001",
@@ -69,6 +69,13 @@
       "expectedSha256": "d184dcee9ee6dd4b241babf057322061e1c365f2b06cac08794cfb3d2e8a62bc"
     },
     {
+      "id": "cip-0026",
+      "ok": true,
+      "bytes": 30595,
+      "sha256": "f339b6909d989f1c36339742255ecc0274470eb3ce8f48bbd11b9df2a0e3ee42",
+      "expectedSha256": "f339b6909d989f1c36339742255ecc0274470eb3ce8f48bbd11b9df2a0e3ee42"
+    },
+    {
       "id": "cip-0027",
       "ok": true,
       "bytes": 5037,
@@ -118,6 +125,13 @@
       "expectedSha256": "8b2a730fd2c9a6e66465f781fd692ba5dc91f8742054b090969bf74208ec9e10"
     },
     {
+      "id": "cip-0045",
+      "ok": true,
+      "bytes": 14024,
+      "sha256": "ee3886da41e945cb4098ad55c6c5b730c2575bff2bc01a0bd032db0cf87ed198",
+      "expectedSha256": "ee3886da41e945cb4098ad55c6c5b730c2575bff2bc01a0bd032db0cf87ed198"
+    },
+    {
       "id": "cip-0054",
       "ok": true,
       "bytes": 16849,
@@ -165,6 +179,13 @@
       "bytes": 32971,
       "sha256": "1dea95c424739656266eb2a662a48d1950e1c96680b75fbda4ef6317f43ce198",
       "expectedSha256": "1dea95c424739656266eb2a662a48d1950e1c96680b75fbda4ef6317f43ce198"
+    },
+    {
+      "id": "cip-0069",
+      "ok": true,
+      "bytes": 7629,
+      "sha256": "4379ebd20b48a958135f72dc54bd20b20d323a4a850796565f464ad2443bfc91",
+      "expectedSha256": "4379ebd20b48a958135f72dc54bd20b20d323a4a850796565f464ad2443bfc91"
     },
     {
       "id": "cip-0071",
@@ -223,6 +244,27 @@
       "expectedSha256": "842fcff0da130e7abfd0b3f8c7f74b381afb049809d68c6bdbaf28d8772c29bb"
     },
     {
+      "id": "cip-0116",
+      "ok": true,
+      "bytes": 12348,
+      "sha256": "1091764a5a20d34afbadc96720c2d00a694ffc941a5ad7813c8c5bfbdaa70a62",
+      "expectedSha256": "1091764a5a20d34afbadc96720c2d00a694ffc941a5ad7813c8c5bfbdaa70a62"
+    },
+    {
+      "id": "cip-0116-babbage-schema",
+      "ok": true,
+      "bytes": 53000,
+      "sha256": "0ab592ae5f482b0d0b6e1fe5e100e13961e39a46c4f770d8d6609d98ff9c8771",
+      "expectedSha256": "0ab592ae5f482b0d0b6e1fe5e100e13961e39a46c4f770d8d6609d98ff9c8771"
+    },
+    {
+      "id": "cip-0116-conway-schema",
+      "ok": true,
+      "bytes": 72698,
+      "sha256": "05f1160d4bf4812ab90b4a283957d97d06fe9158210db90c1bd481cae5c1feda",
+      "expectedSha256": "05f1160d4bf4812ab90b4a283957d97d06fe9158210db90c1bd481cae5c1feda"
+    },
+    {
       "id": "cip-0124",
       "ok": true,
       "bytes": 8881,
@@ -258,6 +300,13 @@
       "expectedSha256": "fef30bec12b424f7a47bea36afe6e0113b42c04cf8119ab21fad5f56199e688c"
     },
     {
+      "id": "cip-0170",
+      "ok": true,
+      "bytes": 25998,
+      "sha256": "cd7bd9153bd773aacdd53b0fdbd028c6d7b962a6422057bfe21da50056a45bc2",
+      "expectedSha256": "cd7bd9153bd773aacdd53b0fdbd028c6d7b962a6422057bfe21da50056a45bc2"
+    },
+    {
       "id": "cip-0171",
       "ok": true,
       "bytes": 15907,
@@ -284,6 +333,118 @@
       "bytes": 380819,
       "sha256": "941641f40924960674e7388b2a57eba7ded35c303f1f3d85cc5171864c5157e9",
       "expectedSha256": "941641f40924960674e7388b2a57eba7ded35c303f1f3d85cc5171864c5157e9"
+    },
+    {
+      "id": "impl-cip0116-package",
+      "ok": true,
+      "bytes": 298,
+      "sha256": "690a6a82eed1709b5f58d7ba72b76a881822e5ea300af9f88be30a7c4831719d",
+      "expectedSha256": "690a6a82eed1709b5f58d7ba72b76a881822e5ea300af9f88be30a7c4831719d"
+    },
+    {
+      "id": "impl-cip0116-validator",
+      "ok": true,
+      "bytes": 4217,
+      "sha256": "4a1eedcc2ed0a3db6f7d1a4205fda8567bd911e6fc9c2531c9876589d64a5930",
+      "expectedSha256": "4a1eedcc2ed0a3db6f7d1a4205fda8567bd911e6fc9c2531c9876589d64a5930"
+    },
+    {
+      "id": "impl-cip170-frontend-hash",
+      "ok": true,
+      "bytes": 3167,
+      "sha256": "cf7a951cf7dcd44009c68694c4c35d36a6da999666d27008ba8ccea95a2a885c",
+      "expectedSha256": "cf7a951cf7dcd44009c68694c4c35d36a6da999666d27008ba8ccea95a2a885c"
+    },
+    {
+      "id": "impl-cip170-frontend-workflow",
+      "ok": true,
+      "bytes": 7235,
+      "sha256": "605e4ffec63404aa05ace194c1c688fcd677d4d057304a38be9c57812d62633f",
+      "expectedSha256": "605e4ffec63404aa05ace194c1c688fcd677d4d057304a38be9c57812d62633f"
+    },
+    {
+      "id": "impl-cip170-indexer-storage",
+      "ok": true,
+      "bytes": 14900,
+      "sha256": "9bcd69ae9def7dfdb781785c72d25e7dac1e37a0cf461f843815c6b1f5eac2d4",
+      "expectedSha256": "9bcd69ae9def7dfdb781785c72d25e7dac1e37a0cf461f843815c6b1f5eac2d4"
+    },
+    {
+      "id": "impl-cip170-indexer-verifier",
+      "ok": true,
+      "bytes": 8317,
+      "sha256": "740dac8b1d2f5859e85e5882e08d739d6f877a923f2cd68fb31a20c0c2a87a28",
+      "expectedSha256": "740dac8b1d2f5859e85e5882e08d739d6f877a923f2cd68fb31a20c0c2a87a28"
+    },
+    {
+      "id": "impl-connect-wallet-button",
+      "ok": true,
+      "bytes": 12791,
+      "sha256": "ce18b6cbfb94c027bc5b2c62d7b512a2e8ac6c46348468ad767c1106711e5888",
+      "expectedSha256": "ce18b6cbfb94c027bc5b2c62d7b512a2e8ac6c46348468ad767c1106711e5888"
+    },
+    {
+      "id": "impl-connect-wallet-package",
+      "ok": true,
+      "bytes": 2712,
+      "sha256": "62270ac76cace9d2826cd96b3589dcc2d1c93a195e715afa1dfb345e8f08a769",
+      "expectedSha256": "62270ac76cace9d2826cd96b3589dcc2d1c93a195e715afa1dfb345e8f08a769"
+    },
+    {
+      "id": "impl-peer-connect-dapp",
+      "ok": true,
+      "bytes": 17529,
+      "sha256": "f27bde0d846fb3bfaebdf501cf62cd39947425e9ae503c25e0f3253693e375a3",
+      "expectedSha256": "f27bde0d846fb3bfaebdf501cf62cd39947425e9ae503c25e0f3253693e375a3"
+    },
+    {
+      "id": "impl-peer-connect-package",
+      "ok": true,
+      "bytes": 1215,
+      "sha256": "392050426001f010ddb69b11ae62b10f4a0e9c5288bc1b95d1f4917d3c1a1c01",
+      "expectedSha256": "392050426001f010ddb69b11ae62b10f4a0e9c5288bc1b95d1f4917d3c1a1c01"
+    },
+    {
+      "id": "impl-peer-connect-wallet",
+      "ok": true,
+      "bytes": 14801,
+      "sha256": "f257039e6568e1a74e4347865d2370a9663c95d0ee07d37e10b8d60e9ca78e69",
+      "expectedSha256": "f257039e6568e1a74e4347865d2370a9663c95d0ee07d37e10b8d60e9ca78e69"
+    },
+    {
+      "id": "impl-plutus-v3-context",
+      "ok": true,
+      "bytes": 25064,
+      "sha256": "206fe185a66c79df8f095b350b4d23796220001a254ab687a9893ce21b301af4",
+      "expectedSha256": "206fe185a66c79df8f095b350b4d23796220001a254ab687a9893ce21b301af4"
+    },
+    {
+      "id": "impl-plutus-v3-evaluator-api",
+      "ok": true,
+      "bytes": 7108,
+      "sha256": "15228913bc5ba4fd572919e5b745750add35d40ce7b635271eae04450b950b1b",
+      "expectedSha256": "15228913bc5ba4fd572919e5b745750add35d40ce7b635271eae04450b950b1b"
+    },
+    {
+      "id": "impl-token-metadata-cli",
+      "ok": true,
+      "bytes": 7183,
+      "sha256": "534d2fcec9ed0a0f1efbfcd5c610e2d9f51a3ab2907f800498bcaed80041c351",
+      "expectedSha256": "534d2fcec9ed0a0f1efbfcd5c610e2d9f51a3ab2907f800498bcaed80041c351"
+    },
+    {
+      "id": "impl-token-registry-readme",
+      "ok": true,
+      "bytes": 6055,
+      "sha256": "c55d447771a7fb783b2a99d388df64efee9f33c23f858fd5f6ad1d39325771b7",
+      "expectedSha256": "c55d447771a7fb783b2a99d388df64efee9f33c23f858fd5f6ad1d39325771b7"
+    },
+    {
+      "id": "impl-token-registry-validator",
+      "ok": true,
+      "bytes": 7740,
+      "sha256": "9544bd16c1dda99ad9e855d0965365a7196ed5f8a8a325163d40331c6e88f4e4",
+      "expectedSha256": "9544bd16c1dda99ad9e855d0965365a7196ed5f8a8a325163d40331c6e88f4e4"
     },
     {
       "id": "tool-aiken",

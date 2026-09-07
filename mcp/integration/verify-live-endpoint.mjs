@@ -1,3 +1,4 @@
+import {PUBLIC_TOOL_NAMES} from './tool-names.mjs';
 /** Explicit, read-only public MCP release check; only synthetic content is sent. */
 import assert from 'node:assert/strict';
 import {pathToFileURL} from 'node:url';
@@ -8,12 +9,12 @@ export function parseLiveOptions(args) {
   let target,expectedTools=8,expectedResources=55,seen=false,seenResources=false;
   for(let i=0;i<args.length;i++){
     if(args[i]==='--expected-tools'){
-      if(seen||!['8','9'].includes(args[++i]))throw new Error('--expected-tools must be 8 or 9, provided once.');
+      if(seen||!['8','9','10','12'].includes(args[++i]))throw new Error('--expected-tools must be 8, 9, 10 or 12, provided once.');
       expectedTools=Number(args[i]);seen=true;
     }else if(args[i]==='--expected-resources'){
-      if(seenResources||!['55','56'].includes(args[++i]))throw new Error('--expected-resources must be 55 or 56, provided once.');
+      if(seenResources||!['55','56','61'].includes(args[++i]))throw new Error('--expected-resources must be 55, 56 or 61, provided once.');
       expectedResources=Number(args[i]);seenResources=true;
-    }else if(args[i].startsWith('-')||target)throw new Error('Usage: verify-live-endpoint.mjs HTTPS_ENDPOINT [--expected-tools 8|9] [--expected-resources 55|56]');
+    }else if(args[i].startsWith('-')||target)throw new Error('Usage: verify-live-endpoint.mjs HTTPS_ENDPOINT [--expected-tools 8|9|10|12] [--expected-resources 55|56|61]');
     else target=args[i];
   }
   const endpoint=new URL(target||'');
@@ -38,18 +39,24 @@ const boundedFetch = async (url, init = {}) => {
   finally{void reader.cancel().catch(()=>{});}
   return new Response(Buffer.concat(chunks),{status:response.status,headers:response.headers});
 };
-const implementationCheck=expectedResources===56?await import('./verify-implementation-resource.mjs'):null;
-const native=expectedTools===9?await import('./verify-synthetic-native.mjs'):null;
+const implementationCheck=expectedResources>=56?await import('./verify-implementation-resource.mjs'):null;
+const native=expectedTools>=9?await import('./verify-synthetic-native.mjs'):null;
+const capsule=expectedTools>=10?await import('./verify-capsule-parameters.mjs'):null;
+const music=expectedTools===12?await import('./verify-music-tools.mjs'):null;
 for (const mode of ['auto', 'legacy']) {
   const client = new Client({ name: 'nft-studio-public-release-check', version: '1.0.0' }, { versionNegotiation: { mode } });
   try {
     await client.connect(new StreamableHTTPClientTransport(endpoint, { fetch: boundedFetch }));
     const tools = (await client.listTools()).tools;
     assert.equal(tools.length, expectedTools);
+    const expectedNames=PUBLIC_TOOL_NAMES.filter(name=>(expectedTools>=9||name!=='prepare_unsigned_transaction')&&(expectedTools>=10||name!=='apply_state_capsule_parameters')&&(expectedTools===12||!['create_music_release','verify_music_release'].includes(name)));
+    assert.deepEqual(tools.map(tool=>tool.name).sort(),expectedNames);
     for (const forbidden of [...(expectedTools===8?['prepare_unsigned_transaction']:[]), 'verify_signed_transaction', 'sign_transaction', 'submit_transaction']) {
       assert.ok(!tools.some(tool => tool.name === forbidden));
     }
-    if(expectedTools===9){const tool=tools.find(tool=>tool.name==='prepare_unsigned_transaction');assert.ok(tool);assert.deepEqual(tool.annotations,{readOnlyHint:true,destructiveHint:false,idempotentHint:false,openWorldHint:true});}
+    if(expectedTools>=9){const tool=tools.find(tool=>tool.name==='prepare_unsigned_transaction');assert.ok(tool);assert.deepEqual(tool.annotations,{readOnlyHint:true,destructiveHint:false,idempotentHint:false,openWorldHint:true});}
+    const capsuleParameters=capsule?await capsule.verifyCapsuleTool(client,tools):undefined;
+    const musicPackages=music?await music.verifyMusicTools(client,tools):undefined;
     const resources = (await client.listResources()).resources;
     assert.equal(resources.length, expectedResources);
     if(expectedResources===55)assert.ok(!resources.some(resource=>resource.uri==='nft-studio://implementations'));
@@ -87,7 +94,7 @@ for (const mode of ['auto', 'legacy']) {
         unsigned.push(native.assertSyntheticUnsigned(prepared,packet.intent,fixture));
       }
     }
-    checks.push({...(native?{unsigned}:{}),...(implementations?{implementations}:{}), protocolEra: client.getProtocolEra(), tools: tools.map(tool => tool.name), resources: resources.length, knowledge: 'pass', intentRoundtrip: 'pass', proofMatchAndMismatch: 'pass', changedIntentRejected: true });
+    checks.push({...(musicPackages?{musicPackages}:{}),...(capsuleParameters?{capsuleParameters}:{}),...(native?{unsigned}:{}),...(implementations?{implementations}:{}), protocolEra: client.getProtocolEra(), tools: tools.map(tool => tool.name), resources: resources.length, knowledge: 'pass', intentRoundtrip: 'pass', proofMatchAndMismatch: 'pass', changedIntentRejected: true });
   } finally {
     await client.close();
   }
@@ -100,6 +107,6 @@ for(const header of ['content-type','mcp-protocol-version','mcp-method','mcp-nam
 assert.equal(preflight.headers.get('access-control-allow-credentials'),null);
 const denied = await boundedFetch(endpoint, { method: 'POST', headers: { Origin: 'https://attacker.example', 'Content-Type': 'application/json' }, body: '{}' });
 assert.equal(denied.status, 403);
-return { expectedTools,expectedResources,syntheticWalletDataSent:expectedTools===9, schema: 'nft-studio.public-mcp-check.v1', checkedAt: new Date().toISOString(), endpoint: endpoint.href, status: 'pass', checks, browserPreflight: 'pass', foreignOriginRejected: true, walletAccess: false, chainSubmission: false };
+return { expectedTools,expectedResources,syntheticWalletDataSent:expectedTools>=9, schema: 'nft-studio.public-mcp-check.v1', checkedAt: new Date().toISOString(), endpoint: endpoint.href, status: 'pass', checks, browserPreflight: 'pass', foreignOriginRejected: true, walletAccess: false, chainSubmission: false };
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href)console.log(JSON.stringify(await verifyLiveEndpoint(parseLiveOptions(process.argv.slice(2))),null,2));

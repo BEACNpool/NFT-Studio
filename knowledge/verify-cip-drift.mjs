@@ -87,13 +87,12 @@ await test('six deterministic unchanged, changed, missing and malformed fixtures
     );
   }
 });
-await test('supporting registry and CDDL bytes are checked without invented status fields', async () => {
+await test('supporting CDDL and JSON schema bytes are checked without invented status fields', async () => {
   const value = catalog();
-  value.sources.push(
-    structuredClone(
-      original.sources.find((source) => source.id === 'cip-0060-v3-cddl'),
-    ),
-  );
+  const supportingIds = ['cip-0060-v3-cddl', 'cip-0116-babbage-schema', 'cip-0116-conway-schema'];
+  value.sources.push(...supportingIds.map((id) => structuredClone(
+    original.sources.find((source) => source.id === id),
+  )));
   const report = await monitorCipDrift(value, {
     now,
     fetchImpl: async (url) =>
@@ -105,13 +104,18 @@ await test('supporting registry and CDDL bytes are checked without invented stat
             : 'fixture-cddl = int\n',
       ),
   });
-  const artifact = report.results.find((row) => row.id === 'cip-0060-v3-cddl');
-  assert.equal(artifact.outcome, 'changed');
-  assert.equal(artifact.statusComparison, 'not-applicable-supporting-artifact');
-  assert.equal(artifact.statusChanged, null);
-  assert.equal(artifact.declaredStatus, null);
+  for (const id of supportingIds) {
+    const artifact = report.results.find((row) => row.id === id);
+    assert.equal(artifact.outcome, 'changed');
+    assert.equal(artifact.statusComparison, 'not-applicable-supporting-artifact');
+    assert.equal(artifact.statusChanged, null);
+    assert.equal(artifact.declaredStatus, null);
+  }
 });
-await test('one HEAD snapshot serves all 40 current CIP sources with at most four concurrent reads', async () => {
+await test('one HEAD snapshot serves every current CIP source with at most four concurrent reads', async () => {
+  const expectedCipSources = original.sources.filter((source) =>
+    source.rawUrl.startsWith('https://raw.githubusercontent.com/cardano-foundation/CIPs/'),
+  ).length;
   const calls = [];
   let active = 0,
     maximum = 0;
@@ -132,9 +136,9 @@ await test('one HEAD snapshot serves all 40 current CIP sources with at most fou
     return new Response(fixture.baselineBody);
   };
   const report = await monitorCipDrift(original, { fetchImpl, now });
-  assert.equal(report.summary.cipSources, 40);
-  assert.equal(report.summary.skippedNonCipSources, 10);
-  assert.equal(calls.length, 41);
+  assert.equal(report.summary.cipSources, expectedCipSources);
+  assert.equal(report.summary.skippedNonCipSources, original.sources.length - expectedCipSources);
+  assert.equal(calls.length, expectedCipSources + 1);
   assert.equal(calls.filter((url) => url === CIP_DRIFT_HEAD_URL).length, 1);
   assert.equal(maximum, CIP_DRIFT_LIMITS.concurrency);
 });

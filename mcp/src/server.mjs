@@ -1,5 +1,7 @@
+import {registerCapsuleTools,CAPSULE_MCP_CAPABILITIES} from './capsule-tools.mjs';
 import {IMPLEMENTATIONS_URI,implementationRegister,implementationLinks} from './implementation-knowledge.mjs';
 import { registerProofTools, PROOF_MCP_CAPABILITIES } from './proof-tools.mjs';
+import { registerMusicTools, MUSIC_MCP_CAPABILITIES } from './music-tools.mjs';
 import { randomUUID } from 'node:crypto';
 import { McpServer } from '@modelcontextprotocol/server';
 import * as C from '@emurgo/cardano-serialization-lib-nodejs';
@@ -19,8 +21,10 @@ export const CAPABILITIES = Object.freeze({
   schema:'nft-studio.mcp.capabilities.v1', serverVersion:'0.1.0',
   transports:['stdio','streamable-http'], protocolEras:['2026-07-28','2025 legacy negotiation'],
   network:'Cardano mainnet', custody:'external signer only; no keys, signing or submission in this service',
-  actions:['knowledge_search','knowledge_resources','payload_validation','ledger_metadata_validation','mint_intent','unsigned_transaction','witness_verification','proof_record','proof_verification'],
+  actions:['knowledge_search','knowledge_resources','payload_validation','ledger_metadata_validation','mint_intent','unsigned_transaction','witness_verification','proof_record','proof_verification','music_package','music_package_verification','state_capsule_parameter_application'],
   proofOfExistence:PROOF_MCP_CAPABILITIES,
+    musicReleases:MUSIC_MCP_CAPABILITIES,
+    stateCapsuleParameterization:CAPSULE_MCP_CAPABILITIES,
   formats:[
     ...['image','music','games','apps','motion','files'].map(id=>({id,status:'compact-payload preparation',path:'Provide exact supported file bytes; NFT mode requires an image cover.'})),
     {id:'scroll',status:'browser creator only',reason:'Scroll storage has separate scripts and locks ADA; this MCP does not build it.'},
@@ -31,7 +35,7 @@ export const CAPABILITIES = Object.freeze({
   policy:{kind:'signature plus expiry native script',quantityThisTransaction:1,lifetimeSupplyCap:false,allowsAdditionalMintUntilExpiry:true,burnAfterExpiry:false},
   interoperability:[
     'CIP-25 v1 payload NFTs, CIP-30 compatible unsigned CBOR and witness sets; custom data metadata uses label '+DATA_LABEL+'.',
-    'CIP-68, token-gated policies and one-shot guarantees are research/planner subjects, not this mint builder.',
+    'A fixed experimental CIP-68 State Capsule can be parameterized; this service does not build or evaluate its Plutus transactions. Native unsigned preparation remains separate.',
     'MIME signatures and hashes verify byte identity, not complete media validity or safe execution; imported code remains untrusted.',
     'Existing Studio catalogue programs above the 12KB new-package limit require their existing browser mint path.',
   ],
@@ -83,6 +87,8 @@ export function createService(options={}) {
       try { return jsonResult(await action(args)); } catch(error) { return safeError(error); } finally {activeCalls--;}
     });
     registerProofTools(register);
+    registerMusicTools(register);
+    registerCapsuleTools(register);
     register('studio_capabilities','Discover exact supported formats, operations, limits, native-policy semantics and browser-only boundaries.',empty,capabilities);
     register('search_knowledge','Search the pinned Cardano knowledge base. Returns cited facts, explicit design interpretations and implementation maturity; no network search.',z.strictObject({query:z.string().min(1).max(200),limit:z.number().int().min(1).max(10).default(5)}),({query,limit})=>({asOf:catalog.asOf,results:searchKnowledge(catalog,query,{limit})}));
     register('read_knowledge','Read one allowed knowledge entry plus its primary-source provenance. IDs come from search results or listed resources.',z.strictObject({id:z.string().min(1).max(100).regex(/^[a-z0-9-]+$/)}),({id})=>{

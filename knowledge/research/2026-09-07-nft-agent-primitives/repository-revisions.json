@@ -1,0 +1,96 @@
+[
+  {
+    "repo": "cardano-foundation/cardano-token-registry",
+    "sha": "8a2cd449b86ac6f27a7de34dd0845160a832266b",
+    "committedAt": "2026-08-31T10:22:25Z",
+    "defaultBranch": "master",
+    "license": null,
+    "archived": false
+  },
+  {
+    "repo": "input-output-hk/offchain-metadata-tools",
+    "sha": "91eba72d6e5e3b17cd49f625c9546f2c82df5a65",
+    "committedAt": "2026-08-15T03:50:43Z",
+    "defaultBranch": "master",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "archived": false
+  },
+  {
+    "repo": "cardano-foundation/cardano-connect-with-wallet",
+    "sha": "47ceba88338f19b576bf72251e8158a7883a5e45",
+    "committedAt": "2026-05-16T12:45:06Z",
+    "defaultBranch": "main",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "archived": false
+  },
+  {
+    "repo": "fabianbormann/cardano-peer-connect",
+    "sha": "03ae3dc15a1524632faff22b343ce9ea0130a67e",
+    "committedAt": "2026-09-05T06:20:01Z",
+    "defaultBranch": "main",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "archived": false
+  },
+  {
+    "repo": "IntersectMBO/plutus",
+    "sha": "3ab42a1c886ef77dfb3eb25a72dca833fd7280e4",
+    "committedAt": "2026-09-03T21:51:43Z",
+    "defaultBranch": "master",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "archived": false
+  },
+  {
+    "repo": "mlabs-haskell/cip-0116-tests",
+    "sha": "7e423b1648d52501dff859d44387d21065263261",
+    "committedAt": "2024-09-16T19:47:19Z",
+    "defaultBranch": "master",
+    "license": null,
+    "archived": false
+  },
+  {
+    "repo": "cardano-foundation/cip-170-attestation-frontend",
+    "sha": "41cef0cd7c820bdf169ceaf55e38f85106f1b2a8",
+    "committedAt": "2026-03-25T21:46:07Z",
+    "defaultBranch": "main",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "archived": false
+  },
+  {
+    "repo": "cardano-foundation/cf-reeve-indexer",
+    "sha": "dc7de3172c3cf0d1c0ae3dd17d0604641b4992bd",
+    "committedAt": "2026-09-04T10:50:09Z",
+    "defaultBranch": "main",
+    "license": null,
+    "archived": false
+  }
+]

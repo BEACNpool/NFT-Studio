@@ -1,8 +1,8 @@
 # BEACN Labs knowledge base
 
 This is a public, source-pinned engineering reference for Cardano creative technology.
-It contains original summaries of **35 standards, 10 tools and 8 BEACN design
-patterns**, backed by **50 primary sources**. The initial snapshot was researched
+It contains original summaries of **40 standards, 10 tools and 8 BEACN design
+patterns**, backed by **73 primary sources**. The initial snapshot was researched
 on **2026-09-07 UTC**. It is a starting corpus, not a complete Cardano encyclopedia,
 a live adoption registry or evidence that every described feature exists in Studio.
 
@@ -18,6 +18,7 @@ or breakthrough claim merely for combining standards.
 - [Admission and evidence rules](../knowledge/ADMISSION.md) — what a claim means.
 - [Implementation evidence register](../knowledge/IMPLEMENTATIONS.md) — five published implementations with separate capability environments, limitations and immutable source links. The browser joins these records to related research entries.
 - [Open source-review issues](../knowledge/review-issues.json) — contradictions and missing evidence.
+- [Five additional primitives](../knowledge/guides/underexplored-primitives.md) — scoped CIP-26/45/69/116/170 experiments and source discrepancies.
 - [Opportunity map](../knowledge/guides/opportunity-map.md) — priority, dependencies and acceptance gates.
 - [Living artifacts](../knowledge/guides/living-artifacts.md) — lifecycle and validator invariants.
 - [Artifact passports](../knowledge/guides/artifact-passports.md) — reproducibility and compatibility evidence.
@@ -47,9 +48,10 @@ node knowledge/audit-sources.mjs --online
 
 The first command checks structure, reference integrity, search behavior,
 status distinctions, hostile inputs and accidental public-data contamination.
-The second downloads only the catalog's pinned source URLs with explicit size,
+The second validates implementation records and immutable local Git blobs.
+The third downloads only the catalog's pinned source URLs with explicit size,
 time and concurrency bounds and checks SHA-256; it does not update the catalog
-or execute downloaded content. Neither command evaluates a Cardano transaction.
+or execute downloaded content. None of these commands evaluates a Cardano transaction.
 
 ## What each entry tells you
 

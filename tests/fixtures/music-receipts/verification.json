@@ -1,0 +1,18 @@
+{
+  "schema": "beacn.music-receipt-verification.v1",
+  "csl": "17.0.0",
+  "testGroups": 11,
+  "rejectedCases": 82,
+  "fixturePackageHash": "c6770d09f6fbfbdf0605fc32adbc2d86168bad1cd6fc58d04ca65027d746c46c",
+  "measurements": {
+    "unsignedBytes": 7195,
+    "signedBytes": 7301,
+    "metadataBytes": 6844,
+    "receiptJsonBytes": 57605,
+    "feeLovelace": "476801"
+  },
+  "syntheticOnly": true,
+  "privateKeysExported": false,
+  "providerRequests": 0,
+  "chainTransactionsSubmitted": 0
+}

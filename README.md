@@ -21,21 +21,28 @@ receipts remain local to the current browser and origin.
 [Open Labs](https://beacnpool.github.io/NFT-Studio/?view=labs) to explore working
 tools and experimental contract technology:
 
+Start with the [short Labs field guide](docs/LABS_FIELD_GUIDE.md) for a tour that
+does not require a wallet.
+
 | Lab | What works today |
 | --- | --- |
 | State capsule | Evolve an embedded artwork, inspect linked CIP-68 datum revisions, freeze and export its history. The one-shot Aiken contract has compiled Plutus V3 tests and independent node issuance evaluation. The browser demo is local; this is experimental contract code. |
+| Contract compiler | Apply the fixed State Capsule program to an exact seed/name in the browser and export its blueprint, policy and paired asset names. 256 cases match the pinned Aiken CLI; this does not prepare a live mint. |
+| Music release | Package exact audio, artwork and credits, review a music-aware native transaction in your wallet, and recover the complete release from its actual receipt metadata. A CIP-60-aligned extension; declarations do not configure royalty payments. |
 | Proof of existence | Hash up to 16 local files incrementally, export exact label-309 metadata using the public hash-only profile of proposed CIP-190, and verify original bytes. Exporting does not publish a transaction. |
 | Artifact passport | Turn an exact-file mint receipt into a portable content/evidence package, verify it offline, and optionally check the original transaction binding. Export directly from Activity or open one in Labs. |
-| Knowledge | Search 53 sourced Cardano entries, inspect enforcement and lifecycle limits, follow pinned primary sources and export research. Proposal status is separate from implementation evidence. |
+| Knowledge | Search 58 sourced Cardano entries, inspect enforcement and lifecycle limits, follow pinned primary sources and export research. Proposal status is separate from implementation evidence. |
 | Asset inspector | Derive CIP-14 fingerprints, verify CIP-67 checksums and locate paired CIP-68 asset names from exact bytes. It does not assert chain existence or ownership. |
 | Agent minting | Import a content-bound MCP request, inspect exact files, then use the existing wallet review, signing and receipt flow. |
 
-The [live MCP service](docs/MCP.md#public-connection) offers nine tools for knowledge,
+The [live MCP service](docs/MCP.md#public-connection) offers tools for Cardano knowledge,
 content and unsigned native NFT/data transactions. A separately installed Node
 service also verifies external signatures. Neither holds a signing key. The [knowledge repository](knowledge/)
 is reusable data with source hashes, attribution and an explicit evidence policy.
 
 Read [State Capsules](docs/STATE_CAPSULES.md),
+[music formats and limits](docs/MUSIC_RELEASE.md),
+[music receipt verification](docs/MUSIC_RECEIPTS.md),
 [proof encoding and vectors](docs/PROOF_OF_EXISTENCE.md), and
 [knowledge architecture](docs/KNOWLEDGE_BASE.md) before building on these tools.
 These are implementations and research built on existing Cardano standards;

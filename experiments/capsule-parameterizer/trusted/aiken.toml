@@ -1,0 +1,23 @@
+name = "beacnpool/state-capsule"
+version = "0.1.0"
+compiler = "v1.1.23"
+plutus = "v3"
+license = "Apache-2.0"
+description = "Experimental holder-controlled CIP-68 state capsules"
+
+[repository]
+user = "BEACNpool"
+project = "NFT-Studio"
+platform = "github"
+
+[[dependencies]]
+name = "aiken-lang/stdlib"
+version = "v3.1.0"
+source = "github"
+
+[[dependencies]]
+name = "aiken-lang/fuzz"
+version = "v2.2.0"
+source = "github"
+
+[config]

@@ -3,11 +3,12 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { resolve, dirname, sep } from 'node:path';
 import { createHash } from 'node:crypto';
 import { createRequire } from 'node:module';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile, readdir } from 'node:fs/promises';
 const here = dirname(fileURLToPath(import.meta.url));
 const root = resolve(process.env.NFT_STUDIO_ROOT || resolve(here, '..'));
 const knowledge = resolve(process.env.NFT_STUDIO_KNOWLEDGE || resolve(root, 'knowledge'));
 const nestedModules = resolve(here, 'node_modules');
+const capsule=resolve(root,'experiments/capsule-parameterizer');
 await readFile(resolve(root, 'lib/studio-intent.ts'));
 const catalogBytes=await readFile(resolve(knowledge,'catalog.json'));
 const {parseImplementations}=await import(pathToFileURL(resolve(knowledge,'implementations.mjs')));
@@ -21,7 +22,9 @@ await build({
   bundle: true, platform: 'node', format: 'esm', target: 'node22',
   packages: 'external', sourcemap: false, logLevel: 'warning',
   plugins: [{ name: 'shared-studio-source', setup(b) {
+    b.onResolve({filter:/^@capsule\//},args=>({path:resolve(capsule,'src',args.path.slice(9))}));
     b.onResolve({filter:/^@studio\//}, args => ({path:resolve(root, 'lib', args.path.slice(8))}));
+    b.onResolve({filter:/^@\/lib\//}, args => ({path:resolve(root, 'lib', args.path.slice(6)+'.ts')}));
     b.onResolve({filter:/^@knowledge\//}, args => ({path:resolve(knowledge, args.path.slice(11))}));
   }}],
 });
@@ -37,19 +40,22 @@ const wasm=Buffer.from(encoded[1],'base64');
 if(createHash('sha256').update(wasm).digest('hex')!=='30f78ee3d0e5fc2f4cd1c87347b330e69fcdd0acb07d4a6e08ff8278d7d9a40b')throw new Error('Pinned CSL 17 WASM changed.');
 await writeFile(resolve(here,'dist/cardano_serialization_lib_bg.wasm'),wasm);
 const cslLicense=await readFile(resolve(here,'CSL-LICENSE'),'utf8');
+const capsuleNotices=(await Promise.all(['LICENSE','THIRD_PARTY.md',...(await readdir(resolve(capsule,'licenses'))).sort().map(name=>'licenses/'+name)].map(name=>readFile(resolve(capsule,name),'utf8')))).join('\n\n');
 await build({
   absWorkingDir:here,entryPoints:['src/worker.mjs'],outfile:'dist/worker.mjs',
   bundle:true,platform:'browser',format:'esm',target:'es2022',conditions:['workerd','worker','browser'],
   nodePaths:[nestedModules],external:['*.wasm'],define:{'process.env.NEXT_PUBLIC_BASE_PATH':'""'},
-  banner:{js:'/*! CSL 17 browser WASM and glue: '+cslLicense.replaceAll('*/','* /')+' */'},
+  banner:{js:'/*! CSL 17 browser WASM and glue: '+cslLicense.replaceAll('*/','* /')+' */\n/*! Fixed capsule adapter dependencies and notices: '+capsuleNotices.replaceAll('*/','* /')+' */'},
   sourcemap:false,minify:false,logLevel:'warning',
   plugins:[{name:'shared-studio-source',setup(b){
+    b.onResolve({filter:/^@capsule\//},args=>({path:resolve(capsule,'src',args.path.slice(9))}));
     b.onResolve({filter:/^@studio\//},args=>({path:resolve(root,'lib',args.path.slice(8))}));
+    b.onResolve({filter:/^@\/lib\//},args=>({path:resolve(root,'lib',args.path.slice(6)+'.ts')}));
     b.onResolve({filter:/^@knowledge\//},args=>({path:resolve(knowledge,args.path.slice(11))}));
     // Shared TS lives outside mcp/. Resolve its npm imports against this package's
     // pinned install, even when the browser app has a different root install.
     b.onResolve({filter:/^[^./]/},args=>{
-      if(!args.importer.startsWith(resolve(root,'lib')+sep)) return;
+      if(!args.importer.startsWith(resolve(root,'lib')+sep)&&!args.importer.startsWith(resolve(capsule,'src')+sep)) return;
       // Omit importer on the delegated call so this callback does not recurse.
       return b.resolve(args.path,{resolveDir:here,kind:args.kind});
     });

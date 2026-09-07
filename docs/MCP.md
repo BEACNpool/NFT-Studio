@@ -10,9 +10,11 @@ The public preparation service is live at:
 https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp
 ```
 
-Connect with Streamable HTTP and no API key. This endpoint exposes **nine tools**
-and **56 resources**: Cardano knowledge, exact payloads, browser mint requests,
-proof records, and unsigned native NFT/data transactions. The unsigned tool
+Connect with Streamable HTTP and no API key. Use tool/resource discovery for
+the running deployment. This source revision provides **12 public tools** and
+**61 resources**: Cardano knowledge, exact payloads, browser mint requests,
+music releases, proof records, fixed Capsule parameter application, and unsigned
+native NFT/data transactions. The unsigned tool
 receives an explicitly supplied wallet snapshot and uses fresh public network
 parameters. No tool connects a wallet, signs or submits a transaction.
 The full Node service described below has additional capabilities and remains a
@@ -96,6 +98,8 @@ Run the compiled file directly. `npm run` can write banners to stdout, which is 
 | `validate_metadata` | Ledger-safe JSON subset validation and actual auxiliary CBOR size/hash |
 | `create_proof_record` / `verify_proof_record` | Proposed CIP-190 public hash records and exact-byte verification, with raw record/metadata CBOR exports |
 | `create_mint_intent` / `verify_mint_intent` | Deterministic file packet for visible browser review |
+| `create_music_release` / `verify_music_release` | Canonical files-and-credits package for the Music release lab |
+| `apply_state_capsule_parameters` | Apply exact seed/name parameters to the pinned experimental program and export its blueprint and identity |
 | `prepare_unsigned_transaction` | Actual unsigned transaction, identity, fee, outputs, protocol quote and review expiry |
 | `verify_signed_transaction` | External witness verification, unchanged body/metadata and complete signed size/fee check; signed CBOR returned to caller |
 
@@ -149,6 +153,26 @@ Creation accepts **1–16 files**; verification accepts **one file per call**. B
 A remote MCP server necessarily receives the file bytes supplied to it. These tools make no external fetch and do not persist or publish them. Use browser-only hashing when original bytes must remain on your own device. Only digests and algorithm IDs enter the generated record; filenames and sizes remain in its sidecar. Public hashes are not encryption and can reveal matches to guessed files.
 
 A matching digest does not prove chain inclusion, authorship, rights, truth or ownership. Imported records cannot recover files. Ledger timing requires separately observed transaction inclusion. The returned CBOR uses **raw byte strings**, not hex text substituted into JSON metadata; a transaction integrator must preserve those types. See the [Proposed CIP-190 specification](https://cips.cardano.org/cip/CIP-0190) and this repository's source-pinned proof profile for the precise supported scope.
+
+## Music and contract packages
+
+`create_music_release` creates a `beacn.music-release.v1` package containing exact
+artwork/audio bytes and validated credits. Save the returned `packetJson` exactly
+as `filename`; `review.url` opens **Labs → Music release**. Use
+`verify_music_release` with that canonical packet to check the complete package.
+The server receives the supplied files and credits, including any inert credit
+links. It does not fetch those links. The browser rebuilds the transaction from
+the reviewed package and the connected wallet; the public unsigned native tool
+does not accept music packages. See [the music tool contract](../mcp/MUSIC_PACKAGES.md)
+and [the metadata profile](MUSIC_RELEASE.md) for exact arguments and limits.
+
+`apply_state_capsule_parameters` accepts only the fixed Capsule program's
+`seed: {transactionId, outputIndex}` and `baseName`. It returns deterministic
+compiled bytes, a Plutus V3 policy/script hash, paired asset names and the applied
+blueprint. The exact program matched the pinned Aiken CLI across 256 parameter
+cases. This tool performs no seed lookup, wallet access, transaction preparation
+or node evaluation. A returned identity does not establish an existing or usable
+mint. See [the parameter contract](../mcp/CAPSULE_PARAMETERS.md).
 
 ## External wallet integration with the Node service
 
@@ -215,7 +239,7 @@ The public unsigned tool accepts precisely the same `{intent, wallet: {changeHex
 
 | Contract | Public Worker | Full Node service |
 | --- | --- | --- |
-| Tools | 9, including stateless unsigned preparation | 11, including metadata measurement and signed-witness verification |
+| Tools in this source revision | 12, including music packages, Capsule parameters and stateless unsigned preparation | 14, including metadata measurement and signed-witness verification |
 | Wallet snapshot limit | 32 UTxOs; 16 KiB each; 32 KiB aggregate; 512 native assets | 128 UTxOs; 16 KiB each; 128 KiB aggregate |
 | Caller CBOR preflight | 4,096 nodes and depth 16 before CSL | Same preflight for UTxOs and external witness sets |
 | Preparation state | None | RAM packet cache, four-minute TTL, 64 packets |
@@ -226,7 +250,7 @@ Public preparation arguments are capped at **88 KiB**, within the transport's **
 
 The new tool receives wallet addresses and complete supplied UTxO CBOR. Supply a snapshot only with the wallet user's authorization. It does not connect to wallets, read private files, establish ownership, prove inputs unspent, sign or submit. It fetches only fixed read-only Koios `/tip` and latest `/epoch_params` URLs from the Studio provider; no supplied content, wallet address, UTxO or caller header enters those requests. Each response is capped at 64 KiB; redirects, malformed UTF-8/JSON, stale tip data, inconsistent epochs and invalid parameters reject. Two preparations may run at once, with a ten-second provider deadline. A failed request releases capacity.
 
-The other eight tools retain their existing explicit-content contract and make no network requests. Proof records remain exports; the unsigned native builder does not attach their label-309 metadata automatically. Neither public tool set supplies custodial signing, chain inclusion, arbitrary Plutus transactions or a paid multi-tenant account system.
+The other public tools use explicit content or fixed bundled research and make no network requests. Proof records remain exports; the unsigned native builder does not attach their label-309 metadata automatically. Neither public tool set supplies custodial signing, chain inclusion, arbitrary Plutus transactions or a paid multi-tenant account system.
 
 An operator can wrap the module in an existing HTTPS Worker:
 
@@ -252,4 +276,4 @@ Public requests need no bearer token. The handler transforms only explicitly sup
 
 The Worker rejects invalid UTF-8/JSON, batches, compressed content, URL queries and non-MCP paths. It allows eight concurrent requests, bounds body reads to ten seconds, and enforces 120 requests/minute **per isolate**. Isolates restart and scale independently; this is a best-effort local bound, not a durable global quota. Platform-level controls are required for a shared global quota.
 
-`npm --prefix mcp test` exercises all nine public tools in actual Workerd without Node compatibility, with modern and legacy official clients. It compares NFT/data/two-key unsigned output against Node CSL and tests schema/CBOR/asset/parameter/feed/concurrency/timeout failures. All network responses and wallet outputs in these tests are synthetic. The separate [wrapper verifier](../mcp/integration/README.md) checks nine tools alongside the actual application and byte-identical JavaScript, CSS and images. Deployment and actual public SDK verification remain separate release steps.
+`npm --prefix mcp test` exercises all public tools in actual Workerd without Node compatibility, with modern and legacy official clients. It compares NFT/data/two-key unsigned output against Node CSL and tests schema/CBOR/asset/parameter/feed/concurrency/timeout failures. All network responses and wallet outputs in these tests are synthetic. The separate [wrapper verifier](../mcp/integration/README.md) checks the discovered tools alongside the actual application and byte-identical JavaScript, CSS and images. Deployment and actual public SDK verification remain separate release steps.

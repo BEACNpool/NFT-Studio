@@ -1,0 +1,85 @@
+{
+  "name": "@cardano-foundation/cardano-connect-with-wallet",
+  "version": "0.2.22",
+  "license": "Apache-2.0",
+  "description": "This package aims to provide useful hooks and React components to simplify the cardano dapp integration",
+  "dependencies": {
+    "@cardano-foundation/cardano-connect-with-wallet-core": "^0.2.10",
+    "@fabianbormann/cardano-peer-connect": "^1.2.19",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-dropdown-menu": "^2.1.16",
+    "@radix-ui/react-visually-hidden": "^1.2.4",
+    "buffer": "^6.0.3",
+    "color": "^5.0.3",
+    "react-qrcode-logo": "^4.1.0"
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0",
+    "react-dom": ">=18.2.0",
+    "styled-components": ">=6.3.12"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "build:types": "tsc -p tsconfig.types.json",
+    "rollup": "rollup -c && npm run build:types",
+    "build-storybook": "storybook build",
+    "test": "playwright test -c playwright-ct.config.ts",
+    "test:ui": "playwright test -c playwright-ct.config.ts --ui",
+    "storybook": "storybook dev -p 6006"
+  },
+  "type": "module",
+  "main": "./dist/cjs/index.cjs",
+  "module": "dist/esm/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.cjs"
+    }
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cardano-foundation/cardano-connect-with-wallet.git"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.5",
+    "@babel/preset-react": "^7.28.5",
+    "@babel/preset-typescript": "^7.28.5",
+    "@chromatic-com/storybook": "^5.1.2",
+    "@rollup/plugin-commonjs": "^29.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "@storybook/addon-docs": "^10.3.6",
+    "@storybook/addon-links": "^10.3.6",
+    "@storybook/addon-onboarding": "^10.3.6",
+    "@storybook/addon-webpack5-compiler-babel": "^4.0.1",
+    "@storybook/react-webpack5": "^10.3.6",
+    "@playwright/experimental-ct-react": "^1.50.0",
+    "@playwright/test": "^1.50.0",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "babel-loader": "10.1.1",
+    "css-loader": "^7.1.4",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "rollup": "^4.60.3",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "storybook": "^10.3.6",
+    "style-loader": "^4.0.0",
+    "tslib": "^2.8.1",
+    "typescript": "^6.0.3",
+    "webpack": "^5.106.2"
+  }
+}

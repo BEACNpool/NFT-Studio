@@ -31,6 +31,8 @@ import { errorText, loadCSL } from '@/lib/cardano';
 import { download, filename, jsonBlob } from '@/lib/export';
 import { assetPath } from '@/lib/paths';
 import { PayloadPreview } from './file-workbench';
+import type { MusicReleasePackage } from '@/lib/music-release';
+import type { MusicReceiptRecovery } from '@/lib/music-receipt';
 type Recovered = { file: PayloadFile; verified: boolean; title: string };
 export function RecoveryPanel() {
   const [hash, setHash] = useState(''),
@@ -41,6 +43,10 @@ export function RecoveryPanel() {
     [busy, setBusy] = useState(false),
     [receipts, setReceipts] = useState<StudioReceipt[]>([]),
     [selected, setSelected] = useState(0);
+  const [musicRecovery, setMusicRecovery] = useState<{
+    music: MusicReleasePackage;
+    receipt: MusicReceiptRecovery | null;
+  } | null>(null);
   const input = useRef<HTMLInputElement>(null),
     lock = useRef(false);
   useEffect(() => {
@@ -61,6 +67,7 @@ export function RecoveryPanel() {
     setFiles([]);
     setStatus(null);
     setSelected(0);
+    setMusicRecovery(null);
     try {
       await action();
     } catch (e) {
@@ -104,7 +111,8 @@ export function RecoveryPanel() {
         throw new Error(
           'Choose a receipt or metadata JSON smaller than 1.5 MB.',
         );
-      const data = JSON.parse(await file.text());
+      const source = await file.text();
+      const data = JSON.parse(source);
       if (data?.schema === 'beacn.artifact-passport.v1') {
         const {
           ARTIFACT_PASSPORT_LIMITS,
@@ -136,6 +144,50 @@ export function RecoveryPanel() {
           'Passport files and metadata match locally. Transaction binding, signatures and chain inclusion were not checked. Open Labs → Artifact passport for the full evidence report.',
         );
         return;
+      }
+      if (data?.schema === 'beacn.music-release.v1') {
+        const { parseMusicRelease } = await import('@/lib/music-release');
+        const music = await parseMusicRelease(source);
+        setMusicRecovery({ music, receipt: null });
+        setFiles(
+          music.bundle.files.map((file) => ({
+            file,
+            verified: true,
+            title: music.release.release_title,
+          })),
+        );
+        setHash('');
+        setNotice(
+          'Music package files and credits match their local commitments. No transaction, signature or chain inclusion was checked.',
+        );
+        return;
+      }
+      const candidate =
+        (data?.schema === 'nft-studio.receipt.v1' && data.kind === 'nft') ||
+        (data?.schema === 'nft-studio.review.v1' && data.mode === 'nft');
+      if (candidate) {
+        const { routeMusicReceipt, recoverMusicReceipt } =
+          await import('@/lib/music-receipt');
+        const C = await loadCSL();
+        if (routeMusicReceipt(C, data) === 'music') {
+          const recovered = await recoverMusicReceipt(C, source);
+          setMusicRecovery({
+            music: recovered.musicRelease,
+            receipt: recovered,
+          });
+          setFiles(
+            recovered.musicRelease.bundle.files.map((file) => ({
+              file,
+              verified: true,
+              title: recovered.musicRelease.release.release_title,
+            })),
+          );
+          setHash(recovered.transaction.hash);
+          setNotice(
+            'Music files and credits match the transaction metadata locally. Receipt status is reported; signatures and chain inclusion were not checked.',
+          );
+          return;
+        }
       }
       const metadata = data.metadata || data.prepared?.metadata || data;
       if (data.bundle) {
@@ -173,6 +225,26 @@ export function RecoveryPanel() {
       );
       setNotice(
         'Passport exported with exact files and metadata. Wallet snapshots and the transaction packet stay out of this export; keep the original receipt separately.',
+      );
+    } catch (e) {
+      setError(errorText(e));
+    } finally {
+      lock.current = false;
+      setBusy(false);
+    }
+  };
+  const exportMusic = async () => {
+    if (!musicRecovery || lock.current) return;
+    lock.current = true;
+    setBusy(true);
+    setError('');
+    try {
+      const { musicReleaseBytes } = await import('@/lib/music-release');
+      const bytes = await musicReleaseBytes(musicRecovery.music);
+      download(
+        new Blob([new Uint8Array(bytes)], { type: 'application/json' }),
+        filename(musicRecovery.music.release.release_title) +
+          '.music-release.json',
       );
     } catch (e) {
       setError(errorText(e));
@@ -226,6 +298,7 @@ export function RecoveryPanel() {
             ref={input}
             type="file"
             hidden
+            data-recovery-import
             accept="application/json,.json"
             onChange={(e) => {
               void importFile(e.target.files?.[0]);
@@ -249,6 +322,52 @@ export function RecoveryPanel() {
             <p className="ns-error" role="alert">
               {error}
             </p>
+          )}
+          {musicRecovery && (
+            <div className="ns-recovery-music" data-music-recovery>
+              <h3>Recovered music credits</h3>
+              <p>
+                {musicRecovery.music.release.release_title} ·{' '}
+                {musicRecovery.music.release.release_type}
+              </p>
+              <div className="ns-hash">
+                <span>Exact release hash</span>
+                <code>{musicRecovery.music.packageHash}</code>
+              </div>
+              {musicRecovery.receipt ? (
+                <p className="ns-fineprint" data-music-receipt-state>
+                  Receipt reports:{' '}
+                  {musicRecovery.receipt.receiptObservation.state}. This is not
+                  an independent inclusion check. Payment signatures, ownership
+                  and rights were not checked.
+                </p>
+              ) : (
+                <p className="ns-fineprint">
+                  Package integrity checked. Transaction binding was not
+                  checked.
+                </p>
+              )}
+              <details className="ns-metadata">
+                <summary>All recovered release and track declarations</summary>
+                <pre>
+                  {JSON.stringify(
+                    {
+                      release: musicRecovery.music.release,
+                      tracks: musicRecovery.music.tracks,
+                    },
+                    null,
+                    2,
+                  )}
+                </pre>
+              </details>
+              <Button
+                variant="outline"
+                disabled={busy}
+                onClick={() => void exportMusic()}
+              >
+                <Download size={16} /> Export music package
+              </Button>
+            </div>
           )}
           <div className="ns-recovery-ledger">
             <ScrollText size={23} />
@@ -381,6 +500,7 @@ export function RecoveryPanel() {
                   <Download size={18} />
                 </Button>
                 {['nft', 'data'].includes(r.kind) &&
+                  r.metadataProfile !== 'cip60-v3-studio-exact-files' &&
                   typeof r.signedHex === 'string' && (
                     <Button
                       variant="outline"

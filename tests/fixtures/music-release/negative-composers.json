@@ -1,0 +1,1750 @@
+[
+  {
+    "label": "unknown release field",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One",
+        "unexpected": 1
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "unknown song field",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ],
+            "royalty": "50%"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "ambiguous explicit Boolean",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ],
+            "explicit": true
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "ambiguous explicit string",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ],
+            "explicit": "true"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "ambiguous AI Boolean",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ],
+            "ai_generated": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "unsupported Album EP",
+    "composer": {
+      "release": {
+        "release_type": "Album/EP",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "unknown release type",
+    "composer": {
+      "release": {
+        "release_type": "LP",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "release title too long UTF8",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "song title too long UTF8",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "lone surrogate",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "\ud800"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "blank artist",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": ""
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "controls",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "a\nb"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "surrounding whitespace",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": " Artist"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "missing copyright",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "missing master",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "missing composition",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "old string copyright",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": "Unknown",
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "empty artists",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "too many artists",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "A"
+              },
+              {
+                "name": "A"
+              },
+              {
+                "name": "A"
+              },
+              {
+                "name": "A"
+              },
+              {
+                "name": "A"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "four genres",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "a",
+              "b",
+              "c",
+              "d"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "repeated genre",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "a",
+              "a"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "zero track",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 0,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "fractional track",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1.5,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "string track",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": "1",
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "unbound filename",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "elsewhere.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "zero duration",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT0S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "empty duration",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "fractional duration outside profile",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT0.5S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "calendar duration",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "P1D",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "duration too long",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT24H",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "seconds overflow",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT60S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "invalid date",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One",
+        "release_date": "2026-02-30"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "invalid leap date",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One",
+        "release_date": "2025-02-29"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "catalog number numeric prose conflict",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One",
+        "catalog_number": 123
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "http URL",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture",
+                "links": {
+                  "website": "http://example.com"
+                }
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "credential URL",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture",
+                "links": {
+                  "website": "https://user:pass@example.com"
+                }
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "script URL",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ],
+            "lyrics": "javascript:alert(1)"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "long unchunkable link",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture",
+                "links": {
+                  "website": "https://example.com/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                }
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "author incomplete shares",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ],
+            "authors": [
+              {
+                "name": "A",
+                "share": "99.99%"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "author excess shares",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ],
+            "authors": [
+              {
+                "name": "A",
+                "share": "100.01%"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "author zero share",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ],
+            "authors": [
+              {
+                "name": "A",
+                "share": "0%"
+              },
+              {
+                "name": "B",
+                "share": "100%"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "author missing share",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ],
+            "authors": [
+              {
+                "name": "A"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "author role conflicts with CDDL",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ],
+            "authors": [
+              {
+                "name": "A",
+                "share": "100%",
+                "role": "Composer"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "share float number",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ],
+            "authors": [
+              {
+                "name": "A",
+                "share": 100
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "share too precise",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ],
+            "authors": [
+              {
+                "name": "A",
+                "share": "100.000%"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "invalid ISNI syntax",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture",
+                "isni": "Invented"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "invalid ISRC syntax",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ],
+            "isrc": "made up"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "invalid ISWC syntax",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ],
+            "iswc": "T-123456789-Z"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "contributors too many",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ],
+            "contributing_artists": [
+              {
+                "name": "A"
+              },
+              {
+                "name": "A"
+              },
+              {
+                "name": "A"
+              },
+              {
+                "name": "A"
+              },
+              {
+                "name": "A"
+              },
+              {
+                "name": "A"
+              },
+              {
+                "name": "A"
+              },
+              {
+                "name": "A"
+              },
+              {
+                "name": "A"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "contributor role string",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ],
+            "contributing_artists": [
+              {
+                "name": "A",
+                "role": "synth"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "language outside profile",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ],
+            "language": "english"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "empty tracks",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": []
+    }
+  },
+  {
+    "label": "duplicate audio record",
+    "composer": {
+      "release": {
+        "release_type": "Single",
+        "release_title": "Signal One"
+      },
+      "tracks": [
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        },
+        {
+          "fileName": "one-second.wav",
+          "song": {
+            "song_title": "Signal One",
+            "song_duration": "PT1S",
+            "track_number": 1,
+            "artists": [
+              {
+                "name": "BEACN Labs fixture"
+              }
+            ],
+            "copyright": {
+              "master": "Original synthetic test recording; declaration only",
+              "composition": "Original synthetic test sequence; declaration only"
+            },
+            "genres": [
+              "Electronic"
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

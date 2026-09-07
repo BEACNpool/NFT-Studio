@@ -1,0 +1,17 @@
+{
+  "schema": "beacn.capsule-parameter-clean.v1",
+  "status": "pass",
+  "checkedAt": "2026-09-07T06:54:01.081Z",
+  "fixture": "/tmp/capsule-parameterizer-clean-peLYOu",
+  "studioCheckoutRequired": false,
+  "copiedDependencies": false,
+  "ancestorDependencies": false,
+  "commands": [
+    "npm ci",
+    "npm run build",
+    "npm test"
+  ],
+  "testGroups": 6,
+  "browserArtifactSha256": "bc3a107cf51faa919f9d34c2b8e2e18c9ee8a8e22c0e6d18c71f9d2eb0bb02ad",
+  "artifactMatchesCandidate": true
+}

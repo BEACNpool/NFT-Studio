@@ -162,6 +162,80 @@
       "consequence": "Automating stability decisions from the API boolean misclassifies the release.",
       "currentHandling": "Read the maintained node/protocol compatibility table and tag semantics.",
       "acceptanceGate": "Choose a tested release/era pair and record that choice."
+    },
+    {
+      "id": "cip26-policy-free-trust",
+      "sourceIds": [
+        "cip-0026",
+        "impl-token-registry-validator",
+        "impl-token-registry-readme"
+      ],
+      "status": "open-research-limitation",
+      "observedAt": "2026-09-07",
+      "observation": "The examined validateEntry function accepts required-field-complete entries without a native policy; authentication for those entries belongs to another trust layer.",
+      "consequence": "Using the function alone as issuer verification would confuse structural acceptance with trusted authorship.",
+      "currentHandling": "Research-only; show the exact trust basis and do not trust a caller-provided verification key by default.",
+      "acceptanceGate": "Test wrong subject, altered property, stale sequence and untrusted policy-free signer against an explicit trust configuration."
+    },
+    {
+      "id": "cip45-peerjs-profile",
+      "sourceIds": [
+        "cip-0045",
+        "impl-peer-connect-package",
+        "impl-peer-connect-dapp",
+        "impl-connect-wallet-button"
+      ],
+      "status": "open-research-limitation",
+      "observedAt": "2026-09-07",
+      "observation": "Current inspected peer-connect source uses PeerJS, while the CIP specifies WebTorrent discovery. The dApp verifyConnection hook is optional; the Foundation UI supplies a confirmation callback.",
+      "consequence": "A CIP label alone does not establish transport interoperability or a complete consent policy.",
+      "currentHandling": "Research-only; no new wallet connector is enabled by this entry.",
+      "acceptanceGate": "Pin both peers, define explicit consent and test rejected pairing, account changes, timeouts, disconnect and mobile lifecycle behavior."
+    },
+    {
+      "id": "cip69-normative-v3-interface",
+      "sourceIds": [
+        "cip-0069",
+        "impl-plutus-v3-context",
+        "impl-plutus-v3-evaluator-api"
+      ],
+      "status": "open-research-limitation",
+      "observedAt": "2026-09-07",
+      "observation": "The CIP abstract retains two-argument wording, while the normative specification and current V3 evaluator use one ScriptContext containing the redeemer.",
+      "consequence": "Copying the abstract as the executable interface can construct an incorrect wrapper.",
+      "currentHandling": "Use the normative V3 interface and pinned implementation definitions; research entry does not promote a new execution receipt.",
+      "acceptanceGate": "Compare exact handler bytes and versioned hashes, and exercise intended and unintended script-purpose contexts."
+    },
+    {
+      "id": "cip116-interchange-profile",
+      "sourceIds": [
+        "cip-0116",
+        "cip-0116-conway-schema",
+        "impl-cip0116-validator",
+        "impl-cip0116-package"
+      ],
+      "status": "open-research-limitation",
+      "observedAt": "2026-09-07",
+      "observation": "The README era table lists Babbage although Conway schema/code exists. The utility imports ajv-formats without listing it in its package manifest; JSON shapes also permit map-order and CBOR-encoding variation.",
+      "consequence": "The linked code is not established as a clean-install dependency or a byte-canonical commitment codec.",
+      "currentHandling": "Research-only; preserve original transaction CBOR and body hashes. No upstream installation was attempted.",
+      "acceptanceGate": "Choose an explicit era/schema profile, resolve dependencies, and test duplicate keys, UTF-8 byte bounds, address semantics and information-preserving display conversion."
+    },
+    {
+      "id": "cip170-attestation-profile-and-revocation",
+      "sourceIds": [
+        "cip-0170",
+        "impl-cip170-frontend-hash",
+        "impl-cip170-frontend-workflow",
+        "impl-cip170-indexer-storage",
+        "impl-cip170-indexer-verifier"
+      ],
+      "status": "open-research-limitation",
+      "observedAt": "2026-09-07",
+      "observation": "Frontend workflow describes JSON/Blake2b hashing; its helper hashes extracted CBOR through Diger. The examined indexer reserializes CBOR with Blake3 and leaves AUTH_END handling unfinished.",
+      "consequence": "These files do not establish interoperable digest encoding or the full historical authority/revocation lifecycle.",
+      "currentHandling": "Research-only; no issuer identity or attestation verification feature is enabled.",
+      "acceptanceGate": "Pin the exact digest preimage and algorithm, label scope, KEL evidence and credential authority at transaction position; test revocation, reauthorization and out-of-order indexing."
     }
   ]
 }

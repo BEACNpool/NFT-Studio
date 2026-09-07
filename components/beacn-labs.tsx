@@ -8,6 +8,8 @@ import { KnowledgePanel } from './knowledge-panel';
 import { StateCapsuleLab } from './state-capsule-lab';
 import { ProofOfExistenceLab } from './proof-of-existence-lab';
 import { ArtifactPassportLab } from './artifact-passport-lab';
+import { CapsuleContractLab } from './capsule-contract-lab';
+import { MusicReleaseLab } from './music-release-lab';
 export function BeacnLabs({ onBack }: { onBack: () => void }) {
   const [tab, setTab] = useState(() => {
     const requested =
@@ -21,6 +23,8 @@ export function BeacnLabs({ onBack }: { onBack: () => void }) {
       'capsule',
       'proof',
       'passport',
+      'contract',
+      'music',
     ].includes(requested || '')
       ? requested!
       : 'capsule';
@@ -57,6 +61,8 @@ export function BeacnLabs({ onBack }: { onBack: () => void }) {
       >
         <TabsList className="ns-lab-tablist">
           <TabsTrigger value="capsule">State capsule</TabsTrigger>
+          <TabsTrigger value="contract">Contract compiler</TabsTrigger>
+          <TabsTrigger value="music">Music release</TabsTrigger>
           <TabsTrigger value="proof">Proof of existence</TabsTrigger>
           <TabsTrigger value="passport">Artifact passport</TabsTrigger>
           <TabsTrigger value="knowledge">Knowledge</TabsTrigger>
@@ -65,6 +71,12 @@ export function BeacnLabs({ onBack }: { onBack: () => void }) {
         </TabsList>
         <TabsContent value="capsule" keepMounted>
           <StateCapsuleLab />
+        </TabsContent>
+        <TabsContent value="contract" keepMounted>
+          <CapsuleContractLab />
+        </TabsContent>
+        <TabsContent value="music">
+          <MusicReleaseLab />
         </TabsContent>
         <TabsContent value="proof" keepMounted>
           <ProofOfExistenceLab />

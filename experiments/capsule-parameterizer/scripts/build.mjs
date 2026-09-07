@@ -1,0 +1,16 @@
+import {build} from 'esbuild';
+import {readFile,writeFile,mkdir,cp} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {fileURLToPath} from 'node:url';
+import {FIXED_BLUEPRINT_JSON} from '../src/fixed-blueprint.mjs';
+import {CAPSULE_PARAMETERIZER_SOURCE} from '../src/index.mjs';
+const root=fileURLToPath(new URL('../',import.meta.url));
+const source=await readFile(new URL('../trusted/plutus.json',import.meta.url),'utf8');
+if(source!==FIXED_BLUEPRINT_JSON)throw new Error('Bundled fixed blueprint differs from the trusted source file.');
+const result=await build({absWorkingDir:root,entryPoints:['src/index.mjs'],outfile:'dist/capsule-parameterizer.mjs',bundle:true,format:'esm',platform:'browser',target:'es2022',metafile:true,minify:true,legalComments:'linked',logLevel:'warning'});
+for(const output of Object.values(result.metafile.outputs))if(output.imports.length)throw new Error('Browser artifact must be self-contained.');
+const bytes=await readFile(new URL('../dist/capsule-parameterizer.mjs',import.meta.url));
+await mkdir(new URL('../evidence/',import.meta.url),{recursive:true});
+await writeFile(new URL('../evidence/browser-build.json',import.meta.url),JSON.stringify({schema:'beacn.capsule-parameter-build.v1',status:'pass',platform:'browser',format:'esm',externalImports:0,bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex'),source:CAPSULE_PARAMETERIZER_SOURCE,inputs:Object.keys(result.metafile.inputs)},null,2)+'\n');
+for (const name of ['LICENSE','THIRD_PARTY.md','licenses']) await cp(new URL('../'+name,import.meta.url),new URL('../dist/'+name,import.meta.url),{recursive:true});
+console.log('Browser ESM build PASS: '+bytes.length+' bytes, zero external imports.');

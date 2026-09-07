@@ -1,5 +1,7 @@
+import {registerCapsuleTools,CAPSULE_MCP_CAPABILITIES} from './capsule-tools.mjs';
 import {IMPLEMENTATIONS_URI,implementationRegister,implementationLinks} from './implementation-knowledge.mjs';
 import { registerProofTools, PROOF_MCP_CAPABILITIES } from './proof-tools.mjs';
+import { registerMusicTools, MUSIC_MCP_CAPABILITIES } from './music-tools.mjs';
 /** Public knowledge/content tools and stateless unsigned preparation. No Node, signer or packet cache. */
 import * as C from './csl-worker.mjs';
 import { createUnsignedPreparer, LIMITS as UNSIGNED_LIMITS } from './public-unsigned.mjs';
@@ -36,8 +38,10 @@ export function createPublicMcpHandler(config) {
   const capabilities={
     schema:'nft-studio.mcp.capabilities.v1',serverVersion:'0.1.0',service:'public content and unsigned native preparation',
     transports:['streamable-http'],protocolEras:['2026-07-28','2025 legacy negotiation'],
-    actions:['knowledge_search','knowledge_resources','payload_validation','mint_intent','proof_record','proof_verification','unsigned_transaction'],
+    actions:['knowledge_search','knowledge_resources','payload_validation','mint_intent','proof_record','proof_verification','music_package','music_package_verification','state_capsule_parameter_application','unsigned_transaction'],
     proofOfExistence:PROOF_MCP_CAPABILITIES,
+    musicReleases:MUSIC_MCP_CAPABILITIES,
+    stateCapsuleParameterization:CAPSULE_MCP_CAPABILITIES,
     unsignedPreparation:{schema:'nft-studio.stateless-unsigned.v1',limits:UNSIGNED_LIMITS,serverState:'none',network:'mainnet',chainUnspentVerified:false,ownershipVerified:false,signedWitnessVerification:false},
     publicEndpoint:config.publicOrigin+endpointPath,studioReviewUrl:reviewUrl.href,
     limits:{requestBytes:MAX_BYTES,rawPayloadBytes:12000,files:8,intentJsonBytes:80000},
@@ -56,6 +60,8 @@ export function createPublicMcpHandler(config) {
       try{return result(await action(args));}catch(err){return {isError:true,content:[{type:'text',text:(err instanceof Error?err.message:'Invalid request.').slice(0,400)}]};}
     });
     registerProofTools(register);
+    registerMusicTools(register);
+    registerCapsuleTools(register);
     register('prepare_unsigned_transaction','Build unsigned mainnet native NFT/data CBOR using the shared Studio builder and fixed public protocol feed. This tool receives your explicit wallet change address and up to 32 ordinary UTxOs; it does not verify ownership or whether inputs are unspent. No signing, submission or retained preparation. Independently review exact outputs, policy, metadata and full signed fees with an external wallet.',publicPrepareSchema,prepareUnsigned,{readOnlyHint:true,destructiveHint:false,idempotentHint:false,openWorldHint:true});
     register('studio_capabilities','Read the public service capability boundary, package limits and full Node service distinction.',empty,()=>capabilities);
     register('search_knowledge','Search pinned Cardano knowledge with primary-source provenance and explicit implementation maturity. No network search.',searchSchema,({query,limit})=>({asOf:catalog.asOf,results:searchKnowledge(catalog,query,{limit})}));

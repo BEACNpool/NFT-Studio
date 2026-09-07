@@ -49,6 +49,7 @@ console.log(`Source-only clean-install fixture: ${fixture}`);
 await assertNoRootDependencies();
 await sourceOnly(join(root, 'lib'), join(fixture, 'lib'));
 await sourceOnly(knowledge, join(fixture, 'knowledge'));
+await sourceOnly(join(root,'experiments/capsule-parameterizer'),join(fixture,'experiments/capsule-parameterizer'));
 await sourceOnly(here, join(fixture, 'mcp'));
 await npm(['ci']);
 await assertNoRootDependencies();

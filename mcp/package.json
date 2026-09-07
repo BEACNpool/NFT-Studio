@@ -19,6 +19,9 @@
   "dependencies": {
     "@emurgo/cardano-serialization-lib-browser-inlined": "17.0.0",
     "@emurgo/cardano-serialization-lib-nodejs": "17.0.0",
+    "@harmoniclabs/cbor": "2.0.2",
+    "@harmoniclabs/plutus-data": "2.0.1",
+    "@harmoniclabs/uplc": "2.0.7",
     "@modelcontextprotocol/node": "2.0.0",
     "@modelcontextprotocol/server": "2.0.0",
     "@noble/hashes": "2.4.0",

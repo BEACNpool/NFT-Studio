@@ -1,0 +1,30 @@
+{
+  "schema": "beacn.music-transaction.evidence.v1",
+  "synthetic": true,
+  "cslVersion": "17.0.0",
+  "baselineBuilderSha256": "e2976d23c593c64502c22ee2dcf4b8e3eb52eef3e70c28aa359a5e3542f6a9f2",
+  "groups": 10,
+  "ordinaryBaselineCases": 6,
+  "music": {
+    "rawFileBytes": 4166,
+    "metadataBytes": 6844,
+    "completeSignedBytes": 7380,
+    "feeLovelace": "480277",
+    "requiredPaymentKeys": 1
+  },
+  "largePackage": {
+    "metadataBytes": 13717,
+    "compactWalletSignedEstimate": 14253,
+    "fragmentedWalletInputsAvailable": 32,
+    "fragmentedWalletRejectedForSignedSize": true
+  },
+  "boundaries": {
+    "liveWallet": false,
+    "chainQuery": false,
+    "chainSubmission": false,
+    "chainInclusion": false,
+    "productionUi": false,
+    "publicMcpMusicTool": false,
+    "privateKeysExported": false
+  }
+}

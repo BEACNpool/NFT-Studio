@@ -1,0 +1,31 @@
+{
+  "commit": "193708c1e5749c50b5c4cfdf705ad68482e83411",
+  "files": [
+    {
+      "path": "lib/studio-transaction.ts",
+      "sha256": "e2976d23c593c64502c22ee2dcf4b8e3eb52eef3e70c28aa359a5e3542f6a9f2",
+      "url": "https://github.com/BEACNpool/NFT-Studio/blob/193708c1e5749c50b5c4cfdf705ad68482e83411/lib/studio-transaction.ts"
+    },
+    {
+      "path": "lib/cardano.ts",
+      "sha256": "359e145cfa457f2b2355ce560aa1ba356102467a74f2a5caec9bfbaf4cd37b02",
+      "url": "https://github.com/BEACNpool/NFT-Studio/blob/193708c1e5749c50b5c4cfdf705ad68482e83411/lib/cardano.ts"
+    },
+    {
+      "path": "lib/studio-intent.ts",
+      "sha256": "61f677bb7c5208be84ef35c5699457510e5b15cd8d4eb9af20e1594c32883883",
+      "url": "https://github.com/BEACNpool/NFT-Studio/blob/193708c1e5749c50b5c4cfdf705ad68482e83411/lib/studio-intent.ts"
+    },
+    {
+      "path": "components/file-mint-dialog.tsx",
+      "sha256": "4b0a82abc5b7af834f05866f51a2e8a24602c39c4b97f35c8aa61040a5a95083",
+      "url": "https://github.com/BEACNpool/NFT-Studio/blob/193708c1e5749c50b5c4cfdf705ad68482e83411/components/file-mint-dialog.tsx"
+    }
+  ],
+  "musicKitManifestSha256": "5fb56cc5d0ed83ddd6561f5ed8b0d9c20d40b10b86a128b815a9655f21f88c94",
+  "musicReleaseLintPatch": {
+    "beforeSha256": "e832e25be76e6be95914ce351a16be33e55042e42326f9e0d86b7faa09b7ec2b",
+    "afterSha256": "f50e763e398406d4b2c5dc822e3c4b23730d910016aef84793a81e7fb3cf106c",
+    "reason": "Narrow already-validated song title chunks to string[] for typed no-base-to-string lint; emitted runtime behavior is unchanged."
+  }
+}

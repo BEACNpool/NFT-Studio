@@ -16,6 +16,12 @@ import {
   type PayloadBundle,
   type PayloadMetadata,
 } from './studio-payload';
+import {
+  MUSIC_RELEASE_PROFILE,
+  musicReleaseMetadata,
+  verifyMusicRelease,
+  type MusicReleasePackage,
+} from './music-release';
 
 export type StudioTransaction = PreparedTransaction & {
   mode: 'nft' | 'data';
@@ -33,6 +39,12 @@ export type StudioTransaction = PreparedTransaction & {
   expirySlot?: number;
 };
 
+export type MusicReleaseTransaction = StudioTransaction & {
+  mode: 'nft';
+  metadataProfile: typeof MUSIC_RELEASE_PROFILE;
+  musicRelease: MusicReleasePackage;
+};
+
 /** Prepares a single transaction. Does not connect, sign, submit, or poll a wallet. */
 export async function buildStudioTransaction(
   C: CSL,
@@ -40,6 +52,81 @@ export async function buildStudioTransaction(
   mode: 'nft' | 'data',
   wallet: WalletState,
   p: Protocol,
+): Promise<StudioTransaction> {
+  return buildStudioTransactionCore(C, bundle, mode, wallet, p);
+}
+
+/** Verifies a whole music package; the shared constructor supplies its metadata.
+ * There is no caller-supplied metadata, policy, recipient, URL, or signing action.
+ */
+export async function buildMusicReleaseTransaction(
+  C: CSL,
+  packageInput: unknown,
+  wallet: WalletState,
+  p: Protocol,
+): Promise<MusicReleaseTransaction> {
+  const walletSnapshot = {
+    changeHex: wallet.changeHex,
+    utxos: [...wallet.utxos],
+  };
+  const protocolSnapshot = { ...p };
+  const musicRelease = await verifyMusicRelease(packageInput);
+  const prepared = await buildStudioTransactionCore(
+    C,
+    musicRelease.bundle,
+    'nft',
+    walletSnapshot,
+    protocolSnapshot,
+    musicRelease,
+  );
+  return {
+    ...prepared,
+    mode: 'nft',
+    metadataProfile: MUSIC_RELEASE_PROFILE,
+    musicRelease,
+  };
+}
+
+/** Compare the current package with a trusted local preparation, before and
+ * after the wallet prompt. This does not authenticate an imported preparation;
+ * ordinary wallet/freshness/signature checks are still required.
+ */
+export async function assertMusicReleaseUnchanged(
+  prepared: MusicReleaseTransaction,
+  packageInput: unknown,
+): Promise<void> {
+  const music = await verifyMusicRelease(packageInput);
+  const reviewed = await verifyMusicRelease(prepared.musicRelease);
+  if (
+    prepared.mode !== 'nft' ||
+    prepared.metadataProfile !== MUSIC_RELEASE_PROFILE ||
+    reviewed.packageHash !== music.packageHash ||
+    prepared.bundle.sha256 !== music.bundle.sha256 ||
+    !prepared.policyId ||
+    !prepared.assetName
+  )
+    throw new Error(
+      'Music files or credits changed. Prepare and review again.',
+    );
+  const expected = await musicReleaseMetadata(music, {
+    policyId: prepared.policyId,
+    assetName: prepared.assetName,
+  });
+  if (JSON.stringify(expected.metadata) !== JSON.stringify(prepared.metadata))
+    throw new Error(
+      'Prepared music metadata changed. Prepare and review again.',
+    );
+}
+
+// One native builder owns coin selection, minting, change and size/fee checks.
+// Only the two exported entry points can select its trusted metadata profile.
+async function buildStudioTransactionCore(
+  C: CSL,
+  bundle: PayloadBundle,
+  mode: 'nft' | 'data',
+  wallet: WalletState,
+  p: Protocol,
+  musicRelease?: MusicReleasePackage,
 ): Promise<StudioTransaction> {
   if (mode !== 'nft' && mode !== 'data')
     throw new Error('Choose NFT or data record.');
@@ -108,7 +195,11 @@ export async function buildStudioTransaction(
     script = C.NativeScript.new_script_all(C.ScriptAll.new(scripts));
     policyId = script.hash().to_hex();
     const identity = await payloadHash(
-      new TextEncoder().encode(inputRef(candidates[0]) + '|' + bundle.sha256),
+      new TextEncoder().encode(
+        inputRef(candidates[0]) +
+          '|' +
+          (musicRelease?.packageHash ?? bundle.sha256),
+      ),
     );
     assetName = 'NFTS' + identity.slice(0, 28);
     asset = C.AssetName.new(new TextEncoder().encode(assetName));
@@ -125,10 +216,13 @@ export async function buildStudioTransaction(
       )
       .build();
   }
-  const metadata = payloadMetadata(
-    bundle,
-    policyId && assetName ? { policyId, assetName } : undefined,
-  );
+  const metadata = musicRelease
+    ? (await musicReleaseMetadata(musicRelease, { policyId, assetName }))
+        .metadata
+    : payloadMetadata(
+        bundle,
+        policyId && assetName ? { policyId, assetName } : undefined,
+      );
   const general = C.GeneralTransactionMetadata.new();
   for (const [label, value] of Object.entries(metadata))
     general.insert(

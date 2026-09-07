@@ -1,0 +1,61 @@
+{
+  "schema": "beacn.capsule-parameter-sources.v1",
+  "sources": [
+    {
+      "id": "aiken-apply",
+      "url": "https://raw.githubusercontent.com/aiken-lang/aiken/8949565a9969278846ffefe30bc3b892029dd318/crates/aiken-project/src/blueprint/validator.rs",
+      "sha256": "9fc98dde69269e9066f4e66c21f1b6f31463e285320d938b3c183423925784c3",
+      "bytes": 34283,
+      "accessedAt": "2026-09-07T06:50:39.099353+00:00",
+      "note": "Aiken validates the next schema, applies Data, and removes the next parameter."
+    },
+    {
+      "id": "aiken-program",
+      "url": "https://raw.githubusercontent.com/aiken-lang/aiken/8949565a9969278846ffefe30bc3b892029dd318/crates/uplc/src/ast.rs",
+      "sha256": "9c50e5ea452853a0bd5cd58a73e003df3b7bff13470ac51583b9066d0f3fcc21",
+      "bytes": 30398,
+      "accessedAt": "2026-09-07T06:50:39.201124+00:00",
+      "note": "Program.apply_data constructs Apply(Constant(Data)); PlutusV3 hashes the CBOR-serialized program."
+    },
+    {
+      "id": "harmonic-uplc-encoder",
+      "url": "https://raw.githubusercontent.com/HarmonicLabs/uplc/3e10e46e89c184b92886f38c39e9057063dffd9f/src/UPLCEncoder/UPLCEncoder.ts",
+      "sha256": "8b20acee3b25065c926409c70b05d9ade0a46310961efe3c9f890de23a190ace",
+      "bytes": 8390,
+      "accessedAt": "2026-09-07T06:50:39.296362+00:00",
+      "note": "The maintained UPLC library performs Flat serialization; adapter has no Flat encoder."
+    },
+    {
+      "id": "harmonic-uplc-decoder",
+      "url": "https://raw.githubusercontent.com/HarmonicLabs/uplc/3e10e46e89c184b92886f38c39e9057063dffd9f/src/UPLCDecoder/UPLCDecoder.ts",
+      "sha256": "1b6cbad1e1fad7af50601d7153333641f7c9e47c2b74de7583d841d2caf443c4",
+      "bytes": 10003,
+      "accessedAt": "2026-09-07T06:50:39.415185+00:00",
+      "note": "Library parser for the pinned known program."
+    },
+    {
+      "id": "lucid-example",
+      "url": "https://raw.githubusercontent.com/Anastasia-Labs/lucid-evolution/8a379c3bc579e623a1efb5f444bf54e78979d4e6/packages/utils/src/scripts.ts",
+      "sha256": "8846143d99d5f5946d203c4ec35a71bf3b4ff518b40593dadd6827b2c19fb0de",
+      "bytes": 5685,
+      "accessedAt": "2026-09-07T06:50:39.539114+00:00",
+      "note": "Current Lucid applies parameters with Harmonic UPLC Application and UPLCConst.data. Its package uses v1; this adapter directly tests pinned v2 API."
+    },
+    {
+      "id": "ledger-cddl",
+      "url": "https://raw.githubusercontent.com/IntersectMBO/cardano-ledger/dae069780697449fbd9cda47f03fb72745b0b8c0/eras/conway/impl/cddl/data/conway.cddl",
+      "sha256": "316ed8ee090ea172983083329e849f24f4360a236d26be0a6f2094c6078f1e1f",
+      "bytes": 24581,
+      "accessedAt": "2026-09-07T06:50:39.613624+00:00",
+      "note": "Transaction input index uint .size 2 supports the chosen 0..65535 profile bound."
+    },
+    {
+      "id": "capsule-blueprint",
+      "url": "https://raw.githubusercontent.com/BEACNpool/NFT-Studio/d2003bec53b944c7b71bd50caa2a14002008c7ea/contracts/state-capsule/plutus.json",
+      "sha256": "26f9377baf76d713c1aaa1f447dceb59e7ffa0b58728f59a617ae91e40c738f4",
+      "bytes": 23963,
+      "accessedAt": "2026-09-07T06:50:39.730690+00:00",
+      "note": "Exact trusted Capsule blueprint, locally frozen before any parser."
+    }
+  ]
+}

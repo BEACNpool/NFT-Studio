@@ -1,0 +1,82 @@
+{
+  "release": {
+    "release_type": "Multiple",
+    "release_title": "Signal Studies",
+    "release_date": "2026-09-07",
+    "catalog_number": "TEST-ONLY-001",
+    "visual_artist": "BEACN Labs fixture"
+  },
+  "tracks": [
+    {
+      "fileName": "one-second.wav",
+      "song": {
+        "song_title": "Signal One",
+        "song_duration": "PT1S",
+        "track_number": 1,
+        "artists": [
+          {
+            "name": "BEACN Labs fixture"
+          }
+        ],
+        "copyright": {
+          "master": "Original synthetic test recording; declaration only",
+          "composition": "Original synthetic test sequence; declaration only"
+        },
+        "genres": [
+          "Electronic"
+        ]
+      }
+    },
+    {
+      "fileName": "one-second.mid",
+      "song": {
+        "song_title": "Signal Two",
+        "song_duration": "PT1S",
+        "track_number": 2,
+        "artists": [
+          {
+            "name": "BEACN Labs fixture"
+          }
+        ],
+        "copyright": {
+          "master": "Original synthetic test recording; declaration only",
+          "composition": "Original synthetic test sequence; declaration only"
+        },
+        "genres": [
+          "Electronic"
+        ],
+        "authors": [
+          {
+            "name": "Fixture Author A",
+            "share": "33.33%"
+          },
+          {
+            "name": "Fixture Author B",
+            "share": "66.67%"
+          }
+        ],
+        "contributing_artists": [
+          {
+            "name": "Fixture Performer",
+            "role": [
+              "sequence programming",
+              "synthesis"
+            ]
+          }
+        ],
+        "featured_artists": [
+          {
+            "name": "Fixture Guest",
+            "links": {
+              "website": "https://example.com/"
+            }
+          }
+        ],
+        "special_thanks": [
+          "Local codec testers"
+        ],
+        "language": "en-US"
+      }
+    }
+  ]
+}

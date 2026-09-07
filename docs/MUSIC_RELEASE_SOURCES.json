@@ -1,0 +1,64 @@
+{
+  "sources": [
+    {
+      "path": "CIP-0060/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0060/README.md",
+      "commit": "05ee6bb05982289dbe00c4187b9d54cf90e2e276",
+      "sha256": "67a113bfb52385f83b25f289c8b6840b627b4cc0189351610747445a68babc60",
+      "bytes": 46854,
+      "accessedAt": "2026-09-07T06:26:39.920833+00:00",
+      "license": "CC-BY-4.0",
+      "attribution": "CIP-60 authors listed in the linked specification"
+    },
+    {
+      "path": "CIP-0060/cddl/version-3.cddl",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0060/cddl/version-3.cddl",
+      "commit": "05ee6bb05982289dbe00c4187b9d54cf90e2e276",
+      "sha256": "861597148df558720961aca3d88dfe26342236dc5a6f4c7d275c0b3bb3fdb1ff",
+      "bytes": 2530,
+      "accessedAt": "2026-09-07T06:26:40.025283+00:00",
+      "license": "CC-BY-4.0",
+      "attribution": "CIP-60 authors listed in the linked specification"
+    },
+    {
+      "path": "CIP-0025/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0025/README.md",
+      "commit": "05ee6bb05982289dbe00c4187b9d54cf90e2e276",
+      "sha256": "cdd012a0d916e5b100c3ee702ae1b04f0f52756a4bfc4fcc585d1a10810dfea3",
+      "bytes": 9032,
+      "accessedAt": "2026-09-07T06:26:40.135039+00:00",
+      "license": "CC-BY-4.0",
+      "attribution": "Alessandro Konrad; Smaug"
+    },
+    {
+      "path": "eras/conway/impl/cddl/data/conway.cddl",
+      "url": "https://raw.githubusercontent.com/IntersectMBO/cardano-ledger/dae069780697449fbd9cda47f03fb72745b0b8c0/eras/conway/impl/cddl/data/conway.cddl",
+      "commit": "dae069780697449fbd9cda47f03fb72745b0b8c0",
+      "sha256": "316ed8ee090ea172983083329e849f24f4360a236d26be0a6f2094c6078f1e1f",
+      "bytes": 24581,
+      "accessedAt": "2026-09-07T06:39:26.538072+00:00",
+      "license": "Apache-2.0",
+      "attribution": "IntersectMBO/cardano-ledger contributors"
+    }
+  ],
+  "studioBoundary": {
+    "commit": "e237753160b816a77604072818da858b281fc833",
+    "files": [
+      {
+        "path": "lib/studio-payload.ts",
+        "sha256": "ed452542debb915ba0983ae4e9e9a86870641c96ba6be69e04b518e06eda460d",
+        "url": "https://github.com/BEACNpool/NFT-Studio/blob/e237753160b816a77604072818da858b281fc833/lib/studio-payload.ts"
+      },
+      {
+        "path": "lib/studio-transaction.ts",
+        "sha256": "e2976d23c593c64502c22ee2dcf4b8e3eb52eef3e70c28aa359a5e3542f6a9f2",
+        "url": "https://github.com/BEACNpool/NFT-Studio/blob/e237753160b816a77604072818da858b281fc833/lib/studio-transaction.ts"
+      },
+      {
+        "path": "lib/studio-intent.ts",
+        "sha256": "61f677bb7c5208be84ef35c5699457510e5b15cd8d4eb9af20e1594c32883883",
+        "url": "https://github.com/BEACNpool/NFT-Studio/blob/e237753160b816a77604072818da858b281fc833/lib/studio-intent.ts"
+      }
+    ]
+  }
+}

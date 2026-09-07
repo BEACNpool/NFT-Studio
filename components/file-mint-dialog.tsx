@@ -30,8 +30,15 @@ import {
 } from '@/lib/cardano';
 import {
   buildStudioTransaction,
+  buildMusicReleaseTransaction,
+  assertMusicReleaseUnchanged,
+  type MusicReleaseTransaction,
   type StudioTransaction,
 } from '@/lib/studio-transaction';
+import {
+  MUSIC_RELEASE_PROFILE,
+  type MusicReleasePackage,
+} from '@/lib/music-release';
 import { verifyPayloadBundle, type PayloadBundle } from '@/lib/studio-payload';
 import {
   submitTransactionOnce,
@@ -40,13 +47,13 @@ import {
 } from '@/lib/studio-submission';
 import { saveReceipt, type StudioReceipt } from '@/lib/studio-receipts';
 import { download, filename, jsonBlob } from '@/lib/export';
-export function FileMintDialog({
-  bundle,
-  mode,
-}: {
-  bundle: PayloadBundle;
-  mode: 'nft' | 'data';
-}) {
+type FileMintInput =
+  | { bundle: PayloadBundle; mode: 'nft' | 'data'; musicPackage?: never }
+  | { musicPackage: MusicReleasePackage; bundle?: never; mode?: never };
+export function FileMintDialog(input: FileMintInput) {
+  const musicPackage = input.musicPackage;
+  const bundle = musicPackage ? musicPackage.bundle : input.bundle!;
+  const mode = musicPackage ? 'nft' : input.mode!;
   const [open, setOpen] = useState(false),
     [wallets, setWallets] = useState<ReturnType<typeof findWallets>>([]),
     [api, setApi] = useState<WalletAPI | null>(null),
@@ -65,7 +72,9 @@ export function FileMintDialog({
     };
   }, []);
   const lock = useRef(false),
-    identity = bundle.sha256 + '|' + mode,
+    identity = musicPackage
+      ? musicPackage.packageHash + '|music'
+      : bundle.sha256 + '|' + mode,
     latest = useRef(identity);
   latest.current = identity;
   useEffect(() => {
@@ -165,8 +174,10 @@ export function FileMintDialog({
         readWallet(api),
         fetchProtocol(),
       ]);
-      const tx = await buildStudioTransaction(C, bundle, mode, w, p);
-      if (snapshot !== latest.current)
+      const tx = musicPackage
+        ? await buildMusicReleaseTransaction(C, musicPackage, w, p)
+        : await buildStudioTransaction(C, bundle, mode, w, p);
+      if (snapshot !== latest.current || !mounted.current)
         throw new Error('Your content changed. Review again.');
       setPrepared(tx);
     });
@@ -182,6 +193,11 @@ export function FileMintDialog({
       assertFreshReview(prepared, live);
       assertWalletUnchanged(C, prepared, wallet);
       await verifyPayloadBundle(bundle);
+      if (musicPackage)
+        await assertMusicReleaseUnchanged(
+          prepared as MusicReleaseTransaction,
+          musicPackage,
+        );
       if (
         snapshot !== latest.current ||
         prepared.bundle.sha256 !== bundle.sha256
@@ -195,6 +211,11 @@ export function FileMintDialog({
         readWallet(api),
       ]);
       assertWalletUnchanged(C, prepared, state);
+      if (musicPackage)
+        await assertMusicReleaseUnchanged(
+          prepared as MusicReleaseTransaction,
+          musicPackage,
+        );
       if (snapshot !== latest.current)
         throw new Error(
           'Content changed while signing. Nothing was submitted.',
@@ -213,6 +234,12 @@ export function FileMintDialog({
         bytes: signed.hex.length / 2,
         signedHex: signed.hex,
         prepared,
+        ...(musicPackage
+          ? {
+              metadataProfile: MUSIC_RELEASE_PROFILE,
+              musicPackageHash: musicPackage.packageHash,
+            }
+          : {}),
       };
       setReceipt(record);
       saveReceipt(record);
@@ -370,6 +397,12 @@ export function FileMintDialog({
                           : 'Publish a data record · no token'}
                       </dd>
                     </div>
+                    {musicPackage && (
+                      <div>
+                        <dt>Release hash · files and credits</dt>
+                        <dd className="ns-break">{musicPackage.packageHash}</dd>
+                      </div>
+                    )}
                     <div>
                       <dt>Network fee</dt>
                       <dd>{ada(prepared.fee)} ADA</dd>
@@ -402,6 +435,25 @@ export function FileMintDialog({
                       afterward. This is not an enforced lifetime supply cap.
                     </p>
                   )}
+                  {musicPackage && (
+                    <details className="ns-metadata" open>
+                      <summary>Music credits in this transaction</summary>
+                      <p className="ns-fineprint">
+                        These are your public declarations. Songwriting shares
+                        do not configure payments.
+                      </p>
+                      <pre>
+                        {JSON.stringify(
+                          {
+                            release: musicPackage.release,
+                            tracks: musicPackage.tracks,
+                          },
+                          null,
+                          2,
+                        )}
+                      </pre>
+                    </details>
+                  )}
                   <details className="ns-metadata">
                     <summary>Exact transaction metadata & files</summary>
                     <pre>{JSON.stringify(prepared.metadata, null, 2)}</pre>
@@ -433,8 +485,9 @@ export function FileMintDialog({
                       onChange={(e) => setApproved(e.target.checked)}
                       disabled={!!busy}
                     />
-                    I reviewed the exact files, destination, fee and publishing
-                    rules. This content will be public.
+                    I reviewed the exact files
+                    {musicPackage ? ', music credits' : ''}, destination, fee
+                    and publishing rules. This content will be public.
                   </label>
                   <Button
                     className="ns-primary"

@@ -1,0 +1,27 @@
+{
+  "schema": "beacn.music-receipt-baseline.v1",
+  "sourceCommit": "0c4c1524a5c038dc02eed73bb34d756d94ac60b2",
+  "sharedFiles": [
+    {
+      "path": "lib/artifact-passport.ts",
+      "sha256": "148c4975fb52be312ea80b389593edffa53cd085fbee56b11081ae59f1ea802b"
+    },
+    {
+      "path": "lib/studio-payload.ts",
+      "sha256": "ed452542debb915ba0983ae4e9e9a86870641c96ba6be69e04b518e06eda460d"
+    },
+    {
+      "path": "lib/cardano.ts",
+      "sha256": "359e145cfa457f2b2355ce560aa1ba356102467a74f2a5caec9bfbaf4cd37b02"
+    }
+  ],
+  "recoveryPanelAtCommitSha256": "4802829a04bcb16d9fbf242930743319fddfdc1525bbc271b7ee6d69b1083ca0",
+  "cslNode": "17.0.0",
+  "cslBrowser": "17.0.0",
+  "nobleHashes": "2.4.0",
+  "dependencies": {
+    "musicMetadataManifestSha256": "5fb56cc5d0ed83ddd6561f5ed8b0d9c20d40b10b86a128b815a9655f21f88c94",
+    "musicTransactionsManifestSha256": "35b04dd89b09fab006733231c2824a0e8a8998289578508f9fce2ab80b7c3818"
+  },
+  "rootFilesChangedByThisKit": []
+}

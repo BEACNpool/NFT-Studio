@@ -1,3 +1,4 @@
+import {PUBLIC_TOOL_NAMES} from '../integration/tool-names.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as C from '@emurgo/cardano-serialization-lib-nodejs';
@@ -27,7 +28,7 @@ test('Modern and legacy SDKs prepare real stateless native NFT/data CBOR in Work
   for(const mode of ['auto','legacy']){
     const ctx=await connect(mode);
     try{
-      const tools=(await ctx.client.listTools()).tools;assert.equal(tools.length,9);
+      const tools=(await ctx.client.listTools()).tools;assert.deepEqual(tools.map(t=>t.name).sort(),PUBLIC_TOOL_NAMES);
       const added=tools.find(item=>item.name==='prepare_unsigned_transaction');assert.deepEqual(added.annotations,{readOnlyHint:true,destructiveHint:false,idempotentHint:false,openWorldHint:true});
       assert.ok(!tools.some(item=>['sign_transaction','submit_transaction','verify_signed_transaction'].includes(item.name)));
       const caps=unpack(await call(ctx.client,'studio_capabilities'));assert.equal(caps.unsignedPreparation.chainUnspentVerified,false);assert.equal(caps.unsignedPreparation.serverState,'none');assert.match(caps.privacy,/wallet addresses and UTxO CBOR/);

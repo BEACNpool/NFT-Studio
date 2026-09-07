@@ -1,0 +1,56 @@
+{
+  "packages": [
+    {
+      "name": "@harmoniclabs/uplc",
+      "version": "2.0.7",
+      "url": "https://registry.npmjs.org/@harmoniclabs%2fuplc/2.0.7",
+      "metadataSha256": "cb170d540bd010769079244b25358d56be480165e92ba6914e830c18d759a8aa",
+      "repository": {
+        "url": "git+https://github.com/HarmonicLabs/uplc.git",
+        "type": "git"
+      },
+      "gitHead": "3e10e46e89c184b92886f38c39e9057063dffd9f",
+      "distIntegrity": "sha512-8x65SO0QU9koL4Q0Iaacfl1dOTBrMoKVi6GmQGq0B7GPHSpeL9VHPj8mA4FyPIpW66Am/sF+cGrBko0DefXYXw==",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "@harmoniclabs/plutus-data",
+      "version": "2.0.1",
+      "url": "https://registry.npmjs.org/@harmoniclabs%2fplutus-data/2.0.1",
+      "metadataSha256": "f3a591aa05274f07180966118300c917d6f90c2efc2f112d6b5570c645994d94",
+      "repository": {
+        "url": "git+https://github.com/HarmonicLabs/plutus-data.git",
+        "type": "git"
+      },
+      "gitHead": "8c74b82a35f3c1711ef5c75d5379eada4adaf8ed",
+      "distIntegrity": "sha512-JOU1SgcFdss9cTR4fifpoqXIIiimv837OC4jX0yRzT97ACxOVNFy7DvqfG2ur5k50+RzGdF3qYtEaV8dbTJ2Qw==",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "@harmoniclabs/cbor",
+      "version": "2.0.2",
+      "url": "https://registry.npmjs.org/@harmoniclabs%2fcbor/2.0.2",
+      "metadataSha256": "6aedb3eb9dd46c274e7e1afe689a3ceab1c8b215258d426f4e06b8278add50a8",
+      "repository": {
+        "url": "git+https://github.com/HarmonicLabs/cbor.git",
+        "type": "git"
+      },
+      "gitHead": "7073ee057c29d602d6b14c1be3a693957e717907",
+      "distIntegrity": "sha512-D4rWOZqux7YScgXwBLoTomB7YkBsjOh+JLJZcIxauZn9UAio0yLORBfN1kblmQ1Ta32hZMQ+H0hJ08CPYWfY4A==",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "@noble/hashes",
+      "version": "2.4.0",
+      "url": "https://registry.npmjs.org/@noble%2fhashes/2.4.0",
+      "metadataSha256": "f335f4cd79ac84185b74e6fad9439ebbfb29c96fdb101fbfd99e729cd5fbe2c8",
+      "repository": {
+        "url": "git+https://github.com/paulmillr/noble-hashes.git",
+        "type": "git"
+      },
+      "gitHead": "663c2aeeffc308ac0cded59bd32f7c212adacfc2",
+      "distIntegrity": "sha512-X5XaVWZIBCT7HHZGm5I7ZQXDwLG+bGXuSrMQAW+7Zvl87h1kmc1ZB1VSRJcpUfoUrGQp4Fkoxm5kZ+Ms+aW+eA==",
+      "license": "MIT"
+    }
+  ]
+}
