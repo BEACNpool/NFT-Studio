@@ -11,7 +11,7 @@ https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp
 ```
 
 Connect with Streamable HTTP and no API key. This endpoint exposes **nine tools**
-and **55 resources**: Cardano knowledge, exact payloads, browser mint requests,
+and **56 resources**: Cardano knowledge, exact payloads, browser mint requests,
 proof records, and unsigned native NFT/data transactions. The unsigned tool
 receives an explicitly supplied wallet snapshot and uses fresh public network
 parameters. No tool connects a wallet, signs or submits a transaction.
@@ -42,11 +42,12 @@ match/mismatch, resource discovery, browser-origin checks, and synthetic NFT/dat
 unsigned preparation on 2026-09-07. Transaction hashes, exact metadata, output
 destinations and ADA/token conservation were checked independently. These
 fabricated inputs are not a claim of chain availability or wallet ownership.
-The [initial eight-tool receipt](verification/mcp-public-initial-20260907.json) is retained.
+The [initial eight-tool receipt](verification/mcp-public-initial-20260907.json) and
+[first unsigned-builder receipt](verification/mcp-native-20260907.json) are retained.
 Reproduce the read-only check using synthetic content:
 
 ```sh
-node mcp/integration/verify-live-endpoint.mjs https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp --expected-tools 9
+node mcp/integration/verify-live-endpoint.mjs https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp --expected-tools 9 --expected-resources 56
 ```
 
 The Sites front dispatcher reserves `/mcp`; this service uses the application's
@@ -98,7 +99,7 @@ Run the compiled file directly. `npm run` can write banners to stdout, which is 
 | `prepare_unsigned_transaction` | Actual unsigned transaction, identity, fee, outputs, protocol quote and review expiry |
 | `verify_signed_transaction` | External witness verification, unchanged body/metadata and complete signed size/fee check; signed CBOR returned to caller |
 
-Resources expose `nft-studio://capabilities`, a knowledge index and each allowed knowledge entry. Tools accept file **bytes as canonical base64**, not local paths, network URLs or commands. They never execute HTML or imported programs.
+Resources expose `nft-studio://capabilities`, a knowledge index, each allowed knowledge entry, and the fixed `nft-studio://implementations` register. Knowledge entries keep their original research status; sibling implementation IDs link to separately scoped evidence. The live verifier checks that the returned register matches the exact release source, all linked entries resolve, and unrelated entries have empty links. It does not fetch evidence URLs or rerun their recorded experiments. Tools accept file **bytes as canonical base64**, not local paths, network URLs or commands. They never execute HTML or imported programs.
 
 Image, music, game, app, motion and file/data payloads use the shared compact packager. A new package has at most eight files and **12,000 total raw bytes**; NFT mode requires an image cover. Full signed transactions must also fit live network limits and the Studio's **16,384-byte** cap, so some payloads need to be smaller. The builder charges no platform fee and rejects network fees above **2 ADA**.
 

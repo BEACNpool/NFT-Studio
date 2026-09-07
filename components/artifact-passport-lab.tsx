@@ -5,6 +5,7 @@ import { Button } from './ui/button';
 import { PayloadPreview } from './file-workbench';
 import { loadCSL, errorText } from '@/lib/cardano';
 import { download, filename, jsonBlob } from '@/lib/export';
+import { assetPath } from '@/lib/paths';
 import {
   ARTIFACT_PASSPORT_LIMITS,
   artifactPassportBytes,
@@ -21,6 +22,7 @@ export function ArtifactPassportLab() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [selected, setSelected] = useState(0);
+  const [isDemo, setIsDemo] = useState(false);
   const receiptInput = useRef<HTMLInputElement>(null);
   const passportInput = useRef<HTMLInputElement>(null);
   const transactionInput = useRef<HTMLInputElement>(null);
@@ -34,7 +36,7 @@ export function ArtifactPassportLab() {
 
   async function open(
     file: File | undefined,
-    mode: 'receipt' | 'passport' | 'transaction',
+    mode: 'receipt' | 'passport' | 'transaction' | 'demo',
   ) {
     if (!file) return;
     const current = ++generation.current;
@@ -44,10 +46,11 @@ export function ArtifactPassportLab() {
     if (mode !== 'transaction') {
       setPassport(null);
       setSelected(0);
+      setIsDemo(false);
     }
     try {
       const limit =
-        mode === 'passport'
+        mode === 'passport' || mode === 'demo'
           ? ARTIFACT_PASSPORT_LIMITS.passportBytes
           : ARTIFACT_PASSPORT_LIMITS.receiptBytes;
       if (file.size > limit)
@@ -61,7 +64,7 @@ export function ArtifactPassportLab() {
       if (current !== generation.current) return;
       let next: ArtifactPassport;
       let transactionCborHex: string | undefined;
-      if (mode === 'passport') {
+      if (mode === 'passport' || mode === 'demo') {
         next = parseArtifactPassport(bytes);
       } else {
         const receipt = JSON.parse(
@@ -91,6 +94,39 @@ export function ArtifactPassportLab() {
         return;
       }
       setPassport(next);
+      if (mode === 'demo') setIsDemo(true);
+    } catch (e) {
+      if (current === generation.current) setError(errorText(e));
+    } finally {
+      if (current === generation.current) setBusy(false);
+    }
+  }
+
+  async function loadDemo() {
+    const current = ++generation.current;
+    setBusy(true);
+    setError('');
+    setPassport(null);
+    setReport(null);
+    setIsDemo(false);
+    try {
+      const response = await fetch(
+        assetPath('/labs/signal-demo.passport.json'),
+        {
+          signal: AbortSignal.timeout(10000),
+        },
+      );
+      if (!response.ok) throw new Error('The example could not be loaded.');
+      const bytes = new Uint8Array(await response.arrayBuffer());
+      if (bytes.byteLength > ARTIFACT_PASSPORT_LIMITS.passportBytes)
+        throw new Error('The example exceeds the passport limit.');
+      if (current !== generation.current) return;
+      await open(
+        new File([bytes], 'signal-demo.passport.json', {
+          type: 'application/json',
+        }),
+        'demo',
+      );
     } catch (e) {
       if (current === generation.current) setError(errorText(e));
     } finally {
@@ -118,6 +154,13 @@ export function ArtifactPassportLab() {
             passport someone shared. All checks run in this browser.
           </p>
           <div className="ns-button-row">
+            <Button
+              variant="outline"
+              disabled={busy}
+              onClick={() => void loadDemo()}
+            >
+              <BookOpenCheck size={17} /> Try an unminted example
+            </Button>
             <Button
               variant="outline"
               disabled={busy}
@@ -181,6 +224,19 @@ export function ArtifactPassportLab() {
           </div>
           {passport && (
             <>
+              {isDemo && (
+                <p className="ns-lab-muted" data-passport-demo>
+                  This example uses fabricated transaction inputs. It was never
+                  signed, submitted or confirmed.{' '}
+                  <a
+                    href={assetPath('/labs/signal-demo.receipt.json')}
+                    download="signal-demo.receipt.json"
+                  >
+                    Download its example receipt
+                  </a>{' '}
+                  to try the separate transaction check.
+                </p>
+              )}
               <div className="ns-hash">
                 <span>Passport SHA-256</span>
                 <code>{passport.passportHash}</code>
@@ -239,6 +295,7 @@ export function ArtifactPassportLab() {
                     setReport(null);
                     setError('');
                     setBusy(false);
+                    setIsDemo(false);
                   }}
                 >
                   <X size={18} />

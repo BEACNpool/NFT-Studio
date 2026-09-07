@@ -570,6 +570,11 @@
   font-size: 15px;
   line-height: 1.7;
 }
+.ns-passport-lab [data-passport-demo] a {
+  color: #d3baf8;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .ns-passport-report {
   margin-top: 24px;
 }

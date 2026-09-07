@@ -530,6 +530,35 @@ const fill = (page, selector, text) =>
     const receiptPath = path.join(tmp, 'synthetic.receipt.json');
     fs.writeFileSync(receiptPath, JSON.stringify(receipt));
     await click(page, 'Artifact passport');
+    await click(page, 'Try an unminted example');
+    await has(page, 'BEACN Signal — unminted demo');
+    await has(page, 'never signed, submitted or confirmed');
+    assert.equal(
+      await page.$eval(
+        '[data-passport-check="transaction-binding"]',
+        (e) => e.dataset.status,
+      ),
+      'not-checked',
+    );
+    assert.equal(
+      await page.$eval(
+        '[data-passport-check="receipt-observation"]',
+        (e) => e.dataset.status,
+      ),
+      'unverified',
+    );
+    assert.ok(
+      await page.$(
+        '[data-passport-demo] a[download="signal-demo.receipt.json"]',
+      ),
+    );
+    if (screenshotDir) {
+      await page.screenshot({
+        path: path.join(screenshotDir, 'passport-signal-demo.png'),
+        fullPage: true,
+      });
+    }
+    await click(page, 'Clear passport');
     await (await page.$('[data-passport-receipt]')).uploadFile(receiptPath);
     await has(page, 'Local content verified');
     await page.waitForSelector(

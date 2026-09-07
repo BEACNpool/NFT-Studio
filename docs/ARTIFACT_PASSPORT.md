@@ -87,3 +87,16 @@ Eight test groups cover NFT/data adaptation, sanitized exports, optional transac
 The independent CPython oracle uses only the standard library: it recomputes canonical passport SHA-256, transaction-body BLAKE2b-256 and auxiliary-data BLAKE2b-256 for both fixtures. These checks are byte evidence, not full Cardano or build verification. The code and fixtures are original BEACN material under the repository license.
 
 The design follows the existing [artifact-passport research guide](../knowledge/guides/artifact-passports.md) and [admission policy](../knowledge/ADMISSION.md). It does not claim CIP-88 authentication, CIP-171 build conformance or CIP-190 publication. Those require additional protocols and evidence.
+
+## Try it without a wallet
+
+In Labs → Artifact passport, choose **Try an unminted example**. The original
+BEACN Signal SVG and text travel inside its passport. Export it, reopen it,
+and download its example receipt to exercise the optional transaction check.
+The example has fabricated inputs and a public dummy payment-key hash; it was
+never signed, submitted or confirmed. Its saved observation is `unknown`.
+
+`node scripts/build-passport-demo.mjs --check` reproduces the two public files
+byte for byte using the actual shared builder, a fixed clock and blocked network
+access. The historical receipt field `signedHex` contains unsigned CBOR in this
+explicitly marked demonstration. No private key is created or used.
