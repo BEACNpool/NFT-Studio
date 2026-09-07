@@ -1,0 +1,638 @@
+/* One app shell at every screen size. The tools keep their existing behavior. */
+.ns-mobile-app {
+  --app-dock-clearance: 104px;
+  min-height: 100dvh;
+  background:
+    radial-gradient(ellipse at 50% 0, #20182c55, transparent 620px), #0d0d12;
+}
+.ns-mobile-app .ns-main-wrap {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  background: transparent;
+}
+.ns-mobile-app .ns-topbar {
+  height: auto;
+  min-height: 64px;
+  padding: env(safe-area-inset-top) max(24px, env(safe-area-inset-right)) 0
+    max(24px, env(safe-area-inset-left));
+  box-sizing: border-box;
+  background: #101016ec;
+}
+.ns-topbar-inner {
+  width: 100%;
+  max-width: 1160px;
+  min-height: 64px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.ns-app-brand {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #f2ebfa;
+  font-size: 20px;
+  font-weight: 650;
+  letter-spacing: -0.7px;
+  white-space: nowrap;
+  border-radius: 10px;
+}
+.ns-app-brand > span > span {
+  font-weight: 450;
+}
+.ns-app-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: #d0bfff;
+  background: #292036;
+  border: 1px solid #47365e;
+  border-radius: 11px;
+}
+.ns-mobile-app .ns-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ns-help-button {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  color: #b7acc7;
+  border-radius: 12px;
+}
+.ns-help-button:hover,
+.ns-help-button[aria-current] {
+  color: #ecdeff;
+  background: #2a2036;
+}
+.ns-mobile-app .ns-wallet-button {
+  min-height: 44px;
+  padding: 10px 14px;
+  font-size: 14px;
+  gap: 8px;
+  border-radius: 12px;
+}
+.ns-mobile-app .ns-wallet-button span {
+  max-width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ns-mobile-app .ns-main {
+  width: 100%;
+  max-width: 1208px;
+  min-height: calc(100dvh - 140px);
+  margin: 0 auto;
+  padding: 32px 24px var(--app-dock-clearance);
+}
+.ns-mobile-app [tabindex='-1']:focus {
+  outline: none;
+}
+.ns-mobile-app .ns-heading,
+.ns-mobile-app .ns-page-intro {
+  margin-bottom: 24px;
+}
+.ns-mobile-app .ns-heading h1,
+.ns-mobile-app .ns-page-intro h1 {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin: 0 0 8px;
+}
+.ns-mobile-app .ns-heading p:not(.ns-eyebrow),
+.ns-mobile-app .ns-page-intro > p:not(.ns-eyebrow) {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #b3aabd;
+}
+.ns-mobile-app .ns-home-heading {
+  align-items: center;
+  margin-bottom: 26px;
+}
+.ns-mobile-app .ns-home-heading .ns-eyebrow {
+  color: #b6a1d0;
+  font-size: 11px;
+  letter-spacing: 1.8px;
+  margin: 0 0 10px;
+}
+.ns-mobile-app .ns-draft-link {
+  min-height: 44px;
+}
+.ns-mobile-app .ns-mode-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.ns-mobile-app .ns-mode {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  grid-column: auto;
+  grid-row: auto;
+  min-height: 174px;
+  padding: 20px;
+  gap: 22px;
+  overflow: hidden;
+  border: 1px solid #302b3a;
+  border-radius: 20px;
+  background: linear-gradient(125deg, #211c2a, #17141e);
+  text-align: left;
+  isolation: isolate;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease;
+}
+.ns-mobile-app .ns-mode:hover {
+  transform: none;
+  border-color: var(--mode-accent);
+  background: #282132;
+  box-shadow: none;
+}
+.ns-mobile-app .ns-mode:active {
+  background: #30253d;
+}
+.ns-format-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 14px;
+  color: var(--mode-accent);
+  background: color-mix(in srgb, var(--mode-accent) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--mode-accent) 15%, transparent);
+}
+.ns-card-art {
+  position: absolute;
+  z-index: -1;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  right: -25px;
+  top: -27px;
+  opacity: 0.38;
+  border-radius: 50%;
+  mask-image: radial-gradient(closest-side, #000 45%, transparent);
+  pointer-events: none;
+}
+.ns-mobile-app .ns-mode .ns-mode-content {
+  position: relative;
+  padding: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+.ns-mobile-app .ns-mode h2 {
+  color: #f0eaf7;
+  font-size: 18px;
+  font-weight: 550;
+  letter-spacing: -0.4px;
+  line-height: 1.3;
+  margin: 0 0 5px;
+}
+.ns-mobile-app .ns-mode p {
+  max-width: none;
+  color: #b1a6bf;
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+}
+.ns-card-arrow {
+  position: absolute;
+  top: 21px;
+  right: 19px;
+  color: #8c809e;
+}
+.ns-start-hint {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: #a89ab9;
+  font-size: 13px;
+  margin: 22px 0 0;
+}
+.ns-start-hint svg {
+  color: #b8caaf;
+}
+.ns-app-nav {
+  position: fixed;
+  z-index: 30;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: 420px;
+  max-width: calc(100% - 32px);
+  padding: 6px;
+  border: 1px solid #44334f;
+  border-radius: 22px;
+  background: #1b1424f5;
+  box-shadow: 0 8px 36px #0008;
+  backdrop-filter: blur(20px);
+}
+.ns-app-nav button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  min-height: 58px;
+  padding: 8px 4px;
+  border-radius: 16px;
+  color: #ac9cbd;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.ns-app-nav button[aria-current] {
+  color: #e6d5ff;
+  background: #382647;
+}
+.ns-app-nav button:hover {
+  color: #f0e5ff;
+  background: #30233e;
+}
+.ns-mobile-app .ns-main-footer {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 18px 24px 112px;
+  font-size: 11px;
+  letter-spacing: 0.6px;
+}
+.ns-mobile-app .ns-back {
+  min-height: 44px;
+  margin: -12px 0 8px;
+  font-size: 14px;
+  gap: 8px;
+}
+.ns-mobile-app .ns-workbench-heading .ns-eyebrow {
+  display: none;
+}
+.ns-mobile-app .ns-workbench-heading h1 {
+  font-size: 28px;
+}
+.ns-mobile-app .ns-workbench-footer,
+.ns-mobile-app .ns-creator-footer {
+  bottom: var(--app-dock-clearance);
+}
+.ns-mobile-app .ns-workbench-heading button,
+.ns-mobile-app .ns-workbench-footer button,
+.ns-mobile-app .ns-creator-footer button,
+.ns-mobile-app .ns-ledger-help summary {
+  min-height: 44px;
+}
+.ns-mobile-app .pocket-arcade {
+  padding: 0;
+}
+.ns-mobile-app .arcade-selector {
+  margin-top: 0;
+}
+.ns-mobile-app .ns-gallery-tabs {
+  max-width: 100%;
+}
+.ns-mobile-app .ns-gallery-heading {
+  margin-bottom: 20px;
+}
+.ns-mobile-app .ns-gallery-heading h1 {
+  margin: 0 0 8px;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+.ns-mobile-app .ns-gallery-heading > div > p:last-child {
+  line-height: 1.5;
+  color: #b3aabd;
+}
+.ns-mobile-app .ns-gallery-toolbar {
+  gap: 12px;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+.ns-mobile-app .ns-gallery-toolbar [data-slot='tabs-trigger'] {
+  min-height: 44px;
+  font-size: 14px;
+  border-radius: 12px;
+}
+.ns-mobile-app .ns-embedded-lab .interactive-heading {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+}
+.ns-mobile-app .interactive-templates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.ns-mobile-app .interactive-template {
+  flex: 1;
+  min-height: 48px;
+  padding: 10px 12px;
+  gap: 8px;
+  border-radius: 12px;
+}
+.ns-mobile-app .interactive-templates:has(> :only-child) {
+  display: none;
+}
+.ns-mobile-app .interactive-symbol {
+  border: 0;
+  background: none;
+  width: 22px;
+  height: 22px;
+}
+.ns-mobile-app .interactive-symbol svg {
+  width: 20px;
+  height: 20px;
+}
+.ns-mobile-app .interactive-template strong {
+  font-size: 14px;
+}
+.ns-mobile-app .interactive-template small,
+.ns-mobile-app .interactive-template > svg,
+.ns-mobile-app .interactive-settings > .eyebrow {
+  display: none;
+}
+.ns-mobile-app .interactive-workbench {
+  border-radius: 16px;
+  border-color: #3b2d48;
+  background: #18121f;
+}
+.ns-mobile-app .interactive-settings {
+  padding: 24px;
+}
+.ns-mobile-app .interactive-colors button {
+  width: 44px;
+  height: 44px;
+}
+.ns-mobile-app .ns-build-tabs [role='tablist'] {
+  flex-wrap: nowrap;
+  height: auto;
+  gap: 4px;
+}
+.ns-mobile-app .ns-build-tabs [role='tab'] {
+  min-height: 44px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+@media (max-width: 767px) {
+  .ns-mobile-app {
+    --app-dock-clearance: calc(84px + env(safe-area-inset-bottom));
+  }
+  .ns-mobile-app .ns-topbar {
+    padding-right: max(16px, env(safe-area-inset-right));
+    padding-left: max(16px, env(safe-area-inset-left));
+  }
+  .ns-app-brand {
+    gap: 8px;
+    font-size: 18px;
+  }
+  .ns-app-mark {
+    width: 30px;
+    height: 32px;
+    border-radius: 10px;
+  }
+  .ns-mobile-app .ns-topbar-actions {
+    gap: 2px;
+  }
+  .ns-mobile-app .ns-wallet-button {
+    padding: 10px;
+  }
+  .ns-mobile-app .ns-wallet-button span {
+    max-width: 76px;
+  }
+  .ns-mobile-app .ns-main {
+    min-height: calc(100dvh - 64px);
+    padding: 22px max(16px, env(safe-area-inset-right))
+      calc(var(--app-dock-clearance) + 20px)
+      max(16px, env(safe-area-inset-left));
+  }
+  .ns-mobile-app .ns-heading h1,
+  .ns-mobile-app .ns-page-intro h1,
+  .ns-mobile-app .ns-gallery-heading h1 {
+    font-size: 27px;
+    letter-spacing: -0.9px;
+  }
+  .ns-mobile-app .ns-home-heading {
+    margin-bottom: 20px;
+  }
+  .ns-mobile-app .ns-home-heading .ns-eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    margin-bottom: 9px;
+  }
+  .ns-mobile-app .ns-mode-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .ns-mobile-app .ns-mode {
+    min-height: 126px;
+    padding: 14px;
+    gap: 14px;
+    border-radius: 16px;
+  }
+  .ns-format-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
+  }
+  .ns-format-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+  .ns-card-arrow {
+    top: 15px;
+    right: 12px;
+    width: 16px;
+    height: 16px;
+  }
+  .ns-card-art {
+    width: 120px;
+    height: 120px;
+  }
+  .ns-mobile-app .ns-mode h2 {
+    font-size: 16px;
+    margin-bottom: 3px;
+  }
+  .ns-mobile-app .ns-mode p {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .ns-start-hint {
+    margin-top: 18px;
+    font-size: 12px;
+  }
+  .ns-app-nav {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: none;
+    width: auto;
+    max-width: none;
+    padding: 6px max(12px, env(safe-area-inset-right))
+      calc(6px + env(safe-area-inset-bottom))
+      max(12px, env(safe-area-inset-left));
+    border: 0;
+    border-top: 1px solid #3f304d;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -8px 32px #0004;
+  }
+  .ns-app-nav button {
+    min-height: 56px;
+    border-radius: 14px;
+  }
+  .ns-mobile-app .ns-main-footer {
+    display: none;
+  }
+  .ns-mobile-app .ns-back {
+    margin-top: -10px;
+    margin-bottom: 6px;
+  }
+  .ns-mobile-app .ns-workbench-heading {
+    margin-bottom: 18px;
+  }
+  .ns-mobile-app .ns-workbench-heading h1 {
+    font-size: 26px;
+    margin-bottom: 0;
+  }
+  .ns-mobile-app .ns-stage-list {
+    gap: 3px;
+    padding: 4px;
+    margin-bottom: 18px;
+  }
+  .ns-mobile-app .ns-stage-list button {
+    padding: 6px 3px;
+    min-height: 54px;
+    gap: 4px;
+    font-size: 12px;
+  }
+  .ns-mobile-app .ns-upload-zone {
+    min-height: 280px;
+    padding: 24px 16px;
+  }
+  .ns-mobile-app .ns-upload-zone h2 {
+    font-size: 22px;
+  }
+  .ns-mobile-app .ns-workbench-footer {
+    padding: 10px;
+  }
+  .ns-mobile-app .arcade-mobile-picker {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 14px;
+  }
+  .ns-mobile-app .arcade-mobile-picker select {
+    min-height: 48px;
+    border-radius: 12px;
+    border-color: #4b395b;
+    background: #201729;
+    color: #eee2f7;
+    font-size: 16px;
+  }
+  .ns-mobile-app .ns-workbench input,
+  .ns-mobile-app .ns-workbench select,
+  .ns-mobile-app .ns-workbench textarea {
+    font-size: max(16px, 1em);
+  }
+  .ns-mobile-app .ns-gallery-toolbar [data-slot='tabs-list'] {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    padding: 0 0 4px;
+    scrollbar-width: thin;
+  }
+  .ns-mobile-app .interactive-templates {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+  .ns-mobile-app .interactive-template {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+  .ns-mobile-app .interactive-settings {
+    padding: 18px;
+  }
+  .ns-mobile-app .interactive-settings h3 {
+    margin-top: 0;
+    font-size: 23px;
+  }
+  .ns-mobile-app .beat-row button {
+    min-height: 44px;
+  }
+  .ns-mobile-app .ns-ledger-help {
+    margin-bottom: 12px;
+  }
+}
+@media (max-width: 359px) {
+  .ns-mobile-app .ns-topbar {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+  .ns-app-brand {
+    font-size: 16px;
+    gap: 6px;
+  }
+  .ns-mobile-app .ns-wallet-button {
+    gap: 5px;
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+  .ns-mobile-app .ns-heading h1 {
+    font-size: 25px;
+  }
+  .ns-mobile-app .ns-mode {
+    padding: 12px;
+  }
+  .ns-mobile-app .ns-mode h2 {
+    font-size: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .ns-mobile-app .beat-row > div {
+    grid-template-columns: repeat(4, minmax(44px, 1fr));
+    gap: 6px;
+  }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .ns-mobile-app {
+    --app-dock-clearance: calc(68px + env(safe-area-inset-bottom));
+  }
+  .ns-mobile-app .ns-topbar {
+    position: static;
+  }
+  .ns-app-nav {
+    bottom: 0;
+  }
+  .ns-app-nav button {
+    min-height: 44px;
+    flex-direction: row;
+    gap: 8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ns-mobile-app *,
+  .ns-mobile-app *::before,
+  .ns-mobile-app *::after {
+    scroll-behavior: auto;
+  }
+  .ns-mobile-app .ns-mode {
+    transition: none;
+  }
+}

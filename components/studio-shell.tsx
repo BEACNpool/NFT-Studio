@@ -6,8 +6,6 @@ import {
   Grid2X2,
   FolderOpen,
   ScanLine,
-  BookOpen,
-  GitBranch,
   ImagePlus,
   ScrollText,
   LibraryBig,
@@ -16,25 +14,11 @@ import {
   Shapes,
   Clapperboard,
   Braces,
-  ChevronRight,
   ShieldCheck,
   Layers3,
-  ArrowRight,
-  Sparkles,
+  CircleHelp,
+  ArrowLeft,
 } from 'lucide-react';
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarHeader,
-  SidebarInset,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarProvider,
-  SidebarTrigger,
-  useSidebar,
-} from '@/components/ui/sidebar';
 import {
   MODES,
   type CreationMode,
@@ -50,6 +34,13 @@ import type { Artwork } from '@/lib/art';
 import type { FileSeed } from './file-workbench';
 import { StudioWallet } from './studio-wallet';
 import { registerStudioTools } from '@/lib/studio-webmcp';
+declare global {
+  interface Window {
+    NFTStudioNavigation?: {
+      onTraverse: ((state: { path: string; scrollY: number }) => void) | null;
+    };
+  }
+}
 const symbols = {
   art: ImagePlus,
   scroll: ScrollText,
@@ -62,19 +53,41 @@ const symbols = {
 };
 const views = [
   { id: 'create' as const, label: 'Create', icon: Plus },
-  { id: 'showcase' as const, label: 'Showcase', icon: Grid2X2 },
-  { id: 'projects' as const, label: 'My projects', icon: FolderOpen },
+  { id: 'showcase' as const, label: 'Explore', icon: Grid2X2 },
+  { id: 'projects' as const, label: 'Saved', icon: FolderOpen },
   { id: 'recover' as const, label: 'Activity', icon: ScanLine },
-  { id: 'guide' as const, label: 'Guide', icon: BookOpen },
 ];
+const homeFormats = [
+  ['art', 'Image & art', 'Upload or design'],
+  ['game', 'Games', 'Play and mint'],
+  ['music', 'Music', 'Make some sound'],
+  ['scroll', 'Documents', 'Publish a Scroll'],
+  ['book', 'Books', 'Keep a living journal'],
+  ['utility', 'Apps', 'Add something useful'],
+  ['motion', 'Motion', 'Create moving art'],
+  ['data', 'Files & data', 'Preserve your files'],
+] as const;
+function readRoute() {
+  const params = new URLSearchParams(location.search);
+  const requestedView = params.get('view');
+  const view: StudioView =
+    requestedView === 'guide' || views.some((v) => v.id === requestedView)
+      ? (requestedView as StudioView)
+      : 'create';
+  const requestedMode = params.get('create');
+  return { view, mode: isCreationMode(requestedMode) ? requestedMode : null };
+}
+function routeState(scrollY = 0) {
+  return {
+    ...history.state,
+    nftStudio: { path: location.pathname, scrollY },
+  };
+}
 export function NFTStudio() {
   return (
-    <SidebarProvider
-      className="ns-app"
-      style={{ '--sidebar-width': '224px' } as CSSProperties}
-    >
+    <div className="ns-app ns-mobile-app">
       <StudioSurface />
-    </SidebarProvider>
+    </div>
   );
 }
 function StudioSurface() {
@@ -84,35 +97,63 @@ function StudioSurface() {
   const [initialFiles, setInitialFiles] = useState<FileSeed>();
   const [scrollFile, setScrollFile] = useState<File>();
   const [creationKey, setCreationKey] = useState(0);
-  const { setOpenMobile } = useSidebar();
+  const main = useRef<HTMLElement>(null);
+  const activeMode = useRef(mode);
+  activeMode.current = mode;
   useEffect(() => {
-    const p = new URLSearchParams(location.search),
-      kind = p.get('create');
-    if (isCreationMode(kind)) setMode(kind);
+    const restore = () => {
+      const next = readRoute();
+      if (next.mode !== activeMode.current) {
+        setInitialArt(undefined);
+        setInitialFiles(undefined);
+        setScrollFile(undefined);
+        setCreationKey((key) => key + 1);
+      }
+      setView(next.view);
+      setMode(next.mode);
+    };
+    restore();
+    history.replaceState(routeState(window.scrollY), '', location.href);
+    const onTraverse = (state: { scrollY: number }) => {
+      restore();
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: state.scrollY || 0 });
+        main.current?.focus({ preventScroll: true });
+      });
+    };
+    const navigation = window.NFTStudioNavigation;
+    if (navigation) navigation.onTraverse = onTraverse;
+    return () => {
+      if (navigation?.onTraverse === onTraverse) navigation.onTraverse = null;
+    };
   }, []);
-  const navigate = (next: StudioView) => {
-    setView(next);
-    setOpenMobile(false);
+  const route = (nextView: StudioView, nextMode = mode) => {
+    const url = new URL(location.href);
+    if (nextView === 'create') url.searchParams.delete('view');
+    else url.searchParams.set('view', nextView);
+    if (nextMode) url.searchParams.set('create', nextMode);
+    else url.searchParams.delete('create');
+    if (url.href !== location.href) {
+      history.replaceState(routeState(window.scrollY), '', location.href);
+      history.pushState(routeState(), '', url);
+    }
+    setView(nextView);
+    setMode(nextMode);
     window.scrollTo({ top: 0 });
+    requestAnimationFrame(() => main.current?.focus({ preventScroll: true }));
+  };
+  const navigate = (next: StudioView) => {
+    route(next);
   };
   const choose = (next: CreationMode) => {
-    setMode(next);
-    setView('create');
+    route('create', next);
     setInitialArt(undefined);
     setInitialFiles(undefined);
     setScrollFile(undefined);
     setCreationKey((k) => k + 1);
-    const url = new URL(location.href);
-    url.searchParams.set('create', next);
-    history.replaceState(null, '', url);
-    window.scrollTo({ top: 0 });
   };
   const home = () => {
-    setMode(null);
-    navigate('create');
-    const url = new URL(location.href);
-    url.searchParams.delete('create');
-    history.replaceState(null, '', url);
+    route('create', null);
   };
   const currentState = useRef({ view, format: mode });
   currentState.current = { view, format: mode };
@@ -131,106 +172,42 @@ function StudioSurface() {
       <a className="ns-skip" href="#studio-main">
         Skip to studio
       </a>
-      <Sidebar className="ns-sidebar">
-        <SidebarHeader className="ns-brand-wrap">
-          <button
-            className="ns-brand"
-            onClick={home}
-            aria-label="NFT-Studio home"
-          >
-            <span className="ns-logo-mark">
-              <Layers3 size={24} strokeWidth={1.8} />
-            </span>
-            <span className="ns-wordmark">
-              NFT<span>-Studio</span>
-            </span>
-          </button>
-          <span className="ns-byline">CREATOR WORKSPACE</span>
-        </SidebarHeader>
-        <SidebarContent>
-          <nav aria-label="Studio">
-            <SidebarMenu className="ns-nav">
-              {views.map((item) => (
-                <SidebarMenuItem key={item.id}>
-                  <SidebarMenuButton
-                    size="lg"
-                    isActive={view === item.id}
-                    onClick={() => navigate(item.id)}
-                  >
-                    <item.icon />
-                    <span>{item.label}</span>
-                    {view === item.id && (
-                      <ChevronRight className="ns-nav-arrow" />
-                    )}
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </nav>
-          <div className="ns-sidebar-note">
-            <span className="ns-note-icon">
-              <Sparkles size={18} />
-            </span>
-            <strong>From idea to on chain.</strong>
-            <p>
-              You create. We prepare the metadata. You sign when it’s ready.
-            </p>
-            <button onClick={() => navigate('guide')}>
-              How it works <ArrowUpRight size={14} />
-            </button>
-          </div>
-        </SidebarContent>
-        <SidebarFooter className="ns-sidebar-footer">
-          <a
-            href="https://github.com/BEACNpool/NFT-Studio"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <GitBranch size={17} /> Source code <ArrowUpRight size={14} />
-          </a>
-          <div className="ns-footer-brand">
-            <img
-              src={assetPath('/brand/beacn-64.png')}
-              width="22"
-              height="22"
-              alt=""
-            />
-            <strong>BEACN</strong>
-            <span>Built on Cardano</span>
-          </div>
-        </SidebarFooter>
-      </Sidebar>
-      <SidebarInset className="ns-main-wrap">
+      <div className="ns-main-wrap">
         <header className="ns-topbar">
-          <div className="ns-breadcrumb">
-            <SidebarTrigger className="ns-menu-toggle" />
-            <button className="ns-mobile-brand" onClick={home}>
-              <Layers3 size={22} /> NFT-Studio
+          <div className="ns-topbar-inner">
+            <button
+              className="ns-app-brand"
+              onClick={home}
+              aria-label="NFT-Studio home"
+            >
+              <span className="ns-app-mark">
+                <Layers3 size={22} strokeWidth={1.8} />
+              </span>
+              <span>
+                NFT<span>-Studio</span>
+              </span>
             </button>
-            <span>Workspace</span>
-            <ChevronRight size={14} />
-            <strong>
-              {mode && view === 'create'
-                ? MODES.find((m) => m.id === mode)!.title
-                : views.find((v) => v.id === view)!.label}
-            </strong>
-          </div>
-          <div className="ns-topbar-actions">
-            <span className="ns-network">
-              <span />
-              Cardano
-            </span>
-            <StudioWallet />
+            <div className="ns-topbar-actions">
+              <button
+                className="ns-help-button"
+                onClick={() => navigate('guide')}
+                aria-label="Help and guide"
+                aria-current={view === 'guide' ? 'page' : undefined}
+              >
+                <CircleHelp size={21} />
+              </button>
+              <StudioWallet />
+            </div>
           </div>
         </header>
-        <main id="studio-main" className="ns-main">
+        <main id="studio-main" className="ns-main" ref={main} tabIndex={-1}>
           {view === 'create' && !mode && (
             <>
               <div className="ns-heading ns-home-heading">
                 <div>
-                  <p className="ns-eyebrow">YOUR NEXT ORIGINAL</p>
+                  <p className="ns-eyebrow">CREATE ON CARDANO</p>
                   <h1>What will you create?</h1>
-                  <p>Choose a format. Bring your idea to life.</p>
+                  <p>Pick a format. Make it yours.</p>
                 </div>
                 <button
                   className="ns-draft-link"
@@ -240,22 +217,9 @@ function StudioSurface() {
                   <ArrowUpRight size={15} />
                 </button>
               </div>
-              <ol className="ns-flow-strip" aria-label="How creating works">
-                <li aria-current="step">
-                  <span>1</span>
-                  <strong>Choose</strong>
-                </li>
-                <li>
-                  <span>2</span>
-                  <strong>Create</strong>
-                </li>
-                <li>
-                  <span>3</span>
-                  <strong>Review & sign</strong>
-                </li>
-              </ol>
               <div className="ns-mode-grid">
-                {MODES.map((item) => {
+                {homeFormats.map(([id, title, detail]) => {
+                  const item = MODES.find((mode) => mode.id === id)!;
                   const Icon = symbols[item.id];
                   return (
                     <button
@@ -264,51 +228,32 @@ function StudioSurface() {
                       onClick={() => choose(item.id)}
                       style={{ '--mode-accent': item.accent } as CSSProperties}
                     >
-                      <div className="ns-format-visual">
-                        {item.image ? (
-                          <img
-                            className="ns-format-image"
-                            src={assetPath(item.image)}
-                            alt=""
-                          />
-                        ) : (
-                          <Icon
-                            className="ns-format-glyph"
-                            size={44}
-                            strokeWidth={1.2}
-                          />
-                        )}
-                        <span className="ns-format-type">
-                          <Icon size={14} />
-                          {item.tag.split(' · ')[0]}
-                        </span>
-                        <span className="ns-format-open">
-                          <ArrowUpRight size={18} />
-                        </span>
-                      </div>
+                      <span className="ns-format-icon">
+                        <Icon size={25} strokeWidth={1.6} />
+                      </span>
+                      {item.id === 'art' && (
+                        <img
+                          className="ns-card-art"
+                          src={assetPath('/art/chroma.webp')}
+                          alt=""
+                        />
+                      )}
                       <div className="ns-mode-content">
-                        <h2>{item.title}</h2>
-                        <p>{item.detail}</p>
+                        <h2>{title}</h2>
+                        <p>{detail}</p>
                       </div>
+                      <ArrowUpRight
+                        className="ns-card-arrow"
+                        size={18}
+                        aria-hidden="true"
+                      />
                     </button>
                   );
                 })}
               </div>
-              <div className="ns-ready-note">
-                <span className="ns-note-icon">
-                  <ShieldCheck size={21} />
-                </span>
-                <div>
-                  <strong>Create first. Connect when you’re ready.</strong>
-                  <p>
-                    Your wallet approves the final transaction. No code or
-                    metadata editing needed.
-                  </p>
-                </div>
-                <button onClick={() => navigate('showcase')}>
-                  Explore creations <ArrowRight size={16} />
-                </button>
-              </div>
+              <p className="ns-start-hint">
+                <ShieldCheck size={17} /> No wallet needed to start.
+              </p>
             </>
           )}
           <div hidden={view !== 'create' || !mode}>
@@ -356,17 +301,25 @@ function StudioSurface() {
             />
           )}
           {view === 'recover' && <RecoveryPanel />}
-          {view === 'guide' && <FieldGuide />}
+          {view === 'guide' && (
+            <>
+              <button className="ns-back" onClick={() => navigate('create')}>
+                <ArrowLeft size={18} /> Back to creating
+              </button>
+              <FieldGuide />
+            </>
+          )}
         </main>
-        <nav className="ns-bottom-nav" aria-label="Mobile studio">
+        <nav className="ns-app-nav" aria-label="Main navigation">
           {views.map((item) => (
             <button
               key={item.id}
+              data-view={item.id}
               aria-current={view === item.id ? 'page' : undefined}
               onClick={() => navigate(item.id)}
             >
               <item.icon size={21} />
-              <span>{item.id === 'projects' ? 'Projects' : item.label}</span>
+              <span>{item.label}</span>
             </button>
           ))}
         </nav>
@@ -380,7 +333,7 @@ function StudioSurface() {
             Made by BEACN <ArrowUpRight size={13} />
           </a>
         </footer>
-      </SidebarInset>
+      </div>
     </>
   );
 }

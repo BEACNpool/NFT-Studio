@@ -278,9 +278,8 @@ export function StudioShowcase({
     <section className="ns-gallery" aria-labelledby="ns-gallery-title">
       <header className="ns-gallery-heading">
         <div>
-          <p className="ns-eyebrow">POSSIBILITY, WITH A PLAY BUTTON</p>
-          <h1 id="ns-gallery-title">Open something extraordinary.</h1>
-          <p>Games you can play. Music you can make. Stories that stay.</p>
+          <h1 id="ns-gallery-title">Explore</h1>
+          <p>Play, listen, or find your next starting point.</p>
         </div>
         <button className="ns-secondary" onClick={() => onCreate('art')}>
           Make your own <ArrowUpRight size={16} />

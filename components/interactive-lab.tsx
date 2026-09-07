@@ -31,12 +31,14 @@ export function InteractiveLab({
   onApply,
   onRemove,
   onExample,
+  templateKind,
 }: {
   art: Artwork;
   hasArtwork: boolean;
   onApply: (spec: InteractiveSpec) => void;
   onRemove: () => void;
   onExample: (art: Artwork) => void;
+  templateKind?: InteractiveSpec['kind'];
 }) {
   const [draft, setDraft] = useState<InteractiveSpec>(
     art.interactive || interactiveDefault('focus'),
@@ -128,7 +130,9 @@ export function InteractiveLab({
         </p>
       </div>
       <div className="interactive-templates">
-        {INTERACTIVE_TEMPLATES.map((item) => (
+        {INTERACTIVE_TEMPLATES.filter(
+          (item) => !templateKind || item.kind === templateKind,
+        ).map((item) => (
           <button
             key={item.kind}
             aria-pressed={draft.kind === item.kind}

@@ -31,7 +31,7 @@ export function CreationWorkbench({
     <section className="ns-workbench">
       <button className="ns-back" onClick={onBack}>
         <ArrowLeft size={16} />
-        Change format
+        All formats
       </button>
       <div className="ns-heading ns-workbench-heading">
         <div>
@@ -55,7 +55,7 @@ export function CreationWorkbench({
       )}
       {mode === 'game' && (
         <div className="ns-arcade">
-          <PocketArcade />
+          <PocketArcade compact />
         </div>
       )}
       {(mode === 'data' ||

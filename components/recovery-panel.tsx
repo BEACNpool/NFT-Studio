@@ -126,11 +126,9 @@ export function RecoveryPanel() {
     <>
       <div className="ns-heading">
         <div>
-          <p className="ns-eyebrow">THE BYTES ARE THE POINT</p>
-          <h1>Read & recover.</h1>
+          <h1>Activity & recovery</h1>
           <p>
-            A collectible should outlive its website. Get the content back,
-            check its hash, and keep your own copy.
+            Check a transaction, open a receipt, or recover your on-chain files.
           </p>
         </div>
       </div>

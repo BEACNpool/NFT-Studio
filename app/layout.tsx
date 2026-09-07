@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import './globals.css';
 import './studio.css';
 import './studio-app.css';
+import './mobile-shell.css';
 import { assetPath } from '@/lib/paths';
 export const metadata: Metadata = {
   title: 'NFT-Studio — Create on Cardano',
@@ -21,6 +23,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <Script
+          src={assetPath('/studio-navigation.js')}
+          strategy="beforeInteractive"
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

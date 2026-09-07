@@ -333,10 +333,12 @@ export function ArtWorkbench({
                   className="ns-build-tabs"
                 >
                   <TabsList variant="line">
-                    <TabsTrigger value="app">Build the app</TabsTrigger>
-                    <TabsTrigger value="cover">Design the cover</TabsTrigger>
+                    <TabsTrigger value="app">
+                      {mode === 'music' ? 'Make music' : 'Build the app'}
+                    </TabsTrigger>
+                    <TabsTrigger value="cover">Cover art</TabsTrigger>
                     {mode === 'utility' && (
-                      <TabsTrigger value="plan">Plan a benefit</TabsTrigger>
+                      <TabsTrigger value="plan">Benefits</TabsTrigger>
                     )}
                   </TabsList>
                 </Tabs>
@@ -345,6 +347,7 @@ export function ArtWorkbench({
                 <div hidden={buildPane !== 'app'} className="ns-embedded-lab">
                   <InteractiveLab
                     art={art}
+                    templateKind={mode === 'music' ? 'beats' : undefined}
                     hasArtwork={ready}
                     onApply={(spec) => {
                       patch({ interactive: spec });
@@ -855,8 +858,7 @@ export function ProjectsPanel({ onOpen }: { onOpen: (art: Artwork) => void }) {
     <>
       <div className="ns-heading">
         <div>
-          <p className="ns-eyebrow">CONTINUE WHERE YOU LEFT OFF</p>
-          <h1>My projects</h1>
+          <h1>Saved projects</h1>
           <p>
             Saved on this device. Export a copy to move your work elsewhere.
           </p>

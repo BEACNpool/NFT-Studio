@@ -19,7 +19,7 @@ import {
 import { assetPath } from '@/lib/paths';
 import { MintDialog } from './mint-dialog';
 
-export function PocketArcade() {
+export function PocketArcade({ compact = false }: { compact?: boolean }) {
   const [id, setId] = useState<ArcadeId>(() => {
     const value =
       typeof window === 'undefined'
@@ -32,8 +32,8 @@ export function PocketArcade() {
   const [attempt, setAttempt] = useState(0);
   const title = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
-    title.current?.focus({ preventScroll: true });
-  }, []);
+    if (!compact) title.current?.focus({ preventScroll: true });
+  }, [compact]);
   useEffect(() => {
     let current = true;
     loadArcade(id)
@@ -64,26 +64,30 @@ export function PocketArcade() {
     <section
       className="pocket-arcade"
       style={{ '--arcade-accent': entry.accent } as CSSProperties}
-      aria-labelledby="arcade-title"
+      aria-labelledby={compact ? undefined : 'arcade-title'}
+      aria-label={compact ? 'Playable games' : undefined}
     >
-      <div className="arcade-heading">
-        <div>
-          <p className="eyebrow">
-            <span /> BEACN GAMES / 01—
-            {String(Object.keys(ARCADE).length).padStart(2, '0')}
-          </p>
-          <h1 id="arcade-title" ref={title} tabIndex={-1}>
-            Whole games.
+      {!compact && (
+        <div className="arcade-heading">
+          <div>
+            <p className="eyebrow">
+              <span /> BEACN GAMES / 01—
+              {String(Object.keys(ARCADE).length).padStart(2, '0')}
+            </p>
+            <h1 id="arcade-title" ref={title} tabIndex={-1}>
+              Whole games.
+              <br />
+              <em>Stored on Cardano.</em>
+            </h1>
+          </div>
+          <p>
+            Original expeditions, Sudoku, puzzles, chess, checkers and
+            solitaire.
             <br />
-            <em>Stored on Cardano.</em>
-          </h1>
+            Play here. Mint any game to your own wallet.
+          </p>
         </div>
-        <p>
-          Original expeditions, Sudoku, puzzles, chess, checkers and solitaire.
-          <br />
-          Play here. Mint any game to your own wallet.
-        </p>
-      </div>
+      )}
       <label className="arcade-mobile-picker">
         Choose a game
         <select

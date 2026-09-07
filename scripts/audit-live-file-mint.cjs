@@ -42,7 +42,7 @@ const fixture={changeHex:addr.to_hex(),utxos:[u.to_hex()]},params={epoch_no:653,
   }
   const click=async(page,text)=>{await page.waitForFunction(t=>Array.from(document.querySelectorAll('button')).some(e=>e.textContent.includes(t)&&!e.disabled&&e.getClientRects().length),{timeout:20000},text).catch(async error=>{console.log('MISSING BUTTON',text,await page.evaluate(()=>document.body.innerText));throw error;});const es=await page.$$('button');for(const e of es)if(await e.evaluate((n,t)=>n.textContent.includes(t)&&!n.disabled&&n.getClientRects().length,text)){await e.click();return;}throw Error('No visible button '+text);};
   const has=(page,text)=>page.waitForFunction(t=>document.body.innerText.includes(t),{timeout:30000},text);
-  async function prepare(page,mode){await page.goto(url,{waitUntil:'networkidle0'});await click(page,mode==='data'?'Data record':'NFT with files');await click(page,'Write text or code');await page.type('.ns-code-input','The bytes are the point. 🦾');await click(page,'Add this file');if(mode==='nft')await click(page,'Generate a small cover');await click(page,'Prepare exact content');await click(page,'Review with my wallet');await click(page,'Synthetic QA wallet');await click(page,'Build the review');await has(page,'I reviewed the exact files');await page.$eval('.ns-check input',e=>e.click());}
+  async function prepare(page,mode,fromHome=false){const entry=new URL(url);if(fromHome)entry.search='';await page.goto(entry.href,{waitUntil:'networkidle0'});if(fromHome)await page.locator('.ns-mode-data').click();await click(page,mode==='data'?'Data record':'NFT with files');await click(page,'Write text or code');await page.type('.ns-code-input','The bytes are the point. 🦾');await click(page,'Add this file');if(mode==='nft')await click(page,'Generate a small cover');await click(page,'Prepare exact content');await click(page,'Review with my wallet');await click(page,'Synthetic QA wallet');await click(page,'Build the review');await has(page,'I reviewed the exact files');await page.$eval('.ns-check input',e=>e.click());}
   for(const mode of ['data','nft']){
    const {page,context}=await makePage();await prepare(page,mode);await click(page,'Sign & submit');await has(page,'awaiting inclusion');
    const qa=await page.evaluate(()=>__qa);assert.equal(qa.sign,1);assert.equal(qa.submit,1);assert.equal(qa.persistedBeforeSubmit,true);assert.equal(qa.last.mint,mode==='nft');
@@ -68,10 +68,13 @@ const fixture={changeHex:addr.to_hex(),utxos:[u.to_hex()]},params={epoch_no:653,
    results.push({behavior,...details});await context.close();
   }
   {const {page,context}=await makePage();await prepare(page,'data');await page.evaluate(()=>{const original=Date.now;Date.now=()=>original()+241001;});await click(page,'Sign & submit');await has(page,'review expired');assert.deepEqual(await page.evaluate(()=>[__qa.sign,__qa.submit]),[0,0]);results.push({behavior:'stale-review',sign:0,submit:0});await context.close();}
-  const {page,context}=await makePage('delay');await prepare(page,'data');await click(page,'Sign & submit');await page.waitForFunction(()=>typeof __qa.releaseSign==='function');
-  // Root's Back control actually unmounts the creator even while a wallet is open.
-  await page.evaluate(()=>{const button=Array.from(document.querySelectorAll('button')).find(e=>e.textContent.includes('Change format'));if(!button)throw Error('No format navigation');button.click();__qa.releaseSign();});
-  await page.waitForFunction(()=>__qa.afterSign);await page.waitForNetworkIdle({idleTime:500});assert.equal(await page.evaluate(()=>__qa.submit),0);results.push({behavior:'unmount-during-sign',submit:0});await context.close();
+  for(const navigation of ['all-formats','browser-back']){
+   const {page,context}=await makePage('delay');await prepare(page,'data',navigation==='browser-back');await click(page,'Sign & submit');await page.waitForFunction(()=>typeof __qa.releaseSign==='function');
+   // Both shell navigation and browser Back must cancel a pending wallet request.
+   await page.evaluate(navigation=>{if(navigation==='browser-back')history.back();else{const button=Array.from(document.querySelectorAll('button')).find(e=>e.textContent.includes('All formats'));if(!button)throw Error('No format navigation');button.click();}},navigation);
+   await page.waitForFunction(()=>!document.querySelector('.ns-workbench'));await page.evaluate(()=>__qa.releaseSign());
+   await page.waitForFunction(()=>__qa.afterSign);await page.waitForNetworkIdle({idleTime:500});assert.equal(await page.evaluate(()=>__qa.submit),0);results.push({behavior:'unmount-during-sign',navigation,submit:0});await context.close();
+  }
   console.log(JSON.stringify(results,null,2));
  }finally{await browser.close();}
 })().catch(error=>{console.error(error);process.exitCode=1;});

@@ -86,9 +86,10 @@ export function StudioWallet() {
       <button
         className={'ns-wallet-button' + (connected ? ' is-connected' : '')}
         onClick={() => setOpen(true)}
+        aria-label={connected ? `Wallet: ${connected}` : 'Connect wallet'}
       >
         <Wallet size={17} />
-        <span>{connected || 'Connect wallet'}</span>
+        <span>{connected || 'Wallet'}</span>
         {connected && <span className="ns-wallet-dot" />}
       </button>
       <Dialog open={open} onOpenChange={setOpen}>

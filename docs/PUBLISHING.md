@@ -27,6 +27,14 @@ page and release record. Exercise wallet discovery, Ledger frames and a creation
 review under `/NFT-Studio/`. Simulated transaction checks must intercept signing
 and broadcasting; a normal deployment does not authorize spending from a wallet.
 
+Run `scripts/audit-app-navigation.cjs` against the **static export under its
+subdirectory**, not just the development server. It verifies that an unsaved
+creation survives browser Back/Forward and tab changes. Set `STUDIO_URL` to the
+served app and supply `PUPPETEER_MODULE` / `CHROMIUM_EXECUTABLE_PATH` if browser
+tooling is installed outside this checkout. `public/studio-navigation.js` must
+load before the framework: it handles only history entries owned by this app,
+preventing server-route restoration from remounting the static editor.
+
 The initial account SSH push activated branch-based Pages on this repository.
 For any separately created repository, confirm its actual Pages configuration;
 auto-activation should not be assumed. If settings need to be set explicitly,
