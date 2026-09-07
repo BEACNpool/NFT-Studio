@@ -1,0 +1,50 @@
+{
+  "schema": "beacn.mixed-soak-public-files.v1",
+  "files": [
+    {
+      "path": "PROVENANCE.json",
+      "bytes": 1263,
+      "sha256": "e1bf8e26fafe54dcf70581d7110a52097af4d1cc4aeea9234e58c00ccefa08ab"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4049,
+      "sha256": "a5955cbf07a9788439ac07eb38bcfdc6884185385aba39dd87b07edb9dc1e338"
+    },
+    {
+      "path": "SOURCE_INPUTS.json",
+      "bytes": 35048,
+      "sha256": "41cbffa12c04d0706ab80aaf91705bc630a37121aeaacdf12707364ff0642608"
+    },
+    {
+      "path": "SUMMARY.json",
+      "bytes": 4415,
+      "sha256": "2a7158e435abad67292c02a9a1e188bd718df901aec45f7423fc61f7e62cb273"
+    },
+    {
+      "path": "harness.source.txt",
+      "bytes": 15580,
+      "sha256": "3384b8c379379331ad1b036e7c8c91aa839ae0104a0ddbab71b9c7a6c9151b7d"
+    },
+    {
+      "path": "mixed-soak-check.json",
+      "bytes": 79803,
+      "sha256": "3196baf61a602353ad5ea9fb5e11ec39fe26ae8ae4f955c612be9845dc4b80a1"
+    },
+    {
+      "path": "prepare-reproduction.py",
+      "bytes": 2558,
+      "sha256": "fe241b4539d0efd7d7adaf2eb78b006638d67cccca70d8b0bb623c5cd67746b5"
+    },
+    {
+      "path": "responses.jsonl",
+      "bytes": 650191,
+      "sha256": "fa8ec0f42413cca09d7bb94fa1dcff2656603486b5493f4f1ff7596e8a9290a1"
+    },
+    {
+      "path": "samples.json",
+      "bytes": 15949,
+      "sha256": "d90cc83e9855295516ad36fee4a585db0671b8bb982c905837e8003d9f29470a"
+    }
+  ]
+}

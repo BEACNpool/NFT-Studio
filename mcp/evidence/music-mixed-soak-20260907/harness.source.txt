@@ -1,0 +1,130 @@
+/** Fresh bounded local mixed Music/ordinary Workerd soak. No product changes. */
+import assert from 'node:assert/strict';
+import {readFile,writeFile,appendFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {Client,StreamableHTTPClientTransport} from '@modelcontextprotocol/client';
+import * as C from '@emurgo/cardano-serialization-lib-nodejs';
+import {createPublicMcpHandler} from '../test/workerd-helper.mjs';
+import {syntheticNativeFixture,assertSyntheticUnsigned} from './verify-synthetic-native.mjs';
+import {loadMusicToolFixture} from './verify-music-tools.mjs';
+import {assertSyntheticMusicUnsigned} from './verify-music-unsigned.mjs';
+import {address,utxo} from '../test/wallet-fixtures.mjs';
+const output=name=>new URL('../../../'+name,import.meta.url);
+const root=new URL('../../',import.meta.url);
+const origin='https://mixed-soak.example.org',targetAttempts=1000,intervalPerAttemptMs=65;
+process.env.MINIFLARE_WORKERD_V8_FLAGS='--max-old-space-size=64';
+const handler=await createPublicMcpHandler({publicOrigin:origin,endpointPath:'/api/mcp',rateLimit:1000},{memoryProbe:true});
+const sha=b=>createHash('sha256').update(b).digest('hex');
+const checked=raw=>{assert.ok(!raw.isError,raw.content?.[0]?.text);return raw.structuredContent||JSON.parse(raw.content[0].text);};
+const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+let client,ws,sequence=0;const pending=new Map(),samples=[],failures=[],stats=new Map(),hashes=new Map();
+let attempts=0,successes=0,musicAttempts=0,ordinaryAttempts=0,activeRequests=0,maxRequests=0;
+const sourceRecords=JSON.parse(await readFile(output('SOURCE_INPUTS.json'),'utf8')).files;
+const cdp=(method,params={})=>new Promise((resolve,reject)=>{const id=++sequence,timer=setTimeout(()=>{pending.delete(id);reject(new Error('Inspector deadline: '+method));},5000);pending.set(id,{resolve:value=>{clearTimeout(timer);resolve(value);},reject:error=>{clearTimeout(timer);reject(error);}});ws.send(JSON.stringify({id,method,params}));});
+async function processMemory(){
+ const found=[];
+ async function descend(pid){
+  let children;try{children=(await readFile(`/proc/${pid}/task/${pid}/children`,'utf8')).trim().split(/\s+/).filter(Boolean);}catch{return;}
+  for(const child of children){
+   const status=await readFile(`/proc/${child}/status`,'utf8').catch(()=>null);if(!status)continue;
+   const name=status.match(/^Name:\s*(.*)$/m)?.[1];
+   if(name?.includes('workerd')){
+    const kib=key=>{const n=status.match(new RegExp('^'+key+':\\s*(\\d+)\\s+kB','m'))?.[1];return n?Number(n)*1024:null;};
+    found.push({name,rssBytes:kib('VmRSS'),peakRssBytes:kib('VmHWM'),virtualBytes:kib('VmSize'),threads:Number(status.match(/^Threads:\s*(\d+)/m)?.[1])});
+   }
+   await descend(child);
+  }
+ }
+ await descend(process.pid);assert.equal(found.length,1,'Exactly this harness\'s one Workerd child is measured');return found[0];
+}
+async function sample(label){
+ const memory=await(await handler.dispatchFetch(origin+'/__fixture_memory__')).json();
+ const heap=await cdp('Runtime.getHeapUsage');
+ const row={label,attempts,successes,expectedErrors:failures.length,elapsedMs:Date.now()-started,wasmLinearBytes:memory.linearBytes,...heap,workerdProcess:await processMemory(),nodeHarnessRssBytes:process.memoryUsage().rss};
+ assert.ok(Number.isFinite(row.wasmLinearBytes)&&row.wasmLinearBytes>0);
+ samples.push(row);await writeFile(output('samples.partial.json'),JSON.stringify(samples,null,2)+'\n');
+ console.log(JSON.stringify({sample:row}));
+}
+const call=(name,args)=>client.callTool({name,arguments:args});
+async function prepare(item,errorPattern){
+ const number=++attempts;assert.ok(attempts<=targetAttempts);
+ item.kind==='music'?musicAttempts++:ordinaryAttempts++;
+ activeRequests++;maxRequests=Math.max(maxRequests,activeRequests);const before=performance.now();
+ try{
+  const raw=await call(item.kind==='music'?'prepare_unsigned_music_transaction':'prepare_unsigned_transaction',item.request);
+  if(errorPattern){assert.equal(raw.isError,true);const message=raw.content?.[0]?.text||'';assert.match(message,errorPattern);failures.push({attempt:number,kind:item.kind,scenario:item.scenario,message,elapsedMs:Math.round(performance.now()-before)});return;}
+  const value=checked(raw);
+  const verified=item.kind==='music'?assertSyntheticMusicUnsigned(value,item.packageResult,item.fixture):assertSyntheticUnsigned(value,item.intent,item.fixture);
+  const fixed=C.FixedTransaction.from_hex(value.unsignedHex);assert.equal(fixed.transaction_hash().to_hex(),value.transactionHash);fixed.free();
+  const fingerprint={transactionHash:value.transactionHash,unsignedSha256:sha(Buffer.from(value.unsignedHex,'hex')),metadataSha256:sha(JSON.stringify(value.metadata)),auxiliaryDataHash:value.auxiliaryDataHash,feeLovelace:value.feeLovelace,unsignedBytes:value.unsignedBytes,estimatedSignedBytes:value.estimatedSignedBytes,...(item.kind==='music'?{musicPackageHash:value.musicPackageHash}:{intentHash:value.intentHash})};
+  const quotedSlot=handler.quote.tip.abs_slot, quotedTime=handler.quote.tip.block_time;
+  const expectedSlot=quotedSlot+Math.max(0,Math.floor(value.preparedAt/1000)-quotedTime)+600;
+  assert.ok(value.validUntilSlot<=expectedSlot && value.validUntilSlot>=expectedSlot-2,'Validity slot must track this fixed quote and real preparation time');
+  // With a real clock, the shared builder extrapolates beyond the fixed tip time.
+  // Native expiry, policy ID, metadata keys and body hash therefore vary by slot.
+  const identityKey=item.id+':slot:'+value.validUntilSlot;
+  const previous=hashes.get(identityKey);if(previous)assert.deepEqual(fingerprint,previous,'Same fixture and actual validity slot must preserve exact transaction/metadata identity');else hashes.set(identityKey,fingerprint);
+  successes++;stats.set(item.id,(stats.get(item.id)||0)+1);
+  await appendFile(output('responses.jsonl'),JSON.stringify({attempt:number,kind:item.kind,case:item.id,validUntilSlot:value.validUntilSlot,...fingerprint,exactMetadataVerified:true,valueConservationVerified:true,elapsedMs:Math.round(performance.now()-before)})+'\n');
+  return verified;
+ }finally{activeRequests--;}
+}
+const started=Date.now();let inspectorTarget;
+try{
+ const inspector=await handler.getInspectorURL(),discovery=new URL('/json/list',inspector);discovery.protocol='http:';
+ const targets=await(await fetch(discovery)).json();const target=targets.find(t=>t.id==='core:user:');assert.ok(target?.webSocketDebuggerUrl);inspectorTarget=target.id;
+ ws=new WebSocket(target.webSocketDebuggerUrl);await new Promise((resolve,reject)=>{ws.addEventListener('open',resolve,{once:true});ws.addEventListener('error',reject,{once:true});});
+ ws.addEventListener('message',event=>{const value=JSON.parse(event.data),p=pending.get(value.id);if(p){pending.delete(value.id);value.error?p.reject(new Error(JSON.stringify(value.error))):p.resolve(value.result);}});
+ client=new Client({name:'synthetic-mixed-workerd-soak',version:'1.0.0'});
+ await client.connect(new StreamableHTTPClientTransport(new URL(origin+'/api/mcp'),{fetch:(url,init)=>handler.dispatchFetch(url,init)}));
+ const toolNames=(await client.listTools()).tools.map(t=>t.name);assert.equal(toolNames.length,13);
+ const ordinary=[];
+ for(const mode of ['nft','data']){
+  const fixture=syntheticNativeFixture(mode),intent=checked(await call('create_mint_intent',fixture.args)).intent;
+  ordinary.push({id:'ordinary-'+mode,kind:'ordinary',fixture,intent,request:{intent,wallet:fixture.wallet}});
+ }
+ const smallArgs=loadMusicToolFixture().args,largeArgs=structuredClone(smallArgs),sampleCount=8500,wav=Buffer.alloc(44+sampleCount);
+ wav.write('RIFF',0);wav.writeUInt32LE(36+sampleCount,4);wav.write('WAVEfmt ',8);wav.writeUInt32LE(16,16);wav.writeUInt16LE(1,20);wav.writeUInt16LE(1,22);wav.writeUInt32LE(sampleCount,24);wav.writeUInt32LE(sampleCount,28);wav.writeUInt16LE(1,32);wav.writeUInt16LE(8,34);wav.write('data',36);wav.writeUInt32LE(sampleCount,40);wav.fill(128,44);
+ largeArgs.files[1]={name:'silence.wav',mediaType:'audio/wav',base64:wav.toString('base64')};largeArgs.tracks[0].fileName='silence.wav';
+ const packages=[];for(const args of [smallArgs,largeArgs])packages.push(checked(await call('create_music_release',args)));
+ const standardWallet=syntheticNativeFixture('nft').wallet;
+ const wallets=[standardWallet,{changeHex:address().to_hex(),utxos:[utxo(2,{coin:1500000}),utxo(3,{coin:1500000,key:'cd'})]},{changeHex:address().to_hex(),utxos:Array.from({length:32},(_,i)=>utxo(100+i,{tokens:16}))},standardWallet];
+ const ids=['music-small','music-two-payment-keys','music-32-utxos-512-assets','music-large-wav'];
+ const music=ids.map((id,i)=>{const packageResult=packages[i===3?1:0],args=i===3?largeArgs:smallArgs,fixture={args,wallet:wallets[i]};return {id,kind:'music',packageResult,fixture,request:{packetJson:packageResult.packetJson,wallet:fixture.wallet}};});
+ await writeFile(output('responses.jsonl'),'');await sample('before-preparation');const paceStart=Date.now();
+ // Two admitted preparations hold the shared gate, then one extra of each kind rejects.
+ handler.setScenario('delay');const reads=handler.calls.length;
+ const heldA=prepare(music[0]),heldB=prepare(ordinary[0]);
+ for(let i=0;handler.calls.length<reads+4&&i<100;i++)await sleep(5);
+ assert.equal(handler.calls.length,reads+4);
+ await prepare({...music[0],scenario:'shared-gate-excess'},/concurrency/i);
+ await prepare({...ordinary[0],scenario:'shared-gate-excess'},/concurrency/i);
+ assert.equal(handler.calls.length,reads+4,'Gate rejections must make no provider reads');
+ await Promise.all([heldA,heldB]);handler.setScenario('normal');await sample('shared-gate-released');
+ for(let pair=1;pair<=498;pair++){
+  const wait=paceStart+attempts*intervalPerAttemptMs-Date.now();if(wait>0)await sleep(wait);
+  let m=music[(pair-1)%music.length],o=ordinary[(pair-1)%ordinary.length],expected;
+  const readCount=handler.calls.length;
+  if(pair===120){m={...m,scenario:'malformed-package',request:{...m.request,packetJson:'{}'}};o={...o,scenario:'malformed-intent',request:{...o.request,intent:null}};expected=/./;}
+  if(pair===240){const wallet={changeHex:address().to_hex(),utxos:Array.from({length:33},(_,i)=>utxo(500+i))};m={...m,scenario:'33-utxo-bound',request:{...m.request,wallet}};o={...o,scenario:'33-utxo-bound',request:{...o.request,wallet}};expected=/32|too big|maximum|Invalid/i;}
+  if(pair===320){handler.setScenario('timeout');m={...m,scenario:'actual-provider-deadline'};o={...o,scenario:'actual-provider-deadline'};expected=/timed out/i;}
+  if(pair===410){handler.setScenario('stale');m={...m,scenario:'stale-quote'};o={...o,scenario:'stale-quote'};expected=/stale|behind/i;}
+  await Promise.all([prepare(m,expected),prepare(o,expected)]);
+  if(pair===120||pair===240)assert.equal(handler.calls.length,readCount,'Malformed/bound errors must precede provider reads');
+  if(pair===320){assert.equal(handler.calls.length,readCount+4);for(const error of failures.slice(-2)){assert.ok(error.elapsedMs>=9950);assert.ok(error.elapsedMs<14000);}}
+  handler.setScenario('normal');
+  if(pair%25===0||[120,121,240,241,320,321,410,411,498].includes(pair))await sample('after-pair-'+pair);
+ }
+ assert.equal(attempts,1000);assert.equal(musicAttempts,500);assert.equal(ordinaryAttempts,500);assert.equal(successes,990);assert.equal(failures.length,10);assert.equal(activeRequests,0);
+ assert.equal(handler.calls.length,1988,'990 successful + four provider-error preparations each make two fixed reads');
+ for(const read of handler.calls){assert.equal(read.method,'GET');assert.equal(read.authorization,null);assert.equal(read.body,'');}
+ assert.ok(Date.now()-paceStart>=60000,'The configured real request window rolls over without any reset');
+ assert.equal((await client.listTools()).tools.length,13);await sample('complete-no-forced-GC');
+ const collecting=cdp('HeapProfiler.collectGarbage');for(let i=0;i<10;i++){await handler.dispatchFetch(origin+'/__fixture_memory__');await sleep(20);}await collecting;await sample('after-one-diagnostic-GC');
+ const stable=[];
+ for(const record of sourceRecords.filter(r=>r.path.startsWith('mcp/src/')||['mcp/build.mjs','mcp/package.json','mcp/package-lock.json'].includes(r.path))){assert.equal(sha(await readFile(new URL(record.path,root))),record.sha256,'Held root MCP input changed: '+record.path);stable.push(record);}
+ const artifacts={};for(const name of ['worker.mjs','cardano_serialization_lib_bg.wasm']){const bytes=await readFile(new URL('../dist/'+name,import.meta.url));artifacts[name]={bytes:bytes.length,sha256:sha(bytes)};}
+ const report={schema:'nft-studio.workerd-mixed-music-soak.v1',status:'PASS',checkedAt:new Date().toISOString(),runtime:'Actual Miniflare/Workerd',node:process.version,compatibilityDate:'2026-05-15',nodeCompatibility:false,elapsedMs:Date.now()-started,preparationAttempts:attempts,musicAttempts,ordinaryAttempts,successfulPreparations:successes,expectedErrors:failures,successfulCases:Object.fromEntries(stats),allSuccessfulResponsesIndependentlyChecked:true,stableCaseAndValiditySlotIdentities:Object.fromEntries(hashes),realClockValidityExtrapolationVerified:true,initialHarnessRun:{attempts:646,successfulPreparationsBeforeAssertion:636,expectedErrors:8,stopReason:'Harness initially compared hashes across different real validity slots. Corrected to compare fixture plus actual validity slot after independently checking each exact transaction; no product change.'},syntheticProtocolReads:handler.calls.length,providerRequestsDisclosedContent:false,publicNetworkCalls:0,realWallets:0,privateKeys:0,signaturesCreated:0,submissions:0,maxAdmittedConcurrent:2,maxObservedOverlappingMcpToolCalls:maxRequests,gateExcessRejectedBeforeProviderReads:2,rateConfiguration:{requestsPerMinute:1000,withinSupportedConfiguration:true,intervalPerAttemptMs,actualClock:true,handlerResets:0,wasmInstanceResets:0},localV8Flags:process.env.MINIFLARE_WORKERD_V8_FLAGS,forcedGarbageCollectionsDuringRun:0,finalDiagnosticGarbageCollections:1,inspectorTarget,artifacts,heldMcpSourceInputs:stable,sourceInputsManifestSha256:sha(await readFile(output('SOURCE_INPUTS.json'))),responseEvidenceSha256:sha(await readFile(output('responses.jsonl'))),samples,limits:['A bounded local synthetic run is not proof of no memory leaks, production traffic capacity or production CPU/memory guarantees.','CDP heap, backing storage and WASM linear capacity may overlap; they are reported separately and must not be summed as an exact isolate footprint.','Workerd process RSS includes runtime and other Miniflare isolate overhead; Node assertion-process RSS is separate.','One allowed maximum rate setting and a local 64 MiB V8 old-space cap were used; no test clock advance or handler/WASM reset was used.','No forced GC occurred during workload; one final diagnostic collection measures retained state afterward.','Existing independent metadata/value assertions use CSL and Node crypto, not an independent ledger implementation or cryptographic dependency audit.']};
+ await writeFile(output('mixed-soak-check.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({status:report.status,preparationAttempts:attempts,successfulPreparations:successes,expectedErrors:failures.length,elapsedMs:report.elapsedMs,first:samples[0],last:samples.at(-1),artifacts}));
+}catch(error){await writeFile(output('failure.json'),JSON.stringify({status:'FAIL',checkedAt:new Date().toISOString(),attempts,successes,failures,error:String(error),stack:error.stack,samples},null,2)+'\n');throw error;}
+finally{ws?.close();await client?.close();await handler.close();}

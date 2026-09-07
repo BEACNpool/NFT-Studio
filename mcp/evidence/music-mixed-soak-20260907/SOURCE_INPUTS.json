@@ -1,0 +1,951 @@
+{
+  "schema": "beacn.local-mixed-soak-inputs.v1",
+  "copiedAt": "2026-09-07T09:11:32.732486+00:00",
+  "files": [
+    {
+      "path": "experiments/capsule-parameterizer/.gitignore",
+      "bytes": 20,
+      "sha256": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/README.md",
+      "bytes": 8424,
+      "sha256": "4f6f35a625489ef4d6bc67ae79d7fa4762efe9399b6a786d6201684f6645b19e"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/THIRD_PARTY.md",
+      "bytes": 1595,
+      "sha256": "abc4ef19418010e60f2ca7439fffd799f7e4e140558d90f4cc8f02c0a1ed9069"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/evidence/aiken-parity.json",
+      "bytes": 1557,
+      "sha256": "85a47efaf3cf068c59fe5817ca6fe3e9a8010c87a0891610afe3a1972b3edac2"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/evidence/browser-build.json",
+      "bytes": 11361,
+      "sha256": "531f965f3f5dd40ae53cdc23b7c9546ce6412608b89597511556ab9e58bd4156"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/evidence/browser-runtime.json",
+      "bytes": 1383,
+      "sha256": "ede9538cd584584740dd9a8a54508b009fe62b2e85f3b564d5ef555b567ff155"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/evidence/clean-install.json",
+      "bytes": 490,
+      "sha256": "834497bee1c1f39e6860f94ac2d780729ac0a7f54e0cf008d11957122f754a06"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/evidence/packages.json",
+      "bytes": 2296,
+      "sha256": "8472bc0ea618c457f316308e4e4fc852475f6c5b7edd5db4faa118ab8bbd6588"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/evidence/sources.json",
+      "bytes": 3255,
+      "sha256": "9b15dc976e0003810b2a37addcdfff89be0e5f98aedb47c12bc384f12a6e020a"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/fixtures/aiken-oracle.json",
+      "bytes": 1707823,
+      "sha256": "15851381d0d8f0247b1248e7760beac1ae6fb10089850d2b6b4d9dabc857ffa8"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/fixtures/applied-demo.json",
+      "bytes": 23342,
+      "sha256": "52e7c3c0261433e6bb052602ba969e64b6f02199cad692f78df7ea49cbaaab54"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/licenses/harmoniclabs-bitstream.txt",
+      "bytes": 1455,
+      "sha256": "7919d46e8484b8e158971bfca32a43493da33ecf997233ced59f17bb379cef12"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/licenses/harmoniclabs-crypto.txt",
+      "bytes": 1071,
+      "sha256": "8b95e8fad60447bae847aea0d1d97adf44713cd2581f0921f866defa49c9595d"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/licenses/harmoniclabs-obj-utils.txt",
+      "bytes": 1074,
+      "sha256": "14aea06461613f3b5c743327aa21ca6b581d716bdb3a1ef0fd1232546b68907e"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/licenses/harmoniclabs-uint8array-utils.txt",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/licenses/harmoniclabs-uplc.txt",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/licenses/noble-hashes.txt",
+      "bytes": 1109,
+      "sha256": "4f221aee6e072336700c408c68ab3b96a3fc09f6aebe6f48f1bd99e5ef13faec"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/package-lock.json",
+      "bytes": 31216,
+      "sha256": "12c7a8ecdca2ed84acb84ea1163f83dfca1ff4b06243c3b827134907a1185787"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/package.json",
+      "bytes": 873,
+      "sha256": "bce36769c2eefd63144c35bdaf78b7e1916365d11604cfd3bb00a200ebc4e4e9"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/scripts/build.mjs",
+      "bytes": 1732,
+      "sha256": "27477f9bfcf3f60330cf52e9c997a16c209eab2c566ac86e8e75975f0cb2faa7"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/scripts/capture-sources.py",
+      "bytes": 3509,
+      "sha256": "6f3a21c418edf91926ccd034a55bbb5133661271bf6d91fc2b11f9659515f883"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/scripts/verify-aiken.mjs",
+      "bytes": 4060,
+      "sha256": "19e75763719a3611e1619c87920dd3750db20f9a77a1188a5c093d15d17c0432"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/scripts/verify-browser.mjs",
+      "bytes": 4317,
+      "sha256": "6f8a5b6aa352a5cf3ccaa3039d7194aa4df10a37a029e3e03c808098e7a31e4e"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/scripts/verify-clean.mjs",
+      "bytes": 1924,
+      "sha256": "06ac643c9b6a69260e6a56ea90e11938188d7813fe930449a77b28e60f862d47"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/src/fixed-blueprint.mjs",
+      "bytes": 24761,
+      "sha256": "31997ac021b171c9e2f6ecb7bb9b103c5c7c2bcd61c2467e2b1704bf8d838cdb"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/src/index.d.mts",
+      "bytes": 2563,
+      "sha256": "fa121b6a69bc5926fcc5ce0a9f3ff709f622ea090acabc37dad5eea14562d4cd"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/src/index.mjs",
+      "bytes": 8742,
+      "sha256": "045d38b4cccdf33d4ae592907db3a090d1b537c7de08ea7d878772ab208549f3"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/test/fixtures.mjs",
+      "bytes": 1042,
+      "sha256": "b37e0d25bd069087fcb32cc4ed902fe5c13b458a1a2dbc1107323355970d2731"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/test/parameterizer.test.mjs",
+      "bytes": 6747,
+      "sha256": "f158ffb4029d83a215d16a901b85104861483af3b7d0e91e3512aa78af35f216"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/trusted/aiken.toml",
+      "bytes": 426,
+      "sha256": "ddf22f0cb0015aca17aa243b2da0b85e19e379ed74bafe8d9dc097c6a25bf279"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/trusted/capsule-codec.mjs",
+      "bytes": 8936,
+      "sha256": "674fa480cdc7dd9cd3eed2324a320a392de16a6339228e66e4834e09fe22207f"
+    },
+    {
+      "path": "experiments/capsule-parameterizer/trusted/plutus.json",
+      "bytes": 23963,
+      "sha256": "26f9377baf76d713c1aaa1f447dceb59e7ffa0b58728f59a617ae91e40c738f4"
+    },
+    {
+      "path": "knowledge/ADMISSION.md",
+      "bytes": 4642,
+      "sha256": "0f74bf67a6f32dd81ffcc52759cda9d94c7b421709f5ed6ab44d39c83a5b78aa"
+    },
+    {
+      "path": "knowledge/ATTRIBUTION.md",
+      "bytes": 2127,
+      "sha256": "3dce1021cf06464bb255f74d265fa71cbc5d3078ed846c1bd5b58b031a1e12cd"
+    },
+    {
+      "path": "knowledge/CIP_DRIFT_SAMPLE.json",
+      "bytes": 30365,
+      "sha256": "d69edeb12a1b9af282a7f414646d64e064359d674ea7a8baa605c879ac7a9695"
+    },
+    {
+      "path": "knowledge/IMPLEMENTATIONS.md",
+      "bytes": 8397,
+      "sha256": "fcdc3e3066e3f2a4c3ba9e132dea34fd596b6167a66aaa38abb81765c1bf3fa5"
+    },
+    {
+      "path": "knowledge/SOURCE_AUDIT.json",
+      "bytes": 18926,
+      "sha256": "0dd24550057c22293b3926d4e847a0c1f22f3eee62f48ecb639c43e943493e11"
+    },
+    {
+      "path": "knowledge/audit-sources.mjs",
+      "bytes": 2062,
+      "sha256": "bc740d1c436b63ef10c83ddc251238e13ad7b8f7af72eacba570c97d7c226f80"
+    },
+    {
+      "path": "knowledge/catalog.json",
+      "bytes": 195352,
+      "sha256": "dd46b26ee495a932ba0d06c01ef674941b1f262f52652c0fe45f4fc92d1e4e79"
+    },
+    {
+      "path": "knowledge/cip-drift.mjs",
+      "bytes": 12461,
+      "sha256": "6a0cb4c94f8ee4e1cd459954337a1559d0fe74d2d30ad02e60ec62bb4cedfffe"
+    },
+    {
+      "path": "knowledge/fixtures/cip-drift.json",
+      "bytes": 2897,
+      "sha256": "5354ec2b2f2b47a51685af44a34337238a27b71304783d54efd4acaaa036a636"
+    },
+    {
+      "path": "knowledge/guides/agent-minting.md",
+      "bytes": 5368,
+      "sha256": "06483a029d88e95a6513f64dadb11dc0b982d51e46b8e479658269cbe3b05e4e"
+    },
+    {
+      "path": "knowledge/guides/artifact-passports.md",
+      "bytes": 4373,
+      "sha256": "34723d40efd9ccdccceab2dd4c6dde3a8d1b857f17816c0aeab97fbbb8554911"
+    },
+    {
+      "path": "knowledge/guides/living-artifacts.md",
+      "bytes": 6299,
+      "sha256": "54f60db29d833ee48ad3b67e5acaa704d5dc56be2adaada1c9fb941a7a61922b"
+    },
+    {
+      "path": "knowledge/guides/opportunity-map.md",
+      "bytes": 6222,
+      "sha256": "439342841f245245df4aedab7fb08d5d7274444ce32ea016cb64285ec7137af5"
+    },
+    {
+      "path": "knowledge/guides/source-drift.md",
+      "bytes": 5099,
+      "sha256": "32e0cb86c0c80c537c7eded71f777eb68fa5bf13a57c293a215adbe868684161"
+    },
+    {
+      "path": "knowledge/guides/toolchain.md",
+      "bytes": 4644,
+      "sha256": "83856bf643993c6a1b57343c6d398bea875e586d4c72e5382e86e679c0840ccf"
+    },
+    {
+      "path": "knowledge/guides/underexplored-primitives.md",
+      "bytes": 2763,
+      "sha256": "f98b578b2c12bbadbf62cab2d16d696022c36a42489f309cad8af5903a83ed60"
+    },
+    {
+      "path": "knowledge/implementations.d.mts",
+      "bytes": 2706,
+      "sha256": "3fa8e0d5256743c17b322e713da7a91a23b06315a4e9c64966f4a974bd2b20c8"
+    },
+    {
+      "path": "knowledge/implementations.json",
+      "bytes": 54737,
+      "sha256": "07f5998332d8bf328f621249a4c122019e203c406c5dc95543a48fe2717c46aa"
+    },
+    {
+      "path": "knowledge/implementations.mjs",
+      "bytes": 12245,
+      "sha256": "81535cc240caf709f73c068430fde962950350e77fd325cf9ad97878811fa5ab"
+    },
+    {
+      "path": "knowledge/implementations.schema.json",
+      "bytes": 11600,
+      "sha256": "db004411706bbdf038019ad38590134a6436186f1ba01376845da9f8d3ae795a"
+    },
+    {
+      "path": "knowledge/lib.d.mts",
+      "bytes": 1479,
+      "sha256": "f8627dc49cc2af240b4a09b5daadeecb5a980d72cebca07194f9f72ed11a926a"
+    },
+    {
+      "path": "knowledge/lib.mjs",
+      "bytes": 9012,
+      "sha256": "824e13eb79c489a8be26a1d4ef3a62e35988e40571c6727376172b583ba141fc"
+    },
+    {
+      "path": "knowledge/node.mjs",
+      "bytes": 420,
+      "sha256": "a1df56e2be90468148ce5ed69016dcda0136699449d3eb1c52f58688dde96ccc"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/ATTRIBUTION.md",
+      "bytes": 8250,
+      "sha256": "48276486deb722d660f659df586f140112730c3526ccefc4c2b505c4daee9b78"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/FINDINGS.md",
+      "bytes": 7899,
+      "sha256": "eabc223dfcd2e6293d5a4123d7e67fb7a54b5415c15cf922c0995717ccc9845b"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/README.md",
+      "bytes": 1532,
+      "sha256": "a1e20dc9aac753c75c7c4e0fb970686814c4100fee12b693f042c784ca9cc8ad"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/candidate-source-evidence.json",
+      "bytes": 19321,
+      "sha256": "13ad7e4127b4e0d35fbcd97268592d556e5483440b474d651f72f28492768fd9"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/IntersectMBO--plutus--LICENSE.md.source.txt",
+      "bytes": 11356,
+      "sha256": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/IntersectMBO--plutus--NOTICE.md.source.txt",
+      "bytes": 560,
+      "sha256": "9e1fe670abe06d2cbdffa2d724765b5e86aa7f65d8eccd34b391a37fbf7bab89"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/IntersectMBO--plutus--plutus-ledger-api--NOTICE.source.txt",
+      "bytes": 593,
+      "sha256": "9f5112659daf50eec7866133b2c11432547d132ec8253121ffc8503970197b34"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/IntersectMBO--plutus--plutus-ledger-api--src--PlutusLedgerApi--V3--Contexts.hs.source.txt",
+      "bytes": 25064,
+      "sha256": "206fe185a66c79df8f095b350b4d23796220001a254ab687a9893ce21b301af4"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/IntersectMBO--plutus--plutus-ledger-api--src--PlutusLedgerApi--V3.hs.source.txt",
+      "bytes": 7108,
+      "sha256": "15228913bc5ba4fd572919e5b745750add35d40ce7b635271eae04450b950b1b"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/cardano-foundation--CIPs--CIP-0116--cardano-babbage.json.source.txt",
+      "bytes": 53000,
+      "sha256": "0ab592ae5f482b0d0b6e1fe5e100e13961e39a46c4f770d8d6609d98ff9c8771"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/cardano-foundation--CIPs--CIP-0116--cardano-conway.json.source.txt",
+      "bytes": 72698,
+      "sha256": "05f1160d4bf4812ab90b4a283957d97d06fe9158210db90c1bd481cae5c1feda"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/cardano-foundation--cardano-connect-with-wallet--LICENSE.source.txt",
+      "bytes": 10956,
+      "sha256": "3c9c3532ed6442702fbf77783026029b0c561f0a40d06bad69ac1163560381b7"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/cardano-foundation--cardano-connect-with-wallet--core--package.json.source.txt",
+      "bytes": 1136,
+      "sha256": "60d1aebe512bacfbc425cb0d50dbb0715afb29539ef5f5830ec48f47d5ae605b"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/cardano-foundation--cardano-connect-with-wallet--core--utils--wallet.ts.source.txt",
+      "bytes": 3619,
+      "sha256": "0713ea6a0bb644db96f65805f1a401aaf91a29aba6bac2717fad9e838d1c4ccf"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/cardano-foundation--cardano-connect-with-wallet--react--package.json.source.txt",
+      "bytes": 2712,
+      "sha256": "62270ac76cace9d2826cd96b3589dcc2d1c93a195e715afa1dfb345e8f08a769"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/cardano-foundation--cardano-connect-with-wallet--react--src--components--ConnectWalletButton--ConnectWalletButton.tsx.source.txt",
+      "bytes": 12791,
+      "sha256": "ce18b6cbfb94c027bc5b2c62d7b512a2e8ac6c46348468ad767c1106711e5888"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/cardano-foundation--cip-170-attestation-frontend--LICENSE.txt.source.txt",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/cardano-foundation--cip-170-attestation-frontend--WORKFLOW.md.source.txt",
+      "bytes": 7235,
+      "sha256": "605e4ffec63404aa05ace194c1c688fcd677d4d057304a38be9c57812d62633f"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/cardano-foundation--cip-170-attestation-frontend--lib--keri-utils.ts.source.txt",
+      "bytes": 3167,
+      "sha256": "cf7a951cf7dcd44009c68694c4c35d36a6da999666d27008ba8ccea95a2a885c"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/cardano-foundation--cip-170-attestation-frontend--package.json.source.txt",
+      "bytes": 1262,
+      "sha256": "3fa68743677ede2c7348e59ca03955e7b93da3d654d630f256327fcf48a8458d"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/cips-CIP-0026--README.md.source.txt",
+      "bytes": 30595,
+      "sha256": "f339b6909d989f1c36339742255ecc0274470eb3ce8f48bbd11b9df2a0e3ee42"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/cips-CIP-0045--README.md.source.txt",
+      "bytes": 14024,
+      "sha256": "ee3886da41e945cb4098ad55c6c5b730c2575bff2bc01a0bd032db0cf87ed198"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/cips-CIP-0069--README.md.source.txt",
+      "bytes": 7629,
+      "sha256": "4379ebd20b48a958135f72dc54bd20b20d323a4a850796565f464ad2443bfc91"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/cips-CIP-0116--README.md.source.txt",
+      "bytes": 12348,
+      "sha256": "1091764a5a20d34afbadc96720c2d00a694ffc941a5ad7813c8c5bfbdaa70a62"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/cips-CIP-0170--README.md.source.txt",
+      "bytes": 25998,
+      "sha256": "cd7bd9153bd773aacdd53b0fdbd028c6d7b962a6422057bfe21da50056a45bc2"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/cips-LICENSE.source.txt",
+      "bytes": 18657,
+      "sha256": "97d24386ff776d7160b87031b259a942bd03c9939796cab6724ad5d17d2cf785"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/cips-README.md.source.txt",
+      "bytes": 18280,
+      "sha256": "44db10b50ced61b533d2ae89593051774d866301fdffb175121afbc09d9603ce"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/fabianbormann--cardano-peer-connect--LICENSE.source.txt",
+      "bytes": 10956,
+      "sha256": "3c9c3532ed6442702fbf77783026029b0c561f0a40d06bad69ac1163560381b7"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/fabianbormann--cardano-peer-connect--package.json.source.txt",
+      "bytes": 1215,
+      "sha256": "392050426001f010ddb69b11ae62b10f4a0e9c5288bc1b95d1f4917d3c1a1c01"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/fabianbormann--cardano-peer-connect--src--CardanoPeerConnect.ts.source.txt",
+      "bytes": 14801,
+      "sha256": "f257039e6568e1a74e4347865d2370a9663c95d0ee07d37e10b8d60e9ca78e69"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/fabianbormann--cardano-peer-connect--src--DAppPeerConnect.ts.source.txt",
+      "bytes": 17529,
+      "sha256": "f27bde0d846fb3bfaebdf501cf62cd39947425e9ae503c25e0f3253693e375a3"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/fabianbormann--cardano-peer-connect--src--lib--PeerRpc.ts.source.txt",
+      "bytes": 4598,
+      "sha256": "938f8a6e634c60fe7a3a810268261acf7a6c046477b04774df65d9d39515abdd"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/input-output-hk--offchain-metadata-tools--LICENSE.source.txt",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/input-output-hk--offchain-metadata-tools--token-metadata-creator--README.md.source.txt",
+      "bytes": 7183,
+      "sha256": "534d2fcec9ed0a0f1efbfcd5c610e2d9f51a3ab2907f800498bcaed80041c351"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/input-output-hk--offchain-metadata-tools--token-metadata-creator--src--Cardano--Metadata--GoguenRegistry.hs.source.txt",
+      "bytes": 7740,
+      "sha256": "9544bd16c1dda99ad9e855d0965365a7196ed5f8a8a325163d40331c6e88f4e4"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/evidence/input-output-hk--offchain-metadata-tools--token-metadata-creator--src--Cardano--Metadata--Validation--Wallet.hs.source.txt",
+      "bytes": 3094,
+      "sha256": "09ded13bb34168e0ad24eed268db3abd423a1883aff79970fcdd15f5cf06f476"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/repository-revisions.json",
+      "bytes": 2820,
+      "sha256": "b88e503d25e6eff16945639c4fc9b90d8dcd0056cd0f221c306ae069247dc7d0"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/source-retrievals.json",
+      "bytes": 33546,
+      "sha256": "5da53b2389ffdd6adb8417b61124f2dd2939674af888785f2b14ea2e4335f06d"
+    },
+    {
+      "path": "knowledge/research/2026-09-07-nft-agent-primitives/upstream-commit.txt",
+      "bytes": 41,
+      "sha256": "4074ee4471a4beff0413cb17d6fc54e235e407b7fcfab607a05418416b8b3d91"
+    },
+    {
+      "path": "knowledge/review-issues.json",
+      "bytes": 13879,
+      "sha256": "17a97dd980dacc3c123028a01ebb0e9f2760adf6a9442e471588ca93947490fa"
+    },
+    {
+      "path": "knowledge/schema.json",
+      "bytes": 9106,
+      "sha256": "36d63ddb4bd080661fd4e4d29db28320f33170d76c93d4b026524ebe7a5e7754"
+    },
+    {
+      "path": "knowledge/verify-cip-drift.mjs",
+      "bytes": 9918,
+      "sha256": "6f5c75d84f77a8080a0c311b8c30b8077906e62cbb7e178e59e8e0c1295a2e33"
+    },
+    {
+      "path": "knowledge/verify-implementations.mjs",
+      "bytes": 11781,
+      "sha256": "908cfa031d156a4f4ccbbe870d19ecbbeace0fd53cea396177c94bf7c27c922e"
+    },
+    {
+      "path": "knowledge/verify.mjs",
+      "bytes": 4414,
+      "sha256": "87878bb3b85b433264b92ff5aadd46101c398661e0a9fd2f0d2854822bc789ec"
+    },
+    {
+      "path": "lib/arcade-catalog.json",
+      "bytes": 17081,
+      "sha256": "6e7e10f8315ba99d02a6ddf0b695dad1358645938fe9a3234e6f903ea4c96655"
+    },
+    {
+      "path": "lib/arcade.ts",
+      "bytes": 4395,
+      "sha256": "3fff8273f36ab664b4b3b0773d28704f4ee9357352711575734fd649f811fed8"
+    },
+    {
+      "path": "lib/art.ts",
+      "bytes": 14614,
+      "sha256": "24c29ac682fbbe30f7ef38658cd75cec329ee307574e235d3f4aea4d81045191"
+    },
+    {
+      "path": "lib/artifact-passport.ts",
+      "bytes": 36216,
+      "sha256": "148c4975fb52be312ea80b389593edffa53cd085fbee56b11081ae59f1ea802b"
+    },
+    {
+      "path": "lib/asset-inspector.ts",
+      "bytes": 2828,
+      "sha256": "9fbd3c13ffe3ce40ff3381b53a9367dae32e525e5d78288c1f8930e07de157eb"
+    },
+    {
+      "path": "lib/asset-link.ts",
+      "bytes": 713,
+      "sha256": "1b8865defce1a531ab0fadc9a605b535363bd9b39f9b473c15499b571c1d060e"
+    },
+    {
+      "path": "lib/beat-lab-template.json",
+      "bytes": 6471,
+      "sha256": "bab18dc6cacdc85d9853ceda58cd2e819ece641620f6db49928d75f3e3f25b25"
+    },
+    {
+      "path": "lib/beat-lab.ts",
+      "bytes": 2808,
+      "sha256": "97921de051a019acbdbb794a4621bbc4b9833c62d89f8c0de0ae940fd6c4b993"
+    },
+    {
+      "path": "lib/capabilities.ts",
+      "bytes": 967,
+      "sha256": "52919a6e9df85b81398e4c5a32c79c61ed8221c3d4972d6b848cee69cdb1dc31"
+    },
+    {
+      "path": "lib/capability-catalog.json",
+      "bytes": 74941,
+      "sha256": "59495d1529af5dd4f29d893aeccfb6f9cb344c210400ba0e9865225899059dfd"
+    },
+    {
+      "path": "lib/cardano.ts",
+      "bytes": 16679,
+      "sha256": "359e145cfa457f2b2355ce560aa1ba356102467a74f2a5caec9bfbaf4cd37b02"
+    },
+    {
+      "path": "lib/creation-engine.json",
+      "bytes": 29421,
+      "sha256": "2ab88585927313a83ebb7c5906951ac674e4cbed8e7fce6852b1b24b8c28494e"
+    },
+    {
+      "path": "lib/design.ts",
+      "bytes": 9087,
+      "sha256": "4ab17defec797b35fcf6a7028fef688e62610e8ceea6ce7485f33ddddedf60fa"
+    },
+    {
+      "path": "lib/export.ts",
+      "bytes": 10261,
+      "sha256": "22045c6cb9c52f9779156327d8a83d39710cd6668c3f493942cdb6d5ccad0129"
+    },
+    {
+      "path": "lib/handle.ts",
+      "bytes": 801,
+      "sha256": "79542f5d24076fb0968bc5db3e14ca060ca7891dbb4675ec2163c2ae2e12a419"
+    },
+    {
+      "path": "lib/interactive-presets.json",
+      "bytes": 6550,
+      "sha256": "cfb657cad01a54cfd4ee8a0af691107c5f6caa06e3ddefd617a5d91270cd7baf"
+    },
+    {
+      "path": "lib/interactive.ts",
+      "bytes": 13880,
+      "sha256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b"
+    },
+    {
+      "path": "lib/kayfabe.json",
+      "bytes": 8646,
+      "sha256": "13ced711005e56b0f3efe7c4429ab7348dc957e20d134fa0524528fe2995fb62"
+    },
+    {
+      "path": "lib/ledger-adapter.js",
+      "bytes": 3046,
+      "sha256": "18e8fdf930341c4512aa2bbade4399f015b874d8787a90199f78a4583c7b8a20"
+    },
+    {
+      "path": "lib/mint-receipt.ts",
+      "bytes": 5840,
+      "sha256": "537cb7a9a9f4704a60672ec5ac174e5af3b6388dce5e9f039a35a03d381ebadf"
+    },
+    {
+      "path": "lib/music-receipt.ts",
+      "bytes": 27568,
+      "sha256": "3f2b8b4d5588d92e253438059679f9c6fabe248c012a76796dec904982e99e07"
+    },
+    {
+      "path": "lib/music-release.ts",
+      "bytes": 27933,
+      "sha256": "5eb98cbd6f30e581cec3a48de34a848ed5b7c03f777c909f3383a64d36b08097"
+    },
+    {
+      "path": "lib/onchain-art.ts",
+      "bytes": 7156,
+      "sha256": "291350821a94ed2f73b192cc090fae301a01a80763104fb10aa0ad3e73cf41f1"
+    },
+    {
+      "path": "lib/paths.ts",
+      "bytes": 127,
+      "sha256": "aa2cfee2284dc95ac96cf0548ce030488cc4e46af496ada1626bfdee59133a57"
+    },
+    {
+      "path": "lib/proof-of-existence.ts",
+      "bytes": 22457,
+      "sha256": "8f7b88a3f4e7e170026bf58a1c1687e99416e46d736c6c8c4ae141ed5457befd"
+    },
+    {
+      "path": "lib/registry-signature-example.ts",
+      "bytes": 1880,
+      "sha256": "eec0efbf2ba7b17180d49a8a1f290ae27d5fe7a30e094a0fa56195d368cbf9a1"
+    },
+    {
+      "path": "lib/remix.ts",
+      "bytes": 1836,
+      "sha256": "39aad70454f640e3874b86bd86cd3e11b32ed4f58a94d4f46c7d18d2b6e5dcd3"
+    },
+    {
+      "path": "lib/storage.ts",
+      "bytes": 2510,
+      "sha256": "622c0a638f87d33ab0873f8ec012a54b9c8375a46f55e049f74afe6d0981e91a"
+    },
+    {
+      "path": "lib/studio-art.ts",
+      "bytes": 2246,
+      "sha256": "08fd027a97a40522ce5a1842fbc34e5b4714b564b5eb513c2cc99c1fd340c873"
+    },
+    {
+      "path": "lib/studio-intent.ts",
+      "bytes": 5176,
+      "sha256": "61f677bb7c5208be84ef35c5699457510e5b15cd8d4eb9af20e1594c32883883"
+    },
+    {
+      "path": "lib/studio-modes.ts",
+      "bytes": 2404,
+      "sha256": "7955ea0cb4d4b3d611cbfcac543e6780448975be5bec56074df8ff262dd86209"
+    },
+    {
+      "path": "lib/studio-payload.ts",
+      "bytes": 18099,
+      "sha256": "ed452542debb915ba0983ae4e9e9a86870641c96ba6be69e04b518e06eda460d"
+    },
+    {
+      "path": "lib/studio-receipts.ts",
+      "bytes": 1200,
+      "sha256": "4d685a726104bfaa1c8042e8dbdaac9dd3ecfb3d120b5b38199948912f5eba09"
+    },
+    {
+      "path": "lib/studio-submission.ts",
+      "bytes": 7017,
+      "sha256": "43bcf881ef9ca20546c707edce464537b1a0e3682ff581834e1c336c653f7bfb"
+    },
+    {
+      "path": "lib/studio-transaction.ts",
+      "bytes": 10377,
+      "sha256": "38d6275b30cac4ff214025702326c09ad257783fa8dd8a2f5c251277c996bd6a"
+    },
+    {
+      "path": "lib/studio-webmcp.ts",
+      "bytes": 3049,
+      "sha256": "67a77cc92898a7ee1eb13a6ed592e0f7deafd3a8a3d152d43ab0a941100f464b"
+    },
+    {
+      "path": "lib/templates.ts",
+      "bytes": 3436,
+      "sha256": "6a183113e99037eb18890ba37d0e8e404c0f2213c99c810e81bc878bab6cd6e3"
+    },
+    {
+      "path": "lib/utility.ts",
+      "bytes": 3813,
+      "sha256": "3be8a1e56bd04c7a940d9b4429b4e72375f02051b1f3111e4a2042bb6c138124"
+    },
+    {
+      "path": "lib/utils.ts",
+      "bytes": 169,
+      "sha256": "9304a861c8673bee09e0f12de31773abbde503b02e59dfd74763ddec2e37cf05"
+    },
+    {
+      "path": "mcp/.gitignore",
+      "bytes": 31,
+      "sha256": "b63ce42e2babc54a13558cf679f775191d18649bca9dc04072126ef50987e1a4"
+    },
+    {
+      "path": "mcp/CAPSULE_PARAMETERS.md",
+      "bytes": 4957,
+      "sha256": "5ce32e4ab51176e3cc863dc75adeb5879f6f86a3ee200df5e657f1a2a11cc469"
+    },
+    {
+      "path": "mcp/CSL-LICENSE",
+      "bytes": 1191,
+      "sha256": "9725d2d36969b002ecf53e7834d7fc1f357264fa1f7414809862b7a2a60af1c8"
+    },
+    {
+      "path": "mcp/MUSIC_PACKAGES.md",
+      "bytes": 6613,
+      "sha256": "06f1f82b75b94c46e2188454957e977c517aacf8d879445c257153fa382e0b81"
+    },
+    {
+      "path": "mcp/MUSIC_UNSIGNED.md",
+      "bytes": 6910,
+      "sha256": "de55fcdc7f565a9eee6f5003bbb393e3f902bee7e402d4237ae4612f23341fbc"
+    },
+    {
+      "path": "mcp/README.md",
+      "bytes": 2332,
+      "sha256": "be0f0a1f46be3da2b335dff41b18407e27ddabe4106c76e0b11341fe6da778ae"
+    },
+    {
+      "path": "mcp/build.mjs",
+      "bytes": 4616,
+      "sha256": "94cf70095a089c1f29d9e2ce1668d42623e9bd82a248eb9e24ac178bc7005e64"
+    },
+    {
+      "path": "mcp/integration/README.md",
+      "bytes": 8545,
+      "sha256": "616c7cc970772ccfa20b7d5e989b00e82168ed122df053dbc4780ba9d9802130"
+    },
+    {
+      "path": "mcp/integration/WASM_DEPLOYMENT.md",
+      "bytes": 3851,
+      "sha256": "9cace78851aa401b112851f8db737f0d691c5e2ec980171c328d0ec46b8e8888"
+    },
+    {
+      "path": "mcp/integration/tool-names.mjs",
+      "bytes": 583,
+      "sha256": "47353d737a8c817ae2f2c9d0545991a078def1315a875b4a048b367635c55acc"
+    },
+    {
+      "path": "mcp/integration/verify-capsule-parameters.mjs",
+      "bytes": 4748,
+      "sha256": "5bac75cbbc31785a481faae9ee22d3e5f1169c2685c15729292d3a549a1d28a6"
+    },
+    {
+      "path": "mcp/integration/verify-clean-install.mjs",
+      "bytes": 3584,
+      "sha256": "2c505fbca78bc7d298bb1c204f506e60468e89fb456934f1e592e4de3e3f2175"
+    },
+    {
+      "path": "mcp/integration/verify-implementation-resource.mjs",
+      "bytes": 3283,
+      "sha256": "6f4a2dc11cdfb4014d296e08701f45e4d022c46d739456b45ace3094dee0f68a"
+    },
+    {
+      "path": "mcp/integration/verify-live-endpoint.mjs",
+      "bytes": 9818,
+      "sha256": "854a37f4b844d6f17afd4c60442caf4ab91cc1ef19d493c1d045acbba2e20881"
+    },
+    {
+      "path": "mcp/integration/verify-music-tools.mjs",
+      "bytes": 7298,
+      "sha256": "d2846798b51b1e1480f0664735a4aeb89da5e6b0358a83e75bf4b9e6ab275220"
+    },
+    {
+      "path": "mcp/integration/verify-music-unsigned.mjs",
+      "bytes": 11167,
+      "sha256": "9b78a6fe134a6751d2b819e7a029620d1ff00e9fef46d51607cf861abb41ccd7"
+    },
+    {
+      "path": "mcp/integration/verify-site-wrapper.mjs",
+      "bytes": 9979,
+      "sha256": "2e4ba9c981e0646d14317b5afb6c47620941a3146ec86cb19be2d4db80775249"
+    },
+    {
+      "path": "mcp/integration/verify-synthetic-native.mjs",
+      "bytes": 9930,
+      "sha256": "6cc5de1a79721157b9276928fe4d58e6696ade26b50691be9a88c6545997e29f"
+    },
+    {
+      "path": "mcp/integration/verify-workerd-soak.mjs",
+      "bytes": 5762,
+      "sha256": "2665d909a4c28074c258ac8c9fb0ecabbbf9c60e32fa2aad23f2d99f7eea1723"
+    },
+    {
+      "path": "mcp/integration/wrap-site-build.mjs",
+      "bytes": 3887,
+      "sha256": "0ab504910a535e4b7c8c33f5ae203c52990d56723c79d4f308c60829bf20d245"
+    },
+    {
+      "path": "mcp/package-lock.json",
+      "bytes": 59857,
+      "sha256": "9e25fc1e9f86b7b5d786e58d080ff3bd95ee32651a73cdec368f3170d69205cc"
+    },
+    {
+      "path": "mcp/package.json",
+      "bytes": 1314,
+      "sha256": "f1ed82eab82a6c9ceb283dc3652ded74e75771224d77785bb5bc129070c1c63f"
+    },
+    {
+      "path": "mcp/src/capsule-tools.mjs",
+      "bytes": 3246,
+      "sha256": "a92567b7ecc736f4e482e888325eb105e0db5bdbac52b8473a67916873d5ef00"
+    },
+    {
+      "path": "mcp/src/cbor-preflight.mjs",
+      "bytes": 2348,
+      "sha256": "95f6b7ecfd3bcb8b9355ae72374ff4da4f38b46b7230a608ea1eb96bf3dbd4b8"
+    },
+    {
+      "path": "mcp/src/cli.mjs",
+      "bytes": 1671,
+      "sha256": "98aadc43f221cc00dc11924823ea74fb37c5828617d81e02063a475cd0d2b3a5"
+    },
+    {
+      "path": "mcp/src/csl-worker.mjs",
+      "bytes": 515,
+      "sha256": "d970d3ecb96953fd07ed813828650350e50710fb2c10e26a982494b20c1591de"
+    },
+    {
+      "path": "mcp/src/http.mjs",
+      "bytes": 6209,
+      "sha256": "fb30b74bebf56a7cfbc765edadc18af00c9093beb0190037ba1de799d203741c"
+    },
+    {
+      "path": "mcp/src/implementation-knowledge.mjs",
+      "bytes": 653,
+      "sha256": "1dc5e6abb7fc81f246f568a1fc9e7cc8befef502570d56d18e0ffc15fa049326"
+    },
+    {
+      "path": "mcp/src/music-tools.mjs",
+      "bytes": 7072,
+      "sha256": "63444f71d966b3828c2ac3fcdfa502eb88538e7e96059f278629e4d0504ab2b4"
+    },
+    {
+      "path": "mcp/src/music-unsigned-tools.mjs",
+      "bytes": 1885,
+      "sha256": "3c94e2bdba7e3ddea366c79a98c9768703b75ad06c1094b89889dc14bb43a904"
+    },
+    {
+      "path": "mcp/src/proof-tools.mjs",
+      "bytes": 5941,
+      "sha256": "c5af938c15832bd412bbb1303ebef19879538bd7ac289542c53da4a5f0e56f6b"
+    },
+    {
+      "path": "mcp/src/protocol.mjs",
+      "bytes": 2467,
+      "sha256": "f3346d4db173f5917ec9b69c245bfccaf86340805df841822beb2ff847e15a88"
+    },
+    {
+      "path": "mcp/src/public-unsigned.mjs",
+      "bytes": 13966,
+      "sha256": "2258fec41e17a6a77438371953d528464e82132045668a29b8a7dbb807805af2"
+    },
+    {
+      "path": "mcp/src/schemas.mjs",
+      "bytes": 3707,
+      "sha256": "9d55f7814799cbe57c1010f851f129606cf5a0c5d0f67455b66cd9b6388ca57b"
+    },
+    {
+      "path": "mcp/src/server.mjs",
+      "bytes": 16387,
+      "sha256": "bbfd0b563e9b2d717c64c0bade5d8ba6c479d59eaba39177682f7b40502f02e1"
+    },
+    {
+      "path": "mcp/src/worker.mjs",
+      "bytes": 14887,
+      "sha256": "c3bd02c75db396e964c166aadf207dc1bf2c522ec142530e6d226b81cd36b1c3"
+    },
+    {
+      "path": "mcp/test/capsule-tools.test.mjs",
+      "bytes": 5148,
+      "sha256": "e8507c1b6cd33fd17bdb875ea962058d957a65bf4239ae1e162d9058dcc4c5c3"
+    },
+    {
+      "path": "mcp/test/fixtures/ordinary-stateless-before-music.json",
+      "bytes": 8176,
+      "sha256": "f09db71dac2653a41d9c176fed73fa02be7339d0c620a0de39251d9b5c6d3100"
+    },
+    {
+      "path": "mcp/test/implementation-resource.test.mjs",
+      "bytes": 3084,
+      "sha256": "28d52fc33831b70c15928b4ca7bd54c352768b6012a59fe30766a2d82065af00"
+    },
+    {
+      "path": "mcp/test/integration.test.mjs",
+      "bytes": 23909,
+      "sha256": "a9649ec30b19fcd0916dcf8cc8689f3892b60f36cd78c74cf7b40005f99d7c3e"
+    },
+    {
+      "path": "mcp/test/live-verifier.test.mjs",
+      "bytes": 12481,
+      "sha256": "c3b1fdba7de7938af7a3d1f4afc3ba30ddbbd3b1d7c7062639d8455205e014b6"
+    },
+    {
+      "path": "mcp/test/music-tools.test.mjs",
+      "bytes": 14765,
+      "sha256": "b5125d79d00092490a0b97aa56f303c1d8483e8280d2a9a980ef42d44487794b"
+    },
+    {
+      "path": "mcp/test/music-unsigned.test.mjs",
+      "bytes": 26566,
+      "sha256": "6b9edd56ff2176b09f5ca6189331f3844e4eca8d05fcc6963d75daad135900f8"
+    },
+    {
+      "path": "mcp/test/wallet-fixtures.mjs",
+      "bytes": 1925,
+      "sha256": "3301a6d9e645720c658dc72139287db3db8ebb8e048fe8a3c839a8bb44d8a349"
+    },
+    {
+      "path": "mcp/test/worker-unsigned.test.mjs",
+      "bytes": 9944,
+      "sha256": "38904c3a2adfcc0b15b565b1f8f7fe08f222253942bc1c6c8844de6391b6ab5a"
+    },
+    {
+      "path": "mcp/test/worker.test.mjs",
+      "bytes": 8572,
+      "sha256": "3e9cac8b7d976e9783a8029ff0299e01eda582ab35e0fb0204254d3effee8bb7"
+    },
+    {
+      "path": "mcp/test/workerd-entry.mjs",
+      "bytes": 790,
+      "sha256": "646472a29df6efadfe25abdc6cc5b89fb3a66c1f7c88308ee4bc4d8f02638a87"
+    },
+    {
+      "path": "mcp/test/workerd-helper.mjs",
+      "bytes": 3804,
+      "sha256": "9a2c1636e6327efdb5750b0d985234596884ed876a9c4ab27c458e8b788652aa"
+    },
+    {
+      "path": "mcp/workerd-soak-check.json",
+      "bytes": 5650,
+      "sha256": "843b68973e03dbb950a6e3382728a8d90b973963e297ca00ba6051428f6275d2"
+    }
+  ]
+}

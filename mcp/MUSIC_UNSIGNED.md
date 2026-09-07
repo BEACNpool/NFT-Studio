@@ -120,3 +120,12 @@ checker adds explicit `--expected-tools 13`; existing 8/9/10/12 modes and the de
 transaction preparation. The 12-tool mode still creates/verifies music packages
 without sending a Music wallet snapshot. No live endpoint is exercised by merely
 importing the verifier or by running the locally intercepted suite.
+
+
+The [dated mixed Music/ordinary Workerd observation](evidence/music-mixed-soak-20260907/)
+contains 1,000 attempts: 990 independently verified preparations and ten expected
+errors with subsequent gate recovery. It includes exact source-input hashes and
+an explicit reproduction fixture helper. WASM and V8 heap observations were
+favorable, but whole-process RSS remained 200.1 MiB after the final diagnostic
+collection. This bounded local result is not a leak-free or production-capacity
+claim; retain its rate, clock, runtime and measurement qualifications.

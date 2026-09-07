@@ -1,0 +1,642 @@
+[
+  {
+    "label": "before-preparation",
+    "attempts": 0,
+    "successes": 0,
+    "expectedErrors": 0,
+    "elapsedMs": 258,
+    "wasmLinearBytes": 1245184,
+    "usedSize": 18258556,
+    "totalSize": 32698368,
+    "embedderHeapUsedSize": 257936,
+    "backingStorageSize": 149717,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 126476288,
+      "peakRssBytes": 126476288,
+      "virtualBytes": 25836544000,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 244928512
+  },
+  {
+    "label": "shared-gate-released",
+    "attempts": 4,
+    "successes": 2,
+    "expectedErrors": 2,
+    "elapsedMs": 624,
+    "wasmLinearBytes": 1572864,
+    "usedSize": 21441208,
+    "totalSize": 33546240,
+    "embedderHeapUsedSize": 257936,
+    "backingStorageSize": 372181,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 132530176,
+      "peakRssBytes": 132530176,
+      "virtualBytes": 25836544000,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 247943168
+  },
+  {
+    "label": "after-pair-25",
+    "attempts": 54,
+    "successes": 52,
+    "expectedErrors": 2,
+    "elapsedMs": 3722,
+    "wasmLinearBytes": 2883584,
+    "usedSize": 26955756,
+    "totalSize": 56877056,
+    "embedderHeapUsedSize": 386896,
+    "backingStorageSize": 1330743,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 181932032,
+      "peakRssBytes": 181932032,
+      "virtualBytes": 25836675072,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 270778368
+  },
+  {
+    "label": "after-pair-50",
+    "attempts": 104,
+    "successes": 102,
+    "expectedErrors": 2,
+    "elapsedMs": 6941,
+    "wasmLinearBytes": 2883584,
+    "usedSize": 25354492,
+    "totalSize": 89120768,
+    "embedderHeapUsedSize": 152312,
+    "backingStorageSize": 341024,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 228020224,
+      "peakRssBytes": 228020224,
+      "virtualBytes": 25837199360,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 280346624
+  },
+  {
+    "label": "after-pair-75",
+    "attempts": 154,
+    "successes": 152,
+    "expectedErrors": 2,
+    "elapsedMs": 10193,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 51151852,
+    "totalSize": 95072256,
+    "embedderHeapUsedSize": 298224,
+    "backingStorageSize": 1934153,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 243716096,
+      "peakRssBytes": 243716096,
+      "virtualBytes": 25837203456,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 289853440
+  },
+  {
+    "label": "after-pair-100",
+    "attempts": 204,
+    "successes": 202,
+    "expectedErrors": 2,
+    "elapsedMs": 13570,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 32344096,
+    "totalSize": 100392960,
+    "embedderHeapUsedSize": 500504,
+    "backingStorageSize": 2802152,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 253628416,
+      "peakRssBytes": 253636608,
+      "virtualBytes": 25837596672,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 240562176
+  },
+  {
+    "label": "after-pair-120",
+    "attempts": 244,
+    "successes": 240,
+    "expectedErrors": 4,
+    "elapsedMs": 16011,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 33994492,
+    "totalSize": 90169344,
+    "embedderHeapUsedSize": 123824,
+    "backingStorageSize": 1104015,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 257085440,
+      "peakRssBytes": 257085440,
+      "virtualBytes": 25837727744,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 241393664
+  },
+  {
+    "label": "after-pair-121",
+    "attempts": 246,
+    "successes": 242,
+    "expectedErrors": 4,
+    "elapsedMs": 16171,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 40611356,
+    "totalSize": 90169344,
+    "embedderHeapUsedSize": 137904,
+    "backingStorageSize": 1466704,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 257269760,
+      "peakRssBytes": 257269760,
+      "virtualBytes": 25837727744,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 241393664
+  },
+  {
+    "label": "after-pair-125",
+    "attempts": 254,
+    "successes": 250,
+    "expectedErrors": 4,
+    "elapsedMs": 16721,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 24618472,
+    "totalSize": 90169344,
+    "embedderHeapUsedSize": 160264,
+    "backingStorageSize": 627864,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 258019328,
+      "peakRssBytes": 258019328,
+      "virtualBytes": 25837727744,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 241393664
+  },
+  {
+    "label": "after-pair-150",
+    "attempts": 304,
+    "successes": 300,
+    "expectedErrors": 4,
+    "elapsedMs": 19932,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 50700660,
+    "totalSize": 93339648,
+    "embedderHeapUsedSize": 372184,
+    "backingStorageSize": 2353996,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 260337664,
+      "peakRssBytes": 260337664,
+      "virtualBytes": 25837858816,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 241721344
+  },
+  {
+    "label": "after-pair-175",
+    "attempts": 354,
+    "successes": 350,
+    "expectedErrors": 4,
+    "elapsedMs": 23188,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 49755684,
+    "totalSize": 98295808,
+    "embedderHeapUsedSize": 580504,
+    "backingStorageSize": 2397229,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 263680000,
+      "peakRssBytes": 263680000,
+      "virtualBytes": 25837989888,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 241840128
+  },
+  {
+    "label": "after-pair-200",
+    "attempts": 404,
+    "successes": 400,
+    "expectedErrors": 4,
+    "elapsedMs": 26566,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 37863996,
+    "totalSize": 94650368,
+    "embedderHeapUsedSize": 99064,
+    "backingStorageSize": 1248875,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 265945088,
+      "peakRssBytes": 265945088,
+      "virtualBytes": 25838120960,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 242491392
+  },
+  {
+    "label": "after-pair-225",
+    "attempts": 454,
+    "successes": 450,
+    "expectedErrors": 4,
+    "elapsedMs": 29733,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 35115580,
+    "totalSize": 94650368,
+    "embedderHeapUsedSize": 304664,
+    "backingStorageSize": 1557923,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 267063296,
+      "peakRssBytes": 267067392,
+      "virtualBytes": 25838252032,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 242184192
+  },
+  {
+    "label": "after-pair-240",
+    "attempts": 484,
+    "successes": 478,
+    "expectedErrors": 6,
+    "elapsedMs": 31609,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 47236360,
+    "totalSize": 94625792,
+    "embedderHeapUsedSize": 432784,
+    "backingStorageSize": 2301528,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 268308480,
+      "peakRssBytes": 268308480,
+      "virtualBytes": 25838514176,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 242110464
+  },
+  {
+    "label": "after-pair-241",
+    "attempts": 486,
+    "successes": 480,
+    "expectedErrors": 6,
+    "elapsedMs": 31772,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 27235600,
+    "totalSize": 94625792,
+    "embedderHeapUsedSize": 441784,
+    "backingStorageSize": 2664217,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 268111872,
+      "peakRssBytes": 268111872,
+      "virtualBytes": 25838514176,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 242110464
+  },
+  {
+    "label": "after-pair-250",
+    "attempts": 504,
+    "successes": 498,
+    "expectedErrors": 6,
+    "elapsedMs": 32936,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 46464964,
+    "totalSize": 97533952,
+    "embedderHeapUsedSize": 510264,
+    "backingStorageSize": 2225060,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 271822848,
+      "peakRssBytes": 271822848,
+      "virtualBytes": 25838514176,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 242241536
+  },
+  {
+    "label": "after-pair-275",
+    "attempts": 554,
+    "successes": 548,
+    "expectedErrors": 6,
+    "elapsedMs": 36196,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 38794176,
+    "totalSize": 94363648,
+    "embedderHeapUsedSize": 78624,
+    "backingStorageSize": 1184013,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 274722816,
+      "peakRssBytes": 274722816,
+      "virtualBytes": 25838514176,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 241582080
+  },
+  {
+    "label": "after-pair-300",
+    "attempts": 604,
+    "successes": 598,
+    "expectedErrors": 6,
+    "elapsedMs": 39560,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 36053068,
+    "totalSize": 94650368,
+    "embedderHeapUsedSize": 274264,
+    "backingStorageSize": 1507172,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 275509248,
+      "peakRssBytes": 275509248,
+      "virtualBytes": 25838645248,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 241008640
+  },
+  {
+    "label": "after-pair-320",
+    "attempts": 644,
+    "successes": 636,
+    "expectedErrors": 8,
+    "elapsedMs": 52026,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 38080236,
+    "totalSize": 95412224,
+    "embedderHeapUsedSize": 438104,
+    "backingStorageSize": 1834693,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 273002496,
+      "peakRssBytes": 276504576,
+      "virtualBytes": 25838776320,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 193064960
+  },
+  {
+    "label": "after-pair-321",
+    "attempts": 646,
+    "successes": 638,
+    "expectedErrors": 8,
+    "elapsedMs": 52078,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 44478328,
+    "totalSize": 95412224,
+    "embedderHeapUsedSize": 450224,
+    "backingStorageSize": 2197382,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 273281024,
+      "peakRssBytes": 276504576,
+      "virtualBytes": 25838776320,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 194637824
+  },
+  {
+    "label": "after-pair-325",
+    "attempts": 654,
+    "successes": 646,
+    "expectedErrors": 8,
+    "elapsedMs": 52399,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 28007080,
+    "totalSize": 96460800,
+    "embedderHeapUsedSize": 475264,
+    "backingStorageSize": 2832364,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 273600512,
+      "peakRssBytes": 276504576,
+      "virtualBytes": 25838776320,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 197390336
+  },
+  {
+    "label": "after-pair-350",
+    "attempts": 704,
+    "successes": 696,
+    "expectedErrors": 8,
+    "elapsedMs": 54264,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 40831116,
+    "totalSize": 100679680,
+    "embedderHeapUsedSize": 83984,
+    "backingStorageSize": 1105144,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 283967488,
+      "peakRssBytes": 283967488,
+      "virtualBytes": 25839169536,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 212738048
+  },
+  {
+    "label": "after-pair-375",
+    "attempts": 754,
+    "successes": 746,
+    "expectedErrors": 8,
+    "elapsedMs": 56167,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 38746076,
+    "totalSize": 96722944,
+    "embedderHeapUsedSize": 223224,
+    "backingStorageSize": 1680640,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 280854528,
+      "peakRssBytes": 284594176,
+      "virtualBytes": 25839169536,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 227573760
+  },
+  {
+    "label": "after-pair-400",
+    "attempts": 804,
+    "successes": 796,
+    "expectedErrors": 8,
+    "elapsedMs": 58073,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 51115396,
+    "totalSize": 97009664,
+    "embedderHeapUsedSize": 425264,
+    "backingStorageSize": 2621111,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 283209728,
+      "peakRssBytes": 284594176,
+      "virtualBytes": 25839300608,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 230719488
+  },
+  {
+    "label": "after-pair-410",
+    "attempts": 824,
+    "successes": 814,
+    "expectedErrors": 10,
+    "elapsedMs": 58711,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 41962396,
+    "totalSize": 98582528,
+    "embedderHeapUsedSize": 510024,
+    "backingStorageSize": 2080449,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 285065216,
+      "peakRssBytes": 285065216,
+      "virtualBytes": 25839300608,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 232103936
+  },
+  {
+    "label": "after-pair-411",
+    "attempts": 826,
+    "successes": 816,
+    "expectedErrors": 10,
+    "elapsedMs": 58768,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 49071696,
+    "totalSize": 98582528,
+    "embedderHeapUsedSize": 521504,
+    "backingStorageSize": 2504485,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 285310976,
+      "peakRssBytes": 285310976,
+      "virtualBytes": 25839300608,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 232103936
+  },
+  {
+    "label": "after-pair-425",
+    "attempts": 854,
+    "successes": 844,
+    "expectedErrors": 10,
+    "elapsedMs": 59844,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 38661284,
+    "totalSize": 100392960,
+    "embedderHeapUsedSize": 631664,
+    "backingStorageSize": 2075495,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 289292288,
+      "peakRssBytes": 289292288,
+      "virtualBytes": 25839431680,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 232448000
+  },
+  {
+    "label": "after-pair-450",
+    "attempts": 904,
+    "successes": 894,
+    "expectedErrors": 10,
+    "elapsedMs": 61716,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 38806664,
+    "totalSize": 95174656,
+    "embedderHeapUsedSize": 181344,
+    "backingStorageSize": 1628382,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 293236736,
+      "peakRssBytes": 293236736,
+      "virtualBytes": 25839562752,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 232968192
+  },
+  {
+    "label": "after-pair-475",
+    "attempts": 954,
+    "successes": 944,
+    "expectedErrors": 10,
+    "elapsedMs": 63527,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 38843204,
+    "totalSize": 95150080,
+    "embedderHeapUsedSize": 387744,
+    "backingStorageSize": 1885297,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 293670912,
+      "peakRssBytes": 293670912,
+      "virtualBytes": 25839824896,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 236343296
+  },
+  {
+    "label": "after-pair-498",
+    "attempts": 1000,
+    "successes": 990,
+    "expectedErrors": 10,
+    "elapsedMs": 65201,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 48194240,
+    "totalSize": 99368960,
+    "embedderHeapUsedSize": 579424,
+    "backingStorageSize": 2510165,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 295133184,
+      "peakRssBytes": 295133184,
+      "virtualBytes": 25839824896,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 236679168
+  },
+  {
+    "label": "complete-no-forced-GC",
+    "attempts": 1000,
+    "successes": 990,
+    "expectedErrors": 10,
+    "elapsedMs": 65219,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 49261032,
+    "totalSize": 99368960,
+    "embedderHeapUsedSize": 579424,
+    "backingStorageSize": 2535297,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 295170048,
+      "peakRssBytes": 295170048,
+      "virtualBytes": 25839824896,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 236679168
+  },
+  {
+    "label": "after-one-diagnostic-GC",
+    "attempts": 1000,
+    "successes": 990,
+    "expectedErrors": 10,
+    "elapsedMs": 65515,
+    "wasmLinearBytes": 3670016,
+    "usedSize": 14764672,
+    "totalSize": 15720448,
+    "embedderHeapUsedSize": 93832,
+    "backingStorageSize": 3609,
+    "workerdProcess": {
+      "name": "workerd",
+      "rssBytes": 209854464,
+      "peakRssBytes": 295104512,
+      "virtualBytes": 25839431680,
+      "threads": 17
+    },
+    "nodeHarnessRssBytes": 236679168
+  }
+]

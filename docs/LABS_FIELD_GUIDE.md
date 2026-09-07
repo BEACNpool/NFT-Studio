@@ -67,6 +67,20 @@ Exporting records does not timestamp or publish them. The proof does not establi
 authorship, ownership or rights. A later transaction and its independent inclusion
 evidence would be separate steps.
 
+## Check the signer, then choose your trust rules
+
+In **Registry signatures**, choose **Try signed example** and inspect the two
+properties. Their signatures verify, but the empty local rules trust no keys.
+Choose **Use example trust rules** separately and inspect again. The example rule
+is a fixed, published demonstration key. It is never derived from imported records.
+
+Edit one property value without changing its signature, then inspect again. The
+signature fails even if its key matches the selected rules. Supplied prior
+sequence observations can separately identify newer, older, identical or
+conflicting updates. Export the report to retain both original JSON inputs and
+hashes. The inspector reads local JSON; it fetches no record URLs and writes no
+registry. Its documented scalar profile does not authenticate native policies.
+
 ## Give your agent tools it can inspect
 
 Connect a Streamable HTTP MCP client to:
@@ -83,6 +97,10 @@ For recordings and credits, use `create_music_release`, save its canonical
 `packetJson`, and import it under **Music release**. `verify_music_release`
 checks the same complete package. These music packets have their own profile;
 they are not ordinary mint intents.
+`prepare_unsigned_music_transaction` uses that canonical packet plus an explicitly
+supplied wallet snapshot to prepare a complete unsigned music NFT. Its output
+includes the exact credits, actual metadata, value checks and Music Lab review
+link. The browser reviews the package and constructs a fresh wallet transaction.
 
 `prepare_unsigned_transaction` can prepare ordinary NFT/data transactions from
 an explicitly supplied wallet snapshot. The service cannot establish ownership
@@ -107,6 +125,7 @@ Useful source starting points:
 - [Fixed contract parameterizer and Aiken parity receipts](../experiments/capsule-parameterizer/)
 - [Music metadata profile, sources and limits](MUSIC_RELEASE.md)
 - [Music transaction construction](MUSIC_TRANSACTIONS.md)
+- [Registry signatures and local trust](REGISTRY_SIGNATURES.md)
 - [Artifact Passport evidence model](ARTIFACT_PASSPORT.md)
 - [Proof record encoding and vectors](PROOF_OF_EXISTENCE.md)
 - [Knowledge architecture](KNOWLEDGE_BASE.md) and [implementation register](../knowledge/IMPLEMENTATIONS.md)

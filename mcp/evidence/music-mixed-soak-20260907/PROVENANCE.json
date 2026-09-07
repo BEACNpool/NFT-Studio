@@ -1,0 +1,31 @@
+{
+  "schema": "beacn.mixed-soak-public-provenance.v1",
+  "sourceCommit": "7b3ff81a57a55f4ccbeed2177870ab5c6e2579dd",
+  "originalFrozenManifestSha256": "8fcc0c83ea15146d18d0a23d1e77c4d6335ce584676f69cf4e47ec33e6e66cd5",
+  "originalHarnessSha256": "b20e2b44016fd5abc8c042ba4e0ff81d74d7d547d6b073f3bdd9d2828839cac3",
+  "portableHarnessSha256": "3384b8c379379331ad1b036e7c8c91aa839ae0104a0ddbab71b9c7a6c9151b7d",
+  "modification": "Resolve held source reads against the immutable reproduction fixture via file URLs instead of the private absolute checkout.",
+  "newBenchmarkClaim": false,
+  "unchangedEvidence": [
+    {
+      "path": "SOURCE_INPUTS.json",
+      "sha256": "41cbffa12c04d0706ab80aaf91705bc630a37121aeaacdf12707364ff0642608"
+    },
+    {
+      "path": "mixed-soak-check.json",
+      "sha256": "3196baf61a602353ad5ea9fb5e11ec39fe26ae8ae4f955c612be9845dc4b80a1"
+    },
+    {
+      "path": "SUMMARY.json",
+      "sha256": "2a7158e435abad67292c02a9a1e188bd718df901aec45f7423fc61f7e62cb273"
+    },
+    {
+      "path": "samples.json",
+      "sha256": "d90cc83e9855295516ad36fee4a585db0671b8bb982c905837e8003d9f29470a"
+    },
+    {
+      "path": "responses.jsonl",
+      "sha256": "fa8ec0f42413cca09d7bb94fa1dcff2656603486b5493f4f1ff7596e8a9290a1"
+    }
+  ]
+}

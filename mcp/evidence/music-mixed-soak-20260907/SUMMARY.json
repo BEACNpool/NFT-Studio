@@ -1,0 +1,142 @@
+{
+  "schema": "nft-studio.workerd-mixed-music-soak-summary.v1",
+  "status": "PASS",
+  "checkedAt": "2026-09-07T09:18:18.315Z",
+  "attempts": 1000,
+  "successes": 990,
+  "expectedErrors": 10,
+  "elapsedMs": 65540,
+  "successfulCases": {
+    "music-small": 126,
+    "ordinary-nft": 250,
+    "music-two-payment-keys": 124,
+    "ordinary-data": 245,
+    "music-32-utxos-512-assets": 124,
+    "music-large-wav": 121
+  },
+  "successfulResponseEvidenceRecords": 990,
+  "memory": {
+    "baseline": {
+      "wasmLinearBytes": 1245184,
+      "usedSize": 18258556,
+      "totalSize": 32698368,
+      "embedderHeapUsedSize": 257936,
+      "backingStorageSize": 149717
+    },
+    "beforeFinalGc": {
+      "wasmLinearBytes": 3670016,
+      "usedSize": 49261032,
+      "totalSize": 99368960,
+      "embedderHeapUsedSize": 579424,
+      "backingStorageSize": 2535297
+    },
+    "afterFinalGc": {
+      "wasmLinearBytes": 3670016,
+      "usedSize": 14764672,
+      "totalSize": 15720448,
+      "embedderHeapUsedSize": 93832,
+      "backingStorageSize": 3609
+    },
+    "sampledMaximaDuringWorkload": {
+      "wasmLinearBytes": 3670016,
+      "usedSize": 51151852,
+      "totalSize": 100679680,
+      "embedderHeapUsedSize": 631664,
+      "backingStorageSize": 2832364
+    },
+    "baselineWorkerdRssBytes": 126476288,
+    "sampledMaxWorkerdRssBytes": 295170048,
+    "postGcWorkerdRssBytes": 209854464,
+    "windows": [
+      {
+        "attempts": [
+          1,
+          200
+        ],
+        "sampleCount": 4,
+        "minUsedHeapBytes": 21441208,
+        "maxUsedHeapBytes": 51151852,
+        "maxWasmLinearBytes": 3670016,
+        "minWorkerdRssBytes": 132530176,
+        "maxWorkerdRssBytes": 243716096
+      },
+      {
+        "attempts": [
+          201,
+          400
+        ],
+        "sampleCount": 6,
+        "minUsedHeapBytes": 24618472,
+        "maxUsedHeapBytes": 50700660,
+        "maxWasmLinearBytes": 3670016,
+        "minWorkerdRssBytes": 253628416,
+        "maxWorkerdRssBytes": 263680000
+      },
+      {
+        "attempts": [
+          401,
+          600
+        ],
+        "sampleCount": 6,
+        "minUsedHeapBytes": 27235600,
+        "maxUsedHeapBytes": 47236360,
+        "maxWasmLinearBytes": 3670016,
+        "minWorkerdRssBytes": 265945088,
+        "maxWorkerdRssBytes": 274722816
+      },
+      {
+        "attempts": [
+          601,
+          800
+        ],
+        "sampleCount": 6,
+        "minUsedHeapBytes": 28007080,
+        "maxUsedHeapBytes": 44478328,
+        "maxWasmLinearBytes": 3670016,
+        "minWorkerdRssBytes": 273002496,
+        "maxWorkerdRssBytes": 283967488
+      },
+      {
+        "attempts": [
+          801,
+          1000
+        ],
+        "sampleCount": 8,
+        "minUsedHeapBytes": 38661284,
+        "maxUsedHeapBytes": 51115396,
+        "maxWasmLinearBytes": 3670016,
+        "minWorkerdRssBytes": 283209728,
+        "maxWorkerdRssBytes": 295170048
+      }
+    ]
+  },
+  "validation": {
+    "allSuccessesExactMetadataAndConservation": true,
+    "syntheticFixedProviderReads": 1988,
+    "zeroProviderDisclosure": true,
+    "real10SecondTimeoutsMs": [
+      10028,
+      10028
+    ],
+    "caseAndSlotFingerprintCount": 90
+  },
+  "artifacts": {
+    "worker.mjs": {
+      "bytes": 2979277,
+      "sha256": "cd76758acb9886270492e1ca9a5649374360916f736760b5863fe60abe3927eb"
+    },
+    "cardano_serialization_lib_bg.wasm": {
+      "bytes": 2791001,
+      "sha256": "30f78ee3d0e5fc2f4cd1c87347b330e69fcdd0acb07d4a6e08ff8278d7d9a40b"
+    }
+  },
+  "receiptSha256": "3196baf61a602353ad5ea9fb5e11ec39fe26ae8ae4f955c612be9845dc4b80a1",
+  "harnessScope": [
+    "A bounded local synthetic run is not proof of no memory leaks, production traffic capacity or production CPU/memory guarantees.",
+    "CDP heap, backing storage and WASM linear capacity may overlap; they are reported separately and must not be summed as an exact isolate footprint.",
+    "Workerd process RSS includes runtime and other Miniflare isolate overhead; Node assertion-process RSS is separate.",
+    "One allowed maximum rate setting and a local 64 MiB V8 old-space cap were used; no test clock advance or handler/WASM reset was used.",
+    "No forced GC occurred during workload; one final diagnostic collection measures retained state afterward.",
+    "Existing independent metadata/value assertions use CSL and Node crypto, not an independent ledger implementation or cryptographic dependency audit."
+  ]
+}
