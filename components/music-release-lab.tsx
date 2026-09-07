@@ -66,7 +66,7 @@ function duration(value: string) {
     s = n % 60;
   return `PT${h ? h + 'H' : ''}${m ? m + 'M' : ''}${s ? s + 'S' : ''}`;
 }
-export function MusicReleaseLab() {
+export function MusicReleaseLab({ active = true }: { active?: boolean }) {
   const [files, setFiles] = useState<PayloadInput[]>([]);
   const [draft, setDraft] = useState<MusicComposerInput>(empty);
   const [description, setDescription] = useState('');
@@ -88,6 +88,12 @@ export function MusicReleaseLab() {
     },
     [],
   );
+  useEffect(() => {
+    if (!active) {
+      revision.current++;
+      setBusy(false);
+    }
+  }, [active]);
   function changed() {
     revision.current++;
     setPackage(null);
@@ -702,7 +708,9 @@ export function MusicReleaseLab() {
                 <Button onClick={() => void exportPackage()} data-music-export>
                   <Download size={17} /> Export music package
                 </Button>
-                <FileMintDialog key={pkg.packageHash} musicPackage={pkg} />
+                {active && (
+                  <FileMintDialog key={pkg.packageHash} musicPackage={pkg} />
+                )}
               </div>
               <details className="ns-lab-details">
                 <summary>Complete declared credits</summary>

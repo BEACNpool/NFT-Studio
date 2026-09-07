@@ -116,15 +116,26 @@ Current `nft-studio.intent.v1` binds only `mode` and `bundle`. **Passing a music
 package's bundle through that path drops its music metadata.** The package schema
 is intentionally different and must not be advertised as an existing mint intent.
 
-Before enabling a music mint, a reviewed transaction adapter must accept this
-package, regenerate its exact metadata after asset selection, bind the full package
-in preparation/signature review, estimate the full signed transaction, preserve
-all ordinary token/ADA checks, and recover the music package from its receipt.
-Artifact Passport currently expects ordinary exact-file metadata and also needs
-an explicit music profile before it can verify this richer asset.
+The dedicated `buildMusicReleaseTransaction` adapter accepts the whole package,
+regenerates metadata after choosing the actual policy and asset name, and binds
+all files and credits to the review. It measures the complete signed transaction
+and preserves the shared ordinary token/ADA checks. The browser checks package
+identity on both sides of the wallet's asynchronous signing response. Strict
+receipt recovery reconstructs music from actual transaction CBOR and rejects
+changed credit sidecars. See [transaction preparation](MUSIC_TRANSACTIONS.md)
+and [receipt recovery](MUSIC_RECEIPTS.md).
 
-No such wallet adapter or public MCP music tool ships in this kit. A local composer
-and export/verify UI can use the codec now without suggesting mint completion.
+**Labs → Music release** composes, imports and exports canonical packages before
+opening the visible wallet review. Files, credits and the prepared package survive
+visiting another Lab. Leaving Music unmounts its wallet dialog and cancels pending
+review work; returning requires a new wallet review. The public MCP's
+`create_music_release` and `verify_music_release` tools exchange the same canonical
+packet and return the fixed Music Lab review link. See [the MCP contract](MCP.md).
+Creating a package alone does not mint it.
+
+Artifact Passport still accepts the ordinary exact-file profile. Music recovery
+has its own explicit package/receipt path and is not silently treated as a
+verified ordinary Passport.
 
 ## Reproducible evidence
 

@@ -75,8 +75,8 @@ export function BeacnLabs({ onBack }: { onBack: () => void }) {
         <TabsContent value="contract" keepMounted>
           <CapsuleContractLab />
         </TabsContent>
-        <TabsContent value="music">
-          <MusicReleaseLab />
+        <TabsContent value="music" keepMounted>
+          <MusicReleaseLab active={tab === 'music'} />
         </TabsContent>
         <TabsContent value="proof" keepMounted>
           <ProofOfExistenceLab />

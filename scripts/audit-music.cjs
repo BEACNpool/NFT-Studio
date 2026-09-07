@@ -232,6 +232,7 @@ const fill = (page, selector, text) =>
           enable: 0,
           sign: 0,
           submit: 0,
+          receiptWrites: 0,
           delay: false,
           storageFailure: false,
           ambiguous: false,
@@ -243,6 +244,8 @@ const fill = (page, selector, text) =>
             k.startsWith('nft-studio:receipt:v1:')
           )
             throw new Error('Synthetic storage failure');
+          if (k.startsWith('nft-studio:receipt:v1:'))
+            window.__qa.receiptWrites++;
           return setItem.call(this, k, v);
         };
         window.cardano = {
@@ -367,6 +370,20 @@ const fill = (page, selector, text) =>
       'Rebuilding unchanged imported content must preserve its exact package',
     );
     assert.equal(await page.evaluate(() => window.__qa.enable), 0);
+    await click(page, 'Knowledge');
+    await page.waitForSelector('#knowledge-query', { visible: true });
+    await click(page, 'Music release');
+    await page.waitForSelector('[data-music-hash]', { visible: true });
+    assert.equal(
+      await page.$eval('[data-music-hash]', (e) => e.textContent),
+      fixture.packageHash,
+    );
+    assert.equal(
+      await page.$eval('#music-artist-0-0', (e) => e.value),
+      fixture.tracks[0].song.artists[0].name,
+    );
+    assert.equal(await page.evaluate(() => window.__qa.enable), 0);
+    results.push('Music files, credits and package survive visiting another Lab without wallet access');
     await click(page, 'Export music package');
     const packageFile = await exported('Signal-One.music-release.json');
     assert.deepEqual(
@@ -612,6 +629,31 @@ const fill = (page, selector, text) =>
     results.push(
       'A credit revision during the outstanding wallet prompt unmounts its review and prevents submission',
     );
+    await fresh();
+    await demo();
+    await walletReview();
+    await page.evaluate(() => { window.__qa.delay = true; });
+    await (await page.$('.ns-file-mint .ns-check input')).click();
+    await click(page, 'Sign & submit');
+    await page.waitForFunction(() => typeof window.__qa.release === 'function');
+    // Exercise a parent tab change while an external wallet Promise is pending.
+    await page.evaluate(() => {
+      [...document.querySelectorAll('.ns-lab-tablist [role="tab"]')]
+        .find((tab) => tab.textContent === 'Knowledge').click();
+    });
+    await page.waitForSelector('#knowledge-query', { visible: true });
+    await page.waitForSelector('.ns-file-mint', { hidden: true });
+    await page.evaluate(() => { window.__qa.release(); });
+    await new Promise((resolve) => setTimeout(resolve, 300));
+    assert.equal(await page.evaluate(() => window.__qa.submit), 0);
+    assert.equal(await page.evaluate(() => window.__qa.receiptWrites), 0);
+    await click(page, 'Music release');
+    await page.waitForSelector('[data-music-hash]', { visible: true });
+    assert.equal(
+      await page.$eval('[data-music-hash]', (e) => e.textContent),
+      fixture.packageHash,
+    );
+    results.push('Leaving Music cancels an outstanding wallet review while preserving the exact draft for return');
     await fresh();
     await demo();
     await walletReview();
