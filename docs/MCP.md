@@ -40,20 +40,21 @@ and continue through the existing visible wallet review.
 
 [Live verification receipt](MCP_PUBLIC_VERIFICATION.json): official current and
 legacy clients passed knowledge lookup, intent roundtrip/tamper rejection, proof
-match/mismatch, resource discovery, browser-origin checks, and synthetic NFT/data
-unsigned preparation on 2026-09-07. Transaction hashes, exact metadata, output
+match/mismatch, resource discovery, browser-origin checks, and synthetic NFT/data/music
+unsigned preparation at 2026-09-07T09:33:12.861Z. Transaction hashes, exact metadata, output
 destinations and ADA/token conservation were checked independently. Music files/credits
 roundtripped canonically, five Capsule cases per era matched the Aiken oracle and
-independent CSL hashes, and the six-record implementation register matched the
-exact release source. These
+independent CSL hashes, and the seven-record implementation register matched the
+exact release source. The stateless Music transaction preserved its exact package and credits, sole mint and complete value conservation. These
 fabricated inputs are not a claim of chain availability or wallet ownership.
 The [initial eight-tool receipt](verification/mcp-public-initial-20260907.json) and
 [first unsigned-builder receipt](verification/mcp-native-20260907.json), and
-[first implementation-resource receipt](verification/mcp-implementation-register-20260907.json) are retained.
+[first implementation-resource receipt](verification/mcp-implementation-register-20260907.json), and
+[twelve-tool Music package receipt](verification/mcp-music-packages-20260907.json) are retained.
 Reproduce the read-only check using synthetic content:
 
 ```sh
-node mcp/integration/verify-live-endpoint.mjs https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp --expected-tools 12 --expected-resources 61
+node mcp/integration/verify-live-endpoint.mjs https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp --expected-tools 13 --expected-resources 61
 ```
 
 The Sites front dispatcher reserves `/mcp`; this service uses the application's

@@ -1,31 +1,13 @@
 {
-  "expectedTools": 13,
+  "expectedTools": 12,
   "expectedResources": 61,
   "syntheticWalletDataSent": true,
   "schema": "nft-studio.public-mcp-check.v1",
-  "checkedAt": "2026-09-07T09:33:12.861Z",
+  "checkedAt": "2026-09-07T08:24:10.850Z",
   "endpoint": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp",
   "status": "pass",
   "checks": [
     {
-      "unsignedMusic": {
-        "packageHash": "43415786407ce1196450dc8642fd1e95ee5469c0abb292ad801691c90c174e53",
-        "transactionHash": "13633959ae85e017a58d896fe67b289d4cf41b168ea98afe4642af3e07baf542",
-        "unsignedBytes": 1699,
-        "metadataBytes": 1302,
-        "estimatedSignedBytes": 1805,
-        "packageSha256Verified": true,
-        "exactFilesAndCredits": true,
-        "bodyHashVerified": true,
-        "auxiliaryCommitmentVerified": true,
-        "soleQuantityOneMint": true,
-        "valueConservation": true,
-        "noStoredPacket": true,
-        "chainStateVerified": false,
-        "ownershipVerified": false,
-        "signed": false,
-        "submitted": false
-      },
       "musicPackages": {
         "packageHash": "43415786407ce1196450dc8642fd1e95ee5469c0abb292ad801691c90c174e53",
         "canonicalRoundtrip": true,
@@ -48,7 +30,7 @@
       "unsigned": [
         {
           "mode": "nft",
-          "transactionHash": "8df4578ae168837b8850f1adf15103133ebbd362d6c657b794ad3c260fc76bc7",
+          "transactionHash": "742bcadcb52a602e72d09c310a2bc5d6bb6e29c9a2cd1166906804dfc5960099",
           "unsignedBytes": 1187,
           "localBundleBytesMatch": true,
           "bodyHashVerified": true,
@@ -62,7 +44,7 @@
         },
         {
           "mode": "data",
-          "transactionHash": "fa735934cbbd6c4434b72fee74ead1981609d7fba1c27eae8dfc35d1e9ef9ab1",
+          "transactionHash": "151125b1c0ed546c392b268ec52753970371ef8ed1d4ca1cb8fe473752931463",
           "unsignedBytes": 551,
           "localBundleBytesMatch": true,
           "bodyHashVerified": true,
@@ -77,9 +59,9 @@
       ],
       "implementations": {
         "uri": "nft-studio://implementations",
-        "records": 7,
-        "asOf": "2026-09-07T09:28:28.526Z",
-        "relatedEntriesChecked": 11,
+        "records": 6,
+        "asOf": "2026-09-07T08:15:46.045Z",
+        "relatedEntriesChecked": 10,
         "unrelatedEmptyLinkChecked": true,
         "registerJsonValidated": true,
         "registerMatchesLocalRelease": true,
@@ -94,7 +76,6 @@
         "verify_proof_record",
         "create_music_release",
         "verify_music_release",
-        "prepare_unsigned_music_transaction",
         "apply_state_capsule_parameters",
         "prepare_unsigned_transaction",
         "studio_capabilities",
@@ -111,24 +92,6 @@
       "changedIntentRejected": true
     },
     {
-      "unsignedMusic": {
-        "packageHash": "43415786407ce1196450dc8642fd1e95ee5469c0abb292ad801691c90c174e53",
-        "transactionHash": "8920847ce1f6a6b13a91d9f9d71a1b7da1156a64292a136e1915c20298d8d3a7",
-        "unsignedBytes": 1699,
-        "metadataBytes": 1302,
-        "estimatedSignedBytes": 1805,
-        "packageSha256Verified": true,
-        "exactFilesAndCredits": true,
-        "bodyHashVerified": true,
-        "auxiliaryCommitmentVerified": true,
-        "soleQuantityOneMint": true,
-        "valueConservation": true,
-        "noStoredPacket": true,
-        "chainStateVerified": false,
-        "ownershipVerified": false,
-        "signed": false,
-        "submitted": false
-      },
       "musicPackages": {
         "packageHash": "43415786407ce1196450dc8642fd1e95ee5469c0abb292ad801691c90c174e53",
         "canonicalRoundtrip": true,
@@ -151,7 +114,7 @@
       "unsigned": [
         {
           "mode": "nft",
-          "transactionHash": "76866007e72d2725b08d1b6e84c1568e121807cc39281f85726384b54c058a42",
+          "transactionHash": "d6abdbc86dd1f74d31521de58cd7e4ecb5b39f7cda1608f01978cc796307a3e0",
           "unsignedBytes": 1187,
           "localBundleBytesMatch": true,
           "bodyHashVerified": true,
@@ -165,7 +128,7 @@
         },
         {
           "mode": "data",
-          "transactionHash": "769f754d20abf577add1d7ccf3840d0acdb4dbfb99aa1e67c1abb135eda6ba33",
+          "transactionHash": "5b7e289b4bdef49a97b50fe14ab68a810cd56fbf72007b375f4a4996d29d3831",
           "unsignedBytes": 551,
           "localBundleBytesMatch": true,
           "bodyHashVerified": true,
@@ -180,9 +143,9 @@
       ],
       "implementations": {
         "uri": "nft-studio://implementations",
-        "records": 7,
-        "asOf": "2026-09-07T09:28:28.526Z",
-        "relatedEntriesChecked": 11,
+        "records": 6,
+        "asOf": "2026-09-07T08:15:46.045Z",
+        "relatedEntriesChecked": 10,
         "unrelatedEmptyLinkChecked": true,
         "registerJsonValidated": true,
         "registerMatchesLocalRelease": true,
@@ -197,7 +160,6 @@
         "verify_proof_record",
         "create_music_release",
         "verify_music_release",
-        "prepare_unsigned_music_transaction",
         "apply_state_capsule_parameters",
         "prepare_unsigned_transaction",
         "studio_capabilities",
