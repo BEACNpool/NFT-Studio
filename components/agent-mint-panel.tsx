@@ -7,6 +7,7 @@ import {
   Upload,
   X,
   ExternalLink,
+  Copy,
 } from 'lucide-react';
 import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
@@ -20,12 +21,19 @@ import {
 import { errorText } from '@/lib/cardano';
 import { download, filename, jsonBlob } from '@/lib/export';
 
+const PUBLIC_MCP_URL =
+  'https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp';
+const MCP_CONFIG = {
+  mcpServers: { 'beacn-nft-studio': { url: PUBLIC_MCP_URL } },
+};
+
 export function AgentMintPanel() {
   const [text, setText] = useState('');
   const [intent, setIntent] = useState<MintIntent | null>(null);
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
   const [selected, setSelected] = useState(0);
+  const [connectionStatus, setConnectionStatus] = useState('');
   const input = useRef<HTMLInputElement>(null);
   const generation = useRef(0);
   useEffect(
@@ -83,6 +91,41 @@ export function AgentMintPanel() {
           wallet.
         </p>
       </div>
+      <section className="ns-panel ns-mcp-connect">
+        <span className="ns-lab-kicker">PUBLIC MCP · LIVE</span>
+        <h3>Point your bot here.</h3>
+        <p>
+          Eight tools for Cardano research, exact file packages, mint requests
+          and proof records. Connect with Streamable HTTP; no API key is needed.
+        </p>
+        <code className="ns-mcp-url">{PUBLIC_MCP_URL}</code>
+        <div className="ns-button-row">
+          <Button
+            variant="outline"
+            onClick={() => {
+              void navigator.clipboard.writeText(PUBLIC_MCP_URL).then(
+                () => setConnectionStatus('Endpoint copied.'),
+                () =>
+                  setConnectionStatus('Select and copy the endpoint above.'),
+              );
+            }}
+          >
+            <Copy size={16} /> Copy endpoint
+          </Button>
+          <Button
+            variant="outline"
+            onClick={() => download(jsonBlob(MCP_CONFIG), 'beacn-mcp.json')}
+          >
+            <Download size={16} /> Download config
+          </Button>
+        </div>
+        {connectionStatus && <output>{connectionStatus}</output>}
+        <p className="ns-lab-muted">
+          Your bot sends the content you give it to this public service. Ask it
+          to save the returned mint request as JSON, then open that file below.
+          Wallet review and signing happen here in your browser.
+        </p>
+      </section>
       <div className="ns-lab-columns">
         <section className="ns-panel">
           <h3>Open a mint request</h3>
@@ -134,12 +177,13 @@ export function AgentMintPanel() {
             </p>
           )}
           <details className="ns-lab-details">
-            <summary>Connect your bot to the MCP</summary>
+            <summary>Full service and setup details</summary>
             <p>
-              The open-source server supports local stdio and Streamable HTTP.
-              It prepares exact files, answers Cardano questions, builds
-              unsigned transactions and checks wallet signatures. It never holds
-              a signing key.
+              The public endpoint prepares content and answers Cardano
+              questions. The separate open-source Node service also builds
+              unsigned transactions and checks external wallet signatures. It
+              supports local stdio and authenticated Streamable HTTP. Neither
+              service holds a signing key.
             </p>
             <a
               className="ns-text-link"

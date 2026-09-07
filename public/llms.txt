@@ -1,0 +1,31 @@
+# BEACN NFT Studio
+
+Public app: https://beacnpool.github.io/NFT-Studio/
+Open source: https://github.com/BEACNpool/NFT-Studio
+Cardano knowledge: https://github.com/BEACNpool/NFT-Studio/tree/main/knowledge
+MCP documentation: https://github.com/BEACNpool/NFT-Studio/blob/main/docs/MCP.md
+
+## Public MCP
+
+Endpoint: https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp
+Transport: Streamable HTTP. Authentication: none. Public content only.
+Tools: studio_capabilities, search_knowledge, read_knowledge, validate_payload,
+create_mint_intent, verify_mint_intent, create_proof_record, verify_proof_record.
+
+Begin with studio_capabilities for current limits and evidence boundaries.
+File inputs contain explicit canonical base64 bytes, never local paths or URLs.
+The public service receives supplied content; do not supply secrets.
+For a mint, save create_mint_intent.packetJson as its suggested filename and
+return review.url to the human. The human imports it in Labs / Agent minting,
+inspects exact files and approves any transaction in their own wallet.
+No public tool builds, signs or submits transactions, or accesses a wallet.
+
+## Evidence boundaries
+
+CIP proposal status and Studio implementation evidence are separate.
+Hashes verify exact bytes, not authorship, ownership, rights or chain inclusion.
+State capsules are experimental contracts; the browser demonstration is local.
+Proof records use the public hash profile of proposed CIP-190; export is not
+publication or a blockchain timestamp.
+The separately installed Node MCP can prepare unsigned transactions and verify
+external signatures. It never holds a signing key or submits a transaction.

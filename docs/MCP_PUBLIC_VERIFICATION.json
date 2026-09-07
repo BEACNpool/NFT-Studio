@@ -1,0 +1,48 @@
+{
+  "schema": "nft-studio.public-mcp-check.v1",
+  "checkedAt": "2026-09-07T05:32:06.962Z",
+  "endpoint": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp",
+  "status": "pass",
+  "checks": [
+    {
+      "protocolEra": "modern",
+      "tools": [
+        "create_proof_record",
+        "verify_proof_record",
+        "studio_capabilities",
+        "search_knowledge",
+        "read_knowledge",
+        "validate_payload",
+        "create_mint_intent",
+        "verify_mint_intent"
+      ],
+      "resources": 55,
+      "knowledge": "pass",
+      "intentRoundtrip": "pass",
+      "proofMatchAndMismatch": "pass",
+      "changedIntentRejected": true
+    },
+    {
+      "protocolEra": "legacy",
+      "tools": [
+        "create_proof_record",
+        "verify_proof_record",
+        "studio_capabilities",
+        "search_knowledge",
+        "read_knowledge",
+        "validate_payload",
+        "create_mint_intent",
+        "verify_mint_intent"
+      ],
+      "resources": 55,
+      "knowledge": "pass",
+      "intentRoundtrip": "pass",
+      "proofMatchAndMismatch": "pass",
+      "changedIntentRejected": true
+    }
+  ],
+  "browserPreflight": "pass",
+  "foreignOriginRejected": true,
+  "walletAccess": false,
+  "chainSubmission": false
+}

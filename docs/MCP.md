@@ -2,7 +2,51 @@
 
 NFT Studio ships a real Model Context Protocol service using the official TypeScript SDK **2.0.0**. It supports local stdio and authenticated Streamable HTTP, with the 2026-07-28 protocol and legacy negotiation. Its builder creates actual unsigned Cardano mainnet transactions from the same source used by the browser. Your wallet keeps signing authority.
 
-This is an open-source service package, not a claim that a public Node endpoint has been deployed. GitHub Pages hosts static files and cannot run this process. Public hosted subset availability, if deployed, is documented separately from this package's full Node service.
+## Public connection
+
+The public preparation service is live at:
+
+```text
+https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp
+```
+
+Connect with Streamable HTTP and no API key. This endpoint exposes **eight tools**
+and **55 resources**: Cardano knowledge, exact payloads, browser mint requests,
+and proof records. It receives only content explicitly supplied in requests.
+It does not accept a wallet snapshot or build/sign/submit a transaction.
+The full Node service described below has additional capabilities and remains a
+separately installed package. GitHub Pages serves the app, not the MCP process.
+
+A common MCP client config (clients may use a different settings wrapper):
+
+```json
+{
+  "mcpServers": {
+    "beacn-nft-studio": {
+      "url": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp"
+    }
+  }
+}
+```
+
+Ask your bot: “Use BEACN NFT Studio to prepare a mint request for these files.
+Return the request JSON for me to inspect in Studio.” The bot calls
+`create_mint_intent`, saves its `packetJson` as the returned `filename`, and gives
+you the `review.url`. Open that file under **Labs → Agent minting**, inspect it,
+and continue through the existing visible wallet review.
+
+[Live verification receipt](MCP_PUBLIC_VERIFICATION.json): official current and
+legacy clients passed knowledge lookup, intent roundtrip/tamper rejection, proof
+match/mismatch, resource discovery and browser-origin checks on 2026-09-07.
+Reproduce the read-only check using synthetic content:
+
+```sh
+node mcp/integration/verify-live-endpoint.mjs https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp
+```
+
+The Sites front dispatcher reserves `/mcp`; this service uses the application's
+`/api/mcp` route. It is ordinary public MCP, not a Sites OAuth integration.
+
 
 ## Local connection
 
@@ -157,7 +201,7 @@ Primary implementation sources, checked 2026-09-07: [official SDK stable release
 
 `mcp/dist/worker.mjs` is a standalone web-standard artifact with no Node imports. It exports `createPublicMcpHandler`, which returns a fetch handler. It exposes **eight** public tools: capabilities, knowledge search/read, payload validation, intent creation/verification, and proof record creation/verification. It has no unsigned builder, wallet/UTxO/witness input, network lookup, packet cache, authentication secret, private storage or chain submission.
 
-An operator can wrap it in an existing HTTPS Worker's `/mcp` route:
+An operator can wrap it in an existing HTTPS Worker. The default path is `/mcp`; configure `endpointPath: '/api/mcp'` where the host reserves that path:
 
 ```js
 import { createPublicMcpHandler } from './mcp/dist/worker.mjs';

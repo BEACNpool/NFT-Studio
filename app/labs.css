@@ -508,6 +508,26 @@
   gap: 16px;
   margin: 16px 0;
 }
+.ns-mcp-connect {
+  margin-bottom: 24px;
+}
+.ns-mcp-connect > p {
+  max-width: 78ch;
+  line-height: 1.7;
+  margin: 12px 0;
+}
+.ns-mcp-url {
+  display: block;
+  padding: 16px;
+  border: 1px solid #51405f;
+  border-radius: 8px;
+  color: #d9c9ff;
+  font-size: 15px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+  user-select: all;
+  margin: 18px 0;
+}
 .ns-proof-artifact {
   margin-top: 28px;
 }
