@@ -156,6 +156,59 @@
   font-size: 14px;
   color: #bfb4ce;
 }
+.ns-kb-built {
+  display: block;
+  margin-top: 16px;
+  color: #d0bdf0;
+  font-size: 14px;
+}
+.ns-kb-implementations > article {
+  padding: 20px;
+  margin: 16px 0;
+  border: 1px solid #655078;
+  border-radius: 12px;
+  background: #21192b;
+}
+.ns-kb-implementation-heading {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.ns-kb-implementation-heading > span {
+  color: #d0bdf0;
+  font-size: 13px;
+}
+.ns-kb-dialog .ns-kb-capabilities {
+  list-style: none;
+  padding: 0;
+}
+.ns-kb-capabilities > li {
+  border-top: 1px solid #45384f;
+  padding-top: 16px;
+  margin-top: 16px;
+}
+.ns-kb-capabilities small,
+.ns-kb-artifact small,
+.ns-kb-artifact code {
+  display: block;
+  margin-top: 8px;
+  color: #c4b5d4;
+  overflow-wrap: anywhere;
+}
+.ns-kb-artifact {
+  margin: 20px 0;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.ns-kb-artifact code {
+  font-size: 12px;
+}
+.ns-kb-implementation-details > summary {
+  cursor: pointer;
+  color: #d3baf8;
+  padding: 12px 0;
+}
 .ns-lab-sources a,
 .ns-labs .ns-lab-details a {
   color: #d3baf8;

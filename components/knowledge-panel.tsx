@@ -24,6 +24,10 @@ import {
   type KnowledgeEntry,
 } from '@/knowledge/lib.mjs';
 import { download, jsonBlob } from '@/lib/export';
+import {
+  ImplementationEvidence,
+  evidenceForEntry,
+} from './implementation-evidence';
 const catalog = validateCatalog(rawCatalog);
 type Entry = KnowledgeEntry;
 export function KnowledgePanel() {
@@ -163,6 +167,9 @@ export function KnowledgePanel() {
             </div>
             <h3>{entry.title}</h3>
             <p>{entry.summary}</p>
+            {evidenceForEntry(entry.id).length > 0 && (
+              <span className="ns-kb-built">BEACN implementation evidence</span>
+            )}
             <span className="ns-kb-more">
               Read evidence and limits <ArrowUpRight size={17} />
             </span>
@@ -207,6 +214,7 @@ export function KnowledgePanel() {
                 This is a research entry. It does not claim that NFT-Studio
                 implements every capability described here.
               </p>
+              <ImplementationEvidence entryId={selected.id} />
               <section>
                 <h3>What the sources establish</h3>
                 <ul>
@@ -299,6 +307,7 @@ export function KnowledgePanel() {
                       asOf: catalog.asOf,
                       entry: selected,
                       sources: sources(selected),
+                      implementations: evidenceForEntry(selected.id),
                     }),
                     selected.id + '.research.json',
                   )

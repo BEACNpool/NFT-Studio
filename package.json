@@ -24,7 +24,7 @@
     "verify:studio": "node scripts/verify-studio.mjs",
     "typecheck": "tsc --noEmit",
     "verify:labs": "node scripts/verify-labs.mjs && node scripts/verify-proof-of-existence.mjs",
-    "verify:knowledge": "node knowledge/verify.mjs && node knowledge/verify-cip-drift.mjs",
+    "verify:knowledge": "node knowledge/verify.mjs && node knowledge/verify-cip-drift.mjs && node knowledge/verify-implementations.mjs --require-repository",
     "verify:capsules": "node contracts/state-capsule/scripts/verify-codec.mjs && node contracts/state-capsule/scripts/verify-transactions.mjs && node contracts/state-capsule/scripts/build-demo.mjs --check",
     "verify:mcp": "npm --prefix mcp test",
     "verify:passport": "node scripts/verify-artifact-passport.mjs",

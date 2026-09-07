@@ -1,0 +1,657 @@
+{
+  "schemaVersion": 1,
+  "kind": "beacn.implementation-register",
+  "asOf": "2026-09-07T06:31:41.506Z",
+  "repository": "https://github.com/BEACNpool/NFT-Studio",
+  "sourceCatalog": {
+    "path": "knowledge/catalog.json",
+    "sha256": "8ae31a23fab7b370e2ed275bc1a3dbe658831c0b2e97a766c90b605ec0bab887"
+  },
+  "description": "Dated implementation observations, separate from the frozen research catalog and upstream CIP status. Publication describes source availability; capability environment and evidence describe what was actually exercised.",
+  "records": [
+    {
+      "id": "living-artifact",
+      "entryIds": [
+        "living-artifact",
+        "cip-0067",
+        "cip-0068"
+      ],
+      "title": "State Capsules",
+      "publication": "published",
+      "summary": "A local state-history composer and experimental Plutus lifecycle with separate evidence for issuance and later state changes.",
+      "capabilities": [
+        {
+          "id": "local-history",
+          "title": "Compose and verify a local history",
+          "environment": "browser-local",
+          "description": "Create datum states, advance a hash-linked sequence and export a frozen branch. The browser history has no chain authority.",
+          "evidenceIds": [
+            "capsule-ui",
+            "capsule-codec",
+            "capsule-codec-check"
+          ]
+        },
+        {
+          "id": "issuance-evaluation",
+          "title": "Evaluate one-shot issuance",
+          "environment": "independent-node-evaluation",
+          "description": "An unsigned pair mint using current public inputs passed independent node script evaluation; missing-signer and reference-only seed variants were rejected.",
+          "evidenceIds": [
+            "capsule-contract",
+            "capsule-node"
+          ]
+        },
+        {
+          "id": "synthetic-state-transitions",
+          "title": "Exercise evolution and freeze",
+          "environment": "node-local",
+          "description": "Compiled script wrappers exercised complete synthetic issuance, evolution and freeze transactions. This is local evaluator evidence.",
+          "evidenceIds": [
+            "capsule-contract",
+            "capsule-transactions"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "capsule-ui",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Published browser composer and local verifier.",
+          "artifact": {
+            "path": "components/state-capsule-lab.tsx",
+            "sha256": "bd0613a2ee6eb3d641f2af9e9c703af9dfaca650491f96521ac76a1848004fe9",
+            "commit": "d2003bec53b944c7b71bd50caa2a14002008c7ea",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/d2003bec53b944c7b71bd50caa2a14002008c7ea/components/state-capsule-lab.tsx"
+          }
+        },
+        {
+          "id": "capsule-codec",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Shared datum and history codec used by the browser and local tooling.",
+          "artifact": {
+            "path": "contracts/state-capsule/scripts/capsule-codec.mjs",
+            "sha256": "674fa480cdc7dd9cd3eed2324a320a392de16a6339228e66e4834e09fe22207f",
+            "commit": "d2003bec53b944c7b71bd50caa2a14002008c7ea",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/d2003bec53b944c7b71bd50caa2a14002008c7ea/contracts/state-capsule/scripts/capsule-codec.mjs"
+          }
+        },
+        {
+          "id": "capsule-contract",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Combined issuance/spending source; its rules require the intended applied script identity.",
+          "artifact": {
+            "path": "contracts/state-capsule/validators/capsule.ak",
+            "sha256": "569b6ecc6a098de9eaaa9a8d0b08aea6953de9c1c5c727263dae36acbcde8b8d",
+            "commit": "d2003bec53b944c7b71bd50caa2a14002008c7ea",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/d2003bec53b944c7b71bd50caa2a14002008c7ea/contracts/state-capsule/validators/capsule.ak"
+          }
+        },
+        {
+          "id": "capsule-doc",
+          "kind": "documentation",
+          "observedAt": null,
+          "description": "Lifecycle, irreversible freeze/ADA behavior and scoped readiness.",
+          "artifact": {
+            "path": "docs/STATE_CAPSULES.md",
+            "sha256": "145fb7cc12508b2b059d7a09e7cc11077cde4724fdfc202952c784f8ad9ddf60",
+            "commit": "d2003bec53b944c7b71bd50caa2a14002008c7ea",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/d2003bec53b944c7b71bd50caa2a14002008c7ea/docs/STATE_CAPSULES.md"
+          }
+        },
+        {
+          "id": "capsule-codec-check",
+          "kind": "local-test",
+          "observedAt": null,
+          "description": "Receipt: 256 serializer/hash fixtures, 258 history states and 34 rejection cases.",
+          "artifact": {
+            "path": "contracts/state-capsule/fixtures/codec-verification.json",
+            "sha256": "e336cc5a266612b3ceac7d5ad5d02ef470deb612c398643747283858931693d8",
+            "commit": "d2003bec53b944c7b71bd50caa2a14002008c7ea",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/d2003bec53b944c7b71bd50caa2a14002008c7ea/contracts/state-capsule/fixtures/codec-verification.json"
+          }
+        },
+        {
+          "id": "capsule-transactions",
+          "kind": "synthetic-transaction-test",
+          "observedAt": null,
+          "description": "Receipt: five complete synthetic signed transactions and compiled wrapper evaluation, with explicit phase-1 and inclusion exclusions.",
+          "artifact": {
+            "path": "contracts/state-capsule/fixtures/transaction-verification.json",
+            "sha256": "350618f0012a7644af1fb1178920b3af1452f17fd8a1a401f45653e49d4180d0",
+            "commit": "d2003bec53b944c7b71bd50caa2a14002008c7ea",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/d2003bec53b944c7b71bd50caa2a14002008c7ea/contracts/state-capsule/fixtures/transaction-verification.json"
+          }
+        },
+        {
+          "id": "capsule-node",
+          "kind": "independent-node-evaluation",
+          "observedAt": "2026-09-07T04:58:11.770Z",
+          "description": "Sanitized unsigned issuance evaluation receipt, including two negative cases; no transaction was submitted.",
+          "artifact": {
+            "path": "contracts/state-capsule/evaluation/public-utxo-node-evaluation.json",
+            "sha256": "f5b27a309e3e800cbdaaf9025058bd16005a8f1cb7f86418d8c53c69dcadb913",
+            "commit": "d2003bec53b944c7b71bd50caa2a14002008c7ea",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/d2003bec53b944c7b71bd50caa2a14002008c7ea/contracts/state-capsule/evaluation/public-utxo-node-evaluation.json"
+          }
+        }
+      ],
+      "limits": [
+        "No capsule mint, confirmation, authentic on-chain history or device-wallet acceptance is established.",
+        "Independent node evidence covers issuance only; evolution and freeze evidence is synthetic and local.",
+        "Permanent freeze locks reference state and ADA; no recovery, withdrawal, unfreeze or issuer override exists."
+      ],
+      "nextEvidence": [
+        "Independent spending/evolution/freeze node evaluation.",
+        "Complete wallet lifecycle with preproduction inclusion and state recovery.",
+        "External security review and explicit loss/freeze UX."
+      ]
+    },
+    {
+      "id": "agent-mint-contract",
+      "entryIds": [
+        "agent-mint-contract",
+        "cip-0030"
+      ],
+      "title": "Agent mint requests and MCP",
+      "publication": "published",
+      "summary": "A public nine-tool service for content requests and unsigned native transactions, with a separately installed Node signature-verification package.",
+      "capabilities": [
+        {
+          "id": "public-content-service",
+          "title": "Prepare content for visible review",
+          "environment": "public-mcp",
+          "description": "The dated endpoint check found nine tools and 55 resources. Knowledge lookup, intent roundtrips, proof matching and tamper rejection passed with modern and legacy clients.",
+          "evidenceIds": [
+            "mcp-live",
+            "mcp-worker"
+          ]
+        },
+        {
+          "id": "browser-intent-import",
+          "title": "Import an agent request",
+          "environment": "browser-local",
+          "description": "The browser verifies exact embedded files, then asks the user to continue into its existing wallet review. The intent itself contains no wallet address or transaction.",
+          "evidenceIds": [
+            "intent-source",
+            "agent-panel",
+            "mcp-doc"
+          ]
+        },
+        {
+          "id": "node-preparation",
+          "title": "Prepare unsigned native transactions",
+          "environment": "node-local",
+          "description": "The installable Node service shares the actual native builder and verifies external witness sets against its retained preparation. It exposes no signing or submission tool.",
+          "evidenceIds": [
+            "mcp-node",
+            "mcp-doc"
+          ]
+        },
+        {
+          "id": "public-unsigned-native",
+          "title": "Prepare an unsigned NFT or data transaction",
+          "environment": "public-mcp",
+          "description": "Both official client eras prepared synthetic NFT/data transactions on the hosted Worker. Independent local checks matched body hashes, exact metadata, output destinations and ADA/token conservation. No signatures or chain inclusion were checked.",
+          "evidenceIds": [
+            "mcp-live",
+            "public-unsigned-source",
+            "mcp-worker"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "mcp-live",
+          "kind": "live-service-check",
+          "observedAt": "2026-09-07T06:28:25.565Z",
+          "description": "Actual public clients in both protocol eras observed nine tools and 55 resources. Synthetic NFT/data transactions passed independent hash, metadata, output and ADA/token conservation checks; no real wallet or submission.",
+          "artifact": {
+            "path": "docs/MCP_PUBLIC_VERIFICATION.json",
+            "sha256": "d57b65d197f0bff1907e16cd45f1982ddf511b5970a6e65808a17a9362cdded6",
+            "commit": "a0a277b45f0d6d9b0a7b06dd8927ab3c912d9fe0",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/a0a277b45f0d6d9b0a7b06dd8927ab3c912d9fe0/docs/MCP_PUBLIC_VERIFICATION.json"
+          }
+        },
+        {
+          "id": "mcp-doc",
+          "kind": "documentation",
+          "observedAt": null,
+          "description": "Public versus Node capability boundaries, explicit-byte privacy, review flow and reproducible checks.",
+          "artifact": {
+            "path": "docs/MCP.md",
+            "sha256": "bb95e170843af9aad75a00960834a6485bc411c9d1d61c9116ea5e6366a2dae0",
+            "commit": "a0a277b45f0d6d9b0a7b06dd8927ab3c912d9fe0",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/a0a277b45f0d6d9b0a7b06dd8927ab3c912d9fe0/docs/MCP.md"
+          }
+        },
+        {
+          "id": "mcp-worker",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Published nine-tool public Worker with stateless native unsigned preparation and fixed public protocol reads.",
+          "artifact": {
+            "path": "mcp/src/worker.mjs",
+            "sha256": "4645710d02cb8b6b0ef039c311bf7c5f16d8ffc2b78f83b83e4df2ecf6be7681",
+            "commit": "218425608da0ef95225f7fe65d83a3e066e28fae",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/218425608da0ef95225f7fe65d83a3e066e28fae/mcp/src/worker.mjs"
+          }
+        },
+        {
+          "id": "mcp-node",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Published Node factory, shared builder, stored review context and external witness verification.",
+          "artifact": {
+            "path": "mcp/src/server.mjs",
+            "sha256": "c5180be4b352a77742e15160a494119d46144e127dc79ed61f51477e4f50013b",
+            "commit": "218425608da0ef95225f7fe65d83a3e066e28fae",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/218425608da0ef95225f7fe65d83a3e066e28fae/mcp/src/server.mjs"
+          }
+        },
+        {
+          "id": "intent-source",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Strict bounded content packet and verification, shared by client and MCP.",
+          "artifact": {
+            "path": "lib/studio-intent.ts",
+            "sha256": "61f677bb7c5208be84ef35c5699457510e5b15cd8d4eb9af20e1594c32883883",
+            "commit": "f9e066cf7d8308d66172add5d279e148c34f4673",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/f9e066cf7d8308d66172add5d279e148c34f4673/lib/studio-intent.ts"
+          }
+        },
+        {
+          "id": "agent-panel",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Visible import/inspect/continue interface and public connection instructions.",
+          "artifact": {
+            "path": "components/agent-mint-panel.tsx",
+            "sha256": "e36fc895aac8ee0a6bb3e000d26770133f08700cf75bee280dac410180d1eb6a",
+            "commit": "a0a277b45f0d6d9b0a7b06dd8927ab3c912d9fe0",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/a0a277b45f0d6d9b0a7b06dd8927ab3c912d9fe0/components/agent-mint-panel.tsx"
+          }
+        },
+        {
+          "id": "mcp-initial-release",
+          "kind": "live-service-check",
+          "observedAt": "2026-09-07T05:32:06.962Z",
+          "description": "Public Streamable HTTP observation: eight tools, 55 resources, content/intent/proof checks and origin rejection; no wallet access or chain submission.",
+          "artifact": {
+            "path": "docs/MCP_PUBLIC_VERIFICATION.json",
+            "sha256": "23d4fa0d1a82d28133f8f39269a241ba768c188e63e8d0a7426a216fed56be59",
+            "commit": "58a517f585322ef84fe4e44ca473a71e3ff9f9cd",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/58a517f585322ef84fe4e44ca473a71e3ff9f9cd/docs/MCP_PUBLIC_VERIFICATION.json"
+          }
+        },
+        {
+          "id": "public-unsigned-source",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Stateless adapter for the shared native builder, with explicit snapshot, output and evidence boundaries.",
+          "artifact": {
+            "path": "mcp/src/public-unsigned.mjs",
+            "sha256": "8490f503e9480c2858bc9faf1292aebcb38017cc979cdc6afe0efbed458699af",
+            "commit": "218425608da0ef95225f7fe65d83a3e066e28fae",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/218425608da0ef95225f7fe65d83a3e066e28fae/mcp/src/public-unsigned.mjs"
+          }
+        }
+      ],
+      "limits": [
+        "The public endpoint receives explicit file bytes; browser-local hashing is required when originals must stay on the device.",
+        "The unsigned public tool receives an explicitly supplied wallet snapshot. It does not connect a wallet, retain preparation, sign, submit or verify external witnesses.",
+        "Both public and Node preparation rely on caller-supplied UTxOs; their current unspent chain state and ownership are not independently established by preparation.",
+        "No new mainnet mint or wallet-device acceptance is established by the synthetic SDK/browser checks. Native quantity one is not a lifetime supply cap."
+      ],
+      "nextEvidence": [
+        "Recheck the live endpoint after deployments; retain dated receipts rather than treating this observation as permanent freshness.",
+        "Observe real-device wallet acceptance separately from SDK and synthetic browser checks."
+      ]
+    },
+    {
+      "id": "standards-observatory",
+      "entryIds": [
+        "standards-observatory"
+      ],
+      "title": "Standards Observatory",
+      "publication": "published",
+      "summary": "A source-pinned research catalog, searchable public interface and read-only monitor that reports upstream CIP drift without changing claims.",
+      "capabilities": [
+        {
+          "id": "research-search",
+          "title": "Search the pinned research snapshot",
+          "environment": "browser-local",
+          "description": "The 53-entry catalog remains research-only; implementation evidence belongs in this separate register.",
+          "evidenceIds": [
+            "knowledge-source",
+            "knowledge-ui"
+          ]
+        },
+        {
+          "id": "cip-drift",
+          "title": "Compare one immutable upstream revision",
+          "environment": "repository-tooling",
+          "description": "A live sample compared 40 pinned CIP artifacts at one resolved upstream commit: 40 unchanged, zero errors, ten non-CIP sources skipped.",
+          "evidenceIds": [
+            "drift-source",
+            "drift-sample",
+            "drift-doc"
+          ]
+        },
+        {
+          "id": "artifact-workflow",
+          "title": "Produce a review report artifact",
+          "environment": "repository-tooling",
+          "description": "The published workflow definition supports manual and weekly checks with contents-read permission and report artifacts. No successful scheduled run is asserted here.",
+          "evidenceIds": [
+            "drift-workflow"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "knowledge-source",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Pure bounded validation and literal search over the immutable research catalog.",
+          "artifact": {
+            "path": "knowledge/lib.mjs",
+            "sha256": "824e13eb79c489a8be26a1d4ef3a62e35988e40571c6727376172b583ba141fc",
+            "commit": "d2003bec53b944c7b71bd50caa2a14002008c7ea",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/d2003bec53b944c7b71bd50caa2a14002008c7ea/knowledge/lib.mjs"
+          }
+        },
+        {
+          "id": "knowledge-ui",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Published standards search and source detail interface.",
+          "artifact": {
+            "path": "components/knowledge-panel.tsx",
+            "sha256": "c8edbe67772a390c22490049ddb456bfec1e583721fcb7d6a947f9af0b23411e",
+            "commit": "d2003bec53b944c7b71bd50caa2a14002008c7ea",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/d2003bec53b944c7b71bd50caa2a14002008c7ea/components/knowledge-panel.tsx"
+          }
+        },
+        {
+          "id": "drift-source",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Fixed official-CIPs origin, one upstream HEAD resolution, bounded transport and immutable report links.",
+          "artifact": {
+            "path": "knowledge/cip-drift.mjs",
+            "sha256": "6a0cb4c94f8ee4e1cd459954337a1559d0fe74d2d30ad02e60ec62bb4cedfffe",
+            "commit": "d2003bec53b944c7b71bd50caa2a14002008c7ea",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/d2003bec53b944c7b71bd50caa2a14002008c7ea/knowledge/cip-drift.mjs"
+          }
+        },
+        {
+          "id": "drift-sample",
+          "kind": "upstream-source-check",
+          "observedAt": "2026-09-07T05:08:19.217Z",
+          "description": "Dated source-drift receipt; the sample is not a perpetual freshness assertion.",
+          "artifact": {
+            "path": "knowledge/CIP_DRIFT_SAMPLE.json",
+            "sha256": "d69edeb12a1b9af282a7f414646d64e064359d674ea7a8baa605c879ac7a9695",
+            "commit": "d2003bec53b944c7b71bd50caa2a14002008c7ea",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/d2003bec53b944c7b71bd50caa2a14002008c7ea/knowledge/CIP_DRIFT_SAMPLE.json"
+          }
+        },
+        {
+          "id": "drift-doc",
+          "kind": "documentation",
+          "observedAt": null,
+          "description": "Scope, incomplete/error handling and explicit review/admission process.",
+          "artifact": {
+            "path": "knowledge/guides/source-drift.md",
+            "sha256": "2c3b4acb20eec6decf8363f21dbe73aa86fadb25d1c0cac18e83ab9c06b0d770",
+            "commit": "d2003bec53b944c7b71bd50caa2a14002008c7ea",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/d2003bec53b944c7b71bd50caa2a14002008c7ea/knowledge/guides/source-drift.md"
+          }
+        },
+        {
+          "id": "drift-workflow",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Artifact-only scheduled/manual workflow definition; execution remains a separate observation.",
+          "artifact": {
+            "path": ".github/workflows/knowledge-drift.yml",
+            "sha256": "8ae33ad2f7586fa2030daa4302e97503e3a3553258f3e14dc9c7231453f0bfd4",
+            "commit": "d2003bec53b944c7b71bd50caa2a14002008c7ea",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/d2003bec53b944c7b71bd50caa2a14002008c7ea/.github/workflows/knowledge-drift.yml"
+          }
+        }
+      ],
+      "limits": [
+        "No catalog mutation, CIP-status promotion, dependency update or automatic implementation admission occurs.",
+        "Only the pinned official-CIPs paths are compared; new CIPs, external linked files and the ten tool repositories are not monitored.",
+        "An HTTP error or missing source does not establish withdrawal. The pinned sample cannot establish present freshness."
+      ],
+      "nextEvidence": [
+        "Review changed primary text before revising affected catalog summaries.",
+        "Record later monitor runs and separately scope any expansion to tool releases or wallet interoperability."
+      ]
+    },
+    {
+      "id": "artifact-passport",
+      "entryIds": [
+        "artifact-passport"
+      ],
+      "title": "Artifact Passport",
+      "publication": "published",
+      "summary": "A published exact-payload receipt adapter, browser composer and offline verifier with separate content and transaction evidence.",
+      "capabilities": [
+        {
+          "id": "passport-adapter",
+          "title": "Export a portable content passport",
+          "environment": "browser-local",
+          "description": "Adapt supported NFT/data receipts, recover exact embedded bytes, bind optional supplied transaction bytes and preserve source/build statements as declarations.",
+          "evidenceIds": [
+            "passport-source",
+            "passport-procedure",
+            "passport-doc",
+            "passport-browser",
+            "passport-browser-check"
+          ]
+        },
+        {
+          "id": "passport-bounds",
+          "title": "Reject ambiguous and oversized evidence",
+          "environment": "node-local",
+          "description": "Eight local test groups include actual shared-builder receipts, CBOR preflight before WASM, exact round trips, byte-view bounds and caller-method rejection. Tests are developer observations, not inclusion evidence.",
+          "evidenceIds": [
+            "passport-procedure",
+            "passport-fixtures"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "passport-source",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Published adapter and pure verifier.",
+          "artifact": {
+            "path": "lib/artifact-passport.ts",
+            "sha256": "148c4975fb52be312ea80b389593edffa53cd085fbee56b11081ae59f1ea802b",
+            "commit": "2a5820e3aca9e9cb48bf0ed4ba9497fe1460abc6",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/2a5820e3aca9e9cb48bf0ed4ba9497fe1460abc6/lib/artifact-passport.ts"
+          }
+        },
+        {
+          "id": "passport-procedure",
+          "kind": "local-test",
+          "observedAt": "2026-09-07T06:17:11.000Z",
+          "description": "Developer-observed eight-group pass, including actual shared NFT/data builder receipts. Artifact identifies the test procedure, not a chain receipt.",
+          "artifact": {
+            "path": "scripts/verify-artifact-passport.mjs",
+            "sha256": "6541e9ed6077ca1b2509a723ed2fb436a73a384cd699efe0c3ad4d39c6db26a5",
+            "commit": "2a5820e3aca9e9cb48bf0ed4ba9497fe1460abc6",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/2a5820e3aca9e9cb48bf0ed4ba9497fe1460abc6/scripts/verify-artifact-passport.mjs"
+          }
+        },
+        {
+          "id": "passport-doc",
+          "kind": "documentation",
+          "observedAt": null,
+          "description": "Published profile scope, deterministic JSON/byte rules and explicit nonclaims.",
+          "artifact": {
+            "path": "docs/ARTIFACT_PASSPORT.md",
+            "sha256": "a21ae00cc6ccaed49595f905b48f0b28c0f502918a6f124ddffb7b353d6bfa5f",
+            "commit": "2a5820e3aca9e9cb48bf0ed4ba9497fe1460abc6",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/2a5820e3aca9e9cb48bf0ed4ba9497fe1460abc6/docs/ARTIFACT_PASSPORT.md"
+          }
+        },
+        {
+          "id": "passport-fixtures",
+          "kind": "local-test",
+          "observedAt": "2026-09-07T06:17:11.000Z",
+          "description": "Two synthetic public fixtures also passed the independent Python SHA-256/BLAKE2b oracle.",
+          "artifact": {
+            "path": "tests/fixtures/artifact-passport/roundtrips.json",
+            "sha256": "585b917e96aee0895a5db89ff3f10a9eefc69786ed860d01eb63714ca56f8c1d",
+            "commit": "2a5820e3aca9e9cb48bf0ed4ba9497fe1460abc6",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/2a5820e3aca9e9cb48bf0ed4ba9497fe1460abc6/tests/fixtures/artifact-passport/roundtrips.json"
+          }
+        },
+        {
+          "id": "passport-browser",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Published browser import, canonical export and per-claim evidence view.",
+          "artifact": {
+            "path": "components/artifact-passport-lab.tsx",
+            "sha256": "9feb6f8320befd7825428a6353046a3587614bd34e708d20ebf0baf17f56cb9b",
+            "commit": "2a5820e3aca9e9cb48bf0ed4ba9497fe1460abc6",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/2a5820e3aca9e9cb48bf0ed4ba9497fe1460abc6/components/artifact-passport-lab.tsx"
+          }
+        },
+        {
+          "id": "passport-browser-check",
+          "kind": "local-test",
+          "observedAt": "2026-09-07T06:26:16.720Z",
+          "description": "Developer-observed public browser flow: creation, canonical export, offline reopen, optional original-transaction check, changed evidence rejection and Activity recovery. Artifact identifies the test procedure; no real wallet or chain submission occurred.",
+          "artifact": {
+            "path": "scripts/audit-labs.cjs",
+            "sha256": "9ff4b0d97ef1e2dd939b03c9bd754b0d4f0e185c1702131208283fad8f915462",
+            "commit": "2a5820e3aca9e9cb48bf0ed4ba9497fe1460abc6",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/2a5820e3aca9e9cb48bf0ed4ba9497fe1460abc6/scripts/audit-labs.cjs"
+          }
+        }
+      ],
+      "limits": [
+        "Source and browser availability do not establish a passport MCP tool or any chain observation.",
+        "A content checksum is not an authenticated receipt. Inclusion, signatures, authorship, ownership, rights and build reproduction remain unverified.",
+        "The profile supports exact-payload NFT/data receipts only; legacy artwork, games, Scroll/Book and arbitrary CIP-68 records are outside this adapter."
+      ],
+      "nextEvidence": [
+        "Specify separate adapters before extending the profile to additional Studio artifact formats.",
+        "Independently observe chain inclusion or build execution before adding those claims."
+      ]
+    },
+    {
+      "id": "holder-proof",
+      "entryIds": [
+        "cip-0008",
+        "cip-0030"
+      ],
+      "title": "Holder-proof verifier",
+      "publication": "published",
+      "summary": "Published experimental source for offline signature-and-holdings verification with injected trusted adapters; no authentication service is deployed.",
+      "capabilities": [
+        {
+          "id": "holder-signature",
+          "title": "Verify the exact signed challenge",
+          "environment": "offline-candidate",
+          "description": "Preserve protected COSE bytes, require Ed25519 headers/key parameters, apply strict verification and bind the payment key to the exact challenge address.",
+          "evidenceIds": [
+            "holder-source",
+            "holder-doc"
+          ]
+        },
+        {
+          "id": "holder-observation",
+          "title": "Compose a scoped observed-point decision",
+          "environment": "offline-candidate",
+          "description": "Check origin, action, network, resource, session, expiry, fresh trusted snapshot and atomic single-process nonce consumption. The result is valid only at the reported observation.",
+          "evidenceIds": [
+            "holder-engine",
+            "holder-doc"
+          ]
+        },
+        {
+          "id": "holder-byte-bounds",
+          "title": "Bound direct byte-array entry points",
+          "environment": "offline-candidate",
+          "description": "Eleven regression groups cover native byte slots, offset Buffers, overridden methods and shared/detached memory. No caller callback executed in those tests.",
+          "evidenceIds": [
+            "holder-byte-tests"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "holder-source",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Candidate cryptographic verifier; no wallet, signing or provider calls.",
+          "artifact": {
+            "path": "experiments/holder-proof/cose-verifier.mjs",
+            "sha256": "64ca4301f672abd2be97764693e0ca0f4564586041e99be30ab8303e99b2a0db",
+            "commit": "2a5820e3aca9e9cb48bf0ed4ba9497fe1460abc6",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/2a5820e3aca9e9cb48bf0ed4ba9497fe1460abc6/experiments/holder-proof/cose-verifier.mjs"
+          }
+        },
+        {
+          "id": "holder-engine",
+          "kind": "source",
+          "observedAt": null,
+          "description": "Candidate composition with server-owned configuration, challenge store and trusted snapshot adapter.",
+          "artifact": {
+            "path": "experiments/holder-proof/holder-verifier.mjs",
+            "sha256": "f625c4bf9b373cd3ec3321b58fa8fe262810fc20567f1f587590bb0fe1102759",
+            "commit": "2a5820e3aca9e9cb48bf0ed4ba9497fe1460abc6",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/2a5820e3aca9e9cb48bf0ed4ba9497fe1460abc6/experiments/holder-proof/holder-verifier.mjs"
+          }
+        },
+        {
+          "id": "holder-doc",
+          "kind": "documentation",
+          "observedAt": null,
+          "description": "Scoped evidence: 52 primitive checks, 17 accepted COSE cases, two crypto diagnostics, 84 named rejections, 23 composition checks, mutation/truncation cases and 16 independently verified public fixtures.",
+          "artifact": {
+            "path": "experiments/holder-proof/IMPLEMENTATION.md",
+            "sha256": "d0a031c845e9f707c5605b8cb4f9de2838dfae7f6ecf0effecf2fe4a441ec762",
+            "commit": "2a5820e3aca9e9cb48bf0ed4ba9497fe1460abc6",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/2a5820e3aca9e9cb48bf0ed4ba9497fe1460abc6/experiments/holder-proof/IMPLEMENTATION.md"
+          }
+        },
+        {
+          "id": "holder-byte-tests",
+          "kind": "local-test",
+          "observedAt": "2026-09-07T06:17:11.000Z",
+          "description": "Developer-observed eleven-group direct-input pass. This artifact is the test procedure, not a live authorization receipt.",
+          "artifact": {
+            "path": "experiments/holder-proof/verify-byte-views.mjs",
+            "sha256": "8f3870f6ecbe85424184651ebbe2432a4434a547de2113c508341cea292321a2",
+            "commit": "2a5820e3aca9e9cb48bf0ed4ba9497fe1460abc6",
+            "url": "https://github.com/BEACNpool/NFT-Studio/blob/2a5820e3aca9e9cb48bf0ed4ba9497fe1460abc6/experiments/holder-proof/verify-byte-views.mjs"
+          }
+        }
+      ],
+      "limits": [
+        "No HTTP endpoint, protected-object delivery, real chain adapter, real-wallet interoperability or production nonce store is implemented here.",
+        "Holding, canonicality and freshness are trusted adapter observations, not cryptographic chain-inclusion proofs.",
+        "Memory nonce consumption is single-process only; production storage needs durable atomic expiry/session checks at commit time.",
+        "No external security audit or future/exclusive holding guarantee is established."
+      ],
+      "nextEvidence": [
+        "Independently review a real chain adapter, durable session/nonce storage and protected delivery before any authentication deployment.",
+        "Observe actual wallet compatibility before claiming support for named wallets or devices."
+      ]
+    }
+  ]
+}

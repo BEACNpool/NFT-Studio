@@ -308,6 +308,62 @@ const fill = (page, selector, text) =>
     );
     await page.keyboard.press('Escape');
     await page.waitForSelector('.ns-kb-dialog', { hidden: true });
+    await fill(page, '#knowledge-query', 'CIP68');
+    await page.waitForFunction(() =>
+      [...document.querySelectorAll('.ns-kb-card')].some((card) =>
+        card.textContent.includes('CIP-0068'),
+      ),
+    );
+    await click(page, 'CIP-0068');
+    await has(page, 'Built at BEACN');
+    assert.ok(await page.$('[data-implementation="living-artifact"]'));
+    await has(page, 'Independent node evaluation');
+    assert.match(
+      await page.$eval('.ns-kb-dialog', (e) => e.innerText),
+      /This is a research entry/,
+    );
+    const evidenceSummary = await page.$(
+      '[data-implementation="living-artifact"] summary',
+    );
+    await evidenceSummary.evaluate((e) =>
+      e.scrollIntoView({ block: 'center' }),
+    );
+    await evidenceSummary.click();
+    const pinned = await page.$$eval(
+      '[data-implementation="living-artifact"] a',
+      (links) => links.map((a) => a.href),
+    );
+    assert.ok(
+      pinned.length > 0 &&
+        pinned.every((url) =>
+          /^https:\/\/github\.com\/BEACNpool\/NFT-Studio\/blob\/[0-9a-f]{40}\//.test(
+            url,
+          ),
+        ),
+    );
+    if (screenshotDir) {
+      fs.mkdirSync(screenshotDir, { recursive: true });
+      await page.screenshot({
+        path: path.join(screenshotDir, 'knowledge-implementation-desktop.png'),
+      });
+      await page.setViewport({ width: 390, height: 844 });
+      await page.$eval('.ns-kb-dialog', (e) => e.scrollTo({ top: 0 }));
+      assert.ok(
+        await page.$eval(
+          '.ns-kb-dialog',
+          (e) => e.scrollWidth <= e.clientWidth + 1,
+        ),
+      );
+      await page.screenshot({
+        path: path.join(screenshotDir, 'knowledge-implementation-mobile.png'),
+      });
+      await page.setViewport({ width: 1440, height: 1000 });
+    }
+    await page.keyboard.press('Escape');
+    await page.waitForSelector('.ns-kb-dialog', { hidden: true });
+    results.push(
+      'Knowledge keeps research status separate from scoped BEACN implementation evidence and immutable source links',
+    );
     await click(page, 'State capsule');
     await has(page, 'Revision 1');
     assert.equal(
