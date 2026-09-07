@@ -29,6 +29,9 @@ No public tool signs, submits or connects to a wallet.
 ## Evidence boundaries
 
 CIP proposal status and Studio implementation evidence are separate.
+Read nft-studio://implementations for dated capabilities, test environments,
+immutable source links and limitations. read_knowledge gives related record IDs.
+The public service exposes 56 fixed resources; it never fetches evidence URLs.
 Hashes verify exact bytes, not authorship, ownership, rights or chain inclusion.
 State capsules are experimental contracts; the browser demonstration is local.
 Proof records use the public hash profile of proposed CIP-190; export is not
