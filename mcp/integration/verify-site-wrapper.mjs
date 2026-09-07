@@ -11,18 +11,18 @@ for(let i=0;i<args.length;i+=2){if(!['--dist','--project-root'].includes(args[i]
 if(!options['--dist']||!options['--project-root'])throw new Error('Staged dist and project root are required.');
 const dist=resolve(options['--dist']),projectRoot=resolve(options['--project-root']);
 const require=createRequire(join(projectRoot,'package.json'));
-const {Miniflare}=await import(pathToFileURL(require.resolve('miniflare')));
+const {Miniflare,convertV4MiniflareOptions}=await import(pathToFileURL(require.resolve('miniflare')));
 const origin='https://beacn-nft-studio.davidmjensen17.chatgpt.site';
 const record=JSON.parse(await readFile(join(dist,'mcp-wrapper-receipt.json'),'utf8'));
 const config=JSON.parse(await readFile(join(dist,'server/wrangler.json'),'utf8'));
 const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
 assert.equal(record.sourceAppSha256,digest(await readFile(join(dist,'server/studio-app.js'))));
-const runtime=async(entry)=>new Miniflare({
+const runtime=async(entry)=>{const options={
   compatibilityDate:config.compatibility_date,compatibilityFlags:config.compatibility_flags||[],
   modulesRoot:join(dist,'server'),
   modules:[{type:'ESModule',path:join(dist,'server',entry)},...(await listFiles(join(dist,'server'))).filter(file=>/\.m?js$/.test(file)&&file!==join(dist,'server',entry)).map(path=>({type:'ESModule',path}))],
   assets:{directory:join(dist,'client'),binding:'ASSETS',routerConfig:{has_user_worker:true,invoke_user_worker_ahead_of_assets:false}},
-});
+};return new Miniflare(typeof convertV4MiniflareOptions==='function'?convertV4MiniflareOptions(options):options);};
 const baseline=await runtime('studio-app.js'),wrapped=await runtime('index.js');
 const observations=[];
 const checked=raw=>{assert.ok(!raw.isError,JSON.stringify(raw));return raw.structuredContent||JSON.parse(raw.content[0].text);};

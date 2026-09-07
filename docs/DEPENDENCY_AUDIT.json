@@ -1,0 +1,28 @@
+{
+  "schema": "nft-studio.dependency-audit.v1",
+  "checkedAt": "2026-09-07T05:53:04.066179+00:00",
+  "packageLockSha256": "3d8d037d869ba2ca19349ed6446dca122a956e74dae93a1874d853f3999ee0ba",
+  "npmAudit": {
+    "auditReportVersion": 2,
+    "vulnerabilities": {},
+    "metadata": {
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      },
+      "dependencies": {
+        "prod": 473,
+        "dev": 180,
+        "optional": 192,
+        "peer": 35,
+        "peerOptional": 0,
+        "total": 740
+      }
+    }
+  },
+  "scope": "Installed direct and transitive npm dependency advisory scan; not an independent security audit."
+}
