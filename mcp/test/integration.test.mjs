@@ -140,6 +140,26 @@ test('Preparations reject unsafe wallet inputs, wrong network, malformed CBOR, t
   try{const {intent}=await call(stale.client,'create_mint_intent',{...args,mode:'nft'});await rejected(stale.client,'prepare_unsigned_transaction',{intent,wallet});}finally{await stale.close();}
 });
 
+test('Node parser boundaries reject hostile UTxO and witness CBOR before CSL, then valid preparation and signatures still work',async()=>{
+  let reads=0;const ctx=await httpClient(createService({protocol:()=>{reads++;return live();}}));
+  try{
+    const {intent}=await call(ctx.client,'create_mint_intent',{...args,mode:'nft'});
+    const bad=['c0'.repeat(17)+'00','9bffffffffffffffff','5a7fffffff','ff',wallet.utxos[0]+'00'];
+    for(const hex of bad){
+      const result=await ctx.client.callTool({name:'prepare_unsigned_transaction',arguments:{intent,wallet:{...wallet,utxos:[hex]}}});
+      assert.equal(result.isError,true);assert.match(result.content[0].text,/CBOR/);
+    }
+    assert.equal(reads,0,'Hostile CBOR never reaches the protocol provider or CSL builder.');
+    const packet=await call(ctx.client,'prepare_unsigned_transaction',{intent,wallet}),initialReads=reads;
+    for(const witnessSetHex of bad){
+      const result=await ctx.client.callTool({name:'verify_signed_transaction',arguments:{packetId:packet.packetId,witnessSetHex,wallet}});
+      assert.equal(result.isError,true);assert.match(result.content[0].text,/CBOR/);
+    }
+    assert.equal(reads,initialReads);
+    assert.equal((await call(ctx.client,'verify_signed_transaction',{packetId:packet.packetId,witnessSetHex:witnesses(packet),wallet})).submitted,false);
+  }finally{await ctx.close();}
+});
+
 test('HTTP authentication, DNS rebinding, exact origins, content/body bounds and rate limits fail closed',async()=>{
   assert.throws(()=>validateHttpOptions({token:TOKEN,host:'0.0.0.0'}));assert.throws(()=>validateHttpOptions({token:'short'}));assert.throws(()=>validateHttpOptions({token:TOKEN,allowedOrigins:['https://example.org/path']}));
   const http=createHttpService({port:0,token:TOKEN,allowedOrigins:['https://example.org'],service:createService({protocol:live})});const at=await http.listen(),url=`http://127.0.0.1:${at.port}/mcp`;
@@ -156,7 +176,7 @@ test('HTTP authentication, DNS rebinding, exact origins, content/body bounds and
     assert.equal((await req({},'[]')).status,400);
     assert.equal((await req({},'x'.repeat(524289))).status,413);
     assert.equal((await req({},undefined,'GET')).status,405);
-    const preflight=await req({authorization:'',origin:'https://example.org','access-control-request-method':'POST'},'', 'OPTIONS');assert.equal(preflight.status,204);assert.equal(preflight.headers.get('access-control-allow-origin'),'https://example.org');
+    const preflight=await req({authorization:'',origin:'https://example.org','access-control-request-method':'POST'},'', 'OPTIONS');assert.equal(preflight.status,204);assert.equal(preflight.headers.get('access-control-allow-origin'),'https://example.org');for(const header of ['mcp-method','mcp-name','mcp-protocol-version'])assert.ok(preflight.headers.get('access-control-allow-headers').toLowerCase().includes(header));
   }finally{await http.close();}
   const low=createHttpService({port:0,token:TOKEN,rateLimit:1,service:createService({protocol:live})});const port=(await low.listen()).port;
   try{await fetch(`http://127.0.0.1:${port}/mcp`);const blocked=await fetch(`http://127.0.0.1:${port}/mcp`);assert.equal(blocked.status,429);assert.equal(blocked.headers.get('retry-after'),'60');}finally{await low.close();}

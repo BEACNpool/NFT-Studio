@@ -1,0 +1,208 @@
+{
+  "schema": "nft-studio.workerd-native-soak.v1",
+  "status": "pass",
+  "builds": 1000,
+  "cases": {
+    "nft": 250,
+    "data": 250,
+    "twoPaymentKeys": 250,
+    "maximumUtxosAndNativeAssetCount": 250
+  },
+  "localV8Flags": "--max-old-space-size=64",
+  "runtime": "Actual Miniflare/Workerd",
+  "compatibilityDate": "2026-05-15",
+  "nodeCompatibility": false,
+  "elapsedMs": 19904,
+  "publicNetworkCalls": 0,
+  "syntheticProtocolReads": 2000,
+  "realWallets": 0,
+  "privateKeys": 0,
+  "signatures": 0,
+  "submissions": 0,
+  "inspectorTarget": "core:user:",
+  "forcedGarbageCollections": 1,
+  "handlerResetAt": 500,
+  "wasmInstanceResets": 0,
+  "artifacts": {
+    "workerSha256": "668bab5446d5b0a9eb682d12feb9009ca09a3060ed9d844002842db4aa8f0344"
+  },
+  "samples": [
+    {
+      "builds": 0,
+      "wasmLinearBytes": 1245184,
+      "usedSize": 10817528,
+      "totalSize": 16584704,
+      "embedderHeapUsedSize": 257936,
+      "backingStorageSize": 26573
+    },
+    {
+      "builds": 50,
+      "wasmLinearBytes": 3997696,
+      "usedSize": 18571840,
+      "totalSize": 29138944,
+      "embedderHeapUsedSize": 386896,
+      "backingStorageSize": 298991
+    },
+    {
+      "builds": 100,
+      "wasmLinearBytes": 6684672,
+      "usedSize": 29648940,
+      "totalSize": 38051840,
+      "embedderHeapUsedSize": 644816,
+      "backingStorageSize": 978480
+    },
+    {
+      "builds": 150,
+      "wasmLinearBytes": 6815744,
+      "usedSize": 22072496,
+      "totalSize": 49586176,
+      "embedderHeapUsedSize": 773776,
+      "backingStorageSize": 31489
+    },
+    {
+      "builds": 200,
+      "wasmLinearBytes": 6815744,
+      "usedSize": 27008744,
+      "totalSize": 52731904,
+      "embedderHeapUsedSize": 902736,
+      "backingStorageSize": 178077
+    },
+    {
+      "builds": 250,
+      "wasmLinearBytes": 8126464,
+      "usedSize": 42779972,
+      "totalSize": 57712640,
+      "embedderHeapUsedSize": 1160656,
+      "backingStorageSize": 1276434
+    },
+    {
+      "builds": 300,
+      "wasmLinearBytes": 12582912,
+      "usedSize": 35283876,
+      "totalSize": 85499904,
+      "embedderHeapUsedSize": 1289616,
+      "backingStorageSize": 285276
+    },
+    {
+      "builds": 350,
+      "wasmLinearBytes": 12910592,
+      "usedSize": 30724576,
+      "totalSize": 87318528,
+      "embedderHeapUsedSize": 174184,
+      "backingStorageSize": 563657
+    },
+    {
+      "builds": 400,
+      "wasmLinearBytes": 12910592,
+      "usedSize": 46169924,
+      "totalSize": 87318528,
+      "embedderHeapUsedSize": 381144,
+      "backingStorageSize": 1543988
+    },
+    {
+      "builds": 450,
+      "wasmLinearBytes": 12910592,
+      "usedSize": 39228988,
+      "totalSize": 88629248,
+      "embedderHeapUsedSize": 540224,
+      "backingStorageSize": 650433
+    },
+    {
+      "builds": 500,
+      "wasmLinearBytes": 12910592,
+      "usedSize": 39135256,
+      "totalSize": 87580672,
+      "embedderHeapUsedSize": 226024,
+      "backingStorageSize": 1779210
+    },
+    {
+      "builds": 550,
+      "wasmLinearBytes": 13303808,
+      "usedSize": 24200432,
+      "totalSize": 72900608,
+      "embedderHeapUsedSize": 213784,
+      "backingStorageSize": 619698
+    },
+    {
+      "builds": 600,
+      "wasmLinearBytes": 13303808,
+      "usedSize": 41537984,
+      "totalSize": 73424896,
+      "embedderHeapUsedSize": 419944,
+      "backingStorageSize": 1797598
+    },
+    {
+      "builds": 650,
+      "wasmLinearBytes": 13303808,
+      "usedSize": 34068616,
+      "totalSize": 77357056,
+      "embedderHeapUsedSize": 579184,
+      "backingStorageSize": 904098
+    },
+    {
+      "builds": 700,
+      "wasmLinearBytes": 13303808,
+      "usedSize": 27873204,
+      "totalSize": 82075648,
+      "embedderHeapUsedSize": 785344,
+      "backingStorageSize": 54730
+    },
+    {
+      "builds": 750,
+      "wasmLinearBytes": 13303808,
+      "usedSize": 43627640,
+      "totalSize": 83910656,
+      "embedderHeapUsedSize": 945904,
+      "backingStorageSize": 1153087
+    },
+    {
+      "builds": 800,
+      "wasmLinearBytes": 13303808,
+      "usedSize": 37352880,
+      "totalSize": 89153536,
+      "embedderHeapUsedSize": 1132264,
+      "backingStorageSize": 303719
+    },
+    {
+      "builds": 850,
+      "wasmLinearBytes": 13303808,
+      "usedSize": 40635736,
+      "totalSize": 88629248,
+      "embedderHeapUsedSize": 237104,
+      "backingStorageSize": 1348242
+    },
+    {
+      "builds": 900,
+      "wasmLinearBytes": 13303808,
+      "usedSize": 32594396,
+      "totalSize": 88891392,
+      "embedderHeapUsedSize": 419224,
+      "backingStorageSize": 285276
+    },
+    {
+      "builds": 950,
+      "wasmLinearBytes": 13303808,
+      "usedSize": 48854216,
+      "totalSize": 88891392,
+      "embedderHeapUsedSize": 602944,
+      "backingStorageSize": 1383633
+    },
+    {
+      "builds": 1000,
+      "wasmLinearBytes": 13303808,
+      "usedSize": 42077192,
+      "totalSize": 90726400,
+      "embedderHeapUsedSize": 771624,
+      "backingStorageSize": 480356
+    },
+    {
+      "builds": "after-diagnostic-GC",
+      "wasmLinearBytes": 13303808,
+      "usedSize": 10650460,
+      "totalSize": 11296768,
+      "embedderHeapUsedSize": 67224,
+      "backingStorageSize": 896
+    }
+  ],
+  "limits": "WASM linear capacity and CDP V8 heap measurements are recorded separately. They do not measure all isolate overhead or establish production CPU capacity. Workerd is tested with a local-only 64 MiB V8 old-space cap. There is no forced GC during the 1,000-build run; a single final diagnostic GC measures retained heap after completion. The test-only handler reset bypasses the configured request-window cap after 500 builds while preserving the exact same WASM instance."
+}

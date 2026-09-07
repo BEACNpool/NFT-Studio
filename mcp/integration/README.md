@@ -38,25 +38,25 @@ The output directory must not exist and must be outside the source build directo
 Within the staged copy only:
 
 1. Original `server/index.js` becomes `server/studio-app.js`, byte-identically.
-2. The compiled public MCP artifact is copied as `server/mcp-public.mjs`.
+2. The compiled public MCP artifact is copied as `server/mcp-public.mjs`, with the pinned `server/cardano_serialization_lib_bg.wasm` compiled module beside it.
 3. A new `server/index.js` imports both modules. Exact `/api/mcp` paths go to MCP; all other paths call the original `app.fetch(request, env, context)` unchanged. Other app exports/handlers remain available.
-4. `mcp-wrapper-receipt.json` records the original/copied app, wrapper and MCP hashes.
+4. `mcp-wrapper-receipt.json` records the original/copied app, wrapper, MCP and WASM hashes.
 5. `mcp-wrapper-check.json` records the local Workerd verification result.
 
 The wrapper is ordinary browser-compatible ES module code. It has no Node imports. The original app keeps whatever runtime flags its own build requires.
 
 ## What the integration check proves
 
-The verifier uses the checkout's installed Miniflare/Workerd and the MCP package's official SDK client. It runs the original and wrapped app with the same module tree and assets. It checks:
+The verifier uses the checkout's installed Miniflare/Workerd (including the v4-to-v5 configuration adapter when available) and the MCP package's official SDK client. It runs the original and wrapped app with the same module tree and assets. It checks:
 
 - Representative JavaScript, CSS and SVG/PNG return 200 and match the exact files by SHA-256.
 - The original application's home route still renders through the wrapper. It checks both root and retained `/NFT-Studio/` bases, so a Pages test build can be exercised honestly.
-- Modern and legacy MCP clients discover eight tools and the knowledge resources.
-- Capabilities, cited search, intent creation/verification and proof-record creation/verification work through the real Worker runtime.
+- Modern and legacy MCP clients discover nine tools and the knowledge resources.
+- Capabilities, cited search, intent creation/verification and proof-record creation/verification and actual unsigned data preparation work through the real Worker runtime. Protocol reads are intercepted with fixed synthetic data; no wallet or public network is used.
 - Returned intents point to the primary Studio for review.
 - Wrong URL/browser origins, a body above 96 KiB and query-bearing `/api/mcp` requests reject.
 
-Vinext contains variable dynamic imports, so the verifier explicitly enumerates the generated JS modules instead of asking Miniflare to infer every dependency. Its assets router explicitly sets `has_user_worker: true`; omitting this makes unknown routes return an asset 404 without calling the Worker. Worker origin checks use the authoritative `Request.url.origin`, since Miniflare/proxies can send an internal raw Host header.
+Vinext contains variable dynamic imports, so the verifier explicitly enumerates the generated JS and compiled WASM modules instead of asking Miniflare to infer every dependency. Its assets router explicitly sets `has_user_worker: true`; omitting this makes unknown routes return an asset 404 without calling the Worker. Worker origin checks use the authoritative `Request.url.origin`, since Miniflare/proxies can send an internal raw Host header.
 
 ## Release boundary
 
@@ -64,8 +64,10 @@ Root owns the actual Sites release. A static-only declaration cannot serve an ex
 
 Package/deploy the **verified staged output**, keeping its existing server module tree, original asset configuration and runtime compatibility flags. Do not deploy an older Pages-basepath test artifact as the new root Sites application. Run this check again after the final build changes.
 
-After deployment, verify the actual public `/api/mcp` URL with an official SDK client in both protocol eras and anonymously check the main app and static assets. Keep the distinction clear: this public route offers knowledge, payload validation, browser intents and public proof-record exports; actual unsigned transactions and external witness verification belong to the separate Node service.
+After deployment, verify the actual public `/api/mcp` URL with an official SDK client in both protocol eras and anonymously check the main app and static assets. Keep the distinction clear: this candidate public route adds stateless unsigned native transactions to knowledge, payload validation, browser intents and proof-record exports. External witness verification and retained preparation packets belong to the separate Node service. A source candidate does not establish that the hosted endpoint has enabled the ninth tool.
 
 Rollback is the original unwrapped artifact or previous deployment. `studio-app.js` is preserved byte-for-byte in the staged build, and the source checkout remains untouched.
 
 Measured on 2026-09-07: the Sites front dispatcher reserves `/mcp` and returned a plain 404 before the application Worker when no platform MCP capability was declared. The supplied wrapper uses the application route `/api/mcp`. The generic handler still defaults to `/mcp`; `endpointPath` configures an exact alternative. No platform authentication or Sites MCP registration is claimed.
+
+The WASM must be uploaded as a compiled Worker module. Archive inclusion alone does not establish that a particular hosting uploader registers its type correctly. Read [the verified static WASM pattern and hosting boundary](WASM_DEPLOYMENT.md) before a candidate release.

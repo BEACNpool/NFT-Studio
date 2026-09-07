@@ -144,7 +144,7 @@ A remote MCP server necessarily receives the file bytes supplied to it. These to
 
 A matching digest does not prove chain inclusion, authorship, rights, truth or ownership. Imported records cannot recover files. Ledger timing requires separately observed transaction inclusion. The returned CBOR uses **raw byte strings**, not hex text substituted into JSON metadata; a transaction integrator must preserve those types. See the [Proposed CIP-190 specification](https://cips.cardano.org/cip/CIP-0190) and this repository's source-pinned proof profile for the precise supported scope.
 
-## External wallet integration
+## External wallet integration with the Node service
 
 `prepare_unsigned_transaction` takes a verified intent and a CIP-30 wallet snapshot:
 
@@ -166,7 +166,7 @@ The input snapshot comes from the caller. This service does **not independently 
 
 The native policy requires a payment signature and closes after its expiry. It mints quantity one in this transaction but **does not enforce a lifetime supply of one**. Its closed mint window also forbids later burning. Metadata describes content; it cannot activate a holder gate or mutable contract.
 
-Preparations and wallet snapshots exist only in process RAM, with random packet IDs, a four-minute lifetime, a 64-packet cap and periodic cleanup. Restarting the process invalidates IDs. A shared HTTP bearer token identifies one operator context; do not use a single token as a multi-tenant identity system. Run separate processes/tokens or add independently reviewed principal isolation for multiple customers.
+Node preparations and wallet snapshots exist only in process RAM, with random packet IDs, a four-minute lifetime, a 64-packet cap and periodic cleanup. Restarting the process invalidates IDs. A shared HTTP bearer token identifies one operator context; do not use a single token as a multi-tenant identity system. Run separate processes/tokens or add independently reviewed principal isolation for multiple customers.
 
 ## Host the full Node service
 
@@ -197,17 +197,39 @@ The nested `mcp/package-lock.json` pins the SDK and all dependencies. The build 
 
 Primary implementation sources, checked 2026-09-07: [official SDK stable release and packages](https://github.com/modelcontextprotocol/typescript-sdk), [SDK v2 protocol negotiation](https://ts.sdk.modelcontextprotocol.io/v2/protocol-versions), [web-standard handler API](https://ts.sdk.modelcontextprotocol.io/v2/api/%40modelcontextprotocol/server/server/createMcpHandler.html), [MCP transport specification](https://modelcontextprotocol.io/specification/2026-07-28/basic/transports), [CIP-30 wallet API](https://cips.cardano.org/cip/CIP-0030), [CIP-25 NFT metadata](https://cips.cardano.org/cip/CIP-0025). Research statuses and exact source provenance live in `knowledge/`.
 
-## Public Worker subset
+## Public Worker with stateless unsigned preparation
 
-`mcp/dist/worker.mjs` is a standalone web-standard artifact with no Node imports. It exports `createPublicMcpHandler`, which returns a fetch handler. It exposes **eight** public tools: capabilities, knowledge search/read, payload validation, intent creation/verification, and proof record creation/verification. It has no unsigned builder, wallet/UTxO/witness input, network lookup, packet cache, authentication secret, private storage or chain submission.
+The source below includes the ninth-tool unsigned-builder upgrade. Its local Workerd checks pass; the public connection above remains the verified eight-tool release until the hosted upgrade is observed.
 
-An operator can wrap it in an existing HTTPS Worker. The default path is `/mcp`; configure `endpointPath: '/api/mcp'` where the host reserves that path:
+This source package adds a **ninth** public tool, `prepare_unsigned_transaction`, to the eight existing knowledge, payload, intent and proof tools. This is a runtime-tested source capability. The deployed endpoint's `studio_capabilities` and release verification receipt determine whether a particular host has enabled it; a local build does not update the hosted service.
+
+`mcp/dist/worker.mjs` exports `createPublicMcpHandler`. It uses web APIs and the pinned CSL 17 browser WASM, with **no Node compatibility requirement**. The adjacent `cardano_serialization_lib_bg.wasm` must be uploaded as a **compiled Worker module**, not served only as a static asset. The build extracts and verifies this exact binary from the pinned package. Keep both files together. See [WASM packaging evidence and limitations](../mcp/integration/WASM_DEPLOYMENT.md).
+
+The public unsigned tool accepts precisely the same `{intent, wallet: {changeHex, utxos}}` shape shown above. Its response is `nft-studio.stateless-unsigned.v1`: actual `unsignedHex`, `bodyHex`, transaction hash, exact selected input references, required payment-key hashes, outputs and minimum ADA, fee and signed-size estimate, metadata/auxiliary commitment, native policy identity, fresh protocol parameters and validity. It returns **no packet ID** and stores no preparation. `verify_signed_transaction` remains exclusive to the full Node service; it cannot verify this public response using an invented packet ID. An external signer must independently verify the complete signed body, witnesses, fee and current chain inputs. Alternatively, import the original intent into Studio for a fresh browser build.
+
+| Contract | Public Worker | Full Node service |
+| --- | --- | --- |
+| Tools | 9, including stateless unsigned preparation | 11, including metadata measurement and signed-witness verification |
+| Wallet snapshot limit | 32 UTxOs; 16 KiB each; 32 KiB aggregate; 512 native assets | 128 UTxOs; 16 KiB each; 128 KiB aggregate |
+| Caller CBOR preflight | 4,096 nodes and depth 16 before CSL | Same preflight for UTxOs and external witness sets |
+| Preparation state | None | RAM packet cache, four-minute TTL, 64 packets |
+| Chain input ownership/unspent proof | Not checked | Caller snapshots, plus payment signatures at witness verification; unspent state not checked |
+| Signing/submission | No tools | No tools |
+
+Public preparation arguments are capped at **88 KiB**, within the transport's **96 KiB** complete JSON-RPC frame cap. Only canonical mainnet key payment addresses and ordinary UTxOs without datum/reference scripts are accepted. Duplicate input references, unsupported policy/recipient/URL overrides, malformed or structurally excessive CBOR, oversized asset inventories and tampered intents reject before fetching parameters. All outputs return to the supplied change address; value conservation, exact body/auxiliary commitments, current minimum ADA, the 16,384-byte signed-size estimate and 2 ADA fee cap are checked. Signed size remains an estimate until external witnesses are inspected.
+
+The new tool receives wallet addresses and complete supplied UTxO CBOR. Supply a snapshot only with the wallet user's authorization. It does not connect to wallets, read private files, establish ownership, prove inputs unspent, sign or submit. It fetches only fixed read-only Koios `/tip` and latest `/epoch_params` URLs from the Studio provider; no supplied content, wallet address, UTxO or caller header enters those requests. Each response is capped at 64 KiB; redirects, malformed UTF-8/JSON, stale tip data, inconsistent epochs and invalid parameters reject. Two preparations may run at once, with a ten-second provider deadline. A failed request releases capacity.
+
+The other eight tools retain their existing explicit-content contract and make no network requests. Proof records remain exports; the unsigned native builder does not attach their label-309 metadata automatically. Neither public tool set supplies custodial signing, chain inclusion, arbitrary Plutus transactions or a paid multi-tenant account system.
+
+An operator can wrap the module in an existing HTTPS Worker:
 
 ```js
 import { createPublicMcpHandler } from './mcp/dist/worker.mjs';
 
 const mcp = createPublicMcpHandler({
   publicOrigin: 'https://your-public-host.example',
+  endpointPath: '/api/mcp',
   studioUrl: 'https://beacnpool.github.io/NFT-Studio/',
   allowedOrigins: [
     'https://your-public-host.example',
@@ -218,10 +240,10 @@ const mcp = createPublicMcpHandler({
 export default { fetch: request => mcp.fetch(request) };
 ```
 
-The placeholder is not an existing endpoint. The wrapper must use the actual deployed origin. The Worker's authoritative `Request.url.origin` is checked exactly; proxy-internal raw Host headers can differ and do not override this routing identity. The Node listener separately validates raw Host before constructing a URL. Browser origins are exact HTTPS allowlist entries. Nonbrowser clients may omit Origin. Requests need no bearer token because this route grants only public knowledge lookup and transformation of **explicitly supplied** content; it cannot read anything from a user's wallet or computer. Do not put secrets in payloads you send to a public service. Intent URLs never contain payload data.
+The placeholder is not a deployed endpoint. `endpointPath` defaults to `/mcp`; the existing Sites wrapper uses `/api/mcp` because the front dispatcher reserves `/mcp`. The exact `Request.url.origin` is authoritative for Worker routing; proxy-internal raw Host cannot override it. The Node listener separately checks raw Host. Browser origins use an exact HTTPS allowlist, including the standard SDK request headers; nonbrowser callers may omit Origin.
 
-The Worker rejects bodies over **96 KiB**, invalid UTF-8/JSON, batches, compressed content, URL queries and non-MCP paths. It allows eight concurrent requests, bounds body-read time to ten seconds, and enforces 120 requests/minute **per isolate**. That rate counter is best effort: Worker isolates restart and scale independently. A public production operator must add platform-level abuse/rate controls if shared global quotas are needed. This package does not claim a durable global rate limit or a multi-tenant paid service.
+Public requests need no bearer token. The handler transforms only explicitly supplied data and makes the fixed protocol reads described above. It does not persist or log request bodies. Hosting-provider infrastructure can retain operational metadata. Do not send secrets. Intent review URLs carry no content or wallet data.
 
-Deploying this artifact and verifying an actual endpoint are separate release steps. The bundled Worker is exercised with both official SDK protocol eras in the package test suite; the host must additionally verify its actual Worker runtime, routing and public client access before announcing a URL.
+The Worker rejects invalid UTF-8/JSON, batches, compressed content, URL queries and non-MCP paths. It allows eight concurrent requests, bounds body reads to ten seconds, and enforces 120 requests/minute **per isolate**. Isolates restart and scale independently; this is a best-effort local bound, not a durable global quota. Platform-level controls are required for a shared global quota.
 
-For the existing Sites application's root-owned release, [the reversible wrapper kit](../mcp/integration/README.md) stages `/mcp` alongside the original Worker and verifies both the app/static-asset fallback and official MCP client flows in actual Miniflare/Workerd. Staging is separate from deployment; use the exact intended release build.
+`npm --prefix mcp test` exercises all nine public tools in actual Workerd without Node compatibility, with modern and legacy official clients. It compares NFT/data/two-key unsigned output against Node CSL and tests schema/CBOR/asset/parameter/feed/concurrency/timeout failures. All network responses and wallet outputs in these tests are synthetic. The separate [wrapper verifier](../mcp/integration/README.md) checks nine tools alongside the actual application and byte-identical JavaScript, CSS and images. Deployment and actual public SDK verification remain separate release steps.

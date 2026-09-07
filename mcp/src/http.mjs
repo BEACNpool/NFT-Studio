@@ -43,7 +43,7 @@ export function createHttpService(options) {
     if(req.url!=='/mcp') return fail(res,404,'Not found.');
     if(origin){res.setHeader('access-control-allow-origin',origin);res.setHeader('vary','Origin');res.setHeader('access-control-expose-headers','MCP-Protocol-Version');}
     if(req.method==='OPTIONS') {
-      res.writeHead(204,{'access-control-allow-methods':'POST, OPTIONS','access-control-allow-headers':'Authorization, Content-Type, Accept, MCP-Protocol-Version','access-control-max-age':'600'});return res.end();
+      res.writeHead(204,{'access-control-allow-methods':'POST, OPTIONS','access-control-allow-headers':'Authorization, Content-Type, Accept, MCP-Protocol-Version, Mcp-Method, Mcp-Name','access-control-max-age':'600'});return res.end();
     }
     const authorization=req.headers.authorization;
     if(typeof authorization!=='string'||!authorization.startsWith('Bearer ')||!timingSafeEqual(expected,fingerprint(authorization.slice(7)))) return fail(res,401,'Bearer authentication is required.');

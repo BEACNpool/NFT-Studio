@@ -17,6 +17,7 @@
     "check": "node --check src/server.mjs && node --check src/http.mjs && node --check src/cli.mjs"
   },
   "dependencies": {
+    "@emurgo/cardano-serialization-lib-browser-inlined": "17.0.0",
     "@emurgo/cardano-serialization-lib-nodejs": "17.0.0",
     "@modelcontextprotocol/node": "2.0.0",
     "@modelcontextprotocol/server": "2.0.0",
@@ -28,6 +29,12 @@
     "@modelcontextprotocol/client": "2.0.0",
     "@types/node": "22.19.19",
     "esbuild": "0.28.2",
+    "miniflare": "4.20260730.0",
     "typescript": "5.9.3"
+  },
+  "overrides": {
+    "miniflare": {
+      "undici": "7.29.0"
+    }
   }
 }

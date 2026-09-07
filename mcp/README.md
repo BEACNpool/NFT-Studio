@@ -18,7 +18,9 @@ transports, and runs the real SDK integration tests without root dependencies.
 It retains the fixture and a JSON receipt for inspection.
 
 Connect a local MCP client to `node /absolute/path/NFT-Studio/mcp/dist/cli.mjs`.
-The authenticated Node HTTP listener and public preparation-only Worker subset
-have different capabilities. Read [the complete setup, tool and signing contract](../docs/MCP.md).
+The authenticated Node HTTP listener offers eleven tools. The Worker source
+candidate offers nine tools, including stateless unsigned preparation; deployed
+capabilities must be checked separately. The Worker requires its adjacent compiled
+CSL WASM module. Its public unsigned result has no Node packet ID or witness-verifier state. Read [the complete setup, tool and signing contract](../docs/MCP.md).
 
 No tool signs, submits, reads private keys or accepts arbitrary paths/URLs.

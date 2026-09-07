@@ -9,6 +9,7 @@ import { preparePayloadBundle, payloadMetadata, PAYLOAD_TYPES, DATA_LABEL } from
 import { createMintIntent, verifyMintIntent } from '@studio/studio-intent.ts';
 import { buildStudioTransaction } from '@studio/studio-transaction.ts';
 import { assertWalletUnchanged, mergeAndCheckSignatures, inputRef } from '@studio/cardano.ts';
+import { preflightCbor } from './cbor-preflight.mjs';
 import { liveProtocol } from './protocol.mjs';
 import { empty, payloadSchema, intentSchema, prepareSchema, verifySignedSchema, decodeFiles, checkWalletBound, checkMetadata } from './schemas.mjs';
 export const STUDIO_URL = 'https://beacnpool.github.io/NFT-Studio/';
@@ -58,6 +59,7 @@ function snapshot(wallet) {
   checkWalletBound(wallet);
   const seen = new Set();
   for (const hex of wallet.utxos) {
+    preflightCbor(hex);
     const u = C.TransactionUnspentOutput.from_hex(hex), ref = inputRef(u);
     if (seen.has(ref)) throw new Error('Duplicate wallet input references are not accepted.');
     seen.add(ref);
@@ -119,6 +121,7 @@ export function createService(options={}) {
     },{...NETWORK_READ,readOnlyHint:false,idempotentHint:false});
     register('verify_signed_transaction','Verify external CIP-30 witness-set signatures against a server-created preparation, recheck live parameters and the caller refreshed wallet snapshot, preserve the exact body/metadata, and check complete signed bytes/fee. Returns signed CBOR; never submits. Packet IDs expire after four minutes or a restart.',verifySignedSchema,async ({packetId,witnessSetHex,wallet})=>{
       sweep(); const stored=packets.get(packetId);if(!stored) throw new Error('Unknown or expired preparation. Prepare again before signing.');
+      preflightCbor(witnessSetHex);
       const current=snapshot(wallet);
       assertWalletUnchanged(C,stored.prepared,current);
       const initial=new Map(stored.wallet.utxos.map(hex=>[inputRef(C.TransactionUnspentOutput.from_hex(hex)),hex.toLowerCase()]));
