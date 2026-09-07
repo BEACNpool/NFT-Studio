@@ -432,6 +432,19 @@
   .ns-mobile-app .ns-home-heading {
     margin-bottom: 20px;
   }
+  .ns-mobile-app .ns-heading:not(.ns-workbench-heading) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .ns-mobile-app .ns-recovery-grid input {
+    min-height: 44px;
+    font-size: 16px;
+  }
+  .ns-mobile-app .ns-recovery-grid button,
+  .ns-mobile-app .ns-recovery-grid .ns-text-link {
+    min-height: 44px;
+  }
   .ns-mobile-app .ns-home-heading .ns-eyebrow {
     font-size: 10px;
     letter-spacing: 1.5px;
