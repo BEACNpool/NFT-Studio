@@ -25,3 +25,7 @@ Read-only production packager inspection on 2026-09-07 found:
 - These observations prove the local package shape and the standard Wrangler upload representation. They do **not** prove that the separate Sites backend uploader registers the file as a compiled module. No Sites call or deployment was made for this experiment.
 
 Keep `server/cardano_serialization_lib_bg.wasm` in the verified staged output next to `mcp-public.mjs`. The production uploader must register it as a compiled module, preserving the relative import. Publishing it only under client/static assets will not work. Root release verification must confirm the public endpoint initializes the module and successfully prepares a synthetic unsigned transaction before the ninth hosted tool is advertised. The existing eight-tool service remains an independent release until then.
+
+## Observed hosted release
+
+The actual public Sites endpoint passed modern and legacy official SDK clients at 2026-09-07T06:28:25.565Z with nine tools and 55 resources. Both NFT and data unsigned transactions passed independent body-hash, exact-metadata, output and ADA/token conservation checks using synthetic input snapshots. This observed release confirms that the packaged static CSL module executes on this host. No real wallet was accessed and no transaction was signed or submitted. See the [public receipt](../../docs/MCP_PUBLIC_VERIFICATION.json); local measurements above remain separate from production capacity guarantees.

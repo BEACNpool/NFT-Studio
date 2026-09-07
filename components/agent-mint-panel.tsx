@@ -95,8 +95,9 @@ export function AgentMintPanel() {
         <span className="ns-lab-kicker">PUBLIC MCP · LIVE</span>
         <h3>Point your bot here.</h3>
         <p>
-          Eight tools for Cardano research, exact file packages, mint requests
-          and proof records. Connect with Streamable HTTP; no API key is needed.
+          Nine tools for Cardano research, exact file packages, proof records
+          and unsigned NFT/data transactions. Connect with Streamable HTTP; no
+          API key is needed.
         </p>
         <code className="ns-mcp-url">{PUBLIC_MCP_URL}</code>
         <div className="ns-button-row">
@@ -124,6 +125,11 @@ export function AgentMintPanel() {
           Your bot sends the content you give it to this public service. Ask it
           to save the returned mint request as JSON, then open that file below.
           Wallet review and signing happen here in your browser.
+        </p>
+        <p className="ns-lab-muted">
+          Advanced clients can also supply an authorized wallet snapshot for
+          unsigned preparation. The service receives that snapshot; signing and
+          submission remain with the wallet.
         </p>
       </section>
       <div className="ns-lab-columns">

@@ -10,10 +10,11 @@ The public preparation service is live at:
 https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp
 ```
 
-Connect with Streamable HTTP and no API key. This endpoint exposes **eight tools**
+Connect with Streamable HTTP and no API key. This endpoint exposes **nine tools**
 and **55 resources**: Cardano knowledge, exact payloads, browser mint requests,
-and proof records. It receives only content explicitly supplied in requests.
-It does not accept a wallet snapshot or build/sign/submit a transaction.
+proof records, and unsigned native NFT/data transactions. The unsigned tool
+receives an explicitly supplied wallet snapshot and uses fresh public network
+parameters. No tool connects a wallet, signs or submits a transaction.
 The full Node service described below has additional capabilities and remains a
 separately installed package. GitHub Pages serves the app, not the MCP process.
 
@@ -37,11 +38,15 @@ and continue through the existing visible wallet review.
 
 [Live verification receipt](MCP_PUBLIC_VERIFICATION.json): official current and
 legacy clients passed knowledge lookup, intent roundtrip/tamper rejection, proof
-match/mismatch, resource discovery and browser-origin checks on 2026-09-07.
+match/mismatch, resource discovery, browser-origin checks, and synthetic NFT/data
+unsigned preparation on 2026-09-07. Transaction hashes, exact metadata, output
+destinations and ADA/token conservation were checked independently. These
+fabricated inputs are not a claim of chain availability or wallet ownership.
+The [initial eight-tool receipt](verification/mcp-public-initial-20260907.json) is retained.
 Reproduce the read-only check using synthetic content:
 
 ```sh
-node mcp/integration/verify-live-endpoint.mjs https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp
+node mcp/integration/verify-live-endpoint.mjs https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp --expected-tools 9
 ```
 
 The Sites front dispatcher reserves `/mcp`; this service uses the application's
@@ -199,7 +204,7 @@ Primary implementation sources, checked 2026-09-07: [official SDK stable release
 
 ## Public Worker with stateless unsigned preparation
 
-The source below includes the ninth-tool unsigned-builder upgrade. Its local Workerd checks pass; the public connection above remains the verified eight-tool release until the hosted upgrade is observed.
+The public connection above passed all nine tools, including unsigned NFT/data preparation, in both official client protocol eras at 2026-09-07T06:28:25.565Z. This verifies this hosted release; other operators must verify their own deployments.
 
 This source package adds a **ninth** public tool, `prepare_unsigned_transaction`, to the eight existing knowledge, payload, intent and proof tools. This is a runtime-tested source capability. The deployed endpoint's `studio_capabilities` and release verification receipt determine whether a particular host has enabled it; a local build does not update the hosted service.
 

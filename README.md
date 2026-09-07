@@ -30,9 +30,9 @@ tools and experimental contract technology:
 | Asset inspector | Derive CIP-14 fingerprints, verify CIP-67 checksums and locate paired CIP-68 asset names from exact bytes. It does not assert chain existence or ownership. |
 | Agent minting | Import a content-bound MCP request, inspect exact files, then use the existing wallet review, signing and receipt flow. |
 
-The [live MCP service](docs/MCP.md#public-connection) offers public knowledge and content tools plus a
-self-hosted Node service for unsigned mint construction and external signature
-verification. It never holds a signing key. The [knowledge repository](knowledge/)
+The [live MCP service](docs/MCP.md#public-connection) offers nine tools for knowledge,
+content and unsigned native NFT/data transactions. A separately installed Node
+service also verifies external signatures. Neither holds a signing key. The [knowledge repository](knowledge/)
 is reusable data with source hashes, attribution and an explicit evidence policy.
 
 Read [State Capsules](docs/STATE_CAPSULES.md),
