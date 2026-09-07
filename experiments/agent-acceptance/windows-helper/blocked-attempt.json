@@ -1,0 +1,46 @@
+{
+  "schema": "nft-studio.dell-prepared-assets-failed-attempt.v1",
+  "checkedAt": "2026-09-07T17:16:41.355Z",
+  "result": "BLOCKED_BEFORE_HELPER_EXECUTION",
+  "sourceCommit": "91e25773dad75dbd59219d294b75c46a3638a745",
+  "staging": {
+    "cleanAlignedSource": true,
+    "focusedWindowsTests": {
+      "passed": 16,
+      "failed": 0
+    },
+    "mcpDiscovery": {
+      "tools": 17,
+      "resources": 61
+    },
+    "freshDemoFiles": 13,
+    "fourGuideFilesVerified": true
+  },
+  "actualCodex": {
+    "attempts": 1,
+    "nativeProcessExit": 0,
+    "runnerExit": 1,
+    "milliseconds": 21514,
+    "completedCommandOrMcpCalls": 0,
+    "attemptedCommand": "Exactly the approved local Node create-review helper command through non-login PowerShell.",
+    "observedFailure": "CreateProcess rejected: blocked by policy",
+    "modelAcknowledgedFailure": true,
+    "finalJsonAccepted": false,
+    "finalJsonIssue": "Success-only output schema lacked an error form; the final response had all-zero placeholder hashes. No outputs existed and the runner rejected it.",
+    "usage": {
+      "input_tokens": 23333,
+      "cached_input_tokens": 11264,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 384,
+      "reasoning_output_tokens": 26
+    }
+  },
+  "sourceUnchanged": true,
+  "hashPinnedFilesRechecked": 11,
+  "agentOutputDirectoryExists": false,
+  "retry": false,
+  "policyOrConfigChangedForRetry": false,
+  "guiActions": false,
+  "walletActions": false,
+  "scope": "Installation/staging passed separately. This attempt did not prepare the NFT review packet and is not a successful Codex-to-helper acceptance."
+}
