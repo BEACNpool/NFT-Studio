@@ -12,7 +12,7 @@ Transport: Streamable HTTP. Authentication: none.
 Tools: studio_capabilities, search_knowledge, read_knowledge, validate_payload,
 create_mint_intent, verify_mint_intent, create_proof_record, verify_proof_record,
 prepare_unsigned_transaction, apply_state_capsule_parameters,
-create_music_release, verify_music_release.
+create_music_release, verify_music_release, prepare_unsigned_music_transaction.
 
 Begin with studio_capabilities for current limits and evidence boundaries.
 File inputs contain explicit canonical base64 bytes, never local paths or URLs.
@@ -28,7 +28,14 @@ independently check the complete signed transaction and current inputs.
 For files with music credits, call create_music_release and save packetJson
 exactly. Its review.url opens Labs / Music release. verify_music_release checks
 that same canonical packet. Music packages are distinct from ordinary mint
-intents and the public unsigned preparation tool does not accept them.
+intents and the ordinary unsigned preparation tool does not accept them.
+prepare_unsigned_music_transaction instead takes canonical packetJson and an
+explicitly authorized wallet snapshot. It returns stateless unsigned music CBOR
+with the full package hash, exact metadata, fees and conservation checks. Both
+Node and Worker Music responses have no packetId and cannot enter the Node
+stored-witness verifier. Its wallet snapshot is disclosed to this service;
+ownership, current unspent state and signing authority are not established.
+Retain packetJson for fresh visible Music Lab wallet review.
 apply_state_capsule_parameters applies only the pinned experimental Capsule
 program to an exact seed/name; it returns script identity and blueprint, not a
 live mint transaction or proof that the seed exists.
