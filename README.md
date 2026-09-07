@@ -31,21 +31,21 @@ does not require a wallet.
 | Music release | Package exact audio, artwork and credits, review a music-aware native transaction in your wallet, and recover the complete release from its actual receipt metadata. A CIP-60-aligned extension; declarations do not configure royalty payments. |
 | Proof of existence | Hash up to 16 local files incrementally, export exact label-309 metadata using the public hash-only profile of proposed CIP-190, and verify original bytes. Exporting does not publish a transaction. |
 | Artifact passport | Turn an exact-file mint receipt into a portable content/evidence package, verify it offline, and optionally check the original transaction binding. Export directly from Activity or open one in Labs. |
-| Knowledge | Search 58 sourced Cardano entries, inspect enforcement and lifecycle limits, follow pinned primary sources and export research. Proposal status is separate from implementation evidence. |
+| Knowledge | Search 58 curated research entries and a separate library of 148 original CIP documents. Inspect source text, licensing, lifecycle limits and pinned implementation evidence. Proposal status remains separate from adoption or tested behavior. |
 | Asset inspector | Derive CIP-14 fingerprints, verify CIP-67 checksums and locate paired CIP-68 asset names from exact bytes. It does not assert chain existence or ownership. |
 | Registry signatures | Inspect exact CIP-26 scalar signatures, compare signer keys with separately selected trust rules, and detect stale or conflicting sequence observations locally. |
 | Agent minting | Import a content-bound MCP request, inspect exact files, then use the existing wallet review, signing and receipt flow. |
 
-The [MCP implementation](docs/MCP.md#public-connection) provides thirteen public tools for Cardano knowledge,
-content, music packages, fixed Capsule parameters and unsigned native NFT/data/music transactions. The dated live receipt identifies the deployed release. A separately installed Node
+The [MCP implementation](docs/MCP.md#public-connection) provides fifteen public tools for Cardano knowledge,
+original CIP source access, content, music packages, fixed Capsule parameters and unsigned native NFT/data/music transactions. The dated live receipt identifies the deployed release. A separately installed Node
 service also verifies external signatures. Neither holds a signing key. The [knowledge repository](knowledge/)
 is reusable data with source hashes, attribution and an explicit evidence policy.
 
 Read [State Capsules](docs/STATE_CAPSULES.md),
 [music formats and limits](docs/MUSIC_RELEASE.md),
 [music receipt verification](docs/MUSIC_RECEIPTS.md),
-[proof encoding and vectors](docs/PROOF_OF_EXISTENCE.md), and
-[knowledge architecture](docs/KNOWLEDGE_BASE.md) and
+[proof encoding and vectors](docs/PROOF_OF_EXISTENCE.md),
+[knowledge architecture](docs/KNOWLEDGE_BASE.md), and
 [148 original CIP documents](docs/CIP_SOURCE_ACCESS.md) before building on these tools.
 These are implementations and research built on existing Cardano standards;
 their individual evidence and open limitations are recorded in the repository.

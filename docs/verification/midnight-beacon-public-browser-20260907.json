@@ -1,0 +1,233 @@
+{
+  "schema": "beacn.public-midnight-ui-review.v1",
+  "checkedAt": "2026-09-07T10:43:22.166605+00:00",
+  "rootConfirmedReleaseSource": "aa27125980da8829d47211902742f73354803af9",
+  "status": "PASS",
+  "results": [
+    {
+      "target": "pages",
+      "url": "https://beacnpool.github.io/NFT-Studio/?view=labs&lab=music",
+      "checkedAt": "2026-09-07T10:42:19.797Z",
+      "status": "PASS",
+      "reportSha256": "d6a22547d25fc7c79b18f15d2d3b791726a79722ee22cafc05ace1a0ef74e9ac",
+      "browser": "Chrome/152.0.7977.64",
+      "viewports": [
+        1440,
+        390
+      ],
+      "checks": [
+        {
+          "width": 1440,
+          "height": 1000,
+          "canonicalPackageHash": "3655e44e6c5a1ddd735c3e60b72e8ef76cecb5749f6763250e6ba629ebb96f65",
+          "exactCredits": true,
+          "exactCover": true,
+          "sandbox": "",
+          "exactRebuild": true,
+          "exactDownload": true,
+          "sourceJsonSha256": "4b5f37c05e203be42f71db3ef2d6cfdc2362b5872c89082eddcee826ac13a43b",
+          "audioPausedUntilClick": true,
+          "playbackEnded": {
+            "time": 8.0065,
+            "duration": 8.0065,
+            "paused": true,
+            "ended": true,
+            "error": null
+          },
+          "tabPackagePreserved": true,
+          "editedDraftPreserved": true,
+          "walletAccess": false,
+          "noOverflow": true
+        },
+        {
+          "width": 390,
+          "height": 1000,
+          "canonicalPackageHash": "3655e44e6c5a1ddd735c3e60b72e8ef76cecb5749f6763250e6ba629ebb96f65",
+          "exactCredits": true,
+          "exactCover": true,
+          "sandbox": "",
+          "exactRebuild": true,
+          "exactDownload": true,
+          "sourceJsonSha256": "4b5f37c05e203be42f71db3ef2d6cfdc2362b5872c89082eddcee826ac13a43b",
+          "audioPausedUntilClick": true,
+          "playbackEnded": {
+            "time": 8.0065,
+            "duration": 8.0065,
+            "paused": true,
+            "ended": true,
+            "error": null
+          },
+          "tabPackagePreserved": true,
+          "editedDraftPreserved": true,
+          "walletAccess": false,
+          "noOverflow": true
+        }
+      ],
+      "contrastObservations": 40,
+      "minimumContrast": 8.720426844954181,
+      "minimumTargetHeight": 44,
+      "publicPackageResponses": [
+        {
+          "url": "https://beacnpool.github.io/NFT-Studio/labs/midnight-beacon/midnight-beacon.music-release.json",
+          "status": 200,
+          "bytes": 12901,
+          "sha256": "4b5f37c05e203be42f71db3ef2d6cfdc2362b5872c89082eddcee826ac13a43b"
+        },
+        {
+          "url": "https://beacnpool.github.io/NFT-Studio/labs/midnight-beacon/midnight-beacon.music-release.json",
+          "status": 200,
+          "bytes": 12901,
+          "sha256": "4b5f37c05e203be42f71db3ef2d6cfdc2362b5872c89082eddcee826ac13a43b"
+        }
+      ],
+      "cssResponses": [
+        {
+          "path": "/NFT-Studio/_next/static/css/studio-shell.lWA51Ue1.css",
+          "sha256": "be3a88ee05ef552dbde7685c84e3e1d199b4f90527c558f036183263463db72a",
+          "status": 200
+        },
+        {
+          "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+          "sha256": "e67e0fc7a2e048c3d22eaf83146c66c3723aa53b60f8225b14f44d70e2541431",
+          "status": 200
+        },
+        {
+          "path": "/NFT-Studio/_next/static/css/studio-shell.lWA51Ue1.css",
+          "sha256": "be3a88ee05ef552dbde7685c84e3e1d199b4f90527c558f036183263463db72a",
+          "status": 200
+        },
+        {
+          "path": "/NFT-Studio/_next/static/css/index.Fhi1Lbch.css",
+          "sha256": "e67e0fc7a2e048c3d22eaf83146c66c3723aa53b60f8225b14f44d70e2541431",
+          "status": 200
+        }
+      ],
+      "applicationErrors": [],
+      "externalRequests": [],
+      "forbiddenRequests": [],
+      "normalHostingChallengeRequests": 0,
+      "actualCssOrDomStyleMutations": 0,
+      "walletAccess": false,
+      "signing": false,
+      "submission": false
+    },
+    {
+      "target": "sites",
+      "url": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/?view=labs&lab=music",
+      "checkedAt": "2026-09-07T10:42:21.864Z",
+      "status": "PASS",
+      "reportSha256": "f0e7b3906c9fa21db391342c38b3b855ca51dc01628c1dedaac0fcf57958dbe3",
+      "browser": "Chrome/152.0.7977.64",
+      "viewports": [
+        1440,
+        390
+      ],
+      "checks": [
+        {
+          "width": 1440,
+          "height": 1000,
+          "canonicalPackageHash": "3655e44e6c5a1ddd735c3e60b72e8ef76cecb5749f6763250e6ba629ebb96f65",
+          "exactCredits": true,
+          "exactCover": true,
+          "sandbox": "",
+          "exactRebuild": true,
+          "exactDownload": true,
+          "sourceJsonSha256": "4b5f37c05e203be42f71db3ef2d6cfdc2362b5872c89082eddcee826ac13a43b",
+          "audioPausedUntilClick": true,
+          "playbackEnded": {
+            "time": 8.0065,
+            "duration": 8.0065,
+            "paused": true,
+            "ended": true,
+            "error": null
+          },
+          "tabPackagePreserved": true,
+          "editedDraftPreserved": true,
+          "walletAccess": false,
+          "noOverflow": true
+        },
+        {
+          "width": 390,
+          "height": 1000,
+          "canonicalPackageHash": "3655e44e6c5a1ddd735c3e60b72e8ef76cecb5749f6763250e6ba629ebb96f65",
+          "exactCredits": true,
+          "exactCover": true,
+          "sandbox": "",
+          "exactRebuild": true,
+          "exactDownload": true,
+          "sourceJsonSha256": "4b5f37c05e203be42f71db3ef2d6cfdc2362b5872c89082eddcee826ac13a43b",
+          "audioPausedUntilClick": true,
+          "playbackEnded": {
+            "time": 8.0065,
+            "duration": 8.0065,
+            "paused": true,
+            "ended": true,
+            "error": null
+          },
+          "tabPackagePreserved": true,
+          "editedDraftPreserved": true,
+          "walletAccess": false,
+          "noOverflow": true
+        }
+      ],
+      "contrastObservations": 40,
+      "minimumContrast": 8.720426844954181,
+      "minimumTargetHeight": 44,
+      "publicPackageResponses": [
+        {
+          "url": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/labs/midnight-beacon/midnight-beacon.music-release.json",
+          "status": 200,
+          "bytes": 12901,
+          "sha256": "4b5f37c05e203be42f71db3ef2d6cfdc2362b5872c89082eddcee826ac13a43b"
+        },
+        {
+          "url": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/labs/midnight-beacon/midnight-beacon.music-release.json",
+          "status": 200,
+          "bytes": 12901,
+          "sha256": "4b5f37c05e203be42f71db3ef2d6cfdc2362b5872c89082eddcee826ac13a43b"
+        }
+      ],
+      "cssResponses": [
+        {
+          "path": "/_next/static/css/studio-shell.lWA51Ue1.css",
+          "sha256": "be3a88ee05ef552dbde7685c84e3e1d199b4f90527c558f036183263463db72a",
+          "status": 200
+        },
+        {
+          "path": "/_next/static/css/index.Fhi1Lbch.css",
+          "sha256": "e67e0fc7a2e048c3d22eaf83146c66c3723aa53b60f8225b14f44d70e2541431",
+          "status": 200
+        },
+        {
+          "path": "/_next/static/css/studio-shell.lWA51Ue1.css",
+          "sha256": "be3a88ee05ef552dbde7685c84e3e1d199b4f90527c558f036183263463db72a",
+          "status": 200
+        },
+        {
+          "path": "/_next/static/css/index.Fhi1Lbch.css",
+          "sha256": "e67e0fc7a2e048c3d22eaf83146c66c3723aa53b60f8225b14f44d70e2541431",
+          "status": 200
+        }
+      ],
+      "applicationErrors": [],
+      "externalRequests": [],
+      "forbiddenRequests": [],
+      "normalHostingChallengeRequests": 3,
+      "actualCssOrDomStyleMutations": 0,
+      "walletAccess": false,
+      "signing": false,
+      "submission": false
+    }
+  ],
+  "visuallyReviewedScreenshots": [
+    "pages-K5ZirX/390-export-default-hover.png",
+    "sites-bFwrTM/midnight-cover-1440.png",
+    "sites-bFwrTM/midnight-audio-390.png"
+  ],
+  "scope": "Focused actual public Chromium Music Lab UI, exact frozen revision-2 package, native user-gesture playback and five existing controls in four states at two widths. No transaction or wallet operations. Source commit is root-confirmed deployment context; actual package and CSS responses were recorded. Normal same-origin hosting challenge requests are distinct from application activity.",
+  "limits": [
+    "No human listening review, full accessibility/security audit, or new mint/transaction claim.",
+    "Measurements only cover the five listed visible control variants and two viewport widths.",
+    "No responses rewritten, no hosting challenge bypass, no stylesheet or DOM style mutation."
+  ]
+}
