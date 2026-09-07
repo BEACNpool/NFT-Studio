@@ -1,5 +1,6 @@
 /** Actual Workerd + official SDK integration against a staged application build. */
 import assert from 'node:assert/strict';
+import {verifyImplementationResources} from './verify-implementation-resource.mjs';
 import { readFile, readdir, writeFile } from 'node:fs/promises';
 import { resolve, join, relative } from 'node:path';
 import {createRequire} from 'node:module';
@@ -67,7 +68,8 @@ try{
     try{
       await client.connect(new StreamableHTTPClientTransport(new URL(origin+'/api/mcp'),{fetch:(url,init)=>wrapped.dispatchFetch(url,init)}));
       const tools=(await client.listTools()).tools;assert.equal(tools.length,9);
-      const resources=(await client.listResources()).resources;assert.ok(resources.length>20);
+      const resources=(await client.listResources()).resources;assert.equal(resources.length,56);
+      const implementations=await verifyImplementationResources(client,resources);
       const caps=checked(await client.callTool({name:'studio_capabilities',arguments:{}}));assert.equal(caps.publicEndpoint,origin+'/api/mcp');
       const search=checked(await client.callTool({name:'search_knowledge',arguments:{query:'CIP-68',limit:2}}));assert.ok(search.results.length>0);
       const intent=checked(await client.callTool({name:'create_mint_intent',arguments:{mode:'data',name:'Wrapped app proof',files:[{name:'hello.txt',mediaType:'text/plain',base64:'SGVsbG8sIENhcmRhbm8h'}]}}));
@@ -82,7 +84,7 @@ try{
       assert.equal(prepared.schema,'nft-studio.stateless-unsigned.v1');assert.equal(prepared.signed,false);assert.equal(prepared.submitted,false);
       assert.equal(prepared.transactionHash,C.FixedTransaction.from_hex(prepared.unsignedHex).transaction_hash().to_hex());
       assert.equal(prepared.reviewUrl,intent.review.url);assert.match(prepared.checks.walletInputs,/unverified/);
-      observations.push({route:'/api/mcp',protocolEra:client.getProtocolEra(),tools:9,unsignedHash:prepared.transactionHash,mode:prepared.mode,resources:resources.length,intentHash:intent.intent.intentHash,proofRecordHash:proof.artifact.recordSha256,proofMatch:true});
+      observations.push({route:'/api/mcp',protocolEra:client.getProtocolEra(),tools:9,implementations,unsignedHash:prepared.transactionHash,mode:prepared.mode,resources:resources.length,intentHash:intent.intent.intentHash,proofRecordHash:proof.artifact.recordSha256,proofMatch:true});
     }finally{await client.close();}
   }
   const post=(url,body,headers={})=>wrapped.dispatchFetch(url,{method:'POST',headers:{'content-type':'application/json',...headers},body});

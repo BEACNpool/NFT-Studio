@@ -1,3 +1,4 @@
+import {IMPLEMENTATIONS_URI,implementationRegister,implementationLinks} from './implementation-knowledge.mjs';
 import { registerProofTools, PROOF_MCP_CAPABILITIES } from './proof-tools.mjs';
 /** Public knowledge/content tools and stateless unsigned preparation. No Node, signer or packet cache. */
 import * as C from './csl-worker.mjs';
@@ -59,7 +60,7 @@ export function createPublicMcpHandler(config) {
     register('studio_capabilities','Read the public service capability boundary, package limits and full Node service distinction.',empty,()=>capabilities);
     register('search_knowledge','Search pinned Cardano knowledge with primary-source provenance and explicit implementation maturity. No network search.',searchSchema,({query,limit})=>({asOf:catalog.asOf,results:searchKnowledge(catalog,query,{limit})}));
     register('read_knowledge','Read one allowlisted knowledge entry and primary source records by ID.',readSchema,({id})=>{
-      const entry=getEntry(catalog,id);if(!entry)throw new Error('Unknown knowledge entry ID.');return {entry,sources:catalog.sources.filter(source=>entry.sourceIds.includes(source.id))};
+      const entry=getEntry(catalog,id);if(!entry)throw new Error('Unknown knowledge entry ID.');return {entry,sources:catalog.sources.filter(source=>entry.sourceIds.includes(source.id)),implementations:implementationLinks(entry.id)};
     });
     register('validate_payload','Validate up to eight exact base64 files with the shared Studio packager. Returns canonical embedded URIs, hashes and data metadata. Does not execute code or prove complete signed-transaction fit.',payloadSchema,async args=>{
       const bundle=await preparePayloadBundle({...args,files:decodeFiles(args.files)});return {bundle,dataMetadata:payloadMetadata(bundle),completeTransactionFit:'Requires unsigned transaction preparation and exact external wallet witness/fee verification, or visible Studio wallet review.'};
@@ -70,9 +71,10 @@ export function createPublicMcpHandler(config) {
     });
     register('verify_mint_intent','Reconstruct files and verify a shared-browser canonical intent hash. Rejects modified bytes, extra fields or invalid payloads.',verifyIntentSchema,async({intent})=>({valid:true,intent:await verifyMintIntent(intent)}));
     const resource=(name,uri,value)=>server.registerResource(name,uri,{mimeType:'application/json'},async url=>({contents:[{uri:url.href,mimeType:'application/json',text:JSON.stringify(value)}]}));
+    resource('Implementation evidence register',IMPLEMENTATIONS_URI,implementationRegister);
     resource('Public capabilities','nft-studio://capabilities',capabilities);
     resource('Knowledge index','nft-studio://knowledge/index',{asOf:catalog.asOf,entries:catalog.entries.map(({id,title,kind,summary,maturity})=>({id,title,kind,summary,maturity,uri:`nft-studio://knowledge/${id}`}))});
-    for(const entry of catalog.entries)resource(entry.title,`nft-studio://knowledge/${entry.id}`,{entry,sources:catalog.sources.filter(source=>entry.sourceIds.includes(source.id))});
+    for(const entry of catalog.entries)resource(entry.title,`nft-studio://knowledge/${entry.id}`,{entry,sources:catalog.sources.filter(source=>entry.sourceIds.includes(source.id)),implementations:implementationLinks(entry.id)});
     return server;
   };
   const handler=createMcpHandler(factory,{legacy:'stateless',responseMode:'auto',maxSubscriptions:0,onerror:()=>{}});

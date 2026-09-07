@@ -1,5 +1,5 @@
 import { build } from 'esbuild';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { resolve, dirname, sep } from 'node:path';
 import { createHash } from 'node:crypto';
 import { createRequire } from 'node:module';
@@ -9,7 +9,10 @@ const root = resolve(process.env.NFT_STUDIO_ROOT || resolve(here, '..'));
 const knowledge = resolve(process.env.NFT_STUDIO_KNOWLEDGE || resolve(root, 'knowledge'));
 const nestedModules = resolve(here, 'node_modules');
 await readFile(resolve(root, 'lib/studio-intent.ts'));
-await readFile(resolve(knowledge, 'catalog.json'));
+const catalogBytes=await readFile(resolve(knowledge,'catalog.json'));
+const {parseImplementations}=await import(pathToFileURL(resolve(knowledge,'implementations.mjs')));
+const register=parseImplementations(await readFile(resolve(knowledge,'implementations.json'),'utf8'),JSON.parse(catalogBytes).entries.map(entry=>entry.id));
+if(register.sourceCatalog.sha256!==createHash('sha256').update(catalogBytes).digest('hex'))throw new Error('Implementation register source catalog SHA-256 does not match the bundled catalog.');
 await mkdir(resolve(here, 'dist'), { recursive: true });
 await build({
   absWorkingDir: here,

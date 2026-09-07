@@ -1,3 +1,4 @@
+import {IMPLEMENTATIONS_URI,implementationRegister,implementationLinks} from './implementation-knowledge.mjs';
 import { registerProofTools, PROOF_MCP_CAPABILITIES } from './proof-tools.mjs';
 import { randomUUID } from 'node:crypto';
 import { McpServer } from '@modelcontextprotocol/server';
@@ -86,7 +87,7 @@ export function createService(options={}) {
     register('search_knowledge','Search the pinned Cardano knowledge base. Returns cited facts, explicit design interpretations and implementation maturity; no network search.',z.strictObject({query:z.string().min(1).max(200),limit:z.number().int().min(1).max(10).default(5)}),({query,limit})=>({asOf:catalog.asOf,results:searchKnowledge(catalog,query,{limit})}));
     register('read_knowledge','Read one allowed knowledge entry plus its primary-source provenance. IDs come from search results or listed resources.',z.strictObject({id:z.string().min(1).max(100).regex(/^[a-z0-9-]+$/)}),({id})=>{
       const entry=getEntry(catalog,id); if(!entry) throw new Error('Unknown knowledge entry ID.');
-      return {entry,sources:catalog.sources.filter(source=>entry.sourceIds.includes(source.id))};
+      return {entry,sources:catalog.sources.filter(source=>entry.sourceIds.includes(source.id)),implementations:implementationLinks(entry.id)};
     });
     register('validate_payload','Validate exact embedded files using the actual Studio packager: UTF-8, MIME signatures, filenames, total bytes, content hashes and canonical data URIs. Does not execute files.',payloadSchema,async args=>{
       const bundle=await payload(args);return {bundle,dataMetadata:payloadMetadata(bundle),dataMeasurement:metadataMeasure(payloadMetadata(bundle))};
@@ -131,9 +132,10 @@ export function createService(options={}) {
       return {schema:'nft-studio.signed-candidate.v1',packetId,intentHash:stored.intentHash,signedHex:signed.hex,transactionHash:signed.hash,signedBytes:signed.bytes,feeLovelace:stored.prepared.fee,checks:{validPaymentSignatures:true,allRequiredKeys:true,bodyUnchanged:true,auxiliaryCommitment:true,completeSizeAndFee:true,liveProtocolParameters:true,walletInputs:'caller-supplied refreshed snapshot; chain unspent state unverified'},submitted:false,next:'Your separate wallet/client must independently confirm inputs are unspent and this transaction remains valid, record the intended hash before broadcast, submit at most once, resolve ambiguous responses by hash and verify chain inclusion. Do not treat this candidate as a mint receipt.'};
     },NETWORK_READ);
     const resource=(name,uri,data)=>server.registerResource(name,uri,{mimeType:'application/json'},async url=>({contents:[{uri:url.href,mimeType:'application/json',text:JSON.stringify(data)}]}));
+    resource('Implementation evidence register',IMPLEMENTATIONS_URI,implementationRegister);
     resource('Studio capabilities','nft-studio://capabilities',capabilities());
     resource('Knowledge catalogue index','nft-studio://knowledge/index',{asOf:catalog.asOf,entries:catalog.entries.map(({id,title,kind,summary,maturity})=>({id,title,kind,summary,maturity,uri:`nft-studio://knowledge/${id}`}))});
-    for(const entry of catalog.entries) resource(entry.title,`nft-studio://knowledge/${entry.id}`,{entry,sources:catalog.sources.filter(source=>entry.sourceIds.includes(source.id))});
+    for(const entry of catalog.entries) resource(entry.title,`nft-studio://knowledge/${entry.id}`,{entry,sources:catalog.sources.filter(source=>entry.sourceIds.includes(source.id)),implementations:implementationLinks(entry.id)});
     return server;
   }
   return {factory,capabilities,close(){clearInterval(expiryTimer);packets.clear();},packetCount(){sweep();return packets.size;}};

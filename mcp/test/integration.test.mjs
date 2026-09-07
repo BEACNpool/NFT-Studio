@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {verifyImplementationResources} from '../integration/verify-implementation-resource.mjs';
 import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
 import { request as nodeRequest } from 'node:http';
@@ -50,7 +51,9 @@ test('Modern and legacy official SDK clients discover tools and read fixed resou
       assert.ok(list.tools.every(tool=>!['sign_transaction','submit_transaction'].includes(tool.name)));
       const caps=await call(ctx.client,'studio_capabilities');assert.equal(caps.publicEndpoint,null);assert.equal(caps.policy.lifetimeSupplyCap,false);assert.equal(caps.formats.length,8);
       assert.equal((await call(ctx.client,'studio_capabilities')).knowledge.entries,caps.knowledge.entries);
-      const resources=await ctx.client.listResources();assert.ok(resources.resources.length>20);
+      const resources=await ctx.client.listResources();assert.equal(resources.resources.length,56);
+      const implementations=await verifyImplementationResources(ctx.client,resources.resources);assert.equal(implementations.researchEntriesUnchanged,true);
+      await assert.rejects(ctx.client.readResource({uri:'nft-studio://implementations/../../secret'}));
       const resource=await ctx.client.readResource({uri:'nft-studio://capabilities'});assert.equal(JSON.parse(resource.contents[0].text).serverVersion,'0.1.0');
       await assert.rejects(ctx.client.readResource({uri:'file:///etc/passwd'}));
       const search=await call(ctx.client,'search_knowledge',{query:'CIP-68',limit:3});assert.ok(search.results.length>0&&search.results.length<=3);

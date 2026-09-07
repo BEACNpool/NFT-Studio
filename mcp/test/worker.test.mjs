@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {verifyImplementationResources} from '../integration/verify-implementation-resource.mjs';
 import { Client, StreamableHTTPClientTransport } from '@modelcontextprotocol/client';
 import { createPublicMcpHandler } from './workerd-helper.mjs';
 const origin='https://mcp.example.org';
@@ -14,7 +15,9 @@ test('Standalone web-standard Worker artifact serves modern and legacy official 
     try{
       await client.connect(transport);assert.equal(client.getProtocolEra(),mode==='auto'?'modern':'legacy');
       const tools=(await client.listTools()).tools;assert.equal(tools.length,9);assert.ok(tools.every(tool=>tool.annotations.readOnlyHint));assert.ok(!tools.some(tool=>tool.name.includes('signed')&&!tool.name.includes('unsigned')));assert.equal(tools.find(t=>t.name==='prepare_unsigned_transaction').annotations.openWorldHint,true);
-      const resources=(await client.listResources()).resources;assert.ok(resources.length>20);
+      const resources=(await client.listResources()).resources;assert.equal(resources.length,56);
+      const implementations=await verifyImplementationResources(client,resources);assert.equal(implementations.researchEntriesUnchanged,true);
+      await assert.rejects(client.readResource({uri:'nft-studio://implementations?url=https://attacker.invalid'}));
       const caps=unpack(await client.callTool({name:'studio_capabilities',arguments:{}}));assert.equal(caps.publicEndpoint,origin+'/mcp');assert.equal(caps.service,'public content and unsigned native preparation');
       const packet=unpack(await client.callTool({name:'create_mint_intent',arguments:{mode:'data',name:'Worker example',files:[file]}}));
       assert.equal(packet.intent.schema,'nft-studio.intent.v1');assert.equal(packet.intent.mode,'data');

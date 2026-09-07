@@ -5,21 +5,24 @@ import {resolve} from 'node:path';
 import { Client, StreamableHTTPClientTransport } from '@modelcontextprotocol/client';
 
 export function parseLiveOptions(args) {
-  let target,expectedTools=8,seen=false;
+  let target,expectedTools=8,expectedResources=55,seen=false,seenResources=false;
   for(let i=0;i<args.length;i++){
     if(args[i]==='--expected-tools'){
       if(seen||!['8','9'].includes(args[++i]))throw new Error('--expected-tools must be 8 or 9, provided once.');
       expectedTools=Number(args[i]);seen=true;
-    }else if(args[i].startsWith('-')||target)throw new Error('Usage: verify-live-endpoint.mjs HTTPS_ENDPOINT [--expected-tools 8|9]');
+    }else if(args[i]==='--expected-resources'){
+      if(seenResources||!['55','56'].includes(args[++i]))throw new Error('--expected-resources must be 55 or 56, provided once.');
+      expectedResources=Number(args[i]);seenResources=true;
+    }else if(args[i].startsWith('-')||target)throw new Error('Usage: verify-live-endpoint.mjs HTTPS_ENDPOINT [--expected-tools 8|9] [--expected-resources 55|56]');
     else target=args[i];
   }
   const endpoint=new URL(target||'');
   if(endpoint.protocol!=='https:'||!['/mcp','/api/mcp'].includes(endpoint.pathname)||endpoint.search||endpoint.hash||endpoint.username||endpoint.password)throw new Error('Pass the exact public HTTPS /mcp or /api/mcp endpoint.');
-  return {endpoint,expectedTools};
+  return {endpoint,expectedTools,expectedResources};
 }
 /** Injectable transport exists for local tests; importing this module never performs I/O. */
-export async function verifyLiveEndpoint({endpoint,expectedTools=8,fetchImpl=fetch}) {
-  ({endpoint,expectedTools}=parseLiveOptions([String(endpoint),'--expected-tools',String(expectedTools)]));
+export async function verifyLiveEndpoint({endpoint,expectedTools=8,expectedResources=55,fetchImpl=fetch}) {
+  ({endpoint,expectedTools,expectedResources}=parseLiveOptions([String(endpoint),'--expected-tools',String(expectedTools),'--expected-resources',String(expectedResources)]));
 const checked = result => {
   assert.ok(!result.isError, JSON.stringify(result));
   return result.structuredContent || JSON.parse(result.content[0].text);
@@ -35,6 +38,7 @@ const boundedFetch = async (url, init = {}) => {
   finally{void reader.cancel().catch(()=>{});}
   return new Response(Buffer.concat(chunks),{status:response.status,headers:response.headers});
 };
+const implementationCheck=expectedResources===56?await import('./verify-implementation-resource.mjs'):null;
 const native=expectedTools===9?await import('./verify-synthetic-native.mjs'):null;
 for (const mode of ['auto', 'legacy']) {
   const client = new Client({ name: 'nft-studio-public-release-check', version: '1.0.0' }, { versionNegotiation: { mode } });
@@ -47,7 +51,9 @@ for (const mode of ['auto', 'legacy']) {
     }
     if(expectedTools===9){const tool=tools.find(tool=>tool.name==='prepare_unsigned_transaction');assert.ok(tool);assert.deepEqual(tool.annotations,{readOnlyHint:true,destructiveHint:false,idempotentHint:false,openWorldHint:true});}
     const resources = (await client.listResources()).resources;
-    assert.equal(resources.length, 55);
+    assert.equal(resources.length, expectedResources);
+    if(expectedResources===55)assert.ok(!resources.some(resource=>resource.uri==='nft-studio://implementations'));
+    const implementations=implementationCheck?await implementationCheck.verifyImplementationResources(client,resources):undefined;
     const caps = checked(await client.callTool({ name: 'studio_capabilities', arguments: {} }));
     assert.equal(caps.publicEndpoint, endpoint.href);
     const search = checked(await client.callTool({ name: 'search_knowledge', arguments: { query: 'CIP-68', limit: 2 } }));
@@ -81,7 +87,7 @@ for (const mode of ['auto', 'legacy']) {
         unsigned.push(native.assertSyntheticUnsigned(prepared,packet.intent,fixture));
       }
     }
-    checks.push({...(native?{unsigned}:{}), protocolEra: client.getProtocolEra(), tools: tools.map(tool => tool.name), resources: resources.length, knowledge: 'pass', intentRoundtrip: 'pass', proofMatchAndMismatch: 'pass', changedIntentRejected: true });
+    checks.push({...(native?{unsigned}:{}),...(implementations?{implementations}:{}), protocolEra: client.getProtocolEra(), tools: tools.map(tool => tool.name), resources: resources.length, knowledge: 'pass', intentRoundtrip: 'pass', proofMatchAndMismatch: 'pass', changedIntentRejected: true });
   } finally {
     await client.close();
   }
@@ -94,6 +100,6 @@ for(const header of ['content-type','mcp-protocol-version','mcp-method','mcp-nam
 assert.equal(preflight.headers.get('access-control-allow-credentials'),null);
 const denied = await boundedFetch(endpoint, { method: 'POST', headers: { Origin: 'https://attacker.example', 'Content-Type': 'application/json' }, body: '{}' });
 assert.equal(denied.status, 403);
-return { expectedTools,syntheticWalletDataSent:expectedTools===9, schema: 'nft-studio.public-mcp-check.v1', checkedAt: new Date().toISOString(), endpoint: endpoint.href, status: 'pass', checks, browserPreflight: 'pass', foreignOriginRejected: true, walletAccess: false, chainSubmission: false };
+return { expectedTools,expectedResources,syntheticWalletDataSent:expectedTools===9, schema: 'nft-studio.public-mcp-check.v1', checkedAt: new Date().toISOString(), endpoint: endpoint.href, status: 'pass', checks, browserPreflight: 'pass', foreignOriginRejected: true, walletAccess: false, chainSubmission: false };
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href)console.log(JSON.stringify(await verifyLiveEndpoint(parseLiveOptions(process.argv.slice(2))),null,2));
