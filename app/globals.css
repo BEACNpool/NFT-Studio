@@ -82,7 +82,7 @@ button {
     color 0.18s,
     transform 0.18s;
 }
-button:hover {
+button:hover:not([data-slot='button']) {
   color: var(--primary);
 }
 a {

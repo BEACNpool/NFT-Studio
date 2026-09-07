@@ -40,8 +40,8 @@ and continue through the existing visible wallet review.
 
 [Live verification receipt](MCP_PUBLIC_VERIFICATION.json): official current and
 legacy clients passed knowledge lookup, intent roundtrip/tamper rejection, proof
-match/mismatch, resource discovery, browser-origin checks, and synthetic NFT/data/music
-unsigned preparation at 2026-09-07T09:33:12.861Z. Transaction hashes, exact metadata, output
+match/mismatch, resource discovery, original CIP source identity and attribution, browser-origin checks, and synthetic NFT/data/music
+unsigned preparation at 2026-09-07T10:26:58.401Z. Transaction hashes, exact metadata, output
 destinations and ADA/token conservation were checked independently. Music files/credits
 roundtripped canonically, five Capsule cases per era matched the Aiken oracle and
 independent CSL hashes, and the seven-record implementation register matched the
@@ -50,20 +50,23 @@ fabricated inputs are not a claim of chain availability or wallet ownership.
 The [initial eight-tool receipt](verification/mcp-public-initial-20260907.json) and
 [first unsigned-builder receipt](verification/mcp-native-20260907.json), and
 [first implementation-resource receipt](verification/mcp-implementation-register-20260907.json), and
-[twelve-tool Music package receipt](verification/mcp-music-packages-20260907.json) are retained.
+[twelve-tool Music package receipt](verification/mcp-music-packages-20260907.json) and
+[thirteen-tool Music unsigned receipt](verification/mcp-music-unsigned-20260907.json) are retained.
 Reproduce the read-only check using synthetic content:
 
 ```sh
-node mcp/integration/verify-live-endpoint.mjs https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp --expected-tools 13 --expected-resources 61
+node mcp/integration/verify-live-endpoint.mjs https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp --expected-tools 15 --expected-resources 61
 ```
+
+The [original Midnight Beacon service check](verification/midnight-beacon-public-preparation-20260907.json) separately prepared the complete eight-second release in both protocol eras: 8,600 raw file bytes, 13,194 metadata bytes and 13,697 estimated signed bytes. It used fresh public protocol parameters and invented input references, with independently checked exact credits, transaction commitments and value conservation. The example remains unminted.
 
 The Sites front dispatcher reserves `/mcp`; this service uses the application's
 `/api/mcp` route. It is ordinary public MCP, not a Sites OAuth integration.
 
 
-See [original CIP source access](CIP_SOURCE_ACCESS.md) for the additional source
-reader and exact snapshot scope. The source has 15 public tools; the dated receipt
-above remains the observed 13-tool deployment until a new live check is recorded.
+See [original CIP source access](CIP_SOURCE_ACCESS.md) for the source reader and
+exact snapshot scope. Both official protocol eras retrieved original source slices
+and verified whole-document hashes, including the retained license inconsistency.
 
 ## Local connection
 

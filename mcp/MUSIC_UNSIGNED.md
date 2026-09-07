@@ -111,11 +111,11 @@ Tests never use a real wallet or submit transactions; existing ordinary signatur
 tests retain only their original ephemeral synthetic keys.
 
 The source discovery surface is 15 Worker tools and 17 Node tools. The
-[dated public receipt](../docs/MCP_PUBLIC_VERIFICATION.json) observed all 13 public
+[dated public receipt](../docs/MCP_PUBLIC_VERIFICATION.json) observed all 15 public
 tools, including independently checked synthetic Music unsigned output, with both
-protocol eras at 2026-09-07T09:33:12.861Z. Resource
+protocol eras at 2026-09-07T10:26:58.401Z. Resource
 counts derive from the admitted catalog and are unaffected by this tool. The live
-checker adds explicit `--expected-tools 13`; existing 8/9/10/12 modes and the default
+checker supports explicit `--expected-tools 15`; existing 8/9/10/12/13 modes and the default
 8-tools/55-resources contract remain available. Both 13-tool and 15-tool modes call Music
 transaction preparation. The 12-tool mode still creates/verifies music packages
 without sending a Music wallet snapshot. No live endpoint is exercised by merely

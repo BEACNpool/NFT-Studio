@@ -1,24 +1,16 @@
 {
-  "expectedTools": 15,
+  "expectedTools": 13,
   "expectedResources": 61,
   "syntheticWalletDataSent": true,
   "schema": "nft-studio.public-mcp-check.v1",
-  "checkedAt": "2026-09-07T10:26:58.401Z",
+  "checkedAt": "2026-09-07T09:33:12.861Z",
   "endpoint": "https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp",
   "status": "pass",
   "checks": [
     {
-      "sourceCorpus": {
-        "documents": 148,
-        "sourceCommit": "05ee6bb05982289dbe00c4187b9d54cf90e2e276",
-        "indexedMissingRootTableEntry": true,
-        "independentChunkChecks": 2,
-        "wholeDocumentHashVerified": true,
-        "curatedResearch": false
-      },
       "unsignedMusic": {
         "packageHash": "43415786407ce1196450dc8642fd1e95ee5469c0abb292ad801691c90c174e53",
-        "transactionHash": "343f9e74df4480c7a17116e93203ca958b8d4252c0f8b75734262c54e2e9a722",
+        "transactionHash": "13633959ae85e017a58d896fe67b289d4cf41b168ea98afe4642af3e07baf542",
         "unsignedBytes": 1699,
         "metadataBytes": 1302,
         "estimatedSignedBytes": 1805,
@@ -56,7 +48,7 @@
       "unsigned": [
         {
           "mode": "nft",
-          "transactionHash": "ed008b519fd198849e2df0f72189032aa09b1d26b7f219f38ac17135d3cfba42",
+          "transactionHash": "8df4578ae168837b8850f1adf15103133ebbd362d6c657b794ad3c260fc76bc7",
           "unsignedBytes": 1187,
           "localBundleBytesMatch": true,
           "bodyHashVerified": true,
@@ -70,7 +62,7 @@
         },
         {
           "mode": "data",
-          "transactionHash": "4b88ca7040c8dea104d04facb8d2a92354722614da6e44f7457f948f6e96b7b6",
+          "transactionHash": "fa735934cbbd6c4434b72fee74ead1981609d7fba1c27eae8dfc35d1e9ef9ab1",
           "unsignedBytes": 551,
           "localBundleBytesMatch": true,
           "bodyHashVerified": true,
@@ -104,8 +96,6 @@
         "verify_music_release",
         "prepare_unsigned_music_transaction",
         "apply_state_capsule_parameters",
-        "search_cip_sources",
-        "get_cip_source_chunk",
         "prepare_unsigned_transaction",
         "studio_capabilities",
         "search_knowledge",
@@ -121,17 +111,9 @@
       "changedIntentRejected": true
     },
     {
-      "sourceCorpus": {
-        "documents": 148,
-        "sourceCommit": "05ee6bb05982289dbe00c4187b9d54cf90e2e276",
-        "indexedMissingRootTableEntry": true,
-        "independentChunkChecks": 2,
-        "wholeDocumentHashVerified": true,
-        "curatedResearch": false
-      },
       "unsignedMusic": {
         "packageHash": "43415786407ce1196450dc8642fd1e95ee5469c0abb292ad801691c90c174e53",
-        "transactionHash": "c58f634226363cf17071ebd43c169367cb8520a4c034ecb89df2e7783375bf1c",
+        "transactionHash": "8920847ce1f6a6b13a91d9f9d71a1b7da1156a64292a136e1915c20298d8d3a7",
         "unsignedBytes": 1699,
         "metadataBytes": 1302,
         "estimatedSignedBytes": 1805,
@@ -169,7 +151,7 @@
       "unsigned": [
         {
           "mode": "nft",
-          "transactionHash": "b797f68f01db71bbbe3d8904494b454ccf3161c39f6a23a7b8f9340213f4b6f4",
+          "transactionHash": "76866007e72d2725b08d1b6e84c1568e121807cc39281f85726384b54c058a42",
           "unsignedBytes": 1187,
           "localBundleBytesMatch": true,
           "bodyHashVerified": true,
@@ -183,7 +165,7 @@
         },
         {
           "mode": "data",
-          "transactionHash": "5116171ce6a927b7cc2fb18557e94842bdd0dd496ed8f6db4444d5889d41f121",
+          "transactionHash": "769f754d20abf577add1d7ccf3840d0acdb4dbfb99aa1e67c1abb135eda6ba33",
           "unsignedBytes": 551,
           "localBundleBytesMatch": true,
           "bodyHashVerified": true,
@@ -217,8 +199,6 @@
         "verify_music_release",
         "prepare_unsigned_music_transaction",
         "apply_state_capsule_parameters",
-        "search_cip_sources",
-        "get_cip_source_chunk",
         "prepare_unsigned_transaction",
         "studio_capabilities",
         "search_knowledge",
