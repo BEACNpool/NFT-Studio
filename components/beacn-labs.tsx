@@ -10,6 +10,7 @@ import { ProofOfExistenceLab } from './proof-of-existence-lab';
 import { ArtifactPassportLab } from './artifact-passport-lab';
 import { CapsuleContractLab } from './capsule-contract-lab';
 import { MusicReleaseLab } from './music-release-lab';
+import { RegistrySignatureLab } from './registry-signature-lab';
 export function BeacnLabs({ onBack }: { onBack: () => void }) {
   const [tab, setTab] = useState(() => {
     const requested =
@@ -25,6 +26,7 @@ export function BeacnLabs({ onBack }: { onBack: () => void }) {
       'passport',
       'contract',
       'music',
+      'registry',
     ].includes(requested || '')
       ? requested!
       : 'capsule';
@@ -67,6 +69,7 @@ export function BeacnLabs({ onBack }: { onBack: () => void }) {
           <TabsTrigger value="passport">Artifact passport</TabsTrigger>
           <TabsTrigger value="knowledge">Knowledge</TabsTrigger>
           <TabsTrigger value="identity">Asset inspector</TabsTrigger>
+          <TabsTrigger value="registry">Registry signatures</TabsTrigger>
           <TabsTrigger value="agents">Agent minting</TabsTrigger>
         </TabsList>
         <TabsContent value="capsule" keepMounted>
@@ -89,6 +92,9 @@ export function BeacnLabs({ onBack }: { onBack: () => void }) {
         </TabsContent>
         <TabsContent value="identity" keepMounted>
           <AssetInspector />
+        </TabsContent>
+        <TabsContent value="registry">
+          <RegistrySignatureLab />
         </TabsContent>
         <TabsContent value="agents">
           <AgentMintPanel />

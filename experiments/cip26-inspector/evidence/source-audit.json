@@ -1,0 +1,7 @@
+{
+  "sources": 13,
+  "archivedHashesMatch": true,
+  "immutableOnlineHashesMatch": true,
+  "observedOnlineCommand": "node verify-sources.mjs --online",
+  "recordedAt": "2026-09-07T08:26:25.867439+00:00"
+}

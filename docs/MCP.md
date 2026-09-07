@@ -11,11 +11,11 @@ https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp
 ```
 
 Connect with Streamable HTTP and no API key. Use tool/resource discovery for
-the running deployment. This source revision provides **12 public tools** and
+the running deployment. This source revision provides **13 public tools** and
 **61 resources**: Cardano knowledge, exact payloads, browser mint requests,
 music releases, proof records, fixed Capsule parameter application, and unsigned
-native NFT/data transactions. The unsigned tool
-receives an explicitly supplied wallet snapshot and uses fresh public network
+native NFT/data/music transactions. The unsigned tools
+receive an explicitly supplied wallet snapshot and use fresh public network
 parameters. No tool connects a wallet, signs or submits a transaction.
 The full Node service described below has additional capabilities and remains a
 separately installed package. GitHub Pages serves the app, not the MCP process.
@@ -105,6 +105,7 @@ Run the compiled file directly. `npm run` can write banners to stdout, which is 
 | `create_music_release` / `verify_music_release` | Canonical files-and-credits package for the Music release lab |
 | `apply_state_capsule_parameters` | Apply exact seed/name parameters to the pinned experimental program and export its blueprint and identity |
 | `prepare_unsigned_transaction` | Actual unsigned transaction, identity, fee, outputs, protocol quote and review expiry |
+| `prepare_unsigned_music_transaction` | Stateless unsigned music NFT with complete package/credit identity, actual metadata and value checks; no retained Node packet |
 | `verify_signed_transaction` | External witness verification, unchanged body/metadata and complete signed size/fee check; signed CBOR returned to caller |
 
 Resources expose `nft-studio://capabilities`, a knowledge index, each allowed knowledge entry, and the fixed `nft-studio://implementations` register. Knowledge entries keep their original research status; sibling implementation IDs link to separately scoped evidence. The live verifier checks that the returned register matches the exact release source, all linked entries resolve, and unrelated entries have empty links. It does not fetch evidence URLs or rerun their recorded experiments. Tools accept file **bytes as canonical base64**, not local paths, network URLs or commands. They never execute HTML or imported programs.
@@ -166,9 +167,18 @@ as `filename`; `review.url` opens **Labs → Music release**. Use
 `verify_music_release` with that canonical packet to check the complete package.
 The server receives the supplied files and credits, including any inert credit
 links. It does not fetch those links. The browser rebuilds the transaction from
-the reviewed package and the connected wallet; the public unsigned native tool
+the reviewed package and the connected wallet. The ordinary unsigned tool
 does not accept music packages. See [the music tool contract](../mcp/MUSIC_PACKAGES.md)
 and [the metadata profile](MUSIC_RELEASE.md) for exact arguments and limits.
+
+The dedicated `prepare_unsigned_music_transaction` accepts canonical `packetJson`
+and an explicitly authorized wallet snapshot. It builds actual unsigned native
+music CBOR, checks complete files and credits against the transaction metadata,
+and shares ordinary preparation's two-slot limit and value checks. Its Node and
+Worker contract is stateless: no `packetId`, retained preparation or compatibility
+with the Node stored-witness verifier. Save the original package for fresh browser
+wallet review, or independently verify the complete transaction before using an
+external signer. See [unsigned music preparation](../mcp/MUSIC_UNSIGNED.md).
 
 `apply_state_capsule_parameters` accepts only the fixed Capsule program's
 `seed: {transactionId, outputIndex}` and `baseName`. It returns deterministic

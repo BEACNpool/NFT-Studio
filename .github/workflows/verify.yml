@@ -37,6 +37,8 @@ jobs:
       - run: npm run verify:parameters
       - run: npm --prefix experiments/holder-proof ci --ignore-scripts
       - run: npm run verify:holder
+      - run: npm --prefix experiments/cip26-inspector ci --ignore-scripts
+      - run: npm run verify:registry
       - run: npm run verify:knowledge
       - run: npm run verify:capsules
       - run: npm --prefix mcp ci

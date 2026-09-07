@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-09-07T09:04:23.441Z",
+  "oracleCases": 133,
+  "publishedAttestations": 59,
+  "signatureByteMutations": 64,
+  "maxWorkRepeatedCalls": 8,
+  "maxWorkTotalSignatures": 256,
+  "maxWorkElapsedMs": 1412,
+  "runtimeApiSigns": false,
+  "syntheticTestSigning": true,
+  "privateKeysPersisted": false,
+  "networkInRuntime": false,
+  "chainQueries": false
+}

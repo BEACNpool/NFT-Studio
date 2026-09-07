@@ -1,0 +1,88 @@
+TAP version 13
+# Subtest: 133 independent Python/hashlib scalar CBOR + normative published digest oracles
+ok 1 - 133 independent Python/hashlib scalar CBOR + normative published digest oracles
+  ---
+  duration_ms: 40.035229
+  type: 'test'
+  ...
+# Subtest: published offchain-metadata-tools signatures verify independently with Node crypto
+ok 2 - published offchain-metadata-tools signatures verify independently with Node crypto
+  ---
+  duration_ms: 850.346875
+  type: 'test'
+  ...
+# Subtest: valid signature is untrusted until exact subject and public key are explicitly bound
+ok 3 - valid signature is untrusted until exact subject and public key are explicitly bound
+  ---
+  duration_ms: 36.018761
+  type: 'test'
+  ...
+# Subtest: unsigned, cryptographically invalid, valid untrusted and mixed signatures remain distinct
+ok 4 - unsigned, cryptographically invalid, valid untrusted and mixed signatures remain distinct
+  ---
+  duration_ms: 21.655931
+  type: 'test'
+  ...
+# Subtest: every attested component and signature byte is bound; CBOR truncation digest cannot verify
+ok 5 - every attested component and signature byte is bound; CBOR truncation digest cannot verify
+  ---
+  duration_ms: 299.107449
+  type: 'test'
+  ...
+# Subtest: sequence compares only trusted supplied observations and exposes same-sequence conflicts
+ok 6 - sequence compares only trusted supplied observations and exposes same-sequence conflicts
+  ---
+  duration_ms: 36.881081
+  type: 'test'
+  ...
+# Subtest: unsupported objects, arrays, floating representations, logo and preimage do not gain trust
+ok 7 - unsupported objects, arrays, floating representations, logo and preimage do not gain trust
+  ---
+  duration_ms: 0.969914
+  type: 'test'
+  ...
+# Subtest: Unicode stays exact including BOM, normalization differences and code point limits
+ok 8 - Unicode stays exact including BOM, normalization differences and code point limits
+  ---
+  duration_ms: 0.812533
+  type: 'test'
+  ...
+# Subtest: URL profile checks original component delimiters without normalization or authority repair
+ok 9 - URL profile checks original component delimiters without normalization or authority repair
+  ---
+  duration_ms: 1.128789
+  type: 'test'
+  ...
+# Subtest: strict low-order/noncanonical keys and scalar overflow signatures reject
+ok 10 - strict low-order/noncanonical keys and scalar overflow signatures reject
+  ---
+  duration_ms: 6.901506
+  type: 'test'
+  ...
+# Subtest: JSON boundaries reject duplicate keys, escaped aliases, pollution, depth, huge input and getters
+ok 11 - JSON boundaries reject duplicate keys, escaped aliases, pollution, depth, huge input and getters
+  ---
+  duration_ms: 10.27937
+  type: 'test'
+  ...
+# Subtest: shape/count bounds reject excess work and null signatures; trust is a separate exact schema
+ok 12 - shape/count bounds reject excess work and null signatures; trust is a separate exact schema
+  ---
+  duration_ms: 0.800938
+  type: 'test'
+  ...
+# Subtest: detached frozen result and maximum-work repeated calls have no cached trust mutation
+ok 13 - detached frozen result and maximum-work repeated calls have no cached trust mutation
+  ---
+  duration_ms: 1423.543802
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2869.378484

@@ -204,7 +204,7 @@
 @media (min-width: 900px) {
   .ns-lab-tablist {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     overflow: visible;
   }
   .ns-lab-tablist [role='tab'] {

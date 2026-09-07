@@ -1,0 +1,50 @@
+{
+  "schema": "beacn.cip26.url-profile-review.v1",
+  "checkedAt": "2026-09-07T09:06:49.647Z",
+  "status": "PASS",
+  "reviewer": {
+    "name": "Codex music_metadata review agent",
+    "relationship": "Separate review agent in the same BEACN Labs development session",
+    "externalSecurityAudit": false
+  },
+  "subject": {
+    "path": "experiments/cip26-inspector/src/index.mjs",
+    "sha256": "bfe777da648ad22a5cf42fc442bd7b258d91d736e644a9b2cbac2be091b5c58c",
+    "originalFrozenSourceSha256": "fdcee4c30f042faa853a11f4d1c8ddb7a77d506dccd8a7602e45a0850ab013d7",
+    "changeScope": "Original-text HTTPS authority, path, query and fragment validation only"
+  },
+  "primarySources": [
+    {
+      "title": "RFC 3986 Appendix A: Collected ABNF for URI",
+      "url": "https://datatracker.ietf.org/doc/html/rfc3986#appendix-A"
+    },
+    {
+      "title": "RFC 3986 sections 3.2 through 3.5: components",
+      "url": "https://datatracker.ietf.org/doc/html/rfc3986#section-3.2"
+    }
+  ],
+  "checks": {
+    "requestedRegressionCases": 16,
+    "differentialUrlCases": 16731,
+    "differentialUnsupportedOrMalformed": 8516,
+    "acceptedOriginalValueAndCommitmentParity": 8220,
+    "previousScalarAndPublishedSignatureCasesUnchanged": 838,
+    "sourceHashStableDuringReview": true
+  },
+  "findings": {
+    "consequentialMismatches": 0,
+    "previousUrlDelimiterFindingResolved": true
+  },
+  "runtime": {
+    "networkRequests": 0,
+    "walletOperations": 0,
+    "signaturesCreated": 0,
+    "privateKeysAccessed": false
+  },
+  "limits": [
+    "Scoped local Node execution and source review; no production/browser integration claim.",
+    "The independent URL component scanner shares the native WHATWG host parser with the implementation.",
+    "Commitment preservation is checked against the original inspector; prior independent Python digest evidence is separate.",
+    "This is not full CIP-26 conformance, registry authorization, chain verification, URL destination validation or a cryptographic dependency audit."
+  ]
+}

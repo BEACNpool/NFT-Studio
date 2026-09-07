@@ -1,0 +1,23 @@
+{
+  "name": "@beacn-labs/cip26-inspector-candidate",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test test/inspector.test.mjs",
+    "test:browser": "node test/browser.mjs"
+  },
+  "dependencies": {
+    "@noble/curves": "2.4.0",
+    "@noble/hashes": "2.4.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "puppeteer-core": "25.3.0"
+  }
+}

@@ -33,10 +33,11 @@ does not require a wallet.
 | Artifact passport | Turn an exact-file mint receipt into a portable content/evidence package, verify it offline, and optionally check the original transaction binding. Export directly from Activity or open one in Labs. |
 | Knowledge | Search 58 sourced Cardano entries, inspect enforcement and lifecycle limits, follow pinned primary sources and export research. Proposal status is separate from implementation evidence. |
 | Asset inspector | Derive CIP-14 fingerprints, verify CIP-67 checksums and locate paired CIP-68 asset names from exact bytes. It does not assert chain existence or ownership. |
+| Registry signatures | Inspect exact CIP-26 scalar signatures, compare signer keys with separately selected trust rules, and detect stale or conflicting sequence observations locally. |
 | Agent minting | Import a content-bound MCP request, inspect exact files, then use the existing wallet review, signing and receipt flow. |
 
-The [live MCP service](docs/MCP.md#public-connection) offers twelve tools for Cardano knowledge,
-content, music packages, fixed Capsule parameters and unsigned native NFT/data transactions. A separately installed Node
+The [MCP implementation](docs/MCP.md#public-connection) provides thirteen public tools for Cardano knowledge,
+content, music packages, fixed Capsule parameters and unsigned native NFT/data/music transactions. The dated live receipt identifies the deployed release. A separately installed Node
 service also verifies external signatures. Neither holds a signing key. The [knowledge repository](knowledge/)
 is reusable data with source hashes, attribution and an explicit evidence policy.
 

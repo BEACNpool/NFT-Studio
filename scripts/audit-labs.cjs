@@ -418,6 +418,67 @@ const fill = (page, selector, text) =>
     results.push(
       'Long music knowledge entries and related-entry navigation focus their heading at the top on desktop and mobile',
     );
+    await click(page, 'Registry signatures');
+    await page.click('[data-registry-example]');
+    await page.waitForSelector('[data-registry-results]');
+    const registryRecord = await page.$eval('#registry-record', (e) => e.value);
+    const sourceFixture = JSON.parse(fs.readFileSync(
+      'experiments/cip26-inspector/evidence/token-metadata-creator--test--fixtures--00000002df633853f6a47465c9496721d2d5b1291b8398016c0e87ae6e7574636f696e.json.source.txt', 'utf8',
+    ));
+    assert.deepEqual(JSON.parse(registryRecord), {
+      subject: sourceFixture.subject, name: sourceFixture.name, url: sourceFixture.url,
+    });
+    assert.deepEqual(
+      await page.$$eval('[data-registry-property]', (rows) => rows.map((e) => e.dataset.registryState)),
+      ['untrusted', 'untrusted'],
+    );
+    assert.equal(await page.$$eval('.ns-reg-value a,.ns-reg-value img,.ns-reg-value iframe', (e) => e.length), 0);
+    await page.click('[data-registry-example-trust]');
+    assert.equal(await page.$('[data-registry-results]'), null);
+    const registryTrust = await page.$eval('#registry-trust', (e) => e.value);
+    await page.click('[data-registry-inspect]');
+    await page.waitForSelector('[data-registry-results]');
+    assert.deepEqual(
+      await page.$$eval('[data-registry-property]', (rows) => rows.map((e) => e.dataset.registryState)),
+      ['trusted', 'trusted'],
+    );
+    const conflictingTrust = JSON.parse(registryTrust);
+    conflictingTrust.observations = [{
+      subject: sourceFixture.subject, property: 'name', sequenceNumber: 0, attestationDigestHex: '00'.repeat(32),
+    }];
+    await fill(page, '#registry-trust', JSON.stringify(conflictingTrust));
+    assert.equal(await page.$('[data-registry-results]'), null);
+    await page.click('[data-registry-inspect]');
+    await page.waitForSelector('[data-registry-results]');
+    assert.match(await page.$eval('[data-registry-property="name"] [data-registry-sequence-status]', (e) => e.textContent), /Conflict at same sequence/);
+    const alteredRecord = JSON.parse(registryRecord);
+    alteredRecord.name.value = 'Changed supplied name';
+    await fill(page, '#registry-record', JSON.stringify(alteredRecord));
+    await fill(page, '#registry-trust', registryTrust);
+    await page.click('[data-registry-inspect]');
+    await page.waitForSelector('[data-registry-results]');
+    assert.equal(await page.$eval('[data-registry-property="name"]', (e) => e.dataset.registryState), 'invalid');
+    assert.match(await page.$eval('[data-registry-property="name"] [data-registry-trust-status]', (e) => e.textContent), /1 key match/);
+    await fill(page, '#registry-record', '{"subject":"one","subject":"two"}');
+    await page.click('[data-registry-inspect]');
+    await page.waitForSelector('[data-registry-signatures] [role="alert"]');
+    assert.equal(await page.$('[data-registry-results]'), null);
+    await page.click('[data-registry-example]');
+    await page.waitForSelector('[data-registry-results]');
+    for (const width of [1440, 390]) {
+      await page.setViewport({ width, height: 960 });
+      await page.$eval('[data-registry-signatures]', (e) => e.scrollIntoView({ block: 'start', behavior: 'instant' }));
+      assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+      assert.equal(await page.$$eval('[data-registry-signatures] button,[data-registry-signatures] summary', (rows) => rows.filter((e) => e.getClientRects().length).every((e) => e.getBoundingClientRect().height >= 44)), true);
+      if (screenshotDir) await page.screenshot({ path: path.join(screenshotDir, `registry-integrated-${width}.png`) });
+    }
+    assert.equal(await page.evaluate(() => window.__qa.enable), 0);
+    await click(page, 'State capsule');
+    await click(page, 'Registry signatures');
+    assert.equal(await page.$eval('#registry-record', (e) => e.value), '');
+    assert.equal(await page.$('[data-registry-results]'), null);
+    await page.setViewport({ width: 1440, height: 1000 });
+    results.push('Registry examples preserve published signatures; explicit trust, invalid signatures, sequence conflicts, duplicate rejection, inert values and desktop/mobile layouts pass without wallet access');
     await click(page, 'State capsule');
     await has(page, 'Revision 1');
     assert.equal(

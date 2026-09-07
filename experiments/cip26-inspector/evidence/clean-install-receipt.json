@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-09-07T09:06:36.995703+00:00",
+  "isolatedFixtureOutsideRepository": true,
+  "copiedNodeModules": false,
+  "copiedBuildOutput": false,
+  "npmCiExitCode": 0,
+  "nodeTestGroups": 13,
+  "nodeTestFailures": 0,
+  "browserBuildMatchesIntegratedSource": true,
+  "externalBundleImports": 0,
+  "allBuildInputsFromIsolatedPackage": true,
+  "moduleBytes": 94826,
+  "moduleSha256": "247f89fd4a98d3fe4e74b15d6e0fe9391c9d562374d7317b82749863380313a7",
+  "profileChange": "Original URL component delimiters checked before WHATWG host validation; original text preserved."
+}

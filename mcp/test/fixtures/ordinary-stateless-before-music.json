@@ -1,0 +1,187 @@
+{
+  "schema": "beacn.ordinary-stateless-baseline.v1",
+  "baselineCommit": "c92f6b780dc134b261da1c1aec969aeee0149f33",
+  "baselineModule": "mcp/src/public-unsigned.mjs",
+  "baselineModuleSha256": "8490f503e9480c2858bc9faf1292aebcb38017cc979cdc6afe0efbed458699af",
+  "fixedClockMs": 1788770294399,
+  "quote": {
+    "tip": {
+      "epoch_no": 654,
+      "abs_slot": 197151000,
+      "block_time": 1788770339
+    },
+    "parameters": {
+      "epoch_no": 654,
+      "max_tx_size": 16384,
+      "max_val_size": 5000,
+      "min_fee_a": 44,
+      "min_fee_b": 155381,
+      "coins_per_utxo_size": 4310,
+      "key_deposit": 2000000,
+      "pool_deposit": 500000000
+    }
+  },
+  "syntheticOnly": true,
+  "cases": [
+    {
+      "name": "nft-native-assets",
+      "request": {
+        "intent": {
+          "schema": "nft-studio.intent.v1",
+          "mode": "nft",
+          "bundle": {
+            "schema": "nft-studio.payload.v1",
+            "name": "Public synthetic nft check",
+            "description": "No real wallet, signature or submission.",
+            "cover": true,
+            "bytes": 119,
+            "files": [
+              {
+                "name": "cover.svg",
+                "mediaType": "image/svg+xml",
+                "bytes": 104,
+                "sha256": "2afca216029a18649ad8d86f4276f1e7069238a7142daaf669333cbed99d69b4",
+                "uri": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4IDgiPjxyZWN0IHdpZHRoPSI4IiBoZWlnaHQ9IjgiIGZpbGw9IiM3Y2YiLz48L3N2Zz4="
+              },
+              {
+                "name": "hello.txt",
+                "mediaType": "text/plain",
+                "bytes": 15,
+                "sha256": "52e8e46a07847cbcd799f7786abe763bb06a5dbebc6b843e79752839ac49c6e1",
+                "uri": "data:text/plain,Hello%2C%20Cardano!"
+              }
+            ],
+            "sha256": "e6305f040eea9a63b6d364ed990d5f63144fdaaf5ca1b3e96f913157a36ea2a4"
+          },
+          "intentHash": "bffc6fcc08a8fcd403c46a73a2921319a7e17a723c5ccb5825f52fa7fb5a2985"
+        },
+        "wallet": {
+          "changeHex": "61abababababababababababababababababababababababababababab",
+          "utxos": [
+            "82825820b89fbebc3ce1abbde711e88cd426df6294a089b34f93b70b2139bb6ebc2bc6760082581d61abababababababababababababababababababababababababababab821a01312d00a1581ccdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcda2444b45455007454b454550320b"
+          ]
+        }
+      },
+      "responseJsonSha256": "c62140ae18be894f8773d0cfc88406bdc51a3a05c4ab41cee80e4396280ec493",
+      "unsignedHexSha256": "36ab0cc59703a3d9c3808f0c6eadae2fd15b9134f71b7c0e2238a668b9653577",
+      "unsignedBytes": 1187
+    },
+    {
+      "name": "nft-multiple-keys",
+      "request": {
+        "intent": {
+          "schema": "nft-studio.intent.v1",
+          "mode": "nft",
+          "bundle": {
+            "schema": "nft-studio.payload.v1",
+            "name": "Public synthetic nft check",
+            "description": "No real wallet, signature or submission.",
+            "cover": true,
+            "bytes": 119,
+            "files": [
+              {
+                "name": "cover.svg",
+                "mediaType": "image/svg+xml",
+                "bytes": 104,
+                "sha256": "2afca216029a18649ad8d86f4276f1e7069238a7142daaf669333cbed99d69b4",
+                "uri": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4IDgiPjxyZWN0IHdpZHRoPSI4IiBoZWlnaHQ9IjgiIGZpbGw9IiM3Y2YiLz48L3N2Zz4="
+              },
+              {
+                "name": "hello.txt",
+                "mediaType": "text/plain",
+                "bytes": 15,
+                "sha256": "52e8e46a07847cbcd799f7786abe763bb06a5dbebc6b843e79752839ac49c6e1",
+                "uri": "data:text/plain,Hello%2C%20Cardano!"
+              }
+            ],
+            "sha256": "e6305f040eea9a63b6d364ed990d5f63144fdaaf5ca1b3e96f913157a36ea2a4"
+          },
+          "intentHash": "bffc6fcc08a8fcd403c46a73a2921319a7e17a723c5ccb5825f52fa7fb5a2985"
+        },
+        "wallet": {
+          "changeHex": "61abababababababababababababababababababababababababababab",
+          "utxos": [
+            "8282582000000000000000000000000000000000000000000000000000000000000001f40082581d61abababababababababababababababababababababababababababab821a0016e360a1581c000000000000000000000000000000000000000000000000000003e8a3420000074200010742000207",
+            "8282582000000000000000000000000000000000000000000000000000000000000001f50082581d61cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd1a0016e360"
+          ]
+        }
+      },
+      "responseJsonSha256": "f419a24ce550c20abf4db139fd1fad723bd315bed5911e48a840362b62268b21",
+      "unsignedHexSha256": "205b168a0a213bdbb5adf13e3eeaa2b288de21d63e518e080fa4888f0518777c",
+      "unsignedBytes": 1222
+    },
+    {
+      "name": "data-native-assets",
+      "request": {
+        "intent": {
+          "schema": "nft-studio.intent.v1",
+          "mode": "data",
+          "bundle": {
+            "schema": "nft-studio.payload.v1",
+            "name": "Public synthetic data check",
+            "description": "No real wallet, signature or submission.",
+            "cover": false,
+            "bytes": 15,
+            "files": [
+              {
+                "name": "hello.txt",
+                "mediaType": "text/plain",
+                "bytes": 15,
+                "sha256": "52e8e46a07847cbcd799f7786abe763bb06a5dbebc6b843e79752839ac49c6e1",
+                "uri": "data:text/plain,Hello%2C%20Cardano!"
+              }
+            ],
+            "sha256": "eeec506981e0763dc21465cb5b3c8b682a441b2af09542b445a47c54c660653e"
+          },
+          "intentHash": "80e4c1fa9384e77293ad447e59ce9b6f0c7f26a43cf5b5b72ab35cb505d0a68c"
+        },
+        "wallet": {
+          "changeHex": "61abababababababababababababababababababababababababababab",
+          "utxos": [
+            "82825820b89fbebc3ce1abbde711e88cd426df6294a089b34f93b70b2139bb6ebc2bc6760082581d61abababababababababababababababababababababababababababab821a01312d00a1581ccdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcda2444b45455007454b454550320b"
+          ]
+        }
+      },
+      "responseJsonSha256": "7b286d0b879beedeee6e83f2bacced2dea1f9cb22990fddd4153738441ad75d9",
+      "unsignedHexSha256": "7f994f0ed2810956e393a7d7d857216c3a06acde062ecfd4c1a0f3f1ca18f978",
+      "unsignedBytes": 551
+    },
+    {
+      "name": "data-multiple-keys",
+      "request": {
+        "intent": {
+          "schema": "nft-studio.intent.v1",
+          "mode": "data",
+          "bundle": {
+            "schema": "nft-studio.payload.v1",
+            "name": "Public synthetic data check",
+            "description": "No real wallet, signature or submission.",
+            "cover": false,
+            "bytes": 15,
+            "files": [
+              {
+                "name": "hello.txt",
+                "mediaType": "text/plain",
+                "bytes": 15,
+                "sha256": "52e8e46a07847cbcd799f7786abe763bb06a5dbebc6b843e79752839ac49c6e1",
+                "uri": "data:text/plain,Hello%2C%20Cardano!"
+              }
+            ],
+            "sha256": "eeec506981e0763dc21465cb5b3c8b682a441b2af09542b445a47c54c660653e"
+          },
+          "intentHash": "80e4c1fa9384e77293ad447e59ce9b6f0c7f26a43cf5b5b72ab35cb505d0a68c"
+        },
+        "wallet": {
+          "changeHex": "61abababababababababababababababababababababababababababab",
+          "utxos": [
+            "8282582000000000000000000000000000000000000000000000000000000000000001f40082581d61abababababababababababababababababababababababababababab821a0016e360a1581c000000000000000000000000000000000000000000000000000003e8a3420000074200010742000207",
+            "8282582000000000000000000000000000000000000000000000000000000000000001f50082581d61cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd1a0016e360"
+          ]
+        }
+      },
+      "responseJsonSha256": "2e18db465e8c1bc20f2117bd4c37425dffcc6fd3403c2f4b54922863f9cb240a",
+      "unsignedHexSha256": "977ee64cac730f9c524914f7e5a81a66422d309bf285c27987a782c8aab9ccd0",
+      "unsignedBytes": 505
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-09-07T09:04:26.415Z",
+  "browserVersion": "Chrome/152.0.7977.64",
+  "checks": 407,
+  "oracleCases": 133,
+  "publishedAttestations": 59,
+  "elapsedMs": 347,
+  "externalApiCalls": 0,
+  "nodeGlobalsPresent": false,
+  "moduleBytes": 94826,
+  "moduleSha256": "247f89fd4a98d3fe4e74b15d6e0fe9391c9d562374d7317b82749863380313a7",
+  "sameOriginRequests": 3,
+  "externalRequests": 0,
+  "realWalletAccess": false,
+  "signingPerformed": false,
+  "chainQueries": false
+}

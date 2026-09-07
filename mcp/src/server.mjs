@@ -13,7 +13,9 @@ import { createMintIntent, verifyMintIntent } from '@studio/studio-intent.ts';
 import { buildStudioTransaction } from '@studio/studio-transaction.ts';
 import { assertWalletUnchanged, mergeAndCheckSignatures, inputRef } from '@studio/cardano.ts';
 import { preflightCbor } from './cbor-preflight.mjs';
-import { liveProtocol } from './protocol.mjs';
+import { liveProtocol, readProtocolQuote } from './protocol.mjs';
+import { createPreparationGate, createUnsignedPreparers } from './public-unsigned.mjs';
+import { registerMusicUnsignedTool, MUSIC_UNSIGNED_CAPABILITIES } from './music-unsigned-tools.mjs';
 import { empty, payloadSchema, intentSchema, prepareSchema, verifySignedSchema, decodeFiles, checkWalletBound, checkMetadata } from './schemas.mjs';
 export const STUDIO_URL = 'https://beacnpool.github.io/NFT-Studio/';
 export const STUDIO_REVIEW_URL = new URL('?view=labs&lab=agents', STUDIO_URL).href;
@@ -21,9 +23,10 @@ export const CAPABILITIES = Object.freeze({
   schema:'nft-studio.mcp.capabilities.v1', serverVersion:'0.1.0',
   transports:['stdio','streamable-http'], protocolEras:['2026-07-28','2025 legacy negotiation'],
   network:'Cardano mainnet', custody:'external signer only; no keys, signing or submission in this service',
-  actions:['knowledge_search','knowledge_resources','payload_validation','ledger_metadata_validation','mint_intent','unsigned_transaction','witness_verification','proof_record','proof_verification','music_package','music_package_verification','state_capsule_parameter_application'],
+  actions:['knowledge_search','knowledge_resources','payload_validation','ledger_metadata_validation','mint_intent','unsigned_transaction','witness_verification','proof_record','proof_verification','music_package','music_package_verification','unsigned_music_transaction','state_capsule_parameter_application'],
   proofOfExistence:PROOF_MCP_CAPABILITIES,
     musicReleases:MUSIC_MCP_CAPABILITIES,
+    musicUnsignedPreparation:MUSIC_UNSIGNED_CAPABILITIES,
     stateCapsuleParameterization:CAPSULE_MCP_CAPABILITIES,
   formats:[
     ...['image','music','games','apps','motion','files'].map(id=>({id,status:'compact-payload preparation',path:'Provide exact supported file bytes; NFT mode requires an image cover.'})),
@@ -76,11 +79,14 @@ export function createService(options={}) {
   validateCatalog(catalog);
   const protocol = options.protocol || liveProtocol;
   const packets = new Map(); let activeBuilds=0, activeCalls=0;
+  const preparationGate=createPreparationGate();
+  // Trusted operator injection for local tests; request schemas expose no provider/gate option.
+  const {prepareMusic}=createUnsignedPreparers(C,{protocolProvider:options.musicProtocolProvider||readProtocolQuote,preparationGate});
   function sweep() { for (const [id,p] of packets) if (Date.now()-p.prepared.createdAt >= 240000) packets.delete(id); }
   const expiryTimer=setInterval(sweep,30000); expiryTimer.unref();
   const capabilities = () => ({...CAPABILITIES,knowledge:{asOf:catalog.asOf,entries:catalog.entries.length,sources:catalog.sources.length}});
   function factory() {
-    const server = new McpServer({name:'beacn-nft-studio',version:'0.1.0'},{instructions:'Use capabilities first. Knowledge includes standard facts, design interpretations and implementation maturity. Prepare an intent for visible Studio review or build unsigned CBOR using caller wallet data. No tool signs or submits; never infer ledger confirmation from preparation or witness verification.'});
+    const server = new McpServer({name:'beacn-nft-studio',version:'0.1.0'},{instructions:'Use capabilities first. Knowledge includes standard facts, design interpretations and implementation maturity. Prepare an intent for visible Studio review or build unsigned CBOR using caller wallet data. The dedicated music tool is stateless and does not enter the retained ordinary packet cache or its witness verifier. No tool signs or submits; never infer ledger confirmation from preparation or witness verification.'});
     const register = (name,description,schema,action,annotations=READ_ONLY) => server.registerTool(name,{description,inputSchema:schema,annotations},async args=>{
       if(activeCalls>=8) return safeError(new Error('Service tool concurrency limit reached.'));
       activeCalls++;
@@ -88,6 +94,7 @@ export function createService(options={}) {
     });
     registerProofTools(register);
     registerMusicTools(register);
+    registerMusicUnsignedTool(register,prepareMusic);
     registerCapsuleTools(register);
     register('studio_capabilities','Discover exact supported formats, operations, limits, native-policy semantics and browser-only boundaries.',empty,capabilities);
     register('search_knowledge','Search the pinned Cardano knowledge base. Returns cited facts, explicit design interpretations and implementation maturity; no network search.',z.strictObject({query:z.string().min(1).max(200),limit:z.number().int().min(1).max(10).default(5)}),({query,limit})=>({asOf:catalog.asOf,results:searchKnowledge(catalog,query,{limit})}));
@@ -104,7 +111,7 @@ export function createService(options={}) {
       return {intent,filename:`nft-studio-${intent.intentHash.slice(0,12)}.intent.json`,packetJson:JSON.stringify(intent,null,2),review:{url:STUDIO_REVIEW_URL,action:'Open Labs → Agent minting, import this intent file, inspect every file, and explicitly continue to wallet review.'},status:'intent-only; no transaction prepared'};
     });
     register('verify_mint_intent','Rebuild and verify an intent using shared browser/server canonicalization. Rejects changed bytes, mismatched hashes, extra fields and oversized packets.',z.strictObject({intent:z.unknown()}),async ({intent})=>({valid:true,intent:await verifyMintIntent(intent)}));
-    register('prepare_unsigned_transaction','Build an actual unsigned mainnet NFT or data transaction with the shared Studio builder and live bounded protocol feed. Caller supplies CIP-30 change address and UTxO CBOR, kept in RAM for four minutes. Inputs are caller assertions; chain unspent state is not independently verified. All outputs return to that wallet. Does not sign or submit.',prepareSchema,async ({intent,wallet})=>{
+    register('prepare_unsigned_transaction','Build an actual unsigned mainnet NFT or data transaction with the shared Studio builder and live bounded protocol feed. Caller supplies CIP-30 change address and UTxO CBOR, kept in RAM for four minutes. Inputs are caller assertions; chain unspent state is not independently verified. All outputs return to that wallet. Does not sign or submit.',prepareSchema,async ({intent,wallet})=>preparationGate.run(async ()=>{
       if(activeBuilds>=2) throw new Error('Two preparations are already running. Try again after one completes.');
       sweep(); if(packets.size+activeBuilds>=64) throw new Error('Preparation capacity reached. Wait for older packets to expire.');
       activeBuilds++;
@@ -125,8 +132,8 @@ export function createService(options={}) {
           next:'Independently inspect body, all outputs, fees and mint identity. Have the external wallet sign this exact CBOR with partialSign=true; send its witness-set CBOR and refreshed wallet snapshot to verify_signed_transaction before the packet expires.',
         };
       } finally {activeBuilds--;}
-    },{...NETWORK_READ,readOnlyHint:false,idempotentHint:false});
-    register('verify_signed_transaction','Verify external CIP-30 witness-set signatures against a server-created preparation, recheck live parameters and the caller refreshed wallet snapshot, preserve the exact body/metadata, and check complete signed bytes/fee. Returns signed CBOR; never submits. Packet IDs expire after four minutes or a restart.',verifySignedSchema,async ({packetId,witnessSetHex,wallet})=>{
+    }),{...NETWORK_READ,readOnlyHint:false,idempotentHint:false});
+    register('verify_signed_transaction','Verify external CIP-30 witness-set signatures against a server-created preparation, recheck live parameters and the caller refreshed wallet snapshot, preserve the exact body/metadata, and check complete signed bytes/fee. Returns signed CBOR; never submits. Packet IDs expire after four minutes or a restart. Stateless music responses have no stored packetId and are not accepted by this verifier.',verifySignedSchema,async ({packetId,witnessSetHex,wallet})=>{
       sweep(); const stored=packets.get(packetId);if(!stored) throw new Error('Unknown or expired preparation. Prepare again before signing.');
       preflightCbor(witnessSetHex);
       const current=snapshot(wallet);

@@ -1,0 +1,401 @@
+{
+  "inputs": {
+    "node_modules/@noble/hashes/utils.js": {
+      "bytes": 26035,
+      "imports": [],
+      "format": "esm"
+    },
+    "node_modules/@noble/hashes/_blake.js": {
+      "bytes": 2841,
+      "imports": [
+        {
+          "path": "node_modules/@noble/hashes/utils.js",
+          "kind": "import-statement",
+          "original": "./utils.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@noble/hashes/_u64.js": {
+      "bytes": 4794,
+      "imports": [],
+      "format": "esm"
+    },
+    "node_modules/@noble/hashes/_md.js": {
+      "bytes": 9175,
+      "imports": [
+        {
+          "path": "node_modules/@noble/hashes/_u64.js",
+          "kind": "import-statement",
+          "original": "./_u64.js"
+        },
+        {
+          "path": "node_modules/@noble/hashes/utils.js",
+          "kind": "import-statement",
+          "original": "./utils.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@noble/hashes/blake2.js": {
+      "bytes": 22819,
+      "imports": [
+        {
+          "path": "node_modules/@noble/hashes/_blake.js",
+          "kind": "import-statement",
+          "original": "./_blake.js"
+        },
+        {
+          "path": "node_modules/@noble/hashes/_md.js",
+          "kind": "import-statement",
+          "original": "./_md.js"
+        },
+        {
+          "path": "node_modules/@noble/hashes/_u64.js",
+          "kind": "import-statement",
+          "original": "./_u64.js"
+        },
+        {
+          "path": "node_modules/@noble/hashes/utils.js",
+          "kind": "import-statement",
+          "original": "./utils.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@noble/hashes/sha2.js": {
+      "bytes": 18997,
+      "imports": [
+        {
+          "path": "node_modules/@noble/hashes/_md.js",
+          "kind": "import-statement",
+          "original": "./_md.js"
+        },
+        {
+          "path": "node_modules/@noble/hashes/_u64.js",
+          "kind": "import-statement",
+          "original": "./_u64.js"
+        },
+        {
+          "path": "node_modules/@noble/hashes/utils.js",
+          "kind": "import-statement",
+          "original": "./utils.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@noble/curves/utils.js": {
+      "bytes": 23221,
+      "imports": [
+        {
+          "path": "node_modules/@noble/hashes/utils.js",
+          "kind": "import-statement",
+          "original": "@noble/hashes/utils.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@noble/curves/abstract/modular.js": {
+      "bytes": 39844,
+      "imports": [
+        {
+          "path": "node_modules/@noble/curves/utils.js",
+          "kind": "import-statement",
+          "original": "../utils.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@noble/curves/abstract/curve.js": {
+      "bytes": 35711,
+      "imports": [
+        {
+          "path": "node_modules/@noble/curves/utils.js",
+          "kind": "import-statement",
+          "original": "../utils.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/abstract/modular.js",
+          "kind": "import-statement",
+          "original": "./modular.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@noble/curves/abstract/edwards.js": {
+      "bytes": 32323,
+      "imports": [
+        {
+          "path": "node_modules/@noble/curves/utils.js",
+          "kind": "import-statement",
+          "original": "../utils.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/abstract/curve.js",
+          "kind": "import-statement",
+          "original": "./curve.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/abstract/modular.js",
+          "kind": "import-statement",
+          "original": "./modular.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@noble/curves/abstract/fft.js": {
+      "bytes": 26024,
+      "imports": [
+        {
+          "path": "node_modules/@noble/curves/utils.js",
+          "kind": "import-statement",
+          "original": "../utils.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/abstract/modular.js",
+          "kind": "import-statement",
+          "original": "./modular.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@noble/curves/abstract/hash-to-curve.js": {
+      "bytes": 26273,
+      "imports": [
+        {
+          "path": "node_modules/@noble/curves/utils.js",
+          "kind": "import-statement",
+          "original": "../utils.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/abstract/modular.js",
+          "kind": "import-statement",
+          "original": "./modular.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@noble/curves/abstract/frost.js": {
+      "bytes": 45399,
+      "imports": [
+        {
+          "path": "node_modules/@noble/hashes/utils.js",
+          "kind": "import-statement",
+          "original": "@noble/hashes/utils.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/utils.js",
+          "kind": "import-statement",
+          "original": "../utils.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/abstract/curve.js",
+          "kind": "import-statement",
+          "original": "./curve.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/abstract/fft.js",
+          "kind": "import-statement",
+          "original": "./fft.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/abstract/hash-to-curve.js",
+          "kind": "import-statement",
+          "original": "./hash-to-curve.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/abstract/modular.js",
+          "kind": "import-statement",
+          "original": "./modular.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@noble/curves/abstract/montgomery.js": {
+      "bytes": 14721,
+      "imports": [
+        {
+          "path": "node_modules/@noble/curves/utils.js",
+          "kind": "import-statement",
+          "original": "../utils.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/abstract/curve.js",
+          "kind": "import-statement",
+          "original": "./curve.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/abstract/modular.js",
+          "kind": "import-statement",
+          "original": "./modular.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@noble/curves/abstract/oprf.js": {
+      "bytes": 18336,
+      "imports": [
+        {
+          "path": "node_modules/@noble/curves/utils.js",
+          "kind": "import-statement",
+          "original": "../utils.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/abstract/curve.js",
+          "kind": "import-statement",
+          "original": "./curve.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/abstract/hash-to-curve.js",
+          "kind": "import-statement",
+          "original": "./hash-to-curve.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/abstract/modular.js",
+          "kind": "import-statement",
+          "original": "./modular.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@noble/curves/ed25519.js": {
+      "bytes": 30058,
+      "imports": [
+        {
+          "path": "node_modules/@noble/hashes/sha2.js",
+          "kind": "import-statement",
+          "original": "@noble/hashes/sha2.js"
+        },
+        {
+          "path": "node_modules/@noble/hashes/utils.js",
+          "kind": "import-statement",
+          "original": "@noble/hashes/utils.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/abstract/curve.js",
+          "kind": "import-statement",
+          "original": "./abstract/curve.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/abstract/edwards.js",
+          "kind": "import-statement",
+          "original": "./abstract/edwards.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/abstract/frost.js",
+          "kind": "import-statement",
+          "original": "./abstract/frost.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/abstract/hash-to-curve.js",
+          "kind": "import-statement",
+          "original": "./abstract/hash-to-curve.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/abstract/modular.js",
+          "kind": "import-statement",
+          "original": "./abstract/modular.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/abstract/montgomery.js",
+          "kind": "import-statement",
+          "original": "./abstract/montgomery.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/abstract/oprf.js",
+          "kind": "import-statement",
+          "original": "./abstract/oprf.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/utils.js",
+          "kind": "import-statement",
+          "original": "./utils.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/strict-json.mjs": {
+      "bytes": 2496,
+      "imports": [],
+      "format": "esm"
+    },
+    "src/index.mjs": {
+      "bytes": 12671,
+      "imports": [
+        {
+          "path": "node_modules/@noble/hashes/blake2.js",
+          "kind": "import-statement",
+          "original": "@noble/hashes/blake2.js"
+        },
+        {
+          "path": "node_modules/@noble/hashes/utils.js",
+          "kind": "import-statement",
+          "original": "@noble/hashes/utils.js"
+        },
+        {
+          "path": "node_modules/@noble/curves/ed25519.js",
+          "kind": "import-statement",
+          "original": "@noble/curves/ed25519.js"
+        },
+        {
+          "path": "src/strict-json.mjs",
+          "kind": "import-statement",
+          "original": "./strict-json.mjs"
+        }
+      ],
+      "format": "esm"
+    }
+  },
+  "outputs": {
+    "dist/cip26-inspector.mjs": {
+      "imports": [],
+      "exports": [
+        "PROFILE",
+        "createCip26Inspector"
+      ],
+      "entryPoint": "src/index.mjs",
+      "inputs": {
+        "node_modules/@noble/hashes/utils.js": {
+          "bytesInOutput": 6155
+        },
+        "node_modules/@noble/hashes/_blake.js": {
+          "bytesInOutput": 1456
+        },
+        "node_modules/@noble/hashes/_u64.js": {
+          "bytesInOutput": 1817
+        },
+        "node_modules/@noble/hashes/_md.js": {
+          "bytesInOutput": 2806
+        },
+        "node_modules/@noble/hashes/blake2.js": {
+          "bytesInOutput": 9956
+        },
+        "node_modules/@noble/hashes/sha2.js": {
+          "bytesInOutput": 7164
+        },
+        "node_modules/@noble/curves/utils.js": {
+          "bytesInOutput": 4242
+        },
+        "node_modules/@noble/curves/abstract/modular.js": {
+          "bytesInOutput": 12119
+        },
+        "node_modules/@noble/curves/abstract/curve.js": {
+          "bytesInOutput": 14336
+        },
+        "node_modules/@noble/curves/abstract/edwards.js": {
+          "bytesInOutput": 16001
+        },
+        "node_modules/@noble/curves/ed25519.js": {
+          "bytesInOutput": 2892
+        },
+        "src/strict-json.mjs": {
+          "bytesInOutput": 2592
+        },
+        "src/index.mjs": {
+          "bytesInOutput": 12469
+        }
+      },
+      "bytes": 94826
+    }
+  }
+}

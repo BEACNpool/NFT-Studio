@@ -1,5 +1,8 @@
-/** Bounded, stateless adapter for the unmodified Studio native builder. No transport or network. */
-import { buildStudioTransaction } from '@studio/studio-transaction.ts';
+import { canonicalPassportJson } from '@studio/artifact-passport.ts';
+import { parseMusicRelease, recoverMusicRelease, MUSIC_RELEASE_PROFILE } from '@studio/music-release.ts';
+import { MUSIC_REVIEW_URL } from './music-tools.mjs';
+/** Bounded, stateless adapter for the shared Studio ordinary/music native builders. No transport or network. */
+import { buildStudioTransaction, buildMusicReleaseTransaction, assertMusicReleaseUnchanged } from '@studio/studio-transaction.ts';
 import { verifyMintIntent } from '@studio/studio-intent.ts';
 import {preflightCbor} from './cbor-preflight.mjs';
 export {preflightCbor} from './cbor-preflight.mjs';
@@ -69,36 +72,110 @@ function transactionEvidence(C, prepared, snapshot) {
   return {bodyHex:body.to_hex(),outputs,auxiliaryDataHash:body.auxiliary_data_hash().to_hex(),unsignedBytes:prepared.unsignedHex.length/2};
 }
 const encHex=bytes=>Array.from(bytes,value=>value.toString(16).padStart(2,'0')).join('');
-/** protocolProvider is trusted operator configuration. It receives an AbortSignal, never a caller URL. */
-export function createUnsignedPreparer(C,{protocolProvider,reviewUrl='https://beacnpool.github.io/NFT-Studio/?view=labs&lab=agents'}={}) {
-  if(typeof protocolProvider!=='function')throw new Error('A trusted server-side protocol provider is required.');
-  let active=0;
-  return async function prepare(value) {
-    if(active>=LIMITS.activePreparations)fail('Preparation concurrency limit reached.');
-    active++;
-    try {
-      object(value,['intent','wallet'],'unsigned preparation request');
-      if(enc.encode(JSON.stringify(value)).length>LIMITS.argumentBytes)fail('Preparation arguments exceed 88 KiB.');
-      const intent=await verifyMintIntent(value.intent),snapshot=walletSnapshot(C,value.wallet);
-      const controller=new AbortController();let timer;
-      const quote=await Promise.race([Promise.resolve().then(()=>protocolProvider(controller.signal)),new Promise((_,reject)=>{timer=setTimeout(()=>{controller.abort();reject(new Error('Protocol provider timed out.'));},LIMITS.providerTimeoutMs);})]).finally(()=>clearTimeout(timer));
-      object(quote,['tip','parameters'],'server protocol quote');
-      const protocol=parseProtocol(quote.tip,quote.parameters);
-      const prepared=await buildStudioTransaction(C,intent.bundle,intent.mode,snapshot.wallet,protocol);
-      const evidence=transactionEvidence(C,prepared,snapshot);
+/** One trusted service-wide gate. The ordinary Node cache keeps its own accounting. */
+export function createPreparationGate() {
+  let active = 0;
+  return Object.freeze({
+    async run(operation) {
+      if (active >= LIMITS.activePreparations) fail('Preparation concurrency limit reached.');
+      active++;
+      try { return await operation(); } finally { active--; }
+    },
+  });
+}
+
+function requestSnapshot(value, music) {
+  let json;
+  try { json = canonicalPassportJson(value, LIMITS.argumentBytes); }
+  catch (error) {
+    if (/byte limit|oversized JSON text/.test(error.message)) fail('Preparation arguments exceed 88 KiB.');
+    throw error;
+  }
+  const args = JSON.parse(json);
+  object(args, music ? ['packetJson', 'wallet'] : ['intent', 'wallet'], 'unsigned preparation request');
+  return args;
+}
+async function quotedProtocol(protocolProvider) {
+  const controller = new AbortController(); let timer;
+  const quote = await Promise.race([
+    Promise.resolve().then(() => protocolProvider(controller.signal)),
+    new Promise((_, reject) => { timer = setTimeout(() => {
+      controller.abort(); reject(new Error('Protocol provider timed out.'));
+    }, LIMITS.providerTimeoutMs); }),
+  ]).finally(() => clearTimeout(timer));
+  object(quote, ['tip', 'parameters'], 'server protocol quote');
+  return parseProtocol(quote.tip, quote.parameters);
+}
+async function musicTransactionContent(C, prepared, original, packetJson) {
+  await assertMusicReleaseUnchanged(prepared, original);
+  const transaction = C.Transaction.from_hex(prepared.unsignedHex);
+  const general = transaction.auxiliary_data()?.metadata();
+  if (!general) fail('Music preparation has no actual transaction metadata.');
+  const metadata = {}, labels = general.keys();
+  for (let i = 0; i < labels.len(); i++) {
+    const label = labels.get(i);
+    metadata[label.to_str()] = JSON.parse(C.decode_metadatum_to_json_str(general.get(label), C.MetadataJsonSchema.NoConversions));
+  }
+  if (canonicalPassportJson(metadata) !== canonicalPassportJson(prepared.metadata)) fail('Actual music metadata differs from preparation metadata.');
+  // A second path through actual CBOR and the shared recovery codec; this is not
+  // an independent implementation or evidence of ledger/signature validity.
+  const recovered = await recoverMusicRelease(metadata, { policyId: prepared.policyId, assetName: prepared.assetName });
+  if (recovered.packageHash !== original.packageHash || canonicalPassportJson(recovered) !== packetJson)
+    fail('Actual music transaction does not preserve the complete package.');
+  return recovered;
+}
+
+/** Trusted provider/gate options are operator configuration, never request arguments. */
+export function createUnsignedPreparers(C, {
+  protocolProvider,
+  reviewUrl = 'https://beacnpool.github.io/NFT-Studio/?view=labs&lab=agents',
+  preparationGate = createPreparationGate(),
+} = {}) {
+  if (typeof protocolProvider !== 'function') throw new Error('A trusted server-side protocol provider is required.');
+  if (!preparationGate || typeof preparationGate.run !== 'function') throw new Error('A trusted preparation gate is required.');
+  async function prepare(value, music) {
+    return preparationGate.run(async () => {
+      const args = requestSnapshot(value, music);
+      const content = music ? await parseMusicRelease(args.packetJson) : await verifyMintIntent(args.intent);
+      const snapshot = walletSnapshot(C, args.wallet);
+      const protocol = await quotedProtocol(protocolProvider);
+      const prepared = music
+        ? await buildMusicReleaseTransaction(C, content, snapshot.wallet, protocol)
+        : await buildStudioTransaction(C, content.bundle, content.mode, snapshot.wallet, protocol);
+      const evidence = transactionEvidence(C, prepared, snapshot);
+      const musicRelease = music ? await musicTransactionContent(C, prepared, content, args.packetJson) : null;
       return {
-        schema:'nft-studio.stateless-unsigned.v1',intentHash:intent.intentHash,mode:prepared.mode,networkId:1,
-        unsignedHex:prepared.unsignedHex,transactionHash:prepared.hash,bodyHex:evidence.bodyHex,
-        selectedInputRefs:prepared.inputRefs,requiredPaymentKeyHashes:prepared.requiredKeys,recipient:prepared.address,outputs:evidence.outputs,
-        asset:prepared.mode==='nft'?{policyId:prepared.policyId,assetNameHex:encHex(enc.encode(prepared.assetName)),quantity:'1',nativeScriptHex:prepared.policyScript,policyExpirySlot:prepared.expirySlot}:null,
-        feeLovelace:prepared.fee,unsignedBytes:evidence.unsignedBytes,estimatedSignedBytes:prepared.signedEstimate,metadata:prepared.metadata,auxiliaryDataHash:evidence.auxiliaryDataHash,
-        protocol,validUntilSlot:prepared.validUntilSlot,preparedAt:prepared.createdAt,
-        reviewUrl,
-        checks:{sharedBuilder:true,exactBodyHash:true,auxiliaryCommitment:true,conservation:true,outputsToSuppliedChangeAddress:true,minimumAda:true,walletInputs:'caller assertions; unspent chain state and ownership unverified',signedSize:'estimate; exact witnesses and fee still require external verification'},
-        privacy:'The service receives the supplied intent and wallet snapshot. This adapter does not persist or log them. Provider infrastructure may retain operational metadata.',
-        policySemantics:{quantityThisTransaction:prepared.mode==='nft'?1:0,lifetimeSupplyCap:false,burnAfterExpiry:false},
-        signed:false,submitted:false,
+        schema: music ? 'nft-studio.stateless-unsigned-music.v1' : 'nft-studio.stateless-unsigned.v1',
+        ...(music ? { musicPackageHash: musicRelease.packageHash, metadataProfile: MUSIC_RELEASE_PROFILE, musicRelease, packetJson: args.packetJson } : { intentHash: content.intentHash }),
+        mode: prepared.mode, networkId: 1,
+        unsignedHex: prepared.unsignedHex, transactionHash: prepared.hash, bodyHex: evidence.bodyHex,
+        selectedInputRefs: prepared.inputRefs, requiredPaymentKeyHashes: prepared.requiredKeys, recipient: prepared.address, outputs: evidence.outputs,
+        asset: prepared.mode === 'nft' ? { policyId: prepared.policyId, assetNameHex: encHex(enc.encode(prepared.assetName)), quantity: '1', nativeScriptHex: prepared.policyScript, policyExpirySlot: prepared.expirySlot } : null,
+        feeLovelace: prepared.fee, unsignedBytes: evidence.unsignedBytes, estimatedSignedBytes: prepared.signedEstimate, metadata: prepared.metadata, auxiliaryDataHash: evidence.auxiliaryDataHash,
+        protocol, validUntilSlot: prepared.validUntilSlot, preparedAt: prepared.createdAt,
+        reviewUrl: music ? MUSIC_REVIEW_URL : reviewUrl,
+        ...(music ? {
+          review: { url: MUSIC_REVIEW_URL, action: 'Save packetJson exactly as a .music-release.json file. Open the Music Lab, review every file and credit, then explicitly start fresh browser wallet preparation. This unsigned response is not imported as signing authority.' },
+          witnessVerification: { nodeStoredVerifierAcceptsThisPacket: false, reason: 'Stateless music preparation has no packetId and is not stored. The separate Node verifier only accepts its own retained ordinary preparations.' },
+        } : {}),
+        checks: {
+          sharedBuilder: true, exactBodyHash: true, auxiliaryCommitment: true, conservation: true, outputsToSuppliedChangeAddress: true, minimumAda: true,
+          walletInputs: 'caller assertions; unspent chain state and ownership unverified',
+          signedSize: 'estimate; exact witnesses and fee still require external verification',
+          ...(music ? { exactFilesAndCredits: true, actualMetadataRecoveredThroughSharedCodec: true, musicPackageHashBound: true, rightsVerified: false, paymentSignaturesVerified: false, chainInclusionVerified: false } : {}),
+        },
+        privacy: music
+          ? 'The service receives the supplied music package and authorized wallet snapshot. This adapter does not persist or log them; its fixed provider receives no package, credit, address or UTxO data. Provider infrastructure may retain operational metadata.'
+          : 'The service receives the supplied intent and wallet snapshot. This adapter does not persist or log them. Provider infrastructure may retain operational metadata.',
+        policySemantics: { quantityThisTransaction: prepared.mode === 'nft' ? 1 : 0, lifetimeSupplyCap: false, burnAfterExpiry: false },
+        signed: false, submitted: false,
       };
-    }finally{active--;}
-  };
+    });
+  }
+  return Object.freeze({ prepareOrdinary: value => prepare(value, false), prepareMusic: value => prepare(value, true) });
+}
+
+/** Compatibility entry point: ordinary request/response contract remains unchanged. */
+export function createUnsignedPreparer(C, options) {
+  return createUnsignedPreparers(C, options).prepareOrdinary;
 }

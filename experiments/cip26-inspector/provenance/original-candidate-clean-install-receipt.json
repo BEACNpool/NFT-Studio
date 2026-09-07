@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-09-07T08:25:34.481597+00:00",
+  "isolatedFixtureOutsideRepository": true,
+  "copiedNodeModules": false,
+  "npmCiExitCode": 0,
+  "nodeTestGroups": 12,
+  "nodeTestFailures": 0,
+  "browserBuildMatchesOriginal": true,
+  "externalBundleImports": 0,
+  "allBuildInputsFromIsolatedPackage": true,
+  "moduleBytes": 94336,
+  "moduleSha256": "d5223b77921ba7f9886eaf5167d04e7c44f04ff025e1614b4f90a3a95b18b44c"
+}

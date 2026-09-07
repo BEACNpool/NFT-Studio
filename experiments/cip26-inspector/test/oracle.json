@@ -1,0 +1,2529 @@
+[
+  {
+    "subject": "a5408d0db0d942fd80374",
+    "property": "contact",
+    "value": "Cid Kramer",
+    "sequenceNumber": 0,
+    "cborHex": [
+      "75613534303864306462306439343266643830333734",
+      "67636f6e74616374",
+      "6a436964204b72616d6572",
+      "00"
+    ],
+    "componentHashes": [
+      "927d67fd5a45b34527843f55e6e8f4919ae2abc0265c6308490e46a075f2d0dd",
+      "f4571264b5819fcf14771404bbacb7733ca516efa38908ce06acdf908408da7e",
+      "82a18a21c2b4cbf5c8b8e7a77774ff39a7d121b0450b4a22304ca7667c402a34",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "cd731afcc904c521e0c6b3cc0b560b8157ee29c3e41cd15f8dc8984edf600029"
+  },
+  {
+    "subject": "public-oracle-0",
+    "property": "custom🎶",
+    "value": "",
+    "sequenceNumber": 0,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d30",
+      "6a637573746f6df09f8eb6",
+      "60",
+      "00"
+    ],
+    "componentHashes": [
+      "3258f7618f9f9a95214c5039b3416396ec1734ae9daa2d2307f0cf6e035ad4df",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "aad78a13b50a014a24633c7d44fd8f8d18f67bbb3fa9cbcedf834ac899759dcd",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "b906f04c55dd48d6e54f4513daeff9693c042ab20c29a2251f0abdf5b156e851"
+  },
+  {
+    "subject": "public-oracle-0",
+    "property": "custom🎶",
+    "value": "",
+    "sequenceNumber": 24,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d30",
+      "6a637573746f6df09f8eb6",
+      "60",
+      "1818"
+    ],
+    "componentHashes": [
+      "3258f7618f9f9a95214c5039b3416396ec1734ae9daa2d2307f0cf6e035ad4df",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "aad78a13b50a014a24633c7d44fd8f8d18f67bbb3fa9cbcedf834ac899759dcd",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "c478a43a3d0eb77893d804cf4602e4c9b9bb648131133f48f585c8dc53a1ce88"
+  },
+  {
+    "subject": "public-oracle-0",
+    "property": "custom🎶",
+    "value": "",
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d30",
+      "6a637573746f6df09f8eb6",
+      "60",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "3258f7618f9f9a95214c5039b3416396ec1734ae9daa2d2307f0cf6e035ad4df",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "aad78a13b50a014a24633c7d44fd8f8d18f67bbb3fa9cbcedf834ac899759dcd",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "d8ce2010cb6a4ed73893b5130c483d21d4a4136af4a8b7ec4c458792e8520a86"
+  },
+  {
+    "subject": "public-oracle-0",
+    "property": "custom🎶",
+    "value": "",
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d30",
+      "6a637573746f6df09f8eb6",
+      "60",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "3258f7618f9f9a95214c5039b3416396ec1734ae9daa2d2307f0cf6e035ad4df",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "aad78a13b50a014a24633c7d44fd8f8d18f67bbb3fa9cbcedf834ac899759dcd",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "415f4a52f873b2823e8e7a552546238fb92a6869a4b4361817e3181679cb421e"
+  },
+  {
+    "subject": "public-oracle-1",
+    "property": "custom🎶",
+    "value": "aaaaaaaaaaaaaaaaaaaaaaa",
+    "sequenceNumber": 0,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d31",
+      "6a637573746f6df09f8eb6",
+      "776161616161616161616161616161616161616161616161",
+      "00"
+    ],
+    "componentHashes": [
+      "0b4be0a859904a8524861cecea149680bebf104b420762d12d82f6314fd5cec2",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "05fb6c00094d3e1b5808ace67a2f5c9d64dc51eae04553b7d0f0a1fe76d56434",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "a82d837ebf99d3d7386b1037133c54e0ade17b72f73d23638792dc9510e3703d"
+  },
+  {
+    "subject": "public-oracle-1",
+    "property": "custom🎶",
+    "value": "aaaaaaaaaaaaaaaaaaaaaaa",
+    "sequenceNumber": 24,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d31",
+      "6a637573746f6df09f8eb6",
+      "776161616161616161616161616161616161616161616161",
+      "1818"
+    ],
+    "componentHashes": [
+      "0b4be0a859904a8524861cecea149680bebf104b420762d12d82f6314fd5cec2",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "05fb6c00094d3e1b5808ace67a2f5c9d64dc51eae04553b7d0f0a1fe76d56434",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "278df72bf905f125bc98f4420af98db472c143a0602bd8abce50c2fea4aa6ea1"
+  },
+  {
+    "subject": "public-oracle-1",
+    "property": "custom🎶",
+    "value": "aaaaaaaaaaaaaaaaaaaaaaa",
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d31",
+      "6a637573746f6df09f8eb6",
+      "776161616161616161616161616161616161616161616161",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "0b4be0a859904a8524861cecea149680bebf104b420762d12d82f6314fd5cec2",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "05fb6c00094d3e1b5808ace67a2f5c9d64dc51eae04553b7d0f0a1fe76d56434",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "79afec4a379d25ecc41094a4769d48d3f16185b30a3319d19be450a9b41fb857"
+  },
+  {
+    "subject": "public-oracle-1",
+    "property": "custom🎶",
+    "value": "aaaaaaaaaaaaaaaaaaaaaaa",
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d31",
+      "6a637573746f6df09f8eb6",
+      "776161616161616161616161616161616161616161616161",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "0b4be0a859904a8524861cecea149680bebf104b420762d12d82f6314fd5cec2",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "05fb6c00094d3e1b5808ace67a2f5c9d64dc51eae04553b7d0f0a1fe76d56434",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "afd9ba278961314498df08088020977b549b760aeb56f217c97a24f97534ec3d"
+  },
+  {
+    "subject": "public-oracle-2",
+    "property": "custom🎶",
+    "value": "bbbbbbbbbbbbbbbbbbbbbbbb",
+    "sequenceNumber": 0,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d32",
+      "6a637573746f6df09f8eb6",
+      "7818626262626262626262626262626262626262626262626262",
+      "00"
+    ],
+    "componentHashes": [
+      "04e3dc89519e4c1476920fd1014fcf6b3e32245146ae10b58915b80ea33a37dd",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "d817ed67399c2fe6f956dfa7bb16e7e5c6a16c049e00e98cdeda68cf4385586d",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "21e1825c1a8829b2f0d4146c6564336c8992f3e6cc0ba01f6eca5747371d65f6"
+  },
+  {
+    "subject": "public-oracle-2",
+    "property": "custom🎶",
+    "value": "bbbbbbbbbbbbbbbbbbbbbbbb",
+    "sequenceNumber": 24,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d32",
+      "6a637573746f6df09f8eb6",
+      "7818626262626262626262626262626262626262626262626262",
+      "1818"
+    ],
+    "componentHashes": [
+      "04e3dc89519e4c1476920fd1014fcf6b3e32245146ae10b58915b80ea33a37dd",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "d817ed67399c2fe6f956dfa7bb16e7e5c6a16c049e00e98cdeda68cf4385586d",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "e643cf794fd0a6c94c8b47b2c209d1fb56da077fc6e303f86779ae327049ae55"
+  },
+  {
+    "subject": "public-oracle-2",
+    "property": "custom🎶",
+    "value": "bbbbbbbbbbbbbbbbbbbbbbbb",
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d32",
+      "6a637573746f6df09f8eb6",
+      "7818626262626262626262626262626262626262626262626262",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "04e3dc89519e4c1476920fd1014fcf6b3e32245146ae10b58915b80ea33a37dd",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "d817ed67399c2fe6f956dfa7bb16e7e5c6a16c049e00e98cdeda68cf4385586d",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "499db598d5c76eda6560b50bd0d39f43c23ec07d02d69e4134173c67dcfb10b2"
+  },
+  {
+    "subject": "public-oracle-2",
+    "property": "custom🎶",
+    "value": "bbbbbbbbbbbbbbbbbbbbbbbb",
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d32",
+      "6a637573746f6df09f8eb6",
+      "7818626262626262626262626262626262626262626262626262",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "04e3dc89519e4c1476920fd1014fcf6b3e32245146ae10b58915b80ea33a37dd",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "d817ed67399c2fe6f956dfa7bb16e7e5c6a16c049e00e98cdeda68cf4385586d",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "668f2156725ac3325a2d41967d396f1e03c7c4f8f12e04b38545c1421b75f665"
+  },
+  {
+    "subject": "public-oracle-3",
+    "property": "custom🎶",
+    "value": "ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "sequenceNumber": 0,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d33",
+      "6a637573746f6df09f8eb6",
+      "78ff636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363",
+      "00"
+    ],
+    "componentHashes": [
+      "27d6ef7beb819a26a9edd9b97aca8c8623bd38a16e8a31a98d5db571251b8b3f",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "7d03aee0571139ef311bb82348cf9d21caa212de5c0aa1c4b18c3a40284ebb4a",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "71f2738eacefa3be4fbfd290782d20e9946897c25fda855adce91c058376cb34"
+  },
+  {
+    "subject": "public-oracle-3",
+    "property": "custom🎶",
+    "value": "ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "sequenceNumber": 24,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d33",
+      "6a637573746f6df09f8eb6",
+      "78ff636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363",
+      "1818"
+    ],
+    "componentHashes": [
+      "27d6ef7beb819a26a9edd9b97aca8c8623bd38a16e8a31a98d5db571251b8b3f",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "7d03aee0571139ef311bb82348cf9d21caa212de5c0aa1c4b18c3a40284ebb4a",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "e36b515928327bae3a5c3b60aa063b58a26ad3810785f7cbf553808dc8206981"
+  },
+  {
+    "subject": "public-oracle-3",
+    "property": "custom🎶",
+    "value": "ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d33",
+      "6a637573746f6df09f8eb6",
+      "78ff636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "27d6ef7beb819a26a9edd9b97aca8c8623bd38a16e8a31a98d5db571251b8b3f",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "7d03aee0571139ef311bb82348cf9d21caa212de5c0aa1c4b18c3a40284ebb4a",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "c7c1458491e8f699bcc8a467ac8fdc29d696aad37204646b2cb850987d88903c"
+  },
+  {
+    "subject": "public-oracle-3",
+    "property": "custom🎶",
+    "value": "ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d33",
+      "6a637573746f6df09f8eb6",
+      "78ff636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "27d6ef7beb819a26a9edd9b97aca8c8623bd38a16e8a31a98d5db571251b8b3f",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "7d03aee0571139ef311bb82348cf9d21caa212de5c0aa1c4b18c3a40284ebb4a",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "ba287ffb14688da40d0ed38f2e9a90998909e9546f85ba3aa7db3ec59da056b2"
+  },
+  {
+    "subject": "public-oracle-4",
+    "property": "custom🎶",
+    "value": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "sequenceNumber": 0,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d34",
+      "6a637573746f6df09f8eb6",
+      "79010064646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464",
+      "00"
+    ],
+    "componentHashes": [
+      "8328f04455e4e63da71f609028a71cfa24eda9d9c5a73328790dba17830ca905",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "e49bca4ddd32e249cd3619adc228d51ebf9f2775f59411bb29c8c98756541e22",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "f36e8f50330ae5ffaf09cd0c85efdc36632438f940a563984d582720231a6a2e"
+  },
+  {
+    "subject": "public-oracle-4",
+    "property": "custom🎶",
+    "value": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "sequenceNumber": 24,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d34",
+      "6a637573746f6df09f8eb6",
+      "79010064646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464",
+      "1818"
+    ],
+    "componentHashes": [
+      "8328f04455e4e63da71f609028a71cfa24eda9d9c5a73328790dba17830ca905",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "e49bca4ddd32e249cd3619adc228d51ebf9f2775f59411bb29c8c98756541e22",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "ae4224050ddfb61a39be43fb58da216e83f3cd4443f0d302e0299f421afa5835"
+  },
+  {
+    "subject": "public-oracle-4",
+    "property": "custom🎶",
+    "value": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d34",
+      "6a637573746f6df09f8eb6",
+      "79010064646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "8328f04455e4e63da71f609028a71cfa24eda9d9c5a73328790dba17830ca905",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "e49bca4ddd32e249cd3619adc228d51ebf9f2775f59411bb29c8c98756541e22",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "786e0d859c354ad53e316757880870fbfd902dbedefc76209be783ce2c74eba8"
+  },
+  {
+    "subject": "public-oracle-4",
+    "property": "custom🎶",
+    "value": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d34",
+      "6a637573746f6df09f8eb6",
+      "79010064646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "8328f04455e4e63da71f609028a71cfa24eda9d9c5a73328790dba17830ca905",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "e49bca4ddd32e249cd3619adc228d51ebf9f2775f59411bb29c8c98756541e22",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "27ba9e32d423458069a031a3a39b72fc21eab0b3f48e9d592b105ce8e98d077d"
+  },
+  {
+    "subject": "public-oracle-5",
+    "property": "custom🎶",
+    "value": "﻿bytes",
+    "sequenceNumber": 0,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d35",
+      "6a637573746f6df09f8eb6",
+      "68efbbbf6279746573",
+      "00"
+    ],
+    "componentHashes": [
+      "f8ca823b66680c66b37afa9aaed76a8e2eec9b30a84cfbbd9df20af06b65a6c3",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "47d42d1c88d16f21345e04a87c6ffd401d7429d12a685fe3752c31f4ed3c3da7",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "43da33ce702079267acc712b032f0fb8ae68594bf1419a6469dfd8c238b5938e"
+  },
+  {
+    "subject": "public-oracle-5",
+    "property": "custom🎶",
+    "value": "﻿bytes",
+    "sequenceNumber": 24,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d35",
+      "6a637573746f6df09f8eb6",
+      "68efbbbf6279746573",
+      "1818"
+    ],
+    "componentHashes": [
+      "f8ca823b66680c66b37afa9aaed76a8e2eec9b30a84cfbbd9df20af06b65a6c3",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "47d42d1c88d16f21345e04a87c6ffd401d7429d12a685fe3752c31f4ed3c3da7",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "7a96bfc267ec648a1427a00ff9055b0934998047aeb7fbe91380b1c72265b260"
+  },
+  {
+    "subject": "public-oracle-5",
+    "property": "custom🎶",
+    "value": "﻿bytes",
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d35",
+      "6a637573746f6df09f8eb6",
+      "68efbbbf6279746573",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "f8ca823b66680c66b37afa9aaed76a8e2eec9b30a84cfbbd9df20af06b65a6c3",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "47d42d1c88d16f21345e04a87c6ffd401d7429d12a685fe3752c31f4ed3c3da7",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "90dd02d7ad1562e4dcdf953e1638913269576904d52fcdd9c0a6ed82d715d497"
+  },
+  {
+    "subject": "public-oracle-5",
+    "property": "custom🎶",
+    "value": "﻿bytes",
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d35",
+      "6a637573746f6df09f8eb6",
+      "68efbbbf6279746573",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "f8ca823b66680c66b37afa9aaed76a8e2eec9b30a84cfbbd9df20af06b65a6c3",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "47d42d1c88d16f21345e04a87c6ffd401d7429d12a685fe3752c31f4ed3c3da7",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "dfa34601f5553b7a121c92503e39ebee8c506ee40fd8144b767b1f023d5ad9f8"
+  },
+  {
+    "subject": "public-oracle-6",
+    "property": "custom🎶",
+    "value": "é",
+    "sequenceNumber": 0,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d36",
+      "6a637573746f6df09f8eb6",
+      "62c3a9",
+      "00"
+    ],
+    "componentHashes": [
+      "63a889fc2bfcd742263487538a9c5cf0a00883a5c94b69853bcaf20491ac9307",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "2607cc9e73716e63a4ba52e436dd974b193b91c6e8cb9d422f5f5e18ea7d0a2f",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "4596cb7ebc6a6ea3567e4f23e76d51dedabe1966d18112b3c5960b63def77cf5"
+  },
+  {
+    "subject": "public-oracle-6",
+    "property": "custom🎶",
+    "value": "é",
+    "sequenceNumber": 24,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d36",
+      "6a637573746f6df09f8eb6",
+      "62c3a9",
+      "1818"
+    ],
+    "componentHashes": [
+      "63a889fc2bfcd742263487538a9c5cf0a00883a5c94b69853bcaf20491ac9307",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "2607cc9e73716e63a4ba52e436dd974b193b91c6e8cb9d422f5f5e18ea7d0a2f",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "cb29ed410d7ba7e0596c431a6822ffdec9855a21b488065d5d88f3f8e54ecf68"
+  },
+  {
+    "subject": "public-oracle-6",
+    "property": "custom🎶",
+    "value": "é",
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d36",
+      "6a637573746f6df09f8eb6",
+      "62c3a9",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "63a889fc2bfcd742263487538a9c5cf0a00883a5c94b69853bcaf20491ac9307",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "2607cc9e73716e63a4ba52e436dd974b193b91c6e8cb9d422f5f5e18ea7d0a2f",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "940fa0c7125eb68d54c5dab4eecab4d90b7b49146b13eaad781229d64141cd8b"
+  },
+  {
+    "subject": "public-oracle-6",
+    "property": "custom🎶",
+    "value": "é",
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d36",
+      "6a637573746f6df09f8eb6",
+      "62c3a9",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "63a889fc2bfcd742263487538a9c5cf0a00883a5c94b69853bcaf20491ac9307",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "2607cc9e73716e63a4ba52e436dd974b193b91c6e8cb9d422f5f5e18ea7d0a2f",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "16ae14d01c81e4d45d4becbd3581e78563d99d87f175cd52d7e4ee245839d794"
+  },
+  {
+    "subject": "public-oracle-7",
+    "property": "custom🎶",
+    "value": "é",
+    "sequenceNumber": 0,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d37",
+      "6a637573746f6df09f8eb6",
+      "6365cc81",
+      "00"
+    ],
+    "componentHashes": [
+      "246486a413d98639e7d16574d1cc5c8afc8a1d32f18c51f594f59b94fa24be45",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "d06d6961fef66fdb43684166cac6c1d28ab96eadfacebacfc2f189c67b37c005",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "82e426947bb8ed8394190f9606581ace0a18bd3b382b22bf4f185eb6777b3ab7"
+  },
+  {
+    "subject": "public-oracle-7",
+    "property": "custom🎶",
+    "value": "é",
+    "sequenceNumber": 24,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d37",
+      "6a637573746f6df09f8eb6",
+      "6365cc81",
+      "1818"
+    ],
+    "componentHashes": [
+      "246486a413d98639e7d16574d1cc5c8afc8a1d32f18c51f594f59b94fa24be45",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "d06d6961fef66fdb43684166cac6c1d28ab96eadfacebacfc2f189c67b37c005",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "6de51c62a16eb0164ca85af66711796797269fb96fad1dbefeb606bd743ad791"
+  },
+  {
+    "subject": "public-oracle-7",
+    "property": "custom🎶",
+    "value": "é",
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d37",
+      "6a637573746f6df09f8eb6",
+      "6365cc81",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "246486a413d98639e7d16574d1cc5c8afc8a1d32f18c51f594f59b94fa24be45",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "d06d6961fef66fdb43684166cac6c1d28ab96eadfacebacfc2f189c67b37c005",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "da4bbc16fb9e54ba9f7caab0d6072facfbd4dfebac477252ef93ab5efaf71b85"
+  },
+  {
+    "subject": "public-oracle-7",
+    "property": "custom🎶",
+    "value": "é",
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d37",
+      "6a637573746f6df09f8eb6",
+      "6365cc81",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "246486a413d98639e7d16574d1cc5c8afc8a1d32f18c51f594f59b94fa24be45",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "d06d6961fef66fdb43684166cac6c1d28ab96eadfacebacfc2f189c67b37c005",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "5e69f0c775cd30519e5a3634400445b13549d4649de8d9f640157f23a9f0257c"
+  },
+  {
+    "subject": "public-oracle-8",
+    "property": "custom🎶",
+    "value": "龘🎶",
+    "sequenceNumber": 0,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d38",
+      "6a637573746f6df09f8eb6",
+      "67e9be98f09f8eb6",
+      "00"
+    ],
+    "componentHashes": [
+      "08fd351d6f99b21b9c192abaf0793ed3d0ce433fc880ebfea98f95625ff54617",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "10e227c8667681b6801d0dbb85fce5091b45f29d19e45e05df20dd988e146523",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "f545217170046f19ad6ec8dd6c25a57642bc08e53204b91516553e7df1735327"
+  },
+  {
+    "subject": "public-oracle-8",
+    "property": "custom🎶",
+    "value": "龘🎶",
+    "sequenceNumber": 24,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d38",
+      "6a637573746f6df09f8eb6",
+      "67e9be98f09f8eb6",
+      "1818"
+    ],
+    "componentHashes": [
+      "08fd351d6f99b21b9c192abaf0793ed3d0ce433fc880ebfea98f95625ff54617",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "10e227c8667681b6801d0dbb85fce5091b45f29d19e45e05df20dd988e146523",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "73225be2b6f7b27f916a65a2a99a04f182f8a6800880882b34f5e8bc275c634e"
+  },
+  {
+    "subject": "public-oracle-8",
+    "property": "custom🎶",
+    "value": "龘🎶",
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d38",
+      "6a637573746f6df09f8eb6",
+      "67e9be98f09f8eb6",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "08fd351d6f99b21b9c192abaf0793ed3d0ce433fc880ebfea98f95625ff54617",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "10e227c8667681b6801d0dbb85fce5091b45f29d19e45e05df20dd988e146523",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "8a4d3fa1193a03f51483b68895c9e36c845cd90c173428dcbe1098a5c3542fbe"
+  },
+  {
+    "subject": "public-oracle-8",
+    "property": "custom🎶",
+    "value": "龘🎶",
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d38",
+      "6a637573746f6df09f8eb6",
+      "67e9be98f09f8eb6",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "08fd351d6f99b21b9c192abaf0793ed3d0ce433fc880ebfea98f95625ff54617",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "10e227c8667681b6801d0dbb85fce5091b45f29d19e45e05df20dd988e146523",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "2ab22b40da0a94bba7132c49310cf1eafeb44db64cdac12930d9381f4d38d880"
+  },
+  {
+    "subject": "public-oracle-9",
+    "property": "custom🎶",
+    "value": "line\nend",
+    "sequenceNumber": 0,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d39",
+      "6a637573746f6df09f8eb6",
+      "686c696e650a656e64",
+      "00"
+    ],
+    "componentHashes": [
+      "4e37f68f37b2e811dd1805fa60a5798379f8617b310226438f8702e3eaa642e1",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "bb5e51f4be90cd07228cd79d590887ac983e55bbb170de2b1b1c25fbcf576c9a",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "a9071e11737d9cb3775f570686d1444fd5934175c4cdd49632611b46e6179acb"
+  },
+  {
+    "subject": "public-oracle-9",
+    "property": "custom🎶",
+    "value": "line\nend",
+    "sequenceNumber": 24,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d39",
+      "6a637573746f6df09f8eb6",
+      "686c696e650a656e64",
+      "1818"
+    ],
+    "componentHashes": [
+      "4e37f68f37b2e811dd1805fa60a5798379f8617b310226438f8702e3eaa642e1",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "bb5e51f4be90cd07228cd79d590887ac983e55bbb170de2b1b1c25fbcf576c9a",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "f53d5478c3ca9d787155e2991a3faaf3392d6758f63f2273d1eaded3122ba7a9"
+  },
+  {
+    "subject": "public-oracle-9",
+    "property": "custom🎶",
+    "value": "line\nend",
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d39",
+      "6a637573746f6df09f8eb6",
+      "686c696e650a656e64",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "4e37f68f37b2e811dd1805fa60a5798379f8617b310226438f8702e3eaa642e1",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "bb5e51f4be90cd07228cd79d590887ac983e55bbb170de2b1b1c25fbcf576c9a",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "348cfb8d94c9c5d67a43605475b096f734af20e7db09ae65b0cd3d1556edfad6"
+  },
+  {
+    "subject": "public-oracle-9",
+    "property": "custom🎶",
+    "value": "line\nend",
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "6f7075626c69632d6f7261636c652d39",
+      "6a637573746f6df09f8eb6",
+      "686c696e650a656e64",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "4e37f68f37b2e811dd1805fa60a5798379f8617b310226438f8702e3eaa642e1",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "bb5e51f4be90cd07228cd79d590887ac983e55bbb170de2b1b1c25fbcf576c9a",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "371c9405b6145ce2572be760ac56ecdae80a7f2ee7640df9a65ab185e4c44c7c"
+  },
+  {
+    "subject": "public-oracle-10",
+    "property": "custom🎶",
+    "value": true,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3130",
+      "6a637573746f6df09f8eb6",
+      "f5",
+      "00"
+    ],
+    "componentHashes": [
+      "5c5777c9a0654743a5cade300b6def14ea95554e18f2582970a497ba1496ed9f",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "1df48af37819ea105a9439b2835699291f4f59a91043fdb4f1184fe1ede6d209",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "5031aa0d9983f733a1be6336ce15515d298cbfa5d5e4bdc665bd276d5edad977"
+  },
+  {
+    "subject": "public-oracle-10",
+    "property": "custom🎶",
+    "value": true,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3130",
+      "6a637573746f6df09f8eb6",
+      "f5",
+      "1818"
+    ],
+    "componentHashes": [
+      "5c5777c9a0654743a5cade300b6def14ea95554e18f2582970a497ba1496ed9f",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "1df48af37819ea105a9439b2835699291f4f59a91043fdb4f1184fe1ede6d209",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "b647b6ceb8564a61e7841ae4e9128e9c0b820525617deeba8a790c3eef5459ab"
+  },
+  {
+    "subject": "public-oracle-10",
+    "property": "custom🎶",
+    "value": true,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3130",
+      "6a637573746f6df09f8eb6",
+      "f5",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "5c5777c9a0654743a5cade300b6def14ea95554e18f2582970a497ba1496ed9f",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "1df48af37819ea105a9439b2835699291f4f59a91043fdb4f1184fe1ede6d209",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "357f0b357657dc613dd702d4ee63cb14ae81dbec9a920298dda1d148ec306eb7"
+  },
+  {
+    "subject": "public-oracle-10",
+    "property": "custom🎶",
+    "value": true,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3130",
+      "6a637573746f6df09f8eb6",
+      "f5",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "5c5777c9a0654743a5cade300b6def14ea95554e18f2582970a497ba1496ed9f",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "1df48af37819ea105a9439b2835699291f4f59a91043fdb4f1184fe1ede6d209",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "27841580657620345634e174288e1e392652fd56eaa2c2ca89630db45b85cc1d"
+  },
+  {
+    "subject": "public-oracle-11",
+    "property": "custom🎶",
+    "value": false,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3131",
+      "6a637573746f6df09f8eb6",
+      "f4",
+      "00"
+    ],
+    "componentHashes": [
+      "9a393f150983e875d3fec7d12a684d9a1df20da2f0c9423c41bb237ffe0d1b21",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "8e7e0acc437596ccc12aaccab37c1342f12175192ab7c1c1831f70ac97d9ef01",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "56d6e207bcb6f1917f32e0c043a0d7e80c11f3c469e202128eb0c2be3c96e194"
+  },
+  {
+    "subject": "public-oracle-11",
+    "property": "custom🎶",
+    "value": false,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3131",
+      "6a637573746f6df09f8eb6",
+      "f4",
+      "1818"
+    ],
+    "componentHashes": [
+      "9a393f150983e875d3fec7d12a684d9a1df20da2f0c9423c41bb237ffe0d1b21",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "8e7e0acc437596ccc12aaccab37c1342f12175192ab7c1c1831f70ac97d9ef01",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "09afc4f7e76733eaf6faca3d6847bc2dc3435f8e285b4dc86a4f77e545b8587d"
+  },
+  {
+    "subject": "public-oracle-11",
+    "property": "custom🎶",
+    "value": false,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3131",
+      "6a637573746f6df09f8eb6",
+      "f4",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "9a393f150983e875d3fec7d12a684d9a1df20da2f0c9423c41bb237ffe0d1b21",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "8e7e0acc437596ccc12aaccab37c1342f12175192ab7c1c1831f70ac97d9ef01",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "9b923a0fd1931ce797bedd54f15447b6a669b2e643dce91bb83db304ab10f8f8"
+  },
+  {
+    "subject": "public-oracle-11",
+    "property": "custom🎶",
+    "value": false,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3131",
+      "6a637573746f6df09f8eb6",
+      "f4",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "9a393f150983e875d3fec7d12a684d9a1df20da2f0c9423c41bb237ffe0d1b21",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "8e7e0acc437596ccc12aaccab37c1342f12175192ab7c1c1831f70ac97d9ef01",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "5254c1e52db93680bb27bd08408598cce5d2d271759458c1e18f2c37bef41a9d"
+  },
+  {
+    "subject": "public-oracle-12",
+    "property": "custom🎶",
+    "value": null,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3132",
+      "6a637573746f6df09f8eb6",
+      "f6",
+      "00"
+    ],
+    "componentHashes": [
+      "3da91f4d56cf262890bfb1fb572c8fda9eaf5b1193fb8841f82a8e1909ff85f6",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "01f4b788593d4f70de2a45c2e1e87088bfbdfa29577ae1b62aba60e095e3ab53",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "d5c33f2ef1546a6c629b85369a9ca3469994733b0c0838f640590da5608f88a7"
+  },
+  {
+    "subject": "public-oracle-12",
+    "property": "custom🎶",
+    "value": null,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3132",
+      "6a637573746f6df09f8eb6",
+      "f6",
+      "1818"
+    ],
+    "componentHashes": [
+      "3da91f4d56cf262890bfb1fb572c8fda9eaf5b1193fb8841f82a8e1909ff85f6",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "01f4b788593d4f70de2a45c2e1e87088bfbdfa29577ae1b62aba60e095e3ab53",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "795e5c16a7d9246f0c0d76b47e8a255380d7755aa16db12e11c58235048253b9"
+  },
+  {
+    "subject": "public-oracle-12",
+    "property": "custom🎶",
+    "value": null,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3132",
+      "6a637573746f6df09f8eb6",
+      "f6",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "3da91f4d56cf262890bfb1fb572c8fda9eaf5b1193fb8841f82a8e1909ff85f6",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "01f4b788593d4f70de2a45c2e1e87088bfbdfa29577ae1b62aba60e095e3ab53",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "b0badffc5e6ef1b072ab7dca2073b3192b00a8284e8b2bbdfc02c3a17c027652"
+  },
+  {
+    "subject": "public-oracle-12",
+    "property": "custom🎶",
+    "value": null,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3132",
+      "6a637573746f6df09f8eb6",
+      "f6",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "3da91f4d56cf262890bfb1fb572c8fda9eaf5b1193fb8841f82a8e1909ff85f6",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "01f4b788593d4f70de2a45c2e1e87088bfbdfa29577ae1b62aba60e095e3ab53",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "9a07f469ee53879b268c19b23ce9d8303987f05064af813319d9aacdcc48981a"
+  },
+  {
+    "subject": "public-oracle-13",
+    "property": "custom🎶",
+    "value": 0,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3133",
+      "6a637573746f6df09f8eb6",
+      "00",
+      "00"
+    ],
+    "componentHashes": [
+      "bd0758653aca79c6805c92bef3c6d8220afde9f1b4c6fcb5811c8c7f213653ef",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "3f10a2894f5e91d63183930698999920cf52ad71913b0bb672d3d401fd976f10"
+  },
+  {
+    "subject": "public-oracle-13",
+    "property": "custom🎶",
+    "value": 0,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3133",
+      "6a637573746f6df09f8eb6",
+      "00",
+      "1818"
+    ],
+    "componentHashes": [
+      "bd0758653aca79c6805c92bef3c6d8220afde9f1b4c6fcb5811c8c7f213653ef",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "f6c6d1999db3b8d79c22ce2f04870ef430cc493563422ec33898e4989b8cba30"
+  },
+  {
+    "subject": "public-oracle-13",
+    "property": "custom🎶",
+    "value": 0,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3133",
+      "6a637573746f6df09f8eb6",
+      "00",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "bd0758653aca79c6805c92bef3c6d8220afde9f1b4c6fcb5811c8c7f213653ef",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "52b2cfd108935e5203ff13cbd50e4c3a7ef80ad815db5d4468d8bf80e92521f2"
+  },
+  {
+    "subject": "public-oracle-13",
+    "property": "custom🎶",
+    "value": 0,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3133",
+      "6a637573746f6df09f8eb6",
+      "00",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "bd0758653aca79c6805c92bef3c6d8220afde9f1b4c6fcb5811c8c7f213653ef",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "61922bb61f2ccc97308fcc32e291d3103b8a1507741d7a7c7986031371a47a99"
+  },
+  {
+    "subject": "public-oracle-14",
+    "property": "custom🎶",
+    "value": 23,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3134",
+      "6a637573746f6df09f8eb6",
+      "17",
+      "00"
+    ],
+    "componentHashes": [
+      "a7fe0f5dfd911a4f9c8382da84624f597160678d31ef8c84b36d990cea79ac36",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "dfff88be5df71a1e88b76d0f5a2449edb77d855b19b3824915bcdf9fc1311823",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "69e136951092cab3c634120929febec3eb825b7692cfaddf48bb1106d1f625af"
+  },
+  {
+    "subject": "public-oracle-14",
+    "property": "custom🎶",
+    "value": 23,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3134",
+      "6a637573746f6df09f8eb6",
+      "17",
+      "1818"
+    ],
+    "componentHashes": [
+      "a7fe0f5dfd911a4f9c8382da84624f597160678d31ef8c84b36d990cea79ac36",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "dfff88be5df71a1e88b76d0f5a2449edb77d855b19b3824915bcdf9fc1311823",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "47ea0628b7c257e1b49266f42031912b94c489e397b50e40d8984a83d754f556"
+  },
+  {
+    "subject": "public-oracle-14",
+    "property": "custom🎶",
+    "value": 23,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3134",
+      "6a637573746f6df09f8eb6",
+      "17",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "a7fe0f5dfd911a4f9c8382da84624f597160678d31ef8c84b36d990cea79ac36",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "dfff88be5df71a1e88b76d0f5a2449edb77d855b19b3824915bcdf9fc1311823",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "0ff690736ee97d4e4eeb39301825c375e007d6c01a01ced065c19fb321135f3f"
+  },
+  {
+    "subject": "public-oracle-14",
+    "property": "custom🎶",
+    "value": 23,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3134",
+      "6a637573746f6df09f8eb6",
+      "17",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "a7fe0f5dfd911a4f9c8382da84624f597160678d31ef8c84b36d990cea79ac36",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "dfff88be5df71a1e88b76d0f5a2449edb77d855b19b3824915bcdf9fc1311823",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "815f575841778e96cb2a6f0f0b4fdc9fb77ee693f0c1c5f5e2b7f7895c895b5d"
+  },
+  {
+    "subject": "public-oracle-15",
+    "property": "custom🎶",
+    "value": 24,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3135",
+      "6a637573746f6df09f8eb6",
+      "1818",
+      "00"
+    ],
+    "componentHashes": [
+      "0ed90a2214f29483d89d4cef263c7f5d1034674e19dea465ea85528fa5fc26a6",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "d83a43b62eaff8e75fc6979bc44689242f3e2975879ac53220041053b0b0c2a7"
+  },
+  {
+    "subject": "public-oracle-15",
+    "property": "custom🎶",
+    "value": 24,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3135",
+      "6a637573746f6df09f8eb6",
+      "1818",
+      "1818"
+    ],
+    "componentHashes": [
+      "0ed90a2214f29483d89d4cef263c7f5d1034674e19dea465ea85528fa5fc26a6",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "d5aeac7f2267f1a9f08668fe47f4f3567b004e4f200797fd7bea24e1bc1e3aa8"
+  },
+  {
+    "subject": "public-oracle-15",
+    "property": "custom🎶",
+    "value": 24,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3135",
+      "6a637573746f6df09f8eb6",
+      "1818",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "0ed90a2214f29483d89d4cef263c7f5d1034674e19dea465ea85528fa5fc26a6",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "2149ec0afb13c2571b315cc834eaf711961ff77e25d569be6bb49f14b65c7940"
+  },
+  {
+    "subject": "public-oracle-15",
+    "property": "custom🎶",
+    "value": 24,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3135",
+      "6a637573746f6df09f8eb6",
+      "1818",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "0ed90a2214f29483d89d4cef263c7f5d1034674e19dea465ea85528fa5fc26a6",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "66ee51dc56ea599fb283d1c70667169e13a70df316b0e2314c668044d452656f"
+  },
+  {
+    "subject": "public-oracle-16",
+    "property": "custom🎶",
+    "value": 255,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3136",
+      "6a637573746f6df09f8eb6",
+      "18ff",
+      "00"
+    ],
+    "componentHashes": [
+      "225f30457792ce598c1f1921b3068093f8753d32739e0f36e8f151bd59dd5c2e",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "175ca973b6f8deafbbd25b46b0b883d7251094d9cf91d3a460a091a534734459",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "5b977b3f692d90604c0eaab20805e9bb343b7d12ec18f4b5da23fff34f4c3770"
+  },
+  {
+    "subject": "public-oracle-16",
+    "property": "custom🎶",
+    "value": 255,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3136",
+      "6a637573746f6df09f8eb6",
+      "18ff",
+      "1818"
+    ],
+    "componentHashes": [
+      "225f30457792ce598c1f1921b3068093f8753d32739e0f36e8f151bd59dd5c2e",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "175ca973b6f8deafbbd25b46b0b883d7251094d9cf91d3a460a091a534734459",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "5ae83044d857f4538839c2ba8ee711452f117a955315a7b132a1edd57b7ace09"
+  },
+  {
+    "subject": "public-oracle-16",
+    "property": "custom🎶",
+    "value": 255,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3136",
+      "6a637573746f6df09f8eb6",
+      "18ff",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "225f30457792ce598c1f1921b3068093f8753d32739e0f36e8f151bd59dd5c2e",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "175ca973b6f8deafbbd25b46b0b883d7251094d9cf91d3a460a091a534734459",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "13137ca31898deb61175e4286b38007a22f8f1b6b082f562e96f5c96a0a45db4"
+  },
+  {
+    "subject": "public-oracle-16",
+    "property": "custom🎶",
+    "value": 255,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3136",
+      "6a637573746f6df09f8eb6",
+      "18ff",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "225f30457792ce598c1f1921b3068093f8753d32739e0f36e8f151bd59dd5c2e",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "175ca973b6f8deafbbd25b46b0b883d7251094d9cf91d3a460a091a534734459",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "29d660038842cf42ec3d6ed61e8076060e41ae9bdba6957fd18758dec953b59e"
+  },
+  {
+    "subject": "public-oracle-17",
+    "property": "custom🎶",
+    "value": 256,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3137",
+      "6a637573746f6df09f8eb6",
+      "190100",
+      "00"
+    ],
+    "componentHashes": [
+      "142d4d9ec85ebd3c860996953d84160c2bc0a6824b50eb92cc3fb67291ab98d7",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "b924e3603385bec18d94322f6fe1eec425baa728d235fec2e24dee4b8e8e872b",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "0c5f25660613f91e5118d3407f4fdcd3dc3f041569639214cf9adf65111578a6"
+  },
+  {
+    "subject": "public-oracle-17",
+    "property": "custom🎶",
+    "value": 256,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3137",
+      "6a637573746f6df09f8eb6",
+      "190100",
+      "1818"
+    ],
+    "componentHashes": [
+      "142d4d9ec85ebd3c860996953d84160c2bc0a6824b50eb92cc3fb67291ab98d7",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "b924e3603385bec18d94322f6fe1eec425baa728d235fec2e24dee4b8e8e872b",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "3cd4bf7208c2bb6ba8d96c846d3091773d60d5fec22dbb28d3a9b93c91d225cc"
+  },
+  {
+    "subject": "public-oracle-17",
+    "property": "custom🎶",
+    "value": 256,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3137",
+      "6a637573746f6df09f8eb6",
+      "190100",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "142d4d9ec85ebd3c860996953d84160c2bc0a6824b50eb92cc3fb67291ab98d7",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "b924e3603385bec18d94322f6fe1eec425baa728d235fec2e24dee4b8e8e872b",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "54303bb9dbe63b6b8ef88976784345669c2657b888ddcb6bbfa3e66864f899c2"
+  },
+  {
+    "subject": "public-oracle-17",
+    "property": "custom🎶",
+    "value": 256,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3137",
+      "6a637573746f6df09f8eb6",
+      "190100",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "142d4d9ec85ebd3c860996953d84160c2bc0a6824b50eb92cc3fb67291ab98d7",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "b924e3603385bec18d94322f6fe1eec425baa728d235fec2e24dee4b8e8e872b",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "aa1b705e480557bfcb1c242c692cef622c1c4e4bfa889218a73dd748ea1f644d"
+  },
+  {
+    "subject": "public-oracle-18",
+    "property": "custom🎶",
+    "value": 65535,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3138",
+      "6a637573746f6df09f8eb6",
+      "19ffff",
+      "00"
+    ],
+    "componentHashes": [
+      "38f10b04fd43d4a4f9a7b6f0a17e1d4be4c2741cc3d2cf6e4a1b55956db37ef1",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "422d951fe9d7bf9163053b17c4aeaecedc02d27653d7bbecb2f21846a012ec3d",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "68b4a92d8f25f6a1e2ae12c49623cfaf4e29d2599248638693103ef5ba8dc2d6"
+  },
+  {
+    "subject": "public-oracle-18",
+    "property": "custom🎶",
+    "value": 65535,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3138",
+      "6a637573746f6df09f8eb6",
+      "19ffff",
+      "1818"
+    ],
+    "componentHashes": [
+      "38f10b04fd43d4a4f9a7b6f0a17e1d4be4c2741cc3d2cf6e4a1b55956db37ef1",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "422d951fe9d7bf9163053b17c4aeaecedc02d27653d7bbecb2f21846a012ec3d",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "85903068afdf70b3adb4e8faee5dac91f39f19e70118bd546efeb04cc0cda7f3"
+  },
+  {
+    "subject": "public-oracle-18",
+    "property": "custom🎶",
+    "value": 65535,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3138",
+      "6a637573746f6df09f8eb6",
+      "19ffff",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "38f10b04fd43d4a4f9a7b6f0a17e1d4be4c2741cc3d2cf6e4a1b55956db37ef1",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "422d951fe9d7bf9163053b17c4aeaecedc02d27653d7bbecb2f21846a012ec3d",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "ca65fb12e4457d09df77cb98d4180be818b5799e3f2a10f4b18489e1f1637bc5"
+  },
+  {
+    "subject": "public-oracle-18",
+    "property": "custom🎶",
+    "value": 65535,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3138",
+      "6a637573746f6df09f8eb6",
+      "19ffff",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "38f10b04fd43d4a4f9a7b6f0a17e1d4be4c2741cc3d2cf6e4a1b55956db37ef1",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "422d951fe9d7bf9163053b17c4aeaecedc02d27653d7bbecb2f21846a012ec3d",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "d423cc7a7f090c9da8b638d250502fa046c8687dc05fe8bbe702874efe85b36d"
+  },
+  {
+    "subject": "public-oracle-19",
+    "property": "custom🎶",
+    "value": 65536,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3139",
+      "6a637573746f6df09f8eb6",
+      "1a00010000",
+      "00"
+    ],
+    "componentHashes": [
+      "77185e60957a40524f98d390acc58458813cc1ed50b1590f705dd323d3641f46",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "22a3aa82ac9b396ff1b0343e555e3812bc20fc4b74eca3de23812e2b8cd20e02"
+  },
+  {
+    "subject": "public-oracle-19",
+    "property": "custom🎶",
+    "value": 65536,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3139",
+      "6a637573746f6df09f8eb6",
+      "1a00010000",
+      "1818"
+    ],
+    "componentHashes": [
+      "77185e60957a40524f98d390acc58458813cc1ed50b1590f705dd323d3641f46",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "2a414397e065572d2246aa9dae9b7b228f2b47523d3134269dd45e2441af6194"
+  },
+  {
+    "subject": "public-oracle-19",
+    "property": "custom🎶",
+    "value": 65536,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3139",
+      "6a637573746f6df09f8eb6",
+      "1a00010000",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "77185e60957a40524f98d390acc58458813cc1ed50b1590f705dd323d3641f46",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "dbfedb2dc60ef4de6c3d79c373192d01f2974b5914cc794b7fa7875ef4feab48"
+  },
+  {
+    "subject": "public-oracle-19",
+    "property": "custom🎶",
+    "value": 65536,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3139",
+      "6a637573746f6df09f8eb6",
+      "1a00010000",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "77185e60957a40524f98d390acc58458813cc1ed50b1590f705dd323d3641f46",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "53988b2a8e46eb80ba7113d534b17890f58c4005e030855baf7368c4e0285500"
+  },
+  {
+    "subject": "public-oracle-20",
+    "property": "custom🎶",
+    "value": 4294967295,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3230",
+      "6a637573746f6df09f8eb6",
+      "1affffffff",
+      "00"
+    ],
+    "componentHashes": [
+      "6805f3598b8df16a2f0be40e4e277762bd9d35a7b1c9ab32942f352c5dd1c3fc",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "91551bb76bfd5db5a20b4020d713baee46109201abff0bf6b27e115c4177cf13",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "4a087e274a1de54a0d25db42ea1652b5ed9c5c2dda261c04e60ebfbb7eaa8c71"
+  },
+  {
+    "subject": "public-oracle-20",
+    "property": "custom🎶",
+    "value": 4294967295,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3230",
+      "6a637573746f6df09f8eb6",
+      "1affffffff",
+      "1818"
+    ],
+    "componentHashes": [
+      "6805f3598b8df16a2f0be40e4e277762bd9d35a7b1c9ab32942f352c5dd1c3fc",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "91551bb76bfd5db5a20b4020d713baee46109201abff0bf6b27e115c4177cf13",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "f5145512c4e03faa5711d3c51ab3d1329e2dd9a0a42480f12cb6006055de2e9c"
+  },
+  {
+    "subject": "public-oracle-20",
+    "property": "custom🎶",
+    "value": 4294967295,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3230",
+      "6a637573746f6df09f8eb6",
+      "1affffffff",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "6805f3598b8df16a2f0be40e4e277762bd9d35a7b1c9ab32942f352c5dd1c3fc",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "91551bb76bfd5db5a20b4020d713baee46109201abff0bf6b27e115c4177cf13",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "7cfc66e8f05469c97507ab36d9790cace20c735b2cce62508b8267cb38221376"
+  },
+  {
+    "subject": "public-oracle-20",
+    "property": "custom🎶",
+    "value": 4294967295,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3230",
+      "6a637573746f6df09f8eb6",
+      "1affffffff",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "6805f3598b8df16a2f0be40e4e277762bd9d35a7b1c9ab32942f352c5dd1c3fc",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "91551bb76bfd5db5a20b4020d713baee46109201abff0bf6b27e115c4177cf13",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "2bff03ac8f1188bdec6a3d18d2b30602f240155f07d3dad47e84a5b6408003a5"
+  },
+  {
+    "subject": "public-oracle-21",
+    "property": "custom🎶",
+    "value": 4294967296,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3231",
+      "6a637573746f6df09f8eb6",
+      "1b0000000100000000",
+      "00"
+    ],
+    "componentHashes": [
+      "1f3c1369201cf9a6b2a2af2cf052f2bea5586d03c74144fabfc79ba6b6751aa4",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "542c4ba891b973eab061c84c11618835dd33e80fd527484dbc95497b2580f55f",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "e1f146d998e8a97a9678fd5eed9befe20625986013629a975dd5710a79149b03"
+  },
+  {
+    "subject": "public-oracle-21",
+    "property": "custom🎶",
+    "value": 4294967296,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3231",
+      "6a637573746f6df09f8eb6",
+      "1b0000000100000000",
+      "1818"
+    ],
+    "componentHashes": [
+      "1f3c1369201cf9a6b2a2af2cf052f2bea5586d03c74144fabfc79ba6b6751aa4",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "542c4ba891b973eab061c84c11618835dd33e80fd527484dbc95497b2580f55f",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "31a94c2501cf155d4163f6442bfa2decfe43f8135189e0e58368da2b364d9dc8"
+  },
+  {
+    "subject": "public-oracle-21",
+    "property": "custom🎶",
+    "value": 4294967296,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3231",
+      "6a637573746f6df09f8eb6",
+      "1b0000000100000000",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "1f3c1369201cf9a6b2a2af2cf052f2bea5586d03c74144fabfc79ba6b6751aa4",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "542c4ba891b973eab061c84c11618835dd33e80fd527484dbc95497b2580f55f",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "6f9fde68dce3ca12865a0c77f345b3a5a4b6a8c4183492f077de34fcb85d8829"
+  },
+  {
+    "subject": "public-oracle-21",
+    "property": "custom🎶",
+    "value": 4294967296,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3231",
+      "6a637573746f6df09f8eb6",
+      "1b0000000100000000",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "1f3c1369201cf9a6b2a2af2cf052f2bea5586d03c74144fabfc79ba6b6751aa4",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "542c4ba891b973eab061c84c11618835dd33e80fd527484dbc95497b2580f55f",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "07596b1b822300564d3e8f4ab0fd9f613969c94294e24f4e534d18bce4e0b7c4"
+  },
+  {
+    "subject": "public-oracle-22",
+    "property": "custom🎶",
+    "value": 9007199254740991,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3232",
+      "6a637573746f6df09f8eb6",
+      "1b001fffffffffffff",
+      "00"
+    ],
+    "componentHashes": [
+      "d961a1897a37abb541ff60088e329a84c1c5c1fe82876e8491ed1d8da6e6d11e",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "c0f14460f7f3c23ca70a7dbfd45452c92c618275a46a37be555576ca1f032236"
+  },
+  {
+    "subject": "public-oracle-22",
+    "property": "custom🎶",
+    "value": 9007199254740991,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3232",
+      "6a637573746f6df09f8eb6",
+      "1b001fffffffffffff",
+      "1818"
+    ],
+    "componentHashes": [
+      "d961a1897a37abb541ff60088e329a84c1c5c1fe82876e8491ed1d8da6e6d11e",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "ce387d6e8f17b62b78a501cce12de58a5f6688f5810026cd332f9adce3183baa"
+  },
+  {
+    "subject": "public-oracle-22",
+    "property": "custom🎶",
+    "value": 9007199254740991,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3232",
+      "6a637573746f6df09f8eb6",
+      "1b001fffffffffffff",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "d961a1897a37abb541ff60088e329a84c1c5c1fe82876e8491ed1d8da6e6d11e",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "0a5f18c268d326831848727077667c53f07462086c19a95182c60f12b26a4b22"
+  },
+  {
+    "subject": "public-oracle-22",
+    "property": "custom🎶",
+    "value": 9007199254740991,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3232",
+      "6a637573746f6df09f8eb6",
+      "1b001fffffffffffff",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "d961a1897a37abb541ff60088e329a84c1c5c1fe82876e8491ed1d8da6e6d11e",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "c0604fb73c2ce67b29e5cda71930c358e3aab9477ef75cce411dab76695bdca7"
+  },
+  {
+    "subject": "public-oracle-23",
+    "property": "custom🎶",
+    "value": -1,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3233",
+      "6a637573746f6df09f8eb6",
+      "20",
+      "00"
+    ],
+    "componentHashes": [
+      "b680d9e9fc8da1a50f06777311b271568ba570bb290972495f9a57278ec1f124",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "ae85d245a3d00bfde01f59f3c4fe0b4bfae1cb37e9cf91929eadcea4985711de",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "2210bd5e9463bc7ef619771350976a3edf9fc3896bcaa699b6a6edbdbd060045"
+  },
+  {
+    "subject": "public-oracle-23",
+    "property": "custom🎶",
+    "value": -1,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3233",
+      "6a637573746f6df09f8eb6",
+      "20",
+      "1818"
+    ],
+    "componentHashes": [
+      "b680d9e9fc8da1a50f06777311b271568ba570bb290972495f9a57278ec1f124",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "ae85d245a3d00bfde01f59f3c4fe0b4bfae1cb37e9cf91929eadcea4985711de",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "37a76e06c9f33e92671a3cab167bb42f80e993e62cc3edd7beb6a7204b8e4650"
+  },
+  {
+    "subject": "public-oracle-23",
+    "property": "custom🎶",
+    "value": -1,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3233",
+      "6a637573746f6df09f8eb6",
+      "20",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "b680d9e9fc8da1a50f06777311b271568ba570bb290972495f9a57278ec1f124",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "ae85d245a3d00bfde01f59f3c4fe0b4bfae1cb37e9cf91929eadcea4985711de",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "c726835eb8fb4c750fe1f2843b019c41a2c8d9c9e55202c71a05772df08c8686"
+  },
+  {
+    "subject": "public-oracle-23",
+    "property": "custom🎶",
+    "value": -1,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3233",
+      "6a637573746f6df09f8eb6",
+      "20",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "b680d9e9fc8da1a50f06777311b271568ba570bb290972495f9a57278ec1f124",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "ae85d245a3d00bfde01f59f3c4fe0b4bfae1cb37e9cf91929eadcea4985711de",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "93f2ac9b5b062e6130e959cc6eca5af2e72e04bc10f4a1079d156dff684f7434"
+  },
+  {
+    "subject": "public-oracle-24",
+    "property": "custom🎶",
+    "value": -24,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3234",
+      "6a637573746f6df09f8eb6",
+      "37",
+      "00"
+    ],
+    "componentHashes": [
+      "f62d75a83bd86aa1a56eac6abd9b2949f10f96c33a56c3a4c3e6cd779d624d54",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "0a420b072ce72f6a6833576ffa74ea21dcca4ce7c025dbee7b1dae478cba6f29",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "cfd5acd5951a9369686fc228cc25ef29e0e2aff812fd794c5107fe18f8fdd34e"
+  },
+  {
+    "subject": "public-oracle-24",
+    "property": "custom🎶",
+    "value": -24,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3234",
+      "6a637573746f6df09f8eb6",
+      "37",
+      "1818"
+    ],
+    "componentHashes": [
+      "f62d75a83bd86aa1a56eac6abd9b2949f10f96c33a56c3a4c3e6cd779d624d54",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "0a420b072ce72f6a6833576ffa74ea21dcca4ce7c025dbee7b1dae478cba6f29",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "964a19d10992573264fbd7c1abda77a17b2576570d5ca9537d6484283120610b"
+  },
+  {
+    "subject": "public-oracle-24",
+    "property": "custom🎶",
+    "value": -24,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3234",
+      "6a637573746f6df09f8eb6",
+      "37",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "f62d75a83bd86aa1a56eac6abd9b2949f10f96c33a56c3a4c3e6cd779d624d54",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "0a420b072ce72f6a6833576ffa74ea21dcca4ce7c025dbee7b1dae478cba6f29",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "f5299b932d370a6a034639343a1ede67b8df7aeee4b02129707cbbb05758d16c"
+  },
+  {
+    "subject": "public-oracle-24",
+    "property": "custom🎶",
+    "value": -24,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3234",
+      "6a637573746f6df09f8eb6",
+      "37",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "f62d75a83bd86aa1a56eac6abd9b2949f10f96c33a56c3a4c3e6cd779d624d54",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "0a420b072ce72f6a6833576ffa74ea21dcca4ce7c025dbee7b1dae478cba6f29",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "f23e44085f1baffe7dc14cd0344b45546acfbb840ac00d9f396ebfbb2480f6fa"
+  },
+  {
+    "subject": "public-oracle-25",
+    "property": "custom🎶",
+    "value": -25,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3235",
+      "6a637573746f6df09f8eb6",
+      "3818",
+      "00"
+    ],
+    "componentHashes": [
+      "b058c26a214fb165db19408f80c94f117f352aebb476ba253c1059156acf86ab",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "627460951005a4a9881182a8a32015b1dc85d5ee6f31e968b5b375115281e07a",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "d9b66fa8facb42c09baf278f43ad2138c6ee2ffd6f7f39c9ce656049591099bc"
+  },
+  {
+    "subject": "public-oracle-25",
+    "property": "custom🎶",
+    "value": -25,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3235",
+      "6a637573746f6df09f8eb6",
+      "3818",
+      "1818"
+    ],
+    "componentHashes": [
+      "b058c26a214fb165db19408f80c94f117f352aebb476ba253c1059156acf86ab",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "627460951005a4a9881182a8a32015b1dc85d5ee6f31e968b5b375115281e07a",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "cb161cc7fed98a696e3e3c6799c4f3a27868a570a5e5e1aaad57976d2667bac1"
+  },
+  {
+    "subject": "public-oracle-25",
+    "property": "custom🎶",
+    "value": -25,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3235",
+      "6a637573746f6df09f8eb6",
+      "3818",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "b058c26a214fb165db19408f80c94f117f352aebb476ba253c1059156acf86ab",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "627460951005a4a9881182a8a32015b1dc85d5ee6f31e968b5b375115281e07a",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "80a18ebec12dfb06c057bb01bfb9eba3c2ed15ced7679cf598ac5fdedd7390b7"
+  },
+  {
+    "subject": "public-oracle-25",
+    "property": "custom🎶",
+    "value": -25,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3235",
+      "6a637573746f6df09f8eb6",
+      "3818",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "b058c26a214fb165db19408f80c94f117f352aebb476ba253c1059156acf86ab",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "627460951005a4a9881182a8a32015b1dc85d5ee6f31e968b5b375115281e07a",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "91cff8fe61dcf677d5491c49ec3c70885fda9d2fa7438db16bdd0c5da3463997"
+  },
+  {
+    "subject": "public-oracle-26",
+    "property": "custom🎶",
+    "value": -256,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3236",
+      "6a637573746f6df09f8eb6",
+      "38ff",
+      "00"
+    ],
+    "componentHashes": [
+      "eefeea8d9f68a951ea4d6a1263864a1df21d77bf4c7dc0d8e0c5c9e3417b7c7d",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "c14a25990daca87e565bf86e6fc6c6abd5e8870895a62c5b45499446da81a65d",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "682499a82516afecb6dc578113db023969ec866c964105085e40eba33d822ff1"
+  },
+  {
+    "subject": "public-oracle-26",
+    "property": "custom🎶",
+    "value": -256,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3236",
+      "6a637573746f6df09f8eb6",
+      "38ff",
+      "1818"
+    ],
+    "componentHashes": [
+      "eefeea8d9f68a951ea4d6a1263864a1df21d77bf4c7dc0d8e0c5c9e3417b7c7d",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "c14a25990daca87e565bf86e6fc6c6abd5e8870895a62c5b45499446da81a65d",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "4c2b58e5354687d93497eefd3874c8f344e476f9e2ebe158e987797a69bd74be"
+  },
+  {
+    "subject": "public-oracle-26",
+    "property": "custom🎶",
+    "value": -256,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3236",
+      "6a637573746f6df09f8eb6",
+      "38ff",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "eefeea8d9f68a951ea4d6a1263864a1df21d77bf4c7dc0d8e0c5c9e3417b7c7d",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "c14a25990daca87e565bf86e6fc6c6abd5e8870895a62c5b45499446da81a65d",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "4d019035db89ada4440571901b738ba154bedfe2cd9efebbb0681105c249b0a3"
+  },
+  {
+    "subject": "public-oracle-26",
+    "property": "custom🎶",
+    "value": -256,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3236",
+      "6a637573746f6df09f8eb6",
+      "38ff",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "eefeea8d9f68a951ea4d6a1263864a1df21d77bf4c7dc0d8e0c5c9e3417b7c7d",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "c14a25990daca87e565bf86e6fc6c6abd5e8870895a62c5b45499446da81a65d",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "2ff328676c11d07fbb5d9f24534e53c03d35bcc8aba9f0a37962cd4d54a7adcf"
+  },
+  {
+    "subject": "public-oracle-27",
+    "property": "custom🎶",
+    "value": -257,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3237",
+      "6a637573746f6df09f8eb6",
+      "390100",
+      "00"
+    ],
+    "componentHashes": [
+      "0a6cbb30bb6fe7415ca09b4b7c2176f73e28d1d8615ffa62a8cb1dd05b55a788",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "37fc0c935f87fdb55862a29a1f55fbc16b4779ed6c97d1719151973766a108cb",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "1b4816b43b09954793dbe668389ddb12eacc4fcfaaa27792728d9227e5d19bd7"
+  },
+  {
+    "subject": "public-oracle-27",
+    "property": "custom🎶",
+    "value": -257,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3237",
+      "6a637573746f6df09f8eb6",
+      "390100",
+      "1818"
+    ],
+    "componentHashes": [
+      "0a6cbb30bb6fe7415ca09b4b7c2176f73e28d1d8615ffa62a8cb1dd05b55a788",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "37fc0c935f87fdb55862a29a1f55fbc16b4779ed6c97d1719151973766a108cb",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "aca761087844032fa97d29c62fb0c457b38f253f72c3b18a6f3cb30fd5ce8b66"
+  },
+  {
+    "subject": "public-oracle-27",
+    "property": "custom🎶",
+    "value": -257,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3237",
+      "6a637573746f6df09f8eb6",
+      "390100",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "0a6cbb30bb6fe7415ca09b4b7c2176f73e28d1d8615ffa62a8cb1dd05b55a788",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "37fc0c935f87fdb55862a29a1f55fbc16b4779ed6c97d1719151973766a108cb",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "cf8456793990af685c1387a8852ab4f3d4977fe2fd0df71a8ebefb8085755ff8"
+  },
+  {
+    "subject": "public-oracle-27",
+    "property": "custom🎶",
+    "value": -257,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3237",
+      "6a637573746f6df09f8eb6",
+      "390100",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "0a6cbb30bb6fe7415ca09b4b7c2176f73e28d1d8615ffa62a8cb1dd05b55a788",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "37fc0c935f87fdb55862a29a1f55fbc16b4779ed6c97d1719151973766a108cb",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "df4eb89cb4f9d8facc6d78f7d2899ae67acc2775ac04ce20e158074ce24d609d"
+  },
+  {
+    "subject": "public-oracle-28",
+    "property": "custom🎶",
+    "value": -65536,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3238",
+      "6a637573746f6df09f8eb6",
+      "39ffff",
+      "00"
+    ],
+    "componentHashes": [
+      "7e7429a514a236f368f002a95ef4493f5b1388c20e26e600a54b0b0e7d4d8f3c",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "c8d83496ca39171a7d89265c9111dad25a025f58df75f855c0527ec3fca5a3b9",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "a95d4d7f7b721ff46faaf37c6c02c90df4e8a004e4fab2a2134c0428c14e7559"
+  },
+  {
+    "subject": "public-oracle-28",
+    "property": "custom🎶",
+    "value": -65536,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3238",
+      "6a637573746f6df09f8eb6",
+      "39ffff",
+      "1818"
+    ],
+    "componentHashes": [
+      "7e7429a514a236f368f002a95ef4493f5b1388c20e26e600a54b0b0e7d4d8f3c",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "c8d83496ca39171a7d89265c9111dad25a025f58df75f855c0527ec3fca5a3b9",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "284f0b13040094e7a33a05cb92ef923b66a2331dbe481b022bad619b2b78e3fd"
+  },
+  {
+    "subject": "public-oracle-28",
+    "property": "custom🎶",
+    "value": -65536,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3238",
+      "6a637573746f6df09f8eb6",
+      "39ffff",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "7e7429a514a236f368f002a95ef4493f5b1388c20e26e600a54b0b0e7d4d8f3c",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "c8d83496ca39171a7d89265c9111dad25a025f58df75f855c0527ec3fca5a3b9",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "5308e1700743d198032e6774671268652540bc38586eef28bffbbb12bd4fe518"
+  },
+  {
+    "subject": "public-oracle-28",
+    "property": "custom🎶",
+    "value": -65536,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3238",
+      "6a637573746f6df09f8eb6",
+      "39ffff",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "7e7429a514a236f368f002a95ef4493f5b1388c20e26e600a54b0b0e7d4d8f3c",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "c8d83496ca39171a7d89265c9111dad25a025f58df75f855c0527ec3fca5a3b9",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "4dde77b0922ce720cf7913de4a94fc640a2cb5fa4d8bd9413761e81ba4da4954"
+  },
+  {
+    "subject": "public-oracle-29",
+    "property": "custom🎶",
+    "value": -65537,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3239",
+      "6a637573746f6df09f8eb6",
+      "3a00010000",
+      "00"
+    ],
+    "componentHashes": [
+      "c7eee428a6923de82c6889038188a4f42dac21694c0a148fdd71e8b86f7308ec",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "531e031662b189379e4bf5181609d0d5090e515a834f85af0bbb83517fbde097",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "2eeec17d2853f6c724837b2c2fff498d0953443a74403017577e0ce05d0fa71e"
+  },
+  {
+    "subject": "public-oracle-29",
+    "property": "custom🎶",
+    "value": -65537,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3239",
+      "6a637573746f6df09f8eb6",
+      "3a00010000",
+      "1818"
+    ],
+    "componentHashes": [
+      "c7eee428a6923de82c6889038188a4f42dac21694c0a148fdd71e8b86f7308ec",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "531e031662b189379e4bf5181609d0d5090e515a834f85af0bbb83517fbde097",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "83154efc8b3a74ccfad5ce2162f682a3e7835f7026db54cb8c3636b57e4e5fc8"
+  },
+  {
+    "subject": "public-oracle-29",
+    "property": "custom🎶",
+    "value": -65537,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3239",
+      "6a637573746f6df09f8eb6",
+      "3a00010000",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "c7eee428a6923de82c6889038188a4f42dac21694c0a148fdd71e8b86f7308ec",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "531e031662b189379e4bf5181609d0d5090e515a834f85af0bbb83517fbde097",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "a9a2c527790fd29de9681bff0b54d7882d4f9280fded98e00f401f1c20a8d319"
+  },
+  {
+    "subject": "public-oracle-29",
+    "property": "custom🎶",
+    "value": -65537,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3239",
+      "6a637573746f6df09f8eb6",
+      "3a00010000",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "c7eee428a6923de82c6889038188a4f42dac21694c0a148fdd71e8b86f7308ec",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "531e031662b189379e4bf5181609d0d5090e515a834f85af0bbb83517fbde097",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "27b58adb49f6df898e9cd580d58d22ad976f4537d9268c6e5f64c3f3ce28361e"
+  },
+  {
+    "subject": "public-oracle-30",
+    "property": "custom🎶",
+    "value": -4294967296,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3330",
+      "6a637573746f6df09f8eb6",
+      "3affffffff",
+      "00"
+    ],
+    "componentHashes": [
+      "0657cca0d494a9454c79c787405a03e9a64243e242939cf8124bc702289c0098",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "10755f79c31c6acb960d97bf0b94d033dee66508d0af8933817a4f84f979ee82",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "f29e2919e1a12dbc2d5952b2e954970532a936878e98ddcbbaa4cceca0195a49"
+  },
+  {
+    "subject": "public-oracle-30",
+    "property": "custom🎶",
+    "value": -4294967296,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3330",
+      "6a637573746f6df09f8eb6",
+      "3affffffff",
+      "1818"
+    ],
+    "componentHashes": [
+      "0657cca0d494a9454c79c787405a03e9a64243e242939cf8124bc702289c0098",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "10755f79c31c6acb960d97bf0b94d033dee66508d0af8933817a4f84f979ee82",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "a69e9accddc5c826270d6015d856e37e35c48cd3db436ec90d7dfef3b2f75850"
+  },
+  {
+    "subject": "public-oracle-30",
+    "property": "custom🎶",
+    "value": -4294967296,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3330",
+      "6a637573746f6df09f8eb6",
+      "3affffffff",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "0657cca0d494a9454c79c787405a03e9a64243e242939cf8124bc702289c0098",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "10755f79c31c6acb960d97bf0b94d033dee66508d0af8933817a4f84f979ee82",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "21340eb9ed82799bcddda8e64c16ab5c9dcbdcb97ffaa63e63741ea3d2d249a3"
+  },
+  {
+    "subject": "public-oracle-30",
+    "property": "custom🎶",
+    "value": -4294967296,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3330",
+      "6a637573746f6df09f8eb6",
+      "3affffffff",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "0657cca0d494a9454c79c787405a03e9a64243e242939cf8124bc702289c0098",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "10755f79c31c6acb960d97bf0b94d033dee66508d0af8933817a4f84f979ee82",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "0ac43a28c46382e46a65986d9b4024038e0e12ae0390c10f8147f2704c22e26d"
+  },
+  {
+    "subject": "public-oracle-31",
+    "property": "custom🎶",
+    "value": -4294967297,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3331",
+      "6a637573746f6df09f8eb6",
+      "3b0000000100000000",
+      "00"
+    ],
+    "componentHashes": [
+      "bae1dc94ae3fd759f23cab6a973fa7f694e4f65fcb299a9a83020d44eacab451",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "36541be1d4033936ab895f2d9719dfd67c037d67984d4d1fd1d95d88675c6bcf",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "4174741cdc3db599cd4ed446e28dcc0ff7dc6c9bbdbf974e0dfe62a30401ffe9"
+  },
+  {
+    "subject": "public-oracle-31",
+    "property": "custom🎶",
+    "value": -4294967297,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3331",
+      "6a637573746f6df09f8eb6",
+      "3b0000000100000000",
+      "1818"
+    ],
+    "componentHashes": [
+      "bae1dc94ae3fd759f23cab6a973fa7f694e4f65fcb299a9a83020d44eacab451",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "36541be1d4033936ab895f2d9719dfd67c037d67984d4d1fd1d95d88675c6bcf",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "54146c0b0f048877d0534d748eaee80c7b1c3762cff830cc816f1e009eaff2b9"
+  },
+  {
+    "subject": "public-oracle-31",
+    "property": "custom🎶",
+    "value": -4294967297,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3331",
+      "6a637573746f6df09f8eb6",
+      "3b0000000100000000",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "bae1dc94ae3fd759f23cab6a973fa7f694e4f65fcb299a9a83020d44eacab451",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "36541be1d4033936ab895f2d9719dfd67c037d67984d4d1fd1d95d88675c6bcf",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "cad92eda8164266304627a3383d385cdcbfb264c0807c73f651e16cf525a9536"
+  },
+  {
+    "subject": "public-oracle-31",
+    "property": "custom🎶",
+    "value": -4294967297,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3331",
+      "6a637573746f6df09f8eb6",
+      "3b0000000100000000",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "bae1dc94ae3fd759f23cab6a973fa7f694e4f65fcb299a9a83020d44eacab451",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "36541be1d4033936ab895f2d9719dfd67c037d67984d4d1fd1d95d88675c6bcf",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "dce84dc113544da94bf49c7b6060c37b9dc27271f5d91ff2413532e0b3c0d2e1"
+  },
+  {
+    "subject": "public-oracle-32",
+    "property": "custom🎶",
+    "value": -9007199254740991,
+    "sequenceNumber": 0,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3332",
+      "6a637573746f6df09f8eb6",
+      "3b001ffffffffffffe",
+      "00"
+    ],
+    "componentHashes": [
+      "19533369f3857eada2ba03397accd5ed7db77e7653d1cbf077d00fa1f19bc6fe",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "5b33b00ddbde385fdaa709341779f4856d277dc4000d5b9b32159a7710626149",
+      "03170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c111314"
+    ],
+    "digest": "cb67e8d54936d0dbf961ab0bda134e3d62f71b6544c8c144388ba40749057344"
+  },
+  {
+    "subject": "public-oracle-32",
+    "property": "custom🎶",
+    "value": -9007199254740991,
+    "sequenceNumber": 24,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3332",
+      "6a637573746f6df09f8eb6",
+      "3b001ffffffffffffe",
+      "1818"
+    ],
+    "componentHashes": [
+      "19533369f3857eada2ba03397accd5ed7db77e7653d1cbf077d00fa1f19bc6fe",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "5b33b00ddbde385fdaa709341779f4856d277dc4000d5b9b32159a7710626149",
+      "df5078aee07dd171a343fb99d5fc1b5462fb3c94d82bf72dc1b77d9c0aceec29"
+    ],
+    "digest": "c17f3b1fb1fd449ae111fa494e1f1909e92ba718cc241777440ddf7ec694e143"
+  },
+  {
+    "subject": "public-oracle-32",
+    "property": "custom🎶",
+    "value": -9007199254740991,
+    "sequenceNumber": 65536,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3332",
+      "6a637573746f6df09f8eb6",
+      "3b001ffffffffffffe",
+      "1a00010000"
+    ],
+    "componentHashes": [
+      "19533369f3857eada2ba03397accd5ed7db77e7653d1cbf077d00fa1f19bc6fe",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "5b33b00ddbde385fdaa709341779f4856d277dc4000d5b9b32159a7710626149",
+      "b69b2931a244ae71674128ee2532412eb30065c73f63cfba5508c8a92a1c5a15"
+    ],
+    "digest": "1f806344fd682d230c2a97997155652645c2bc93ab2eeab0b19f4db224aea1e7"
+  },
+  {
+    "subject": "public-oracle-32",
+    "property": "custom🎶",
+    "value": -9007199254740991,
+    "sequenceNumber": 9007199254740991,
+    "cborHex": [
+      "707075626c69632d6f7261636c652d3332",
+      "6a637573746f6df09f8eb6",
+      "3b001ffffffffffffe",
+      "1b001fffffffffffff"
+    ],
+    "componentHashes": [
+      "19533369f3857eada2ba03397accd5ed7db77e7653d1cbf077d00fa1f19bc6fe",
+      "579bb4b81ff0283ac5b1f8bc825c2d117ada6642f5530f01739027eb3113d60b",
+      "5b33b00ddbde385fdaa709341779f4856d277dc4000d5b9b32159a7710626149",
+      "59fcc206b794adb34510a9bfaf6061a953f717c12b422ca2260429b5aafb00b0"
+    ],
+    "digest": "a24fb1c87120241650aa2e9525b7bbf5a9fc8991ed829ca11e2fcdfd8d60b6e3"
+  }
+]

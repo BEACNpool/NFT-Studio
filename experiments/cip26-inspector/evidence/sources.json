@@ -1,0 +1,161 @@
+{
+  "sources": [
+    {
+      "id": "cip26",
+      "url": "https://github.com/cardano-foundation/CIPs/blob/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0026/README.md",
+      "rawUrl": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0026/README.md",
+      "sha256": "f339b6909d989f1c36339742255ecc0274470eb3ce8f48bbd11b9df2a0e3ee42",
+      "bytes": 30595,
+      "path": "evidence/cip26.source.txt",
+      "license": "CC-BY-4.0",
+      "attribution": "CIP-26 authors",
+      "retrievedAt": "2026-09-07T08:09:25.889038+00:00",
+      "sourceCommit": "05ee6bb05982289dbe00c4187b9d54cf90e2e276"
+    },
+    {
+      "id": "schema",
+      "url": "https://github.com/cardano-foundation/CIPs/blob/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0026/schema.json",
+      "rawUrl": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0026/schema.json",
+      "sha256": "6d400d9c145ab1bfef2ad4771badf1e6e3cd8f511351e87143b3667b3fd07a0e",
+      "bytes": 3623,
+      "path": "evidence/schema.source.txt",
+      "license": "CC-BY-4.0",
+      "attribution": "CIP-26 authors",
+      "retrievedAt": "2026-09-07T08:09:25.997948+00:00",
+      "sourceCommit": "05ee6bb05982289dbe00c4187b9d54cf90e2e276"
+    },
+    {
+      "id": "LICENSE",
+      "url": "https://github.com/input-output-hk/offchain-metadata-tools/blob/91eba72d6e5e3b17cd49f625c9546f2c82df5a65/LICENSE",
+      "rawUrl": "https://raw.githubusercontent.com/input-output-hk/offchain-metadata-tools/91eba72d6e5e3b17cd49f625c9546f2c82df5a65/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "bytes": 11357,
+      "path": "evidence/LICENSE.source.txt",
+      "license": "Apache-2.0",
+      "attribution": "Offchain Metadata Tools contributors",
+      "retrievedAt": "2026-09-07T08:09:26.082082+00:00",
+      "sourceCommit": "91eba72d6e5e3b17cd49f625c9546f2c82df5a65"
+    },
+    {
+      "id": "token-metadata-creator--src--Cardano--Metadata--Types.hs",
+      "url": "https://github.com/input-output-hk/offchain-metadata-tools/blob/91eba72d6e5e3b17cd49f625c9546f2c82df5a65/token-metadata-creator/src/Cardano/Metadata/Types.hs",
+      "rawUrl": "https://raw.githubusercontent.com/input-output-hk/offchain-metadata-tools/91eba72d6e5e3b17cd49f625c9546f2c82df5a65/token-metadata-creator/src/Cardano/Metadata/Types.hs",
+      "sha256": "3f3ba444d94a11e9ac1b3703b22cc494d8f717de9bccccb0b058f0a629fcf975",
+      "bytes": 20780,
+      "path": "evidence/token-metadata-creator--src--Cardano--Metadata--Types.hs.source.txt",
+      "license": "Apache-2.0",
+      "attribution": "Offchain Metadata Tools contributors",
+      "retrievedAt": "2026-09-07T08:09:26.193326+00:00",
+      "sourceCommit": "91eba72d6e5e3b17cd49f625c9546f2c82df5a65"
+    },
+    {
+      "id": "token-metadata-creator--test--golden-tests.hs",
+      "url": "https://github.com/input-output-hk/offchain-metadata-tools/blob/91eba72d6e5e3b17cd49f625c9546f2c82df5a65/token-metadata-creator/test/golden-tests.hs",
+      "rawUrl": "https://raw.githubusercontent.com/input-output-hk/offchain-metadata-tools/91eba72d6e5e3b17cd49f625c9546f2c82df5a65/token-metadata-creator/test/golden-tests.hs",
+      "sha256": "fdf7a6bd9b2d8a5c9589aca18a07fd47d1063afea0761e82cc7e97cbdbe78917",
+      "bytes": 2710,
+      "path": "evidence/token-metadata-creator--test--golden-tests.hs.source.txt",
+      "license": "Apache-2.0",
+      "attribution": "Offchain Metadata Tools contributors",
+      "retrievedAt": "2026-09-07T08:09:26.305606+00:00",
+      "sourceCommit": "91eba72d6e5e3b17cd49f625c9546f2c82df5a65"
+    },
+    {
+      "id": "token-metadata-creator--test--fixtures--00000002df633853f6a47465c9496721d2d5b1291b8398016c0e87ae6e7574636f696e.json",
+      "url": "https://github.com/input-output-hk/offchain-metadata-tools/blob/91eba72d6e5e3b17cd49f625c9546f2c82df5a65/token-metadata-creator/test/fixtures/00000002df633853f6a47465c9496721d2d5b1291b8398016c0e87ae6e7574636f696e.json",
+      "rawUrl": "https://raw.githubusercontent.com/input-output-hk/offchain-metadata-tools/91eba72d6e5e3b17cd49f625c9546f2c82df5a65/token-metadata-creator/test/fixtures/00000002df633853f6a47465c9496721d2d5b1291b8398016c0e87ae6e7574636f696e.json",
+      "sha256": "d63264b662f11b80c747ccb9ab894bef389c1f9152a36043fb036d5a8ca9cebb",
+      "bytes": 20765,
+      "path": "evidence/token-metadata-creator--test--fixtures--00000002df633853f6a47465c9496721d2d5b1291b8398016c0e87ae6e7574636f696e.json.source.txt",
+      "license": "Apache-2.0",
+      "attribution": "Offchain Metadata Tools contributors",
+      "retrievedAt": "2026-09-07T08:09:26.421838+00:00",
+      "sourceCommit": "91eba72d6e5e3b17cd49f625c9546f2c82df5a65"
+    },
+    {
+      "id": "token-metadata-creator--test--fixtures--0000001c1f5134859ee40556e75834b9929d1b393ab94858a3d27ae0494e4359.json",
+      "url": "https://github.com/input-output-hk/offchain-metadata-tools/blob/91eba72d6e5e3b17cd49f625c9546f2c82df5a65/token-metadata-creator/test/fixtures/0000001c1f5134859ee40556e75834b9929d1b393ab94858a3d27ae0494e4359.json",
+      "rawUrl": "https://raw.githubusercontent.com/input-output-hk/offchain-metadata-tools/91eba72d6e5e3b17cd49f625c9546f2c82df5a65/token-metadata-creator/test/fixtures/0000001c1f5134859ee40556e75834b9929d1b393ab94858a3d27ae0494e4359.json",
+      "sha256": "f443db7e17d70e5a0226d7223ef23ff1630c3dfb5065291b1be6417f5a124b8d",
+      "bytes": 52678,
+      "path": "evidence/token-metadata-creator--test--fixtures--0000001c1f5134859ee40556e75834b9929d1b393ab94858a3d27ae0494e4359.json.source.txt",
+      "license": "Apache-2.0",
+      "attribution": "Offchain Metadata Tools contributors",
+      "retrievedAt": "2026-09-07T08:09:26.543019+00:00",
+      "sourceCommit": "91eba72d6e5e3b17cd49f625c9546f2c82df5a65"
+    },
+    {
+      "id": "token-metadata-creator--test--fixtures--007394e3117755fbb0558b93c54ce3bc6c85770920044ade143dc742505443.json",
+      "url": "https://github.com/input-output-hk/offchain-metadata-tools/blob/91eba72d6e5e3b17cd49f625c9546f2c82df5a65/token-metadata-creator/test/fixtures/007394e3117755fbb0558b93c54ce3bc6c85770920044ade143dc742505443.json",
+      "rawUrl": "https://raw.githubusercontent.com/input-output-hk/offchain-metadata-tools/91eba72d6e5e3b17cd49f625c9546f2c82df5a65/token-metadata-creator/test/fixtures/007394e3117755fbb0558b93c54ce3bc6c85770920044ade143dc742505443.json",
+      "sha256": "f381cd538eb667d3918a32ecd595137c96d18684c5405ed9c2c97a92d81318b3",
+      "bytes": 73900,
+      "path": "evidence/token-metadata-creator--test--fixtures--007394e3117755fbb0558b93c54ce3bc6c85770920044ade143dc742505443.json.source.txt",
+      "license": "Apache-2.0",
+      "attribution": "Offchain Metadata Tools contributors",
+      "retrievedAt": "2026-09-07T08:09:26.664928+00:00",
+      "sourceCommit": "91eba72d6e5e3b17cd49f625c9546f2c82df5a65"
+    },
+    {
+      "id": "token-metadata-creator--test--fixtures--00d0f59eb1f4f37edf14b30abb0f59e11c7faa9be4e7cba23de08fa94d5354415254.json",
+      "url": "https://github.com/input-output-hk/offchain-metadata-tools/blob/91eba72d6e5e3b17cd49f625c9546f2c82df5a65/token-metadata-creator/test/fixtures/00d0f59eb1f4f37edf14b30abb0f59e11c7faa9be4e7cba23de08fa94d5354415254.json",
+      "rawUrl": "https://raw.githubusercontent.com/input-output-hk/offchain-metadata-tools/91eba72d6e5e3b17cd49f625c9546f2c82df5a65/token-metadata-creator/test/fixtures/00d0f59eb1f4f37edf14b30abb0f59e11c7faa9be4e7cba23de08fa94d5354415254.json",
+      "sha256": "4de43b375e9e3d506e5b032f8996821dee954bb59c55b564961f43dbb5a910c2",
+      "bytes": 19335,
+      "path": "evidence/token-metadata-creator--test--fixtures--00d0f59eb1f4f37edf14b30abb0f59e11c7faa9be4e7cba23de08fa94d5354415254.json.source.txt",
+      "license": "Apache-2.0",
+      "attribution": "Offchain Metadata Tools contributors",
+      "retrievedAt": "2026-09-07T08:09:26.789749+00:00",
+      "sourceCommit": "91eba72d6e5e3b17cd49f625c9546f2c82df5a65"
+    },
+    {
+      "id": "noble-curves-LICENSE",
+      "url": "https://github.com/paulmillr/noble-curves/blob/656c4364dffa44c64aa0c49914b8000b278b67a9/LICENSE",
+      "rawUrl": "https://raw.githubusercontent.com/paulmillr/noble-curves/656c4364dffa44c64aa0c49914b8000b278b67a9/LICENSE",
+      "sourceCommit": "656c4364dffa44c64aa0c49914b8000b278b67a9",
+      "sha256": "4f221aee6e072336700c408c68ab3b96a3fc09f6aebe6f48f1bd99e5ef13faec",
+      "bytes": 1109,
+      "path": "evidence/noble-curves--LICENSE.source.txt",
+      "license": "MIT",
+      "attribution": "Paul Miller and noble contributors",
+      "retrievedAt": "2026-09-07T08:18:06.436520+00:00"
+    },
+    {
+      "id": "noble-curves-README.md",
+      "url": "https://github.com/paulmillr/noble-curves/blob/656c4364dffa44c64aa0c49914b8000b278b67a9/README.md",
+      "rawUrl": "https://raw.githubusercontent.com/paulmillr/noble-curves/656c4364dffa44c64aa0c49914b8000b278b67a9/README.md",
+      "sourceCommit": "656c4364dffa44c64aa0c49914b8000b278b67a9",
+      "sha256": "5d7a7d4811d1e09a6fc7c1b7e3716453875fc214d2c132a8ee5fcca1fb928a1d",
+      "bytes": 38129,
+      "path": "evidence/noble-curves--README.md.source.txt",
+      "license": "MIT",
+      "attribution": "Paul Miller and noble contributors",
+      "retrievedAt": "2026-09-07T08:18:06.556645+00:00"
+    },
+    {
+      "id": "noble-hashes-LICENSE",
+      "url": "https://github.com/paulmillr/noble-hashes/blob/663c2aeeffc308ac0cded59bd32f7c212adacfc2/LICENSE",
+      "rawUrl": "https://raw.githubusercontent.com/paulmillr/noble-hashes/663c2aeeffc308ac0cded59bd32f7c212adacfc2/LICENSE",
+      "sourceCommit": "663c2aeeffc308ac0cded59bd32f7c212adacfc2",
+      "sha256": "4f221aee6e072336700c408c68ab3b96a3fc09f6aebe6f48f1bd99e5ef13faec",
+      "bytes": 1109,
+      "path": "evidence/noble-hashes--LICENSE.source.txt",
+      "license": "MIT",
+      "attribution": "Paul Miller and noble contributors",
+      "retrievedAt": "2026-09-07T08:18:07.044682+00:00"
+    },
+    {
+      "id": "noble-hashes-README.md",
+      "url": "https://github.com/paulmillr/noble-hashes/blob/663c2aeeffc308ac0cded59bd32f7c212adacfc2/README.md",
+      "rawUrl": "https://raw.githubusercontent.com/paulmillr/noble-hashes/663c2aeeffc308ac0cded59bd32f7c212adacfc2/README.md",
+      "sourceCommit": "663c2aeeffc308ac0cded59bd32f7c212adacfc2",
+      "sha256": "668a613b90e2d867df4f8d610566e4a874d6e33f799d9770714a26702c6d7dd0",
+      "bytes": 19021,
+      "path": "evidence/noble-hashes--README.md.source.txt",
+      "license": "MIT",
+      "attribution": "Paul Miller and noble contributors",
+      "retrievedAt": "2026-09-07T08:18:07.185966+00:00"
+    }
+  ],
+  "currentCip26MatchesPinned": true
+}
