@@ -1,0 +1,16 @@
+{
+  "schema": "beacn.music-demo-source-provenance.v1",
+  "sourceCommit": "b870f55ea095747b4eafc10e7be925c8e71cd16c",
+  "sourceInputs": 25,
+  "allInputsMatchGitBlobs": true,
+  "sourceInputsSha256": "8725beaae3bfe676c959898cc82a8ac456ccae8ddf38065da3320883650b485f",
+  "mcpDependenciesInstalledByThisTask": false,
+  "runtimeVersions": {
+    "node": "22.22.2",
+    "CSL": "17.0.0"
+  },
+  "scope": "Inputs read for the synthetic package/builder assertions; not a whole-project audit.",
+  "checkedAt": "2026-09-07T10:06:57.756483+00:00",
+  "v2CurrentReadInputsStillMatchHeldCommit": true,
+  "unrelatedWorkingTreeChangesExcluded": true
+}

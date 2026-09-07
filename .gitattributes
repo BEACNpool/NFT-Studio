@@ -1,3 +1,6 @@
 # Preserve immutable upstream evidence bytes on every checkout platform.
 knowledge/research/**/evidence/*.source.txt -text
 experiments/cip26-inspector/evidence/*.source.txt -text
+knowledge/standards/** -text
+experiments/midnight-beacon-demo/** -text
+public/labs/midnight-beacon/** -text

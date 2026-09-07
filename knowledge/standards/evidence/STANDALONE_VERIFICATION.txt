@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: complete inventory joins original Git tree, root directories and filesystem independently
+ok 1 - complete inventory joins original Git tree, root directories and filesystem independently
+  ---
+  duration_ms: 109.201887
+  type: 'test'
+  ...
+# Subtest: independently reconstruct Git tree object identities (all entries, no downloaded execution)
+ok 2 - independently reconstruct Git tree object identities (all entries, no downloaded execution)
+  ---
+  duration_ms: 30.934614
+  type: 'test'
+  ...
+# Subtest: raw frontmatter/copyright spans roundtrip exact UTF8 and selected fields remain verbatim
+ok 3 - raw frontmatter/copyright spans roundtrip exact UTF8 and selected fields remain verbatim
+  ---
+  duration_ms: 7.479302
+  type: 'test'
+  ...
+# Subtest: title/id/status search is deterministic, bounded and separate from prose
+ok 4 - title/id/status search is deterministic, bounded and separate from prose
+  ---
+  duration_ms: 1.880346
+  type: 'test'
+  ...
+# Subtest: all exact documents and all chunk continuations reconstruct original hashes
+ok 5 - all exact documents and all chunk continuations reconstruct original hashes
+  ---
+  duration_ms: 51.30457
+  type: 'test'
+  ...
+# Subtest: UTF8 offsets reject continuation bytes and small chunks never split actual multibyte source
+ok 6 - UTF8 offsets reject continuation bytes and small chunks never split actual multibyte source
+  ---
+  duration_ms: 319.493225
+  type: 'test'
+  ...
+# Subtest: caller bounds, ids, unknown fields, getters, coercion, and prototype tricks reject
+ok 7 - caller bounds, ids, unknown fields, getters, coercion, and prototype tricks reject
+  ---
+  duration_ms: 1.133633
+  type: 'test'
+  ...
+# Subtest: fixed index and all documents authenticate before corpus is usable
+ok 8 - fixed index and all documents authenticate before corpus is usable
+  ---
+  duration_ms: 52.745152
+  type: 'test'
+  ...
+# Subtest: captured data cannot change during async validation, and results cannot mutate internal state
+ok 9 - captured data cannot change during async validation, and results cannot mutate internal state
+  ---
+  duration_ms: 41.367366
+  type: 'test'
+  ...
+# Subtest: independent root table differences and missing sources stay explicit
+ok 10 - independent root table differences and missing sources stay explicit
+  ---
+  duration_ms: 2.270187
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 800.885238

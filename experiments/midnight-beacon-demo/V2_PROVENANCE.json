@@ -1,0 +1,119 @@
+{
+  "schema": "beacn.music-demo-v2-provenance.v1",
+  "v1ManifestSha256": "a3d9bd7a97417a4822307ca3b601f51434a5c12605031ef0172622c5dfc31ea7",
+  "v1PreservedUnchanged": true,
+  "contentChange": {
+    "field": "tracks[0].song.bitrate",
+    "before": "7200",
+    "after": "7.2 kbit/s"
+  },
+  "onlyOtherPackageChange": "packageHash recomputed by the canonical codec",
+  "encodingTestsRepeated": false,
+  "retainedEncoderReceiptCheckedAt": "2026-09-07T09:57:38.173017+00:00",
+  "retainedEncoderReceiptSha256": "9e4f637f045be1e313abf5f394acdd9fdc7609a92dad807026d57a18c6becf21",
+  "changedFiles": [
+    {
+      "path": "README.md",
+      "beforeSha256": "58bb7dadb8b2a4d8ab9f1da802bb577291a278e4599f4eedcd1ebf84b0b83cc8",
+      "afterSha256": "dd3782d3aa8317351f87b0fa81ffbf2f44b7d5aacc1372a2aaf7c91f4891f1dc"
+    },
+    {
+      "path": "evidence/browser-verification.json",
+      "beforeSha256": "14fb6dcbf50f15d92dfcd91bc77a45e8d196e4fd395ced2957e6ec0d9023510d",
+      "afterSha256": "a219cc555f039381a02758bb4e6ca46b5a2085dedc35552d44faf6a7c524c23e"
+    },
+    {
+      "path": "evidence/package-verification.json",
+      "beforeSha256": "c18fb592d1e94e40df15656eccbe9df84174da7d3295b7113adb32ad8b6e4452",
+      "afterSha256": "f06096d8bab18b085aba78be36c498234624722e4fd9992489e547ddb69f9f86"
+    },
+    {
+      "path": "evidence/preview-1440-initial.png",
+      "beforeSha256": "e36cee7910d2a94a50a77a4ea25d7ac38cb0f900f3c8fe74f0a6d626d67ae682",
+      "afterSha256": "f8e563b52bbd77d4bbbee6216e5f10a1d1597fc72179f5f4f461d0c5448eff60"
+    },
+    {
+      "path": "evidence/preview-390-initial.png",
+      "beforeSha256": "10a3dd75f0ca2fb605b8c3c5234074f1fb8778ba92d2af63a5ee14a277a5c4fc",
+      "afterSha256": "dfa09911f1bc102761bc28ad016d0f04d0849d46f9b3ee316a694318df449a56"
+    },
+    {
+      "path": "evidence/source-provenance.json",
+      "beforeSha256": "24d5e923477eef54bcae4607dbacdd11f9753b8a2d1a0bcc98bc6e70e5fafe15",
+      "afterSha256": "2ca8725d98cfa0287db37c8e69cca168d36ce7176977a850d01e8785767bffa3"
+    },
+    {
+      "path": "evidence/synthetic-prepared.json",
+      "beforeSha256": "cc106d2df258f649821d2d51c50883617c78a73f5d2dabeda8c91bed43899f2a",
+      "afterSha256": "2646e6e2a21a639ffa0016c789ae654fbd8250338348b80db41d54084cb4b305"
+    },
+    {
+      "path": "index.html",
+      "beforeSha256": "ecd3c2da9d0f033c0b86f18561fd582a0b594b0b83496893bf97eaa59e504bd0",
+      "afterSha256": "d4b303d386d85cb53c1ac8d4d6b53f312aae9ea90434a9753bafe321a4cc58ab"
+    },
+    {
+      "path": "midnight-beacon.music-release.json",
+      "beforeSha256": "ad2ad4e980ea71b82598d8438449fb9b674769e6d216f5f17240104f5e0fe3a0",
+      "afterSha256": "4b5f37c05e203be42f71db3ef2d6cfdc2362b5872c89082eddcee826ac13a43b"
+    },
+    {
+      "path": "scripts/render-preview.py",
+      "beforeSha256": "682e702e302b54fb0c8f4a323ee19c9c0b6ac514b53eee485b08f66d3881ba01",
+      "afterSha256": "5ea47676a36bcf49ba5c664a66e0df70fe64bf237af06b0e359e46cdf18c3892"
+    },
+    {
+      "path": "scripts/verify-package.mjs",
+      "beforeSha256": "3c5baeb2ccce9ef238377ef8519aa6f8bae4d96646fcba75a5cb969cf8a8f814",
+      "afterSha256": "9108c48bb57dcb27766b17b8abd3f2333aed710519f7291339c9759e6b2747aa"
+    }
+  ],
+  "unchangedFiles": [
+    {
+      "path": "INTEGRATION.md",
+      "beforeSha256": "c5092b7df6127932d950893f4c4605325bd80de22f1d7548fbbacae4ad37a1b4",
+      "afterSha256": "c5092b7df6127932d950893f4c4605325bd80de22f1d7548fbbacae4ad37a1b4"
+    },
+    {
+      "path": "assets/cover.svg",
+      "beforeSha256": "f5566de39b3e85d5e2b4a6cf8d0f8ae7eccd631d1f12aab3d86ee0e39ff0ca9d",
+      "afterSha256": "f5566de39b3e85d5e2b4a6cf8d0f8ae7eccd631d1f12aab3d86ee0e39ff0ca9d"
+    },
+    {
+      "path": "assets/midnight-beacon.ogg",
+      "beforeSha256": "d4943570aa1a3a2550e460c5bf13575ff35894a40edfd195d2617888d5f2bc99",
+      "afterSha256": "d4943570aa1a3a2550e460c5bf13575ff35894a40edfd195d2617888d5f2bc99"
+    },
+    {
+      "path": "evidence/encoder-verification.json",
+      "beforeSha256": "9e4f637f045be1e313abf5f394acdd9fdc7609a92dad807026d57a18c6becf21",
+      "afterSha256": "9e4f637f045be1e313abf5f394acdd9fdc7609a92dad807026d57a18c6becf21"
+    },
+    {
+      "path": "evidence/reference.wav",
+      "beforeSha256": "4f822a17faaf5d0e35480b47f9eed169de64a903f166a37edc473893b658d871",
+      "afterSha256": "4f822a17faaf5d0e35480b47f9eed169de64a903f166a37edc473893b658d871"
+    },
+    {
+      "path": "evidence/source-inputs.json",
+      "beforeSha256": "8725beaae3bfe676c959898cc82a8ac456ccae8ddf38065da3320883650b485f",
+      "afterSha256": "8725beaae3bfe676c959898cc82a8ac456ccae8ddf38065da3320883650b485f"
+    },
+    {
+      "path": "scripts/synthesize.py",
+      "beforeSha256": "11e1f28b15eec1ec40b7b63ec2c1ee3a2a1b4f361f451304b0e96f704a9aacc9",
+      "afterSha256": "11e1f28b15eec1ec40b7b63ec2c1ee3a2a1b4f361f451304b0e96f704a9aacc9"
+    },
+    {
+      "path": "scripts/verify-browser.mjs",
+      "beforeSha256": "bb7627e0dfcc681bb7f2579ffcc14e3f405ff4fc8077e650b694d7153dcff38c",
+      "afterSha256": "bb7627e0dfcc681bb7f2579ffcc14e3f405ff4fc8077e650b694d7153dcff38c"
+    },
+    {
+      "path": "scripts/verify-encoding.py",
+      "beforeSha256": "79faf119fd724844c9ccc86c9d98fc8ecb6b0e1383479f6858f1308dce89b82c",
+      "afterSha256": "79faf119fd724844c9ccc86c9d98fc8ecb6b0e1383479f6858f1308dce89b82c"
+    }
+  ],
+  "integration": "Root may use these before/after hashes to replace its known uncommitted v1 copies; no root edits occurred in this task."
+}

@@ -1,0 +1,1061 @@
+{
+  "schema": "nft-studio.cip-retrieval.v1",
+  "commit": "05ee6bb05982289dbe00c4187b9d54cf90e2e276",
+  "treeSha1": "f4c9712aa121707f1df1ebb0cc4ca247aa3ef6d3",
+  "concurrency": 4,
+  "perSourceMaxBytes": 524288,
+  "sources": [
+    {
+      "path": "CIP-0001/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0001/README.md",
+      "bytes": 39633,
+      "sha256": "6a200cc52e3695bfa45850de1799335115a2093ff1fd424434ca46a6533b8cc8",
+      "gitBlobSha1": "c5f80024ddb9f63da1578797b337601035b6e08f"
+    },
+    {
+      "path": "CIP-0002/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0002/README.md",
+      "bytes": 37401,
+      "sha256": "616532ab4c266746478a0553f7a1f3bd2eea84e3a4e9b2049135967e7167de0c",
+      "gitBlobSha1": "356d443af68197d729fad6231f99e8b457e48583"
+    },
+    {
+      "path": "CIP-0003/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0003/README.md",
+      "bytes": 4588,
+      "sha256": "84a4abe37702847073aac805452c570ac8bc80a8723d89875826f3d5f1f034e4",
+      "gitBlobSha1": "e9410898c84dcd91123d153113f507957f5f2008"
+    },
+    {
+      "path": "CIP-0004/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0004/README.md",
+      "bytes": 8373,
+      "sha256": "09dc376c5211c17fdbbd4dfefee353058377d5a77b29eea5d7296e4ab0e33d16",
+      "gitBlobSha1": "bc7a48f2c3706b23656021dab87815b3dc6b356e"
+    },
+    {
+      "path": "CIP-0005/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0005/README.md",
+      "bytes": 21470,
+      "sha256": "693bb303b311f9af00675e31f03207db6861e931b29afb99d185a8cc6e2b3523",
+      "gitBlobSha1": "084139d503e8f20f380bec90d0e898f529758ea0"
+    },
+    {
+      "path": "CIP-0006/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0006/README.md",
+      "bytes": 7223,
+      "sha256": "9363a0d6c4c1d6d91413b82f8b9c292a1f2a907ea235c3f19e9ec83f22ef2370",
+      "gitBlobSha1": "131f08c7a6fc0fdeb525fa69a011f7d3af7eb21d"
+    },
+    {
+      "path": "CIP-0007/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0007/README.md",
+      "bytes": 5985,
+      "sha256": "61c5b4ba46bddf4c6fe761fba9d68444f77c5fcf3cb5afac44185966f1d4af2a",
+      "gitBlobSha1": "81e62eeeab95b148542c7972860b043c6aac1795"
+    },
+    {
+      "path": "CIP-0008/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0008/README.md",
+      "bytes": 19538,
+      "sha256": "9b725ead1a9a37b393f5f620ed5c0eb8617def5d8994667f5b6b8b8b8e1a6476",
+      "gitBlobSha1": "916d2c28ff522ba148bcc5a070b0d5e7bdcf4339"
+    },
+    {
+      "path": "CIP-0009/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0009/README.md",
+      "bytes": 21653,
+      "sha256": "c7c62d48f69bb8b14a5ce0f035b7990ea6ee99cd2719cddc773e3b52e5f0fcb3",
+      "gitBlobSha1": "abde5e1a65a4d129613d3f46ce5c293ad5f231d6"
+    },
+    {
+      "path": "CIP-0010/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0010/README.md",
+      "bytes": 3486,
+      "sha256": "54716df8bce50762378591728fb0fbcae733dd2f10397af29f3e7566b51d7d40",
+      "gitBlobSha1": "ec0f81030145d535d4a2d8b47c03cf712abee975"
+    },
+    {
+      "path": "CIP-0011/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0011/README.md",
+      "bytes": 4060,
+      "sha256": "efde19d0de0c71fb5083675a3525e70785cc9cd6dc20dbb570954d2dd35d951f",
+      "gitBlobSha1": "ef61edac00ddc772bb3d284bea7fd81e653d542a"
+    },
+    {
+      "path": "CIP-0012/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0012/README.md",
+      "bytes": 6200,
+      "sha256": "562b37822e20737acc891ad4c79f4d7177d69318809f1587859a244beeadb2fc",
+      "gitBlobSha1": "f2dd30cf4d7c2ee91c01700a3aa85783cea3a12a"
+    },
+    {
+      "path": "CIP-0013/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0013/README.md",
+      "bytes": 13268,
+      "sha256": "e319160d81c4462eb651d8014aa5606bbebcb55609633405761dc567ddec46b2",
+      "gitBlobSha1": "66fb7345a9b104f0e30e6cf145598cb77d0dabc8"
+    },
+    {
+      "path": "CIP-0014/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0014/README.md",
+      "bytes": 6877,
+      "sha256": "2b2a872f67a4f027b4e76498e6ddc3114521354dffa69a403418f424074123ea",
+      "gitBlobSha1": "d199df05d58b544d5bd3f290db6200d64f410592"
+    },
+    {
+      "path": "CIP-0015/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0015/README.md",
+      "bytes": 7158,
+      "sha256": "05bf16e6b3cde82d3ce48225425b4b226112b6f183e3d82a3602343fe41dbbfd",
+      "gitBlobSha1": "23d57644f775c43d304bdc0404b8a00068c9590b"
+    },
+    {
+      "path": "CIP-0016/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0016/README.md",
+      "bytes": 5169,
+      "sha256": "1945c502e8903e1d68ed1e305d799ffd2bcc7730381833b2446088c9a50c4cce",
+      "gitBlobSha1": "1dadcba6f3dbd4837e1e57b1a7daf47e5c26991b"
+    },
+    {
+      "path": "CIP-0017/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0017/README.md",
+      "bytes": 5017,
+      "sha256": "fa56ff85da6d14ecf65aac8acb26bd091d112f343b813aa6924074c001a5205a",
+      "gitBlobSha1": "037fce4032f24f5974a0846d0b2b5539e318ebd0"
+    },
+    {
+      "path": "CIP-0018/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0018/README.md",
+      "bytes": 9549,
+      "sha256": "40f597d72ae8a9f562b9ff723d4c03dd723249a46ca91dd7a6623d643063d1da",
+      "gitBlobSha1": "5174f40fefea47d2ecc59c34cae845f9f2083d38"
+    },
+    {
+      "path": "CIP-0019/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0019/README.md",
+      "bytes": 17601,
+      "sha256": "9fbc8c69f261650b5ccab975fe1e291358a2e5e09088690b000013ea1cb72ce5",
+      "gitBlobSha1": "cc39ad4883417a7d9479bd40257ca1ed1f3812e4"
+    },
+    {
+      "path": "CIP-0020/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0020/README.md",
+      "bytes": 9946,
+      "sha256": "2f3a13bc8186858444ecc81a01b7be61370403c1040c6d48d34935b692ea96cf",
+      "gitBlobSha1": "0994ccc3e5bf08a23eb16b5d7611a3c4937a1409"
+    },
+    {
+      "path": "CIP-0021/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0021/README.md",
+      "bytes": 13673,
+      "sha256": "8f9a6c420cd67fcd8ef212aba459d451709e34a9267f3a3950288e62d315185b",
+      "gitBlobSha1": "814a4db46d1373e1ae1e7d031458a945c497144e"
+    },
+    {
+      "path": "CIP-0022/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0022/README.md",
+      "bytes": 8329,
+      "sha256": "3382cbca6009fe2babaffc2ceba8411cde93f33986001d1d503ea541966022f3",
+      "gitBlobSha1": "325252bdc539f7e41f2fa18b78d34a5cb841930f"
+    },
+    {
+      "path": "CIP-0023/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0023/README.md",
+      "bytes": 11964,
+      "sha256": "ff9bf91bf586166d2e55c8ee8b7d17514fde7224e53b063786e2f527f3823fcf",
+      "gitBlobSha1": "9e09f8d20da7115a326a66f8f3e003a13e92f26c"
+    },
+    {
+      "path": "CIP-0024/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0024/README.md",
+      "bytes": 5047,
+      "sha256": "7a1091c67d82fbd307fb1f2872e406316cc5274f09487a340801b4633a4344b0",
+      "gitBlobSha1": "f452410bfdc3a5b013bd8ef0c11570e897d48f0d"
+    },
+    {
+      "path": "CIP-0025/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0025/README.md",
+      "bytes": 9032,
+      "sha256": "cdd012a0d916e5b100c3ee702ae1b04f0f52756a4bfc4fcc585d1a10810dfea3",
+      "gitBlobSha1": "9c352ee3c5b37344ec3ae4ce1167410f993ed055"
+    },
+    {
+      "path": "CIP-0026/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0026/README.md",
+      "bytes": 30595,
+      "sha256": "f339b6909d989f1c36339742255ecc0274470eb3ce8f48bbd11b9df2a0e3ee42",
+      "gitBlobSha1": "4cc8760397d6f26fdba9b8512c8a1ca33c2a70db"
+    },
+    {
+      "path": "CIP-0027/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0027/README.md",
+      "bytes": 5037,
+      "sha256": "1771d794668f977b48477dfc83b164dc2726a4584467a83188681e5658b47407",
+      "gitBlobSha1": "c4e869780c2f6c7e3eb408c2d4b7a8761421d9ec"
+    },
+    {
+      "path": "CIP-0028/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0028/README.md",
+      "bytes": 14957,
+      "sha256": "1011ca6214389160a9e04fb8dac0d174d5de2f0fe4de18e6b279d07375b7ef1a",
+      "gitBlobSha1": "d1b2723771f7b75dc1368a286e94084e5e910159"
+    },
+    {
+      "path": "CIP-0029/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0029/README.md",
+      "bytes": 4304,
+      "sha256": "22fb4441505e7d22befeed755190bf8e4339163478f5fcf6e46fe11ed65d568b",
+      "gitBlobSha1": "20450acbb5751345a3cfb57328742d98d1e6fc1f"
+    },
+    {
+      "path": "CIP-0030/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0030/README.md",
+      "bytes": 28768,
+      "sha256": "3d16866b8f6b703cda21e5dab2c8afdfd8f83dd3f12068429a01bcc4bf315ebe",
+      "gitBlobSha1": "f47f62c48b90c1eaace15a506b17230a16464224"
+    },
+    {
+      "path": "CIP-0031/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0031/README.md",
+      "bytes": 16467,
+      "sha256": "74a00ee439372cc538e7f458d81555eb850067b992fdf5c7fba121549c4392d8",
+      "gitBlobSha1": "f41911dc37fef05069ff254ea4cae59d82bc4165"
+    },
+    {
+      "path": "CIP-0032/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0032/README.md",
+      "bytes": 10493,
+      "sha256": "d3ecb3b6f7143f538b484b699a2508380c94c0d393e602a77ac0adf9045aa32e",
+      "gitBlobSha1": "f79956ec144d02249c302d2cdfb5ec203f8bdd71"
+    },
+    {
+      "path": "CIP-0033/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0033/README.md",
+      "bytes": 7625,
+      "sha256": "4d3d4cd1500ff76000e6ccf55ebe7ab9632fe9dc1fab172f94298ee2f24b5dbb",
+      "gitBlobSha1": "d8e36185559ef9f80346dca3e5e6ac6719bbe054"
+    },
+    {
+      "path": "CIP-0034/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0034/README.md",
+      "bytes": 3138,
+      "sha256": "61fa5a12dba6db27835c6dcefe68681c363c425fd790ec82bcb21afe0aff1383",
+      "gitBlobSha1": "cb56fb6f76d2aae609891cda2eac7786d2e3da2f"
+    },
+    {
+      "path": "CIP-0035/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0035/README.md",
+      "bytes": 23888,
+      "sha256": "9766f9d1b70b1ddf970263d5deac5a8d2eee98769d1c06bf82b4a21ebea82685",
+      "gitBlobSha1": "c33227468013c8c24e163975eeff1284f2c7418f"
+    },
+    {
+      "path": "CIP-0036/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0036/README.md",
+      "bytes": 17624,
+      "sha256": "5797af423c86c807d812f508758e6cabbf6c0dba66197b1fcde0efcb22370bd0",
+      "gitBlobSha1": "827b69273a559a940e3000d4f5d81c66a00f2c05"
+    },
+    {
+      "path": "CIP-0037/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0037/README.md",
+      "bytes": 10616,
+      "sha256": "386aa98956a718285d57113633313802eecc44e5803dea00f6f97450a96a7935",
+      "gitBlobSha1": "efb44951dfcaa9f3f29d376225b86d8483e3e32d"
+    },
+    {
+      "path": "CIP-0040/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0040/README.md",
+      "bytes": 4235,
+      "sha256": "8b2a730fd2c9a6e66465f781fd692ba5dc91f8742054b090969bf74208ec9e10",
+      "gitBlobSha1": "e531d7f7ee8cd0b4cefb60b0e7fcba0932934050"
+    },
+    {
+      "path": "CIP-0042/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0042/README.md",
+      "bytes": 9263,
+      "sha256": "4ed2d97ea74882ab51e59bac06a3fb4ccbb2131c591856ce588cd01d76b9abd0",
+      "gitBlobSha1": "1fda16a667663dbd093b00b1123babf751848f19"
+    },
+    {
+      "path": "CIP-0045/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0045/README.md",
+      "bytes": 14024,
+      "sha256": "ee3886da41e945cb4098ad55c6c5b730c2575bff2bc01a0bd032db0cf87ed198",
+      "gitBlobSha1": "dc7b4bc11ede9d945ce1ed937a989ad2d628dbc2"
+    },
+    {
+      "path": "CIP-0049/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0049/README.md",
+      "bytes": 10241,
+      "sha256": "8e70409258566bdb4057affddd43190cf3016e6e454ec460c238cbc21b86b303",
+      "gitBlobSha1": "6b8f20c7ddded6a2275061ceaae26868f6f47865"
+    },
+    {
+      "path": "CIP-0050/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0050/README.md",
+      "bytes": 31238,
+      "sha256": "760ace89fbb2d4cacc7ac0b355dd8b3d75ec125265e54170b6a0c2856a9e0e26",
+      "gitBlobSha1": "837939864fb81c684e5ce8751f3f74ff039ace8c"
+    },
+    {
+      "path": "CIP-0052/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0052/README.md",
+      "bytes": 21567,
+      "sha256": "761fe75b9cb7a98da79bbc93f07eee691753b26bfdfb9d9a3ad4998364b79a34",
+      "gitBlobSha1": "5848733876c16bc16b84dcbac3e4c30df2abe768"
+    },
+    {
+      "path": "CIP-0054/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0054/README.md",
+      "bytes": 16849,
+      "sha256": "6b7abd2d2ba85ece0ab8cc498bb620e97ad483e3a492f569a5f019de760b0b62",
+      "gitBlobSha1": "d491ee3cdcdf34629db9fcb01e168467077bbf08"
+    },
+    {
+      "path": "CIP-0055/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0055/README.md",
+      "bytes": 5041,
+      "sha256": "e073b0d8236fc8cf306eb9198dc245c0f4a2e143a2926717bc92f4cf172a1a54",
+      "gitBlobSha1": "3788ca5d5438e51bb4f51acce2159b36cb8f136a"
+    },
+    {
+      "path": "CIP-0057/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0057/README.md",
+      "bytes": 34778,
+      "sha256": "76f416579ef10ccf8e05b20bc5f3f85cc8e8547d497105bedfa4566a8160959f",
+      "gitBlobSha1": "7ae2d0476d248e50a2206b08914cd55a2193ca3f"
+    },
+    {
+      "path": "CIP-0058/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0058/README.md",
+      "bytes": 37650,
+      "sha256": "1725c15644123dc039c3ec6ba14bf4718e9a844c667c0e8ea24c1b1bff5e2abf",
+      "gitBlobSha1": "edfc583b8803eeda4b0e181fe8cee4c195abe28b"
+    },
+    {
+      "path": "CIP-0059/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0059/README.md",
+      "bytes": 7362,
+      "sha256": "604cf4919f20596f24c60ddce99e0b4e1e311c671d5d3fc80a82a44f36e61f13",
+      "gitBlobSha1": "db0762ee7bda312f7d8acfdb8aac54e412e691c3"
+    },
+    {
+      "path": "CIP-0060/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0060/README.md",
+      "bytes": 46854,
+      "sha256": "67a113bfb52385f83b25f289c8b6840b627b4cc0189351610747445a68babc60",
+      "gitBlobSha1": "811cec51add27c4a62a54110cf1f7188843186c7"
+    },
+    {
+      "path": "CIP-0067/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0067/README.md",
+      "bytes": 7744,
+      "sha256": "85bf889d01fc88a7ffa2bce12bceb316110d60dac5a8ec690cb0cdc5cdb95d85",
+      "gitBlobSha1": "925d107f796757e62e9cbf6101a9b14b6db0a525"
+    },
+    {
+      "path": "CIP-0068/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0068/README.md",
+      "bytes": 32971,
+      "sha256": "1dea95c424739656266eb2a662a48d1950e1c96680b75fbda4ef6317f43ce198",
+      "gitBlobSha1": "fe1967b40441f3873b04c2c1f5dff95901b182cf"
+    },
+    {
+      "path": "CIP-0069/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0069/README.md",
+      "bytes": 7629,
+      "sha256": "4379ebd20b48a958135f72dc54bd20b20d323a4a850796565f464ad2443bfc91",
+      "gitBlobSha1": "d68545687ac916985dfd9bbd5bea0318bcff3552"
+    },
+    {
+      "path": "CIP-0071/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0071/README.md",
+      "bytes": 19890,
+      "sha256": "69eb7ddcca19c54f4592088fe59e4d14e56b5a4083d726f9fe3a6482b214212b",
+      "gitBlobSha1": "e858d283027b9c742a44d8b2176e7c93b2913046"
+    },
+    {
+      "path": "CIP-0072/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0072/README.md",
+      "bytes": 18957,
+      "sha256": "a23e9846d3af77fc4c5f026dfe918931215ebfa1ef88a8980292f09917594a0a",
+      "gitBlobSha1": "947c240432bd80884890735de1ba4271d5f080fd"
+    },
+    {
+      "path": "CIP-0074/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0074/README.md",
+      "bytes": 5528,
+      "sha256": "f6c6273e09482872e732e696a0e8c8d564bd9725d4df908cd757744ab5f7e81e",
+      "gitBlobSha1": "a3844e3922b61dd64db43acbb56c27a0ab8f7ef4"
+    },
+    {
+      "path": "CIP-0075/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0075/README.md",
+      "bytes": 14969,
+      "sha256": "2e8e8ad125b91734860e94ac804db762c4e39f135cee2bedc628dada4194be43",
+      "gitBlobSha1": "27afe7f71c30958ab1a043f35742b9562155c12f"
+    },
+    {
+      "path": "CIP-0080/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0080/README.md",
+      "bytes": 5544,
+      "sha256": "7f2632e28c79418bb5a00dd2396fa696d94814369b53b3900dd89fa9ae7f4f5e",
+      "gitBlobSha1": "d50d2e7435d1513ccce8f745c5d2509caca9c1b6"
+    },
+    {
+      "path": "CIP-0082/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0082/README.md",
+      "bytes": 18209,
+      "sha256": "1654c18cec612b257ae3e50a4368f1d93e0159c0769e9d755d574f1b07caf586",
+      "gitBlobSha1": "9fa428fe93bcb94d448aa2e410cbfe67ba876619"
+    },
+    {
+      "path": "CIP-0083/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0083/README.md",
+      "bytes": 18122,
+      "sha256": "60f337d8fd16ece2f056489ae91d8700f095b8bf515d2919a499515df6b8ed32",
+      "gitBlobSha1": "8f01e5092d870bf0ea5fdd32a33fc09eb4d7d61a"
+    },
+    {
+      "path": "CIP-0084/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0084/README.md",
+      "bytes": 10049,
+      "sha256": "f6cdf38849a828da16314625a91e7a19465f1714e5a4f9e3e4ba0bc42159be9b",
+      "gitBlobSha1": "ef4073574a2bcb526d6ea3ecb66c9af87d63ae53"
+    },
+    {
+      "path": "CIP-0085/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0085/README.md",
+      "bytes": 34925,
+      "sha256": "45d2474bfb93948dfc181c751f05eb0536d18645d28de7ec3162da17d4823caf",
+      "gitBlobSha1": "6948da615fa122e6fded4b57c904f4003fb6653a"
+    },
+    {
+      "path": "CIP-0086/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0086/README.md",
+      "bytes": 30298,
+      "sha256": "c44c05505cb6b6d4831c3e548b3ef9bb38a2bf059a9d608833163ff5df86c987",
+      "gitBlobSha1": "5d9cab70a34f2f95a831bc20ebbb15315425be43"
+    },
+    {
+      "path": "CIP-0088/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0088/README.md",
+      "bytes": 28358,
+      "sha256": "5a1d232703b3c7b227bbb74e4ee5f127253d8e2ee82806ae5d9abb28cb7b8dea",
+      "gitBlobSha1": "763dc53d17864b69d8e722bf614e11db5ee3de88"
+    },
+    {
+      "path": "CIP-0089/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0089/README.md",
+      "bytes": 13595,
+      "sha256": "ce91bd12187f1531afc29df7b8ffbd3a9f2a1bc82ba4627684992bf12a5a1774",
+      "gitBlobSha1": "c8304502e6e6028a7f8ea773109a73146500500c"
+    },
+    {
+      "path": "CIP-0091/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0091/README.md",
+      "bytes": 3623,
+      "sha256": "86924998e4dc1d6a62fcf17d5857b3f4eea7499aa8236708ea62f8d36e334fff",
+      "gitBlobSha1": "d06e4ac7bd46fc0c13785eb04362fe59c7bf1150"
+    },
+    {
+      "path": "CIP-0093/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0093/README.md",
+      "bytes": 17676,
+      "sha256": "4d4cdd360ab55811c549f3bdffdbe7a257c7f71ec10a25f734dc42da189ddf62",
+      "gitBlobSha1": "f3b8d5d7ee466ee754568ee926b8cf6350916312"
+    },
+    {
+      "path": "CIP-0094/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0094/README.md",
+      "bytes": 18250,
+      "sha256": "e75bd7e9170e43e4d92be0c35299f96dd21ab9e95766d2cf1066f6ff56a6bc0c",
+      "gitBlobSha1": "e0b045cf2ada566b93654623a788b243f45d0a06"
+    },
+    {
+      "path": "CIP-0095/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0095/README.md",
+      "bytes": 50880,
+      "sha256": "92bbbc37196f34d97c9a3ac21f324bc94eef07c765be503701f4ef9cbe0fbee1",
+      "gitBlobSha1": "7a946c38b1d14b4196484b8e2cce8a89eb993e4a"
+    },
+    {
+      "path": "CIP-0099/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0099/README.md",
+      "bytes": 15673,
+      "sha256": "95d52183c82f718316914263b5494f72d022cb2f0dc776d435e2f9c69ec2065f",
+      "gitBlobSha1": "01e435dfc754541c5874ea9d4612226f6ffff0cf"
+    },
+    {
+      "path": "CIP-0100/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0100/README.md",
+      "bytes": 24420,
+      "sha256": "cb7aedc8c612ae8e827e9980e6496fce2dac205aceefd7bbdeee5918596a33b4",
+      "gitBlobSha1": "b5a1f0cd6fafd89c88005f2bf535a070a73217eb"
+    },
+    {
+      "path": "CIP-0101/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0101/README.md",
+      "bytes": 5862,
+      "sha256": "ac61258f54e5caee7eb957127cb2bd0d2c30ea465345a507f913d530cd4ae61f",
+      "gitBlobSha1": "8ce5254cbb19dc7fba5ef696543f3fb2a82d3a2f"
+    },
+    {
+      "path": "CIP-0102/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0102/README.md",
+      "bytes": 13556,
+      "sha256": "552bbd4066f6bf8c31e4b6bfc82e4819390f669f03ef834dd6bd0436307853d9",
+      "gitBlobSha1": "104bac198f8f438d859735cb9f5ba85d18d9a2a2"
+    },
+    {
+      "path": "CIP-0103/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0103/README.md",
+      "bytes": 5760,
+      "sha256": "4df52e42a2e506669cdf29b1206b6df752d7152664a9299a4d22ef47dc43ab95",
+      "gitBlobSha1": "02b8809cde2a1335b2a74d7fdac7371a60af57d6"
+    },
+    {
+      "path": "CIP-0104/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0104/README.md",
+      "bytes": 2470,
+      "sha256": "fb56b402617cade1f6fbc5c1d0ba5717e7c167a9db35bfb8e32f95a73a313b3e",
+      "gitBlobSha1": "6dcf43c55e5beb13d8b337b130f61c5142ab947e"
+    },
+    {
+      "path": "CIP-0105/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0105/README.md",
+      "bytes": 21414,
+      "sha256": "410d54518614e4244b56fe0b09bdfa949b5d18b0d220e5584b3def29bb2e8e44",
+      "gitBlobSha1": "6d3e26c5b2bb48f2462ece701e9113852302d766"
+    },
+    {
+      "path": "CIP-0106/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0106/README.md",
+      "bytes": 6389,
+      "sha256": "842fcff0da130e7abfd0b3f8c7f74b381afb049809d68c6bdbaf28d8772c29bb",
+      "gitBlobSha1": "9a4cea433ca446c0642899830a09c8950fa2b7d7"
+    },
+    {
+      "path": "CIP-0107/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0107/README.md",
+      "bytes": 5255,
+      "sha256": "2b3bbd1e1addda6e7edd31590fc537bc13cec06efac4431969db0f219baceef3",
+      "gitBlobSha1": "18105e192b378e7bf8b8785b6c26135e1a8063d8"
+    },
+    {
+      "path": "CIP-0108/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0108/README.md",
+      "bytes": 14578,
+      "sha256": "3c31cd97db8189123339e7d82931e88304041b459b4c08e863e427bbfb7c91ee",
+      "gitBlobSha1": "655a1aedd8aa5a22d1599dd263203bf86db4a00c"
+    },
+    {
+      "path": "CIP-0109/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0109/README.md",
+      "bytes": 9085,
+      "sha256": "7c78c5b91cdee24395d34ee1ace74bb67e9d6d7d4affbe2465fd4fcd4449c935",
+      "gitBlobSha1": "693ab3a553c18176835cf02fc4d0ed0ec8438bc0"
+    },
+    {
+      "path": "CIP-0110/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0110/README.md",
+      "bytes": 7933,
+      "sha256": "2cc3ade346b63c4c05379d968ace5359d5a93fef0dd6ac90e20697686da87645",
+      "gitBlobSha1": "1490a2982e4eb4ea9ca107c7e347a2cd20c1eb64"
+    },
+    {
+      "path": "CIP-0112/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0112/README.md",
+      "bytes": 13707,
+      "sha256": "766c105c603f99651ba866ebf44e0b11361c69cb5de468d054119b5700efc873",
+      "gitBlobSha1": "274088d4317482f44fe25be1d90be6fada46374b"
+    },
+    {
+      "path": "CIP-0114/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0114/README.md",
+      "bytes": 7920,
+      "sha256": "a3c4c8c1587799f225283d6f06d50799a299154256fb3fe81f481428717ed76a",
+      "gitBlobSha1": "90c7a82e6d6b10b4a1009d4c14f3cede2bc9e9a3"
+    },
+    {
+      "path": "CIP-0115/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0115/README.md",
+      "bytes": 5655,
+      "sha256": "3bc6d06b526de6184b32e594dcb7973eb3890c082446a228a7b5f46f63a8beaa",
+      "gitBlobSha1": "9f773f41da38c4cd2618cf8eba19bcbf3b1225d8"
+    },
+    {
+      "path": "CIP-0116/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0116/README.md",
+      "bytes": 12348,
+      "sha256": "1091764a5a20d34afbadc96720c2d00a694ffc941a5ad7813c8c5bfbdaa70a62",
+      "gitBlobSha1": "1d6e3e478f5ad8a17c49297b82d7acd9c2dcccd6"
+    },
+    {
+      "path": "CIP-0117/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0117/README.md",
+      "bytes": 3950,
+      "sha256": "3e5dc48c3c9eabf4316ed53d50dc0c78c729d7d1c77b483e900f235f053f9185",
+      "gitBlobSha1": "0953b11864e7b42f4b6748961871e383ef0c4201"
+    },
+    {
+      "path": "CIP-0118/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0118/README.md",
+      "bytes": 27668,
+      "sha256": "e4e797dac550527c4569eddff09f2b2b99f00644f2ef1287ce27bd543de3c8d5",
+      "gitBlobSha1": "764f828790ad8fb4c440dda6d2482ddefd7d6a62"
+    },
+    {
+      "path": "CIP-0119/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0119/README.md",
+      "bytes": 22407,
+      "sha256": "e47fc19f1841e4428fb8aa7ba565db11991d5cc7321906259bfb427d2403d619",
+      "gitBlobSha1": "2373d20f92877110e11633b0f136d0e36e9e82c5"
+    },
+    {
+      "path": "CIP-0120/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0120/README.md",
+      "bytes": 16568,
+      "sha256": "ff6be7cc3691146fdbe8c0d364e0711c02bac52f430030eda83d50b4b427c6a5",
+      "gitBlobSha1": "84152a2794aa198b066f0e1f3f2028f41c3f2c38"
+    },
+    {
+      "path": "CIP-0121/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0121/README.md",
+      "bytes": 26338,
+      "sha256": "491016a20009b493ac41a6f9b0e7f9a054ce537294eeba8d717c88a61f58ea85",
+      "gitBlobSha1": "8cee401910e478cf614b085197e45f5cb513a0ef"
+    },
+    {
+      "path": "CIP-0122/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0122/README.md",
+      "bytes": 71099,
+      "sha256": "9a8e85d1a30c4f0ec65bf3259fc24215babe7c85646b29208ffa25e7620e795f",
+      "gitBlobSha1": "bf952efe31ab556e57e8d5ea9653345da4db0415"
+    },
+    {
+      "path": "CIP-0123/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0123/README.md",
+      "bytes": 24326,
+      "sha256": "aea8edbb35d7d72b55fad94ff4c53fd645c9373ff2b21d9599b71472d2438e3c",
+      "gitBlobSha1": "358f0f34d4b005aec42113e8f1588fc48569d192"
+    },
+    {
+      "path": "CIP-0124/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0124/README.md",
+      "bytes": 8881,
+      "sha256": "282fd9626d3ad23f07319d92277c56a6bf963192bf80b285858d500f1dc22c9c",
+      "gitBlobSha1": "c7b9efe63ea777230a02b10bb33090d2f8f55d96"
+    },
+    {
+      "path": "CIP-0127/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0127/README.md",
+      "bytes": 5788,
+      "sha256": "f409e64a429cbddd2cc62944cff1e781568a347c763957dc4bca0d33ece00490",
+      "gitBlobSha1": "e422bd9b225404b1634f7682a53ac20367e3ca1f"
+    },
+    {
+      "path": "CIP-0128/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0128/README.md",
+      "bytes": 6823,
+      "sha256": "31f147b595d5155c5cfdf71d7ff3143d1f34a93df9bf0a96525ce55a6895999d",
+      "gitBlobSha1": "4155914dcda351474bbeda5bc8ffd91c88c95bd0"
+    },
+    {
+      "path": "CIP-0129/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0129/README.md",
+      "bytes": 11164,
+      "sha256": "2be349e5a971328d44309b41713be1d986e271d9552705a845e365a4aafc233c",
+      "gitBlobSha1": "157e883ae600bd7943856dbc9fd61cddfbfb2c65"
+    },
+    {
+      "path": "CIP-0132/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0132/README.md",
+      "bytes": 6868,
+      "sha256": "0ac36e718ed7424c198fd10a8b3e9fc24d3e4999a211ab935e1bc1c00e5317b0",
+      "gitBlobSha1": "c73257c2400045b751e664f164d51d803e4b41f0"
+    },
+    {
+      "path": "CIP-0133/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0133/README.md",
+      "bytes": 14552,
+      "sha256": "0bdabb25a0fd27b8623b2327aa83795f3d9b9f8872e71835f19ea20d85e4b52d",
+      "gitBlobSha1": "492b127e96e4ba92495b72aa28849a71a9b69213"
+    },
+    {
+      "path": "CIP-0134/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0134/README.md",
+      "bytes": 5130,
+      "sha256": "5561fbecfc69ab0260bf5c2ac648e7ce3db0381e9305acd66c862ccdb6db7fe4",
+      "gitBlobSha1": "e1d7f6767cbb62a2f9512d9ca0a67c89765ceaf2"
+    },
+    {
+      "path": "CIP-0135/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0135/README.md",
+      "bytes": 20041,
+      "sha256": "234efadc84b0e2cb20a1802309e7a766442c2efc5a523fb64d91e6e4e14ad71b",
+      "gitBlobSha1": "d04e6c8d28f4b8c106f49b05d489c2bd10cc1ff7"
+    },
+    {
+      "path": "CIP-0136/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0136/README.md",
+      "bytes": 9095,
+      "sha256": "449c02b2c9c7cd6dbd41f0fc5cc3994bb2bbdfd76634fe3860bde669ee9042de",
+      "gitBlobSha1": "b8e8451d8d495a9e6e99fae240702492c888df45"
+    },
+    {
+      "path": "CIP-0137/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0137/README.md",
+      "bytes": 47264,
+      "sha256": "dcfe7a82e4504ecea5838e8740381e0120773afbfc366a85b8dff735189b8a8e",
+      "gitBlobSha1": "3d0bb2c61184a759fb3e6a277395e36e997c6abf"
+    },
+    {
+      "path": "CIP-0138/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0138/README.md",
+      "bytes": 10448,
+      "sha256": "b82c2f8f709379e68d7fccc65cea1caec139946201e666f42e11ae839ebaf3f4",
+      "gitBlobSha1": "0447507cadc433c1a3a9fa746eb84ca8e08f4183"
+    },
+    {
+      "path": "CIP-0139/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0139/README.md",
+      "bytes": 9617,
+      "sha256": "d335d158acda0dee04ba370694e44bf43073f430894bbe05122e13eee26fed7d",
+      "gitBlobSha1": "dc27e20aab286cf3adb19542f0275f4a716d45c2"
+    },
+    {
+      "path": "CIP-0140/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0140/README.md",
+      "bytes": 93571,
+      "sha256": "2c651f06e30b155c23c34f715ce8a6f1121e7edd0420e9f459d15b417ea2458f",
+      "gitBlobSha1": "eb6796a657f5c5c9537882962fa654710e05150b"
+    },
+    {
+      "path": "CIP-0141/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0141/README.md",
+      "bytes": 9489,
+      "sha256": "d70741cbfb51f264a87fc7826d28f0e11cdf849128d51f07c97ada8daea4bd65",
+      "gitBlobSha1": "513e311dee397fbe3e3afdfccd4f4785874493d5"
+    },
+    {
+      "path": "CIP-0142/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0142/README.md",
+      "bytes": 4901,
+      "sha256": "2ef3579c2e564a18cc2688012160525c45ecc9bbc11c5c1a35061141a2d6f54c",
+      "gitBlobSha1": "6ab0c8b9879458a7bbfcf98aaed06fdfee4d548b"
+    },
+    {
+      "path": "CIP-0143/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0143/README.md",
+      "bytes": 16642,
+      "sha256": "8090d624e9b55bbba8914c3805b1457596d0adaec819dbed05ff596cde0f4123",
+      "gitBlobSha1": "085ccec364d0ad509a258e82107cef959f9569ea"
+    },
+    {
+      "path": "CIP-0146/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0146/README.md",
+      "bytes": 12086,
+      "sha256": "e762cc1b66cdeffc06a13f7fbc8785400772a1b791ff4f829689e1e6964a74d9",
+      "gitBlobSha1": "b1638863038e56da39db4b9cafda7468b753d284"
+    },
+    {
+      "path": "CIP-0149/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0149/README.md",
+      "bytes": 4621,
+      "sha256": "4bfb5acde7f8d3ed89c233ad467dcff0fa55d81f1d53e231e5273c1a9dbb09a1",
+      "gitBlobSha1": "25650e832748a9edf43a540b758ef4dcff0aa8f7"
+    },
+    {
+      "path": "CIP-0150/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0150/README.md",
+      "bytes": 23790,
+      "sha256": "e3fbd719048d87f6381136e52efebf00caee065c11928b21e6c43e6c6b8e0d3b",
+      "gitBlobSha1": "e9ec52ee41413652794419c0e215744dcee632ac"
+    },
+    {
+      "path": "CIP-0151/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0151/README.md",
+      "bytes": 22114,
+      "sha256": "c60d51202a3ffa76bd48892db6cae929decf9cdcd6c92ac37711bb0bbc75e5ae",
+      "gitBlobSha1": "67398791fac5b64c5811979c85a24f274e391806"
+    },
+    {
+      "path": "CIP-0152/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0152/README.md",
+      "bytes": 87282,
+      "sha256": "9e2878ddcddac198245f7dc6d3bf4be49af3a04f535740cd69b2ab2ae6ddac9a",
+      "gitBlobSha1": "a27e0190622757ee8d23153392de19ac68afc9a6"
+    },
+    {
+      "path": "CIP-0153/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0153/README.md",
+      "bytes": 16200,
+      "sha256": "cc93324067bd7683b296ae8d533170bc28372885a2ed9621f71279f4862714a0",
+      "gitBlobSha1": "a018e2835acbd8b0da23d235745b0338c09dc5fc"
+    },
+    {
+      "path": "CIP-0155/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0155/README.md",
+      "bytes": 7328,
+      "sha256": "ed47b3e1d91447775f7b558e4f1ba1c038febd73147b01c17fcc3b5b5f775c3a",
+      "gitBlobSha1": "aae689a1864be6271511cb7dcdd634bd5481c443"
+    },
+    {
+      "path": "CIP-0156/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0156/README.md",
+      "bytes": 4032,
+      "sha256": "2a791efd234e4c73e8b69d9d529dd99d979f36bb3a11acf83fab1d172a9de319",
+      "gitBlobSha1": "81b9c425dccd73ffc054bc318232b345ce801c75"
+    },
+    {
+      "path": "CIP-0158/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0158/README.md",
+      "bytes": 7450,
+      "sha256": "fef30bec12b424f7a47bea36afe6e0113b42c04cf8119ab21fad5f56199e688c",
+      "gitBlobSha1": "7ebe9d60c1871cfa89990d8807a2a6f3a9127466"
+    },
+    {
+      "path": "CIP-0159/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0159/README.md",
+      "bytes": 31885,
+      "sha256": "f8da8c716f399e530e606b227909a3c5e571093016cd35b3e808b55602a52782",
+      "gitBlobSha1": "e8d8d39d50a4a6eff13c9b2db225647c6aeb4d93"
+    },
+    {
+      "path": "CIP-0160/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0160/README.md",
+      "bytes": 8268,
+      "sha256": "76ce3a0c1a20e3e14f363cc33a473f5e38ec5bf0efe153b262e896e1e1974477",
+      "gitBlobSha1": "a55111abd4dda1c3fbdb332036df71ebca565308"
+    },
+    {
+      "path": "CIP-0161/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0161/README.md",
+      "bytes": 184976,
+      "sha256": "efef1fb6c319d0e8da6d99ce7b60a6d227ab71288463d224fa93a5fe9e2396ba",
+      "gitBlobSha1": "c37687200a7a21c8ebb58cbccf2750bb351aa685"
+    },
+    {
+      "path": "CIP-0162/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0162/README.md",
+      "bytes": 4445,
+      "sha256": "83c1e578860ddf89706493c47e83a7c8fe7827a620d80fed17aceaaa5ebd56ef",
+      "gitBlobSha1": "2f9480c526227d431b6ee01e77220a5ef2ed6a73"
+    },
+    {
+      "path": "CIP-0163/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0163/README.md",
+      "bytes": 22617,
+      "sha256": "99978143ebd3a7145e4b2e34ca48674aaa1170ee69bd34f3e7f99fdf4c135fc4",
+      "gitBlobSha1": "f78cd9c65e38138736f36222bb465adb78cf4bd6"
+    },
+    {
+      "path": "CIP-0164/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0164/README.md",
+      "bytes": 181611,
+      "sha256": "ed2c071600496e1f622b36411c1dd7405d6ebe18f41ba195703e32b050478fd9",
+      "gitBlobSha1": "4b7dd931063031a10439203e2d104e990dc4e976"
+    },
+    {
+      "path": "CIP-0165/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0165/README.md",
+      "bytes": 39789,
+      "sha256": "ab4e39364aec851045d12c1170b69e0f554238ad5096ab52ae808b5bda6ad23d",
+      "gitBlobSha1": "b994d413657c906fa36264f470d070af85ba18cb"
+    },
+    {
+      "path": "CIP-0167/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0167/README.md",
+      "bytes": 3260,
+      "sha256": "b2d47dc5c8c26382b48ac902027bff99e603fdfc49d86e07a88dc6c5a4450502",
+      "gitBlobSha1": "a23122baa77ecb3096da650eb773cb63412b2ceb"
+    },
+    {
+      "path": "CIP-0168/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0168/README.md",
+      "bytes": 18238,
+      "sha256": "fdc555b1785053d9337ae1f3ee9138f55c426c2258ca1d7b1a8070505f602291",
+      "gitBlobSha1": "a03add457659608a10a3df1e0d00a479f0d4a57e"
+    },
+    {
+      "path": "CIP-0169/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0169/README.md",
+      "bytes": 13503,
+      "sha256": "221a045a91b026b35eb14857bc9915faf1df96e6ba1617ec6d9fa4894048c43d",
+      "gitBlobSha1": "f671822e3c8a0b425907ca9c8ed563ac37e4d9bf"
+    },
+    {
+      "path": "CIP-0170/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0170/README.md",
+      "bytes": 25998,
+      "sha256": "cd7bd9153bd773aacdd53b0fdbd028c6d7b962a6422057bfe21da50056a45bc2",
+      "gitBlobSha1": "4b6b5ba077828fd3457702c79d76e0fcc18576ca"
+    },
+    {
+      "path": "CIP-0171/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0171/README.md",
+      "bytes": 15907,
+      "sha256": "f0b335b246c9858578d83814fc57dc515432f6d6d2da22121edb8df566784e0c",
+      "gitBlobSha1": "762395983f6bc92c5110ecfb694b5fb4418ce681"
+    },
+    {
+      "path": "CIP-0172/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0172/README.md",
+      "bytes": 5066,
+      "sha256": "09e8b9742c411b5f82ce54f3d809efda7b5cc1b56ad35dd2d1ab6c3796883311",
+      "gitBlobSha1": "35380a783b42c4d7ad908b8bf1d02f34a91cc155"
+    },
+    {
+      "path": "CIP-0173/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0173/README.md",
+      "bytes": 10896,
+      "sha256": "ef1f60204acfd550b7717009ea80cc944059ce762cc11c9232942a7c873a772e",
+      "gitBlobSha1": "5d2d7d0480848c6f914bc62414654a4339f6fb6f"
+    },
+    {
+      "path": "CIP-0175/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0175/README.md",
+      "bytes": 12822,
+      "sha256": "622ef4e2b1cb02f07885af9faeaab80ff43c3b92f11119c2a071c810abf572d4",
+      "gitBlobSha1": "1a75b85319b1239391d5a45344857bf0e2f6f475"
+    },
+    {
+      "path": "CIP-0176/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0176/README.md",
+      "bytes": 6442,
+      "sha256": "3acb7795de83015b43e64a45e01ebda4b0bc869a56690a6214809ca5fe017f5e",
+      "gitBlobSha1": "204d483b3bef9d397968baf7310e7143ca27e388"
+    },
+    {
+      "path": "CIP-0177/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0177/README.md",
+      "bytes": 62201,
+      "sha256": "2c12c2a5e423ec51bca045419f1c5c596ebca775620701d37d6bd9ffadd8ba7b",
+      "gitBlobSha1": "1b311cb2c3228f05bc6b0d121f248fe6f1f66b29"
+    },
+    {
+      "path": "CIP-0178/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0178/README.md",
+      "bytes": 12470,
+      "sha256": "b43906f23582b9bda66f0ee2b762f9fea2f77e00b6e2aac1dacc1dcd31e57228",
+      "gitBlobSha1": "01968d207eeb97a0ac759e68f75cb42d43f03bcd"
+    },
+    {
+      "path": "CIP-0179/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0179/README.md",
+      "bytes": 53497,
+      "sha256": "913622e4526684a509214b3f8a0854531bce94b8c8fb482712c2bc7fa6e98bb9",
+      "gitBlobSha1": "fb0b757163ab6650af2c7e89e4140fb95c24a136"
+    },
+    {
+      "path": "CIP-0181/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0181/README.md",
+      "bytes": 7459,
+      "sha256": "e19c035fd49ed3b28fca9f2ce63a2039c6a6479ef56cd5faa57b0c8966ff9f3e",
+      "gitBlobSha1": "f41cac4673132d619e15771ff86ad1a13535593d"
+    },
+    {
+      "path": "CIP-0183/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0183/README.md",
+      "bytes": 24147,
+      "sha256": "b255a48d967ae7c814d37c9205740cc74ad3ce504b395082ea321bc4d038cfcd",
+      "gitBlobSha1": "501c77bc835120baa25722726392125b67255be6"
+    },
+    {
+      "path": "CIP-0186/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0186/README.md",
+      "bytes": 90035,
+      "sha256": "e93f32a10176d28f570ea6479a8faca12fe742a3e5fdd7175c90f345725c1238",
+      "gitBlobSha1": "e302662b3d0b2f936da5a653f725110d71dcc278"
+    },
+    {
+      "path": "CIP-0187/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0187/README.md",
+      "bytes": 41350,
+      "sha256": "02a6bbb570513e4e114c512827b72d8e98989cfd1f3d290006618d8dc2991f07",
+      "gitBlobSha1": "0e7ae2e892f708008115c7bd81dcb053df0c76d1"
+    },
+    {
+      "path": "CIP-0188/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0188/README.md",
+      "bytes": 92861,
+      "sha256": "13a099342c16bae38a0bd2e7d3b708c1b975bfd3d1fa81a02de12ff582c6ac05",
+      "gitBlobSha1": "8130ae941de1857c836d1fddf8bb71183fc268c6"
+    },
+    {
+      "path": "CIP-0190/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0190/README.md",
+      "bytes": 380819,
+      "sha256": "941641f40924960674e7388b2a57eba7ded35c303f1f3d85cc5171864c5157e9",
+      "gitBlobSha1": "7154da97266c37ad940d1b5c24f534e8e01a74b3"
+    },
+    {
+      "path": "CIP-0381/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0381/README.md",
+      "bytes": 36099,
+      "sha256": "b20b468dd5bde76b1762cd89fd4e9087a6e706bb7a5153121172405b570c043b",
+      "gitBlobSha1": "1eae5ceb20cb4f1984afe15d502e5327d1b7ce97"
+    },
+    {
+      "path": "CIP-1694/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-1694/README.md",
+      "bytes": 93582,
+      "sha256": "d75691be3499a28c2905b3fdd767d48d6ef203a4ea2265d4e588571463d2926e",
+      "gitBlobSha1": "dd6dcb0da0b7410095a47a206d13dcfd9be568c5"
+    },
+    {
+      "path": "CIP-1852/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-1852/README.md",
+      "bytes": 4802,
+      "sha256": "1246d058ad32ca533ccc796a9ad2dabcc1bc36b21e6ff15a55f3460d211ad6ff",
+      "gitBlobSha1": "a9e5e226cb93e56f4dd4578f71c84d4fe5993b4d"
+    },
+    {
+      "path": "CIP-1853/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-1853/README.md",
+      "bytes": 4040,
+      "sha256": "522654af65efbe5d2a0b32c37265d9a845018879fcaf5f3330ed2991d9bcfcbc",
+      "gitBlobSha1": "f286ede693029f237af163fc08e3e7e87e3f8af4"
+    },
+    {
+      "path": "CIP-1854/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-1854/README.md",
+      "bytes": 16024,
+      "sha256": "4d9dd6b4ddbd0fc90c1d5a3831b82c160e57de709f9fafb150ef45ffd7f4cdce",
+      "gitBlobSha1": "05a3710e113cd62a0dc134314ad5881fda39171e"
+    },
+    {
+      "path": "CIP-1855/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-1855/README.md",
+      "bytes": 5267,
+      "sha256": "0dbfe970cab1c3de10780d08837d9237a86728155c5bc0c7d2a4bad91632a5d8",
+      "gitBlobSha1": "0dad8b44ff625dbd00ff90503df68fe7d5bcd9d5"
+    },
+    {
+      "path": "CIP-9999/README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-9999/README.md",
+      "bytes": 13883,
+      "sha256": "c7764711e689ceca17c1cceec26eff6f41b4578f21646348a382e9c1d4f2dcdf",
+      "gitBlobSha1": "6018ee5b4e458d116945fa6b8292c894a3d07d6b"
+    }
+  ],
+  "notices": [
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/LICENSE",
+      "bytes": 18657,
+      "sha256": "97d24386ff776d7160b87031b259a942bd03c9939796cab6724ad5d17d2cf785",
+      "gitBlobSha1": "f987f3daa1f8637793144323bcd10e330b8db97c"
+    },
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/05ee6bb05982289dbe00c4187b9d54cf90e2e276/README.md",
+      "bytes": 18280,
+      "sha256": "44db10b50ced61b533d2ae89593051774d866301fdffb175121afbc09d9603ce",
+      "gitBlobSha1": "e7200c45c645a17ba07a348940277243b2c0b084"
+    }
+  ]
+}

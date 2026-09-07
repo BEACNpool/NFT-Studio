@@ -1,0 +1,127 @@
+[
+  {
+    "path": "lib/arcade-catalog.json",
+    "bytes": 17081,
+    "sha256": "6e7e10f8315ba99d02a6ddf0b695dad1358645938fe9a3234e6f903ea4c96655"
+  },
+  {
+    "path": "lib/arcade.ts",
+    "bytes": 4395,
+    "sha256": "3fff8273f36ab664b4b3b0773d28704f4ee9357352711575734fd649f811fed8"
+  },
+  {
+    "path": "lib/art.ts",
+    "bytes": 14614,
+    "sha256": "24c29ac682fbbe30f7ef38658cd75cec329ee307574e235d3f4aea4d81045191"
+  },
+  {
+    "path": "lib/artifact-passport.ts",
+    "bytes": 36216,
+    "sha256": "148c4975fb52be312ea80b389593edffa53cd085fbee56b11081ae59f1ea802b"
+  },
+  {
+    "path": "lib/beat-lab-template.json",
+    "bytes": 6471,
+    "sha256": "bab18dc6cacdc85d9853ceda58cd2e819ece641620f6db49928d75f3e3f25b25"
+  },
+  {
+    "path": "lib/beat-lab.ts",
+    "bytes": 2808,
+    "sha256": "97921de051a019acbdbb794a4621bbc4b9833c62d89f8c0de0ae940fd6c4b993"
+  },
+  {
+    "path": "lib/cardano.ts",
+    "bytes": 16679,
+    "sha256": "359e145cfa457f2b2355ce560aa1ba356102467a74f2a5caec9bfbaf4cd37b02"
+  },
+  {
+    "path": "lib/design.ts",
+    "bytes": 9087,
+    "sha256": "4ab17defec797b35fcf6a7028fef688e62610e8ceea6ce7485f33ddddedf60fa"
+  },
+  {
+    "path": "lib/export.ts",
+    "bytes": 10261,
+    "sha256": "22045c6cb9c52f9779156327d8a83d39710cd6668c3f493942cdb6d5ccad0129"
+  },
+  {
+    "path": "lib/interactive.ts",
+    "bytes": 13880,
+    "sha256": "07b91ae0ef83bf1e7d1e72529da797861ddc5e2841629b30e9669375f6a9e75b"
+  },
+  {
+    "path": "lib/music-release.ts",
+    "bytes": 27933,
+    "sha256": "5eb98cbd6f30e581cec3a48de34a848ed5b7c03f777c909f3383a64d36b08097"
+  },
+  {
+    "path": "lib/onchain-art.ts",
+    "bytes": 7156,
+    "sha256": "291350821a94ed2f73b192cc090fae301a01a80763104fb10aa0ad3e73cf41f1"
+  },
+  {
+    "path": "lib/paths.ts",
+    "bytes": 127,
+    "sha256": "aa2cfee2284dc95ac96cf0548ce030488cc4e46af496ada1626bfdee59133a57"
+  },
+  {
+    "path": "lib/studio-intent.ts",
+    "bytes": 5176,
+    "sha256": "61f677bb7c5208be84ef35c5699457510e5b15cd8d4eb9af20e1594c32883883"
+  },
+  {
+    "path": "lib/studio-payload.ts",
+    "bytes": 18099,
+    "sha256": "ed452542debb915ba0983ae4e9e9a86870641c96ba6be69e04b518e06eda460d"
+  },
+  {
+    "path": "lib/studio-transaction.ts",
+    "bytes": 10377,
+    "sha256": "38d6275b30cac4ff214025702326c09ad257783fa8dd8a2f5c251277c996bd6a"
+  },
+  {
+    "path": "lib/utility.ts",
+    "bytes": 3813,
+    "sha256": "3be8a1e56bd04c7a940d9b4429b4e72375f02051b1f3111e4a2042bb6c138124"
+  },
+  {
+    "path": "mcp/integration/verify-music-tools.mjs",
+    "bytes": 7298,
+    "sha256": "d2846798b51b1e1480f0664735a4aeb89da5e6b0358a83e75bf4b9e6ab275220"
+  },
+  {
+    "path": "mcp/integration/verify-music-unsigned.mjs",
+    "bytes": 11167,
+    "sha256": "9b78a6fe134a6751d2b819e7a029620d1ff00e9fef46d51607cf861abb41ccd7"
+  },
+  {
+    "path": "mcp/integration/verify-synthetic-native.mjs",
+    "bytes": 9930,
+    "sha256": "6cc5de1a79721157b9276928fe4d58e6696ade26b50691be9a88c6545997e29f"
+  },
+  {
+    "path": "mcp/package-lock.json",
+    "bytes": 59857,
+    "sha256": "9e25fc1e9f86b7b5d786e58d080ff3bd95ee32651a73cdec368f3170d69205cc"
+  },
+  {
+    "path": "mcp/src/cbor-preflight.mjs",
+    "bytes": 2348,
+    "sha256": "95f6b7ecfd3bcb8b9355ae72374ff4da4f38b46b7230a608ea1eb96bf3dbd4b8"
+  },
+  {
+    "path": "mcp/src/music-tools.mjs",
+    "bytes": 7072,
+    "sha256": "63444f71d966b3828c2ac3fcdfa502eb88538e7e96059f278629e4d0504ab2b4"
+  },
+  {
+    "path": "mcp/src/public-unsigned.mjs",
+    "bytes": 13966,
+    "sha256": "2258fec41e17a6a77438371953d528464e82132045668a29b8a7dbb807805af2"
+  },
+  {
+    "path": "mcp/src/schemas.mjs",
+    "bytes": 3707,
+    "sha256": "9d55f7814799cbe57c1010f851f129606cf5a0c5d0f67455b66cd9b6388ca57b"
+  }
+]

@@ -1,0 +1,109 @@
+{
+  "schema": "beacn.cip-source-corpus.scoped-review.v1",
+  "checkedAt": "2026-09-07T09:39:22.191118+00:00",
+  "status": "PASS_WITH_SCOPED_FINDING",
+  "reviewer": {
+    "name": "Codex music_metadata review agent",
+    "relationship": "Separate review agent in the same BEACN Labs development session",
+    "externalSecurityAudit": false
+  },
+  "subject": {
+    "path": "knowledge/standards",
+    "originalKitManifestSha256": "ed4b0b1a61aee79c3e2b92bdfb1a4da92ad30912f2e0408219d1c347f3e02fa0",
+    "runtimeSha256": "a83f26e2b7cb820b54a8bfaf817cacbd28e34b6c2c320012f767699b93141969",
+    "pinModuleSha256": "85d2a3b4ef9dc655be0f2bb4bec6388f81e347b0cb0fca37ec8b21887227b66d",
+    "indexSha256": "669831b130fceebfa87bdcacea2497e04962be47e47729181c01f8c93e9f8a1f",
+    "sourceCommit": "05ee6bb05982289dbe00c4187b9d54cf90e2e276",
+    "treeSha1": "f4c9712aa121707f1df1ebb0cc4ca247aa3ef6d3"
+  },
+  "pureApi": {
+    "schema": "beacn.cip-corpus.runtime-review.v1",
+    "status": "PASS",
+    "checkedAt": "2026-09-07T09:34:07.300Z",
+    "sourceDocuments": 148,
+    "sourceBytes": 3425888,
+    "pythonDerivedUtf8BoundaryCases": 40202,
+    "allDocumentChunkReconstructionSequences": 444,
+    "reconstructedChunks": 58174,
+    "searchComparisons": 607,
+    "negativeCases": 83,
+    "mutationsSnapshottedBeforeAsyncHash": true,
+    "callerAccessorsInvoked": 0,
+    "networkCalls": 0,
+    "originalFilesUnchanged": true,
+    "sourceSha256": "a83f26e2b7cb820b54a8bfaf817cacbd28e34b6c2c320012f767699b93141969",
+    "pinSourceSha256": "85d2a3b4ef9dc655be0f2bb4bec6388f81e347b0cb0fca37ec8b21887227b66d",
+    "indexSha256": "669831b130fceebfa87bdcacea2497e04962be47e47729181c01f8c93e9f8a1f",
+    "scope": "Pure API only; original byte/index authentication and bounded text retrieval. No browser/MCP deployment, protocol correctness, rights verification or external security audit claim."
+  },
+  "archiveIdentity": {
+    "status": "PASS",
+    "manifestFiles": 178,
+    "sourceDocuments": 148,
+    "sourceBytes": 3425888,
+    "nativeGitTreeObjects": 225,
+    "nativeGitBlobObjects": 150,
+    "nativeGitCommitObjects": 1,
+    "duplicateJsonRejectedByIndependentParser": true,
+    "selectedYamlFieldsCompared": 592,
+    "yamlVersion": "6.0.1",
+    "multibyteSourceCodePoints": 6512,
+    "utf8BoundaryOracles": 40202,
+    "unmodifiedArchiveSha256": "ed4b0b1a61aee79c3e2b92bdfb1a4da92ad30912f2e0408219d1c347f3e02fa0",
+    "indexSha256": "669831b130fceebfa87bdcacea2497e04962be47e47729181c01f8c93e9f8a1f",
+    "runtimeSourceSha256": "a83f26e2b7cb820b54a8bfaf817cacbd28e34b6c2c320012f767699b93141969",
+    "networkRequests": 0,
+    "scope": "Native Git object and local archive correspondence, not PGP identity or legal-rights verification."
+  },
+  "findings": [
+    {
+      "severity": "low",
+      "scope": "Optional explicit-online retrieval helper only; not pure API or bundled runtime",
+      "path": "knowledge/standards/scripts/retrieve.py",
+      "lines": [
+        31,
+        32
+      ],
+      "sourceSha256": "a5400e802571590d7f15dedec0af57f17a05b1fd7ce753dceaa3992dc0d82496",
+      "summary": "Default urllib redirect handling contacts the destination before the final URL check rejects it.",
+      "reproduced": true,
+      "reproduction": "Two loopback HTTP origins; redirected source returned no bytes and wrote no files.",
+      "recommendation": "Refuse redirects in the opener before any redirected fetch."
+    }
+  ],
+  "licenseNotices": {
+    "declarations": {
+      "CC-BY-4.0": 127,
+      "Apache-2.0": 21
+    },
+    "selectedYamlFieldsMatched": 592,
+    "additionalOrConflictingNoticesPreserved": [
+      "CIP-0115",
+      "CIP-0121"
+    ],
+    "sourceNoticesAndAttributionMatched": true,
+    "legalRightsVerified": false
+  },
+  "network": {
+    "pureApiCalls": 0,
+    "externalRequests": 0,
+    "fullOnlineCorpusRefetch": false,
+    "manualRedirectProbeRequestsPerInvocation": 2
+  },
+  "changes": {
+    "originalKitModified": false,
+    "rootModified": false,
+    "publicServicesModified": false
+  },
+  "evidenceSha256": {
+    "objects.public.json": "d3400b85405ff5bf722c9c08a78077d30356dd3befbeb789016294531c035ae2",
+    "runtime.public.json": "9b8ca3310210c43bc137182b6db35aa089fff026dceeb3d5bbdc5332c5924c9b",
+    "redirect.public.json": "20733691d0012e9fd1de8001c684e8b4fa806ed31937fc8c7f4df065ed28142e"
+  },
+  "limits": [
+    "Bounded local source/object/API review, not a blanket security audit.",
+    "Git object reconstruction establishes exact pinned correspondence, not PGP signer identity.",
+    "Original notice preservation is not a legal determination or contributor-rights verification.",
+    "Browser UI, live MCP, latest revisions, annexes and chain behavior were not verified."
+  ]
+}

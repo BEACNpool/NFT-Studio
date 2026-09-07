@@ -1,0 +1,16 @@
+# Original licensing and attribution
+
+The archived READMEs remain works of their **original named authors and contributors**. They are not relicensed as NFT-Studio code. The `.source.txt` suffix makes the originals inert research data; all original file bytes, author lists, notices and embedded references remain unchanged.
+
+At the pinned [CIPs commit](https://github.com/cardano-foundation/CIPs/tree/05ee6bb05982289dbe00c4187b9d54cf90e2e276), the repository [root LICENSE](https://github.com/cardano-foundation/CIPs/blob/05ee6bb05982289dbe00c4187b9d54cf90e2e276/LICENSE) is CC-BY-4.0, retained unchanged as `UPSTREAM-LICENSE.source.txt`. The per-document frontmatter declares **127 CC-BY-4.0 and 21 Apache-2.0** licenses. Every declaration and original copyright section is copied into the index with exact source byte offsets. The complete original is always the licensing evidence; the index does not supersede it.
+
+Both license texts are retained. [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode) permits sharing subject to its attribution and other terms. [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0.txt) permits redistribution with its stated conditions, including retaining the license and relevant notices. The exact official Apache text is `APACHE-2.0.source.txt` (SHA-256 `cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30`). No separate NOTICE file appears in the pinned complete Git tree. Original copyright/author statements remain present, including those explicitly named in CIP-0007 and CIP-0177. Neither source inclusion nor attribution implies endorsement.
+
+The review found two declarations that require explicit treatment:
+
+- [CIP-0115](https://github.com/cardano-foundation/CIPs/blob/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0115/README.md) declares CC-BY-4.0 in its frontmatter; its Copyright section additionally places code samples and reference material under Apache 2.0. Both notices and license texts are retained.
+- [CIP-0121](https://github.com/cardano-foundation/CIPs/blob/05ee6bb05982289dbe00c4187b9d54cf90e2e276/CIP-0121/README.md) declares CC-BY-4.0 in its frontmatter but Apache-2.0 in its Copyright section. This is recorded as an upstream inconsistency. The archive preserves both statements, both texts and original attribution; it does not choose one or claim a resolved/combined licensing expression.
+
+All 148 originals have a recognized explicit frontmatter license and an original Copyright section. This is a review of the displayed source notices for unchanged archival, not an independent verification of every contributor's rights or the applicability of third-party references. External linked works, annexes and assets have not been copied. Original URLs and relative references stay unchanged in the archive; follow the immutable source URL for original repository context.
+
+The authored loader-free search/retrieval module, build/retrieval scripts, tests and explanatory documentation use NFT-Studio's Apache-2.0 code license. Generated index fields derived from original documents retain the corresponding source attribution/licenses. `ATTRIBUTION.md`, `index.json` and the two retained license texts must travel with redistributed originals.

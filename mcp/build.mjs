@@ -8,6 +8,14 @@ const here = dirname(fileURLToPath(import.meta.url));
 const root = resolve(process.env.NFT_STUDIO_ROOT || resolve(here, '..'));
 const knowledge = resolve(process.env.NFT_STUDIO_KNOWLEDGE || resolve(root, 'knowledge'));
 const nestedModules = resolve(here, 'node_modules');
+const corpusRawPlugin={name:'fixed-cip-corpus-raw-text',setup(b){
+  b.onLoad({filter:/\/(?:standards\/index\.json|standards\/sources\/CIP-[0-9]{4}\.README\.source\.txt)$/},async args=>{
+    if(args.suffix!=='?raw')return;
+    const text=await readFile(args.path,'utf8');
+    if(Buffer.byteLength(text)>524288)throw Error('Corpus source byte cap exceeded.');
+    return {contents:text,loader:'text'};
+  });
+}};
 const capsule=resolve(root,'experiments/capsule-parameterizer');
 await readFile(resolve(root, 'lib/studio-intent.ts'));
 const catalogBytes=await readFile(resolve(knowledge,'catalog.json'));
@@ -21,7 +29,7 @@ await build({
   outdir: 'dist', outExtension: {'.js':'.mjs'},
   bundle: true, platform: 'node', format: 'esm', target: 'node22',
   packages: 'external', sourcemap: false, logLevel: 'warning',
-  plugins: [{ name: 'shared-studio-source', setup(b) {
+  plugins: [corpusRawPlugin,{ name: 'shared-studio-source', setup(b) {
     b.onResolve({filter:/^@capsule\//},args=>({path:resolve(capsule,'src',args.path.slice(9))}));
     b.onResolve({filter:/^@studio\//}, args => ({path:resolve(root, 'lib', args.path.slice(8))}));
     b.onResolve({filter:/^@\/lib\//}, args => ({path:resolve(root, 'lib', args.path.slice(6)+'.ts')}));
@@ -47,7 +55,7 @@ await build({
   nodePaths:[nestedModules],external:['*.wasm'],define:{'process.env.NEXT_PUBLIC_BASE_PATH':'""'},
   banner:{js:'/*! CSL 17 browser WASM and glue: '+cslLicense.replaceAll('*/','* /')+' */\n/*! Fixed capsule adapter dependencies and notices: '+capsuleNotices.replaceAll('*/','* /')+' */'},
   sourcemap:false,minify:false,logLevel:'warning',
-  plugins:[{name:'shared-studio-source',setup(b){
+  plugins:[corpusRawPlugin,{name:'shared-studio-source',setup(b){
     b.onResolve({filter:/^@capsule\//},args=>({path:resolve(capsule,'src',args.path.slice(9))}));
     b.onResolve({filter:/^@studio\//},args=>({path:resolve(root,'lib',args.path.slice(8))}));
     b.onResolve({filter:/^@\/lib\//},args=>({path:resolve(root,'lib',args.path.slice(6)+'.ts')}));

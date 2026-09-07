@@ -1,3 +1,4 @@
+import {registerCipSourceTools,CIP_SOURCE_CAPABILITIES} from './cip-source-tools.mjs';
 import {registerCapsuleTools,CAPSULE_MCP_CAPABILITIES} from './capsule-tools.mjs';
 import {IMPLEMENTATIONS_URI,implementationRegister,implementationLinks} from './implementation-knowledge.mjs';
 import { registerProofTools, PROOF_MCP_CAPABILITIES } from './proof-tools.mjs';
@@ -23,7 +24,8 @@ export const CAPABILITIES = Object.freeze({
   schema:'nft-studio.mcp.capabilities.v1', serverVersion:'0.1.0',
   transports:['stdio','streamable-http'], protocolEras:['2026-07-28','2025 legacy negotiation'],
   network:'Cardano mainnet', custody:'external signer only; no keys, signing or submission in this service',
-  actions:['knowledge_search','knowledge_resources','payload_validation','ledger_metadata_validation','mint_intent','unsigned_transaction','witness_verification','proof_record','proof_verification','music_package','music_package_verification','unsigned_music_transaction','state_capsule_parameter_application'],
+  cipSources:CIP_SOURCE_CAPABILITIES,
+    actions:['cip_source_search','cip_source_chunks','knowledge_search','knowledge_resources','payload_validation','ledger_metadata_validation','mint_intent','unsigned_transaction','witness_verification','proof_record','proof_verification','music_package','music_package_verification','unsigned_music_transaction','state_capsule_parameter_application'],
   proofOfExistence:PROOF_MCP_CAPABILITIES,
     musicReleases:MUSIC_MCP_CAPABILITIES,
     musicUnsignedPreparation:MUSIC_UNSIGNED_CAPABILITIES,
@@ -96,6 +98,7 @@ export function createService(options={}) {
     registerMusicTools(register);
     registerMusicUnsignedTool(register,prepareMusic);
     registerCapsuleTools(register);
+    registerCipSourceTools(register);
     register('studio_capabilities','Discover exact supported formats, operations, limits, native-policy semantics and browser-only boundaries.',empty,capabilities);
     register('search_knowledge','Search the pinned Cardano knowledge base. Returns cited facts, explicit design interpretations and implementation maturity; no network search.',z.strictObject({query:z.string().min(1).max(200),limit:z.number().int().min(1).max(10).default(5)}),({query,limit})=>({asOf:catalog.asOf,results:searchKnowledge(catalog,query,{limit})}));
     register('read_knowledge','Read one allowed knowledge entry plus its primary-source provenance. IDs come from search results or listed resources.',z.strictObject({id:z.string().min(1).max(100).regex(/^[a-z0-9-]+$/)}),({id})=>{

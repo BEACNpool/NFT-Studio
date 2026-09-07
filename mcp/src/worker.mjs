@@ -1,3 +1,4 @@
+import {registerCipSourceTools,CIP_SOURCE_CAPABILITIES} from './cip-source-tools.mjs';
 import {registerCapsuleTools,CAPSULE_MCP_CAPABILITIES} from './capsule-tools.mjs';
 import {IMPLEMENTATIONS_URI,implementationRegister,implementationLinks} from './implementation-knowledge.mjs';
 import { registerProofTools, PROOF_MCP_CAPABILITIES } from './proof-tools.mjs';
@@ -39,7 +40,8 @@ export function createPublicMcpHandler(config) {
   const capabilities={
     schema:'nft-studio.mcp.capabilities.v1',serverVersion:'0.1.0',service:'public content and unsigned native preparation',
     transports:['streamable-http'],protocolEras:['2026-07-28','2025 legacy negotiation'],
-    actions:['knowledge_search','knowledge_resources','payload_validation','mint_intent','proof_record','proof_verification','music_package','music_package_verification','unsigned_music_transaction','state_capsule_parameter_application','unsigned_transaction'],
+    cipSources:CIP_SOURCE_CAPABILITIES,
+    actions:['cip_source_search','cip_source_chunks','knowledge_search','knowledge_resources','payload_validation','mint_intent','proof_record','proof_verification','music_package','music_package_verification','unsigned_music_transaction','state_capsule_parameter_application','unsigned_transaction'],
     proofOfExistence:PROOF_MCP_CAPABILITIES,
     musicReleases:MUSIC_MCP_CAPABILITIES,
     musicUnsignedPreparation:MUSIC_UNSIGNED_CAPABILITIES,
@@ -65,6 +67,7 @@ export function createPublicMcpHandler(config) {
     registerMusicTools(register);
     registerMusicUnsignedTool(register,prepareMusic);
     registerCapsuleTools(register);
+    registerCipSourceTools(register);
     register('prepare_unsigned_transaction','Build unsigned mainnet native NFT/data CBOR using the shared Studio builder and fixed public protocol feed. This tool receives your explicit wallet change address and up to 32 ordinary UTxOs; it does not verify ownership or whether inputs are unspent. No signing, submission or retained preparation. Independently review exact outputs, policy, metadata and full signed fees with an external wallet.',publicPrepareSchema,prepareUnsigned,{readOnlyHint:true,destructiveHint:false,idempotentHint:false,openWorldHint:true});
     register('studio_capabilities','Read the public service capability boundary, package limits and full Node service distinction.',empty,()=>capabilities);
     register('search_knowledge','Search pinned Cardano knowledge with primary-source provenance and explicit implementation maturity. No network search.',searchSchema,({query,limit})=>({asOf:catalog.asOf,results:searchKnowledge(catalog,query,{limit})}));

@@ -1,0 +1,116 @@
+{
+  "schema": "beacn.original-music-demo-kit.v1",
+  "revision": 2,
+  "frozenAt": "2026-09-07T10:08:31.892589+00:00",
+  "status": "tested candidate; root-owned integration pending",
+  "sourceCommit": "b870f55ea095747b4eafc10e7be925c8e71cd16c",
+  "packageHash": "3655e44e6c5a1ddd735c3e60b72e8ef76cecb5749f6763250e6ba629ebb96f65",
+  "rootFilesEdited": 0,
+  "files": [
+    {
+      "path": "INTEGRATION.md",
+      "bytes": 1978,
+      "sha256": "c5092b7df6127932d950893f4c4605325bd80de22f1d7548fbbacae4ad37a1b4"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5948,
+      "sha256": "dd3782d3aa8317351f87b0fa81ffbf2f44b7d5aacc1372a2aaf7c91f4891f1dc"
+    },
+    {
+      "path": "V2_PROVENANCE.json",
+      "bytes": 5455,
+      "sha256": "ac579bd545af611047c982bf24a5b14661ab3df5d42020892dbe4822f4b61e01"
+    },
+    {
+      "path": "assets/cover.svg",
+      "bytes": 893,
+      "sha256": "f5566de39b3e85d5e2b4a6cf8d0f8ae7eccd631d1f12aab3d86ee0e39ff0ca9d"
+    },
+    {
+      "path": "assets/midnight-beacon.ogg",
+      "bytes": 7707,
+      "sha256": "d4943570aa1a3a2550e460c5bf13575ff35894a40edfd195d2617888d5f2bc99"
+    },
+    {
+      "path": "evidence/browser-verification.json",
+      "bytes": 3017,
+      "sha256": "a219cc555f039381a02758bb4e6ca46b5a2085dedc35552d44faf6a7c524c23e"
+    },
+    {
+      "path": "evidence/encoder-verification.json",
+      "bytes": 2967,
+      "sha256": "9e4f637f045be1e313abf5f394acdd9fdc7609a92dad807026d57a18c6becf21"
+    },
+    {
+      "path": "evidence/package-verification.json",
+      "bytes": 2632,
+      "sha256": "f06096d8bab18b085aba78be36c498234624722e4fd9992489e547ddb69f9f86"
+    },
+    {
+      "path": "evidence/preview-1440-initial.png",
+      "bytes": 127519,
+      "sha256": "f8e563b52bbd77d4bbbee6216e5f10a1d1597fc72179f5f4f461d0c5448eff60"
+    },
+    {
+      "path": "evidence/preview-390-initial.png",
+      "bytes": 101553,
+      "sha256": "dfa09911f1bc102761bc28ad016d0f04d0849d46f9b3ee316a694318df449a56"
+    },
+    {
+      "path": "evidence/reference.wav",
+      "bytes": 384044,
+      "sha256": "4f822a17faaf5d0e35480b47f9eed169de64a903f166a37edc473893b658d871"
+    },
+    {
+      "path": "evidence/source-inputs.json",
+      "bytes": 3676,
+      "sha256": "8725beaae3bfe676c959898cc82a8ac456ccae8ddf38065da3320883650b485f"
+    },
+    {
+      "path": "evidence/source-provenance.json",
+      "bytes": 632,
+      "sha256": "2ca8725d98cfa0287db37c8e69cca168d36ce7176977a850d01e8785767bffa3"
+    },
+    {
+      "path": "evidence/synthetic-prepared.json",
+      "bytes": 75737,
+      "sha256": "2646e6e2a21a639ffa0016c789ae654fbd8250338348b80db41d54084cb4b305"
+    },
+    {
+      "path": "index.html",
+      "bytes": 18714,
+      "sha256": "d4b303d386d85cb53c1ac8d4d6b53f312aae9ea90434a9753bafe321a4cc58ab"
+    },
+    {
+      "path": "midnight-beacon.music-release.json",
+      "bytes": 12901,
+      "sha256": "4b5f37c05e203be42f71db3ef2d6cfdc2362b5872c89082eddcee826ac13a43b"
+    },
+    {
+      "path": "scripts/render-preview.py",
+      "bytes": 6018,
+      "sha256": "5ea47676a36bcf49ba5c664a66e0df70fe64bf237af06b0e359e46cdf18c3892"
+    },
+    {
+      "path": "scripts/synthesize.py",
+      "bytes": 3287,
+      "sha256": "11e1f28b15eec1ec40b7b63ec2c1ee3a2a1b4f361f451304b0e96f704a9aacc9"
+    },
+    {
+      "path": "scripts/verify-browser.mjs",
+      "bytes": 4948,
+      "sha256": "bb7627e0dfcc681bb7f2579ffcc14e3f405ff4fc8077e650b694d7153dcff38c"
+    },
+    {
+      "path": "scripts/verify-encoding.py",
+      "bytes": 2953,
+      "sha256": "79faf119fd724844c9ccc86c9d98fc8ecb6b0e1383479f6858f1308dce89b82c"
+    },
+    {
+      "path": "scripts/verify-package.mjs",
+      "bytes": 7061,
+      "sha256": "9108c48bb57dcb27766b17b8abd3f2333aed710519f7291339c9759e6b2747aa"
+    }
+  ]
+}

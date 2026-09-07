@@ -2,6 +2,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { BookOpen, Search, ArrowUpRight, Download } from 'lucide-react';
 import { Input } from './ui/input';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from './ui/tabs';
+import { CipSourcesPanel } from './cip-sources-panel';
 import { Button } from './ui/button';
 import {
   Select,
@@ -31,6 +33,24 @@ import {
 const catalog = validateCatalog(rawCatalog);
 type Entry = KnowledgeEntry;
 export function KnowledgePanel() {
+  return (
+    <Tabs defaultValue="curated">
+      <TabsList className="ns-cip-modes" aria-label="Knowledge collection">
+        <TabsTrigger value="curated">
+          Curated research · {catalog.entries.length}
+        </TabsTrigger>
+        <TabsTrigger value="originals">Original CIPs · 148</TabsTrigger>
+      </TabsList>
+      <TabsContent value="curated" keepMounted>
+        <CuratedKnowledgePanel />
+      </TabsContent>
+      <TabsContent value="originals">
+        <CipSourcesPanel />
+      </TabsContent>
+    </Tabs>
+  );
+}
+function CuratedKnowledgePanel() {
   const [query, setQuery] = useState('');
   const [kind, setKind] = useState<'all' | Entry['kind']>('all');
   const [status, setStatus] = useState('all');

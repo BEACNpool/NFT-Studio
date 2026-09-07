@@ -1,0 +1,84 @@
+{
+  "schema": "beacn.original-music-demo-check.v1",
+  "status": "PASS",
+  "checkedAt": "2026-09-07T10:06:07.788Z",
+  "title": "Midnight Beacon",
+  "packageHash": "3655e44e6c5a1ddd735c3e60b72e8ef76cecb5749f6763250e6ba629ebb96f65",
+  "rawFileBytes": 8600,
+  "files": [
+    {
+      "name": "cover.svg",
+      "bytes": 893,
+      "sha256": "f5566de39b3e85d5e2b4a6cf8d0f8ae7eccd631d1f12aab3d86ee0e39ff0ca9d",
+      "mediaType": "image/svg+xml"
+    },
+    {
+      "name": "midnight-beacon.ogg",
+      "bytes": 7707,
+      "sha256": "d4943570aa1a3a2550e460c5bf13575ff35894a40edfd195d2617888d5f2bc99",
+      "mediaType": "audio/ogg"
+    }
+  ],
+  "packageJsonBytes": 12901,
+  "metadataBudget": {
+    "metadataBytesAt32ByteAssetName": 13194,
+    "metadataByteLimit": 14000,
+    "remainingMetadataBytes": 806,
+    "completeTransactionMeasured": false
+  },
+  "transactionHash": "98427be2c2c06bebbc626267491c9501d5f475e77d629b23bd3e71b54f96f173",
+  "unsignedBytes": 13591,
+  "metadataBytes": 13194,
+  "estimatedSignedBytes": 13697,
+  "packageSha256Verified": true,
+  "exactFilesAndCredits": true,
+  "bodyHashVerified": true,
+  "auxiliaryCommitmentVerified": true,
+  "soleQuantityOneMint": true,
+  "valueConservation": true,
+  "noStoredPacket": true,
+  "chainStateVerified": false,
+  "ownershipVerified": false,
+  "signed": false,
+  "submitted": false,
+  "feeLovelace": "758225",
+  "actualCborRecovery": {
+    "entirePackageEqual": true,
+    "exactFiles": true,
+    "exactCredits": true,
+    "sharedCodec": true
+  },
+  "sharedStudioBuilderDirectByteParity": true,
+  "directBuilderRuntime": "Node with CSL17",
+  "syntheticClock": {
+    "fixedClockMs": 1788782400000,
+    "quote": {
+      "tip": {
+        "epoch_no": 654,
+        "abs_slot": 197151000,
+        "block_time": 1788782400
+      },
+      "parameters": {
+        "epoch_no": 654,
+        "max_tx_size": 16384,
+        "max_val_size": 5000,
+        "min_fee_a": 44,
+        "min_fee_b": 155381,
+        "coins_per_utxo_size": 4310,
+        "key_deposit": 2000000,
+        "pool_deposit": 500000000
+      }
+    },
+    "realChainFreshness": false
+  },
+  "networkCalls": 0,
+  "keys": 0,
+  "signaturesCreated": 0,
+  "submissions": 0,
+  "limits": [
+    "Synthetic input references and protocol quote only. Never sign or submit this preparation.",
+    "Metadata recovery shares the Studio codec; direct assertions share CSL, not a separate ledger implementation.",
+    "AI-assisted original demonstration material and credit declarations; no rights/authorship certification.",
+    "Opus compressed audio is the exact encoded source in this package; it is not the larger synthesis WAV."
+  ]
+}

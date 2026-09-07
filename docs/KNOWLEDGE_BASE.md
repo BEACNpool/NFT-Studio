@@ -5,6 +5,9 @@ It contains original summaries of **40 standards, 10 tools and 8 BEACN design
 patterns**, backed by **73 primary sources**. The initial snapshot was researched
 on **2026-09-07 UTC**. It is a starting corpus, not a complete Cardano encyclopedia,
 a live adoption registry or evidence that every described feature exists in Studio.
+A separate original-source collection preserves **all 148 CIP README documents**
+at the pinned repository snapshot, with their exact bytes, authors, licenses and
+Git/SHA-256 identities. Annexes, CPS and linked files are outside that inventory.
 
 The strongest direction is **artifacts that carry their own evidence**: exact
 content recovery, explicit authority, reproducible contract builds and testable
@@ -13,6 +16,8 @@ or breakthrough claim merely for combining standards.
 
 ## Read or integrate
 
+- [Original CIP source access](CIP_SOURCE_ACCESS.md) — the separate browser reader, bounded MCP search/chunks, original attribution and exact snapshot scope.
+- [Pinned original inventory](../knowledge/standards/README.md) — all 148 source files and reproducible Git-object/integrity checks.
 - [Machine-readable catalog](../knowledge/catalog.json) — the canonical entries and sources.
 - [JSON Schema](../knowledge/schema.json) — bounded interchange structure.
 - [Admission and evidence rules](../knowledge/ADMISSION.md) — what a claim means.
@@ -82,5 +87,6 @@ Do not copy private operational records, credentials, signing packets or persona
 data into this public corpus. No private fleet document is a research source here.
 
 Read [attribution](../knowledge/ATTRIBUTION.md) before reusing upstream text or
-artifacts. This corpus links and summarizes; upstream specifications, code and
-third-party art retain their own licenses.
+artifacts. The curated corpus links and summarizes; the separate original-source archive
+redistributes unchanged documents with their original notices and retained licenses.
+Upstream specifications, code and third-party art retain their own licenses.

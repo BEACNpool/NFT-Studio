@@ -1,0 +1,6 @@
+# Original source and committed index hashes depend on exact byte identity.
+*.source.txt -text
+*.json -text
+*.mjs text eol=lf
+*.mts text eol=lf
+*.py text eol=lf

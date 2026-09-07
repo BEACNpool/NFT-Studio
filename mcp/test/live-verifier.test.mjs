@@ -15,34 +15,34 @@ test('Explicit eight/nine/ten/twelve/thirteen parser preserves default and rejec
   assert.equal(parseLiveOptions([endpoint.href,'--expected-resources','56']).expectedResources,56);assert.equal(parseLiveOptions([endpoint.href,'--expected-resources','61']).expectedResources,61);
   for(const value of ['54','57','0',''])assert.throws(()=>parseLiveOptions([endpoint.href,'--expected-resources',value]));
   assert.throws(()=>parseLiveOptions([endpoint.href,'--expected-resources','55','--expected-resources','56']));
-  assert.equal(parseLiveOptions(['--expected-tools','9',endpoint.href]).expectedTools,9);assert.equal(parseLiveOptions(['--expected-tools','10',endpoint.href]).expectedTools,10);assert.equal(parseLiveOptions(['--expected-tools','12',endpoint.href]).expectedTools,12);assert.equal(parseLiveOptions(['--expected-tools','13',endpoint.href]).expectedTools,13);
+  assert.equal(parseLiveOptions(['--expected-tools','9',endpoint.href]).expectedTools,9);assert.equal(parseLiveOptions(['--expected-tools','10',endpoint.href]).expectedTools,10);assert.equal(parseLiveOptions(['--expected-tools','12',endpoint.href]).expectedTools,12);assert.equal(parseLiveOptions(['--expected-tools','13',endpoint.href]).expectedTools,13);assert.equal(parseLiveOptions(['--expected-tools','15',endpoint.href]).expectedTools,15);
   for(const args of [[endpoint.href,'--expected-tools','11'],[endpoint.href,'--expected-tools','9','--expected-tools','8'],[endpoint.href,'--unknown','9'],[endpoint.href,endpoint.href],['http://release-verifier.example.org/api/mcp'],[endpoint.href+'?wallet=x'],['https://u:p@release-verifier.example.org/api/mcp'],[]])assert.throws(()=>parseLiveOptions(args));
 });
 
-test('Thirteen-tool release verifier passes modern/legacy real Workerd with only local synthetic reads',async()=>{
+test('Fifteen-tool release verifier passes modern/legacy real Workerd with only local synthetic reads',async()=>{
   const handler=await createPublicMcpHandler({publicOrigin:origin,endpointPath:'/api/mcp'});
   try{
-    const result=await verifyLiveEndpoint({endpoint,expectedTools:13,expectedResources:resourceCount,fetchImpl:(url,init)=>handler.dispatchFetch(url,init)});
-    assert.equal(result.status,'pass');assert.ok(result.checks.every(c=>c.unsignedMusic.exactFilesAndCredits&&c.unsignedMusic.valueConservation&&!c.unsignedMusic.chainStateVerified));assert.ok(result.checks.every(c=>c.musicPackages.canonicalRoundtrip&&c.musicPackages.packageOnly));assert.ok(result.checks.every(c=>c.capsuleParameters.fixtures===5&&c.capsuleParameters.parameterizedOnly));assert.equal(result.expectedResources,resourceCount);assert.ok(result.checks.every(c=>c.implementations.registerJsonValidated&&c.implementations.researchEntriesUnchanged));assert.equal(result.syntheticWalletDataSent,true);assert.equal(result.walletAccess,false);assert.equal(result.chainSubmission,false);
+    const result=await verifyLiveEndpoint({endpoint,expectedTools:15,expectedResources:resourceCount,fetchImpl:(url,init)=>handler.dispatchFetch(url,init)});
+    assert.equal(result.status,'pass');assert.ok(result.checks.every(c=>c.sourceCorpus?.independentChunkChecks===2));assert.ok(result.checks.every(c=>c.unsignedMusic.exactFilesAndCredits&&c.unsignedMusic.valueConservation&&!c.unsignedMusic.chainStateVerified));assert.ok(result.checks.every(c=>c.musicPackages.canonicalRoundtrip&&c.musicPackages.packageOnly));assert.ok(result.checks.every(c=>c.capsuleParameters.fixtures===5&&c.capsuleParameters.parameterizedOnly));assert.equal(result.expectedResources,resourceCount);assert.ok(result.checks.every(c=>c.implementations.registerJsonValidated&&c.implementations.researchEntriesUnchanged));assert.equal(result.syntheticWalletDataSent,true);assert.equal(result.walletAccess,false);assert.equal(result.chainSubmission,false);
     assert.deepEqual(result.checks.map(c=>c.protocolEra),['modern','legacy']);
     assert.ok(result.checks.every(c=>c.unsigned.length===2&&c.unsigned.every(u=>u.bodyHashVerified&&u.valueConservation&&u.localBundleBytesMatch&&!u.chainStateVerified)));
     assert.equal(handler.calls.length,12);assert.ok(handler.calls.every(c=>c.method==='GET'&&c.body===''&&c.authorization===null));
   }finally{await handler.close();}
 });
 
-async function eightFixture({missingCors=false,hideUnsigned=true,keepCapsule=false,keepMusic=false,keepImplementations=false}={}){
+async function eightFixture({missingCors=false,hideUnsigned=true,keepCapsule=false,keepMusic=false,keepImplementations=false,keepUnsignedMusic=false}={}){
   const handler=await createPublicMcpHandler({publicOrigin:origin,endpointPath:'/api/mcp'});
   const fetchImpl=async(url,init)=>{
     const request=init.body?JSON.parse(init.body):null;
     if(!keepCapsule)assert.notEqual(request?.params?.name,'apply_state_capsule_parameters','Older tool mode must not call the new capsule tool.');
-    assert.notEqual(request?.params?.name,'prepare_unsigned_music_transaction','Older release modes must not prepare a music transaction.');
+    if(!keepUnsignedMusic)assert.notEqual(request?.params?.name,'prepare_unsigned_music_transaction','Older release modes must not prepare a music transaction.');
     for(const name of (keepMusic?[]:['create_music_release','verify_music_release']))assert.notEqual(request?.params?.name,name,'Older tool mode must not call music tools.');
     if(hideUnsigned)assert.notEqual(request?.params?.name,'prepare_unsigned_transaction','Default tool mode must never send a wallet snapshot.');
     if(!keepImplementations)assert.notEqual(request?.params?.uri,'nft-studio://implementations','Default resource mode must not read the new implementation register.');
     const response=await handler.dispatchFetch(url,init);
     if(init.method==='OPTIONS'&&missingCors){const headers=new Headers(response.headers);headers.set('access-control-allow-headers','Content-Type, MCP-Protocol-Version');return new Response(null,{status:204,headers});}
     if(!['tools/list','resources/list'].includes(request?.method))return response;
-    const replace=text=>{const body=JSON.parse(text);if(request.method==='tools/list'){assert.ok(Array.isArray(body.result.tools));body.result.tools=body.result.tools.filter(t=>t.name!=='prepare_unsigned_music_transaction');if(!keepMusic)body.result.tools=body.result.tools.filter(t=>!['create_music_release','verify_music_release'].includes(t.name));if(!keepCapsule)body.result.tools=body.result.tools.filter(t=>t.name!=='apply_state_capsule_parameters');if(hideUnsigned)body.result.tools=body.result.tools.filter(t=>t.name!=='prepare_unsigned_transaction');}else{assert.ok(Array.isArray(body.result.resources));if(!keepImplementations)body.result.resources=body.result.resources.filter(r=>r.uri!=='nft-studio://implementations').slice(0,55);}return JSON.stringify(body);};
+    const replace=text=>{const body=JSON.parse(text);if(request.method==='tools/list'){assert.ok(Array.isArray(body.result.tools));body.result.tools=body.result.tools.filter(t=>!['search_cip_sources','get_cip_source_chunk',...(!keepUnsignedMusic?['prepare_unsigned_music_transaction']:[])].includes(t.name));if(!keepMusic)body.result.tools=body.result.tools.filter(t=>!['create_music_release','verify_music_release'].includes(t.name));if(!keepCapsule)body.result.tools=body.result.tools.filter(t=>t.name!=='apply_state_capsule_parameters');if(hideUnsigned)body.result.tools=body.result.tools.filter(t=>t.name!=='prepare_unsigned_transaction');}else{assert.ok(Array.isArray(body.result.resources));if(!keepImplementations)body.result.resources=body.result.resources.filter(r=>r.uri!=='nft-studio://implementations').slice(0,55);}return JSON.stringify(body);};
     const text=await response.text(),headers=new Headers(response.headers);headers.delete('content-length');
     const body=headers.get('content-type')?.includes('text/event-stream')?text.split('\n').map(line=>line.startsWith('data: ')?'data: '+replace(line.slice(6)):line).join('\n'):replace(text);
     return new Response(body,{status:response.status,headers});
@@ -104,4 +104,9 @@ test('Independent native verifier rejects changed byte identity, recomputed-body
       assert.throws(()=>assertSyntheticUnsigned({...packet,unsignedHex:'c0'.repeat(17)+'00'},intent,fixture),/CBOR/);
     }
   }finally{await client.close();await handler.close();}
+});
+
+test('Thirteen-tool compatibility retains exact unsigned music without corpus tool calls',async()=>{
+ const ctx=await eightFixture({hideUnsigned:false,keepCapsule:true,keepMusic:true,keepImplementations:true,keepUnsignedMusic:true});
+ try{const result=await verifyLiveEndpoint({endpoint,expectedTools:13,expectedResources:resourceCount,fetchImpl:ctx.fetchImpl});assert.ok(result.checks.every(c=>c.unsignedMusic.exactFilesAndCredits&&!c.sourceCorpus));assert.equal(ctx.handler.calls.length,12);}finally{await ctx.handler.close();}
 });

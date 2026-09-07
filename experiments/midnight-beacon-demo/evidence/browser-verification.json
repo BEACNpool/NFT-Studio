@@ -1,0 +1,101 @@
+{
+  "schema": "beacn.original-music-browser-check.v1",
+  "status": "PASS",
+  "checkedAt": "2026-09-07T10:07:19.135Z",
+  "browser": "Chrome/152.0.7977.64",
+  "packageHash": "3655e44e6c5a1ddd735c3e60b72e8ef76cecb5749f6763250e6ba629ebb96f65",
+  "pageSha256": "d4b303d386d85cb53c1ac8d4d6b53f312aae9ea90434a9753bafe321a4cc58ab",
+  "viewports": [
+    {
+      "width": 390,
+      "height": 844,
+      "before": {
+        "paused": true,
+        "currentTime": 0,
+        "coverWidth": 150,
+        "coverHeight": 150,
+        "overflow": false,
+        "preview": {
+          "playClicks": 0,
+          "started": false,
+          "ended": false,
+          "decoder": null
+        },
+        "displayedPackageHash": "3655e44e6c5a1ddd735c3e60b72e8ef76cecb5749f6763250e6ba629ebb96f65"
+      },
+      "after": {
+        "playClicks": 1,
+        "started": true,
+        "ended": true,
+        "decoder": {
+          "duration": 8,
+          "sampleRate": 48000,
+          "channels": 1,
+          "frames": 384000,
+          "peak": 0.7079457640647888,
+          "rms": 0.17146688230137322,
+          "clipped": 0
+        },
+        "currentTime": 8.0065,
+        "mediaDuration": 8.0065,
+        "paused": true,
+        "readyState": 4,
+        "canPlayType": "probably",
+        "overflow": false,
+        "downloadedCanonicalPacketExact": true,
+        "downloadedPacketSha256": "4b5f37c05e203be42f71db3ef2d6cfdc2362b5872c89082eddcee826ac13a43b"
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "before": {
+        "paused": true,
+        "currentTime": 0,
+        "coverWidth": 150,
+        "coverHeight": 150,
+        "overflow": false,
+        "preview": {
+          "playClicks": 0,
+          "started": false,
+          "ended": false,
+          "decoder": null
+        },
+        "displayedPackageHash": "3655e44e6c5a1ddd735c3e60b72e8ef76cecb5749f6763250e6ba629ebb96f65"
+      },
+      "after": {
+        "playClicks": 1,
+        "started": true,
+        "ended": true,
+        "decoder": {
+          "duration": 8,
+          "sampleRate": 48000,
+          "channels": 1,
+          "frames": 384000,
+          "peak": 0.7079457640647888,
+          "rms": 0.17146688230137322,
+          "clipped": 0
+        },
+        "currentTime": 8.0065,
+        "mediaDuration": 8.0065,
+        "paused": true,
+        "readyState": 4,
+        "canPlayType": "probably",
+        "overflow": false,
+        "downloadedCanonicalPacketExact": true,
+        "downloadedPacketSha256": "4b5f37c05e203be42f71db3ef2d6cfdc2362b5872c89082eddcee826ac13a43b"
+      }
+    }
+  ],
+  "requests": [
+    "/",
+    "/"
+  ],
+  "externalNetworkRequests": 0,
+  "pageErrors": [],
+  "playback": "Actual HTMLAudioElement time advancement to ended after Puppeteer click; WebAudio decode and finite nonclipped PCM checked. Headless playback is not a human listening review.",
+  "limits": [
+    "Local preview tested in Chromium only, not all wallets/players/browsers.",
+    "No subjective listening judgment or confirmed NFT claim."
+  ]
+}

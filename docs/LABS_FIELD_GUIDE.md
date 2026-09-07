@@ -30,8 +30,9 @@ policy hashes. No chain query or wallet call is needed to reproduce those bytes.
 
 ## Put the credits beside the recording
 
-In **Music release**, open the one-second original, select its WAV and use the
-audio controls. Inspect the artwork, artists, rights declarations and exact file
+In **Music release**, choose **Try Midnight Beacon · 8s**, select its Ogg audio
+and press play. The original composition and SVG cover occupy 8,600 raw bytes.
+You can also try the one-second WAV example. Inspect the artwork, artists, rights declarations and exact file
 hashes. Change a credit and rebuild: the release hash changes. Export a music
 package and reopen it to verify the files and credits together.
 
@@ -118,6 +119,12 @@ observations. Open a record, inspect its primary sources and expand the attached
 implementation evidence. Immutable source links and hashes make those observations
 reviewable after the code changes. **Asset inspector** lets you examine exact
 policy/name bytes and CIP-14/67/68 identities without inventing chain ownership.
+
+Select **Original CIPs** to search the separate 148-document snapshot by id, title
+or status. Read exact text chunks, inspect the original authorship/licenses and
+follow a pinned source citation. Your agent can use `search_cip_sources` and
+`get_cip_source_chunk` for the same originals. The archive includes the CIP README
+documents; annexes, CPS and linked files remain outside it.
 
 Useful source starting points:
 

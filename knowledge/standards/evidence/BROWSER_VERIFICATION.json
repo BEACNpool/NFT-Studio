@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-09-07T09:07:10.073Z",
+  "browser": "Chrome/152.0.7977.64",
+  "checks": 2199,
+  "documents": 148,
+  "independentNodeDigestComparisons": 148,
+  "externalRequests": [],
+  "runtimeCalls": [],
+  "applicationErrors": [],
+  "build": "Native browser ES modules; no bundler or Node shims",
+  "scope": "Fixed local corpus with preloaded data; no user URL, wallet or provider"
+}

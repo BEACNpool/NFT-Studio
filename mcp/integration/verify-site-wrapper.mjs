@@ -1,3 +1,4 @@
+import {verifyCipSourceRelease} from './verify-cip-source-tools.mjs';
 import {PUBLIC_TOOL_NAMES} from './tool-names.mjs';
 import {verifyCapsuleTool} from './verify-capsule-parameters.mjs';
 import {verifyMusicTools} from './verify-music-tools.mjs';
@@ -75,6 +76,7 @@ try{
       const capsuleParameters=await verifyCapsuleTool(client,tools);
       const musicPackages=await verifyMusicTools(client,tools);
       const unsignedMusic=await verifyMusicUnsignedTool(client,tools);
+      const sourceCorpus=await verifyCipSourceRelease(client);
       const resources=(await client.listResources()).resources;
       const implementations=await verifyImplementationResources(client,resources);
       const caps=checked(await client.callTool({name:'studio_capabilities',arguments:{}}));assert.equal(caps.publicEndpoint,origin+'/api/mcp');
@@ -91,7 +93,7 @@ try{
       assert.equal(prepared.schema,'nft-studio.stateless-unsigned.v1');assert.equal(prepared.signed,false);assert.equal(prepared.submitted,false);
       assert.equal(prepared.transactionHash,C.FixedTransaction.from_hex(prepared.unsignedHex).transaction_hash().to_hex());
       assert.equal(prepared.reviewUrl,intent.review.url);assert.match(prepared.checks.walletInputs,/unverified/);
-      observations.push({route:'/api/mcp',protocolEra:client.getProtocolEra(),tools:tools.length,capsuleParameters,musicPackages,unsignedMusic,implementations,unsignedHash:prepared.transactionHash,mode:prepared.mode,resources:resources.length,intentHash:intent.intent.intentHash,proofRecordHash:proof.artifact.recordSha256,proofMatch:true});
+      observations.push({route:'/api/mcp',protocolEra:client.getProtocolEra(),tools:tools.length,sourceCorpus,capsuleParameters,musicPackages,unsignedMusic,implementations,unsignedHash:prepared.transactionHash,mode:prepared.mode,resources:resources.length,intentHash:intent.intent.intentHash,proofRecordHash:proof.artifact.recordSha256,proofMatch:true});
     }finally{await client.close();}
   }
   const post=(url,body,headers={})=>wrapped.dispatchFetch(url,{method:'POST',headers:{'content-type':'application/json',...headers},body});

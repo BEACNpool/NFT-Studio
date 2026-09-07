@@ -1,0 +1,14 @@
+{
+  "treeMutationRejections": 2,
+  "invalidProfilesRejected": 16,
+  "whitespaceRoundtrips": 3,
+  "pinnedExtractions": 148,
+  "runtimeNeedsPyYaml": false,
+  "independentYamlOracle": {
+    "library": "PyYAML",
+    "version": "6.0.1",
+    "documents": 148,
+    "selectedFieldsCompared": 592,
+    "loader": "SafeLoader; pinned source only"
+  }
+}

@@ -1,0 +1,1206 @@
+{
+  "schema": "nft-studio.cip-enumeration.v1",
+  "commit": "05ee6bb05982289dbe00c4187b9d54cf90e2e276",
+  "recursiveReadmeCount": 148,
+  "rootDirectoryCount": 148,
+  "rootReadmeTableRows": 143,
+  "rootReadmeUniqueRowIds": 143,
+  "rootReadmeUniqueLinkedIds": 142,
+  "treeIdsMissingFromRootReadmeRows": [
+    "CIP-0168",
+    "CIP-0172",
+    "CIP-0178",
+    "CIP-0183",
+    "CIP-0188"
+  ],
+  "treeIdsMissingFromRootReadmeLinks": [
+    "CIP-0162",
+    "CIP-0168",
+    "CIP-0172",
+    "CIP-0178",
+    "CIP-0183",
+    "CIP-0188"
+  ],
+  "tableRows": [
+    {
+      "rowId": "CIP-0001",
+      "linkedId": "CIP-0001",
+      "title": "CIP Process",
+      "status": "Active",
+      "line": 32
+    },
+    {
+      "rowId": "CIP-0002",
+      "linkedId": "CIP-0002",
+      "title": "Coin Selection Algorithms for Cardano",
+      "status": "Active",
+      "line": 33
+    },
+    {
+      "rowId": "CIP-0003",
+      "linkedId": "CIP-0003",
+      "title": "Wallet key generation",
+      "status": "Active",
+      "line": 34
+    },
+    {
+      "rowId": "CIP-0004",
+      "linkedId": "CIP-0004",
+      "title": "Wallet Checksums",
+      "status": "Proposed",
+      "line": 35
+    },
+    {
+      "rowId": "CIP-0005",
+      "linkedId": "CIP-0005",
+      "title": "Common Bech32 Prefixes",
+      "status": "Active",
+      "line": 36
+    },
+    {
+      "rowId": "CIP-0006",
+      "linkedId": "CIP-0006",
+      "title": "Stake Pool Extended Metadata",
+      "status": "Active",
+      "line": 37
+    },
+    {
+      "rowId": "CIP-0007",
+      "linkedId": "CIP-0007",
+      "title": "Curve Pledge Benefit",
+      "status": "Proposed",
+      "line": 38
+    },
+    {
+      "rowId": "CIP-0008",
+      "linkedId": "CIP-0008",
+      "title": "Message Signing",
+      "status": "Active",
+      "line": 39
+    },
+    {
+      "rowId": "CIP-0009",
+      "linkedId": "CIP-0009",
+      "title": "Protocol Parameters (Shelley Era)",
+      "status": "Active",
+      "line": 40
+    },
+    {
+      "rowId": "CIP-0010",
+      "linkedId": "CIP-0010",
+      "title": "Transaction Metadata Label Registry",
+      "status": "Active",
+      "line": 41
+    },
+    {
+      "rowId": "CIP-0011",
+      "linkedId": "CIP-0011",
+      "title": "Staking key chain for HD wallets",
+      "status": "Active",
+      "line": 42
+    },
+    {
+      "rowId": "CIP-0012",
+      "linkedId": "CIP-0012",
+      "title": "On-chain stake pool operator to delegates communication",
+      "status": "Proposed",
+      "line": 43
+    },
+    {
+      "rowId": "CIP-0013",
+      "linkedId": "CIP-0013",
+      "title": "Cardano URI Scheme",
+      "status": "Proposed",
+      "line": 44
+    },
+    {
+      "rowId": "CIP-0014",
+      "linkedId": "CIP-0014",
+      "title": "User-Facing Asset Fingerprint",
+      "status": "Active",
+      "line": 45
+    },
+    {
+      "rowId": "CIP-0015",
+      "linkedId": "CIP-0015",
+      "title": "Catalyst Registration Transaction Metadata Format",
+      "status": "Active",
+      "line": 46
+    },
+    {
+      "rowId": "CIP-0016",
+      "linkedId": "CIP-0016",
+      "title": "Cryptographic Key Serialisation Formats",
+      "status": "Active",
+      "line": 47
+    },
+    {
+      "rowId": "CIP-0017",
+      "linkedId": "CIP-0017",
+      "title": "Cardano Delegation Portfolio",
+      "status": "Inactive",
+      "line": 48
+    },
+    {
+      "rowId": "CIP-0018",
+      "linkedId": "CIP-0018",
+      "title": "Multi-Stake-Keys Wallets",
+      "status": "Proposed",
+      "line": 49
+    },
+    {
+      "rowId": "CIP-0019",
+      "linkedId": "CIP-0019",
+      "title": "Cardano Addresses",
+      "status": "Active",
+      "line": 50
+    },
+    {
+      "rowId": "CIP-0020",
+      "linkedId": "CIP-0020",
+      "title": "Transaction message/comment metadata",
+      "status": "Active",
+      "line": 51
+    },
+    {
+      "rowId": "CIP-0021",
+      "linkedId": "CIP-0021",
+      "title": "Transaction requirements for interoperability with hardware wallets",
+      "status": "Active",
+      "line": 52
+    },
+    {
+      "rowId": "CIP-0022",
+      "linkedId": "CIP-0022",
+      "title": "Pool operator verification",
+      "status": "Active",
+      "line": 53
+    },
+    {
+      "rowId": "CIP-0023",
+      "linkedId": "CIP-0023",
+      "title": "Fair Min Fees",
+      "status": "Proposed",
+      "line": 54
+    },
+    {
+      "rowId": "CIP-0024",
+      "linkedId": "CIP-0024",
+      "title": "Non-Centralizing Rankings",
+      "status": "Proposed",
+      "line": 55
+    },
+    {
+      "rowId": "CIP-0025",
+      "linkedId": "CIP-0025",
+      "title": "Media Token Metadata Standard",
+      "status": "Active",
+      "line": 56
+    },
+    {
+      "rowId": "CIP-0026",
+      "linkedId": "CIP-0026",
+      "title": "Cardano Off-Chain Metadata",
+      "status": "Active",
+      "line": 57
+    },
+    {
+      "rowId": "CIP-0027",
+      "linkedId": "CIP-0027",
+      "title": "CNFT Community Royalties Standard",
+      "status": "Active",
+      "line": 58
+    },
+    {
+      "rowId": "CIP-0028",
+      "linkedId": "CIP-0028",
+      "title": "Protocol Parameters (Alonzo Era)",
+      "status": "Active",
+      "line": 59
+    },
+    {
+      "rowId": "CIP-0029",
+      "linkedId": "CIP-0029",
+      "title": "Phase-1 Monetary Scripts Serialization Formats",
+      "status": "Active",
+      "line": 60
+    },
+    {
+      "rowId": "CIP-0030",
+      "linkedId": "CIP-0030",
+      "title": "Cardano dApp-Wallet Web Bridge",
+      "status": "Active",
+      "line": 61
+    },
+    {
+      "rowId": "CIP-0031",
+      "linkedId": "CIP-0031",
+      "title": "Reference Inputs",
+      "status": "Active",
+      "line": 62
+    },
+    {
+      "rowId": "CIP-0032",
+      "linkedId": "CIP-0032",
+      "title": "Inline Datums",
+      "status": "Active",
+      "line": 63
+    },
+    {
+      "rowId": "CIP-0033",
+      "linkedId": "CIP-0033",
+      "title": "Reference Scripts",
+      "status": "Active",
+      "line": 64
+    },
+    {
+      "rowId": "CIP-0034",
+      "linkedId": "CIP-0034",
+      "title": "Chain ID Registry",
+      "status": "Proposed",
+      "line": 65
+    },
+    {
+      "rowId": "CIP-0035",
+      "linkedId": "CIP-0035",
+      "title": "Plutus Core Evolution",
+      "status": "Active",
+      "line": 66
+    },
+    {
+      "rowId": "CIP-0036",
+      "linkedId": "CIP-0036",
+      "title": "Catalyst Registration Transaction Metadata Format (Updated)",
+      "status": "Proposed",
+      "line": 67
+    },
+    {
+      "rowId": "CIP-0037",
+      "linkedId": "CIP-0037",
+      "title": "Dynamic Saturation Based on Pledge",
+      "status": "Proposed",
+      "line": 68
+    },
+    {
+      "rowId": "CIP-0040",
+      "linkedId": "CIP-0040",
+      "title": "Collateral Output",
+      "status": "Active",
+      "line": 69
+    },
+    {
+      "rowId": "CIP-0042",
+      "linkedId": "CIP-0042",
+      "title": "New Plutus Builtin serialiseData",
+      "status": "Active",
+      "line": 70
+    },
+    {
+      "rowId": "CIP-0045",
+      "linkedId": "CIP-0045",
+      "title": "Decentralized WebRTC dApp-Wallet Communication",
+      "status": "Active",
+      "line": 71
+    },
+    {
+      "rowId": "CIP-0049",
+      "linkedId": "CIP-0049",
+      "title": "ECDSA and Schnorr signatures in Plutus Core",
+      "status": "Active",
+      "line": 72
+    },
+    {
+      "rowId": "CIP-0050",
+      "linkedId": "CIP-0050",
+      "title": "Pledge Leverage-Based Staking Rewards",
+      "status": "Proposed",
+      "line": 73
+    },
+    {
+      "rowId": "CIP-0052",
+      "linkedId": "CIP-0052",
+      "title": "Cardano Audit Best Practice Guidelines",
+      "status": "Proposed",
+      "line": 74
+    },
+    {
+      "rowId": "CIP-0054",
+      "linkedId": "CIP-0054",
+      "title": "Cardano Smart NFTs",
+      "status": "Proposed",
+      "line": 75
+    },
+    {
+      "rowId": "CIP-0055",
+      "linkedId": "CIP-0055",
+      "title": "Protocol Parameters (Babbage Era)",
+      "status": "Active",
+      "line": 76
+    },
+    {
+      "rowId": "CIP-0057",
+      "linkedId": "CIP-0057",
+      "title": "Plutus Contract Blueprint",
+      "status": "Active",
+      "line": 77
+    },
+    {
+      "rowId": "CIP-0058",
+      "linkedId": "CIP-0058",
+      "title": "Plutus Bitwise Primitives",
+      "status": "Inactive",
+      "line": 78
+    },
+    {
+      "rowId": "CIP-0059",
+      "linkedId": "CIP-0059",
+      "title": "Terminology Surrounding Core Features",
+      "status": "Active",
+      "line": 79
+    },
+    {
+      "rowId": "CIP-0060",
+      "linkedId": "CIP-0060",
+      "title": "Music Token Metadata",
+      "status": "Active",
+      "line": 80
+    },
+    {
+      "rowId": "CIP-0067",
+      "linkedId": "CIP-0067",
+      "title": "Asset Name Label Registry",
+      "status": "Proposed",
+      "line": 81
+    },
+    {
+      "rowId": "CIP-0068",
+      "linkedId": "CIP-0068",
+      "title": "Datum Metadata Standard",
+      "status": "Active",
+      "line": 82
+    },
+    {
+      "rowId": "CIP-0069",
+      "linkedId": "CIP-0069",
+      "title": "Plutus Script Type Uniformization",
+      "status": "Active",
+      "line": 83
+    },
+    {
+      "rowId": "CIP-0071",
+      "linkedId": "CIP-0071",
+      "title": "Non-Fungible Token (NFT) Proxy Voting Standard",
+      "status": "Proposed",
+      "line": 84
+    },
+    {
+      "rowId": "CIP-0072",
+      "linkedId": "CIP-0072",
+      "title": "dApp Registration & Verification",
+      "status": "Proposed",
+      "line": 85
+    },
+    {
+      "rowId": "CIP-0074",
+      "linkedId": "CIP-0074",
+      "title": "Set minPoolCost to 0",
+      "status": "Proposed",
+      "line": 86
+    },
+    {
+      "rowId": "CIP-0075",
+      "linkedId": "CIP-0075",
+      "title": "Fair Stake Pool Rewards",
+      "status": "Proposed",
+      "line": 87
+    },
+    {
+      "rowId": "CIP-0080",
+      "linkedId": "CIP-0080",
+      "title": "Transaction Serialization Deprecation Cycle",
+      "status": "Active",
+      "line": 88
+    },
+    {
+      "rowId": "CIP-0082",
+      "linkedId": "CIP-0082",
+      "title": "Improved Rewards Scheme Parameters",
+      "status": "Proposed",
+      "line": 89
+    },
+    {
+      "rowId": "CIP-0083",
+      "linkedId": "CIP-0083",
+      "title": "Encrypted Transaction message/comment metadata (Addendum to CIP-0020)",
+      "status": "Active",
+      "line": 90
+    },
+    {
+      "rowId": "CIP-0084",
+      "linkedId": "CIP-0084",
+      "title": "Cardano Ledger Evolution",
+      "status": "Active",
+      "line": 91
+    },
+    {
+      "rowId": "CIP-0085",
+      "linkedId": "CIP-0085",
+      "title": "Sums-of-products in Plutus Core",
+      "status": "Active",
+      "line": 92
+    },
+    {
+      "rowId": "CIP-0086",
+      "linkedId": "CIP-0086",
+      "title": "NFT Metadata Update Oracles",
+      "status": "Proposed",
+      "line": 93
+    },
+    {
+      "rowId": "CIP-0088",
+      "linkedId": "CIP-0088",
+      "title": "Token Policy Registration",
+      "status": "Proposed",
+      "line": 94
+    },
+    {
+      "rowId": "CIP-0089",
+      "linkedId": "CIP-0089",
+      "title": "Distributed DApps & Beacon Tokens",
+      "status": "Active",
+      "line": 95
+    },
+    {
+      "rowId": "CIP-0091",
+      "linkedId": "CIP-0091",
+      "title": "Don't force Built-In functions",
+      "status": "Proposed",
+      "line": 96
+    },
+    {
+      "rowId": "CIP-0093",
+      "linkedId": "CIP-0093",
+      "title": "Authenticated Web3 HTTP requests",
+      "status": "Proposed",
+      "line": 97
+    },
+    {
+      "rowId": "CIP-0094",
+      "linkedId": "CIP-0094",
+      "title": "On-chain SPO polls",
+      "status": "Active",
+      "line": 98
+    },
+    {
+      "rowId": "CIP-0095",
+      "linkedId": "CIP-0095",
+      "title": "Web-Wallet Bridge - Conway ledger era",
+      "status": "Active",
+      "line": 99
+    },
+    {
+      "rowId": "CIP-0099",
+      "linkedId": "CIP-0099",
+      "title": "Proof of Onboarding",
+      "status": "Active",
+      "line": 100
+    },
+    {
+      "rowId": "CIP-0100",
+      "linkedId": "CIP-0100",
+      "title": "Governance Metadata",
+      "status": "Active",
+      "line": 101
+    },
+    {
+      "rowId": "CIP-0101",
+      "linkedId": "CIP-0101",
+      "title": "Integration of keccak256 into Plutus",
+      "status": "Proposed",
+      "line": 102
+    },
+    {
+      "rowId": "CIP-0102",
+      "linkedId": "CIP-0102",
+      "title": "Royalty Datum Metadata",
+      "status": "Proposed",
+      "line": 103
+    },
+    {
+      "rowId": "CIP-0103",
+      "linkedId": "CIP-0103",
+      "title": "Web-Wallet Bridge - Bulk transaction signing",
+      "status": "Active",
+      "line": 104
+    },
+    {
+      "rowId": "CIP-0104",
+      "linkedId": "CIP-0104",
+      "title": "Web-Wallet Bridge - Account public key",
+      "status": "Proposed",
+      "line": 105
+    },
+    {
+      "rowId": "CIP-0105",
+      "linkedId": "CIP-0105",
+      "title": "Conway Era Key Chains for HD Wallets",
+      "status": "Active",
+      "line": 106
+    },
+    {
+      "rowId": "CIP-0106",
+      "linkedId": "CIP-0106",
+      "title": "Web-Wallet Bridge - Multisig wallets",
+      "status": "Proposed",
+      "line": 107
+    },
+    {
+      "rowId": "CIP-0107",
+      "linkedId": "CIP-0107",
+      "title": "URI Scheme - Block and transaction objects",
+      "status": "Proposed",
+      "line": 108
+    },
+    {
+      "rowId": "CIP-0108",
+      "linkedId": "CIP-0108",
+      "title": "Governance Metadata - Governance Actions",
+      "status": "Proposed",
+      "line": 109
+    },
+    {
+      "rowId": "CIP-0109",
+      "linkedId": "CIP-0109",
+      "title": "Modular Exponentiation Built-in for Plutus Core",
+      "status": "Proposed",
+      "line": 110
+    },
+    {
+      "rowId": "CIP-0110",
+      "linkedId": "CIP-0110",
+      "title": "Plutus v1 Script References",
+      "status": "Active",
+      "line": 111
+    },
+    {
+      "rowId": "CIP-0112",
+      "linkedId": "CIP-0112",
+      "title": "Observe script type",
+      "status": "Proposed",
+      "line": 112
+    },
+    {
+      "rowId": "CIP-0114",
+      "linkedId": "CIP-0114",
+      "title": "CBOR Tags Registry",
+      "status": "Proposed",
+      "line": 113
+    },
+    {
+      "rowId": "CIP-0115",
+      "linkedId": "CIP-0115",
+      "title": "CBOR tag definition - ED25519-BIP32 Keys",
+      "status": "Proposed",
+      "line": 114
+    },
+    {
+      "rowId": "CIP-0116",
+      "linkedId": "CIP-0116",
+      "title": "Canonical JSON Encoding for Domain Types",
+      "status": "Proposed",
+      "line": 115
+    },
+    {
+      "rowId": "CIP-0117",
+      "linkedId": "CIP-0117",
+      "title": "Explicit script return values",
+      "status": "Active",
+      "line": 116
+    },
+    {
+      "rowId": "CIP-0118",
+      "linkedId": "CIP-0118",
+      "title": "Nested Transactions",
+      "status": "Proposed",
+      "line": 117
+    },
+    {
+      "rowId": "CIP-0119",
+      "linkedId": "CIP-0119",
+      "title": "Governance Metadata - DReps",
+      "status": "Proposed",
+      "line": 118
+    },
+    {
+      "rowId": "CIP-0120",
+      "linkedId": "CIP-0120",
+      "title": "Constitution specification",
+      "status": "Proposed",
+      "line": 119
+    },
+    {
+      "rowId": "CIP-0121",
+      "linkedId": "CIP-0121",
+      "title": "Integer-ByteString conversions",
+      "status": "Active",
+      "line": 120
+    },
+    {
+      "rowId": "CIP-0122",
+      "linkedId": "CIP-0122",
+      "title": "Logical operations over BuiltinByteString",
+      "status": "Active",
+      "line": 121
+    },
+    {
+      "rowId": "CIP-0123",
+      "linkedId": "CIP-0123",
+      "title": "Bitwise operations over BuiltinByteString",
+      "status": "Active",
+      "line": 122
+    },
+    {
+      "rowId": "CIP-0124",
+      "linkedId": "CIP-0124",
+      "title": "Extend token metadata for translations",
+      "status": "Proposed",
+      "line": 123
+    },
+    {
+      "rowId": "CIP-0127",
+      "linkedId": "CIP-0127",
+      "title": "Integration of ripemd_160 into Plutus",
+      "status": "Active",
+      "line": 124
+    },
+    {
+      "rowId": "CIP-0128",
+      "linkedId": "CIP-0128",
+      "title": "Preserving Order of Transaction Inputs",
+      "status": "Proposed",
+      "line": 125
+    },
+    {
+      "rowId": "CIP-0129",
+      "linkedId": "CIP-0129",
+      "title": "Governance Identifiers",
+      "status": "Proposed",
+      "line": 126
+    },
+    {
+      "rowId": "CIP-0132",
+      "linkedId": "CIP-0132",
+      "title": "New Plutus Builtin dropList",
+      "status": "Proposed",
+      "line": 127
+    },
+    {
+      "rowId": "CIP-0133",
+      "linkedId": "CIP-0133",
+      "title": "Plutus support for Multi-Scalar Multiplication over BLS12-381",
+      "status": "Proposed",
+      "line": 128
+    },
+    {
+      "rowId": "CIP-0134",
+      "linkedId": "CIP-0134",
+      "title": "Cardano URIs - Address Representation",
+      "status": "Proposed",
+      "line": 129
+    },
+    {
+      "rowId": "CIP-0135",
+      "linkedId": "CIP-0135",
+      "title": "Disaster Recovery Plan for Cardano networks",
+      "status": "Active",
+      "line": 130
+    },
+    {
+      "rowId": "CIP-0136",
+      "linkedId": "CIP-0136",
+      "title": "Governance metadata - Constitutional Committee votes",
+      "status": "Proposed",
+      "line": 131
+    },
+    {
+      "rowId": "CIP-0137",
+      "linkedId": "CIP-0137",
+      "title": "Decentralized Message Queue",
+      "status": "Proposed",
+      "line": 132
+    },
+    {
+      "rowId": "CIP-0138",
+      "linkedId": "CIP-0138",
+      "title": "Plutus Core Builtin Type - Array",
+      "status": "Proposed",
+      "line": 133
+    },
+    {
+      "rowId": "CIP-0139",
+      "linkedId": "CIP-0139",
+      "title": "Universal Query Layer",
+      "status": "Proposed",
+      "line": 134
+    },
+    {
+      "rowId": "CIP-0140",
+      "linkedId": "CIP-0140",
+      "title": "Ouroboros Peras - Faster Settlement",
+      "status": "Proposed",
+      "line": 135
+    },
+    {
+      "rowId": "CIP-0141",
+      "linkedId": "CIP-0141",
+      "title": "Web-Wallet Bridge - Plutus wallets",
+      "status": "Proposed",
+      "line": 136
+    },
+    {
+      "rowId": "CIP-0142",
+      "linkedId": "CIP-0142",
+      "title": "Web-Wallet Bridge - Network Determination",
+      "status": "Proposed",
+      "line": 137
+    },
+    {
+      "rowId": "CIP-0143",
+      "linkedId": "CIP-0143",
+      "title": "Interoperable Programmable Tokens",
+      "status": "Inactive",
+      "line": 138
+    },
+    {
+      "rowId": "CIP-0146",
+      "linkedId": "CIP-0146",
+      "title": "Multi-signature wallet registration and discovery",
+      "status": "Proposed",
+      "line": 139
+    },
+    {
+      "rowId": "CIP-0149",
+      "linkedId": "CIP-0149",
+      "title": "Optional DRep Compensation",
+      "status": "Proposed",
+      "line": 140
+    },
+    {
+      "rowId": "CIP-0150",
+      "linkedId": "CIP-0150",
+      "title": "Block Data Compression",
+      "status": "Proposed",
+      "line": 141
+    },
+    {
+      "rowId": "CIP-0151",
+      "linkedId": "CIP-0151",
+      "title": "On-Chain Registration - Stake Pools",
+      "status": "Proposed",
+      "line": 142
+    },
+    {
+      "rowId": "CIP-0152",
+      "linkedId": "CIP-0152",
+      "title": "Modules in UPLC",
+      "status": "Proposed",
+      "line": 143
+    },
+    {
+      "rowId": "CIP-0153",
+      "linkedId": "CIP-0153",
+      "title": "Plutus Core Builtin Type - MaryEraValue",
+      "status": "Proposed",
+      "line": 144
+    },
+    {
+      "rowId": "CIP-0155",
+      "linkedId": "CIP-0155",
+      "title": "SRV Registry",
+      "status": "Proposed",
+      "line": 145
+    },
+    {
+      "rowId": "CIP-0156",
+      "linkedId": "CIP-0156",
+      "title": "Plutus Core Builtin Function - multiIndexArray",
+      "status": "Proposed",
+      "line": 146
+    },
+    {
+      "rowId": "CIP-0158",
+      "linkedId": "CIP-0158",
+      "title": "Cardano URIs - Browse Application",
+      "status": "Proposed",
+      "line": 147
+    },
+    {
+      "rowId": "CIP-0159",
+      "linkedId": "CIP-0159",
+      "title": "Account Address Enhancement",
+      "status": "Proposed",
+      "line": 148
+    },
+    {
+      "rowId": "CIP-0160",
+      "linkedId": "CIP-0160",
+      "title": "Receiving Script Purpose and Addresses",
+      "status": "Proposed",
+      "line": 149
+    },
+    {
+      "rowId": "CIP-0161",
+      "linkedId": "CIP-0161",
+      "title": "Ouroboros Phalanx - Breaking Grinding Incentives",
+      "status": "Proposed",
+      "line": 150
+    },
+    {
+      "rowId": "CIP-0162",
+      "linkedId": "CIP-0161",
+      "title": "URI Scheme - DRep Links",
+      "status": "Proposed",
+      "line": 151
+    },
+    {
+      "rowId": "CIP-0163",
+      "linkedId": "CIP-0163",
+      "title": "Time-Bound Delegation with Dynamic Rewards",
+      "status": "Proposed",
+      "line": 152
+    },
+    {
+      "rowId": "CIP-0164",
+      "linkedId": "CIP-0164",
+      "title": "Ouroboros Linear Leios - Greater transaction throughput",
+      "status": "Proposed",
+      "line": 153
+    },
+    {
+      "rowId": "CIP-0165",
+      "linkedId": "CIP-0165",
+      "title": "Canonical Ledger State",
+      "status": "Proposed",
+      "line": 154
+    },
+    {
+      "rowId": "CIP-0167",
+      "linkedId": "CIP-0167",
+      "title": "Remove isValid from transactions",
+      "status": "Proposed",
+      "line": 155
+    },
+    {
+      "rowId": "CIP-0169",
+      "linkedId": "CIP-0169",
+      "title": "Governance Metadata - On-Chain Binding",
+      "status": "Proposed",
+      "line": 156
+    },
+    {
+      "rowId": "CIP-0170",
+      "linkedId": "CIP-0170",
+      "title": "KERI-backed metadata attestations",
+      "status": "Proposed",
+      "line": 157
+    },
+    {
+      "rowId": "CIP-0171",
+      "linkedId": "CIP-0171",
+      "title": "On-chain Smart Contract Bytecode Verification",
+      "status": "Proposed",
+      "line": 158
+    },
+    {
+      "rowId": "CIP-0173",
+      "linkedId": "CIP-0173",
+      "title": "Net Change Limit Parameter",
+      "status": "Proposed",
+      "line": 159
+    },
+    {
+      "rowId": "CIP-0175",
+      "linkedId": "CIP-0175",
+      "title": "Stake Pool Hot Credentials",
+      "status": "Proposed",
+      "line": 160
+    },
+    {
+      "rowId": "CIP-0176",
+      "linkedId": "CIP-0176",
+      "title": "Non-segregated Block Body Serialization",
+      "status": "Proposed",
+      "line": 161
+    },
+    {
+      "rowId": "CIP-0177",
+      "linkedId": "CIP-0177",
+      "title": "Ouroboros Tachys - Faster Cardano partner chains",
+      "status": "Proposed",
+      "line": 162
+    },
+    {
+      "rowId": "CIP-0179",
+      "linkedId": "CIP-0179",
+      "title": "On-Chain Surveys and Polls",
+      "status": "Proposed",
+      "line": 163
+    },
+    {
+      "rowId": "CIP-0181",
+      "linkedId": "CIP-0181",
+      "title": "Remove DRep Requirement for Reward Withdrawals",
+      "status": "Proposed",
+      "line": 164
+    },
+    {
+      "rowId": "CIP-0186",
+      "linkedId": "CIP-0186",
+      "title": "Cardano Wallet Deep-Link Signing",
+      "status": "Proposed",
+      "line": 165
+    },
+    {
+      "rowId": "CIP-0187",
+      "linkedId": "CIP-0187",
+      "title": "Utilization-Scaled Pledge Bonus",
+      "status": "Proposed",
+      "line": 166
+    },
+    {
+      "rowId": "CIP-0190",
+      "linkedId": "CIP-0190",
+      "title": "Proof of Existence Transaction Metadata",
+      "status": "Proposed",
+      "line": 167
+    },
+    {
+      "rowId": "CIP-0381",
+      "linkedId": "CIP-0381",
+      "title": "Plutus Support for Pairings Over BLS12-381",
+      "status": "Active",
+      "line": 168
+    },
+    {
+      "rowId": "CIP-1694",
+      "linkedId": "CIP-1694",
+      "title": "A First Step Towards On-Chain Decentralized Governance",
+      "status": "Active",
+      "line": 169
+    },
+    {
+      "rowId": "CIP-1852",
+      "linkedId": "CIP-1852",
+      "title": "HD (Hierarchy for Deterministic) Wallets for Cardano",
+      "status": "Active",
+      "line": 170
+    },
+    {
+      "rowId": "CIP-1853",
+      "linkedId": "CIP-1853",
+      "title": "HD (Hierarchy for Deterministic) Stake Pool Cold Keys for Cardano",
+      "status": "Proposed",
+      "line": 171
+    },
+    {
+      "rowId": "CIP-1854",
+      "linkedId": "CIP-1854",
+      "title": "Multi-signatures HD Wallets",
+      "status": "Active",
+      "line": 172
+    },
+    {
+      "rowId": "CIP-1855",
+      "linkedId": "CIP-1855",
+      "title": "Forging policy keys for HD Wallets",
+      "status": "Proposed",
+      "line": 173
+    },
+    {
+      "rowId": "CIP-9999",
+      "linkedId": "CIP-9999",
+      "title": "Cardano Problem Statements",
+      "status": "Active",
+      "line": 174
+    }
+  ],
+  "differences": [
+    {
+      "kind": "table-title-differs",
+      "id": "CIP-0003",
+      "line": 34,
+      "tableValue": "Wallet key generation",
+      "frontmatterValue": "Wallet Key Generation"
+    },
+    {
+      "kind": "table-status-differs",
+      "id": "CIP-0017",
+      "line": 48,
+      "tableValue": "Inactive",
+      "frontmatterValue": "Inactive (abandoned for lack of interest)"
+    },
+    {
+      "kind": "table-title-differs",
+      "id": "CIP-0031",
+      "line": 62,
+      "tableValue": "Reference Inputs",
+      "frontmatterValue": "Reference inputs"
+    },
+    {
+      "kind": "table-title-differs",
+      "id": "CIP-0032",
+      "line": 63,
+      "tableValue": "Inline Datums",
+      "frontmatterValue": "Inline datums"
+    },
+    {
+      "kind": "table-title-differs",
+      "id": "CIP-0033",
+      "line": 64,
+      "tableValue": "Reference Scripts",
+      "frontmatterValue": "Reference scripts"
+    },
+    {
+      "kind": "table-title-differs",
+      "id": "CIP-0042",
+      "line": 70,
+      "tableValue": "New Plutus Builtin serialiseData",
+      "frontmatterValue": "New Plutus Builtin `serialiseData`"
+    },
+    {
+      "kind": "table-title-differs",
+      "id": "CIP-0052",
+      "line": 74,
+      "tableValue": "Cardano Audit Best Practice Guidelines",
+      "frontmatterValue": "Cardano audit best practice guidelines"
+    },
+    {
+      "kind": "table-status-differs",
+      "id": "CIP-0058",
+      "line": 78,
+      "tableValue": "Inactive",
+      "frontmatterValue": "Inactive (superseded by CIP-0121 and CIP-0122)"
+    },
+    {
+      "kind": "table-title-differs",
+      "id": "CIP-0074",
+      "line": 86,
+      "tableValue": "Set minPoolCost to 0",
+      "frontmatterValue": "Set `minPoolCost` to 0"
+    },
+    {
+      "kind": "table-status-differs",
+      "id": "CIP-0088",
+      "line": 94,
+      "tableValue": "Proposed",
+      "frontmatterValue": "Active"
+    },
+    {
+      "kind": "table-title-differs",
+      "id": "CIP-0101",
+      "line": 102,
+      "tableValue": "Integration of keccak256 into Plutus",
+      "frontmatterValue": "Integration of `keccak256` into Plutus"
+    },
+    {
+      "kind": "table-title-differs",
+      "id": "CIP-0105",
+      "line": 106,
+      "tableValue": "Conway Era Key Chains for HD Wallets",
+      "frontmatterValue": "Conway era Key Chains for HD Wallets"
+    },
+    {
+      "kind": "table-title-differs",
+      "id": "CIP-0112",
+      "line": 112,
+      "tableValue": "Observe script type",
+      "frontmatterValue": "Observe Script Type"
+    },
+    {
+      "kind": "table-title-differs",
+      "id": "CIP-0119",
+      "line": 118,
+      "tableValue": "Governance Metadata - DReps",
+      "frontmatterValue": "Governance metadata - DReps"
+    },
+    {
+      "kind": "table-title-differs",
+      "id": "CIP-0122",
+      "line": 121,
+      "tableValue": "Logical operations over BuiltinByteString",
+      "frontmatterValue": "Logical operations over `BuiltinByteString`"
+    },
+    {
+      "kind": "table-title-differs",
+      "id": "CIP-0123",
+      "line": 122,
+      "tableValue": "Bitwise operations over BuiltinByteString",
+      "frontmatterValue": "Bitwise operations over `BuiltinByteString`"
+    },
+    {
+      "kind": "table-title-differs",
+      "id": "CIP-0127",
+      "line": 124,
+      "tableValue": "Integration of ripemd_160 into Plutus",
+      "frontmatterValue": "Integration of `ripemd_160` into Plutus"
+    },
+    {
+      "kind": "table-title-differs",
+      "id": "CIP-0132",
+      "line": 127,
+      "tableValue": "New Plutus Builtin dropList",
+      "frontmatterValue": "New Plutus Builtin `dropList`"
+    },
+    {
+      "kind": "table-status-differs",
+      "id": "CIP-0143",
+      "line": 138,
+      "tableValue": "Inactive",
+      "frontmatterValue": "Inactive (incorporated into candidate CIP-0113)"
+    },
+    {
+      "kind": "table-status-differs",
+      "id": "CIP-0151",
+      "line": 142,
+      "tableValue": "Proposed",
+      "frontmatterValue": "Active"
+    },
+    {
+      "kind": "table-title-differs",
+      "id": "CIP-0155",
+      "line": 145,
+      "tableValue": "SRV Registry",
+      "frontmatterValue": "SRV registry"
+    },
+    {
+      "kind": "table-title-differs",
+      "id": "CIP-0156",
+      "line": 146,
+      "tableValue": "Plutus Core Builtin Function - multiIndexArray",
+      "frontmatterValue": "Plutus Core Builtin Function - `multiIndexArray`"
+    },
+    {
+      "kind": "table-status-differs",
+      "id": "CIP-0158",
+      "line": 147,
+      "tableValue": "Proposed",
+      "frontmatterValue": "Active"
+    },
+    {
+      "kind": "row-link-id-mismatch",
+      "rowId": "CIP-0162",
+      "linkedId": "CIP-0161",
+      "title": "URI Scheme - DRep Links",
+      "status": "Proposed",
+      "line": 151
+    },
+    {
+      "kind": "table-title-differs",
+      "id": "CIP-0381",
+      "line": 168,
+      "tableValue": "Plutus Support for Pairings Over BLS12-381",
+      "frontmatterValue": "Plutus support for Pairings over BLS12-381"
+    }
+  ],
+  "note": "Individual README frontmatter is indexed verbatim. The root table is a separately preserved comparison, not an authority for this index."
+}

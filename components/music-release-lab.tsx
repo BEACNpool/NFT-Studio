@@ -220,9 +220,12 @@ export function MusicReleaseLab({ active = true }: { active?: boolean }) {
     setSelected(0);
     setDemo(isDemo);
   }
-  async function example() {
+  async function example(kind: 'signal' | 'midnight' = 'signal') {
     await run(async (current) => {
-      const response = await fetch(assetPath('/labs/music-demo.package.json'), {
+      const demoPath = kind === 'midnight'
+        ? '/labs/midnight-beacon/midnight-beacon.music-release.json'
+        : '/labs/music-demo.package.json';
+      const response = await fetch(assetPath(demoPath), {
         signal: AbortSignal.timeout(10000),
       });
       if (!response.ok)
@@ -283,6 +286,13 @@ export function MusicReleaseLab({ active = true }: { active?: boolean }) {
         declarations; they do not verify rights or configure payments.
       </p>
       <div className="ns-button-row ns-music-tools">
+        <Button
+          disabled={busy}
+          onClick={() => void example('midnight')}
+          data-music-midnight
+        >
+          <Disc3 size={17} /> Try Midnight Beacon · 8s
+        </Button>
         <Button
           variant="outline"
           disabled={busy}
@@ -637,8 +647,8 @@ export function MusicReleaseLab({ active = true }: { active?: boolean }) {
               </div>
               {demo && (
                 <p className="ns-lab-muted">
-                  Original synthetic one-second example. Unminted, with
-                  demonstration credits.
+                  Original BEACN Labs demonstration. Unminted, with
+                  declared demonstration credits.
                 </p>
               )}
               <div className="ns-music-preview">

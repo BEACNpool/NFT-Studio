@@ -11,8 +11,8 @@ https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp
 ```
 
 Connect with Streamable HTTP and no API key. Use tool/resource discovery for
-the running deployment. This source revision provides **13 public tools** and
-**61 resources**: Cardano knowledge, exact payloads, browser mint requests,
+the running deployment. This source revision provides **15 public tools** and
+**61 resources**: curated Cardano knowledge, original CIP source search, exact payloads, browser mint requests,
 music releases, proof records, fixed Capsule parameter application, and unsigned
 native NFT/data/music transactions. The unsigned tools
 receive an explicitly supplied wallet snapshot and use fresh public network
@@ -61,6 +61,10 @@ The Sites front dispatcher reserves `/mcp`; this service uses the application's
 `/api/mcp` route. It is ordinary public MCP, not a Sites OAuth integration.
 
 
+See [original CIP source access](CIP_SOURCE_ACCESS.md) for the additional source
+reader and exact snapshot scope. The source has 15 public tools; the dated receipt
+above remains the observed 13-tool deployment until a new live check is recorded.
+
 ## Local connection
 
 From a clean repository checkout (Node **22.13+**):
@@ -98,6 +102,7 @@ Run the compiled file directly. `npm run` can write banners to stdout, which is 
 | Tool | Result |
 | --- | --- |
 | `studio_capabilities` | Real format support, byte limits, policy semantics and implementation boundaries |
+| `search_cip_sources` / `get_cip_source_chunk` | Bounded id/title/status search across 148 pinned originals and exact UTF-8 source chunks with attribution |
 | `search_knowledge` / `read_knowledge` | Bounded, cited knowledge lookup with standard status and implementation maturity |
 | `validate_payload` | Exact file bytes, MIME signature/UTF-8 checks, canonical embedded URIs, SHA-256 and data metadata measurement |
 | `validate_metadata` | Ledger-safe JSON subset validation and actual auxiliary CBOR size/hash |
@@ -244,9 +249,9 @@ Primary implementation sources, checked 2026-09-07: [official SDK stable release
 
 ## Public Worker with stateless unsigned preparation
 
-The public connection above passed all twelve tools and 61 resources in both official client protocol eras at 2026-09-07T08:24:10.850Z, including music packages, fixed Capsule parameter application and unsigned NFT/data preparation. This verifies this hosted release; other operators must verify their own deployments.
+The [dated public verification receipt](MCP_PUBLIC_VERIFICATION.json) records the running tool/resource inventory and the exact checks made against that deployment. Other operators must verify their own deployments; a successful local build does not update a hosted service.
 
-This source package adds a **ninth** public tool, `prepare_unsigned_transaction`, to the eight existing knowledge, payload, intent and proof tools. This is a runtime-tested source capability. The deployed endpoint's `studio_capabilities` and release verification receipt determine whether a particular host has enabled it; a local build does not update the hosted service.
+`prepare_unsigned_transaction` prepares native NFT/data transactions. `prepare_unsigned_music_transaction` uses the separate canonical music package. Both return stateless unsigned transactions; the endpoint's discovery and release receipt determine its enabled capabilities.
 
 `mcp/dist/worker.mjs` exports `createPublicMcpHandler`. It uses web APIs and the pinned CSL 17 browser WASM, with **no Node compatibility requirement**. The adjacent `cardano_serialization_lib_bg.wasm` must be uploaded as a **compiled Worker module**, not served only as a static asset. The build extracts and verifies this exact binary from the pinned package. Keep both files together. See [WASM packaging evidence and limitations](../mcp/integration/WASM_DEPLOYMENT.md).
 
@@ -254,10 +259,10 @@ The public unsigned tool accepts precisely the same `{intent, wallet: {changeHex
 
 | Contract | Public Worker | Full Node service |
 | --- | --- | --- |
-| Tools in this source revision | 12, including music packages, Capsule parameters and stateless unsigned preparation | 14, including metadata measurement and signed-witness verification |
-| Wallet snapshot limit | 32 UTxOs; 16 KiB each; 32 KiB aggregate; 512 native assets | 128 UTxOs; 16 KiB each; 128 KiB aggregate |
+| Tools in this source revision | 15, including original CIP sources, music packages, Capsule parameters and stateless unsigned preparation | 17, including metadata measurement and stored ordinary-transaction witness verification |
+| Wallet snapshot limit | 32 UTxOs; 16 KiB each; 32 KiB aggregate; 512 native assets | Ordinary: 128 UTxOs, 16 KiB each, 128 KiB aggregate. Music: same limits as Worker. |
 | Caller CBOR preflight | 4,096 nodes and depth 16 before CSL | Same preflight for UTxOs and external witness sets |
-| Preparation state | None | RAM packet cache, four-minute TTL, 64 packets |
+| Preparation state | None | Ordinary: RAM packet cache, four-minute TTL, 64 packets. Music: none. |
 | Chain input ownership/unspent proof | Not checked | Caller snapshots, plus payment signatures at witness verification; unspent state not checked |
 | Signing/submission | No tools | No tools |
 

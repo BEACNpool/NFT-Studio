@@ -45,7 +45,8 @@ Read [State Capsules](docs/STATE_CAPSULES.md),
 [music formats and limits](docs/MUSIC_RELEASE.md),
 [music receipt verification](docs/MUSIC_RECEIPTS.md),
 [proof encoding and vectors](docs/PROOF_OF_EXISTENCE.md), and
-[knowledge architecture](docs/KNOWLEDGE_BASE.md) before building on these tools.
+[knowledge architecture](docs/KNOWLEDGE_BASE.md) and
+[148 original CIP documents](docs/CIP_SOURCE_ACCESS.md) before building on these tools.
 These are implementations and research built on existing Cardano standards;
 their individual evidence and open limitations are recorded in the repository.
 
@@ -54,6 +55,8 @@ receipt reports, chain inclusion and provenance claims. The experimental
 [holder-proof verifier](experiments/holder-proof/) checks exact CIP-30 signatures,
 challenge scope and supplied holding observations with replay protection. It is
 offline research code; no holder authentication service has been deployed.
+
+[Play Midnight Beacon](https://beacnpool.github.io/NFT-Studio/labs/midnight-beacon/) — an original eight-second chiptune and SVG cover in 8,600 raw bytes. Open its exact package in Music release; the [recipe and dated evidence](experiments/midnight-beacon-demo/) include complete synthetic transaction measurement. The example is unminted.
 
 ## Open in VESPR
 

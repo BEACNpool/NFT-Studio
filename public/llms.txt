@@ -9,7 +9,8 @@ MCP documentation: https://github.com/BEACNpool/NFT-Studio/blob/main/docs/MCP.md
 
 Endpoint: https://beacn-nft-studio.davidmjensen17.chatgpt.site/api/mcp
 Transport: Streamable HTTP. Authentication: none.
-Tools: studio_capabilities, search_knowledge, read_knowledge, validate_payload,
+Source tools (discover the running endpoint for its deployed inventory): studio_capabilities, search_knowledge, read_knowledge,
+search_cip_sources, get_cip_source_chunk, validate_payload,
 create_mint_intent, verify_mint_intent, create_proof_record, verify_proof_record,
 prepare_unsigned_transaction, apply_state_capsule_parameters,
 create_music_release, verify_music_release, prepare_unsigned_music_transaction.
@@ -53,3 +54,5 @@ Proof records use the public hash profile of proposed CIP-190; export is not
 publication or a blockchain timestamp.
 The separately installed Node MCP can prepare unsigned transactions and verify
 external signatures. It never holds a signing key or submits a transaction.
+
+Original CIP sources: search_cip_sources searches id/title/status in 148 pinned README originals; get_cip_source_chunk returns bounded inert UTF-8 chunks with attribution. This is separate from 58 curated entries/73 reviewed primary sources. Excludes annexes, CPS and off-repository links. Guide: https://github.com/BEACNpool/NFT-Studio/blob/main/docs/CIP_SOURCE_ACCESS.md

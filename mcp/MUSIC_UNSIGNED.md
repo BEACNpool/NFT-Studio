@@ -110,13 +110,13 @@ isolated source fixture and runs the same suite without frontend dependencies.
 Tests never use a real wallet or submit transactions; existing ordinary signature
 tests retain only their original ephemeral synthetic keys.
 
-The source discovery surface is 13 Worker tools and 15 Node tools. The
+The source discovery surface is 15 Worker tools and 17 Node tools. The
 [dated public receipt](../docs/MCP_PUBLIC_VERIFICATION.json) observed all 13 public
 tools, including independently checked synthetic Music unsigned output, with both
 protocol eras at 2026-09-07T09:33:12.861Z. Resource
 counts derive from the admitted catalog and are unaffected by this tool. The live
 checker adds explicit `--expected-tools 13`; existing 8/9/10/12 modes and the default
-8-tools/55-resources contract remain available. Only 13-tool mode calls Music
+8-tools/55-resources contract remain available. Both 13-tool and 15-tool modes call Music
 transaction preparation. The 12-tool mode still creates/verifies music packages
 without sending a Music wallet snapshot. No live endpoint is exercised by merely
 importing the verifier or by running the locally intercepted suite.
