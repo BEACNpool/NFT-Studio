@@ -76,6 +76,9 @@ async function click(page, text) {
         text,
       )
     ) {
+      await button.evaluate((b) =>
+        b.scrollIntoView({ block: 'center', behavior: 'instant' }),
+      );
       await button.click();
       return;
     }
@@ -114,7 +117,7 @@ const fill = (page, selector, text) =>
   await build({
     stdin: {
       contents:
-        "export {createMintIntent} from './lib/studio-intent.ts'; export {preparePayloadBundle} from './lib/studio-payload.ts';",
+        "export {createMintIntent} from './lib/studio-intent.ts'; export {preparePayloadBundle} from './lib/studio-payload.ts'; export {canonicalPassportJson} from './lib/artifact-passport.ts';",
       resolveDir: process.cwd(),
     },
     bundle: true,
@@ -122,9 +125,8 @@ const fill = (page, selector, text) =>
     format: 'esm',
     outfile: path.join(tmp, 'fixtures.mjs'),
   });
-  const { createMintIntent, preparePayloadBundle } = await import(
-    pathToFileURL(path.join(tmp, 'fixtures.mjs')).href
-  );
+  const { createMintIntent, preparePayloadBundle, canonicalPassportJson } =
+    await import(pathToFileURL(path.join(tmp, 'fixtures.mjs')).href);
   const bundle = await preparePayloadBundle({
     name: 'Agent exact-byte test',
     description: 'Synthetic browser audit',
@@ -457,6 +459,127 @@ const fill = (page, selector, text) =>
     results.push(
       'Changed requests reject; leaving the agent panel cancels pending-signature submission',
     );
+    const beforePassport = await page.evaluate(() => [
+      __qa.enable,
+      __qa.sign,
+      __qa.submit,
+    ]);
+    const receipt = await page.evaluate(() => {
+      const key = Object.keys(localStorage).find((key) =>
+        key.startsWith('nft-studio:receipt:v1:'),
+      );
+      return JSON.parse(localStorage.getItem(key));
+    });
+    assert.equal(receipt.kind, 'data');
+    const receiptPath = path.join(tmp, 'synthetic.receipt.json');
+    fs.writeFileSync(receiptPath, JSON.stringify(receipt));
+    await click(page, 'Artifact passport');
+    await (await page.$('[data-passport-receipt]')).uploadFile(receiptPath);
+    await has(page, 'Local content verified');
+    await page.waitForSelector(
+      '[data-passport-check="transaction-binding"][data-status="match"]',
+    );
+    await page.waitForSelector(
+      '[data-passport-check="receipt-observation"][data-status="unverified"]',
+    );
+    await click(page, 'Export passport');
+    const passportPath = path.join(tmp, 'Agent-exact-byte-test.passport.json');
+    for (let i = 0; i < 40 && !fs.existsSync(passportPath); i++)
+      await new Promise((resolve) => setTimeout(resolve, 100));
+    const passportText = fs.readFileSync(passportPath, 'utf8');
+    const passport = JSON.parse(passportText);
+    assert.equal(passportText, canonicalPassportJson(passport));
+    assert.equal(passport.schema, 'beacn.artifact-passport.v1');
+    assert.equal('prepared' in passport, false);
+    assert.equal(passportText.includes(receipt.signedHex), false);
+    await (await page.$('[data-passport-file]')).uploadFile(passportPath);
+    await page.waitForSelector(
+      '[data-passport-check="transaction-binding"][data-status="not-checked"]',
+    );
+    await (await page.$('[data-passport-transaction]')).uploadFile(receiptPath);
+    await page.waitForSelector(
+      '[data-passport-check="transaction-binding"][data-status="match"]',
+    );
+    const originalTx = C.Transaction.from_hex(receipt.signedHex);
+    const wrongBody = C.TransactionBody.new_tx_body(
+      originalTx.body().inputs(),
+      originalTx.body().outputs(),
+      bn(100),
+    );
+    wrongBody.set_auxiliary_data_hash(originalTx.body().auxiliary_data_hash());
+    const wrongReceiptPath = path.join(tmp, 'different.receipt.json');
+    fs.writeFileSync(
+      wrongReceiptPath,
+      JSON.stringify({
+        ...receipt,
+        signedHex: C.Transaction.new(
+          wrongBody,
+          originalTx.witness_set(),
+          originalTx.auxiliary_data(),
+        ).to_hex(),
+      }),
+    );
+    await (
+      await page.$('[data-passport-transaction]')
+    ).uploadFile(wrongReceiptPath);
+    await page.waitForSelector('.ns-passport-lab [role=alert]');
+    assert.equal(
+      await page.$(
+        '[data-passport-check="transaction-binding"][data-status="match"]',
+      ),
+      null,
+    );
+    await (await page.$('[data-passport-transaction]')).uploadFile(receiptPath);
+    await page.waitForSelector(
+      '[data-passport-check="transaction-binding"][data-status="match"]',
+    );
+    await click(page, 'Knowledge');
+    await click(page, 'Artifact passport');
+    await has(page, 'Local content verified');
+    if (screenshotDir) {
+      fs.mkdirSync(screenshotDir, { recursive: true });
+      await page.screenshot({
+        path: path.join(screenshotDir, 'passport-populated.png'),
+        fullPage: true,
+      });
+    }
+    const changedPassportPath = path.join(tmp, 'changed.passport.json');
+    fs.writeFileSync(
+      changedPassportPath,
+      canonicalPassportJson({
+        ...passport,
+        bundle: { ...passport.bundle, name: 'Changed' },
+      }),
+    );
+    await (
+      await page.$('[data-passport-file]')
+    ).uploadFile(changedPassportPath);
+    await has(page, 'passport checksum differs');
+    assert.equal(
+      await page.$('.ns-passport-lab .ns-payload-review .ns-lab-status'),
+      null,
+    );
+    await click(page, 'Activity');
+    fs.unlinkSync(passportPath);
+    await click(page, 'Export passport');
+    for (let i = 0; i < 40 && !fs.existsSync(passportPath); i++)
+      await new Promise((resolve) => setTimeout(resolve, 100));
+    assert.equal(fs.readFileSync(passportPath, 'utf8'), passportText);
+    await (
+      await page.$('.ns-recovery-grid input[type=file]')
+    ).uploadFile(passportPath);
+    await has(page, 'Passport files and metadata match locally');
+    await (
+      await page.$('.ns-recovery-grid input[type=file]')
+    ).uploadFile(changedPassportPath);
+    await has(page, 'passport checksum differs');
+    assert.deepEqual(
+      await page.evaluate(() => [__qa.enable, __qa.sign, __qa.submit]),
+      beforePassport,
+    );
+    results.push(
+      'Passport creation, canonical export, offline re-import, optional transaction binding, stale/tampered evidence rejection and Activity export/import pass without wallet access',
+    );
     for (const width of [390, 1440]) {
       await page.setViewport({ width, height: width === 390 ? 844 : 1000 });
       await page.goto(entry.href, { waitUntil: 'networkidle0' });
@@ -464,6 +587,7 @@ const fill = (page, selector, text) =>
       for (const tab of [
         'State capsule',
         'Proof of existence',
+        'Artifact passport',
         'Knowledge',
         'Asset inspector',
         'Agent minting',

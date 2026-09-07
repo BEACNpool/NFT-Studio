@@ -7,15 +7,21 @@ import { AssetInspector } from './asset-inspector';
 import { KnowledgePanel } from './knowledge-panel';
 import { StateCapsuleLab } from './state-capsule-lab';
 import { ProofOfExistenceLab } from './proof-of-existence-lab';
+import { ArtifactPassportLab } from './artifact-passport-lab';
 export function BeacnLabs({ onBack }: { onBack: () => void }) {
   const [tab, setTab] = useState(() => {
     const requested =
       typeof location !== 'undefined'
         ? new URLSearchParams(location.search).get('lab')
         : '';
-    return ['agents', 'identity', 'knowledge', 'capsule', 'proof'].includes(
-      requested || '',
-    )
+    return [
+      'agents',
+      'identity',
+      'knowledge',
+      'capsule',
+      'proof',
+      'passport',
+    ].includes(requested || '')
       ? requested!
       : 'capsule';
   });
@@ -52,6 +58,7 @@ export function BeacnLabs({ onBack }: { onBack: () => void }) {
         <TabsList className="ns-lab-tablist">
           <TabsTrigger value="capsule">State capsule</TabsTrigger>
           <TabsTrigger value="proof">Proof of existence</TabsTrigger>
+          <TabsTrigger value="passport">Artifact passport</TabsTrigger>
           <TabsTrigger value="knowledge">Knowledge</TabsTrigger>
           <TabsTrigger value="identity">Asset inspector</TabsTrigger>
           <TabsTrigger value="agents">Agent minting</TabsTrigger>
@@ -61,6 +68,9 @@ export function BeacnLabs({ onBack }: { onBack: () => void }) {
         </TabsContent>
         <TabsContent value="proof" keepMounted>
           <ProofOfExistenceLab />
+        </TabsContent>
+        <TabsContent value="passport" keepMounted>
+          <ArtifactPassportLab />
         </TabsContent>
         <TabsContent value="knowledge" keepMounted>
           <KnowledgePanel />

@@ -28,6 +28,9 @@ jobs:
       - run: node scripts/verify-mint-receipt.mjs
       - run: node scripts/verify-recovery-catalog.mjs
       - run: npm run verify:labs
+      - run: npm run verify:passport
+      - run: npm --prefix experiments/holder-proof ci --ignore-scripts
+      - run: npm run verify:holder
       - run: npm run verify:knowledge
       - run: npm run verify:capsules
       - run: npm --prefix mcp ci

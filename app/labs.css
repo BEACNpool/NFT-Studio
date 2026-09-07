@@ -508,6 +508,59 @@
   gap: 16px;
   margin: 16px 0;
 }
+.ns-passport-boundary {
+  color: #d8c69e;
+  background: #282319;
+  border-left: 3px solid #b89b60;
+  padding: 16px;
+  margin: 24px 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.ns-passport-report {
+  margin-top: 24px;
+}
+.ns-passport-report > .ns-lab-row {
+  flex-wrap: wrap;
+}
+.ns-passport-report ul {
+  list-style: none;
+  padding: 0;
+}
+.ns-passport-report li {
+  border-top: 1px solid #44364f;
+  padding: 20px 0;
+}
+.ns-passport-report li > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.ns-passport-report strong {
+  font-size: 17px;
+  font-weight: 550;
+  text-transform: capitalize;
+}
+.ns-passport-report p {
+  color: #d0c4db;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 14px 0 8px;
+}
+.ns-passport-report small {
+  color: #ac9dbb;
+  font-size: 13px;
+}
+.ns-passport-unverified {
+  color: #e4ca91;
+  background: #282318;
+  border: 1px solid #635535;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 14px;
+}
 .ns-mcp-connect {
   margin-bottom: 24px;
 }

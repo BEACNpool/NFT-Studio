@@ -1,0 +1,16 @@
+{
+  "schema": "beacn-independent-python-cose-fixtures-v1",
+  "checkedAt": "2026-09-07T05:40:52.804836+00:00",
+  "fixturesVerified": 16,
+  "cryptographyVersion": "41.0.7",
+  "independentChecks": [
+    "whole COSE parse",
+    "original protected bytes",
+    "Sig_structure encoding",
+    "Ed25519 signature",
+    "payment key hash"
+  ],
+  "signingPerformed": false,
+  "chainQueries": false,
+  "scope": "Existing synthetic public fixtures, not wallet interoperability or a security audit"
+}

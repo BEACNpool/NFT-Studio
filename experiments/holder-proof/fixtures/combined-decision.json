@@ -1,0 +1,30 @@
+{
+  "notice": "Synthetic snapshot and clock; local verifier decision, not live authentication or chain inclusion.",
+  "protocol": "beacn-holder-proof-v1",
+  "decision": "verified_at_observed_point",
+  "nonce": "b9e242e30121b7aee4caf3caa301f2efb0090e42974284d6525cefc1f136cbf0",
+  "audience": "beacn-labs-demo",
+  "action": "Verify NFT holding for demo access",
+  "resource": "demo:holder-preview",
+  "verifiedAt": 1788750001,
+  "addressHex": "610ff8a74fd94eac09827297e54b13256e0ef0ea2cf5ef2bbdca5d5e13",
+  "paymentKeyHash": "0ff8a74fd94eac09827297e54b13256e0ef0ea2cf5ef2bbdca5d5e13",
+  "payloadSha256": "7c7a7e6940b4cb64e2071a063f82448fcdf5474e1a49e8a87ed45ea937cc445e",
+  "observation": {
+    "assetUnit": "abababababababababababababababababababababababababababab43415053554c45",
+    "addressHex": "610ff8a74fd94eac09827297e54b13256e0ef0ea2cf5ef2bbdca5d5e13",
+    "observedAt": 1788750001,
+    "point": {
+      "blockHash": "babababababababababababababababababababababababababababababababa",
+      "blockHeight": 1000,
+      "slot": 7000000,
+      "time": 1788750000
+    },
+    "qualifyingUtxo": "cacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaca#0"
+  },
+  "evidence": {
+    "signature": "locally verified Ed25519 COSE_Sign1",
+    "holdings": "trusted adapter observation",
+    "nonce": "consumed by configured store"
+  }
+}

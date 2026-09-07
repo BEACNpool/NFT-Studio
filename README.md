@@ -25,6 +25,7 @@ tools and experimental contract technology:
 | --- | --- |
 | State capsule | Evolve an embedded artwork, inspect linked CIP-68 datum revisions, freeze and export its history. The one-shot Aiken contract has compiled Plutus V3 tests and independent node issuance evaluation. The browser demo is local; this is experimental contract code. |
 | Proof of existence | Hash up to 16 local files incrementally, export exact label-309 metadata using the public hash-only profile of proposed CIP-190, and verify original bytes. Exporting does not publish a transaction. |
+| Artifact passport | Turn an exact-file mint receipt into a portable content/evidence package, verify it offline, and optionally check the original transaction binding. Export directly from Activity or open one in Labs. |
 | Knowledge | Search 53 sourced Cardano entries, inspect enforcement and lifecycle limits, follow pinned primary sources and export research. Proposal status is separate from implementation evidence. |
 | Asset inspector | Derive CIP-14 fingerprints, verify CIP-67 checksums and locate paired CIP-68 asset names from exact bytes. It does not assert chain existence or ownership. |
 | Agent minting | Import a content-bound MCP request, inspect exact files, then use the existing wallet review, signing and receipt flow. |
@@ -39,6 +40,12 @@ Read [State Capsules](docs/STATE_CAPSULES.md),
 [knowledge architecture](docs/KNOWLEDGE_BASE.md) before building on these tools.
 These are implementations and research built on existing Cardano standards;
 their individual evidence and open limitations are recorded in the repository.
+
+[Artifact Passports](docs/ARTIFACT_PASSPORT.md) separate local byte checks from
+receipt reports, chain inclusion and provenance claims. The experimental
+[holder-proof verifier](experiments/holder-proof/) checks exact CIP-30 signatures,
+challenge scope and supplied holding observations with replay protection. It is
+offline research code; no holder authentication service has been deployed.
 
 ## Open in VESPR
 
@@ -125,6 +132,7 @@ npm run verify:games
 npm run verify:studio
 npm run verify:labs
 npm run verify:knowledge
+npm run verify:passport
 npm run verify:capsules
 node scripts/verify-mint-receipt.mjs
 npm run build

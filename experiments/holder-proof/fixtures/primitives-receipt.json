@@ -1,0 +1,25 @@
+{
+  "schema": "beacn-holder-proof-primitive-checks-v2",
+  "checkedAt": "2026-09-07T05:40:50.254Z",
+  "cslVersion": "17.0.0",
+  "strictEd25519": "@noble/curves@2.4.0 zip215:false plus CSL",
+  "checks": 52,
+  "signingPerformed": false,
+  "walletAccess": false,
+  "chainQueries": false,
+  "suiteIncludesCoseVerification": false,
+  "challengeBytes": 695,
+  "coverage": [
+    "RFC8032 public Ed25519 vector and mutations",
+    "payment address/key binding",
+    "scope, origin, session, exact payload, TTL",
+    "fresh trusted snapshot, transfer, rollback, quantity, metadata confusion",
+    "single-process atomic nonce consume"
+  ],
+  "limits": [
+    "This primitive suite is separate from verify-cose.mjs",
+    "Trusted chain adapter assertions are not inclusion proofs",
+    "No wallet compatibility testing",
+    "Memory store is not production persistence"
+  ]
+}

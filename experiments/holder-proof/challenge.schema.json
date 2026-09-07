@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:beacn:holder-proof:challenge:v1",
+  "title": "BEACN holder challenge v1 (proposed application profile)",
+  "description": "Structural documentation only. Exact server-issued bytes, configured scope, expiry, address/key binding and nonce consumption require runtime verification.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol", "uri", "action", "timestamp", "expiresAt", "origin", "audience", "resource", "network", "address", "asset", "nonce"],
+  "properties": {
+    "protocol": { "const": "beacn-holder-proof-v1" },
+    "uri": { "type": "string", "format": "uri", "pattern": "^https://", "maxLength": 256 },
+    "action": { "const": "Verify NFT holding for demo access" },
+    "timestamp": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+    "expiresAt": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+    "origin": { "type": "string", "format": "uri", "pattern": "^https://", "maxLength": 256 },
+    "audience": { "type": "string", "pattern": "^[ -~]+$", "minLength": 1, "maxLength": 96 },
+    "resource": { "type": "string", "pattern": "^[ -~]+$", "minLength": 1, "maxLength": 128 },
+    "network": {
+      "type": "object", "additionalProperties": false,
+      "required": ["name", "id", "magic"],
+      "properties": { "name": { "enum": ["mainnet", "preprod", "preview"] }, "id": { "enum": [0, 1] }, "magic": { "enum": [764824073, 1, 2] } },
+      "oneOf": [
+        { "properties": { "name": { "const": "mainnet" }, "id": { "const": 1 }, "magic": { "const": 764824073 } } },
+        { "properties": { "name": { "const": "preprod" }, "id": { "const": 0 }, "magic": { "const": 1 } } },
+        { "properties": { "name": { "const": "preview" }, "id": { "const": 0 }, "magic": { "const": 2 } } }
+      ]
+    },
+    "address": { "type": "string", "pattern": "^addr(_test)?1[023456789acdefghjklmnpqrstuvwxyz]+$", "maxLength": 256 },
+    "asset": {
+      "type": "object", "additionalProperties": false,
+      "required": ["policyId", "assetNameHex", "minimumQuantity"],
+      "properties": {
+        "policyId": { "type": "string", "pattern": "^[0-9a-f]{56}$" },
+        "assetNameHex": { "type": "string", "pattern": "^([0-9a-f]{2}){0,32}$" },
+        "minimumQuantity": { "const": "1" }
+      }
+    },
+    "nonce": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+  }
+}

@@ -26,7 +26,9 @@
     "verify:labs": "node scripts/verify-labs.mjs && node scripts/verify-proof-of-existence.mjs",
     "verify:knowledge": "node knowledge/verify.mjs && node knowledge/verify-cip-drift.mjs",
     "verify:capsules": "node contracts/state-capsule/scripts/verify-codec.mjs && node contracts/state-capsule/scripts/verify-transactions.mjs && node contracts/state-capsule/scripts/build-demo.mjs --check",
-    "verify:mcp": "npm --prefix mcp test"
+    "verify:mcp": "npm --prefix mcp test",
+    "verify:passport": "node scripts/verify-artifact-passport.mjs",
+    "verify:holder": "npm --prefix experiments/holder-proof test"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",

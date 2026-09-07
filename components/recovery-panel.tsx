@@ -8,6 +8,7 @@ import {
   CheckCircle2,
   FileCheck2,
   ScrollText,
+  BookOpenCheck,
 } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -26,7 +27,7 @@ import {
   type PayloadMime,
 } from '@/lib/studio-payload';
 import { loadReceipts, type StudioReceipt } from '@/lib/studio-receipts';
-import { errorText } from '@/lib/cardano';
+import { errorText, loadCSL } from '@/lib/cardano';
 import { download, filename, jsonBlob } from '@/lib/export';
 import { assetPath } from '@/lib/paths';
 import { PayloadPreview } from './file-workbench';
@@ -104,6 +105,38 @@ export function RecoveryPanel() {
           'Choose a receipt or metadata JSON smaller than 1.5 MB.',
         );
       const data = JSON.parse(await file.text());
+      if (data?.schema === 'beacn.artifact-passport.v1') {
+        const {
+          ARTIFACT_PASSPORT_LIMITS,
+          parseArtifactPassport,
+          verifyArtifactPassport,
+        } = await import('@/lib/artifact-passport');
+        if (file.size > ARTIFACT_PASSPORT_LIMITS.passportBytes)
+          throw new Error('Choose a passport smaller than 240 KB.');
+        const passport = parseArtifactPassport(
+          new Uint8Array(await file.arrayBuffer()),
+        );
+        const verification = await verifyArtifactPassport(
+          await loadCSL(),
+          passport,
+        );
+        if (verification.status !== 'verified-local-content')
+          throw new Error(
+            verification.error || 'Passport content verification failed.',
+          );
+        setFiles(
+          passport.bundle.files.map((file) => ({
+            file,
+            verified: true,
+            title: passport.bundle.name,
+          })),
+        );
+        setHash(passport.transaction.hash);
+        setNotice(
+          'Passport files and metadata match locally. Transaction binding, signatures and chain inclusion were not checked. Open Labs → Artifact passport for the full evidence report.',
+        );
+        return;
+      }
       const metadata = data.metadata || data.prepared?.metadata || data;
       if (data.bundle) {
         const { verifyPayloadBundle } = await import('@/lib/studio-payload');
@@ -122,6 +155,32 @@ export function RecoveryPanel() {
         'Recovered from an imported file. Use Check chain to independently request current inclusion and metadata.',
       );
     });
+  const exportPassport = async (receipt: StudioReceipt) => {
+    if (lock.current) return;
+    lock.current = true;
+    setBusy(true);
+    setError('');
+    setNotice('');
+    try {
+      const { createArtifactPassport, artifactPassportBytes } =
+        await import('@/lib/artifact-passport');
+      const passport = await createArtifactPassport(await loadCSL(), receipt);
+      download(
+        new Blob([new Uint8Array(artifactPassportBytes(passport))], {
+          type: 'application/json',
+        }),
+        filename(passport.bundle.name) + '.passport.json',
+      );
+      setNotice(
+        'Passport exported with exact files and metadata. Wallet snapshots and the transaction packet stay out of this export; keep the original receipt separately.',
+      );
+    } catch (e) {
+      setError(errorText(e));
+    } finally {
+      lock.current = false;
+      setBusy(false);
+    }
+  };
   return (
     <>
       <div className="ns-heading">
@@ -321,6 +380,16 @@ export function RecoveryPanel() {
                 >
                   <Download size={18} />
                 </Button>
+                {['nft', 'data'].includes(r.kind) &&
+                  typeof r.signedHex === 'string' && (
+                    <Button
+                      variant="outline"
+                      disabled={busy}
+                      onClick={() => void exportPassport(r)}
+                    >
+                      <BookOpenCheck size={17} /> Export passport
+                    </Button>
+                  )}
               </div>
             </article>
           ))
