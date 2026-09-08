@@ -1,13 +1,13 @@
 {
   "mode": "nft",
   "name": "Days Without Cardano Drama",
-  "description": "3 days. One little take. Back to zero. An original BEACN Labs animated satire with a synthesized womp-womp. Open drama.html and press Play. Counter resets on replay; it does not track real events.",
+  "description": "3 days. One little take. Back to zero. Original Cardano satire with embedded animation and synthesized womp-womp. Replay resets the joke.",
   "coverIndex": 0,
   "files": [
     {
-      "path": "assets/cover.svg",
-      "name": "cover.svg",
-      "mediaType": "image/svg+xml"
+      "path": "assets/cover.avif",
+      "name": "cover.avif",
+      "mediaType": "image/avif"
     },
     {
       "path": "assets/drama.html",

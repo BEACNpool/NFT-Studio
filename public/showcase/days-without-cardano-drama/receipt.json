@@ -1,25 +1,25 @@
 {
   "schema": "nft-studio.local-review.v1",
   "status": "verified-intent-only",
-  "intentHash": "ff937aadd941bac187cce3b42631784bb92fad4875a8bb785b0871daead84365",
-  "bundleHash": "db919980671f5c5520e052cfd5cd53e6908cf2400a32337afea0569ae3c2ef2d",
-  "rawBytes": 11372,
-  "reviewUrlCharacters": 19467,
+  "intentHash": "76b3fa8a2173a3a0afd4e2ed9e5b8f755d36c889604036fe93d0efb962c5edb1",
+  "bundleHash": "5ab8db3d5a7d4684666772322fec622bf3492641626a0a9ff6d699ed47d7815e",
+  "rawBytes": 11889,
+  "reviewUrlCharacters": 19755,
   "files": [
     {
       "name": "intent.json",
-      "bytes": 14743,
-      "sha256": "6cac0de9707f6d3bccccf0b4dac442f0f93a04e54c31a2f40f7e24783e62675b"
+      "bytes": 14959,
+      "sha256": "24c72b917a59ebe967bc59e5410aa411b3adfbf7149edd291fd89ae41c608489"
     },
     {
       "name": "review-url.txt",
-      "bytes": 19468,
-      "sha256": "04565e700984ffd072f743d6774bceed3242c70cb0646f0162cbf1c6233892d6"
+      "bytes": 19756,
+      "sha256": "ed7adc16867634f49da6d5022e4c86bf72a6c430e682328219492524569bca71"
     },
     {
       "name": "review.html",
-      "bytes": 20145,
-      "sha256": "0e444762dd36b73a09a64892848d9f4285e3d116e29e23e15970d828073bbc27"
+      "bytes": 20433,
+      "sha256": "df9c771d71c0c639a15ad0502d12f900493dc9287f26fb8f401a2ec01fd8839d"
     }
   ],
   "mcpCalls": [

@@ -1,0 +1,568 @@
+{
+  "schema": "beacn-public-poolpm-playback-v1",
+  "target": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7",
+  "fingerprint": "asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7",
+  "expectedTransaction": "3683e58be5690b1d874fa9df0b835e14467ab2b7a663b1894cdc381d7c22bc39",
+  "expectedPolicy": "98cd88d43153a8244eaaaeabada3a4022e8600812baec720470a7fa2",
+  "expectedAssetNameHex": "44617973576974686f757443617264616e6f4472616d61",
+  "startedAt": "2026-09-08T16:48:45.746Z",
+  "viewports": [
+    {
+      "mode": "desktop",
+      "width": 1440,
+      "height": 1050,
+      "ownerLabel": "$beacnleaks",
+      "title": "Days Without Cardano Drama",
+      "sandbox": "allow-scripts allow-downloads",
+      "opaqueParentAccessDenied": true,
+      "initialCount": "3",
+      "initialAudio": {
+        "contexts": 0,
+        "starts": [],
+        "peak": 0,
+        "trustedPlayClicks": 0
+      },
+      "outerNoOverflow": true,
+      "innerNoOverflow": true,
+      "firstPlay": {
+        "contexts": 1,
+        "starts": [
+          1.32,
+          1.32,
+          1.87,
+          1.87
+        ],
+        "peak": 0.2427777349948883,
+        "trustedPlayClicks": 1
+      },
+      "play3To0": true,
+      "replay3To0": true,
+      "mutedReplayAddsNoOscillators": true,
+      "walletExtensionPresent": false,
+      "completedAt": "2026-09-08T16:49:00.116Z"
+    },
+    {
+      "mode": "mobile",
+      "width": 390,
+      "height": 844,
+      "ownerLabel": "$beacnleaks",
+      "title": "Days Without Cardano Drama",
+      "sandbox": "allow-scripts allow-downloads",
+      "opaqueParentAccessDenied": true,
+      "initialCount": "3",
+      "initialAudio": {
+        "contexts": 0,
+        "starts": [],
+        "peak": 0,
+        "trustedPlayClicks": 0
+      },
+      "outerNoOverflow": true,
+      "innerNoOverflow": true,
+      "firstPlay": {
+        "contexts": 1,
+        "starts": [
+          1.32,
+          1.32,
+          1.87,
+          1.87
+        ],
+        "peak": 0.2427777349948883,
+        "trustedPlayClicks": 1
+      },
+      "play3To0": true,
+      "replay3To0": true,
+      "mutedReplayAddsNoOscillators": true,
+      "walletExtensionPresent": false,
+      "completedAt": "2026-09-08T16:49:13.166Z"
+    }
+  ],
+  "responses": [
+    {
+      "mode": "desktop",
+      "url": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7",
+      "status": 200,
+      "type": "document",
+      "contentType": "text/html",
+      "contentEncoding": "gzip",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "desktop",
+      "url": "https://pool.pm/assets/index-5S8dzVRT.css",
+      "status": 200,
+      "type": "stylesheet",
+      "contentType": "text/css",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "desktop",
+      "url": "https://rsms.me/inter/inter.css",
+      "status": 200,
+      "type": "stylesheet",
+      "contentType": "text/css; charset=utf-8",
+      "contentEncoding": "gzip",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "desktop",
+      "url": "https://pool.pm/site.webmanifest",
+      "status": 200,
+      "type": "manifest",
+      "contentType": "application/octet-stream",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "desktop",
+      "url": "https://pool.pm/assets/index-CFD062tR.js",
+      "status": 200,
+      "type": "script",
+      "contentType": "application/javascript",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "desktop",
+      "url": "https://fonts.googleapis.com/css2",
+      "status": 200,
+      "type": "stylesheet",
+      "contentType": "text/css; charset=utf-8",
+      "contentEncoding": "gzip",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "desktop",
+      "url": "https://pool.pm/pool.pm.svg",
+      "status": 200,
+      "type": "image",
+      "contentType": "image/svg+xml",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "desktop",
+      "url": "https://pool.pm/search.svg",
+      "status": 200,
+      "type": "image",
+      "contentType": "image/svg+xml",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "desktop",
+      "url": "https://pool.pm/api/asset/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7",
+      "status": 200,
+      "type": "fetch",
+      "contentType": "application/json",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "desktop",
+      "url": "https://fonts.gstatic.com/s/outfit/v15/QGYyz_MVcBeNP4NjuGObqx1XmO1I4W61O4a0Ew.woff2",
+      "status": 200,
+      "type": "font",
+      "contentType": "font/woff2",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "desktop",
+      "url": "https://asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7.poolpm.nftcdn.io/files/0/",
+      "status": 200,
+      "type": "document",
+      "contentType": "text/html",
+      "contentEncoding": "gzip",
+      "contentSecurityPolicy": "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:",
+      "decodedBytes": 8264,
+      "sha256": "e4a515b7b226f06d892480127ea57ec23e00eb2319bc7ede8254692e6e6b961f"
+    },
+    {
+      "mode": "desktop",
+      "url": "https://rsms.me/inter/font-files/Inter-Regular.woff2",
+      "status": 200,
+      "type": "font",
+      "contentType": "font/woff2",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "desktop",
+      "url": "https://rsms.me/inter/font-files/InterVariable.woff2",
+      "status": 200,
+      "type": "font",
+      "contentType": "font/woff2",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "desktop",
+      "url": "https://pool.pm/favicon.svg",
+      "status": 200,
+      "type": "other",
+      "contentType": "image/svg+xml",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "desktop",
+      "url": "https://pool.pm/favicon.ico",
+      "status": 200,
+      "type": "other",
+      "contentType": "image/x-icon",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "mobile",
+      "url": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7",
+      "status": 200,
+      "type": "document",
+      "contentType": "text/html",
+      "contentEncoding": "gzip",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "mobile",
+      "url": "https://rsms.me/inter/inter.css",
+      "status": 200,
+      "type": "stylesheet",
+      "contentType": "text/css; charset=utf-8",
+      "contentEncoding": "gzip",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "mobile",
+      "url": "https://pool.pm/assets/index-5S8dzVRT.css",
+      "status": 200,
+      "type": "stylesheet",
+      "contentType": "text/css",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "mobile",
+      "url": "https://pool.pm/site.webmanifest",
+      "status": 200,
+      "type": "manifest",
+      "contentType": "application/octet-stream",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "mobile",
+      "url": "https://pool.pm/assets/index-CFD062tR.js",
+      "status": 200,
+      "type": "script",
+      "contentType": "application/javascript",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "mobile",
+      "url": "https://fonts.googleapis.com/css2",
+      "status": 200,
+      "type": "stylesheet",
+      "contentType": "text/css; charset=utf-8",
+      "contentEncoding": "gzip",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "mobile",
+      "url": "https://pool.pm/pool.pm.svg",
+      "status": 200,
+      "type": "image",
+      "contentType": "image/svg+xml",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "mobile",
+      "url": "https://pool.pm/search.svg",
+      "status": 200,
+      "type": "image",
+      "contentType": "image/svg+xml",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "mobile",
+      "url": "https://rsms.me/inter/font-files/Inter-Regular.woff2",
+      "status": 200,
+      "type": "font",
+      "contentType": "font/woff2",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "mobile",
+      "url": "https://rsms.me/inter/font-files/InterVariable.woff2",
+      "status": 200,
+      "type": "font",
+      "contentType": "font/woff2",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "mobile",
+      "url": "https://pool.pm/api/asset/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7",
+      "status": 200,
+      "type": "fetch",
+      "contentType": "application/json",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "mobile",
+      "url": "https://fonts.gstatic.com/s/outfit/v15/QGYyz_MVcBeNP4NjuGObqx1XmO1I4W61O4a0Ew.woff2",
+      "status": 200,
+      "type": "font",
+      "contentType": "font/woff2",
+      "contentSecurityPolicy": ""
+    },
+    {
+      "mode": "mobile",
+      "url": "https://asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7.poolpm.nftcdn.io/files/0/",
+      "status": 200,
+      "type": "document",
+      "contentType": "text/html",
+      "contentEncoding": "gzip",
+      "contentSecurityPolicy": "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:",
+      "decodedBytes": 8264,
+      "sha256": "e4a515b7b226f06d892480127ea57ec23e00eb2319bc7ede8254692e6e6b961f"
+    },
+    {
+      "mode": "mobile",
+      "url": "https://pool.pm/favicon.ico",
+      "status": 200,
+      "type": "other",
+      "contentType": "image/x-icon",
+      "contentSecurityPolicy": ""
+    }
+  ],
+  "requests": [
+    {
+      "mode": "desktop",
+      "url": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7",
+      "method": "GET",
+      "type": "document",
+      "frame": "nullblank"
+    },
+    {
+      "mode": "desktop",
+      "url": "https://rsms.me/inter/inter.css",
+      "method": "GET",
+      "type": "stylesheet",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "desktop",
+      "url": "https://pool.pm/assets/index-CFD062tR.js",
+      "method": "GET",
+      "type": "script",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "desktop",
+      "url": "https://pool.pm/assets/index-5S8dzVRT.css",
+      "method": "GET",
+      "type": "stylesheet",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "desktop",
+      "url": "https://pool.pm/site.webmanifest",
+      "method": "GET",
+      "type": "manifest",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "desktop",
+      "url": "https://fonts.googleapis.com/css2",
+      "method": "GET",
+      "type": "stylesheet",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "desktop",
+      "url": "https://pool.pm/api/asset/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7",
+      "method": "GET",
+      "type": "fetch",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "desktop",
+      "url": "https://rsms.me/inter/font-files/InterVariable.woff2",
+      "method": "GET",
+      "type": "font",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "desktop",
+      "url": "https://rsms.me/inter/font-files/Inter-Regular.woff2",
+      "method": "GET",
+      "type": "font",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "desktop",
+      "url": "https://pool.pm/pool.pm.svg",
+      "method": "GET",
+      "type": "image",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "desktop",
+      "url": "https://pool.pm/search.svg",
+      "method": "GET",
+      "type": "image",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "desktop",
+      "url": "https://fonts.gstatic.com/s/outfit/v15/QGYyz_MVcBeNP4NjuGObqx1XmO1I4W61O4a0Ew.woff2",
+      "method": "GET",
+      "type": "font",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "desktop",
+      "url": "https://asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7.poolpm.nftcdn.io/files/0/",
+      "method": "GET",
+      "type": "document",
+      "frame": "[non-url]"
+    },
+    {
+      "mode": "desktop",
+      "url": "https://pool.pm/favicon.svg",
+      "method": "GET",
+      "type": "other",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "desktop",
+      "url": "https://pool.pm/favicon.ico",
+      "method": "GET",
+      "type": "other",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "mobile",
+      "url": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7",
+      "method": "GET",
+      "type": "document",
+      "frame": "nullblank"
+    },
+    {
+      "mode": "mobile",
+      "url": "https://rsms.me/inter/inter.css",
+      "method": "GET",
+      "type": "stylesheet",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "mobile",
+      "url": "https://pool.pm/assets/index-CFD062tR.js",
+      "method": "GET",
+      "type": "script",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "mobile",
+      "url": "https://pool.pm/assets/index-5S8dzVRT.css",
+      "method": "GET",
+      "type": "stylesheet",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "mobile",
+      "url": "https://pool.pm/site.webmanifest",
+      "method": "GET",
+      "type": "manifest",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "mobile",
+      "url": "https://fonts.googleapis.com/css2",
+      "method": "GET",
+      "type": "stylesheet",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "mobile",
+      "url": "https://pool.pm/api/asset/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7",
+      "method": "GET",
+      "type": "fetch",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "mobile",
+      "url": "https://rsms.me/inter/font-files/InterVariable.woff2",
+      "method": "GET",
+      "type": "font",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "mobile",
+      "url": "https://rsms.me/inter/font-files/Inter-Regular.woff2",
+      "method": "GET",
+      "type": "font",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "mobile",
+      "url": "https://pool.pm/pool.pm.svg",
+      "method": "GET",
+      "type": "image",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "mobile",
+      "url": "https://pool.pm/search.svg",
+      "method": "GET",
+      "type": "image",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "mobile",
+      "url": "https://fonts.gstatic.com/s/outfit/v15/QGYyz_MVcBeNP4NjuGObqx1XmO1I4W61O4a0Ew.woff2",
+      "method": "GET",
+      "type": "font",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    {
+      "mode": "mobile",
+      "url": "https://asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7.poolpm.nftcdn.io/files/0/",
+      "method": "GET",
+      "type": "document",
+      "frame": "[non-url]"
+    },
+    {
+      "mode": "mobile",
+      "url": "https://pool.pm/favicon.ico",
+      "method": "GET",
+      "type": "other",
+      "frame": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "desktop-3.png",
+    "desktop-trigger.png",
+    "desktop-0.png",
+    "mobile-3.png",
+    "mobile-trigger.png",
+    "mobile-0.png"
+  ],
+  "htmlDeliveries": [
+    {
+      "mode": "desktop",
+      "url": "https://asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7.poolpm.nftcdn.io/files/0/",
+      "status": 200,
+      "type": "document",
+      "contentType": "text/html",
+      "contentEncoding": "gzip",
+      "contentSecurityPolicy": "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:",
+      "decodedBytes": 8264,
+      "sha256": "e4a515b7b226f06d892480127ea57ec23e00eb2319bc7ede8254692e6e6b961f"
+    },
+    {
+      "mode": "mobile",
+      "url": "https://asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7.poolpm.nftcdn.io/files/0/",
+      "status": 200,
+      "type": "document",
+      "contentType": "text/html",
+      "contentEncoding": "gzip",
+      "contentSecurityPolicy": "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:",
+      "decodedBytes": 8264,
+      "sha256": "e4a515b7b226f06d892480127ea57ec23e00eb2319bc7ede8254692e6e6b961f"
+    }
+  ],
+  "embeddedAppHttpRequests": [],
+  "status": "PASS_PUBLIC_VIEWER_PLAYBACK",
+  "checkedAt": "2026-09-08T16:49:13.189Z",
+  "browser": "Chrome/152.0.7977.64",
+  "scope": "Actual pool.pm origin and real NFTcdn responses/headers; no response rewriting, wallet injection, signing or submission. AudioContext instrumented only to observe scheduling and a silent analyser tap alongside the unchanged native destination. Audio signal observed, no human listening claim. Owner is the label displayed by pool.pm; chain proof remains separate. CDN query strings omitted from all report URLs."
+}
