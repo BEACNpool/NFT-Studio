@@ -1,0 +1,70 @@
+{
+  "schema": "beacn.cardano-drama.mint-receipt.v1",
+  "status": "confirmed",
+  "title": "Days Without Cardano Drama",
+  "asset": {
+    "policyId": "98cd88d43153a8244eaaaeabada3a4022e8600812baec720470a7fa2",
+    "name": "DaysWithoutCardanoDrama",
+    "nameHex": "44617973576974686f757443617264616e6f4472616d61",
+    "fingerprint": "asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7",
+    "mintedQuantity": "1",
+    "observedSupply": "1",
+    "observedPolicyAssetCount": 1
+  },
+  "transaction": {
+    "hash": "3683e58be5690b1d874fa9df0b835e14467ab2b7a663b1894cdc381d7c22bc39",
+    "blockHash": "6c553fcc76d2d146d27f961412df7fe4531cfffc52d4f2444b547b2c65090ac2",
+    "blockHeight": 13914987,
+    "slot": 197319528,
+    "epoch": 654,
+    "blockTimeUTC": "2026-09-08T16:43:39.000Z",
+    "confirmationsObserved": 1,
+    "feeLovelace": "837821",
+    "signedCborBytes": 15510,
+    "indexerReportedTxSize": 15509,
+    "cborSha256": "be065d6896f0a654acfda375f2042397562ea6e2d08efac0096489eddc0a3159",
+    "retrievedCborEqualsSubmitted": true,
+    "signatureVerified": true,
+    "auxiliaryDataHashVerified": true
+  },
+  "delivery": {
+    "handle": "$BEACNLEAKS",
+    "address": "addr1q9tc7xx0wvqm6swrz2zc4hcqnhc4md5v4xlxyaewy889tdxmnyl6uvy3smpa2qjhzmm8z62ghxh95xhj2q86hgr8z85s3chnw6",
+    "outputIndex": 0,
+    "lovelace": "1219730",
+    "assetQuantity": "1",
+    "unspentAtCheck": true,
+    "handleResolutionVerified": true
+  },
+  "cover": {
+    "mediaType": "image/avif",
+    "bytes": 3625,
+    "sha256": "b113560143b30c4e264b7d684af801e9d26125c187f068b8c9de68f04d0cfe11",
+    "fullyEmbedded": true,
+    "chainBytesEqualOriginal": true
+  },
+  "program": {
+    "mediaType": "text/html",
+    "bytes": 8264,
+    "sha256": "e4a515b7b226f06d892480127ea57ec23e00eb2319bc7ede8254692e6e6b961f",
+    "fullyEmbedded": true,
+    "chainBytesEqualOriginal": true,
+    "durationSeconds": 3.4,
+    "representation": "Embedded original animation and synthesizer; sound is generated locally",
+    "description": "3 days. One little take. Back to zero. Original Cardano satire with embedded animation and synthesized womp-womp. Replay resets the joke.",
+    "website": "https://beacnpool.github.io/NFT-Studio/"
+  },
+  "policy": {
+    "kind": "Native payment signature plus expiry",
+    "expirySlot": 197322944,
+    "expiryUTC": "2026-09-08T17:40:35.000Z",
+    "oneShotSupplyGuarantee": false,
+    "closureClaim": false
+  },
+  "links": {
+    "poolPm": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7",
+    "transaction": "https://cardanoscan.io/transaction/3683e58be5690b1d874fa9df0b835e14467ab2b7a663b1894cdc381d7c22bc39",
+    "website": "https://beacnpool.github.io/NFT-Studio/"
+  },
+  "verifiedAt": "2026-09-08T16:44:16.032Z"
+}
