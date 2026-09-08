@@ -1,0 +1,18 @@
+{
+  "mode": "nft",
+  "name": "Entropy Oracle",
+  "description": "A crypto magic 8-ball with 24 original outcomes, three draw rules, entropy and histograms. Local randomness, original sound and a probability lesson.",
+  "coverIndex": 0,
+  "files": [
+    {
+      "path": "cover.avif",
+      "name": "cover.avif",
+      "mediaType": "image/avif"
+    },
+    {
+      "path": "program.html",
+      "name": "program.html",
+      "mediaType": "text/html"
+    }
+  ]
+}

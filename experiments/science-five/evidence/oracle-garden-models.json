@@ -1,0 +1,25 @@
+{
+  "errors": [],
+  "tests": [
+    {
+      "slug": "entropy-oracle",
+      "randomRejectionBoundary": true,
+      "entropyOracle": true,
+      "freshDraws": 10000,
+      "noAdjacentRepeats": true,
+      "completeDecks": 100,
+      "balancedDecks": true
+    },
+    {
+      "slug": "turing-garden",
+      "independentStencilMaxError": 2.6412308229417647e-8,
+      "homogeneousFixedPoint": true,
+      "exactFloat32StateRoundtrip": true,
+      "malformedStateRejected": 4,
+      "steps": 1025,
+      "clippedCellUpdates": 0
+    }
+  ],
+  "completedAt": "2026-09-08T20:00:32.131Z",
+  "status": "PASS"
+}

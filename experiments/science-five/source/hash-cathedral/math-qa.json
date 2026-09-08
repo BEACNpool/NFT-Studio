@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "checks": 2164,
+  "nistShortMessageVectors": 65,
+  "sourceSha256": "f4260b6620d569c69cf906ba7a2b1a3233c2040da50ac6007e752f968bb4871b",
+  "scope": [
+    "65 official NIST SHA256ShortMsg byte-oriented vectors",
+    "FIPS SHA-256 examples including million-a",
+    "Node crypto UTF-8, surrogate replacement and block boundaries",
+    "Exact single-bit mutation and non-mutation of original",
+    "Independent prefixed 8-leaf tree, all paths, wrong leaf/root/index/siblings",
+    "Resource/input bounds"
+  ],
+  "nistCertification": false
+}

@@ -1,0 +1,18 @@
+{
+  "mode": "nft",
+  "name": "Chaos Mirrors",
+  "description": "Two nearly identical double pendulums create diverging light trails. Explore deterministic chaos with presets, energy error and separation measurements.",
+  "coverIndex": 0,
+  "files": [
+    {
+      "path": "cover.avif",
+      "name": "cover.avif",
+      "mediaType": "image/avif"
+    },
+    {
+      "path": "program.html",
+      "name": "program.html",
+      "mediaType": "text/html"
+    }
+  ]
+}

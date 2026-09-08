@@ -1,0 +1,11 @@
+{
+  "checkedAt": "2026-09-08T20:16:47.206Z",
+  "scope": "Pure source and minified API; independent NumPy FFT oracle plus analytic, Parseval, arclength and audio algebra checks. No browser or chain claim.",
+  "sourceSha256": "23fcc0af1206af690aa357b4b231d2e7d6bc5315795b755ff5d2c1068577e0e2",
+  "minifiedSha256": "4978927b41b85831cd3531b176037496883ce89ad59eb35554d234bd1a563404",
+  "checks": 13932,
+  "maxCoefficientError": 3.161121243554757e-15,
+  "maxReconstructionError": 2.8057029453401892e-14,
+  "audioMax": 0.11956707201223961,
+  "numpyVersion": "1.26.4"
+}

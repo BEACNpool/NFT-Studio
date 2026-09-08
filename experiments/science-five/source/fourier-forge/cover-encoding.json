@@ -1,0 +1,10 @@
+{
+  "source": "cover-master.png",
+  "width": 320,
+  "height": 380,
+  "codec": "libaom-av1",
+  "crf": 59,
+  "cpuUsed": 6,
+  "pixelFormat": "yuv420p",
+  "bytes": 1298
+}

@@ -1,0 +1,2 @@
+# Preserve the original NIST fixture bytes, including CRLF and its final separator.
+nist-SHA256ShortMsg.rsp -text whitespace=cr-at-eol,-blank-at-eof

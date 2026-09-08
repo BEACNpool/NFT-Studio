@@ -1,0 +1,18 @@
+{
+  "mode": "nft",
+  "name": "Fourier Forge",
+  "description": "Draw a shape, rebuild it with rotating harmonics, measure reconstruction error, and hear a waveform derived from the drawing.",
+  "coverIndex": 0,
+  "files": [
+    {
+      "path": "cover.avif",
+      "name": "cover.avif",
+      "mediaType": "image/avif"
+    },
+    {
+      "path": "program.html",
+      "name": "program.html",
+      "mediaType": "text/html"
+    }
+  ]
+}

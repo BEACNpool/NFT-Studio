@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "at": "2026-09-08T20:09:34.639Z",
+  "pointer": {
+    "x": 195,
+    "y": 377
+  },
+  "steps": 1045,
+  "actualBrushChangedGridWithoutAdvancingTime": true,
+  "paintedFloat32ExactRoundTrip": true
+}

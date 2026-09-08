@@ -1,0 +1,47 @@
+{
+  "checkedAt": "2026-09-08T20:20:37.209Z",
+  "sourceSha256": "23fcc0af1206af690aa357b4b231d2e7d6bc5315795b755ff5d2c1068577e0e2",
+  "minifiedSha256": "4978927b41b85831cd3531b176037496883ce89ad59eb35554d234bd1a563404",
+  "checks": [
+    "secondary touch release cannot finish primary stroke",
+    "native mobile touch produces closed drawing",
+    "touch drawing reconstructs at full band",
+    "native pointer cancellation preserves old drawing",
+    "rapid Play/Mute schedules no overlapping audible voices",
+    "native OfflineAudioContext actual waveform amplitude bound",
+    "rendered start delay and stopped tail are silent",
+    "opaque sandbox rejects storage",
+    "actual CSP blocks attempted connection before HTTP request",
+    "no browser JavaScript errors"
+  ],
+  "voices": [
+    {
+      "start": 0.06,
+      "stop": 0.22066666666666668
+    },
+    {
+      "start": 0.252,
+      "stop": 0.2846666666666667
+    },
+    {
+      "start": 0.3373333333333333,
+      "stop": 0.37
+    }
+  ],
+  "maxOverlap": 1,
+  "offlineAudio": {
+    "sampleRate": 24000,
+    "durationSeconds": 1,
+    "peak": 0.11065603047609329,
+    "rms": 0.05876386690404283,
+    "sha256": "8cb1a1a47d2f93b4b113ac357baf79f162f4e8fba0eddc8516ca96efc5d689ac",
+    "scope": "Native OfflineAudioContext using exact periodic-wave coefficients observed from the app. Digital sample checks; no human listening claim."
+  },
+  "requests": [
+    "/frame",
+    "/minified.html",
+    "/favicon.ico",
+    "/favicon.ico"
+  ],
+  "errors": []
+}

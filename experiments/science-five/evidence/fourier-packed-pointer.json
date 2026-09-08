@@ -1,0 +1,21 @@
+{
+  "at": "2026-09-08T20:20:27.988Z",
+  "status": "PASS",
+  "method": "Actual main-page mouse input through opaque iframe pointer capture; closed elliptical stroke on the frozen root-packed program",
+  "results": [
+    {
+      "width": 1440,
+      "status": "PASS",
+      "shape": "Your drawing / 25 terms",
+      "message": "128 equal arc-length samples ready.",
+      "drawing": "false"
+    },
+    {
+      "width": 390,
+      "status": "PASS",
+      "shape": "Your drawing / 25 terms",
+      "message": "128 equal arc-length samples ready.",
+      "drawing": "false"
+    }
+  ]
+}

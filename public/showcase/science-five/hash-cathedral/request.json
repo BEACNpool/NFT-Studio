@@ -1,0 +1,18 @@
+{
+  "mode": "nft",
+  "name": "Hash Cathedral",
+  "description": "Turn text into SHA-256 geometric art. Flip one bit, inspect the avalanche, and build, tamper with and verify an eight-leaf Merkle proof.",
+  "coverIndex": 0,
+  "files": [
+    {
+      "path": "cover.avif",
+      "name": "cover.avif",
+      "mediaType": "image/avif"
+    },
+    {
+      "path": "program.html",
+      "name": "program.html",
+      "mediaType": "text/html"
+    }
+  ]
+}

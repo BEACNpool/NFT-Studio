@@ -1,0 +1,471 @@
+{
+  "at": "2026-09-08T20:17:25.103Z",
+  "status": "PASS_ALL_FIVE_PACKED",
+  "browser": "Chrome/152.0.7977.64",
+  "method": "Frozen byte-identical copies of root-packed build/program.html served via original root server in actual opaque src iframes; no response rewriting.",
+  "studies": [
+    {
+      "slug": "entropy-oracle",
+      "viewport": "desktop",
+      "packed": {
+        "path": "entropy-oracle/build/program.html",
+        "bytes": 8872,
+        "sha256": "7c6678c0e313eed0e0d8acd39cab1cea4257c67207a0b2263888c1c09e7c58b4"
+      },
+      "tests": [
+        "Ask\u2192Reset cancels pending draw and re-enables Ask",
+        "Ask\u2192rule change cancels pending draw",
+        "Ask\u2192Reset\u2192immediate Ask produces exactly one result",
+        "240 deck draws yield10 of every outcome; next-draw entropy resets tolog\u208224",
+        "Native chime signal observed and PNG download requested"
+      ],
+      "environment": {
+        "parentDenied": true,
+        "storageDenied": true,
+        "csp": [
+          "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; base-uri 'none'; form-action 'none'"
+        ],
+        "overflow": false,
+        "origin": "null"
+      },
+      "audioPeak": 0.031105970963835716,
+      "downloads": [
+        {
+          "file": "entropy-oracle.png",
+          "bytes": 538926,
+          "sha256": "b6d9780b8f2014212b2a06cd42eaad689f3ee4574299c361b0fbdfbf33e3cea1",
+          "png": true
+        }
+      ],
+      "externalProgramRequests": [],
+      "networkProbe": true,
+      "errors": [],
+      "status": "PASS",
+      "freshDownloadsWrittenDuringThisRun": [
+        {
+          "file": "entropy-oracle.png",
+          "bytes": 538926,
+          "mtime": "2026-09-08T20:17:30.322843+00:00"
+        }
+      ],
+      "settledScreenshotVisuallyInspected": true
+    },
+    {
+      "slug": "entropy-oracle",
+      "viewport": "mobile",
+      "packed": {
+        "path": "entropy-oracle/build/program.html",
+        "bytes": 8872,
+        "sha256": "7c6678c0e313eed0e0d8acd39cab1cea4257c67207a0b2263888c1c09e7c58b4"
+      },
+      "tests": [
+        "Ask\u2192Reset cancels pending draw and re-enables Ask",
+        "Ask\u2192rule change cancels pending draw",
+        "Ask\u2192Reset\u2192immediate Ask produces exactly one result",
+        "240 deck draws yield10 of every outcome; next-draw entropy resets tolog\u208224",
+        "Native chime signal observed and PNG download requested"
+      ],
+      "environment": {
+        "parentDenied": true,
+        "storageDenied": true,
+        "csp": [
+          "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; base-uri 'none'; form-action 'none'"
+        ],
+        "overflow": false,
+        "origin": "null"
+      },
+      "audioPeak": 0.044985830783843994,
+      "downloads": [
+        {
+          "file": "entropy-oracle.png",
+          "bytes": 540587,
+          "sha256": "1f86c612f3ba56bdd9eecb82459d85ae4f67b68593e3e8d5a8425c7979579f30",
+          "png": true
+        }
+      ],
+      "externalProgramRequests": [],
+      "networkProbe": true,
+      "errors": [],
+      "status": "PASS",
+      "freshDownloadsWrittenDuringThisRun": [
+        {
+          "file": "entropy-oracle.png",
+          "bytes": 540587,
+          "mtime": "2026-09-08T20:17:35.909028+00:00"
+        }
+      ],
+      "settledScreenshotVisuallyInspected": true
+    },
+    {
+      "slug": "turing-garden",
+      "viewport": "desktop",
+      "packed": {
+        "path": "turing-garden/build/program.html",
+        "bytes": 9222,
+        "sha256": "d3b58aca33bb276c3fb1c5a8312a37e6ca348a2a67f213b3459f4017e6bffaa4"
+      },
+      "tests": [
+        "20-step control, palette, exactFloat32 restoration and PNG/state downloads"
+      ],
+      "environment": {
+        "parentDenied": true,
+        "storageDenied": true,
+        "csp": [
+          "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; base-uri 'none'; form-action 'none'"
+        ],
+        "overflow": false,
+        "origin": "null"
+      },
+      "downloads": [
+        {
+          "file": "turing-garden-state.json",
+          "bytes": 393334,
+          "sha256": "675bcad6ecf13d7d4acf3235e5bf0b585b3c261b806cb1aea302974a387566ff"
+        },
+        {
+          "file": "turing-garden.png",
+          "bytes": 828080,
+          "sha256": "b72bb8c59aa9b79f8f2a7d781ceacc522eed6b90fc1ab9add3ca582aae0a4617",
+          "png": true
+        }
+      ],
+      "externalProgramRequests": [],
+      "networkProbe": true,
+      "errors": [],
+      "status": "PASS",
+      "freshDownloadsWrittenDuringThisRun": [
+        {
+          "file": "turing-garden-state.json",
+          "bytes": 393334,
+          "mtime": "2026-09-08T20:17:39.270139+00:00"
+        },
+        {
+          "file": "turing-garden.png",
+          "bytes": 828080,
+          "mtime": "2026-09-08T20:17:39.338142+00:00"
+        }
+      ],
+      "settledScreenshotVisuallyInspected": true
+    },
+    {
+      "slug": "turing-garden",
+      "viewport": "mobile",
+      "packed": {
+        "path": "turing-garden/build/program.html",
+        "bytes": 9222,
+        "sha256": "d3b58aca33bb276c3fb1c5a8312a37e6ca348a2a67f213b3459f4017e6bffaa4"
+      },
+      "tests": [
+        "20-step control, palette, exactFloat32 restoration and PNG/state downloads"
+      ],
+      "environment": {
+        "parentDenied": true,
+        "storageDenied": true,
+        "csp": [
+          "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; base-uri 'none'; form-action 'none'"
+        ],
+        "overflow": false,
+        "origin": "null"
+      },
+      "downloads": [
+        {
+          "file": "turing-garden-state.json",
+          "bytes": 393334,
+          "sha256": "20e4662de85c78789bdb1f08a30c87001c741fb1ac129e37cb4e842d6e53da0d"
+        },
+        {
+          "file": "turing-garden.png",
+          "bytes": 828919,
+          "sha256": "16123879356754768d5e79cb79f64af0b407e6e70d918207cbbe02957880f069",
+          "png": true
+        }
+      ],
+      "externalProgramRequests": [],
+      "networkProbe": true,
+      "errors": [],
+      "status": "PASS",
+      "freshDownloadsWrittenDuringThisRun": [
+        {
+          "file": "turing-garden-state.json",
+          "bytes": 393334,
+          "mtime": "2026-09-08T20:17:42.755255+00:00"
+        },
+        {
+          "file": "turing-garden.png",
+          "bytes": 828919,
+          "mtime": "2026-09-08T20:17:42.821257+00:00"
+        }
+      ],
+      "settledScreenshotVisuallyInspected": true
+    },
+    {
+      "slug": "chaos-mirrors",
+      "viewport": "desktop",
+      "packed": {
+        "path": "chaos-mirrors/build/program.html",
+        "bytes": 9786,
+        "sha256": "4dedd07ceaad2a928f4b4cc5c0e9e5c73e03381bbcdb30661b3f3d6a37a16aaa"
+      },
+      "tests": [
+        "Exact twins, one-second step, delta reset,24-second study, palette, run/pause and PNG"
+      ],
+      "environment": {
+        "parentDenied": true,
+        "storageDenied": true,
+        "csp": [
+          "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"
+        ],
+        "overflow": false,
+        "origin": "null"
+      },
+      "downloads": [
+        {
+          "file": "BEACN-Chaos-Mirrors.png",
+          "bytes": 870710,
+          "sha256": "c6d3b8c9e6c5fb63787fcf502fce45f72921996089f78d3481e21e8bc4e54a47",
+          "png": true
+        }
+      ],
+      "externalProgramRequests": [],
+      "networkProbe": true,
+      "errors": [],
+      "status": "PASS",
+      "freshDownloadsWrittenDuringThisRun": [
+        {
+          "file": "BEACN-Chaos-Mirrors.png",
+          "bytes": 870710,
+          "mtime": "2026-09-08T20:17:45.414343+00:00"
+        }
+      ],
+      "settledScreenshotVisuallyInspected": true
+    },
+    {
+      "slug": "chaos-mirrors",
+      "viewport": "mobile",
+      "packed": {
+        "path": "chaos-mirrors/build/program.html",
+        "bytes": 9786,
+        "sha256": "4dedd07ceaad2a928f4b4cc5c0e9e5c73e03381bbcdb30661b3f3d6a37a16aaa"
+      },
+      "tests": [
+        "Exact twins, one-second step, delta reset,24-second study, palette, run/pause and PNG"
+      ],
+      "environment": {
+        "parentDenied": true,
+        "storageDenied": true,
+        "csp": [
+          "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"
+        ],
+        "overflow": false,
+        "origin": "null"
+      },
+      "downloads": [
+        {
+          "file": "BEACN-Chaos-Mirrors.png",
+          "bytes": 872076,
+          "sha256": "0720deb4e10f5c68cfcbc3035ef5e2667f33b49320381e552bffd705708d8531",
+          "png": true
+        }
+      ],
+      "externalProgramRequests": [],
+      "networkProbe": true,
+      "errors": [],
+      "status": "PASS",
+      "freshDownloadsWrittenDuringThisRun": [
+        {
+          "file": "BEACN-Chaos-Mirrors.png",
+          "bytes": 872076,
+          "mtime": "2026-09-08T20:17:48.012429+00:00"
+        }
+      ],
+      "settledScreenshotVisuallyInspected": true
+    },
+    {
+      "slug": "hash-cathedral",
+      "viewport": "desktop",
+      "packed": {
+        "path": "hash-cathedral/build/program.html",
+        "bytes": 10184,
+        "sha256": "f3b9c13c98639947e82d54f06a6aebeafc9362df5bb1c2fc30073434036389a3"
+      },
+      "tests": [
+        "Native NodeSHA-256abc cross-check, bit flip changes digest, PNG, inclusion proof accepts and tampering rejects"
+      ],
+      "environment": {
+        "parentDenied": true,
+        "storageDenied": true,
+        "csp": [
+          "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; base-uri 'none'; form-action 'none'"
+        ],
+        "overflow": false,
+        "origin": "null"
+      },
+      "downloads": [
+        {
+          "file": "hash-cathedral-959fefeeaeed.png",
+          "bytes": 648722,
+          "sha256": "424a9239e9e6aab9d98f2497e522bb40e507e82da2de648815ae5841b2ac56f8",
+          "png": true
+        }
+      ],
+      "externalProgramRequests": [],
+      "networkProbe": true,
+      "errors": [],
+      "status": "PASS",
+      "freshDownloadsWrittenDuringThisRun": [
+        {
+          "file": "hash-cathedral-959fefeeaeed.png",
+          "bytes": 648722,
+          "mtime": "2026-09-08T20:17:49.996495+00:00"
+        }
+      ],
+      "settledScreenshotVisuallyInspected": true
+    },
+    {
+      "slug": "hash-cathedral",
+      "viewport": "mobile",
+      "packed": {
+        "path": "hash-cathedral/build/program.html",
+        "bytes": 10184,
+        "sha256": "f3b9c13c98639947e82d54f06a6aebeafc9362df5bb1c2fc30073434036389a3"
+      },
+      "tests": [
+        "Native NodeSHA-256abc cross-check, bit flip changes digest, PNG, inclusion proof accepts and tampering rejects"
+      ],
+      "environment": {
+        "parentDenied": true,
+        "storageDenied": true,
+        "csp": [
+          "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; base-uri 'none'; form-action 'none'"
+        ],
+        "overflow": false,
+        "origin": "null"
+      },
+      "downloads": [
+        {
+          "file": "hash-cathedral-959fefeeaeed.png",
+          "bytes": 648722,
+          "sha256": "424a9239e9e6aab9d98f2497e522bb40e507e82da2de648815ae5841b2ac56f8",
+          "png": true
+        }
+      ],
+      "externalProgramRequests": [],
+      "networkProbe": true,
+      "errors": [],
+      "status": "PASS",
+      "freshDownloadsWrittenDuringThisRun": [
+        {
+          "file": "hash-cathedral-959fefeeaeed.png",
+          "bytes": 648722,
+          "mtime": "2026-09-08T20:17:52.398575+00:00"
+        }
+      ],
+      "settledScreenshotVisuallyInspected": true
+    },
+    {
+      "slug": "fourier-forge",
+      "viewport": "desktop",
+      "packed": {
+        "path": "fourier-forge/build/program.html",
+        "bytes": 10654,
+        "sha256": "045ad691b2e90ba6023cfcfa37ac2ea77fbca28087cc25fbdde0c857dd2e1521"
+      },
+      "tests": [
+        "DFT circle reconstruction, Heart bandwidth/error, phase pauses motion, bounded native tone signal and PNG"
+      ],
+      "environment": {
+        "parentDenied": true,
+        "storageDenied": true,
+        "csp": [
+          "default-src 'none';script-src 'unsafe-inline';style-src 'unsafe-inline';img-src data: blob:;media-src blob: data:;connect-src 'none';object-src 'none';base-uri 'none';form-action 'none'"
+        ],
+        "overflow": false,
+        "origin": "null"
+      },
+      "dft": {
+        "maxError": 2.242448739751733e-15,
+        "dominant": 1
+      },
+      "audioPeak": 0.11065603792667389,
+      "downloads": [
+        {
+          "file": "fourier-forge.png",
+          "bytes": 87308,
+          "sha256": "bd66d983b17f52bf386a5ac14c31bb80bbf2133be154f230eb436d9fc1d78dbc",
+          "png": true
+        }
+      ],
+      "externalProgramRequests": [],
+      "networkProbe": true,
+      "errors": [],
+      "status": "PASS",
+      "freshDownloadsWrittenDuringThisRun": [
+        {
+          "file": "fourier-forge.png",
+          "bytes": 87308,
+          "mtime": "2026-09-08T20:18:41.318198+00:00"
+        }
+      ],
+      "settledScreenshotVisuallyInspected": true
+    },
+    {
+      "slug": "fourier-forge",
+      "viewport": "mobile",
+      "packed": {
+        "path": "fourier-forge/build/program.html",
+        "bytes": 10654,
+        "sha256": "045ad691b2e90ba6023cfcfa37ac2ea77fbca28087cc25fbdde0c857dd2e1521"
+      },
+      "tests": [
+        "DFT circle reconstruction, Heart bandwidth/error, phase pauses motion, bounded native tone signal and PNG"
+      ],
+      "environment": {
+        "parentDenied": true,
+        "storageDenied": true,
+        "csp": [
+          "default-src 'none';script-src 'unsafe-inline';style-src 'unsafe-inline';img-src data: blob:;media-src blob: data:;connect-src 'none';object-src 'none';base-uri 'none';form-action 'none'"
+        ],
+        "overflow": false,
+        "origin": "null"
+      },
+      "dft": {
+        "maxError": 2.242448739751733e-15,
+        "dominant": 1
+      },
+      "audioPeak": 0.11065603047609329,
+      "downloads": [
+        {
+          "file": "fourier-forge.png",
+          "bytes": 38192,
+          "sha256": "ac5cd82ae556391c6546ddbd945443652246bd189b8c61c18bfe11271419c1a3",
+          "png": true
+        }
+      ],
+      "externalProgramRequests": [],
+      "networkProbe": true,
+      "errors": [],
+      "status": "PASS",
+      "freshDownloadsWrittenDuringThisRun": [
+        {
+          "file": "fourier-forge.png",
+          "bytes": 38192,
+          "mtime": "2026-09-08T20:18:43.860252+00:00"
+        }
+      ],
+      "settledScreenshotVisuallyInspected": true
+    }
+  ],
+  "completedAt": "2026-09-08T20:19:21.101288+00:00",
+  "viewportsPassed": 10,
+  "hashesMatchCurrentRootBuilds": true,
+  "browserHarnessNotes": [
+    "The first about:blank-parent harness was rejected by Chromium local-network-access checks. Tests used a normally served same-host parent without disabling protections.",
+    "Actual iframe sandbox remains allow-scripts allow-downloads with opaque origin. Native source CSP retained. No response/header rewrite was used.",
+    "Source models have separate fuller test receipts; this matrix checks their exact compressed-loader integration.",
+    "These are local browser integration observations, not chain confirmation or actual pool.pm viewer proof."
+  ],
+  "additionalPackedPointerReceipt": "fourier-packed-pointer.json",
+  "additionalPackedPointerResult": "PASS at1440px and390px: actual pointer stroke produces128 resampled points and Your drawing state",
+  "originalReceiptSha256": "4a210def8abb1773cdc6ad3b5bccbc0409968fdd9b893dbd41b333c58853a149",
+  "derivation": "Public extraction: removed links to historical private harness runs; all final test observations retained."
+}

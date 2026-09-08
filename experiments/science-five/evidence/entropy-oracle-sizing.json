@@ -1,0 +1,126 @@
+{
+  "schema": "beacn.science-five.synthetic-size.v1",
+  "status": "pass-synthetic-only",
+  "checkedAt": "2026-09-08T20:12:03.393Z",
+  "files": [
+    {
+      "name": "cover.avif",
+      "mediaType": "image/avif",
+      "bytes": 3098,
+      "sha256": "0a54dcbb257e598f6926ebbf7242d196e7f8ca8192b4165f4733a51127c9e9e5"
+    },
+    {
+      "name": "program.html",
+      "mediaType": "text/html",
+      "bytes": 8872,
+      "sha256": "7c6678c0e313eed0e0d8acd39cab1cea4257c67207a0b2263888c1c09e7c58b4"
+    }
+  ],
+  "harnessSha256": "1e079303dc00ecec19f2a83604c07ec14456731a4d7501755b20137ed9a5679e",
+  "rawBytes": 11970,
+  "rawLimit": 12000,
+  "intentHash": "199544cad429b8dc3cff77bb3676a0b4198ab3f3aebeecd956e4ceebef253f78",
+  "bundleHash": "6831b20645a6a2e063c8faa8ecec611c863a235d011262077501ae0ac034c1a0",
+  "packetBytes": 14833,
+  "reviewUrlCharacters": 19587,
+  "uriEncodings": [
+    {
+      "name": "cover.avif",
+      "encoding": "base64"
+    },
+    {
+      "name": "program.html",
+      "encoding": "percent"
+    }
+  ],
+  "metadataBytes": 14995,
+  "unsignedBytes": 15441,
+  "completePlaceholderWitnessBytes": 15547,
+  "estimatedSignedBytes": 15547,
+  "transactionLimit": 16384,
+  "headroomBytes": 837,
+  "minimumFeeLovelace": "839449",
+  "preparedFeeLovelace": "839625",
+  "studioFeeLovelace": "0",
+  "protocol": {
+    "epoch": 654,
+    "blockTime": 1788898315,
+    "fetchedAt": 1788898323298,
+    "slot": 197332024,
+    "maxTx": 16384,
+    "maxValue": 5000,
+    "feeA": 44,
+    "feeB": 155381,
+    "coinsPerByte": "4310",
+    "keyDeposit": "2000000",
+    "poolDeposit": "500000000"
+  },
+  "outputs": [
+    {
+      "lovelace": "1262830",
+      "minimumLovelace": "1262830",
+      "syntheticBaseAddress": true
+    },
+    {
+      "lovelace": "27897545",
+      "minimumLovelace": "1137840",
+      "syntheticBaseAddress": true
+    }
+  ],
+  "toolCount": 17,
+  "source": [
+    {
+      "path": "mcp/create-review.mjs",
+      "bytes": 11630,
+      "sha256": "c1091cd398759bbea4d2102eda07ea523a350e0a77fd58175af9502f9f091b95"
+    },
+    {
+      "path": "mcp/dist/cli.mjs",
+      "bytes": 4389987,
+      "sha256": "55e0d1dac6153477ba526db8c7859abad5030e2076c8a03faa1fd59d4a232e19"
+    },
+    {
+      "path": "mcp/src/server.mjs",
+      "bytes": 17256,
+      "sha256": "3ac44e672ba40a0b6a02afdd11eec1e3bb8a039894b5930403bd747d6382e294"
+    },
+    {
+      "path": "mcp/src/protocol.mjs",
+      "bytes": 2467,
+      "sha256": "f3346d4db173f5917ec9b69c245bfccaf86340805df841822beb2ff847e15a88"
+    },
+    {
+      "path": "lib/studio-payload.ts",
+      "bytes": 18099,
+      "sha256": "ed452542debb915ba0983ae4e9e9a86870641c96ba6be69e04b518e06eda460d"
+    },
+    {
+      "path": "lib/studio-intent.ts",
+      "bytes": 5176,
+      "sha256": "61f677bb7c5208be84ef35c5699457510e5b15cd8d4eb9af20e1594c32883883"
+    },
+    {
+      "path": "lib/studio-transaction.ts",
+      "bytes": 10377,
+      "sha256": "38d6275b30cac4ff214025702326c09ad257783fa8dd8a2f5c251277c996bd6a"
+    }
+  ],
+  "inputShape": "One synthetic mainnet base address input with30000000lovelace and7KEEP; same base address for NFT and token-bearing change; one invalid placeholder witness.",
+  "checks": {
+    "actualLocalMcp": true,
+    "sharedBuilder": true,
+    "exactMetadataCbor": true,
+    "ledgerFileReconstruction": true,
+    "allOutputsToSyntheticBaseAddress": true,
+    "bodyAndAuxiliaryHash": true,
+    "assetAndAdaConservation": true,
+    "completeSizeAndFee": true
+  },
+  "walletConnected": false,
+  "realInputs": false,
+  "placeholderSignatureValid": false,
+  "signed": false,
+  "submitted": false,
+  "chainInclusion": false,
+  "warning": "Synthetic sizing only, not a funded wallet quote. The placeholder is invalid and was never signed/submitted. Additional inputs, keys, wallet output shapes or changed assets/parameters require a new complete build."
+}

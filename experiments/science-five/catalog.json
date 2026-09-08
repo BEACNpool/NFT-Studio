@@ -1,0 +1,27 @@
+[
+  {
+    "slug": "entropy-oracle",
+    "title": "Entropy Oracle",
+    "description": "A crypto magic 8-ball with 24 original outcomes, three draw rules, entropy and histograms. Local randomness, original sound and a probability lesson."
+  },
+  {
+    "slug": "turing-garden",
+    "title": "Turing Garden",
+    "description": "Paint a living Gray-Scott chemical garden. Explore four regimes and palettes, export artwork, and save the exact numerical state."
+  },
+  {
+    "slug": "chaos-mirrors",
+    "title": "Chaos Mirrors",
+    "description": "Two nearly identical double pendulums create diverging light trails. Explore deterministic chaos with presets, energy error and separation measurements."
+  },
+  {
+    "slug": "fourier-forge",
+    "title": "Fourier Forge",
+    "description": "Draw a shape, rebuild it with rotating harmonics, measure reconstruction error, and hear a waveform derived from the drawing."
+  },
+  {
+    "slug": "hash-cathedral",
+    "title": "Hash Cathedral",
+    "description": "Turn text into SHA-256 geometric art. Flip one bit, inspect the avalanche, and build, tamper with and verify an eight-leaf Merkle proof."
+  }
+]

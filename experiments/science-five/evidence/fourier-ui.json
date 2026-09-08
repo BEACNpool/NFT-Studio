@@ -1,0 +1,289 @@
+{
+  "checkedAt": "2026-09-08T20:16:39.076Z",
+  "sourceSha256": "23fcc0af1206af690aa357b4b231d2e7d6bc5315795b755ff5d2c1068577e0e2",
+  "minifiedSha256": "4978927b41b85831cd3531b176037496883ce89ad59eb35554d234bd1a563404",
+  "scope": "Local Chromium actual opaque allow-scripts allow-downloads iframe; no chain or human listening claim. Test audio routes Gain through native Analyser to same destination for PCM observation.",
+  "results": [
+    {
+      "width": 1440,
+      "checks": [
+        "no horizontal overflow",
+        "opaque sandbox blocks parent access",
+        "buttons and sliders >=44px",
+        "no AudioContext before user gesture",
+        "reduced motion starts paused",
+        "paused phase stays fixed",
+        "heart preset",
+        "all 128 terms reconstruct samples",
+        "low band has visible approximation error",
+        "phase changes endpoint but not RMS",
+        "speed control",
+        "animation advances",
+        "trace toggle changes rendered pixels",
+        "spiral preset",
+        "presets yield distinct canvas",
+        "challenge starts at low-band heart",
+        "real pointer stroke closes and replaces drawing",
+        "drawn stroke full-band recovery",
+        "cancel draw mode retains prior shape",
+        "tiny stroke rejected without replacing shape",
+        "trusted Play creates and starts native AudioContext",
+        "actual analyser PCM nonzero and bounded",
+        "Mute stops oscillator after fade",
+        "late resume after Mute cannot start tone",
+        "preset change stops old sound",
+        "native PNG download completes",
+        "keyboard focus reaches sound button",
+        "final no overflow"
+      ],
+      "initial": {
+        "overflow": false,
+        "opaque": true,
+        "buttons": [
+          {
+            "label": "Starburst",
+            "height": 44
+          },
+          {
+            "label": "Heart",
+            "height": 44
+          },
+          {
+            "label": "Spiral",
+            "height": 44
+          },
+          {
+            "label": "✎ Draw a loop",
+            "height": 44.5
+          },
+          {
+            "label": "Animate",
+            "height": 44
+          },
+          {
+            "label": "Reset phase",
+            "height": 44
+          },
+          {
+            "label": "▶ Play tone",
+            "height": 44.5
+          },
+          {
+            "label": "Export canvas PNG",
+            "height": 44.5
+          },
+          {
+            "label": "Try the heart",
+            "height": 44.5
+          }
+        ],
+        "sliders": [
+          44,
+          44,
+          44
+        ],
+        "sound": 0,
+        "phase": "180"
+      },
+      "audio": {
+        "contexts": 1,
+        "state": "running",
+        "started": 1,
+        "peak": 0.11065603047609329,
+        "trustedClicks": 17,
+        "wave": {
+          "real": [
+            0,
+            -9.395153925673139e-16,
+            1.3010426069826053e-16,
+            3.9692641534694317e-16,
+            2.3418766925686896e-16,
+            6.006480035569695e-17,
+            -1.6132928326584306e-16,
+            1.3444106938820255e-17,
+            1.734723475976807e-17
+          ],
+          "imag": [
+            0,
+            0.7046413421630859,
+            0.026343276724219322,
+            -0.10087205469608307,
+            -0.02421698532998562,
+            -0.011892344802618027,
+            0.00038105392013676465,
+            -0.007521307095885277,
+            -0.0005776904290542006
+          ],
+          "options": {
+            "disableNormalization": true
+          }
+        }
+      },
+      "stopped": {
+        "started": 1,
+        "ended": 1,
+        "label": "▶ Play tone"
+      },
+      "pngInfo": {
+        "bytes": 115894,
+        "width": 1018,
+        "height": 708,
+        "sha256": "f72e804f5830798c0e3305b626f3c15f19852ef8540256fcda032232eea1117c"
+      },
+      "final": {
+        "overflow": false,
+        "height": 1292,
+        "phase": "870",
+        "terms": "17",
+        "error": "1.71%"
+      }
+    },
+    {
+      "width": 390,
+      "checks": [
+        "no horizontal overflow",
+        "opaque sandbox blocks parent access",
+        "buttons and sliders >=44px",
+        "no AudioContext before user gesture",
+        "reduced motion starts paused",
+        "paused phase stays fixed",
+        "heart preset",
+        "all 128 terms reconstruct samples",
+        "low band has visible approximation error",
+        "phase changes endpoint but not RMS",
+        "speed control",
+        "animation advances",
+        "trace toggle changes rendered pixels",
+        "spiral preset",
+        "presets yield distinct canvas",
+        "challenge starts at low-band heart",
+        "real pointer stroke closes and replaces drawing",
+        "drawn stroke full-band recovery",
+        "cancel draw mode retains prior shape",
+        "tiny stroke rejected without replacing shape",
+        "trusted Play creates and starts native AudioContext",
+        "actual analyser PCM nonzero and bounded",
+        "Mute stops oscillator after fade",
+        "late resume after Mute cannot start tone",
+        "preset change stops old sound",
+        "native PNG download completes",
+        "keyboard focus reaches sound button",
+        "final no overflow"
+      ],
+      "initial": {
+        "overflow": false,
+        "opaque": true,
+        "buttons": [
+          {
+            "label": "Starburst",
+            "height": 44
+          },
+          {
+            "label": "Heart",
+            "height": 44
+          },
+          {
+            "label": "Spiral",
+            "height": 44
+          },
+          {
+            "label": "✎ Draw a loop",
+            "height": 44.5
+          },
+          {
+            "label": "Animate",
+            "height": 44
+          },
+          {
+            "label": "Reset phase",
+            "height": 44
+          },
+          {
+            "label": "▶ Play tone",
+            "height": 44.5
+          },
+          {
+            "label": "Export canvas PNG",
+            "height": 44.5
+          },
+          {
+            "label": "Try the heart",
+            "height": 44.5
+          }
+        ],
+        "sliders": [
+          44,
+          44,
+          44
+        ],
+        "sound": 0,
+        "phase": "180"
+      },
+      "audio": {
+        "contexts": 1,
+        "state": "running",
+        "started": 1,
+        "peak": 0.11065603047609329,
+        "trustedClicks": 17,
+        "wave": {
+          "real": [
+            0,
+            -9.395153925673139e-16,
+            1.3010426069826053e-16,
+            3.9692641534694317e-16,
+            2.3418766925686896e-16,
+            6.006480035569695e-17,
+            -1.6132928326584306e-16,
+            1.3444106938820255e-17,
+            1.734723475976807e-17
+          ],
+          "imag": [
+            0,
+            0.7046413421630859,
+            0.026343276724219322,
+            -0.10087205469608307,
+            -0.02421698532998562,
+            -0.011892344802618027,
+            0.00038105392013676465,
+            -0.007521307095885277,
+            -0.0005776904290542006
+          ],
+          "options": {
+            "disableNormalization": true
+          }
+        }
+      },
+      "stopped": {
+        "started": 1,
+        "ended": 1,
+        "label": "▶ Play tone"
+      },
+      "pngInfo": {
+        "bytes": 49507,
+        "width": 356,
+        "height": 370,
+        "sha256": "de5d17df4c191c1cc18774f9b8e44dadb2b4f9f3f4c32c40526469723c54e73d"
+      },
+      "final": {
+        "overflow": false,
+        "height": 2077,
+        "phase": "870",
+        "terms": "17",
+        "error": "1.71%"
+      }
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "requestPaths": [
+    "/frame",
+    "/minified.html",
+    "/favicon.ico",
+    "/favicon.ico",
+    "/frame",
+    "/minified.html",
+    "/favicon.ico",
+    "/favicon.ico"
+  ],
+  "externalRequests": 0
+}
