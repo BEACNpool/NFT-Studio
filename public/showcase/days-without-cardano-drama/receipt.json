@@ -1,0 +1,33 @@
+{
+  "schema": "nft-studio.local-review.v1",
+  "status": "verified-intent-only",
+  "intentHash": "ff937aadd941bac187cce3b42631784bb92fad4875a8bb785b0871daead84365",
+  "bundleHash": "db919980671f5c5520e052cfd5cd53e6908cf2400a32337afea0569ae3c2ef2d",
+  "rawBytes": 11372,
+  "reviewUrlCharacters": 19467,
+  "files": [
+    {
+      "name": "intent.json",
+      "bytes": 14743,
+      "sha256": "6cac0de9707f6d3bccccf0b4dac442f0f93a04e54c31a2f40f7e24783e62675b"
+    },
+    {
+      "name": "review-url.txt",
+      "bytes": 19468,
+      "sha256": "04565e700984ffd072f743d6774bceed3242c70cb0646f0162cbf1c6233892d6"
+    },
+    {
+      "name": "review.html",
+      "bytes": 20145,
+      "sha256": "0e444762dd36b73a09a64892848d9f4285e3d116e29e23e15970d828073bbc27"
+    }
+  ],
+  "mcpCalls": [
+    "studio_capabilities",
+    "create_mint_intent",
+    "verify_mint_intent"
+  ],
+  "walletConnected": false,
+  "signed": false,
+  "submitted": false
+}

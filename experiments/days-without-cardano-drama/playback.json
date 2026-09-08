@@ -1,0 +1,54 @@
+{
+  "screens": [],
+  "errors": [],
+  "externalRequests": [],
+  "tests": [
+    {
+      "mode": "desktop",
+      "realClickSound": {
+        "starts": [
+          1.32,
+          1.32,
+          1.87,
+          1.87
+        ],
+        "peak": 0.2427777349948883
+      },
+      "zeroHeld": true,
+      "noOverflow": true
+    },
+    {
+      "mode": "desktop",
+      "replayResetsToThree": true,
+      "mutedAddsNoOscillators": true
+    },
+    {
+      "mode": "mobile",
+      "realClickSound": {
+        "starts": [
+          1.32,
+          1.32,
+          1.87,
+          1.87
+        ],
+        "peak": 0.2427777349948883
+      },
+      "zeroHeld": true,
+      "noOverflow": true
+    },
+    {
+      "mode": "mobile",
+      "replayResetsToThree": true,
+      "mutedAddsNoOscillators": true
+    },
+    {
+      "reducedMotion": true
+    },
+    {
+      "opaqueSandboxPlays": true,
+      "parentAccessDenied": true
+    }
+  ],
+  "status": "passed",
+  "completedAt": "2026-09-08T15:50:29.618Z"
+}
