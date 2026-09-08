@@ -1,0 +1,18 @@
+{
+  "mode": "nft",
+  "name": "Turing Garden",
+  "description": "Paint a living Gray-Scott chemical garden. Explore four regimes and palettes, export artwork, and save the exact numerical state.",
+  "coverIndex": 0,
+  "files": [
+    {
+      "path": "cover.avif",
+      "name": "cover.avif",
+      "mediaType": "image/avif"
+    },
+    {
+      "path": "program.html",
+      "name": "program.html",
+      "mediaType": "text/html"
+    }
+  ]
+}

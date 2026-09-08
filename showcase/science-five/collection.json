@@ -1,0 +1,192 @@
+{
+  "schema": "beacn.science-five.collection.v1",
+  "title": "Five Small Worlds",
+  "created": "2026-09-08",
+  "status": "unminted",
+  "gallery": "https://beacnpool.github.io/NFT-Studio/showcase/science-five/",
+  "source": "https://github.com/BEACNpool/NFT-Studio/tree/main/experiments/science-five",
+  "scope": "Five browser programs and static covers prepared for native Cardano NFTs. Local simulations do not update the ledger. No wallet was connected and no transaction was signed or submitted.",
+  "rawPayloadLimitBytes": 12000,
+  "studies": [
+    {
+      "slug": "entropy-oracle",
+      "title": "Entropy Oracle",
+      "description": "A crypto magic 8-ball with 24 original outcomes, three draw rules, entropy and histograms. Local randomness, original sound and a probability lesson.",
+      "program": {
+        "path": "entropy-oracle/program.html",
+        "bytes": 8872,
+        "sha256": "7c6678c0e313eed0e0d8acd39cab1cea4257c67207a0b2263888c1c09e7c58b4"
+      },
+      "cover": {
+        "path": "entropy-oracle/cover.avif",
+        "bytes": 3098,
+        "sha256": "0a54dcbb257e598f6926ebbf7242d196e7f8ca8192b4165f4733a51127c9e9e5"
+      },
+      "poster": {
+        "path": "entropy-oracle/poster.png",
+        "role": "Higher resolution gallery illustration; not part of mint payload",
+        "bytes": 203042,
+        "sha256": "4c04ddff32b121ed122968bac8e25b7b867ad2140967ff4113a28303f30c1838"
+      },
+      "editableSource": {
+        "path": "experiments/science-five/source/entropy-oracle/source.html",
+        "bytes": 14065,
+        "sha256": "083f6b9b05d8055bf65d0c36896e3a20a8a25a0e74db1a4119410dd264d0dabc"
+      },
+      "rawBytes": 11970,
+      "mintIntentHash": "199544cad429b8dc3cff77bb3676a0b4198ab3f3aebeecd956e4ceebef253f78",
+      "bundleHash": "6831b20645a6a2e063c8faa8ecec611c863a235d011262077501ae0ac034c1a0",
+      "syntheticTransaction": {
+        "bytesWithInvalidPlaceholderWitness": 15547,
+        "limitBytes": 16384,
+        "headroomBytes": 837,
+        "evidence": "https://github.com/BEACNpool/NFT-Studio/blob/main/experiments/science-five/evidence/entropy-oracle-sizing.json",
+        "isFundedWalletQuote": false
+      }
+    },
+    {
+      "slug": "turing-garden",
+      "title": "Turing Garden",
+      "description": "Paint a living Gray-Scott chemical garden. Explore four regimes and palettes, export artwork, and save the exact numerical state.",
+      "program": {
+        "path": "turing-garden/program.html",
+        "bytes": 9222,
+        "sha256": "d3b58aca33bb276c3fb1c5a8312a37e6ca348a2a67f213b3459f4017e6bffaa4"
+      },
+      "cover": {
+        "path": "turing-garden/cover.avif",
+        "bytes": 2579,
+        "sha256": "e81c296afbc26ffdc331b6d8ec2277ff7632ab67533914548c1b6b4d76eac215"
+      },
+      "poster": {
+        "path": "turing-garden/poster.png",
+        "role": "Higher resolution gallery illustration; not part of mint payload",
+        "bytes": 462229,
+        "sha256": "918ae30dc81d03750dd43b339ba96576ea4edd16e846ee801ceed5d9677ad375"
+      },
+      "editableSource": {
+        "path": "experiments/science-five/source/turing-garden/source.html",
+        "bytes": 14522,
+        "sha256": "ebe4b60e03c176521b3249a26602738a6a4e5ad4281f15e8bf11abde9305be8f"
+      },
+      "rawBytes": 11801,
+      "mintIntentHash": "71bd78e7d964d533256bd7406b8c3dfde574ab466fc858d6d188b2c99b9a6cb7",
+      "bundleHash": "acaeeaec5e15452b68c8d63c2cf578a38c83589c5b895f0e2e0f404d2632ec48",
+      "syntheticTransaction": {
+        "bytesWithInvalidPlaceholderWitness": 15172,
+        "limitBytes": 16384,
+        "headroomBytes": 1212,
+        "evidence": "https://github.com/BEACNpool/NFT-Studio/blob/main/experiments/science-five/evidence/turing-garden-sizing.json",
+        "isFundedWalletQuote": false
+      }
+    },
+    {
+      "slug": "chaos-mirrors",
+      "title": "Chaos Mirrors",
+      "description": "Two nearly identical double pendulums create diverging light trails. Explore deterministic chaos with presets, energy error and separation measurements.",
+      "program": {
+        "path": "chaos-mirrors/program.html",
+        "bytes": 9786,
+        "sha256": "4dedd07ceaad2a928f4b4cc5c0e9e5c73e03381bbcdb30661b3f3d6a37a16aaa"
+      },
+      "cover": {
+        "path": "chaos-mirrors/cover.avif",
+        "bytes": 2119,
+        "sha256": "4cd150fc82816805d83c8a02634c0f6232c1a41fb2b3efbfcecc2ae9aff8745b"
+      },
+      "poster": {
+        "path": "chaos-mirrors/poster.png",
+        "role": "Higher resolution gallery illustration; not part of mint payload",
+        "bytes": 231323,
+        "sha256": "d58aeec148fd1e5db317b0c38003b60e8506bc5235d3f8591c1f877c1afd42d9"
+      },
+      "editableSource": {
+        "path": "experiments/science-five/source/chaos-mirrors/source.html",
+        "bytes": 17557,
+        "sha256": "03772d8643d6e79d1c08c4c49a9830aa440aed5bf8ce6868744795ef38c77ab8"
+      },
+      "rawBytes": 11905,
+      "mintIntentHash": "f05375b5b91979b8a161d2345f2fb6438c1eb485dd0af8366b40966dead7bc26",
+      "bundleHash": "731e0777032c9789e58576a5ca4b039ed35905863c28255f492e4810af923c68",
+      "syntheticTransaction": {
+        "bytesWithInvalidPlaceholderWitness": 15130,
+        "limitBytes": 16384,
+        "headroomBytes": 1254,
+        "evidence": "https://github.com/BEACNpool/NFT-Studio/blob/main/experiments/science-five/evidence/chaos-mirrors-sizing.json",
+        "isFundedWalletQuote": false
+      }
+    },
+    {
+      "slug": "fourier-forge",
+      "title": "Fourier Forge",
+      "description": "Draw a shape, rebuild it with rotating harmonics, measure reconstruction error, and hear a waveform derived from the drawing.",
+      "program": {
+        "path": "fourier-forge/program.html",
+        "bytes": 10654,
+        "sha256": "045ad691b2e90ba6023cfcfa37ac2ea77fbca28087cc25fbdde0c857dd2e1521"
+      },
+      "cover": {
+        "path": "fourier-forge/cover.avif",
+        "bytes": 1298,
+        "sha256": "10f334ec81cb7eafd2f77aee078adbd037c64a633cc0891b08486fb422662a48"
+      },
+      "poster": {
+        "path": "fourier-forge/poster.png",
+        "role": "Higher resolution gallery illustration; not part of mint payload",
+        "bytes": 122439,
+        "sha256": "591f01f65f0a9a919e5084aa6bf3eb14c608a657ccd30648b195193131e7f93e"
+      },
+      "editableSource": {
+        "path": "experiments/science-five/source/fourier-forge/source.html",
+        "bytes": 18756,
+        "sha256": "23fcc0af1206af690aa357b4b231d2e7d6bc5315795b755ff5d2c1068577e0e2"
+      },
+      "rawBytes": 11952,
+      "mintIntentHash": "fad34cc2c1cf67d0389db37155e04ff4c2511b15ee251ffb283de0cf468b017c",
+      "bundleHash": "e649a45869cc86b51d3e474f8beb90f80f861c4c725e8236a558bffbab79c8ea",
+      "syntheticTransaction": {
+        "bytesWithInvalidPlaceholderWitness": 15015,
+        "limitBytes": 16384,
+        "headroomBytes": 1369,
+        "evidence": "https://github.com/BEACNpool/NFT-Studio/blob/main/experiments/science-five/evidence/fourier-forge-sizing.json",
+        "isFundedWalletQuote": false
+      }
+    },
+    {
+      "slug": "hash-cathedral",
+      "title": "Hash Cathedral",
+      "description": "Turn text into SHA-256 geometric art. Flip one bit, inspect the avalanche, and build, tamper with and verify an eight-leaf Merkle proof.",
+      "program": {
+        "path": "hash-cathedral/program.html",
+        "bytes": 10184,
+        "sha256": "f3b9c13c98639947e82d54f06a6aebeafc9362df5bb1c2fc30073434036389a3"
+      },
+      "cover": {
+        "path": "hash-cathedral/cover.avif",
+        "bytes": 1518,
+        "sha256": "7aec9563746ffdfd0f7a52450d340ade566879f8f48b888dc8af39e60eb14e60"
+      },
+      "poster": {
+        "path": "hash-cathedral/poster.png",
+        "role": "Higher resolution gallery illustration; not part of mint payload",
+        "bytes": 318770,
+        "sha256": "7db7554793ae633374d38fdd03f50302276e7e8e570d2251d4093dd75a484584"
+      },
+      "editableSource": {
+        "path": "experiments/science-five/source/hash-cathedral/source.html",
+        "bytes": 17175,
+        "sha256": "f4260b6620d569c69cf906ba7a2b1a3233c2040da50ac6007e752f968bb4871b"
+      },
+      "rawBytes": 11702,
+      "mintIntentHash": "d6840d1fdbb1f18cc6ee96eee55085d5d7fe49e3a0fe089fb0540a747a310a13",
+      "bundleHash": "ebf38a806a2e1c22461e65b5053093fb5923d61c4abc1332ed321375b8a4a3ba",
+      "syntheticTransaction": {
+        "bytesWithInvalidPlaceholderWitness": 14748,
+        "limitBytes": 16384,
+        "headroomBytes": 1636,
+        "evidence": "https://github.com/BEACNpool/NFT-Studio/blob/main/experiments/science-five/evidence/hash-cathedral-sizing.json",
+        "isFundedWalletQuote": false
+      }
+    }
+  ]
+}
