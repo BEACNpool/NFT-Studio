@@ -1,0 +1,69 @@
+{
+  "schema": "beacn.science-five.mint-receipt.v1",
+  "status": "confirmed",
+  "title": "Entropy Oracle",
+  "asset": {
+    "policyId": "5acebafa059fba7afea2c695985d7bca99281b6d1436784d360d4e45",
+    "name": "EntropyOracle",
+    "nameHex": "456e74726f70794f7261636c65",
+    "fingerprint": "asset13x74jm5hwzzy3u8p6h586m0t6gpuafvhsn4h6w",
+    "mintedQuantity": "1",
+    "observedSupply": "1",
+    "observedPolicyAssetCount": 1
+  },
+  "transaction": {
+    "hash": "d3a85f0eea6af8cdab4f9120d152b4c97393ec2d8a77e2bc1a665a871e57a2fe",
+    "blockHash": "1611b953e588fa78976028216a98c36c7363d0e0fefc1ebe9152eb20e4d31355",
+    "blockHeight": 13916687,
+    "slot": 197353341,
+    "epoch": 654,
+    "blockTimeUTC": "2026-09-09T02:07:12.000Z",
+    "confirmationsObserved": 2,
+    "feeLovelace": "829461",
+    "signedCborBytes": 15320,
+    "indexerReportedTxSize": 15319,
+    "cborSha256": "65487c31e724fee29e39827e53ddf52a18512060b4077feb97d676e10d73d51b",
+    "retrievedCborEqualsSubmitted": true,
+    "signatureVerified": true,
+    "auxiliaryDataHashVerified": true
+  },
+  "delivery": {
+    "handle": "$BEACNLEAKS",
+    "address": "addr1q9tc7xx0wvqm6swrz2zc4hcqnhc4md5v4xlxyaewy889tdxmnyl6uvy3smpa2qjhzmm8z62ghxh95xhj2q86hgr8z85s3chnw6",
+    "outputIndex": 0,
+    "lovelace": "1176630",
+    "assetQuantity": "1",
+    "unspentAtCheck": true,
+    "handleResolutionVerified": true
+  },
+  "cover": {
+    "mediaType": "image/avif",
+    "bytes": 3098,
+    "sha256": "0a54dcbb257e598f6926ebbf7242d196e7f8ca8192b4165f4733a51127c9e9e5",
+    "fullyEmbedded": true,
+    "chainBytesEqualOriginal": true
+  },
+  "program": {
+    "mediaType": "text/html",
+    "bytes": 8872,
+    "sha256": "7c6678c0e313eed0e0d8acd39cab1cea4257c67207a0b2263888c1c09e7c58b4",
+    "fullyEmbedded": true,
+    "chainBytesEqualOriginal": true,
+    "representation": "Embedded interactive scientific program; changing artwork and optional sound are computed locally",
+    "description": "A crypto magic 8-ball with 24 original outcomes, three draw rules, entropy and histograms. Local randomness, original sound and a probability lesson.",
+    "website": "https://beacnpool.github.io/NFT-Studio/"
+  },
+  "policy": {
+    "kind": "Native payment signature plus expiry",
+    "expirySlot": 197356877,
+    "expiryUTC": "2026-09-09T03:06:08.000Z",
+    "oneShotSupplyGuarantee": false,
+    "closureClaim": false
+  },
+  "links": {
+    "poolPm": "https://pool.pm/asset13x74jm5hwzzy3u8p6h586m0t6gpuafvhsn4h6w",
+    "transaction": "https://cardanoscan.io/transaction/d3a85f0eea6af8cdab4f9120d152b4c97393ec2d8a77e2bc1a665a871e57a2fe",
+    "website": "https://beacnpool.github.io/NFT-Studio/"
+  },
+  "verifiedAt": "2026-09-09T02:08:04.697Z"
+}

@@ -69,7 +69,7 @@ offline research code; no holder authentication service has been deployed.
 
 [Play Midnight Beacon](https://beacnpool.github.io/NFT-Studio/labs/midnight-beacon/) — an original eight-second chiptune and SVG cover in 8,600 raw bytes. Open its exact package in Music release; the [recipe and dated evidence](experiments/midnight-beacon-demo/) include complete synthetic transaction measurement. The example is unminted.
 
-[Play Five Small Worlds](https://beacnpool.github.io/NFT-Studio/showcase/science-five/) — five interactive BEACN Labs studies: a crypto magic 8-ball, reaction–diffusion garden, chaotic pendulums, drawing-to-sound harmonics and cryptographic stained glass. Each contains working experiments, lessons and artwork export. [Source, math and verification](experiments/science-five/) include exact mint files and complete synthetic transaction measurements. All five are unminted.
+[Play Five Small Worlds](https://beacnpool.github.io/NFT-Studio/showcase/science-five/) — five interactive BEACN Labs studies: a crypto magic 8-ball, reaction–diffusion garden, chaotic pendulums, drawing-to-sound harmonics and cryptographic stained glass. Each contains working experiments, lessons and artwork export. [Source, math and verification](experiments/science-five/) include exact mint files and complete synthetic transaction measurements. The five original editions are minted and confirmed, with exact chain-recovery receipts and links to each original. Review files can mint separate copies.
 
 ## Open in VESPR
 

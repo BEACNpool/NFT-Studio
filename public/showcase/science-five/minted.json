@@ -1,0 +1,355 @@
+{
+  "status": "confirmed-all-five-do-not-remint",
+  "completedAt": "2026-09-09T02:16:09.484030+00:00",
+  "receipts": [
+    {
+      "schema": "beacn.science-five.mint-receipt.v1",
+      "status": "confirmed",
+      "title": "Entropy Oracle",
+      "asset": {
+        "policyId": "5acebafa059fba7afea2c695985d7bca99281b6d1436784d360d4e45",
+        "name": "EntropyOracle",
+        "nameHex": "456e74726f70794f7261636c65",
+        "fingerprint": "asset13x74jm5hwzzy3u8p6h586m0t6gpuafvhsn4h6w",
+        "mintedQuantity": "1",
+        "observedSupply": "1",
+        "observedPolicyAssetCount": 1
+      },
+      "transaction": {
+        "hash": "d3a85f0eea6af8cdab4f9120d152b4c97393ec2d8a77e2bc1a665a871e57a2fe",
+        "blockHash": "1611b953e588fa78976028216a98c36c7363d0e0fefc1ebe9152eb20e4d31355",
+        "blockHeight": 13916687,
+        "slot": 197353341,
+        "epoch": 654,
+        "blockTimeUTC": "2026-09-09T02:07:12.000Z",
+        "confirmationsObserved": 2,
+        "feeLovelace": "829461",
+        "signedCborBytes": 15320,
+        "indexerReportedTxSize": 15319,
+        "cborSha256": "65487c31e724fee29e39827e53ddf52a18512060b4077feb97d676e10d73d51b",
+        "retrievedCborEqualsSubmitted": true,
+        "signatureVerified": true,
+        "auxiliaryDataHashVerified": true
+      },
+      "delivery": {
+        "handle": "$BEACNLEAKS",
+        "address": "addr1q9tc7xx0wvqm6swrz2zc4hcqnhc4md5v4xlxyaewy889tdxmnyl6uvy3smpa2qjhzmm8z62ghxh95xhj2q86hgr8z85s3chnw6",
+        "outputIndex": 0,
+        "lovelace": "1176630",
+        "assetQuantity": "1",
+        "unspentAtCheck": true,
+        "handleResolutionVerified": true
+      },
+      "cover": {
+        "mediaType": "image/avif",
+        "bytes": 3098,
+        "sha256": "0a54dcbb257e598f6926ebbf7242d196e7f8ca8192b4165f4733a51127c9e9e5",
+        "fullyEmbedded": true,
+        "chainBytesEqualOriginal": true
+      },
+      "program": {
+        "mediaType": "text/html",
+        "bytes": 8872,
+        "sha256": "7c6678c0e313eed0e0d8acd39cab1cea4257c67207a0b2263888c1c09e7c58b4",
+        "fullyEmbedded": true,
+        "chainBytesEqualOriginal": true,
+        "representation": "Embedded interactive scientific program; changing artwork and optional sound are computed locally",
+        "description": "A crypto magic 8-ball with 24 original outcomes, three draw rules, entropy and histograms. Local randomness, original sound and a probability lesson.",
+        "website": "https://beacnpool.github.io/NFT-Studio/"
+      },
+      "policy": {
+        "kind": "Native payment signature plus expiry",
+        "expirySlot": 197356877,
+        "expiryUTC": "2026-09-09T03:06:08.000Z",
+        "oneShotSupplyGuarantee": false,
+        "closureClaim": false
+      },
+      "links": {
+        "poolPm": "https://pool.pm/asset13x74jm5hwzzy3u8p6h586m0t6gpuafvhsn4h6w",
+        "transaction": "https://cardanoscan.io/transaction/d3a85f0eea6af8cdab4f9120d152b4c97393ec2d8a77e2bc1a665a871e57a2fe",
+        "website": "https://beacnpool.github.io/NFT-Studio/"
+      },
+      "verifiedAt": "2026-09-09T02:08:04.697Z"
+    },
+    {
+      "schema": "beacn.science-five.mint-receipt.v1",
+      "status": "confirmed",
+      "title": "Turing Garden",
+      "asset": {
+        "policyId": "01f65fbb6829729fa69257934488ddfc72ccf57d9e07aa6c33f65c53",
+        "name": "TuringGarden",
+        "nameHex": "547572696e6747617264656e",
+        "fingerprint": "asset1c4h486ejg6rkxx3mt8cr65eduvx64k9hju65sw",
+        "mintedQuantity": "1",
+        "observedSupply": "1",
+        "observedPolicyAssetCount": 1
+      },
+      "transaction": {
+        "hash": "3a31ac5c0f1e8366e9a2eaf82ef2e8924d803e274226a674b9163cd3fc322dc3",
+        "blockHash": "180d2987f77371531e603a4cc6a412a51edc6353fc75f72bacfefd717bba7e6b",
+        "blockHeight": 13916690,
+        "slot": 197353417,
+        "epoch": 654,
+        "blockTimeUTC": "2026-09-09T02:08:28.000Z",
+        "confirmationsObserved": 7,
+        "feeLovelace": "812785",
+        "signedCborBytes": 14941,
+        "indexerReportedTxSize": 14940,
+        "cborSha256": "2db56bd0f1263c77d795292c90e694323b6363afac7dc8ea74011783df30c5c5",
+        "retrievedCborEqualsSubmitted": true,
+        "signatureVerified": true,
+        "auxiliaryDataHashVerified": true
+      },
+      "delivery": {
+        "handle": "$BEACNLEAKS",
+        "address": "addr1q9tc7xx0wvqm6swrz2zc4hcqnhc4md5v4xlxyaewy889tdxmnyl6uvy3smpa2qjhzmm8z62ghxh95xhj2q86hgr8z85s3chnw6",
+        "outputIndex": 0,
+        "lovelace": "1172320",
+        "assetQuantity": "1",
+        "unspentAtCheck": true,
+        "handleResolutionVerified": true
+      },
+      "cover": {
+        "mediaType": "image/avif",
+        "bytes": 2579,
+        "sha256": "e81c296afbc26ffdc331b6d8ec2277ff7632ab67533914548c1b6b4d76eac215",
+        "fullyEmbedded": true,
+        "chainBytesEqualOriginal": true
+      },
+      "program": {
+        "mediaType": "text/html",
+        "bytes": 9222,
+        "sha256": "d3b58aca33bb276c3fb1c5a8312a37e6ca348a2a67f213b3459f4017e6bffaa4",
+        "fullyEmbedded": true,
+        "chainBytesEqualOriginal": true,
+        "representation": "Embedded interactive scientific program; changing artwork and optional sound are computed locally",
+        "description": "Paint a living Gray-Scott chemical garden. Explore four regimes and palettes, export artwork, and save the exact numerical state.",
+        "website": "https://beacnpool.github.io/NFT-Studio/"
+      },
+      "policy": {
+        "kind": "Native payment signature plus expiry",
+        "expirySlot": 197356994,
+        "expiryUTC": "2026-09-09T03:08:05.000Z",
+        "oneShotSupplyGuarantee": false,
+        "closureClaim": false
+      },
+      "links": {
+        "poolPm": "https://pool.pm/asset1c4h486ejg6rkxx3mt8cr65eduvx64k9hju65sw",
+        "transaction": "https://cardanoscan.io/transaction/3a31ac5c0f1e8366e9a2eaf82ef2e8924d803e274226a674b9163cd3fc322dc3",
+        "website": "https://beacnpool.github.io/NFT-Studio/"
+      },
+      "verifiedAt": "2026-09-09T02:10:04.029Z"
+    },
+    {
+      "schema": "beacn.science-five.mint-receipt.v1",
+      "status": "confirmed",
+      "title": "Chaos Mirrors",
+      "asset": {
+        "policyId": "0091d6dbd102405d4f3fa1061caa35f58b242e919f3dd49e521191ff",
+        "name": "ChaosMirrors",
+        "nameHex": "4368616f734d6972726f7273",
+        "fingerprint": "asset19gd25saunmdc89asstmwa3097wjumkf0uta8mm",
+        "mintedQuantity": "1",
+        "observedSupply": "1",
+        "observedPolicyAssetCount": 1
+      },
+      "transaction": {
+        "hash": "a2f3fe2835f6e06a0cb4d332687343156fdb0ad68779eff92769639e709062f6",
+        "blockHash": "55406300bbd85dad31a8a3223ba0217bba1f10fc31efb8ff0218fc5c08872473",
+        "blockHeight": 13916698,
+        "slot": 197353557,
+        "epoch": 654,
+        "blockTimeUTC": "2026-09-09T02:10:48.000Z",
+        "confirmationsObserved": 8,
+        "feeLovelace": "810937",
+        "signedCborBytes": 14899,
+        "indexerReportedTxSize": 14898,
+        "cborSha256": "bc980e6845ac405901e23d91c95da59d8bd4c388ae0bb8130ecd211ba3ab5dee",
+        "retrievedCborEqualsSubmitted": true,
+        "signatureVerified": true,
+        "auxiliaryDataHashVerified": true
+      },
+      "delivery": {
+        "handle": "$BEACNLEAKS",
+        "address": "addr1q9tc7xx0wvqm6swrz2zc4hcqnhc4md5v4xlxyaewy889tdxmnyl6uvy3smpa2qjhzmm8z62ghxh95xhj2q86hgr8z85s3chnw6",
+        "outputIndex": 0,
+        "lovelace": "1172320",
+        "assetQuantity": "1",
+        "unspentAtCheck": true,
+        "handleResolutionVerified": true
+      },
+      "cover": {
+        "mediaType": "image/avif",
+        "bytes": 2119,
+        "sha256": "4cd150fc82816805d83c8a02634c0f6232c1a41fb2b3efbfcecc2ae9aff8745b",
+        "fullyEmbedded": true,
+        "chainBytesEqualOriginal": true
+      },
+      "program": {
+        "mediaType": "text/html",
+        "bytes": 9786,
+        "sha256": "4dedd07ceaad2a928f4b4cc5c0e9e5c73e03381bbcdb30661b3f3d6a37a16aaa",
+        "fullyEmbedded": true,
+        "chainBytesEqualOriginal": true,
+        "representation": "Embedded interactive scientific program; changing artwork and optional sound are computed locally",
+        "description": "Two nearly identical double pendulums create diverging light trails. Explore deterministic chaos with presets, energy error and separation measurements.",
+        "website": "https://beacnpool.github.io/NFT-Studio/"
+      },
+      "policy": {
+        "kind": "Native payment signature plus expiry",
+        "expirySlot": 197357114,
+        "expiryUTC": "2026-09-09T03:10:05.000Z",
+        "oneShotSupplyGuarantee": false,
+        "closureClaim": false
+      },
+      "links": {
+        "poolPm": "https://pool.pm/asset19gd25saunmdc89asstmwa3097wjumkf0uta8mm",
+        "transaction": "https://cardanoscan.io/transaction/a2f3fe2835f6e06a0cb4d332687343156fdb0ad68779eff92769639e709062f6",
+        "website": "https://beacnpool.github.io/NFT-Studio/"
+      },
+      "verifiedAt": "2026-09-09T02:12:09.077Z"
+    },
+    {
+      "schema": "beacn.science-five.mint-receipt.v1",
+      "status": "confirmed",
+      "title": "Fourier Forge",
+      "asset": {
+        "policyId": "412834aaecf9e4c0f44db80e9907467a2e93a513acd4f6fb51b92d35",
+        "name": "FourierForge",
+        "nameHex": "466f7572696572466f726765",
+        "fingerprint": "asset1nydqknnqryz7sl9e4fprsg3wx49x7p3parmemu",
+        "mintedQuantity": "1",
+        "observedSupply": "1",
+        "observedPolicyAssetCount": 1
+      },
+      "transaction": {
+        "hash": "229d539fed90c9c518eaf8d7eba2e33cbe1e3b348a7634786cac5045caf1758d",
+        "blockHash": "c6e43703b66922cb167ba00af0c6d8eef60f006ef077c2b192664cca336d6ea9",
+        "blockHeight": 13916707,
+        "slot": 197353690,
+        "epoch": 654,
+        "blockTimeUTC": "2026-09-09T02:13:01.000Z",
+        "confirmationsObserved": 5,
+        "feeLovelace": "805877",
+        "signedCborBytes": 14784,
+        "indexerReportedTxSize": 14783,
+        "cborSha256": "763ebf1f8505439c5f998a7c1b14456e25631da918a4b1209688c4e86146a24a",
+        "retrievedCborEqualsSubmitted": true,
+        "signatureVerified": true,
+        "auxiliaryDataHashVerified": true
+      },
+      "delivery": {
+        "handle": "$BEACNLEAKS",
+        "address": "addr1q9tc7xx0wvqm6swrz2zc4hcqnhc4md5v4xlxyaewy889tdxmnyl6uvy3smpa2qjhzmm8z62ghxh95xhj2q86hgr8z85s3chnw6",
+        "outputIndex": 0,
+        "lovelace": "1172320",
+        "assetQuantity": "1",
+        "unspentAtCheck": true,
+        "handleResolutionVerified": true
+      },
+      "cover": {
+        "mediaType": "image/avif",
+        "bytes": 1298,
+        "sha256": "10f334ec81cb7eafd2f77aee078adbd037c64a633cc0891b08486fb422662a48",
+        "fullyEmbedded": true,
+        "chainBytesEqualOriginal": true
+      },
+      "program": {
+        "mediaType": "text/html",
+        "bytes": 10654,
+        "sha256": "045ad691b2e90ba6023cfcfa37ac2ea77fbca28087cc25fbdde0c857dd2e1521",
+        "fullyEmbedded": true,
+        "chainBytesEqualOriginal": true,
+        "representation": "Embedded interactive scientific program; changing artwork and optional sound are computed locally",
+        "description": "Draw a shape, rebuild it with rotating harmonics, measure reconstruction error, and hear a waveform derived from the drawing.",
+        "website": "https://beacnpool.github.io/NFT-Studio/"
+      },
+      "policy": {
+        "kind": "Native payment signature plus expiry",
+        "expirySlot": 197357239,
+        "expiryUTC": "2026-09-09T03:12:10.000Z",
+        "oneShotSupplyGuarantee": false,
+        "closureClaim": false
+      },
+      "links": {
+        "poolPm": "https://pool.pm/asset1nydqknnqryz7sl9e4fprsg3wx49x7p3parmemu",
+        "transaction": "https://cardanoscan.io/transaction/229d539fed90c9c518eaf8d7eba2e33cbe1e3b348a7634786cac5045caf1758d",
+        "website": "https://beacnpool.github.io/NFT-Studio/"
+      },
+      "verifiedAt": "2026-09-09T02:14:04.467Z"
+    },
+    {
+      "schema": "beacn.science-five.mint-receipt.v1",
+      "status": "confirmed",
+      "title": "Hash Cathedral",
+      "asset": {
+        "policyId": "d800a39827847ca26942afab988826d161ebad345a32e703e5016d09",
+        "name": "HashCathedral",
+        "nameHex": "4861736843617468656472616c",
+        "fingerprint": "asset16ewpzhnntxdm7mcxsze4ud8l8kpksfm7d9z7ks",
+        "mintedQuantity": "1",
+        "observedSupply": "1",
+        "observedPolicyAssetCount": 1
+      },
+      "transaction": {
+        "hash": "b176db7f0afd3204e011639f7972d80aee4a2428d22dbeda94d88016224fe9d5",
+        "blockHash": "e8f7e0257dea2571724ee056a83f1cc92bda21acc5ae7beb962c5c2ac7eef036",
+        "blockHeight": 13916713,
+        "slot": 197353768,
+        "epoch": 654,
+        "blockTimeUTC": "2026-09-09T02:14:19.000Z",
+        "confirmationsObserved": 4,
+        "feeLovelace": "794305",
+        "signedCborBytes": 14521,
+        "indexerReportedTxSize": 14520,
+        "cborSha256": "4fb025d34b661413669ee1eb60c9e3b09d13708bd3f0078afb6ba23213bb10f4",
+        "retrievedCborEqualsSubmitted": true,
+        "signatureVerified": true,
+        "auxiliaryDataHashVerified": true
+      },
+      "delivery": {
+        "handle": "$BEACNLEAKS",
+        "address": "addr1q9tc7xx0wvqm6swrz2zc4hcqnhc4md5v4xlxyaewy889tdxmnyl6uvy3smpa2qjhzmm8z62ghxh95xhj2q86hgr8z85s3chnw6",
+        "outputIndex": 0,
+        "lovelace": "1176630",
+        "assetQuantity": "1",
+        "unspentAtCheck": true,
+        "handleResolutionVerified": true
+      },
+      "cover": {
+        "mediaType": "image/avif",
+        "bytes": 1518,
+        "sha256": "7aec9563746ffdfd0f7a52450d340ade566879f8f48b888dc8af39e60eb14e60",
+        "fullyEmbedded": true,
+        "chainBytesEqualOriginal": true
+      },
+      "program": {
+        "mediaType": "text/html",
+        "bytes": 10184,
+        "sha256": "f3b9c13c98639947e82d54f06a6aebeafc9362df5bb1c2fc30073434036389a3",
+        "fullyEmbedded": true,
+        "chainBytesEqualOriginal": true,
+        "representation": "Embedded interactive scientific program; changing artwork and optional sound are computed locally",
+        "description": "Turn text into SHA-256 geometric art. Flip one bit, inspect the avalanche, and build, tamper with and verify an eight-leaf Merkle proof.",
+        "website": "https://beacnpool.github.io/NFT-Studio/"
+      },
+      "policy": {
+        "kind": "Native payment signature plus expiry",
+        "expirySlot": 197357355,
+        "expiryUTC": "2026-09-09T03:14:06.000Z",
+        "oneShotSupplyGuarantee": false,
+        "closureClaim": false
+      },
+      "links": {
+        "poolPm": "https://pool.pm/asset16ewpzhnntxdm7mcxsze4ud8l8kpksfm7d9z7ks",
+        "transaction": "https://cardanoscan.io/transaction/b176db7f0afd3204e011639f7972d80aee4a2428d22dbeda94d88016224fe9d5",
+        "website": "https://beacnpool.github.io/NFT-Studio/"
+      },
+      "verifiedAt": "2026-09-09T02:16:08.820Z"
+    }
+  ],
+  "networkFeesLovelace": 4053365,
+  "recipientAdaLovelace": 5870220,
+  "studioFeeLovelace": 0,
+  "allMediaRecoveredExactly": true
+}

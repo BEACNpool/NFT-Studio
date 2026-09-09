@@ -1,0 +1,490 @@
+{
+  "at": "2026-09-09T02:35:35.677Z",
+  "scope": "Actual public pool.pm and native NFTcdn response; no header/response rewriting or wallet actions. Exact delivered program hashes and running lab APIs; not a full retest of every control. Mobile Fourier additionally verified actual in-frame scrolling, a preset button click and nonblank harmonic drawing. Scroll within the marketplace artwork to reach lower controls.",
+  "studies": [
+    {
+      "title": "Entropy Oracle",
+      "fingerprint": "asset13x74jm5hwzzy3u8p6h586m0t6gpuafvhsn4h6w",
+      "viewer": "https://pool.pm/asset13x74jm5hwzzy3u8p6h586m0t6gpuafvhsn4h6w",
+      "deliveredProgram": {
+        "sha256": "7c6678c0e313eed0e0d8acd39cab1cea4257c67207a0b2263888c1c09e7c58b4",
+        "bytes": 8872,
+        "host": "asset13x74jm5hwzzy3u8p6h586m0t6gpuafvhsn4h6w.poolpm.nftcdn.io",
+        "csp": "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:"
+      },
+      "views": [
+        {
+          "viewportWidth": 1440,
+          "title": "Entropy Oracle \u00b7 BEACN Labs",
+          "origin": "null",
+          "csp": [
+            "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; base-uri 'none'; form-action 'none'"
+          ],
+          "canvas": [
+            {
+              "width": 800,
+              "height": 700
+            },
+            {
+              "width": 720,
+              "height": 180
+            }
+          ],
+          "buttons": 5,
+          "overflow": false,
+          "api": [
+            "randomIndex",
+            "entropy",
+            "choose",
+            "reset",
+            "setMode",
+            "state"
+          ]
+        },
+        {
+          "viewportWidth": 390,
+          "title": "Entropy Oracle \u00b7 BEACN Labs",
+          "origin": "null",
+          "csp": [
+            "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; base-uri 'none'; form-action 'none'"
+          ],
+          "canvas": [
+            {
+              "width": 800,
+              "height": 700
+            },
+            {
+              "width": 720,
+              "height": 180
+            }
+          ],
+          "buttons": 5,
+          "overflow": false,
+          "api": [
+            "randomIndex",
+            "entropy",
+            "choose",
+            "reset",
+            "setMode",
+            "state"
+          ]
+        }
+      ],
+      "pageErrors": [],
+      "status": "PASS_NATIVE_VIEWER_LOAD"
+    },
+    {
+      "title": "Turing Garden",
+      "fingerprint": "asset1c4h486ejg6rkxx3mt8cr65eduvx64k9hju65sw",
+      "viewer": "https://pool.pm/asset1c4h486ejg6rkxx3mt8cr65eduvx64k9hju65sw",
+      "deliveredProgram": {
+        "sha256": "d3b58aca33bb276c3fb1c5a8312a37e6ca348a2a67f213b3459f4017e6bffaa4",
+        "bytes": 9222,
+        "host": "asset1c4h486ejg6rkxx3mt8cr65eduvx64k9hju65sw.poolpm.nftcdn.io",
+        "csp": "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:"
+      },
+      "views": [
+        {
+          "viewportWidth": 1440,
+          "title": "Turing Garden \u00b7 BEACN Labs",
+          "origin": "null",
+          "csp": [
+            "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; base-uri 'none'; form-action 'none'"
+          ],
+          "canvas": [
+            {
+              "width": 768,
+              "height": 768
+            }
+          ],
+          "buttons": 6,
+          "overflow": false,
+          "api": [
+            "modelStep",
+            "rng",
+            "snapshot",
+            "restoreState",
+            "advance",
+            "pause",
+            "state"
+          ]
+        },
+        {
+          "viewportWidth": 390,
+          "title": "Turing Garden \u00b7 BEACN Labs",
+          "origin": "null",
+          "csp": [
+            "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; base-uri 'none'; form-action 'none'"
+          ],
+          "canvas": [
+            {
+              "width": 768,
+              "height": 768
+            }
+          ],
+          "buttons": 6,
+          "overflow": false,
+          "api": [
+            "modelStep",
+            "rng",
+            "snapshot",
+            "restoreState",
+            "advance",
+            "pause",
+            "state"
+          ]
+        }
+      ],
+      "pageErrors": [],
+      "status": "PASS_NATIVE_VIEWER_LOAD"
+    },
+    {
+      "title": "Chaos Mirrors",
+      "fingerprint": "asset19gd25saunmdc89asstmwa3097wjumkf0uta8mm",
+      "viewer": "https://pool.pm/asset19gd25saunmdc89asstmwa3097wjumkf0uta8mm",
+      "deliveredProgram": {
+        "sha256": "4dedd07ceaad2a928f4b4cc5c0e9e5c73e03381bbcdb30661b3f3d6a37a16aaa",
+        "bytes": 9786,
+        "host": "asset19gd25saunmdc89asstmwa3097wjumkf0uta8mm.poolpm.nftcdn.io",
+        "csp": "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:"
+      },
+      "views": [
+        {
+          "viewportWidth": 1440,
+          "title": "CHAOS MIRRORS \u00b7 BEACN Labs",
+          "origin": "null",
+          "csp": [
+            "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"
+          ],
+          "canvas": [
+            {
+              "width": 1000,
+              "height": 1000
+            },
+            {
+              "width": 900,
+              "height": 100
+            }
+          ],
+          "buttons": 7,
+          "overflow": false,
+          "api": [
+            "derivative",
+            "rk4",
+            "energy",
+            "points",
+            "advance",
+            "reset",
+            "render",
+            "constants",
+            "state",
+            "history"
+          ]
+        },
+        {
+          "viewportWidth": 390,
+          "title": "CHAOS MIRRORS \u00b7 BEACN Labs",
+          "origin": "null",
+          "csp": [
+            "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"
+          ],
+          "canvas": [
+            {
+              "width": 1000,
+              "height": 1000
+            },
+            {
+              "width": 900,
+              "height": 100
+            }
+          ],
+          "buttons": 7,
+          "overflow": false,
+          "api": [
+            "derivative",
+            "rk4",
+            "energy",
+            "points",
+            "advance",
+            "reset",
+            "render",
+            "constants",
+            "state",
+            "history"
+          ]
+        }
+      ],
+      "pageErrors": [],
+      "status": "PASS_NATIVE_VIEWER_LOAD"
+    },
+    {
+      "title": "Fourier Forge",
+      "fingerprint": "asset1nydqknnqryz7sl9e4fprsg3wx49x7p3parmemu",
+      "viewer": "https://pool.pm/asset1nydqknnqryz7sl9e4fprsg3wx49x7p3parmemu",
+      "deliveredProgram": {
+        "sha256": "045ad691b2e90ba6023cfcfa37ac2ea77fbca28087cc25fbdde0c857dd2e1521",
+        "bytes": 10654,
+        "host": "asset1nydqknnqryz7sl9e4fprsg3wx49x7p3parmemu.poolpm.nftcdn.io",
+        "csp": "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:"
+      },
+      "views": [
+        {
+          "viewportWidth": 1440,
+          "title": "Fourier Forge \u00b7 BEACN Labs",
+          "origin": "null",
+          "csp": [
+            "default-src 'none';script-src 'unsafe-inline';style-src 'unsafe-inline';img-src data: blob:;media-src blob: data:;connect-src 'none';object-src 'none';base-uri 'none';form-action 'none'"
+          ],
+          "canvas": [
+            {
+              "width": 1018,
+              "height": 708
+            }
+          ],
+          "buttons": 9,
+          "overflow": false,
+          "api": [
+            "dft",
+            "reconstruct",
+            "resample",
+            "sonification"
+          ]
+        },
+        {
+          "viewportWidth": 390,
+          "title": "Fourier Forge \u00b7 BEACN Labs",
+          "origin": "null",
+          "csp": [
+            "default-src 'none';script-src 'unsafe-inline';style-src 'unsafe-inline';img-src data: blob:;media-src blob: data:;connect-src 'none';object-src 'none';base-uri 'none';form-action 'none'"
+          ],
+          "canvas": [
+            {
+              "width": 324,
+              "height": 3330
+            }
+          ],
+          "buttons": 9,
+          "overflow": false,
+          "api": [
+            "dft",
+            "reconstruct",
+            "resample",
+            "sonification"
+          ]
+        }
+      ],
+      "pageErrors": [],
+      "status": "PASS_NATIVE_VIEWER_LOAD"
+    },
+    {
+      "title": "Hash Cathedral",
+      "fingerprint": "asset16ewpzhnntxdm7mcxsze4ud8l8kpksfm7d9z7ks",
+      "viewer": "https://pool.pm/asset16ewpzhnntxdm7mcxsze4ud8l8kpksfm7d9z7ks",
+      "deliveredProgram": {
+        "sha256": "f3b9c13c98639947e82d54f06a6aebeafc9362df5bb1c2fc30073434036389a3",
+        "bytes": 10184,
+        "host": "asset16ewpzhnntxdm7mcxsze4ud8l8kpksfm7d9z7ks.poolpm.nftcdn.io",
+        "csp": "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:"
+      },
+      "views": [
+        {
+          "viewportWidth": 1440,
+          "title": "Hash Cathedral \u00b7 BEACN Labs",
+          "origin": "null",
+          "csp": [
+            "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; base-uri 'none'; form-action 'none'"
+          ],
+          "canvas": [
+            {
+              "width": 720,
+              "height": 720
+            },
+            {
+              "width": 1080,
+              "height": 360
+            }
+          ],
+          "buttons": 15,
+          "overflow": false,
+          "api": [
+            "sha256",
+            "bitDiff",
+            "flipBit",
+            "merkle",
+            "proof",
+            "verify"
+          ]
+        },
+        {
+          "viewportWidth": 390,
+          "title": "Hash Cathedral \u00b7 BEACN Labs",
+          "origin": "null",
+          "csp": [
+            "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; base-uri 'none'; form-action 'none'"
+          ],
+          "canvas": [
+            {
+              "width": 720,
+              "height": 720
+            },
+            {
+              "width": 640,
+              "height": 360
+            }
+          ],
+          "buttons": 15,
+          "overflow": false,
+          "api": [
+            "sha256",
+            "bitDiff",
+            "flipBit",
+            "merkle",
+            "proof",
+            "verify"
+          ]
+        }
+      ],
+      "pageErrors": [],
+      "status": "PASS_NATIVE_VIEWER_LOAD"
+    }
+  ],
+  "status": "PASS_FIVE_NATIVE_VIEWERS",
+  "completedAt": "2026-09-09T02:35:56.959Z",
+  "mobileScrollObservation": {
+    "status": "PASS_NATIVE_SCROLL_CONTROLS_AND_DRAWING",
+    "before": {
+      "innerWidth": 358,
+      "innerHeight": 629,
+      "documentHeight": 2117,
+      "canvas": {
+        "x": 17,
+        "y": 180.09375,
+        "width": 324,
+        "height": 370,
+        "top": 180.09375,
+        "right": 341,
+        "bottom": 550.09375,
+        "left": 17
+      },
+      "buttons": [
+        {
+          "id": "",
+          "text": "Starburst",
+          "top": 629.09375
+        },
+        {
+          "id": "",
+          "text": "Heart",
+          "top": 629.09375
+        },
+        {
+          "id": "",
+          "text": "Spiral",
+          "top": 629.09375
+        },
+        {
+          "id": "draw",
+          "text": "\u270e Draw a loop",
+          "top": 689.09375
+        },
+        {
+          "id": "motion",
+          "text": "Pause motion",
+          "top": 1086.09375
+        },
+        {
+          "id": "reset",
+          "text": "Reset phase",
+          "top": 1086.09375
+        },
+        {
+          "id": "sound",
+          "text": "\u25b6 Play tone",
+          "top": 1190.09375
+        },
+        {
+          "id": "png",
+          "text": "Export canvas PNG",
+          "top": 1310.59375
+        },
+        {
+          "id": "try",
+          "text": "Try the heart",
+          "top": 1970.34375
+        }
+      ],
+      "visibility": "visible"
+    },
+    "after": {
+      "scrollY": 337,
+      "innerHeight": 629,
+      "canvas": {
+        "x": 17,
+        "y": -156.90625,
+        "width": 324,
+        "height": 370,
+        "top": -156.90625,
+        "right": 341,
+        "bottom": 213.09375,
+        "left": 17
+      },
+      "buttons": [
+        {
+          "id": "",
+          "text": "Starburst",
+          "top": 292.09375
+        },
+        {
+          "id": "",
+          "text": "Heart",
+          "top": 292.09375
+        },
+        {
+          "id": "",
+          "text": "Spiral",
+          "top": 292.09375
+        },
+        {
+          "id": "draw",
+          "text": "\u270e Draw a loop",
+          "top": 352.09375
+        },
+        {
+          "id": "motion",
+          "text": "Pause motion",
+          "top": 749.09375
+        },
+        {
+          "id": "reset",
+          "text": "Reset phase",
+          "top": 749.09375
+        },
+        {
+          "id": "sound",
+          "text": "\u25b6 Play tone",
+          "top": 853.09375
+        },
+        {
+          "id": "png",
+          "text": "Export canvas PNG",
+          "top": 973.59375
+        },
+        {
+          "id": "try",
+          "text": "Try the heart",
+          "top": 1633.34375
+        }
+      ],
+      "visibility": "visible"
+    },
+    "pixels": {
+      "warmPixels": 23552,
+      "width": 324,
+      "height": 370,
+      "scrollY": 51
+    },
+    "actualFirstButtonClick": true,
+    "nativeHeadersPreserved": true,
+    "description": "pool.pm constrains the viewport; scroll inside the embedded program to reach its canvas and controls. A full-page outer screenshot cannot represent the complete internal document."
+  }
+}

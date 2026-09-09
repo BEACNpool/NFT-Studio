@@ -2,7 +2,7 @@
 
 [Play the collection](https://beacnpool.github.io/NFT-Studio/showcase/science-five/) · [Download all five](https://beacnpool.github.io/NFT-Studio/showcase/science-five/five-small-worlds.zip) · [Scientific notes](SCIENTIFIC-NOTES.md)
 
-Five complete, original BEACN Labs browser studies prepared for native Cardano NFTs. **All five are unminted.** Their visuals change because the embedded program computes them locally. Interacting does not update ledger state.
+Five complete, original BEACN Labs browser studies prepared for native Cardano NFTs. **The five original editions are minted and confirmed on Cardano, delivered to $beacnleaks.** Their visuals change because the embedded program computes them locally. Interacting does not update ledger state.
 
 | Study | What you can do | Program + cover | Synthetic complete transaction |
 | --- | --- | ---: | ---: |
@@ -13,6 +13,21 @@ Five complete, original BEACN Labs browser studies prepared for native Cardano N
 | Hash Cathedral | Make SHA-256 stained glass, flip one input bit and build, tamper with and verify Merkle proofs. | 11,702 B | 14,748 B |
 
 The payloads use 97.5–99.75% of the MCP's 12,000-byte raw-media allowance. The complete synthetic transactions fit the observed 16,384-byte protocol limit. These measurements use one synthetic base-address input, a token-bearing change output and one deliberately invalid placeholder witness. They are **not funded-wallet quotes**, signatures or chain submissions. Real inputs, keys, outputs and current parameters require a new complete build. Native Studio fee: zero; Cardano network fees and minimum ADA still apply.
+
+
+## Confirmed original editions
+
+Each original was signed through the established CLI payment-wallet route and submitted once. Independent audits verified its signature, complete transaction, destination and exact chain-recovered cover/program. This does **not** validate the separate Codex-to-Eternl acceptance journey; that promotion gate stays open. The review links create new copies with separate asset identities.
+
+| Original | Confirmed asset | Network fee (ADA) |
+| --- | --- | ---: |
+| Entropy Oracle | [asset13x74jm5hwzzy3u8p6h586m0t6gpuafvhsn4h6w](https://pool.pm/asset13x74jm5hwzzy3u8p6h586m0t6gpuafvhsn4h6w) | 0.829461 |
+| Turing Garden | [asset1c4h486ejg6rkxx3mt8cr65eduvx64k9hju65sw](https://pool.pm/asset1c4h486ejg6rkxx3mt8cr65eduvx64k9hju65sw) | 0.812785 |
+| Chaos Mirrors | [asset19gd25saunmdc89asstmwa3097wjumkf0uta8mm](https://pool.pm/asset19gd25saunmdc89asstmwa3097wjumkf0uta8mm) | 0.810937 |
+| Fourier Forge | [asset1nydqknnqryz7sl9e4fprsg3wx49x7p3parmemu](https://pool.pm/asset1nydqknnqryz7sl9e4fprsg3wx49x7p3parmemu) | 0.805877 |
+| Hash Cathedral | [asset16ewpzhnntxdm7mcxsze4ud8l8kpksfm7d9z7ks](https://pool.pm/asset16ewpzhnntxdm7mcxsze4ud8l8kpksfm7d9z7ks) | 0.794305 |
+
+Total network fees: 4.053365 ADA. ADA delivered with the five NFTs: 5.87022 ADA. Studio platform fee: zero. [Exact receipts](../../public/showcase/science-five/minted.json). Native policies permit authorized additional mint/burn until their recorded expiry; no permanent one-shot claim is made here.
 
 ## Play and mint files
 
@@ -64,3 +79,5 @@ Rerun the standalone hash tests with `node experiments/science-five/source/hash-
 Oracle responses are entertainment. The garden is a numerical chemical model, not an organism. Pendulum separation is not a measured Lyapunov exponent. Fourier audio sonifies x(t), not an external song. Merkle inclusion under a chosen root does not authenticate that root or establish ownership. Changing or saving browser state does not mutate an NFT.
 
 Source and original artwork are under the repository [Apache-2.0 license](../../LICENSE). Hash test vectors are NIST's public [byte-oriented SHA test data](https://csrc.nist.gov/projects/cryptographic-algorithm-validation-program/secure-hashing). Earlier development attempts and browser profiles are excluded from this release.
+
+Actual [native viewer observations](evidence/native-viewers.json) verify all five NFTcdn program hashes and running opaque pool.pm frames at desktop/mobile widths. Marketplace frames can be shorter than the program: scroll inside the artwork to reach lower controls, or open the standalone program from the gallery. Mobile Fourier scrolling, a preset click and harmonic drawing were checked without changing native headers. This is scoped viewer evidence, not a retest of every control.
