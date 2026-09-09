@@ -2,10 +2,10 @@
   "schema": "beacn.science-five.collection.v1",
   "title": "Five Small Worlds",
   "created": "2026-09-08",
-  "status": "unminted",
+  "status": "originals-minted",
   "gallery": "https://beacnpool.github.io/NFT-Studio/showcase/science-five/",
   "source": "https://github.com/BEACNpool/NFT-Studio/tree/main/experiments/science-five",
-  "scope": "Five browser programs and static covers prepared for native Cardano NFTs. Local simulations do not update the ledger. No wallet was connected and no transaction was signed or submitted.",
+  "scope": "Five original browser programs and static covers minted and confirmed on Cardano, delivered to $beacnleaks. Local simulation controls do not update the ledger. Review requests are for minting separate copies with a new policy; original receipts identify the confirmed editions.",
   "rawPayloadLimitBytes": 12000,
   "studies": [
     {
@@ -42,6 +42,15 @@
         "headroomBytes": 837,
         "evidence": "https://github.com/BEACNpool/NFT-Studio/blob/main/experiments/science-five/evidence/entropy-oracle-sizing.json",
         "isFundedWalletQuote": false
+      },
+      "originalMint": {
+        "status": "confirmed",
+        "fingerprint": "asset13x74jm5hwzzy3u8p6h586m0t6gpuafvhsn4h6w",
+        "policyId": "5acebafa059fba7afea2c695985d7bca99281b6d1436784d360d4e45",
+        "assetNameHex": "456e74726f70794f7261636c65",
+        "transactionHash": "d3a85f0eea6af8cdab4f9120d152b4c97393ec2d8a77e2bc1a665a871e57a2fe",
+        "receipt": "entropy-oracle/mint-receipt.json",
+        "viewer": "https://pool.pm/asset13x74jm5hwzzy3u8p6h586m0t6gpuafvhsn4h6w"
       }
     },
     {
@@ -78,6 +87,15 @@
         "headroomBytes": 1212,
         "evidence": "https://github.com/BEACNpool/NFT-Studio/blob/main/experiments/science-five/evidence/turing-garden-sizing.json",
         "isFundedWalletQuote": false
+      },
+      "originalMint": {
+        "status": "confirmed",
+        "fingerprint": "asset1c4h486ejg6rkxx3mt8cr65eduvx64k9hju65sw",
+        "policyId": "01f65fbb6829729fa69257934488ddfc72ccf57d9e07aa6c33f65c53",
+        "assetNameHex": "547572696e6747617264656e",
+        "transactionHash": "3a31ac5c0f1e8366e9a2eaf82ef2e8924d803e274226a674b9163cd3fc322dc3",
+        "receipt": "turing-garden/mint-receipt.json",
+        "viewer": "https://pool.pm/asset1c4h486ejg6rkxx3mt8cr65eduvx64k9hju65sw"
       }
     },
     {
@@ -114,6 +132,15 @@
         "headroomBytes": 1254,
         "evidence": "https://github.com/BEACNpool/NFT-Studio/blob/main/experiments/science-five/evidence/chaos-mirrors-sizing.json",
         "isFundedWalletQuote": false
+      },
+      "originalMint": {
+        "status": "confirmed",
+        "fingerprint": "asset19gd25saunmdc89asstmwa3097wjumkf0uta8mm",
+        "policyId": "0091d6dbd102405d4f3fa1061caa35f58b242e919f3dd49e521191ff",
+        "assetNameHex": "4368616f734d6972726f7273",
+        "transactionHash": "a2f3fe2835f6e06a0cb4d332687343156fdb0ad68779eff92769639e709062f6",
+        "receipt": "chaos-mirrors/mint-receipt.json",
+        "viewer": "https://pool.pm/asset19gd25saunmdc89asstmwa3097wjumkf0uta8mm"
       }
     },
     {
@@ -150,6 +177,15 @@
         "headroomBytes": 1369,
         "evidence": "https://github.com/BEACNpool/NFT-Studio/blob/main/experiments/science-five/evidence/fourier-forge-sizing.json",
         "isFundedWalletQuote": false
+      },
+      "originalMint": {
+        "status": "confirmed",
+        "fingerprint": "asset1nydqknnqryz7sl9e4fprsg3wx49x7p3parmemu",
+        "policyId": "412834aaecf9e4c0f44db80e9907467a2e93a513acd4f6fb51b92d35",
+        "assetNameHex": "466f7572696572466f726765",
+        "transactionHash": "229d539fed90c9c518eaf8d7eba2e33cbe1e3b348a7634786cac5045caf1758d",
+        "receipt": "fourier-forge/mint-receipt.json",
+        "viewer": "https://pool.pm/asset1nydqknnqryz7sl9e4fprsg3wx49x7p3parmemu"
       }
     },
     {
@@ -186,6 +222,15 @@
         "headroomBytes": 1636,
         "evidence": "https://github.com/BEACNpool/NFT-Studio/blob/main/experiments/science-five/evidence/hash-cathedral-sizing.json",
         "isFundedWalletQuote": false
+      },
+      "originalMint": {
+        "status": "confirmed",
+        "fingerprint": "asset16ewpzhnntxdm7mcxsze4ud8l8kpksfm7d9z7ks",
+        "policyId": "d800a39827847ca26942afab988826d161ebad345a32e703e5016d09",
+        "assetNameHex": "4861736843617468656472616c",
+        "transactionHash": "b176db7f0afd3204e011639f7972d80aee4a2428d22dbeda94d88016224fe9d5",
+        "receipt": "hash-cathedral/mint-receipt.json",
+        "viewer": "https://pool.pm/asset16ewpzhnntxdm7mcxsze4ud8l8kpksfm7d9z7ks"
       }
     }
   ]
