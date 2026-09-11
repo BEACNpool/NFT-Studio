@@ -270,6 +270,10 @@ export function StudioShowcase({
 }: StudioShowcaseProps) {
   const [filter, setFilter] = useState<Filter>('all');
   const [selected, setSelected] = useState<Item | null>(null);
+  useEffect(() => {
+    const id = new URLSearchParams(location.search).get('example');
+    if (id) setSelected(items.find(item => item.id === id) || null);
+  }, []);
   const visible = useMemo(
     () => items.filter((item) => filter === 'all' || item.filter === filter),
     [filter],

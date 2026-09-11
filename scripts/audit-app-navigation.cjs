@@ -29,6 +29,8 @@ const url = process.env.STUDIO_URL || 'http://127.0.0.1:8924/';
       await page.$$eval('.ns-app-nav button', (els) => els.length),
       4,
     );
+    await page.locator('.ai-manual summary').click();
+    await page.$eval('.ns-mode-art', e => e.scrollIntoView({ block: 'center', behavior: 'instant' }));
     await page.locator('.ns-mode-art').click();
     await page.locator('::-p-text(Start with a blank canvas)').click();
     await page.locator('.ns-workbench-footer .ns-primary').click();

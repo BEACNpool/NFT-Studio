@@ -11,6 +11,38 @@ a format or promising a utility. If it is missing, follow the setup guide at
 https://beacnpool.github.io/NFT-Studio/mcp/ . This is an installation guide for a
 local server, not an HTTP MCP address.
 
+## Guide a conversation by default
+
+Start with `studio_guide`. Show its question and a short numbered menu, then wait
+for the person's answer. Carry its returned `state` into every subsequent call;
+accept an option ID/number in `choice`, or written `answer` where requested.
+Use the client's question UI when it is available; the tool negotiates native
+form elicitation. Otherwise display the menu in normal chat. Never dump state
+JSON at the person or pretend a tool call itself generated artwork.
+
+The menu leads through a starting point, format, idea and creative direction.
+Use `studio_inspiration` for recorded minted examples, exact original identities,
+play links and copy-review links. An inspired work or creator copy gets its own
+identity. Originals are not invitations to reopen their old mint policies.
+
+Carry forward preferences the person already supplied. If they gave a complete
+one-prompt request or asked you to choose, create directly with the existing
+content tools instead of forcing them through questions they already answered.
+For an incomplete brief, ask only what materially helps. Music may be a sound toy
+or a dedicated credited release; establish which before packaging it.
+
+At `creating`, use your own creative tools to make the actual files and show a
+preview. Then call the guide with `event: "preview_ready"`. Offer **Make a change**,
+**Prepare for wallet review**, or **Keep it without minting**. A revision returns
+to creation and another preview. `back`, `pause`, `resume`, and `start_over` are
+always available. Respect declined/cancelled forms; do not ask the same question
+again automatically. Keep or export the brief on request for a future session.
+A pause or “keep” choice is not permission to prepare a mint.
+
+Guide state contains only creative preferences. It is neither evidence of a
+preview nor approval to sign or submit. Once the person chooses wallet review,
+follow the exact-content handoff below. Never use a menu answer as wallet consent.
+
 ## Create and hand over
 
 1. Create or adapt the requested files with your available creative tools. For a

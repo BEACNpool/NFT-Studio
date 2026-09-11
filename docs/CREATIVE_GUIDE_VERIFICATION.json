@@ -1,0 +1,59 @@
+{
+  "schema": "nft-studio.creative-guide-verification.v1",
+  "checkedAt": "2026-09-11T18:47:03.374966+00:00",
+  "release": "MCP 0.2.0 / AI-guided homepage",
+  "mcp": {
+    "tests": 84,
+    "passed": 84,
+    "standaloneNestedInstall": {
+      "passed": true,
+      "baselineTests": 83,
+      "additionalModernWorkerFormTest": true,
+      "frontendDependenciesRequired": false
+    },
+    "nodeTools": 19,
+    "workerTools": 17,
+    "resources": 61,
+    "prompts": [
+      "nft-studio"
+    ],
+    "nativeForms": {
+      "modernStdio": true,
+      "legacyStdio": true,
+      "modernWorkerd": true,
+      "acceptDeclineCancel": true
+    },
+    "chatFallback": true,
+    "guideStateIsWalletAuthority": false,
+    "hostedWorkerDeployed": false
+  },
+  "browser": {
+    "desktop1440": true,
+    "phone390": true,
+    "phone320NoOverflow": true,
+    "tablet820NoOverflow": true,
+    "text200percentNoOverflow": true,
+    "setupWithoutJavaScript": true,
+    "clipboardCopyAndFallback": true,
+    "inspirationShareAndRestore": true,
+    "allEightImagesAndLocalLinks": true,
+    "savedEditorBackForward": true,
+    "pageErrors": 0
+  },
+  "existingEngines": {
+    "mintGroups": 12,
+    "designGroups": 9,
+    "studioGroups": 9
+  },
+  "provenance": {
+    "originalsComparedToPublishedRecords": 8,
+    "existingOriginalBytesChanged": false,
+    "cardanoDramaReviewIntentEqualsOriginalPackage": true
+  },
+  "limits": [
+    "UI and SDK checks use controlled clipboard and synthetic wallets; no real wallet was connected, signed, or submitted.",
+    "Original mint status is existing recorded publication evidence, not a fresh chain query.",
+    "A client must refresh its MCP session to discover the new tools.",
+    "The public MCP URL is a setup guide for the local server, not a deployed remote endpoint."
+  ]
+}

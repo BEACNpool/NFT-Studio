@@ -1,0 +1,164 @@
+[
+  {
+    "id": "turing-garden",
+    "title": "Turing Garden",
+    "format": "art",
+    "description": "Paint a living chemical garden. Grow patterns, change palettes, and save your creation.",
+    "image": "/showcase/science-five/turing-garden/poster.png",
+    "imageNote": "Gallery illustration; preview the exact embedded cover before minting.",
+    "playPath": "/showcase/science-five/turing-garden/program.html",
+    "copyPath": "/showcase/science-five/turing-garden/review.html",
+    "sourceUrl": "https://github.com/BEACNpool/NFT-Studio/tree/main/experiments/science-five/source/turing-garden",
+    "original": {
+      "status": "confirmed",
+      "fingerprint": "asset1c4h486ejg6rkxx3mt8cr65eduvx64k9hju65sw",
+      "policyId": "01f65fbb6829729fa69257934488ddfc72ccf57d9e07aa6c33f65c53",
+      "assetNameHex": "547572696e6747617264656e",
+      "transactionHash": "3a31ac5c0f1e8366e9a2eaf82ef2e8924d803e274226a674b9163cd3fc322dc3",
+      "receipt": "turing-garden/mint-receipt.json",
+      "viewer": "https://pool.pm/asset1c4h486ejg6rkxx3mt8cr65eduvx64k9hju65sw"
+    },
+    "idea": "Create a new Turing Garden-inspired NFT. Paint a living chemical garden. Grow patterns, change palettes, and save your creation. Give it its own name and visual identity."
+  },
+  {
+    "id": "fourier-forge",
+    "title": "Fourier Forge",
+    "format": "music",
+    "description": "Draw a waveform and hear it. A pocket synthesizer built from mathematics.",
+    "image": "/showcase/science-five/fourier-forge/poster.png",
+    "imageNote": "Gallery illustration; preview the exact embedded cover before minting.",
+    "playPath": "/showcase/science-five/fourier-forge/program.html",
+    "copyPath": "/showcase/science-five/fourier-forge/review.html",
+    "sourceUrl": "https://github.com/BEACNpool/NFT-Studio/tree/main/experiments/science-five/source/fourier-forge",
+    "original": {
+      "status": "confirmed",
+      "fingerprint": "asset1nydqknnqryz7sl9e4fprsg3wx49x7p3parmemu",
+      "policyId": "412834aaecf9e4c0f44db80e9907467a2e93a513acd4f6fb51b92d35",
+      "assetNameHex": "466f7572696572466f726765",
+      "transactionHash": "229d539fed90c9c518eaf8d7eba2e33cbe1e3b348a7634786cac5045caf1758d",
+      "receipt": "fourier-forge/mint-receipt.json",
+      "viewer": "https://pool.pm/asset1nydqknnqryz7sl9e4fprsg3wx49x7p3parmemu"
+    },
+    "idea": "Create a new Fourier Forge-inspired NFT. Draw a waveform and hear it. A pocket synthesizer built from mathematics. Give it its own name and visual identity."
+  },
+  {
+    "id": "entropy-oracle",
+    "title": "Entropy Oracle",
+    "format": "utility",
+    "description": "Ask, shake, and discover. A playful oracle with a probability lesson inside.",
+    "image": "/showcase/science-five/entropy-oracle/poster.png",
+    "imageNote": "Gallery illustration; preview the exact embedded cover before minting.",
+    "playPath": "/showcase/science-five/entropy-oracle/program.html",
+    "copyPath": "/showcase/science-five/entropy-oracle/review.html",
+    "sourceUrl": "https://github.com/BEACNpool/NFT-Studio/tree/main/experiments/science-five/source/entropy-oracle",
+    "original": {
+      "status": "confirmed",
+      "fingerprint": "asset13x74jm5hwzzy3u8p6h586m0t6gpuafvhsn4h6w",
+      "policyId": "5acebafa059fba7afea2c695985d7bca99281b6d1436784d360d4e45",
+      "assetNameHex": "456e74726f70794f7261636c65",
+      "transactionHash": "d3a85f0eea6af8cdab4f9120d152b4c97393ec2d8a77e2bc1a665a871e57a2fe",
+      "receipt": "entropy-oracle/mint-receipt.json",
+      "viewer": "https://pool.pm/asset13x74jm5hwzzy3u8p6h586m0t6gpuafvhsn4h6w"
+    },
+    "idea": "Create a new Entropy Oracle-inspired NFT. Ask, shake, and discover. A playful oracle with a probability lesson inside. Give it its own name and visual identity."
+  },
+  {
+    "id": "chaos-mirrors",
+    "title": "Chaos Mirrors",
+    "format": "motion",
+    "description": "Two tiny changes. Two wildly different worlds. Explore chaos in motion.",
+    "image": "/showcase/science-five/chaos-mirrors/poster.png",
+    "imageNote": "Gallery illustration; preview the exact embedded cover before minting.",
+    "playPath": "/showcase/science-five/chaos-mirrors/program.html",
+    "copyPath": "/showcase/science-five/chaos-mirrors/review.html",
+    "sourceUrl": "https://github.com/BEACNpool/NFT-Studio/tree/main/experiments/science-five/source/chaos-mirrors",
+    "original": {
+      "status": "confirmed",
+      "fingerprint": "asset19gd25saunmdc89asstmwa3097wjumkf0uta8mm",
+      "policyId": "0091d6dbd102405d4f3fa1061caa35f58b242e919f3dd49e521191ff",
+      "assetNameHex": "4368616f734d6972726f7273",
+      "transactionHash": "a2f3fe2835f6e06a0cb4d332687343156fdb0ad68779eff92769639e709062f6",
+      "receipt": "chaos-mirrors/mint-receipt.json",
+      "viewer": "https://pool.pm/asset19gd25saunmdc89asstmwa3097wjumkf0uta8mm"
+    },
+    "idea": "Create a new Chaos Mirrors-inspired NFT. Two tiny changes. Two wildly different worlds. Explore chaos in motion. Give it its own name and visual identity."
+  },
+  {
+    "id": "hash-cathedral",
+    "title": "Hash Cathedral",
+    "format": "art",
+    "description": "Turn text into a cathedral of color. An interactive study of hashes and identity.",
+    "image": "/showcase/science-five/hash-cathedral/poster.png",
+    "imageNote": "Gallery illustration; preview the exact embedded cover before minting.",
+    "playPath": "/showcase/science-five/hash-cathedral/program.html",
+    "copyPath": "/showcase/science-five/hash-cathedral/review.html",
+    "sourceUrl": "https://github.com/BEACNpool/NFT-Studio/tree/main/experiments/science-five/source/hash-cathedral",
+    "original": {
+      "status": "confirmed",
+      "fingerprint": "asset16ewpzhnntxdm7mcxsze4ud8l8kpksfm7d9z7ks",
+      "policyId": "d800a39827847ca26942afab988826d161ebad345a32e703e5016d09",
+      "assetNameHex": "4861736843617468656472616c",
+      "transactionHash": "b176db7f0afd3204e011639f7972d80aee4a2428d22dbeda94d88016224fe9d5",
+      "receipt": "hash-cathedral/mint-receipt.json",
+      "viewer": "https://pool.pm/asset16ewpzhnntxdm7mcxsze4ud8l8kpksfm7d9z7ks"
+    },
+    "idea": "Create a new Hash Cathedral-inspired NFT. Turn text into a cathedral of color. An interactive study of hashes and identity. Give it its own name and visual identity."
+  },
+  {
+    "id": "cardano-drama",
+    "title": "Days Without Cardano Drama",
+    "format": "motion",
+    "description": "Three days. One little take. Back to zero. An animated joke with its own sound.",
+    "image": "/showcase/days-without-cardano-drama/assets/cover.avif",
+    "imageNote": "Exact minted cover.",
+    "playPath": "/showcase/days-without-cardano-drama/",
+    "copyPath": "/showcase/days-without-cardano-drama/review.html",
+    "sourceUrl": "https://github.com/BEACNpool/NFT-Studio/tree/main/experiments/days-without-cardano-drama",
+    "original": {
+      "status": "confirmed",
+      "policyId": "98cd88d43153a8244eaaaeabada3a4022e8600812baec720470a7fa2",
+      "assetNameHex": "44617973576974686f757443617264616e6f4472616d61",
+      "transactionHash": "3683e58be5690b1d874fa9df0b835e14467ab2b7a663b1894cdc381d7c22bc39",
+      "viewer": "https://pool.pm/asset1845ppy9k6ugyf6fjjkcmegy4gyxfrtjzc2tee7"
+    },
+    "idea": "Make an original animated counter with a playful reset and a short synthesized sound. Help me choose the subject, joke, and visual style."
+  },
+  {
+    "id": "afterlight",
+    "title": "AFTERLIGHT",
+    "format": "game",
+    "description": "Record your past moves. Turn them into echoes that help solve the next puzzle.",
+    "image": "/arcade/afterlight/cover.svg",
+    "imageNote": "Exact original cover.",
+    "playPath": "/?view=showcase&example=afterlight",
+    "copyPath": "/?view=showcase&example=afterlight",
+    "sourceUrl": "https://github.com/BEACNpool/NFT-Studio/blob/main/lib/capability-catalog.json",
+    "original": {
+      "status": "confirmed",
+      "policyId": "328a7e3b6cf58cfce51bb002c6c863a279e7c26a49c738117b06e7c1",
+      "assetNameHex": "41465445524c49474854",
+      "transactionHash": "7894f35a22825a7827f87968de81b55296ca2b0e6380ea1f245c378db03c61f6",
+      "viewer": "https://pool.pm/asset1s5gq0j7rflmhznqg048fzern0lnjycvznrmc8a"
+    },
+    "idea": "Create a new game inspired by AFTERLIGHT. Record your past moves. Turn them into echoes that help solve the next puzzle. Use an original name, a new design, and a compact self-contained implementation."
+  },
+  {
+    "id": "harmonic-atlas",
+    "title": "HARMONIC ATLAS",
+    "format": "music",
+    "description": "An entire generative music instrument, with melodies, chords, bass, and drums.",
+    "image": "/originals/harmonic-atlas/cover.svg",
+    "imageNote": "Exact original cover.",
+    "playPath": "/?view=showcase&example=harmonic-atlas",
+    "copyPath": null,
+    "sourceUrl": "https://github.com/BEACNpool/NFT-Studio/blob/main/lib/capability-catalog.json",
+    "original": {
+      "status": "confirmed",
+      "policyId": "cfcee282b2b1ea7bc8c9235a9c5a5694c251797a78de65371f5b6b73",
+      "assetNameHex": "4861726d6f6e696341746c6173",
+      "transactionHash": "9de5d5116b3f406dd8aeebe40e148efa35b2592ff87c92ae7cb63f4c96c51d6e",
+      "viewer": "https://pool.pm/asset1n7gtjr58aah3up9j9wq9x7vpdd5s85244re0pg"
+    },
+    "idea": "Create a new music inspired by HARMONIC ATLAS. An entire generative music instrument, with melodies, chords, bass, and drums. Use an original name, a new design, and a compact self-contained implementation."
+  }
+]

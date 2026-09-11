@@ -2,19 +2,31 @@
 
 [Open NFT Studio](https://beacnpool.github.io/NFT-Studio/) · [Build verification](https://github.com/BEACNpool/NFT-Studio/actions/workflows/verify.yml)
 
-A mobile dApp and desktop creative workspace for putting the **actual content on Cardano**: art, sound,
-playable games, useful apps, complete Ledger Scrolls and ongoing Ledger Books.
-Start without a wallet. Build your creation, review the exact transaction, then
-approve it in your wallet. NFT-Studio constructs the metadata from your visual creation and settings.
+An **AI-driven creation studio for Cardano**. Connect your AI through the MCP,
+shape an idea together, preview and revise the actual files, then approve the
+mint in your own wallet. Create art, sound, playable games and useful apps—or
+start with a previously minted original for inspiration.
 
-![NFT Studio creative workbench](docs/studio-preview.png)
+**[Install the MCP](https://beacnpool.github.io/NFT-Studio/mcp/)** ·
+**[Explore minted inspiration](https://beacnpool.github.io/NFT-Studio/#inspiration)** ·
+[Interactive guide contract](docs/CREATIVE_GUIDE.md)
 
-The same four-tab navigation works on phone, tablet and desktop: **Create,
-Explore, Saved and Activity**. All eight creation formats have readable action
-rows on the home screen, with larger text and controls throughout the editors;
-Help and Wallet stay in the header. Switching tabs keeps the current creation
-open, and browser Back/Forward follows the app screens. Saved projects and
-receipts remain local to the current browser and origin.
+Ask your connected AI: **“Open NFT-Studio and guide me.”** The MCP offers a menu
+and one question at a time, including preview, revision, pause and keeping files
+without minting. Native question forms are used where the client supports them;
+numbered chat menus work elsewhere. A complete one-prompt request works too.
+
+The website helps visitors build a brief and copy it into their AI. It does not
+run a hidden model or pretend its menu generates artwork. The AI creates the
+media; the MCP guides, checks and packages exact bytes; the browser builds the
+transaction for your visible wallet approval.
+
+![NFT-Studio AI creation and minted inspiration](docs/creative-guide-preview.png)
+
+The existing browser editors remain under **Create directly in your browser**.
+**Create, Explore, Saved and Activity** work on phone and desktop. Switching tabs
+keeps an unsaved editor open, and browser Back/Forward follows the app screens.
+Saved projects and receipts stay local to the browser and origin.
 
 ## BEACN Labs
 
@@ -38,11 +50,11 @@ does not require a wallet.
 | Agent minting | Ask your configured agent for a compact NFT, open its content-bound review link, inspect the files, then connect your wallet and approve the mint. JSON import remains available. |
 
 The [repository-hosted MCP setup page](https://beacnpool.github.io/NFT-Studio/mcp/)
-shows how to run **17 tools and 61 resources locally from this repo**: Cardano knowledge,
+shows how to run **19 tools and 61 resources locally from this repo**: Cardano knowledge,
 original CIP source access, exact files and music packages, fixed Capsule parameters,
 unsigned transactions and external witness verification. Your wallet retains signing
 authority. The setup page is not an HTTP MCP endpoint; operators can separately deploy
-the 15-tool Worker on their own HTTPS host. [Connection guide](docs/MCP.md#public-connection). The [knowledge repository](knowledge/)
+the 17-tool Worker on their own HTTPS host. [Connection guide](docs/MCP.md#public-connection). The [knowledge repository](knowledge/)
 is reusable data with source hashes, attribution and an explicit evidence policy.
 
 For Codex, the guide includes an installer and the repository’s `$nft-studio` skill.

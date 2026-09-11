@@ -1,5 +1,16 @@
 # Connect an agent to NFT Studio
 
+## Interactive creation
+
+Start with **studio_guide** for a guided conversation, or choose the **nft-studio**
+MCP prompt. Ask one question at a time, carry the returned creative state, show a
+real preview, then offer revisions, wallet review, or keeping the files without
+minting. **studio_inspiration** provides curated original editions, play links,
+source attribution and copy-review links where supported. See
+[the guide contract](CREATIVE_GUIDE.md) for state, native forms, cancellation and
+one-prompt usage. These tools do not generate media or touch wallets.
+
+
 NFT Studio ships a real Model Context Protocol service using the official TypeScript SDK **2.0.0**. It supports local stdio and authenticated Streamable HTTP, with the 2026-07-28 protocol and legacy negotiation. Its builder creates actual unsigned Cardano mainnet transactions from the same source used by the browser. Your wallet keeps signing authority.
 
 ## Public connection
@@ -12,7 +23,7 @@ Your MCP client runs its server locally over stdio. The setup page is a guide,
 **not an HTTP MCP endpoint**: GitHub Pages hosts static files and cannot run the
 server process. See [GitHub's hosting documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages).
 
-The local Node server provides **17 tools and 61 resources**. It includes Cardano
+The local Node server provides **19 tools and 61 resources**. It includes Cardano
 knowledge, original CIP source search, exact payloads, music packages, proof
 records, fixed Capsule parameters, unsigned native NFT/data/music transactions
 and external witness verification. No tool holds a signing key, connects to a
@@ -32,7 +43,7 @@ or a long link through model prose. A prepared
 [Labor Day flag and original whistle march](../experiments/labor-day-worker-demo/README.md)
 demonstrates this path; it is not a confirmed mint.
 
-The separately deployable Worker has a 15-tool subset. It requires an operator's
+The separately deployable Worker has a 17-tool subset. It requires an operator's
 own HTTPS host; no hosted address is advertised in this repository. A setup-page
 URL cannot substitute for that endpoint. The [operator integration guide](../mcp/integration/README.md)
 describes explicit host configuration and real-client verification.

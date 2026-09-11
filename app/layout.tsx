@@ -7,10 +7,10 @@ import './mobile-shell.css';
 import './labs.css';
 import { assetPath } from '@/lib/paths';
 export const metadata: Metadata = {
-  title: 'NFT-Studio — Create on Cardano',
+  title: 'NFT-Studio — Create with your AI. Mint on Cardano.',
   applicationName: 'NFT-Studio',
   description:
-    'Create fully on-chain art, music, games, useful apps, Ledger Scrolls and Ledger Books. Build, preview and sign with your Cardano wallet.',
+    'Install the NFT-Studio MCP and create art, music, games, and apps with your AI. Explore minted originals, refine your idea, and approve the mint in your own Cardano wallet.',
   icons: { icon: assetPath('/brand/nft-studio.svg') },
 };
 export const viewport: Viewport = {

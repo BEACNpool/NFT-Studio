@@ -14,7 +14,6 @@ import {
   Shapes,
   Clapperboard,
   Braces,
-  ShieldCheck,
   Layers3,
   CircleHelp,
   ArrowLeft,
@@ -35,6 +34,8 @@ import type { Artwork } from '@/lib/art';
 import type { FileSeed } from './file-workbench';
 import { StudioWallet } from './studio-wallet';
 import { registerStudioTools } from '@/lib/studio-webmcp';
+import { AICreatorHome } from './ai-creator-home';
+import { assetPath } from '@/lib/paths';
 import { BeacnLabs } from './beacn-labs';
 declare global {
   interface Window {
@@ -190,6 +191,7 @@ function StudioSurface() {
               </span>
             </button>
             <div className="ns-topbar-actions">
+              <a className="ai-install-nav" href={assetPath('/mcp/')}>Install MCP <ArrowUpRight size={15} /></a>
               <button
                 className="ns-help-button"
                 onClick={() => navigate('guide')}
@@ -203,26 +205,10 @@ function StudioSurface() {
           </div>
         </header>
         <main id="studio-main" className="ns-main" ref={main} tabIndex={-1}>
-          {view === 'create' && !mode && (
-            <>
-              <div className="ns-heading ns-home-heading">
-                <div>
-                  <h1>Let’s create.</h1>
-                  <p>Choose what you’d like to make.</p>
-                </div>
-                <button
-                  className="ns-draft-link"
-                  onClick={() => navigate('projects')}
-                >
-                  <FolderOpen size={17} /> Open a project{' '}
-                  <ArrowUpRight size={15} />
-                </button>
-              </div>
-              <button className="ns-lab-entry" onClick={() => navigate('labs')}>
-                <FlaskConical size={28} strokeWidth={1.6} />
-                <span><strong>BEACN Labs</strong><small>Explore Cardano. Create with your agent.</small></span>
-                <ChevronRight size={22} />
-              </button>
+          <div hidden={view !== 'create' || !!mode}>
+            <AICreatorHome onExplore={() => navigate('showcase')} />
+            <details className="ai-manual" id="browser-tools">
+              <summary><span><Shapes size={20} /> Create directly in your browser</span><span>Open tools <ChevronRight size={18} /></span></summary>
               <div className="ns-mode-grid">
                 {homeFormats.map(([id, title, detail]) => {
                   const item = MODES.find((mode) => mode.id === id)!;
@@ -250,11 +236,13 @@ function StudioSurface() {
                   );
                 })}
               </div>
-              <p className="ns-start-hint">
-                <ShieldCheck size={17} /> No wallet needed to start.
-              </p>
-            </>
-          )}
+              <button className="ns-lab-entry" onClick={() => navigate('labs')}>
+                <FlaskConical size={26} strokeWidth={1.6} />
+                <span><strong>BEACN Labs</strong><small>Agent review, music releases, and Cardano research.</small></span>
+                <ChevronRight size={22} />
+              </button>
+            </details>
+          </div>
           <div hidden={view !== 'create' || !mode}>
             {mode && (
               <CreationWorkbench
@@ -341,8 +329,8 @@ function FieldGuide() {
   const items = [
     [
       '01',
-      'Start with the thing you want to make.',
-      'An image, a song, a playable game, a finished Scroll or a Book that keeps growing. Each format gets its own tools.',
+      'Create with your AI.',
+      'Install the NFT-Studio MCP, then tell your connected AI what you want to make. The guide offers choices, creates a preview with your AI’s tools, and asks what you want to change. You can also use the browser tools directly.',
     ],
     [
       '02',

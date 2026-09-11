@@ -28,7 +28,7 @@ export async function preflight(entry,node=process.execPath){
  await access(entry).catch(()=>{throw new Error('Build the local MCP first: npm --prefix mcp ci && npm --prefix mcp run build');});
  const transport=new StdioClientTransport({command:node,args:[entry],stderr:'pipe',env:{PATH:process.env.PATH}}),client=new Client({name:'nft-studio-codex-setup',version:'1.0.0'});
  let timer;
- try{return await Promise.race([(async()=>{await client.connect(transport);const tools=(await client.listTools()).tools,resources=(await client.listResources()).resources;for(const name of ['studio_capabilities','create_mint_intent','verify_mint_intent'])if(!tools.some(t=>t.name===name))throw new Error(`MCP does not expose required tool ${name}.`);return {tools:tools.length,resources:resources.length};})(),new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error('Local MCP discovery timed out.')),20000);})]);}
+ try{return await Promise.race([(async()=>{await client.connect(transport);const tools=(await client.listTools()).tools,resources=(await client.listResources()).resources;for(const name of ['studio_capabilities','studio_guide','studio_inspiration','create_mint_intent','verify_mint_intent'])if(!tools.some(t=>t.name===name))throw new Error(`MCP does not expose required tool ${name}.`);return {tools:tools.length,resources:resources.length};})(),new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error('Local MCP discovery timed out.')),20000);})]);}
  finally{clearTimeout(timer);await client.close();}
 }
 export async function main(argv=process.argv.slice(2)){
