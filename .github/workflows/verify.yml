@@ -28,6 +28,7 @@ jobs:
       - run: npm run verify:interactive
       - run: npm run verify:games
       - run: npm run verify:studio
+      - run: npm run verify:handoff
       - run: node scripts/verify-wallet-providers.cjs
       - run: node scripts/verify-mint-receipt.mjs
       - run: node scripts/verify-recovery-catalog.mjs

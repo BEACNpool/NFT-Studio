@@ -13,6 +13,13 @@ import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
 import { FileMintDialog } from './file-mint-dialog';
 import { PayloadPreview } from './file-workbench';
+import { PhoneHandoff } from './phone-handoff';
+import { WalletBrowserHelp } from './studio-wallet';
+import {
+  isPhoneTransferFragment,
+  receivePhoneTransfer,
+  type PhoneTransfer,
+} from '@/lib/studio-handoff';
 import {
   parseMintIntent,
   MAX_MINT_INTENT_BYTES,
@@ -26,6 +33,8 @@ import {
 } from '@/lib/studio-review-link';
 
 const MCP_SETUP_URL = 'https://beacnpool.github.io/NFT-Studio/mcp/';
+const PHONE_SESSION = 'nft-studio.phone-transfer.v1';
+type OpenedRequest = { intent: MintIntent | null; transfer?: PhoneTransfer };
 const MCP_CONFIG = {
   mcpServers: {
     'beacn-nft-studio': {
@@ -41,19 +50,38 @@ export function AgentMintPanel() {
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
   const [selected, setSelected] = useState(0);
+  const [phoneTransfer, setPhoneTransfer] = useState<PhoneTransfer | null>(
+    null,
+  );
   const [connectionStatus, setConnectionStatus] = useState('');
   const input = useRef<HTMLInputElement>(null);
   const generation = useRef(0);
-  const pendingLink = useRef<Promise<MintIntent | null> | null>(null);
+  const pendingLink = useRef<Promise<OpenedRequest> | null>(null);
   useEffect(() => {
     const lifecycle = generation;
     const openLink = (resumePending = false) => {
-      const hash = location.hash;
-      const hasLink = isMintReviewFragment(hash);
+      let hash = location.hash;
+      // The relay remains the source of the request. Keep only its temporary
+      // capability in this tab so reloading can repeat integrity verification.
+      if (!hash && resumePending && !pendingLink.current) {
+        try {
+          const saved = JSON.parse(
+            sessionStorage.getItem(PHONE_SESSION) || 'null',
+          );
+          if (saved?.expiresAt > Date.now() && typeof saved.hash === 'string')
+            hash = saved.hash;
+          else sessionStorage.removeItem(PHONE_SESSION);
+        } catch {
+          /* Browser storage is optional. */
+        }
+      }
+      const isPhone = isPhoneTransferFragment(hash);
+      const hasLink = isPhone || isMintReviewFragment(hash);
       if (!hasLink && !(resumePending && pendingLink.current)) return;
       const current = ++lifecycle.current;
       setBusy(true);
       setIntent(null);
+      setPhoneTransfer(null);
       setError('');
       setText('');
       // Remove content from the current history entry before parsing it. No
@@ -73,7 +101,9 @@ export function AgentMintPanel() {
           );
           return;
         }
-        pendingLink.current = parseMintReviewFragment(hash);
+        pendingLink.current = isPhone
+          ? receivePhoneTransfer(hash)
+          : parseMintReviewFragment(hash).then((intent) => ({ intent }));
       }
       // StrictMode replays effects after clearing the URL. Reattach to the same
       // verification promise while keeping stale results invalidated on cleanup.
@@ -81,7 +111,21 @@ export function AgentMintPanel() {
         (result) => {
           if (current !== lifecycle.current) return;
           pendingLink.current = null;
-          setIntent(result);
+          setIntent(result.intent);
+          setPhoneTransfer(result.transfer || null);
+          try {
+            if (result.transfer)
+              sessionStorage.setItem(
+                PHONE_SESSION,
+                JSON.stringify({
+                  hash: new URL(result.transfer.url).hash,
+                  expiresAt: result.transfer.expiresAt,
+                }),
+              );
+            else sessionStorage.removeItem(PHONE_SESSION);
+          } catch {
+            /* The current view still works without tab storage. */
+          }
           setSelected(0);
           setBusy(false);
         },
@@ -89,6 +133,11 @@ export function AgentMintPanel() {
           if (current !== lifecycle.current) return;
           pendingLink.current = null;
           setError(errorText(cause));
+          try {
+            sessionStorage.removeItem(PHONE_SESSION);
+          } catch {
+            /* Optional. */
+          }
           setBusy(false);
         },
       );
@@ -107,6 +156,12 @@ export function AgentMintPanel() {
     setBusy(true);
     setError('');
     setIntent(null);
+    setPhoneTransfer(null);
+    try {
+      sessionStorage.removeItem(PHONE_SESSION);
+    } catch {
+      /* Optional. */
+    }
     try {
       const result = await parseMintIntent(source);
       if (current !== generation.current) return;
@@ -154,8 +209,14 @@ export function AgentMintPanel() {
             ? 'Inspect the files, connect your wallet, then review and approve the mint.'
             : 'Open your agent’s review link or import its request, then approve with your wallet.'}
         </p>
+        {busy && <p role="status">Opening and verifying your creation…</p>}
+        {error && (
+          <p className="ns-error" role="alert">
+            {error}
+          </p>
+        )}
       </div>
-      {!intent && (
+      {!intent && !busy && !error && (
         <section className="ns-panel ns-mcp-connect">
           <span className="ns-lab-kicker">OPEN-SOURCE MCP</span>
           <h3>Run NFT-Studio with your agent.</h3>
@@ -263,11 +324,6 @@ export function AgentMintPanel() {
               <FileCheck2 size={18} />{' '}
               {busy ? 'Checking files…' : 'Inspect request'}
             </Button>
-            {error && (
-              <p className="ns-error" role="alert">
-                {error}
-              </p>
-            )}
             <details className="ns-lab-details">
               <summary>Full service and setup details</summary>
               <p>
@@ -301,6 +357,12 @@ export function AgentMintPanel() {
                     ++generation.current;
                     pendingLink.current = null;
                     setIntent(null);
+                    setPhoneTransfer(null);
+                    try {
+                      sessionStorage.removeItem(PHONE_SESSION);
+                    } catch {
+                      /* Optional. */
+                    }
                     setBusy(false);
                     setError('');
                   }}
@@ -346,6 +408,17 @@ export function AgentMintPanel() {
                 <span>Request SHA-256</span>
                 <code>{intent.intentHash}</code>
               </div>
+              {phoneTransfer && (
+                <div className="ns-phone-received">
+                  <span className="ns-lab-status">
+                    Creation received · content verified
+                  </span>
+                  <WalletBrowserHelp
+                    reviewUrl={phoneTransfer.url}
+                    expiresAt={phoneTransfer.expiresAt}
+                  />
+                </div>
+              )}
               <div className="ns-button-row">
                 <Button
                   variant="outline"
@@ -358,10 +431,15 @@ export function AgentMintPanel() {
                 >
                   <Download size={16} /> Save request
                 </Button>
+                {!phoneTransfer && (
+                  <PhoneHandoff key={intent.intentHash} intent={intent} />
+                )}
                 <FileMintDialog
                   key={intent.intentHash}
                   bundle={intent.bundle}
                   mode={intent.mode}
+                  walletBrowserUrl={phoneTransfer?.url}
+                  walletBrowserExpiresAt={phoneTransfer?.expiresAt}
                 />
               </div>
             </>

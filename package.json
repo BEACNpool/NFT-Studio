@@ -22,6 +22,7 @@
     "build:abcde": "PRISM_BASE_PATH=/ABCDE/BMKR vinext build && node scripts/export-abcde.mjs",
     "build:pages": "NFT_STUDIO_BASE_PATH=/NFT-Studio vinext build && node scripts/export-studio.mjs",
     "verify:studio": "node scripts/verify-studio.mjs",
+    "verify:handoff": "node scripts/verify-handoff.mjs",
     "typecheck": "tsc --noEmit",
     "verify:labs": "node scripts/verify-labs.mjs && node scripts/verify-proof-of-existence.mjs",
     "verify:knowledge": "node knowledge/verify.mjs && node knowledge/verify-cip-drift.mjs && node knowledge/verify-implementations.mjs --require-repository && node knowledge/standards/scripts/build-bundle.mjs --check && python3 -B knowledge/standards/scripts/build.py --check && python3 -B knowledge/standards/test/extraction.py && python3 -B knowledge/standards/test/retrieval-redirect.py && node --test knowledge/standards/test/corpus.test.mjs",
@@ -52,6 +53,7 @@
     "fflate": "^0.8.3",
     "input-otp": "1.4.2",
     "lucide-react": "1.31.0",
+    "qrcode": "1.5.4",
     "react": "19.2.8",
     "react-day-picker": "9.8.1",
     "react-dom": "19.2.8",
@@ -71,11 +73,15 @@
     "@openai/sites-vite-plugin": "0.2.0",
     "@tailwindcss/postcss": "4.2.1",
     "@types/node": "22.19.19",
+    "@types/qrcode": "1.5.6",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "6.0.2",
     "@vitejs/plugin-rsc": "0.5.34",
+    "drizzle-kit": "0.31.10",
+    "drizzle-orm": "0.45.2",
     "esbuild": "0.28.2",
+    "jsqr": "1.4.0",
     "oxfmt": "0.61.0",
     "oxlint": "1.76.0",
     "oxlint-tsgolint": "7.0.2001",
@@ -83,6 +89,11 @@
     "typescript": "5.9.3",
     "vite": "8.2.2",
     "wrangler": "4.129.0"
+  },
+  "overrides": {
+    "@esbuild-kit/core-utils": {
+      "esbuild": "$esbuild"
+    }
   },
   "type": "module"
 }

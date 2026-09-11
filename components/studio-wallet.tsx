@@ -17,20 +17,55 @@ import {
 import { Button } from './ui/button';
 import { findWallets, errorText } from '@/lib/cardano';
 
-export function WalletBrowserHelp() {
+export function WalletBrowserHelp({
+  reviewUrl,
+  expiresAt,
+}: { reviewUrl?: string; expiresAt?: number } = {}) {
   const [url, setUrl] = useState('');
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState('');
+  const [hasWallet, setHasWallet] = useState(false);
+  const [expired, setExpired] = useState(false);
   useEffect(() => {
-    setUrl(location.href);
-  }, []);
+    setUrl(reviewUrl || location.href);
+    const refresh = () => {
+      setHasWallet(findWallets().length > 0);
+      setExpired(Boolean(expiresAt && expiresAt <= Date.now()));
+    };
+    refresh();
+    const timer = setInterval(refresh, 1500);
+    return () => clearInterval(timer);
+  }, [reviewUrl, expiresAt]);
+  if (reviewUrl && hasWallet)
+    return (
+      <p className="ns-lab-muted">
+        Your wallet browser is ready. Check this creation, then choose Review
+        with my wallet below.
+      </p>
+    );
+  if (reviewUrl && expired)
+    return (
+      <p className="ns-lab-muted">
+        The phone link has expired. You can still review these loaded files
+        here. To open them in another browser, create a fresh QR code on your
+        computer.
+      </p>
+    );
   return (
     <div className="ns-browser-help">
       <span className="ns-note-icon">
         <Smartphone size={24} />
       </span>
-      <h3>Creating on your phone?</h3>
-      <p>Open this link in VESPR’s browser to create and sign in one place.</p>
+      <h3>
+        {reviewUrl
+          ? 'Continue in your mobile wallet.'
+          : 'Creating on your phone?'}
+      </h3>
+      <p>
+        {reviewUrl
+          ? 'Open this same creation in VESPR’s browser to review and sign.'
+          : 'Open this link in VESPR’s browser to create and sign in one place.'}
+      </p>
       <a
         className="ns-primary"
         href={
@@ -49,16 +84,25 @@ export function WalletBrowserHelp() {
             setCopied(true);
             setError('');
           } catch {
-            setError('Copy the address from your browser’s address bar.');
+            setError(
+              reviewUrl
+                ? 'Clipboard unavailable. Open your original QR link inside VESPR’s browser.'
+                : 'Copy the address from your browser’s address bar.',
+            );
           }
         }}
       >
         {copied ? <Check size={16} /> : <Copy size={16} />}{' '}
-        {copied ? 'Link copied' : 'Copy app link'}
+        {copied
+          ? 'Link copied'
+          : reviewUrl
+            ? 'Copy creation link'
+            : 'Copy app link'}
       </Button>
       <small>
-        Your phone chooses the wallet app. Start there before uploading; drafts
-        stay in the browser where you create them.
+        {reviewUrl
+          ? 'Choose VESPR if Android asks. If the button does not open your wallet, copy the creation link and paste it into VESPR’s browser.'
+          : 'Your phone chooses the wallet app. Start there before uploading; drafts stay in the browser where you create them.'}
       </small>
       {error && <p role="status">{error}</p>}
     </div>

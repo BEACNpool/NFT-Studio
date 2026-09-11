@@ -50,7 +50,12 @@ import { download, filename, jsonBlob } from '@/lib/export';
 type FileMintInput =
   | { bundle: PayloadBundle; mode: 'nft' | 'data'; musicPackage?: never }
   | { musicPackage: MusicReleasePackage; bundle?: never; mode?: never };
-export function FileMintDialog(input: FileMintInput) {
+export function FileMintDialog(
+  input: FileMintInput & {
+    walletBrowserUrl?: string;
+    walletBrowserExpiresAt?: number;
+  },
+) {
   const musicPackage = input.musicPackage;
   const bundle = musicPackage ? musicPackage.bundle : input.bundle!;
   const mode = musicPackage ? 'nft' : input.mode!;
@@ -369,7 +374,10 @@ export function FileMintDialog(input: FileMintInput) {
                   </Button>
                 ))
               ) : (
-                <WalletBrowserHelp />
+                <WalletBrowserHelp
+                  reviewUrl={input.walletBrowserUrl}
+                  expiresAt={input.walletBrowserExpiresAt}
+                />
               )}
               <Button variant="ghost" onClick={() => setWallets(findWallets())}>
                 <RefreshCw size={16} />
