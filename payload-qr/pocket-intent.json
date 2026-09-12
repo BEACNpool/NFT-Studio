@@ -1,0 +1,22 @@
+{
+  "schema": "nft-studio.intent.v1",
+  "mode": "nft",
+  "bundle": {
+    "schema": "nft-studio.payload.v1",
+    "name": "POCKET SIGNAL",
+    "description": "An original compact signal. Print it, share it, review before minting.",
+    "cover": true,
+    "bytes": 365,
+    "files": [
+      {
+        "name": "pocket-signal.svg",
+        "mediaType": "image/svg+xml",
+        "bytes": 365,
+        "sha256": "cee8f9a7d5e3ff707b875eb72ba5706c3a44650551bc257bed7a3cea9f14cdf0",
+        "uri": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgMjQwIj48cmVjdCB3aWR0aD0iMjQwIiBoZWlnaHQ9IjI0MCIgcng9IjI4IiBmaWxsPSIjMDkwZjE4Ii8+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjODhmN2Q4IiBzdHJva2Utd2lkdGg9IjgiPjxjaXJjbGUgY3g9IjEyMCIgY3k9IjEyMCIgcj0iMjgiLz48Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMjAiIHI9IjY1IiBvcGFjaXR5PSIuNiIvPjxjaXJjbGUgY3g9IjEyMCIgY3k9IjEyMCIgcj0iOTUiIG9wYWNpdHk9Ii4zIi8+PC9nPjxwYXRoIGQ9Im0xMjggNjYtNDMgNjdoMzNsLTcgNDEgNDQtNjhoLTM0eiIgZmlsbD0iI2JhYThlZSIvPjwvc3ZnPgo="
+      }
+    ],
+    "sha256": "05f909b25c14a04d7ecdac8179a7000df97ca99e7e7b5de3a2ae5c06bb75acff"
+  },
+  "intentHash": "d76b1fa173f9afd7a0a599f0762fc261c868c4ebf00a4cd453fccaa0a47bd0be"
+}

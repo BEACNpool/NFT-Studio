@@ -1,0 +1,82 @@
+{
+  "film": "beacn-payload-qr.mp4",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "frames": 1440,
+    "seconds": 48,
+    "video": "H.264",
+    "audio": "AAC,48kHz,stereo"
+  },
+  "fullTechnicalQcPassed": true,
+  "fullDecodePassed": true,
+  "integratedLufs": -15.6,
+  "truePeakDbTP": -2.8,
+  "encodedFramesInspected": 41,
+  "allCutBoundariesInspected": true,
+  "encodedPayloadQrDecodeExact": true,
+  "encodedStudioCtaQrDecodeExact": true,
+  "frozenImageWarnings": "Intentional recorded UI holds and static explanatory/CTA cards; no unintended blank frames.",
+  "newProviderSpend": 0,
+  "captionType": "On-screen text transcription; instrumental music, no spoken narration",
+  "fullRealtimeListeningReview": "pending",
+  "davidCreativeApproval": "pending",
+  "files": [
+    {
+      "file": "MEDIA.md",
+      "bytes": 2167,
+      "sha256": "6eca7eef525a1ace934c7bae9f010bdb83d8bf6e1b48ec35dc7cea006628abc3"
+    },
+    {
+      "file": "beacn-payload-qr-poster.jpg",
+      "bytes": 149125,
+      "sha256": "dee871c9eb540f1a20c81f2510b6a87f08ea0e5cf645dd1bee0c3a0546c35793"
+    },
+    {
+      "file": "beacn-payload-qr.mp4",
+      "bytes": 2942537,
+      "sha256": "8c9e0086f00987704d7a688a5d5a59501798eb14d30056afe66d55e14536c331"
+    },
+    {
+      "file": "beacn-payload-qr.srt",
+      "bytes": 1692,
+      "sha256": "cd641c07f8b291ec126c38f8b0b0d82d746a5873b0b688cf39a98081ae65f33c"
+    },
+    {
+      "file": "beacn-payload-qr.vtt",
+      "bytes": 1793,
+      "sha256": "73222e858095353079b4312940167294e0c8c2ae9cafc691bde51e6a9693b0e8"
+    },
+    {
+      "file": "payload-qr.png",
+      "bytes": 21187,
+      "sha256": "99f044af56bff04c3c4302be39a047439e046bdd96f1425e6e59ccbb997cfa5d"
+    },
+    {
+      "file": "payload-qr.svg",
+      "bytes": 23209,
+      "sha256": "ba17e1a94efa6f52eb3ee6babfd48d7c5189867dc82b6b497938a033d062263e"
+    },
+    {
+      "file": "payload-url.txt",
+      "bytes": 1021,
+      "sha256": "18c6f60e5bb934d9b9065273c80002ac93e4069ef5d70a3a6c184a35477bf7ae"
+    },
+    {
+      "file": "pocket-intent.json",
+      "bytes": 1190,
+      "sha256": "43306a13f5de0b3662714a8198d12e5e7b359dfe7522bdbaa93ece00f1f6767b"
+    },
+    {
+      "file": "pocket-signal-print-card.png",
+      "bytes": 65081,
+      "sha256": "9a6171edde6865668215c390db68204a88743345cdaaede0ece9d1ee96333896"
+    },
+    {
+      "file": "pocket-signal.svg",
+      "bytes": 365,
+      "sha256": "cee8f9a7d5e3ff707b875eb72ba5706c3a44650551bc257bed7a3cea9f14cdf0"
+    }
+  ]
+}
