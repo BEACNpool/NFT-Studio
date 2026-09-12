@@ -25,7 +25,7 @@ if(register.sourceCatalog.sha256!==createHash('sha256').update(catalogBytes).dig
 await mkdir(resolve(here, 'dist'), { recursive: true });
 await build({
   absWorkingDir: here,
-  entryPoints: ['src/cli.mjs', 'src/server.mjs', 'src/http.mjs', 'src/public-unsigned.mjs'],
+  entryPoints: ['src/cli.mjs', 'src/server.mjs', 'src/http.mjs', 'src/public-unsigned.mjs', 'src/mobile-tools.mjs'],
   outdir: 'dist', outExtension: {'.js':'.mjs'},
   bundle: true, platform: 'node', format: 'esm', target: 'node22',
   packages: 'external', sourcemap: false, logLevel: 'warning',
@@ -48,12 +48,13 @@ const wasm=Buffer.from(encoded[1],'base64');
 if(createHash('sha256').update(wasm).digest('hex')!=='30f78ee3d0e5fc2f4cd1c87347b330e69fcdd0acb07d4a6e08ff8278d7d9a40b')throw new Error('Pinned CSL 17 WASM changed.');
 await writeFile(resolve(here,'dist/cardano_serialization_lib_bg.wasm'),wasm);
 const cslLicense=await readFile(resolve(here,'CSL-LICENSE'),'utf8');
+const qrNotices=(await Promise.all(['qrcode/license','dijkstrajs/LICENSE.md'].map(name=>readFile(resolve(nestedModules,name),'utf8')))).join('\n\n');
 const capsuleNotices=(await Promise.all(['LICENSE','THIRD_PARTY.md',...(await readdir(resolve(capsule,'licenses'))).sort().map(name=>'licenses/'+name)].map(name=>readFile(resolve(capsule,name),'utf8')))).join('\n\n');
 await build({
   absWorkingDir:here,entryPoints:['src/worker.mjs'],outfile:'dist/worker.mjs',
   bundle:true,platform:'browser',format:'esm',target:'es2022',conditions:['workerd','worker','browser'],
   nodePaths:[nestedModules],external:['*.wasm'],define:{'process.env.NEXT_PUBLIC_BASE_PATH':'""'},
-  banner:{js:'/*! CSL 17 browser WASM and glue: '+cslLicense.replaceAll('*/','* /')+' */\n/*! Fixed capsule adapter dependencies and notices: '+capsuleNotices.replaceAll('*/','* /')+' */'},
+  banner:{js:'/*! QR encoder notices: '+qrNotices.replaceAll('*/','* /')+' */\n/*! CSL 17 browser WASM and glue: '+cslLicense.replaceAll('*/','* /')+' */\n/*! Fixed capsule adapter dependencies and notices: '+capsuleNotices.replaceAll('*/','* /')+' */'},
   sourcemap:false,minify:false,logLevel:'warning',
   plugins:[corpusRawPlugin,{name:'shared-studio-source',setup(b){
     b.onResolve({filter:/^@capsule\//},args=>({path:resolve(capsule,'src',args.path.slice(9))}));

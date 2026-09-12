@@ -23,7 +23,7 @@ Your MCP client runs its server locally over stdio. The setup page is a guide,
 **not an HTTP MCP endpoint**: GitHub Pages hosts static files and cannot run the
 server process. See [GitHub's hosting documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages).
 
-The local Node server provides **19 tools and 61 resources**. It includes Cardano
+The local Node server provides **21 tools and 61 resources**. It includes Cardano
 knowledge, original CIP source search, exact payloads, music packages, proof
 records, fixed Capsule parameters, unsigned native NFT/data/music transactions
 and external witness verification. No tool holds a signing key, connects to a
@@ -43,7 +43,7 @@ or a long link through model prose. A prepared
 [Labor Day flag and original whistle march](../experiments/labor-day-worker-demo/README.md)
 demonstrates this path; it is not a confirmed mint.
 
-The separately deployable Worker has a 17-tool subset. It requires an operator's
+The separately deployable Worker has a 19-tool subset. It requires an operator's
 own HTTPS host; no hosted address is advertised in this repository. A setup-page
 URL cannot substitute for that endpoint. The [operator integration guide](../mcp/integration/README.md)
 describes explicit host configuration and real-client verification.
@@ -152,6 +152,7 @@ Run the compiled file directly. `npm run` can write banners to stdout, which is 
 | `validate_payload` | Exact file bytes, MIME signature/UTF-8 checks, canonical embedded URIs, SHA-256 and data metadata measurement |
 | `validate_metadata` | Ledger-safe JSON subset validation and actual auxiliary CBOR size/hash |
 | `create_proof_record` / `verify_proof_record` | Proposed CIP-190 public hash records and exact-byte verification, with raw record/metadata CBOR exports |
+| `create_mobile_handoff` / `revoke_mobile_handoff` | Native encrypted 15-minute phone transfer, QR SVG, exact-content read-back, and creator revocation |
 | `create_mint_intent` / `verify_mint_intent` | Deterministic file packet for visible browser review |
 | `create_music_release` / `verify_music_release` | Canonical files-and-credits package for the Music release lab |
 | `apply_state_capsule_parameters` | Apply exact seed/name parameters to the pinned experimental program and export its blueprint and identity |
@@ -320,7 +321,7 @@ The public unsigned tool accepts precisely the same `{intent, wallet: {changeHex
 
 | Contract | Public Worker | Full Node service |
 | --- | --- | --- |
-| Tools in this source revision | 15, including original CIP sources, music packages, Capsule parameters and stateless unsigned preparation | 17, including metadata measurement and stored ordinary-transaction witness verification |
+| Tools in this source revision | 19, including native mobile QR handoff and stateless unsigned preparation | 21, additionally including metadata measurement and stored ordinary-transaction witness verification |
 | Wallet snapshot limit | 32 UTxOs; 16 KiB each; 32 KiB aggregate; 512 native assets | Ordinary: 128 UTxOs, 16 KiB each, 128 KiB aggregate. Music: same limits as Worker. |
 | Caller CBOR preflight | 4,096 nodes and depth 16 before CSL | Same preflight for UTxOs and external witness sets |
 | Preparation state | None | Ordinary: RAM packet cache, four-minute TTL, 64 packets. Music: none. |
@@ -331,7 +332,7 @@ Public preparation arguments are capped at **88 KiB**, within the transport's **
 
 The new tool receives wallet addresses and complete supplied UTxO CBOR. Supply a snapshot only with the wallet user's authorization. It does not connect to wallets, read private files, establish ownership, prove inputs unspent, sign or submit. It fetches only fixed read-only Koios `/tip` and latest `/epoch_params` URLs from the Studio provider; no supplied content, wallet address, UTxO or caller header enters those requests. Each response is capped at 64 KiB; redirects, malformed UTF-8/JSON, stale tip data, inconsistent epochs and invalid parameters reject. Two preparations may run at once, with a ten-second provider deadline. A failed request releases capacity.
 
-The other public tools use explicit content or fixed bundled research and make no network requests. Proof records remain exports; the unsigned native builder does not attach their label-309 metadata automatically. Neither public tool set supplies custodial signing, chain inclusion, arbitrary Plutus transactions or a paid multi-tenant account system.
+The mobile tools use the fixed Studio relay to create, verify or revoke an explicitly requested encrypted transfer. The remaining content and research tools make no network requests. Proof records remain exports; the unsigned native builder does not attach their label-309 metadata automatically. Neither public tool set supplies custodial signing, chain inclusion, arbitrary Plutus transactions or a paid multi-tenant account system.
 
 An operator can wrap the module in an existing HTTPS Worker:
 
@@ -353,8 +354,20 @@ export default { fetch: request => mcp.fetch(request) };
 
 The placeholder is not a deployed endpoint. `endpointPath` defaults to `/mcp`; the existing Sites wrapper uses `/api/mcp` because the front dispatcher reserves `/mcp`. The exact `Request.url.origin` is authoritative for Worker routing; proxy-internal raw Host cannot override it. The Node listener separately checks raw Host. Browser origins use an exact HTTPS allowlist, including the standard SDK request headers; nonbrowser callers may omit Origin.
 
-Public requests need no bearer token. The handler transforms only explicitly supplied data and makes the fixed protocol reads described above. It does not persist or log request bodies. Hosting-provider infrastructure can retain operational metadata. Do not send secrets. Intent review URLs carry no content or wallet data.
+Public requests need no bearer token. The handler transforms only explicitly supplied data and makes the fixed protocol reads and requested encrypted mobile transfers described above. It does not log request bodies. Explicit mobile handoffs store AES-GCM ciphertext on the fixed Studio relay for 15 minutes; their decryption key stays in the phone URL fragment. Hosting-provider infrastructure can retain operational metadata. Do not send secrets. Intent review URLs contain the supplied content in their fragment. Native phone URLs contain a temporary content decryption key in their fragment.
 
 The Worker rejects invalid UTF-8/JSON, batches, compressed content, URL queries and non-MCP paths. It allows eight concurrent requests, bounds body reads to ten seconds, and enforces 120 requests/minute **per isolate**. Isolates restart and scale independently; this is a best-effort local bound, not a durable global quota. Platform-level controls are required for a shared global quota.
 
 `npm --prefix mcp test` exercises all public tools in actual Workerd without Node compatibility, with modern and legacy official clients. It compares NFT/data/two-key unsigned output against Node CSL and tests schema/CBOR/asset/parameter/feed/concurrency/timeout failures. All network responses and wallet outputs in these tests are synthetic. The separate [wrapper verifier](../mcp/integration/README.md) checks the discovered tools alongside the actual application and byte-identical JavaScript, CSS and images. Deployment and actual public SDK verification remain separate release steps.
+
+## Send to mobile with a QR code
+
+After the preview, choose **Send to mobile (QR)** or ask “Send this to my phone.”
+The agent calls `create_mobile_handoff` with the exact verified ordinary intent
+and displays its QR, complete HTTPS phone link and expiry. This uses the same
+15-minute encrypted transfer as **Continue on phone → Create QR code** in Studio.
+The local-file helper supports `--mobile` and saves PNG/SVG QR images and a phone
+review page. Opening the link grants no wallet permission.
+
+See [the native mobile workflow](MOBILE_HANDOFF.md) for agent steps, saved files,
+privacy, expiry and supported package limits.

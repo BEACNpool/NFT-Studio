@@ -93,3 +93,15 @@ phone widths, clipboard fallback, example routes, setup commands and navigation.
 `scripts/audit-app-navigation.cjs` retains the unsaved-editor Back/Forward check.
 The existing mint tests remain separate; no release test signs or submits a real
 wallet transaction.
+
+## Native phone handoff
+
+The post-preview menu also offers **Send to mobile (QR)**. Selecting it sets
+`state.handoffTarget` to `mobile`; it does not upload content by itself. The agent
+then validates the exact supported files and calls `create_mobile_handoff`, or
+runs the local-file exporter with `--mobile`. Display the QR image, complete phone
+link and expiry. A desktop handoff also offers the mobile choice.
+
+This is the same **Continue on phone → Create QR code** flow as the Studio browser.
+Keep and Pause retain their existing behavior and never create a transfer.
+Wallet connection and mint approval remain separate. See [Mobile handoff](MOBILE_HANDOFF.md).

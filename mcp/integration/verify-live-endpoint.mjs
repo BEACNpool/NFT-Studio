@@ -9,12 +9,12 @@ export function parseLiveOptions(args) {
   let target,expectedTools=8,expectedResources=55,seen=false,seenResources=false;
   for(let i=0;i<args.length;i++){
     if(args[i]==='--expected-tools'){
-      if(seen||!['8','9','10','12','13','15','17'].includes(args[++i]))throw new Error('--expected-tools must be 8, 9, 10, 12, 13, 15 or 17, provided once.');
+      if(seen||!['8','9','10','12','13','15','17','19'].includes(args[++i]))throw new Error('--expected-tools must be 8, 9, 10, 12, 13, 15, 17 or 19, provided once.');
       expectedTools=Number(args[i]);seen=true;
     }else if(args[i]==='--expected-resources'){
       if(seenResources||!['55','56','61'].includes(args[++i]))throw new Error('--expected-resources must be 55, 56 or 61, provided once.');
       expectedResources=Number(args[i]);seenResources=true;
-    }else if(args[i].startsWith('-')||target)throw new Error('Usage: verify-live-endpoint.mjs HTTPS_ENDPOINT [--expected-tools 8|9|10|12|13|15|17] [--expected-resources 55|56|61]');
+    }else if(args[i].startsWith('-')||target)throw new Error('Usage: verify-live-endpoint.mjs HTTPS_ENDPOINT [--expected-tools 8|9|10|12|13|15|17|19] [--expected-resources 55|56|61]');
     else target=args[i];
   }
   const endpoint=new URL(target||'');
@@ -51,7 +51,7 @@ for (const mode of ['auto', 'legacy']) {
     await client.connect(new StreamableHTTPClientTransport(endpoint, { fetch: boundedFetch }));
     const tools = (await client.listTools()).tools;
     assert.equal(tools.length, expectedTools);
-    const expectedNames=PUBLIC_TOOL_NAMES.filter(name=>(expectedTools>=17||!['studio_guide','studio_inspiration'].includes(name))&&(expectedTools>=9||name!=='prepare_unsigned_transaction')&&(expectedTools>=10||name!=='apply_state_capsule_parameters')&&(expectedTools>=12||!['create_music_release','verify_music_release'].includes(name))&&(expectedTools>=13||name!=='prepare_unsigned_music_transaction')&&(expectedTools>=15||!['search_cip_sources','get_cip_source_chunk'].includes(name)));
+    const expectedNames=PUBLIC_TOOL_NAMES.filter(name=>(expectedTools>=19||!['create_mobile_handoff','revoke_mobile_handoff'].includes(name))&&(expectedTools>=17||!['studio_guide','studio_inspiration'].includes(name))&&(expectedTools>=9||name!=='prepare_unsigned_transaction')&&(expectedTools>=10||name!=='apply_state_capsule_parameters')&&(expectedTools>=12||!['create_music_release','verify_music_release'].includes(name))&&(expectedTools>=13||name!=='prepare_unsigned_music_transaction')&&(expectedTools>=15||!['search_cip_sources','get_cip_source_chunk'].includes(name)));
     assert.deepEqual(tools.map(tool=>tool.name).sort(),expectedNames);
     for (const forbidden of [...(expectedTools===8?['prepare_unsigned_transaction']:[]), 'verify_signed_transaction', 'sign_transaction', 'submit_transaction']) {
       assert.ok(!tools.some(tool => tool.name === forbidden));

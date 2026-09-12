@@ -35,3 +35,29 @@ Calls are `studio_capabilities`, `create_mint_intent`, then `verify_mint_intent`
 The exported link and JSON contain the original files. Keep them private unless sharing that content is intended. A hash is a byte commitment, not authorship, rights, identity or chain evidence. This exporter does not read wallet data, prepare transactions, sign, submit, confirm inclusion, or guarantee that a complete wallet transaction will fit. Cardano network fees and minimum output ADA still apply; Studio adds zero ADA fee.
 
 The dedicated music-package tools retain their existing file-import handoff. This helper is for ordinary NFT/data payload intents only. Cross-platform paths and a shell-free Node child-process invocation are used. Focused helper/installer tests passed on Linux and Windows. A separate unattended Windows Codex attempt was [blocked by execution policy before the helper ran](../experiments/agent-acceptance/windows-helper/README.md); successful helper tests do not establish that agent-execution stage.
+
+## Save a native mobile QR
+
+When the user asks to send the supported creation to their phone, append `--mobile`:
+
+```sh
+node mcp/create-review.mjs --request REQUEST.json --output NEW_DIRECTORY --mobile
+```
+
+The flag explicitly authorizes sending encrypted content to NFT-Studio's existing
+15-minute relay. It invokes `create_mobile_handoff` through the local MCP, which
+reads back and verifies the exact intent before returning a QR. The exporter
+checks the response, regenerates the QR from its verified Studio phone URL, and
+adds `mobile-qr.png`, `mobile-qr.svg`, `mobile-url.txt` and a self-contained
+`mobile.html`. Display the PNG in chat and provide the full link and expiry.
+Desktop review and `intent.json` remain available.
+
+`mobile-transfer.private.json` holds the creator revocation arguments. Keep it
+private. The final receipt hashes every saved file; files are created exclusively
+with private permissions. Failed exports attempt to revoke their transfer, and
+all transfers expire automatically. Tool calls have bounded timeouts (70 seconds
+for mobile creation, covering upload, read-back and failure cleanup).
+
+Without `--mobile`, no phone transfer is created. Existing output directories
+are never overwritten. This option does not host arbitrary large files: the same
+eight-file / 12,000-raw-byte limits apply. See [Mobile handoff](MOBILE_HANDOFF.md).

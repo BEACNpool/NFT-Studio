@@ -15,7 +15,7 @@ test('Standalone web-standard Worker artifact serves modern and legacy official 
     const transport=new StreamableHTTPClientTransport(new URL(origin+'/mcp'),{fetch:(input,init)=>handler.fetch(new Request(input,init))});
     try{
       await client.connect(transport);assert.equal(client.getProtocolEra(),mode==='auto'?'modern':'legacy');
-      const tools=(await client.listTools()).tools;assert.deepEqual(tools.map(t=>t.name).sort(),PUBLIC_TOOL_NAMES);assert.ok(tools.every(tool=>tool.annotations.readOnlyHint));assert.ok(!tools.some(tool=>tool.name.includes('signed')&&!tool.name.includes('unsigned')));assert.equal(tools.find(t=>t.name==='prepare_unsigned_transaction').annotations.openWorldHint,true);
+      const tools=(await client.listTools()).tools;assert.deepEqual(tools.map(t=>t.name).sort(),PUBLIC_TOOL_NAMES);assert.ok(tools.every(tool=>tool.annotations.readOnlyHint===!['create_mobile_handoff','revoke_mobile_handoff'].includes(tool.name)));assert.ok(!tools.some(tool=>tool.name.includes('signed')&&!tool.name.includes('unsigned')));assert.equal(tools.find(t=>t.name==='prepare_unsigned_transaction').annotations.openWorldHint,true);
       const resources=(await client.listResources()).resources;
       const implementations=await verifyImplementationResources(client,resources);assert.equal(implementations.researchEntriesUnchanged,true);
       await assert.rejects(client.readResource({uri:'nft-studio://implementations?url=https://attacker.invalid'}));

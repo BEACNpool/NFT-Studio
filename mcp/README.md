@@ -26,8 +26,8 @@ transports, and runs the real SDK integration tests without root dependencies.
 It retains the fixture and a JSON receipt for inspection.
 
 Connect a local MCP client to `node /absolute/path/NFT-Studio/mcp/dist/cli.mjs`.
-The Node server exposes 19 tools over local stdio or authenticated Streamable HTTP.
-The separately deployable Worker exposes 17 tools, including stateless unsigned
+The Node server exposes 21 tools over local stdio or authenticated Streamable HTTP.
+The separately deployable Worker exposes 19 tools, including stateless unsigned
 NFT/data/music preparation. Both expose 61 resources; verify deployed capabilities
 through discovery. The Worker requires its adjacent compiled
 CSL WASM module. Its public unsigned result has no Node packet ID or witness-verifier state. Read [the complete setup, tool and signing contract](../docs/MCP.md).
@@ -37,3 +37,15 @@ No tool signs, submits, reads private keys or accepts media-fetch paths/URLs or 
 Read [the music package tool contract](MUSIC_PACKAGES.md). Bots supply exact cover/audio bytes and credits, then receive canonical `.music-release.json` content and a fixed Music Lab link for explicit human wallet review. Music packages are rejected by the ordinary mint-intent and unsigned-preparation tools. The dedicated `prepare_unsigned_music_transaction` accepts canonical music packetJson plus an authorized wallet snapshot; read [its stateless contract](MUSIC_UNSIGNED.md). It shares preparation concurrency with ordinary transactions and cannot enter Node stored witness verification.
 
 Read [the bounded State Capsule parameter tool contract](CAPSULE_PARAMETERS.md). It applies only the pinned program and does not build or evaluate a Capsule transaction.
+
+## Send to mobile with a QR code
+
+After the preview, choose **Send to mobile (QR)** or ask “Send this to my phone.”
+The agent calls `create_mobile_handoff` with the exact verified ordinary intent
+and displays its QR, complete HTTPS phone link and expiry. This uses the same
+15-minute encrypted transfer as **Continue on phone → Create QR code** in Studio.
+The local-file helper supports `--mobile` and saves PNG/SVG QR images and a phone
+review page. Opening the link grants no wallet permission.
+
+See [the native mobile workflow](../docs/MOBILE_HANDOFF.md) for agent steps, saved files,
+privacy, expiry and supported package limits.

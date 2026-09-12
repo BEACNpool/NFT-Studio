@@ -87,6 +87,7 @@ export type GuideState = {
   revision?: string;
   existing?: boolean;
   paused?: boolean;
+  handoffTarget?: 'desktop' | 'mobile';
 };
 export type GuideChoice = { id: string; label: string; description: string };
 export type GuideInput = {
@@ -121,8 +122,9 @@ export function guidePrompt(state: GuideState) {
       `Inspiration: ${STUDIO_PUBLIC_URL}?inspire=${example.id}. Make a new work; keep the original identity separate.`,
     state.existing &&
       'I have files to bring. Ask which files I want to use before reading them.',
-    'Carry forward these preferences; do not ask me to repeat them. Create a first preview, then offer revise, prepare for wallet review, or keep without minting.',
-    'After I choose wallet review, validate the exact files and give me the NFT-Studio review link. I approve any mint in my own wallet.',
+    'Carry forward these preferences; do not ask me to repeat them. Create a first preview, then offer revise, prepare for wallet review, keep without minting, or Send to mobile (QR).',
+    'When I request a phone QR, validate the exact compact files and use create_mobile_handoff for NFT-Studio’s native encrypted transfer. Show its QR, complete phone link and expiry. If the file is too large, preserve it and explain the limit before adapting it. Do not substitute a local-network preview server.',
+    'After I choose wallet review, validate the exact files and give me the NFT-Studio review link or requested mobile handoff. I approve any mint in my own wallet.',
   ]
     .filter(Boolean)
     .join('\n');
@@ -222,6 +224,11 @@ export function guideView(state: GuideState) {
           'Keep it without minting',
           'Save the files and a prompt for another session.',
         ),
+        option(
+          'mobile',
+          'Send to mobile (QR)',
+          'Open the same supported creation on your phone with a 15-minute link.',
+        ),
       ];
       break;
     case 'revision':
@@ -229,15 +236,19 @@ export function guideView(state: GuideState) {
       acceptsText = true;
       break;
     case 'handoff':
-      question = 'Continue in NFT-Studio for wallet review.';
-      note =
-        'Prepare and verify the exact content with the appropriate tools. A review link does not connect a wallet, sign, submit, or confirm a mint.';
+      question = state.handoffTarget === 'mobile'
+        ? 'Continue on your phone with NFT-Studio.'
+        : 'Continue in NFT-Studio for wallet review.';
+      note = state.handoffTarget === 'mobile'
+        ? 'Validate the exact supported files, then create the native encrypted QR transfer. The link lasts 15 minutes. Scanning opens the creation; wallet connection and mint approval remain separate.'
+        : 'Prepare and verify the exact content with the appropriate tools. Use Continue on phone for a mobile QR. A review link does not connect a wallet, sign, submit, or confirm a mint.';
       options = [
         option(
           'revise',
           'Revise the creation',
           'Return to the creative process.',
         ),
+        option('mobile', state.handoffTarget === 'mobile' ? 'Create a fresh mobile QR' : 'Send to mobile (QR)', 'Use NFT-Studio’s encrypted 15-minute phone transfer.'),
       ];
       break;
   }
@@ -285,7 +296,9 @@ export function guideView(state: GuideState) {
       : state.stage === 'creating'
         ? 'Create or revise actual files and show their preview, then call studio_guide with event preview_ready and this state.'
         : state.stage === 'handoff'
-          ? 'Use capabilities to choose create_mint_intent + verify_mint_intent, the dedicated Music tools, or the browser-only creator. Deliver the exact returned review link or packet. Never infer wallet approval or confirmation.'
+          ? state.handoffTarget === 'mobile'
+            ? 'Use capabilities to validate the supported ordinary NFT/data intent with create_mint_intent + verify_mint_intent, then call create_mobile_handoff. For local files use mcp/create-review.mjs --mobile. Display the actual QR, complete phone link and expiry. Oversized files and dedicated Music/Scroll/Book packets need their supported route; explain this and preserve the files. Never invent a LAN preview URL or infer wallet approval. Do not regenerate a completed transfer unless requested.'
+            : 'Use capabilities to choose create_mint_intent + verify_mint_intent, the dedicated Music tools, or the browser-only creator. Deliver the exact returned review link or packet and mention Continue on phone for its native QR handoff. If the user requests the QR, call create_mobile_handoff for a supported ordinary intent. Never infer wallet approval or confirmation.'
           : 'Show this question and numbered options in plain language, accept a number or free text, and wait for the user. Never choose on their behalf unless they asked you to. Call studio_guide with this state and their choice/answer. Back, start_over, and pause are always available.',
     custody:
       'Creative preferences only; no wallet access, transaction, signature, submission, or ledger confirmation.',
@@ -415,11 +428,15 @@ export function advanceGuide(
     case 'feedback':
       return choice === 'keep'
         ? { ...state, paused: true }
-        : { ...state, stage: choice === 'revise' ? 'revision' : 'handoff' };
+        : choice === 'revise'
+          ? { ...state, stage: 'revision' }
+          : { ...state, stage: 'handoff', handoffTarget: choice === 'mobile' ? 'mobile' : 'desktop' };
     case 'revision':
       return { ...state, stage: 'creating', revision: answer?.trim() };
     case 'handoff':
-      return { ...state, stage: 'revision' };
+      return choice === 'mobile'
+        ? { ...state, handoffTarget: 'mobile' }
+        : { ...state, stage: 'revision' };
     default:
       throw Error('Show the actual preview before continuing.');
   }

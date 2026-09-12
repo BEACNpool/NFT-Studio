@@ -56,7 +56,7 @@ await assertNoRootDependencies();
 await npm(['test']);
 await assertNoRootDependencies();
 const artifacts = {};
-for (const name of ['cli.mjs', 'server.mjs', 'http.mjs', 'worker.mjs', 'public-unsigned.mjs', 'cardano_serialization_lib_bg.wasm']) {
+for (const name of ['cli.mjs', 'server.mjs', 'http.mjs', 'worker.mjs', 'public-unsigned.mjs', 'mobile-tools.mjs', 'cardano_serialization_lib_bg.wasm']) {
   const bytes = await readFile(join(fixture, 'mcp', 'dist', name));
   artifacts[name] = { bytes: bytes.length, sha256: createHash('sha256').update(bytes).digest('hex') };
 }

@@ -50,11 +50,11 @@ does not require a wallet.
 | Agent minting | Ask your configured agent for a compact NFT, open its content-bound review link, inspect the files, then connect your wallet and approve the mint. JSON import remains available. |
 
 The [repository-hosted MCP setup page](https://beacnpool.github.io/NFT-Studio/mcp/)
-shows how to run **19 tools and 61 resources locally from this repo**: Cardano knowledge,
+shows how to run **21 tools and 61 resources locally from this repo**: Cardano knowledge,
 original CIP source access, exact files and music packages, fixed Capsule parameters,
 unsigned transactions and external witness verification. Your wallet retains signing
 authority. The setup page is not an HTTP MCP endpoint; operators can separately deploy
-the 17-tool Worker on their own HTTPS host. [Connection guide](docs/MCP.md#public-connection). The [knowledge repository](knowledge/)
+the 19-tool Worker on their own HTTPS host. [Connection guide](docs/MCP.md#public-connection). The [knowledge repository](knowledge/)
 is reusable data with source hashes, attribution and an explicit evidence policy.
 
 For Codex, the guide includes an installer and the repository’s `$nft-studio` skill.
@@ -211,3 +211,15 @@ Created by BEACN from its BMKR / BEACN PRISM and Ledger projects. Ledger Scrolls
 retains its upstream MIT license at `public/tools/ledger/LICENSE`. Original media,
 collection attribution, game notices and existing policy identities remain with
 their respective files. Code availability does not grant rights to third-party art.
+
+## Send to mobile with a QR code
+
+After the preview, choose **Send to mobile (QR)** or ask “Send this to my phone.”
+The agent calls `create_mobile_handoff` with the exact verified ordinary intent
+and displays its QR, complete HTTPS phone link and expiry. This uses the same
+15-minute encrypted transfer as **Continue on phone → Create QR code** in Studio.
+The local-file helper supports `--mobile` and saves PNG/SVG QR images and a phone
+review page. Opening the link grants no wallet permission.
+
+See [the native mobile workflow](docs/MOBILE_HANDOFF.md) for agent steps, saved files,
+privacy, expiry and supported package limits.

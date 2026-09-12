@@ -22,16 +22,30 @@ For Codex CLI, signed in with your existing login, run from the checkout:
 This explicitly registers the built local server and refuses conflicting settings.
 The repo includes .agents/skills/nft-studio/SKILL.md. Open Codex in the checkout
 and ask: $nft-studio Create a pixel-art spaceship NFT and give me its review link.
-Local server: 17 tools and 61 resources; use discovery for the running version.
-Tools: studio_capabilities, search_knowledge, read_knowledge,
+Local server: 21 tools and 61 resources; use discovery for the running version.
+Tools: studio_guide, studio_inspiration, create_mobile_handoff, revoke_mobile_handoff,
+studio_capabilities, search_knowledge, read_knowledge,
 search_cip_sources, get_cip_source_chunk, validate_payload, validate_metadata,
 create_mint_intent, verify_mint_intent, create_proof_record, verify_proof_record,
 prepare_unsigned_transaction, verify_signed_transaction, apply_state_capsule_parameters,
 create_music_release, verify_music_release, prepare_unsigned_music_transaction.
-A separately deployable Worker has15tools. Operators supply their own HTTPS host.
+A separately deployable Worker has 19 tools. Operators supply their own HTTPS host.
 No personal hosting address is advertised here.
 
-Begin with studio_capabilities for current limits and evidence boundaries.
+Begin with studio_guide for creation; discover studio_capabilities for limits.
+After a preview offer revise, wallet review, keep without minting, or Send to mobile (QR).
+When asked for a phone QR, call create_mobile_handoff with the exact verified ordinary
+intent. Show its QR as an image, full phone URL and expiry. This uses Studio's native
+Continue on phone / Create QR code flow, with a 15-minute encrypted relay.
+The local-file helper mcp/create-review.mjs supports --mobile and saves QR PNG/SVG,
+mobile.html, mobile-url.txt, desktop review and a private revocation record.
+Use revoke_mobile_handoff with returned endTransfer arguments only when asked to end it.
+Keep the creator revocation token private; anyone with the complete phone link can
+view the creation until expiry. No wallet connection or mint permission is implied.
+Ordinary limits remain eight files / 12,000 total raw bytes. Preserve oversized art;
+explain its supported route and agree on material changes. Never substitute a LAN
+server or unrelated QR. An older MCP can use Continue on phone in the Studio browser.
+Mobile guide: https://github.com/BEACNpool/NFT-Studio/blob/main/docs/MOBILE_HANDOFF.md
 File inputs contain explicit canonical base64 bytes, never local paths or URLs.
 The local server receives the content explicitly supplied by its client.
 For an ordinary mint, return create_mint_intent.review.url exactly to the human.

@@ -110,7 +110,7 @@ isolated source fixture and runs the same suite without frontend dependencies.
 Tests never use a real wallet or submit transactions; existing ordinary signature
 tests retain only their original ephemeral synthetic keys.
 
-The source discovery surface is 15 Worker tools and 17 Node tools. The
+The source discovery surface is 19 Worker tools and 21 Node tools. The
 [dated public receipt](../docs/MCP_PUBLIC_VERIFICATION.json) observed all 15 public
 tools, including independently checked synthetic Music unsigned output, with both
 protocol eras at 2026-09-07T10:26:58.401Z. Resource

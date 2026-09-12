@@ -33,7 +33,7 @@ or a dedicated credited release; establish which before packaging it.
 
 At `creating`, use your own creative tools to make the actual files and show a
 preview. Then call the guide with `event: "preview_ready"`. Offer **Make a change**,
-**Prepare for wallet review**, or **Keep it without minting**. A revision returns
+**Prepare for wallet review**, **Keep it without minting**, or **Send to mobile (QR)**. A revision returns
 to creation and another preview. `back`, `pause`, `resume`, and `start_over` are
 always available. Respect declined/cancelled forms; do not ask the same question
 again automatically. Keep or export the brief on request for a future session.
@@ -54,7 +54,7 @@ follow the exact-content handoff below. Never use a menu answer as wallet consen
    checked later with the wallet. Keep HTML, SVG, games and audio self-contained.
    External image-generation output often needs substantial resizing or a different
    representation before it fits. Never silently change the user's intended content.
-3. For generated audio, binary media, or a large result, use the repository's
+3. For generated audio, binary media, or a result whose encoded text is long, use the repository's
    `mcp/create-review.mjs` client helper. Write a local request JSON whose files
    have `path`, `name` and `mediaType`, then run:
    `node mcp/create-review.mjs --request REQUEST.json --output NEW_DIRECTORY`.
@@ -87,6 +87,38 @@ canonical music packet. Do not pass that packet to the ordinary NFT intent tool.
 Scrolls, Books and existing catalogue programs over the compact limit use their
 browser Studio creators. Do not claim arbitrary Plutus, holder gating, CIP-68
 updates or permanent one-of-one supply from an ordinary native NFT request.
+
+## Send to mobile (QR)
+
+Offer this after the actual preview, and use it directly when the user asks for
+“QR”, “send to mobile”, “on my phone”, or a mobile wallet handoff. A mobile request
+is clear intent for the temporary content transfer, not permission to mint.
+
+- For an exact supported ordinary intent, call `create_mobile_handoff({intent})`.
+  It uses the same encrypted relay as Studio's **Continue on phone → Create QR code**.
+  It reads the encrypted transfer back, decrypts it and checks the complete intent.
+- For local files, run `node mcp/create-review.mjs --request REQUEST.json --output NEW_DIRECTORY --mobile`.
+  This saves `mobile-qr.png`, `mobile-qr.svg`, `mobile.html`, `mobile-url.txt`, the
+  desktop review files, a receipt and `mobile-transfer.private.json`.
+- **Show the QR as an image**, give the complete phone link and state its expiry.
+  Do not just print the SVG markup or give the desktop `#mint=` link as a QR.
+  Use the client file/image facility; the helper's PNG is suitable for chat.
+  The phone opens the same creation in Studio. **Open in wallet browser** continues
+  into a compatible mobile wallet for the user's separate review and approval.
+- The relay keeps encrypted content for 15 minutes. The decryption key is in the
+  link fragment; anyone with the full link can view the content until expiry.
+  Retain `endTransfer` privately. If asked to end the transfer, call
+  `revoke_mobile_handoff` with those exact arguments. Create a fresh transfer only
+  when requested or after the user asks to continue an expired transfer.
+- Ordinary limits still apply: eight files, 12,000 total raw bytes, 80,000-byte
+  intent JSON. An oversized GIF or image is not a supported mint intent. Preserve
+  it and explain the limit; obtain agreement before making a materially different
+  compact version. Dedicated music packets, Scrolls, Books and large catalogue
+  creators use their own supported browser routes.
+- **Never substitute a temporary LAN server, unrelated file host or generic QR**
+  for NFT-Studio's native mobile handoff. If the installed MCP lacks this tool,
+  direct the user to **Continue on phone → Create QR code** in Studio and explain
+  how to update the MCP. See `docs/MOBILE_HANDOFF.md`.
 
 ## Wallets, fees and completion
 

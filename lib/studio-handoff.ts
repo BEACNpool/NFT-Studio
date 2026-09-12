@@ -183,6 +183,7 @@ const requestOptions = {
   credentials: 'omit',
   cache: 'no-store',
   referrerPolicy: 'no-referrer',
+  redirect: 'manual',
 } as const;
 export async function createPhoneTransfer(
   intent: MintIntent,

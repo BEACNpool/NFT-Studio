@@ -58,6 +58,8 @@ for (const era of ['auto', 'legacy'])
       assert.equal(invalid.isError, true);
       r = await call({ state: r.state, event: 'preview_ready' });
       assert.equal(r.state.stage, 'feedback');
+      assert.equal(r.options[2].id,'keep');
+      assert.equal(r.options[3].id,'mobile');
       r = await call({ state: r.state, choice: 'revise' });
       assert.equal(r.state.stage, 'revision');
       r = await call({
@@ -75,6 +77,11 @@ for (const era of ['auto', 'legacy'])
       assert.equal(r.state.stage, 'handoff');
       assert.match(r.custody, /no wallet access/);
       assert.equal(r.intent, undefined);
+      r = await call({state:r.state,choice:'mobile'});
+      assert.equal(r.state.handoffTarget,'mobile');
+      assert.match(r.agentAction,/create_mobile_handoff/);
+      assert.match(r.agentAction,/--mobile/);
+      assert.equal(r.intent,undefined);
       r = await call({ state: brief, choice: 'back' });
       assert.equal(r.state.stage, 'direction');
       r = await call({ state: r.state, choice: 'start_over' });
@@ -90,6 +97,7 @@ for (const era of ['auto', 'legacy'])
       for (const args of [
         { state: { ...brief, wallet: 'forbidden' } },
         { state: { ...brief, stage: 'invalid' } },
+        { state: { ...brief, handoffTarget:'invalid' } },
         { state: { schema: 'nft-studio.guide.v1', stage: 'handoff' } },
         { state: brief, answer: 'x', choice: 'create' },
         { state: brief, event: 'preview_ready' },

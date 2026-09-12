@@ -2,7 +2,7 @@
 
 `apply_state_capsule_parameters` applies the one trusted experimental State Capsule program to a seed reference and exact UTF-8 base name. It returns the applied script/blueprint and policy hash. It performs no wallet connection, seed lookup, provider request, transaction preparation, node evaluation, signing or submission. A successful result is **parameterized only** and proves no seed existence, ownership, unspent state or chain inclusion.
 
-This source revision exposes 15 deployable Worker tools and 17 self-hosted Node tools, with 61 resources in each service. Tests compare exact discovery names from the SDK and derive those counts from the observed lists. The existing native transaction tool keeps its separate behavior. Deployment capabilities must be observed separately.
+This source revision exposes 19 deployable Worker tools and 21 self-hosted Node tools, with 61 resources in each service. Tests compare exact discovery names from the SDK and derive those counts from the observed lists. The existing native transaction tool keeps its separate behavior. Deployment capabilities must be observed separately.
 
 ```json
 {

@@ -41,14 +41,37 @@ export function verifyHandoff(made,verified,args){
 }
 const escapeHtml=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;');
 export function reviewHtml(title,url){return `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'"><title>Review NFT-Studio request</title><h1>${escapeHtml(title)}</h1><p>Unminted request. Inspect the exact content in Studio before connecting your own wallet.</p><p><a href="${escapeHtml(url)}" rel="noreferrer">Review in NFT-Studio</a></p><p>Opening this link grants no wallet permission. Studio adds 0 ADA fee; Cardano network fees and minimum output ADA apply. This page contains your content in its link. Share only with intended reviewers.</p></html>\n`;}
-export async function createReview(requestPath,outputPath,{entry=fileURLToPath(new URL('./dist/cli.mjs',import.meta.url))}={}){
+export async function createReview(requestPath,outputPath,{entry=fileURLToPath(new URL('./dist/cli.mjs',import.meta.url)),mobile=false}={}){
  const [major,minor]=process.versions.node.split('.').map(Number);if(major<22||(major===22&&minor<13))throw Error('Use Node.js 22.13 or newer.');
  const args=await readRequest(requestPath),out=resolve(outputPath);await lstat(out).then(()=>{throw Error('Output directory already exists; choose a fresh path.');},e=>{if(e.code!=='ENOENT')throw e;});await access(entry).catch(()=>{throw Error('Build the repo MCP first: npm --prefix mcp ci && npm --prefix mcp run build');});
- const client=new Client({name:'nft-studio-local-review-export',version:'1.0.0'}),transport=new StdioClientTransport({command:process.execPath,args:[entry],stderr:'pipe',env:{PATH:process.env.PATH}});let timer;
- try{return await Promise.race([(async()=>{await client.connect(transport);const caps=unpackResponse(await client.callTool({name:'studio_capabilities',arguments:{}}));if(!Number.isSafeInteger(caps.limits?.files)||caps.limits.files<1||!Number.isSafeInteger(caps.limits?.rawPayloadBytes)||caps.limits.rawPayloadBytes<1||args.files.length>Math.min(LIMITS.files,caps.limits.files)||args.files.reduce((n,f)=>n+Buffer.from(f.base64,'base64').length,0)>Math.min(LIMITS.rawBytes,caps.limits.rawPayloadBytes))throw Error('Request exceeds the local MCP advertised payload limits.');const made=unpackResponse(await client.callTool({name:'create_mint_intent',arguments:args}));const verified=unpackResponse(await client.callTool({name:'verify_mint_intent',arguments:{intent:made.intent}}));const intent=verifyHandoff(made,verified,args);
- const contents={'intent.json':made.packetJson,'review-url.txt':made.review.url+'\n','review.html':reviewHtml(intent.bundle.name,made.review.url)};
- const receipt={schema:'nft-studio.local-review.v1',status:'verified-intent-only',intentHash:intent.intentHash,bundleHash:intent.bundle.sha256,rawBytes:intent.bundle.bytes,reviewUrlCharacters:made.review.url.length,files:Object.entries(contents).map(([name,content])=>({name,bytes:Buffer.byteLength(content),sha256:sha(content)})),mcpCalls:['studio_capabilities','create_mint_intent','verify_mint_intent'],walletConnected:false,signed:false,submitted:false};
- await mkdir(out,{mode:0o700});for(const [name,content] of Object.entries(contents))await writeFile(resolve(out,name),content,{flag:'wx',mode:0o600});await writeFile(resolve(out,'receipt.json'),JSON.stringify(receipt,null,2)+'\n',{flag:'wx',mode:0o600});return { ...receipt,outputDirectory:out,next:'Open review.html in your browser, or import intent.json in Studio. The full link is saved without copying it through model prose.'};})(),new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error('Local MCP review export timed out.')),LIMITS.timeoutMs);})]);}finally{clearTimeout(timer);await client.close();}
+ const client=new Client({name:'nft-studio-local-review-export',version:'1.1.0'}),transport=new StdioClientTransport({command:process.execPath,args:[entry],stderr:'pipe',env:{PATH:process.env.PATH}});
+ let transfer,complete=false;
+ const call=async(name,args={},timeout=LIMITS.timeoutMs)=>unpackResponse(await client.callTool({name,arguments:args},{timeout}));
+ try{
+  await client.connect(transport,{timeout:LIMITS.timeoutMs});
+  const caps=await call('studio_capabilities');
+  if(!Number.isSafeInteger(caps.limits?.files)||caps.limits.files<1||!Number.isSafeInteger(caps.limits?.rawPayloadBytes)||caps.limits.rawPayloadBytes<1||args.files.length>Math.min(LIMITS.files,caps.limits.files)||args.files.reduce((n,f)=>n+Buffer.from(f.base64,'base64').length,0)>Math.min(LIMITS.rawBytes,caps.limits.rawPayloadBytes))throw Error('Request exceeds the local MCP advertised payload limits.');
+  if(mobile&&caps.mobileHandoff?.createTool!=='create_mobile_handoff')throw Error('This MCP does not advertise native mobile handoff. Update and rebuild it, or use Continue on phone in Studio.');
+  const made=await call('create_mint_intent',args),verified=await call('verify_mint_intent',{intent:made.intent}),intent=verifyHandoff(made,verified,args);
+  const contents={'intent.json':made.packetJson,'review-url.txt':made.review.url+'\n','review.html':reviewHtml(intent.bundle.name,made.review.url)};
+  const calls=['studio_capabilities','create_mint_intent','verify_mint_intent'];
+  if(mobile){
+   transfer=await call('create_mobile_handoff',{intent},70000);
+   const {mobileExport}=await import('./mobile-export.mjs');
+   Object.assign(contents,await mobileExport(transfer,intent));calls.push('create_mobile_handoff');
+  }
+  const receipt={schema:'nft-studio.local-review.v1',status:'verified-intent-only',intentHash:intent.intentHash,bundleHash:intent.bundle.sha256,rawBytes:intent.bundle.bytes,reviewUrlCharacters:made.review.url.length,...(transfer?{mobile:{url:transfer.url,expiresAt:transfer.expiresAt,expiresAtIso:transfer.expiresAtIso,qr:'mobile-qr.png',page:'mobile.html'}}:{}),files:Object.entries(contents).map(([name,content])=>({name,bytes:Buffer.byteLength(content),sha256:sha(content)})),mcpCalls:calls,walletConnected:false,signed:false,submitted:false};
+  await mkdir(out,{mode:0o700});for(const [name,content] of Object.entries(contents))await writeFile(resolve(out,name),content,{flag:'wx',mode:0o600});await writeFile(resolve(out,'receipt.json'),JSON.stringify(receipt,null,2)+'\n',{flag:'wx',mode:0o600});complete=true;
+  return {...receipt,outputDirectory:out,next:mobile?'Display mobile-qr.png, provide the complete mobile link and expiry, or open mobile.html. Keep mobile-transfer.private.json private; it contains the creator revocation token.':'Open review.html in your browser, or import intent.json in Studio. The full link is saved without copying it through model prose.'};
+ }finally{
+  if(transfer&&!complete)await call('revoke_mobile_handoff',transfer.endTransfer.arguments).catch(()=>{});
+  await client.close();
+ }
 }
-export async function main(argv=process.argv.slice(2)){if(argv.length===1&&argv[0]==='--help'){console.log('Usage: node mcp/create-review.mjs --request REQUEST.json --output NEW_DIRECTORY\nReads only explicit local files relative to the request file. Calls the local MCP to create and verify an intent, then saves exact intent.json, review-url.txt, no-script review.html and receipt.json. No wallet, signing or submission. Existing outputs are never overwritten.');return;}if(argv.length!==4||argv[0]!=='--request'||argv[2]!=='--output')throw Error('Usage: node mcp/create-review.mjs --request REQUEST.json --output NEW_DIRECTORY');console.log(JSON.stringify(await createReview(argv[1],argv[3]),null,2));}
+export async function main(argv=process.argv.slice(2)){
+ const usage='Usage: node mcp/create-review.mjs --request REQUEST.json --output NEW_DIRECTORY [--mobile]';
+ if(argv.length===1&&argv[0]==='--help'){console.log(usage+'\nReads explicit local files, creates and verifies an exact intent, and saves review.html, intent.json, review-url.txt and receipt.json. --mobile explicitly uploads encrypted content to the native 15-minute Studio relay and adds QR PNG/SVG, mobile.html, mobile-url.txt and a private revocation record. No wallet, signing or submission. Existing outputs are never overwritten.');return;}
+ if(![4,5].includes(argv.length)||argv[0]!=='--request'||argv[2]!=='--output'||(argv.length===5&&argv[4]!=='--mobile'))throw Error(usage);
+ console.log(JSON.stringify(await createReview(argv[1],argv[3],{mobile:argv[4]==='--mobile'}),null,2));
+}
 if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url))main().catch(error=>{console.error(error instanceof assert.AssertionError?'MCP handoff integrity verification failed; no completed export was produced.':error.message);process.exitCode=1;});

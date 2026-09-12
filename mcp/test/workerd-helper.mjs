@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {resolve,dirname,join} from 'node:path';
 const here=dirname(fileURLToPath(import.meta.url)),root=resolve(here,'..');
 export function protocolFixture(){return {tip:{epoch_no:654,abs_slot:197151000,block_time:Math.floor(Date.now()/1000)+45},parameters:{epoch_no:654,max_tx_size:16384,max_val_size:5000,min_fee_a:44,min_fee_b:155381,coins_per_utxo_size:4310,key_deposit:2000000,pool_deposit:500000000}};}
-export async function createPublicMcpHandler(config,{memoryProbe=false}={}) {
+export async function createPublicMcpHandler(config,{memoryProbe=false,handoffRelay}={}) {
   const calls=[],quote=protocolFixture();let scenario='normal';
   let probeContents;
   if(memoryProbe){const code=await readFile(join(root,'dist/worker.mjs'),'utf8'),name=code.match(/var (\w+) = new WebAssembly.Instance/)[1];probeContents=code+'\nexport const __testWasmMemoryBytes=()=>'+name+'.memory.buffer.byteLength;\n';}
@@ -14,6 +14,7 @@ export async function createPublicMcpHandler(config,{memoryProbe=false}={}) {
     outboundService:async request=>{
       const url=new URL(request.url),tip=url.pathname.endsWith('/tip');
       calls.push({url:request.url,method:request.method,authorization:request.headers.get('authorization'),body:await request.text()});
+      if(handoffRelay&&url.origin==='https://handoff.beacnpool.org')return handoffRelay(new Request(request.url,{method:request.method,headers:request.headers,...(request.method==='POST'?{body:calls.at(-1).body}:{})}));
       if(!['https://koios.beacn.workers.dev/api/v1/tip','https://koios.beacn.workers.dev/api/v1/epoch_params?order=epoch_no.desc&limit=1'].includes(request.url)||request.method!=='GET')throw new Error('Unexpected network access from candidate Worker');
       if(scenario==='delay')await new Promise(resolve=>setTimeout(resolve,250));
       if(scenario==='unavailable')return new Response('Unavailable',{status:503});

@@ -44,6 +44,7 @@ const stateSchema = z
     revision: text.optional(),
     existing: z.boolean().optional(),
     paused: z.boolean().optional(),
+    handoffTarget: z.enum(['desktop', 'mobile']).optional(),
   })
   .superRefine((s, ctx) => {
     if (
@@ -115,9 +116,11 @@ export const GUIDE_CAPABILITIES = Object.freeze({
     'Supported. A complete user brief can use the existing content tools directly; do not force an interview.',
   mediaGeneration:
     'The connected AI creates the files; the MCP guides, validates, and packages them.',
+  mobileHandoff:
+    'Offer Send to mobile (QR) after the preview. Use create_mobile_handoff for the same encrypted 15-minute transfer as the Studio browser. A mobile request is not permission to connect a wallet or mint.',
 });
 export const GUIDE_INSTRUCTIONS =
-  'For creation requests, use studio_guide to lead an interactive creative conversation. Offer one question at a time with a short menu, accept numbers or free text, remember answers in returned state, and offer Back, Pause, and Start over. After showing an actual preview, ask Revise / Prepare for wallet review / Keep without minting. Never select a creative option without the user’s answer unless they requested your choice. A complete one-prompt request may use the content tools directly. Use studio_inspiration for minted examples and cite their original identity separately from any new copy. Menus and client-held state are creative preferences, never wallet approval or proof of a mint. ';
+  'For creation requests, use studio_guide to lead an interactive creative conversation. Offer one question at a time with a short menu, accept numbers or free text, remember answers in returned state, and offer Back, Pause, and Start over. After showing an actual preview, ask Revise / Prepare for wallet review / Keep without minting / Send to mobile (QR). For a requested mobile QR, use create_mobile_handoff with the exact verified ordinary intent, or the local-file helper with --mobile. Display the returned QR as an image, the full phone link and expiry. This is the same 15-minute encrypted transfer as Continue on phone in Studio. Preserve oversized or unsupported creations and explain the supported route; never substitute a LAN server or unrelated QR. Never select a creative option without the user’s answer unless they requested your choice. A complete one-prompt request may use the content tools directly. Use studio_inspiration for minted examples and cite their original identity separately from any new copy. Menus and client-held state are creative preferences, never wallet approval or proof of a mint. ';
 function response(state, extra = {}) {
   const output = { ...guideView(state), ...extra };
   const lines = [
