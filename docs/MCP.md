@@ -23,7 +23,7 @@ Your MCP client runs its server locally over stdio. The setup page is a guide,
 **not an HTTP MCP endpoint**: GitHub Pages hosts static files and cannot run the
 server process. See [GitHub's hosting documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages).
 
-The local Node server provides **21 tools and 61 resources**. It includes Cardano
+The local Node server provides **28 tools and 62 resources**. It includes Cardano
 knowledge, original CIP source search, exact payloads, music packages, proof
 records, fixed Capsule parameters, unsigned native NFT/data/music transactions
 and external witness verification. No tool holds a signing key, connects to a
@@ -390,3 +390,7 @@ Local-file helper: `--payload-qr` for print PNG/SVG and link; `--mobile` for rel
 Never substitute an uploaded link when an embedded payload exceeds capacity.
 Docs: https://github.com/BEACNpool/NFT-Studio/blob/main/docs/PAYLOAD_QR.md and
 https://github.com/BEACNpool/NFT-Studio/blob/main/docs/MINT_OPTIONS.md .
+
+## BEACN Workbench
+
+MCP 0.5.0 adds a shared terminal and embedded visual workspace, twelve sourced CIP utility recipes and exact-intent review. Use `studio_workbench`, `get_utility_recipe`, `plan_nft_utility` and `inspect_mint_readiness`. [Usage, limits and examples](WORKBENCH.md).

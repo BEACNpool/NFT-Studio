@@ -161,3 +161,9 @@ Local-file helper: `--payload-qr` for print PNG/SVG and link; `--mobile` for rel
 Never substitute an uploaded link when an embedded payload exceeds capacity.
 Docs: https://github.com/BEACNpool/NFT-Studio/blob/main/docs/PAYLOAD_QR.md and
 https://github.com/BEACNpool/NFT-Studio/blob/main/docs/MINT_OPTIONS.md .
+
+## BEACN Workbench
+
+For a visual tool library or CIP utility planning, call `studio_workbench`. Use `get_utility_recipe` for implementation steps and `plan_nft_utility` to compose capabilities. Report its compatibility blockers and required engineering; a plan does not install a utility. Supporting MCP Apps hosts render the embedded workspace; otherwise share https://beacnpool.github.io/NFT-Studio/workbench/ . Terminal users can run `npm --prefix mcp run tui`.
+
+Use `inspect_mint_readiness` on an exact ordinary intent to inspect the content, options and review link. It does not establish full signed-size fit, wallet ownership or chain inclusion. Existing preview, mobile handoff and wallet-approval rules still apply.

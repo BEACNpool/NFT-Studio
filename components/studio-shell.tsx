@@ -191,7 +191,7 @@ function StudioSurface() {
               </span>
             </button>
             <div className="ns-topbar-actions">
-              <a className="ai-install-nav" href={assetPath('/mcp/')}>Install MCP <ArrowUpRight size={15} /></a>
+              <a className="ai-install-nav" href={assetPath('/workbench/')}>Workbench <ArrowUpRight size={15} /></a>
               <button
                 className="ns-help-button"
                 onClick={() => navigate('guide')}

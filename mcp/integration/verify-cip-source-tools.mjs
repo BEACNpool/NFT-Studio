@@ -27,8 +27,8 @@ export async function verifyCipSourceTools(client){
   const ambiguous=unpack(await client.callTool({name:'get_cip_source_chunk',arguments:{id:'CIP-0121'}}));assert.deepEqual(ambiguous.attribution.retainedLicenses,['CC-BY-4.0','Apache-2.0']);
   for(const args of [{id:'../README.md'},{id:'CIP-26'},{id:'CIP-0000'},{id:'CIP-0026',offsetBytes:-1},{id:'CIP-0026',offsetBytes:1.5},{id:'CIP-0026',offsetBytes:524288},{id:'CIP-0026',limitBytes:3},{id:'CIP-0026',limitBytes:16385},{id:'CIP-0026',url:'https://example.com'},{id:'CIP-0026',offsetBytes:'0'}])await reject(client,'get_cip_source_chunk',args);
   for(const args of [{query:'é'.repeat(129)},{query:'\ud800'},{query:'\u0000'},{query:'x '.repeat(13)},{limit:11},{status:'Inactive'},{path:'/etc/passwd'}])await reject(client,'search_cip_sources',args);
-  assert.equal((await client.listResources()).resources.length,61);
-  return{documents:148,chunkComparisons:cases,resources:61,noNewResources:true};
+  assert.equal((await client.listResources()).resources.length,62);
+  return{documents:148,chunkComparisons:cases,resources:62,noNewCorpusResources:true};
 }
 
 export async function verifyCipSourceRelease(client){

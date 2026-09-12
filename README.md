@@ -1,5 +1,10 @@
 # NFT-Studio
 
+**BEACN Workbench** — [open the visual workspace](https://beacnpool.github.io/NFT-Studio/workbench/) or run `npm --prefix mcp run tui`. Twelve sourced CIP utility recipes, a searchable MCP toolbox, compatible build plans and exact-intent mint options. [Workbench guide](docs/WORKBENCH.md).
+
+![BEACN Workbench utility library](docs/workbench-preview.png)
+
+
 [Open NFT Studio](https://beacnpool.github.io/NFT-Studio/) · [Build verification](https://github.com/BEACNpool/NFT-Studio/actions/workflows/verify.yml)
 
 An **AI-driven creation studio for Cardano**. Connect your AI through the MCP,
@@ -68,11 +73,11 @@ does not require a wallet.
 | Agent minting | Ask your configured agent for a compact NFT, open its content-bound review link, inspect the files, then connect your wallet and approve the mint. JSON import remains available. |
 
 The [repository-hosted MCP setup page](https://beacnpool.github.io/NFT-Studio/mcp/)
-shows how to run **21 tools and 61 resources locally from this repo**: Cardano knowledge,
+shows how to run **28 tools and 62 resources locally from this repo**: Cardano knowledge,
 original CIP source access, exact files and music packages, fixed Capsule parameters,
 unsigned transactions and external witness verification. Your wallet retains signing
 authority. The setup page is not an HTTP MCP endpoint; operators can separately deploy
-the 19-tool Worker on their own HTTPS host. [Connection guide](docs/MCP.md#public-connection). The [knowledge repository](knowledge/)
+the 26-tool Worker on their own HTTPS host. [Connection guide](docs/MCP.md#public-connection). The [knowledge repository](knowledge/)
 is reusable data with source hashes, attribution and an explicit evidence policy.
 
 For Codex, the guide includes an installer and the repository’s `$nft-studio` skill.

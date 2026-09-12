@@ -1,5 +1,7 @@
 # NFT Studio MCP
 
+MCP **0.5.0** adds `studio_workbench`, `get_utility_recipe`, `plan_nft_utility` and `inspect_mint_readiness`: 28 Node / 26 Worker tools, 62 resources. Run `npm run tui` here for the terminal workspace. The visual `ui://nft-studio/workbench/v1` resource renders in compatible MCP Apps hosts, with structured text and browser fallback. [Complete workbench guide](../docs/WORKBENCH.md).
+
 An AI-guided Cardano creation studio: interactive questions, minted inspiration,
 exact content packages, and a visible wallet review. The connected AI creates the
 media; this MCP guides the process and validates and packages exact files.
@@ -26,9 +28,9 @@ transports, and runs the real SDK integration tests without root dependencies.
 It retains the fixture and a JSON receipt for inspection.
 
 Connect a local MCP client to `node /absolute/path/NFT-Studio/mcp/dist/cli.mjs`.
-The Node server exposes 21 tools over local stdio or authenticated Streamable HTTP.
-The separately deployable Worker exposes 19 tools, including stateless unsigned
-NFT/data/music preparation. Both expose 61 resources; verify deployed capabilities
+The Node server exposes 28 tools over local stdio or authenticated Streamable HTTP.
+The separately deployable Worker exposes 26 tools, including stateless unsigned
+NFT/data/music preparation. Both expose 62 resources; verify deployed capabilities
 through discovery. The Worker requires its adjacent compiled
 CSL WASM module. Its public unsigned result has no Node packet ID or witness-verifier state. Read [the complete setup, tool and signing contract](../docs/MCP.md).
 

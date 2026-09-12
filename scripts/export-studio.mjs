@@ -69,10 +69,12 @@ try {
       throw Error('Private or development output in public export');
     if (/\.(html|js|css|rsc|json|txt|md)$/.test(file)) {
       const text = await readFile(file, 'utf8');
+      // Reject the same private patterns without quadratic scans of embedded base64.
+      const lower = text.toLowerCase();
       if (
-        /\/home\/[^/\s]+|10\.30\.\d+\.\d+|192\.168\.\d+\.\d+|appgprj_|BEGIN [A-Z ]*PRIVATE KEY|[A-Za-z0-9._%+-]+@sites\.test|[a-z0-9-]+\.[a-z0-9-]+\.chatgpt\.site/i.test(
-          text,
-        )
+        /\/home\/[^/\s]+|10\.30\.\d+\.\d+|192\.168\.\d+\.\d+|appgprj_|BEGIN [A-Z ]*PRIVATE KEY/i.test(text) ||
+        (lower.includes('@sites.test') && /[A-Za-z0-9._%+-]+@sites\.test/i.test(text)) ||
+        (lower.includes('.chatgpt.site') && /[a-z0-9-]+\.[a-z0-9-]+\.chatgpt\.site/i.test(text))
       )
         throw Error('Public output privacy check failed: ' + file);
     }

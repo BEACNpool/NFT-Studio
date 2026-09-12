@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "vinext dev",
-    "build": "vinext build",
+    "build": "node mcp/build-workbench.mjs --public && vinext build",
     "start": "wrangler dev --config dist/server/wrangler.json",
     "lint": "oxlint app components lib hooks vite.config.ts next.config.ts",
     "format": "oxfmt",
@@ -20,7 +20,7 @@
     "verify:games": "node scripts/verify-arcade.mjs",
     "build:beats": "node scripts/build-beat-lab.mjs",
     "build:abcde": "PRISM_BASE_PATH=/ABCDE/BMKR vinext build && node scripts/export-abcde.mjs",
-    "build:pages": "NFT_STUDIO_BASE_PATH=/NFT-Studio vinext build && node scripts/export-studio.mjs",
+    "build:pages": "node mcp/build-workbench.mjs --public && NFT_STUDIO_BASE_PATH=/NFT-Studio vinext build && node scripts/export-studio.mjs",
     "verify:studio": "node scripts/verify-studio.mjs",
     "verify:payload-qr": "node scripts/verify-payload-qr.mjs",
     "verify:handoff": "node scripts/verify-handoff.mjs",
@@ -34,7 +34,8 @@
     "verify:music": "node scripts/verify-music-release.mjs && node scripts/verify-music-transactions.mjs && node scripts/verify-music-receipts.mjs",
     "verify:parameters": "npm --prefix experiments/capsule-parameterizer test",
     "verify:registry": "npm --prefix experiments/cip26-inspector test",
-    "verify:seals": "node scripts/verify-release-seal.mjs"
+    "verify:seals": "node scripts/verify-release-seal.mjs",
+    "tui": "npm --prefix mcp run tui"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",

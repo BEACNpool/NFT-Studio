@@ -45,3 +45,8 @@ next-env.d.ts
 
 # Local browser verification captures
 /live-file-*.png
+
+# Built from mcp/ui and the shared recipe source
+/public/workbench/index.html
+
+/tmp/workbench-qa/

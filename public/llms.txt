@@ -22,7 +22,7 @@ For Codex CLI, signed in with your existing login, run from the checkout:
 This explicitly registers the built local server and refuses conflicting settings.
 The repo includes .agents/skills/nft-studio/SKILL.md. Open Codex in the checkout
 and ask: $nft-studio Create a pixel-art spaceship NFT and give me its review link.
-Local server: 21 tools and 61 resources; use discovery for the running version.
+Local server: 28 tools and 62 resources; use discovery for the running version.
 Tools: studio_guide, studio_inspiration, create_mobile_handoff, revoke_mobile_handoff,
 studio_capabilities, search_knowledge, read_knowledge,
 search_cip_sources, get_cip_source_chunk, validate_payload, validate_metadata,
@@ -113,3 +113,10 @@ Local-file helper: `--payload-qr` for print PNG/SVG and link; `--mobile` for rel
 Never substitute an uploaded link when an embedded payload exceeds capacity.
 Docs: https://github.com/BEACNpool/NFT-Studio/blob/main/docs/PAYLOAD_QR.md and
 https://github.com/BEACNpool/NFT-Studio/blob/main/docs/MINT_OPTIONS.md .
+
+## BEACN Workbench (MCP 0.5.0)
+
+Use studio_workbench for the visual library and full runtime toolbox. get_utility_recipe supplies sourced instructions and lifecycle boundaries. plan_nft_utility composes one to eight recipes and flags incompatible Music/Capsule/ordinary routes; plans enable no benefits. inspect_mint_readiness checks ordinary content before separate wallet review.
+Browser: https://beacnpool.github.io/NFT-Studio/workbench/
+Terminal: npm --prefix mcp run tui
+28 Node tools / 26 Worker tools / 62 resources. Embedded MCP Apps support depends on the host.

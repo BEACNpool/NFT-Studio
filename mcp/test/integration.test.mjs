@@ -52,10 +52,10 @@ test('Modern and legacy official SDK clients discover tools and read fixed resou
       assert.ok(list.tools.every(tool=>!['sign_transaction','submit_transaction'].includes(tool.name)));
       const caps=await call(ctx.client,'studio_capabilities');assert.equal(caps.publicEndpoint,null);assert.equal(caps.policy.lifetimeSupplyCap,false);assert.equal(caps.formats.length,8);
       assert.equal((await call(ctx.client,'studio_capabilities')).knowledge.entries,caps.knowledge.entries);
-      const resources=await ctx.client.listResources();assert.equal(resources.resources.length,caps.knowledge.entries+3);
+      const resources=await ctx.client.listResources();assert.equal(resources.resources.length,caps.knowledge.entries+4);
       const implementations=await verifyImplementationResources(ctx.client,resources.resources);assert.equal(implementations.researchEntriesUnchanged,true);
       await assert.rejects(ctx.client.readResource({uri:'nft-studio://implementations/../../secret'}));
-      const resource=await ctx.client.readResource({uri:'nft-studio://capabilities'});assert.equal(JSON.parse(resource.contents[0].text).serverVersion,'0.4.1');
+      const resource=await ctx.client.readResource({uri:'nft-studio://capabilities'});assert.equal(JSON.parse(resource.contents[0].text).serverVersion,'0.5.0');
       await assert.rejects(ctx.client.readResource({uri:'file:///etc/passwd'}));
       const search=await call(ctx.client,'search_knowledge',{query:'CIP-68',limit:3});assert.ok(search.results.length>0&&search.results.length<=3);
       await rejected(ctx.client,'read_knowledge',{id:'../../etc/passwd'});
@@ -69,7 +69,7 @@ test('Actual stdio child process supports both protocol eras with protocol-only 
     const transport=new StdioClientTransport({command:process.execPath,args:[fileURLToPath(new URL('../dist/cli.mjs',import.meta.url))],stderr:'pipe'});
     let errors='';transport.stderr?.on('data',chunk=>{errors+=chunk;});
     const client=new Client({name:'stdio-integration',version:'1.0.0'},{versionNegotiation:{mode:era}});
-    try{await client.connect(transport);assert.equal(client.getProtocolEra(),era==='auto'?'modern':'legacy');assert.deepEqual((await client.listTools()).tools.map(t=>t.name).sort(),NODE_TOOL_NAMES);assert.equal((await call(client,'studio_capabilities')).serverVersion,'0.4.1');assert.equal(errors,'');}
+    try{await client.connect(transport);assert.equal(client.getProtocolEra(),era==='auto'?'modern':'legacy');assert.deepEqual((await client.listTools()).tools.map(t=>t.name).sort(),NODE_TOOL_NAMES);assert.equal((await call(client,'studio_capabilities')).serverVersion,'0.5.0');assert.equal(errors,'');}
     finally{await client.close();}
   }
 });

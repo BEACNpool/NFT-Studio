@@ -15,6 +15,7 @@ export function assertImplementationEnvelope(value,entry,catalog,register){
   },'Research entry/source objects must stay unchanged and implementation links must resolve exactly.');
 }
 export async function verifyImplementationResources(client,resources){
+  resources=resources.filter(r=>r.uri!=='ui://nft-studio/workbench/v1');
   const bytes=await readFile(catalogueUrl),catalog=JSON.parse(bytes),ids=catalog.entries.map(entry=>entry.id);
   assert.equal(resources.length,ids.length+3);assert.equal(new Set(resources.map(r=>r.uri)).size,ids.length+3);
   assert.deepEqual(new Set(resources.map(r=>r.uri)),new Set(['nft-studio://capabilities','nft-studio://knowledge/index',IMPLEMENTATIONS_URI,...ids.map(id=>'nft-studio://knowledge/'+id)]));

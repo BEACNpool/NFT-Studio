@@ -11,12 +11,12 @@ for(const era of ['auto','legacy']){
   const service=createService({protocol:()=>{throw Error('Source tools cannot read protocol')}}),http=createHttpService({port:0,token:'synthetic-corpus-test-token-0000000000000000000',service});
   const addr=await http.listen(),client=new Client({name:'corpus-node',version:'1.0.0'},{versionNegotiation:{mode:era}});
   try{await client.connect(new StreamableHTTPClientTransport(new URL('http://127.0.0.1:'+addr.port+'/mcp'),{requestInit:{headers:{authorization:'Bearer synthetic-corpus-test-token-0000000000000000000'}}}));
-    assert.deepEqual((await client.listTools()).tools.map(t=>t.name).sort(),NODE_TOOL_NAMES);assert.equal(NODE_TOOL_NAMES.length,24);await verifyCipSourceTools(client);
+    assert.deepEqual((await client.listTools()).tools.map(t=>t.name).sort(),NODE_TOOL_NAMES);assert.equal(NODE_TOOL_NAMES.length,28);await verifyCipSourceTools(client);
   }finally{await client.close();await http.close();}
  });
  test('Pinned original CIP source tools in actual Workerd official '+era+' SDK',async()=>{
   const origin='https://corpus.example.org',handler=await createPublicMcpHandler({publicOrigin:origin,rateLimit:250}),client=new Client({name:'corpus-worker',version:'1.0.0'},{versionNegotiation:{mode:era}});
-  try{await client.connect(new StreamableHTTPClientTransport(new URL(origin+'/mcp'),{fetch:(input,init)=>handler.fetch(new Request(input,init))}));assert.deepEqual((await client.listTools()).tools.map(t=>t.name).sort(),PUBLIC_TOOL_NAMES);assert.equal(PUBLIC_TOOL_NAMES.length,22);await verifyCipSourceTools(client);assert.equal(handler.calls.length,0);
+  try{await client.connect(new StreamableHTTPClientTransport(new URL(origin+'/mcp'),{fetch:(input,init)=>handler.fetch(new Request(input,init))}));assert.deepEqual((await client.listTools()).tools.map(t=>t.name).sort(),PUBLIC_TOOL_NAMES);assert.equal(PUBLIC_TOOL_NAMES.length,26);await verifyCipSourceTools(client);assert.equal(handler.calls.length,0);
   }finally{await client.close();await handler.close();}
  });
 }

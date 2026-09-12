@@ -1,3 +1,4 @@
+import {buildWorkbench} from './build-workbench.mjs';
 import { build } from 'esbuild';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { resolve, dirname, sep } from 'node:path';
@@ -23,6 +24,7 @@ const {parseImplementations}=await import(pathToFileURL(resolve(knowledge,'imple
 const register=parseImplementations(await readFile(resolve(knowledge,'implementations.json'),'utf8'),JSON.parse(catalogBytes).entries.map(entry=>entry.id));
 if(register.sourceCatalog.sha256!==createHash('sha256').update(catalogBytes).digest('hex'))throw new Error('Implementation register source catalog SHA-256 does not match the bundled catalog.');
 await mkdir(resolve(here, 'dist'), { recursive: true });
+await buildWorkbench();
 await build({
   absWorkingDir: here,
   entryPoints: ['src/cli.mjs', 'src/server.mjs', 'src/http.mjs', 'src/public-unsigned.mjs', 'src/mobile-tools.mjs'],
