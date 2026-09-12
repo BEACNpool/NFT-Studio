@@ -15,7 +15,7 @@ import {mobileRelayFixture} from './mobile-relay-fixture.mjs';
 import {createPublicMcpHandler} from './workerd-helper.mjs';
 const entry=fileURLToPath(new URL('./mobile-stdio-entry.mjs',import.meta.url));
 const svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 0L20 20H0Z"/></svg>';
-const args={mode:'nft',name:'Mobile fixture',coverIndex:0,files:[{name:'cover.svg',mediaType:'image/svg+xml',base64:Buffer.from(svg).toString('base64')}]};
+const args={mode:'nft',mintOptions:{quantity:25,mintWindowHours:24,traits:{Edition:'Mobile'},message:'Carried exactly'},name:'Mobile fixture',coverIndex:0,files:[{name:'cover.svg',mediaType:'image/svg+xml',base64:Buffer.from(svg).toString('base64')}]};
 const unpack=r=>{assert(!r.isError,JSON.stringify(r));return r.structuredContent;};
 const decode=png=>{const p=PNG.sync.read(png);return jsQR(new Uint8ClampedArray(p.data),p.width,p.height)?.data;};
 for(const runtime of ['stdio','workerd'])for(const era of ['auto','legacy'])test(`${runtime} ${era}: native QR transfers exact intent, advertises boundaries and revokes`,async()=>{

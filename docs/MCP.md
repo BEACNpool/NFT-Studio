@@ -371,3 +371,22 @@ review page. Opening the link grants no wallet permission.
 
 See [the native mobile workflow](MOBILE_HANDOFF.md) for agent steps, saved files,
 privacy, expiry and supported package limits.
+
+
+## Public payload QR and mint options (MCP 0.4.0)
+
+After preview, offer Add utility & mint options (`studio_utilities`, then
+`configure_mint_options`) and Print & share payload QR (`create_payload_qr`).
+Use one short question at a time and retain preferences already supplied.
+Copies are 1–1,000 units in this transaction, not a lifetime cap or shared edition.
+Policy duration starts at transaction preparation. CIP-25 traits and a CIP-20
+message are public descriptions, not enforced benefits. Apply options to the
+canonical intent before creating any QR; v2 binds all choices in its hash.
+
+BEACN Payload QR embeds small public content with no transfer expiry, upload or
+revocation; 2,331 encoded URL bytes maximum. This is distinct from the existing
+15-minute encrypted `create_mobile_handoff` for private phone continuation.
+Local-file helper: `--payload-qr` for print PNG/SVG and link; `--mobile` for relay.
+Never substitute an uploaded link when an embedded payload exceeds capacity.
+Docs: https://github.com/BEACNpool/NFT-Studio/blob/main/docs/PAYLOAD_QR.md and
+https://github.com/BEACNpool/NFT-Studio/blob/main/docs/MINT_OPTIONS.md .

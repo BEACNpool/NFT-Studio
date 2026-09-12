@@ -1,3 +1,4 @@
+import { verifyMintOptions, type MintOptions } from './studio-mint-options';
 /** Portable, content-bound handoff between an agent and the visible wallet review.
  * This is a request, never a transaction, signature, or proof of authorship.
  */
@@ -14,7 +15,8 @@ import {
 export const MINT_INTENT_SCHEMA = 'nft-studio.intent.v1' as const;
 export const MAX_MINT_INTENT_BYTES = 80000;
 export type MintIntent = Readonly<{
-  schema: typeof MINT_INTENT_SCHEMA;
+  schema: typeof MINT_INTENT_SCHEMA | 'nft-studio.intent.v2';
+  mintOptions?: MintOptions;
   mode: 'nft' | 'data';
   bundle: PayloadBundle;
   intentHash: string;
@@ -65,16 +67,23 @@ function canonicalBundle(bundle: PayloadBundle): PayloadBundle {
 export async function createMintIntent(
   bundle: PayloadBundle,
   mode: 'nft' | 'data',
+  options?: MintOptions,
 ): Promise<MintIntent> {
   if (mode !== 'nft' && mode !== 'data')
     throw new Error('Choose NFT or data record.');
   await verifyPayloadBundle(bundle);
   if (mode === 'nft' && !bundle.cover)
     throw new Error('An NFT request needs an image cover.');
+  if (options && mode !== 'nft')
+    throw Error('Mint options apply only to NFTs.');
+  const mintOptions = options ? verifyMintOptions(options) : undefined;
   const core = {
-    schema: MINT_INTENT_SCHEMA,
+    schema: mintOptions
+      ? ('nft-studio.intent.v2' as const)
+      : MINT_INTENT_SCHEMA,
     mode,
     bundle: canonicalBundle(bundle),
+    ...(mintOptions ? { mintOptions } : {}),
   };
   const intentHash = await payloadHash(enc.encode(JSON.stringify(core)));
   const intent = Object.freeze({ ...core, intentHash });
@@ -85,11 +94,18 @@ export async function createMintIntent(
 export async function verifyMintIntent(value: unknown): Promise<MintIntent> {
   const packet = object(
     value,
-    ['schema', 'mode', 'bundle', 'intentHash'],
+    value &&
+      typeof value === 'object' &&
+      'schema' in value &&
+      value.schema === 'nft-studio.intent.v2'
+      ? ['schema', 'mode', 'bundle', 'mintOptions', 'intentHash']
+      : ['schema', 'mode', 'bundle', 'intentHash'],
     'agent request',
   );
   if (
-    packet.schema !== MINT_INTENT_SCHEMA ||
+    ![MINT_INTENT_SCHEMA, 'nft-studio.intent.v2'].includes(
+      packet.schema as string,
+    ) ||
     (packet.mode !== 'nft' && packet.mode !== 'data')
   )
     throw new Error('Unsupported agent request. Use nft-studio.intent.v1.');
@@ -144,7 +160,13 @@ export async function verifyMintIntent(value: unknown): Promise<MintIntent> {
     coverIndex: bundle.cover ? 0 : undefined,
   });
   await verifyPayloadBundle(bundle as PayloadBundle);
-  const intent = await createMintIntent(rebuilt, packet.mode);
+  const intent = await createMintIntent(
+    rebuilt,
+    packet.mode,
+    packet.schema === 'nft-studio.intent.v2'
+      ? verifyMintOptions(packet.mintOptions)
+      : undefined,
+  );
   if (intent.intentHash !== packet.intentHash)
     throw new Error(
       'The request hash does not match its content. Ask your agent to export it again.',

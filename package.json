@@ -22,6 +22,7 @@
     "build:abcde": "PRISM_BASE_PATH=/ABCDE/BMKR vinext build && node scripts/export-abcde.mjs",
     "build:pages": "NFT_STUDIO_BASE_PATH=/NFT-Studio vinext build && node scripts/export-studio.mjs",
     "verify:studio": "node scripts/verify-studio.mjs",
+    "verify:payload-qr": "node scripts/verify-payload-qr.mjs",
     "verify:handoff": "node scripts/verify-handoff.mjs",
     "typecheck": "tsc --noEmit",
     "verify:labs": "node scripts/verify-labs.mjs && node scripts/verify-proof-of-existence.mjs",

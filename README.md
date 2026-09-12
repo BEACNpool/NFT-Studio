@@ -28,6 +28,20 @@ The existing browser editors remain under **Create directly in your browser**.
 keeps an unsaved editor open, and browser Back/Forward follows the app screens.
 Saved projects and receipts stay local to the browser and origin.
 
+## BEACN Payload QR · Create. Scan. Carry.
+
+[Watch the portrait demo and try a printable payload](https://beacnpool.github.io/NFT-Studio/payload-qr/).
+For artists, event organizers, educators and communities sharing compact creations.
+Print a code carrying the actual small payload, forward the same link, and let each
+viewer choose their own wallet mint. The separate encrypted phone handoff lasts 15 minutes.
+
+[Payload QR guide](docs/PAYLOAD_QR.md) · [Utility & mint options](docs/MINT_OPTIONS.md)
+
+MCP 0.4.0 adds `studio_utilities`, `configure_mint_options` and `create_payload_qr`
+(24 Node tools / 22 Worker tools). Copies per transaction, policy duration, public
+CIP-25 traits and CIP-20 messages travel in the verified request. A lifetime supply
+cap, shared edition, holder gate or redemption service is not implied.
+
 ## BEACN Labs
 
 [Open Labs](https://beacnpool.github.io/NFT-Studio/?view=labs) to explore working

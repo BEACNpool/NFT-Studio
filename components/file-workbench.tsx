@@ -32,7 +32,7 @@ import {
 } from '@/lib/studio-payload';
 import { errorText } from '@/lib/cardano';
 import { download, filename, jsonBlob } from '@/lib/export';
-import { FileMintDialog } from './file-mint-dialog';
+import { FileCreationControls } from './creation-controls';
 export type FileSeed = {
   name: string;
   files: PayloadInput[];
@@ -421,12 +421,12 @@ export function FileWorkbench({
                   <Download size={16} />
                   Save package
                 </Button>
-                <FileMintDialog
-                  key={bundle.sha256 + mode}
-                  bundle={bundle}
-                  mode={mode}
-                />
               </div>
+              <FileCreationControls
+                key={bundle.sha256 + mode}
+                bundle={bundle}
+                mode={mode}
+              />
             </>
           ) : (
             <div className="ns-preview-empty">

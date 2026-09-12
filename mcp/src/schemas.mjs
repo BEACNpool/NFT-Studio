@@ -14,7 +14,7 @@ export const payloadSchema = z.strictObject({
   files: z.array(fileSchema).min(1).max(8),
   coverIndex: z.number().int().min(0).max(7).optional(),
 });
-export const intentSchema = payloadSchema.extend({mode:z.enum(['nft','data'])});
+export const intentSchema = payloadSchema.extend({mode:z.enum(['nft','data']),mintOptions:z.strictObject({quantity:z.number().int().min(1).max(1000),mintWindowHours:z.union([z.literal(1),z.literal(24),z.literal(168),z.literal(720)]),traits:z.record(z.string().refine(k=>!['__proto__','constructor','prototype'].includes(k),'Reserved trait name'),z.string()),message:z.string()}).optional()});
 export const walletSchema = z.strictObject({
   changeHex: hex(256), utxos: z.array(hex(32768)).min(1).max(128),
 });

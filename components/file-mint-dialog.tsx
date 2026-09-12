@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { type MintOptions } from '@/lib/studio-mint-options';
 import {
   Wallet,
   Download,
@@ -52,6 +53,7 @@ type FileMintInput =
   | { musicPackage: MusicReleasePackage; bundle?: never; mode?: never };
 export function FileMintDialog(
   input: FileMintInput & {
+    mintOptions?: MintOptions;
     walletBrowserUrl?: string;
     walletBrowserExpiresAt?: number;
   },
@@ -79,7 +81,7 @@ export function FileMintDialog(
   const lock = useRef(false),
     identity = musicPackage
       ? musicPackage.packageHash + '|music'
-      : bundle.sha256 + '|' + mode,
+      : bundle.sha256 + '|' + mode + '|' + JSON.stringify(input.mintOptions),
     latest = useRef(identity);
   latest.current = identity;
   useEffect(() => {
@@ -181,7 +183,14 @@ export function FileMintDialog(
       ]);
       const tx = musicPackage
         ? await buildMusicReleaseTransaction(C, musicPackage, w, p)
-        : await buildStudioTransaction(C, bundle, mode, w, p);
+        : await buildStudioTransaction(
+            C,
+            bundle,
+            mode,
+            w,
+            p,
+            input.mintOptions,
+          );
       if (snapshot !== latest.current || !mounted.current)
         throw new Error('Your content changed. Review again.');
       setPrepared(tx);
@@ -290,6 +299,18 @@ export function FileMintDialog(
               ? 'Keep the transaction ID. Check its status before creating another copy.'
               : 'Your files stay exact. Your wallet signs only after you review the complete transaction.'}
           </DialogDescription>
+          {!musicPackage && mode === 'nft' && (
+            <p className="ns-lab-muted">
+              {input.mintOptions?.quantity ?? 1}{' '}
+              {input.mintOptions?.quantity === 1 || !input.mintOptions
+                ? 'copy'
+                : 'interchangeable copies'}{' '}
+              to your wallet. Policy closes{' '}
+              {input.mintOptions?.mintWindowHours ?? 1} hours after preparation.
+              Additional minting is possible before it closes; burning is
+              unavailable afterward. This is not a lifetime supply cap.
+            </p>
+          )}
           {error && (
             <p role="alert" className="ns-error">
               {error}
@@ -401,7 +422,7 @@ export function FileMintDialog(
                       <dt>Action</dt>
                       <dd>
                         {mode === 'nft'
-                          ? 'Mint one token'
+                          ? `Mint ${prepared.quantity ?? 1} ${(prepared.quantity ?? 1) === 1 ? 'copy' : 'copies'}`
                           : 'Publish a data record · no token'}
                       </dd>
                     </div>
@@ -441,10 +462,12 @@ export function FileMintDialog(
                   </dl>
                   {mode === 'nft' && (
                     <p className="ns-fineprint">
-                      This transaction mints one token. The wallet-controlled
-                      policy closes about one hour after preparation; it can
-                      mint more before closing and cannot mint or burn
-                      afterward. This is not an enforced lifetime supply cap.
+                      This transaction mints {prepared.quantity ?? 1} copies.
+                      The wallet-controlled policy closes{' '}
+                      {prepared.mintOptions?.mintWindowHours ?? 1} hours after
+                      preparation; it can mint more before closing and cannot
+                      mint or burn afterward. This is not an enforced lifetime
+                      supply cap.
                     </p>
                   )}
                   {musicPackage && (

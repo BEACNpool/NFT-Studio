@@ -1,4 +1,9 @@
 'use client';
+import { CreationControls } from './creation-controls';
+import {
+  isPayloadQrFragment,
+  parsePayloadQrFragment,
+} from '@/lib/studio-payload-qr';
 import { useEffect, useRef, useState } from 'react';
 import {
   Bot,
@@ -11,10 +16,7 @@ import {
 } from 'lucide-react';
 import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
-import { FileMintDialog } from './file-mint-dialog';
 import { PayloadPreview } from './file-workbench';
-import { PhoneHandoff } from './phone-handoff';
-import { WalletBrowserHelp } from './studio-wallet';
 import {
   isPhoneTransferFragment,
   receivePhoneTransfer,
@@ -26,7 +28,7 @@ import {
   type MintIntent,
 } from '@/lib/studio-intent';
 import { errorText } from '@/lib/cardano';
-import { download, filename, jsonBlob } from '@/lib/export';
+import { download, jsonBlob } from '@/lib/export';
 import {
   isMintReviewFragment,
   parseMintReviewFragment,
@@ -76,7 +78,8 @@ export function AgentMintPanel() {
         }
       }
       const isPhone = isPhoneTransferFragment(hash);
-      const hasLink = isPhone || isMintReviewFragment(hash);
+      const isPayload = isPayloadQrFragment(hash);
+      const hasLink = isPhone || isPayload || isMintReviewFragment(hash);
       if (!hasLink && !(resumePending && pendingLink.current)) return;
       const current = ++lifecycle.current;
       setBusy(true);
@@ -103,7 +106,10 @@ export function AgentMintPanel() {
         }
         pendingLink.current = isPhone
           ? receivePhoneTransfer(hash)
-          : parseMintReviewFragment(hash).then((intent) => ({ intent }));
+          : (isPayload
+              ? parsePayloadQrFragment(hash)
+              : parseMintReviewFragment(hash)
+            ).then((intent) => ({ intent }));
       }
       // StrictMode replays effects after clearing the URL. Reattach to the same
       // verification promise while keeping stale results invalidated on cleanup.
@@ -405,43 +411,15 @@ export function AgentMintPanel() {
                 whether you trust its content.
               </p>
               <div className="ns-hash">
-                <span>Request SHA-256</span>
+                <span>Imported request SHA-256</span>
                 <code>{intent.intentHash}</code>
               </div>
-              {phoneTransfer && (
-                <div className="ns-phone-received">
-                  <span className="ns-lab-status">
-                    Creation received · content verified
-                  </span>
-                  <WalletBrowserHelp
-                    reviewUrl={phoneTransfer.url}
-                    expiresAt={phoneTransfer.expiresAt}
-                  />
-                </div>
-              )}
-              <div className="ns-button-row">
-                <Button
-                  variant="outline"
-                  onClick={() =>
-                    download(
-                      jsonBlob(intent),
-                      filename(intent.bundle.name) + '.intent.json',
-                    )
-                  }
-                >
-                  <Download size={16} /> Save request
-                </Button>
-                {!phoneTransfer && (
-                  <PhoneHandoff key={intent.intentHash} intent={intent} />
-                )}
-                <FileMintDialog
-                  key={intent.intentHash}
-                  bundle={intent.bundle}
-                  mode={intent.mode}
-                  walletBrowserUrl={phoneTransfer?.url}
-                  walletBrowserExpiresAt={phoneTransfer?.expiresAt}
-                />
-              </div>
+              <CreationControls
+                key={intent.intentHash}
+                initialIntent={intent}
+                phoneUrl={phoneTransfer?.url}
+                phoneExpiresAt={phoneTransfer?.expiresAt}
+              />
             </>
           ) : (
             <div className="ns-preview-empty">

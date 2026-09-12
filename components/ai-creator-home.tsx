@@ -145,6 +145,12 @@ export function AICreatorHome({ onExplore }: { onExplore: () => void }) {
             Already connected? Tell your AI:{' '}
             <strong>“Open NFT-Studio and guide me.”</strong>
           </p>
+          <p className="ai-small">
+            <a className="ai-text-link" href={assetPath('/payload-qr/')}>
+              BEACN Payload QR · print a small creation and pass it on{' '}
+              <ArrowUpRight size={16} />
+            </a>
+          </p>
           <div className="ai-promise">
             <span>
               <Check size={15} /> 0 ADA Studio fee

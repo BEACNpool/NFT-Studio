@@ -44,7 +44,7 @@ const stateSchema = z
     revision: text.optional(),
     existing: z.boolean().optional(),
     paused: z.boolean().optional(),
-    handoffTarget: z.enum(['desktop', 'mobile']).optional(),
+    handoffTarget: z.enum(['desktop', 'mobile', 'payload', 'options']).optional(),
   })
   .superRefine((s, ctx) => {
     if (
@@ -120,6 +120,7 @@ export const GUIDE_CAPABILITIES = Object.freeze({
     'Offer Send to mobile (QR) after the preview. Use create_mobile_handoff for the same encrypted 15-minute transfer as the Studio browser. A mobile request is not permission to connect a wallet or mint.',
 });
 export const GUIDE_INSTRUCTIONS =
+  "Before wallet review, offer Add utility & mint options using studio_utilities and configure_mint_options. Quantity is copies in this transaction, not a lifetime cap or shared edition. For print or copy-forward sharing use create_payload_qr; it embeds small public content with no expiry. For a private temporary phone handoff keep create_mobile_handoff. Do not call these transfer types interchangeable. " +
   'For creation requests, use studio_guide to lead an interactive creative conversation. Offer one question at a time with a short menu, accept numbers or free text, remember answers in returned state, and offer Back, Pause, and Start over. After showing an actual preview, ask Revise / Prepare for wallet review / Keep without minting / Send to mobile (QR). For a requested mobile QR, use create_mobile_handoff with the exact verified ordinary intent, or the local-file helper with --mobile. Display the returned QR as an image, the full phone link and expiry. This is the same 15-minute encrypted transfer as Continue on phone in Studio. Preserve oversized or unsupported creations and explain the supported route; never substitute a LAN server or unrelated QR. Never select a creative option without the user’s answer unless they requested your choice. A complete one-prompt request may use the content tools directly. Use studio_inspiration for minted examples and cite their original identity separately from any new copy. Menus and client-held state are creative preferences, never wallet approval or proof of a mint. ';
 function response(state, extra = {}) {
   const output = { ...guideView(state), ...extra };

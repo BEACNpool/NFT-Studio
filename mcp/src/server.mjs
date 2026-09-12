@@ -1,3 +1,4 @@
+import {registerCreationOptionsTools,CREATION_OPTIONS_CAPABILITIES} from './creation-options-tools.mjs';
 import {registerMobileTools,MOBILE_HANDOFF_CAPABILITIES} from './mobile-tools.mjs';
 import {registerGuideTools,GUIDE_CAPABILITIES,GUIDE_INSTRUCTIONS} from './guide-tools.mjs';
 import {registerCipSourceTools,CIP_SOURCE_CAPABILITIES} from './cip-source-tools.mjs';
@@ -24,13 +25,14 @@ import { empty, payloadSchema, intentSchema, prepareSchema, verifySignedSchema, 
 export const STUDIO_URL = 'https://beacnpool.github.io/NFT-Studio/';
 export const STUDIO_REVIEW_URL = new URL('?view=labs&lab=agents', STUDIO_URL).href;
 export const CAPABILITIES = Object.freeze({
-  schema:'nft-studio.mcp.capabilities.v1', serverVersion:'0.3.0',
+  schema:'nft-studio.mcp.capabilities.v1', serverVersion:'0.4.0',
   transports:['stdio','streamable-http'], protocolEras:['2026-07-28','2025 legacy negotiation'],
   network:'Cardano mainnet', custody:'external signer only; no keys, signing or submission in this service',
+  creationOptions:CREATION_OPTIONS_CAPABILITIES,
   creativeGuide:GUIDE_CAPABILITIES,
     mobileHandoff:MOBILE_HANDOFF_CAPABILITIES,
     cipSources:CIP_SOURCE_CAPABILITIES,
-    actions:['mobile_handoff','mobile_handoff_revocation','interactive_guide','minted_inspiration','cip_source_search','cip_source_chunks','knowledge_search','knowledge_resources','payload_validation','ledger_metadata_validation','mint_intent','unsigned_transaction','witness_verification','proof_record','proof_verification','music_package','music_package_verification','unsigned_music_transaction','state_capsule_parameter_application'],
+    actions:['payload_qr','mint_options','utility_choices','mobile_handoff','mobile_handoff_revocation','interactive_guide','minted_inspiration','cip_source_search','cip_source_chunks','knowledge_search','knowledge_resources','payload_validation','ledger_metadata_validation','mint_intent','unsigned_transaction','witness_verification','proof_record','proof_verification','music_package','music_package_verification','unsigned_music_transaction','state_capsule_parameter_application'],
   proofOfExistence:PROOF_MCP_CAPABILITIES,
     musicReleases:MUSIC_MCP_CAPABILITIES,
     musicUnsignedPreparation:MUSIC_UNSIGNED_CAPABILITIES,
@@ -42,7 +44,7 @@ export const CAPABILITIES = Object.freeze({
   ],
   limits:{rawPayloadBytes:12000,files:8,intentJsonBytes:80000,signedTransactionBytes:16384,feeLovelace:'2000000',walletUtxos:128,walletCborBytes:131072,packetTtlSeconds:240,retainedPackets:64},
   mediaTypes:PAYLOAD_TYPES,
-  policy:{kind:'signature plus expiry native script',quantityThisTransaction:1,lifetimeSupplyCap:false,allowsAdditionalMintUntilExpiry:true,burnAfterExpiry:false},
+  policy:{kind:'signature plus expiry native script',quantityThisTransaction:'1–1000; defaults to 1',lifetimeSupplyCap:false,allowsAdditionalMintUntilExpiry:true,burnAfterExpiry:false},
   interoperability:[
     'CIP-25 v1 payload NFTs, CIP-30 compatible unsigned CBOR and witness sets; custom data metadata uses label '+DATA_LABEL+'.',
     'A fixed experimental CIP-68 State Capsule can be parameterized; this service does not build or evaluate its Plutus transactions. Native unsigned preparation remains separate.',
@@ -51,7 +53,7 @@ export const CAPABILITIES = Object.freeze({
   ],
   networkReads:'The fixed public Studio protocol-parameter feed and, only for requested mobile transfers, the fixed encrypted Studio handoff relay. The service does not independently query chain UTxOs or confirmation.',
   publicEndpoint:null, studioReviewUrl:STUDIO_REVIEW_URL,
-    reviewHandoff:{transport:'url-fragment',schema:'nft-studio.intent.v1',maxFragmentCharacters:106700,openingConnectsWallet:false},
+    reviewHandoff:{transport:'url-fragment',schema:'nft-studio.intent.v1',supportedSchemas:['nft-studio.intent.v1','nft-studio.intent.v2'],maxFragmentCharacters:106700,openingConnectsWallet:false},
     fees:{studioLovelace:'0',network:'Cardano network fees apply; minimum ADA stays in the user output.'},
 });
 const READ_ONLY = {readOnlyHint:true,destructiveHint:false,idempotentHint:true,openWorldHint:false};
@@ -95,7 +97,7 @@ export function createService(options={}) {
   const expiryTimer=setInterval(sweep,30000); expiryTimer.unref();
   const capabilities = () => ({...CAPABILITIES,knowledge:{asOf:catalog.asOf,entries:catalog.entries.length,sources:catalog.sources.length}});
   function factory() {
-    const server = new McpServer({name:'beacn-nft-studio',version:'0.3.0'},{instructions:GUIDE_INSTRUCTIONS+'Use capabilities first. Knowledge includes standard facts, design interpretations and implementation maturity. Prepare an intent for visible Studio review or build unsigned CBOR using caller wallet data. The dedicated music tool is stateless and does not enter the retained ordinary packet cache or its witness verifier. No tool signs or submits; never infer ledger confirmation from preparation or witness verification.'});
+    const server = new McpServer({name:'beacn-nft-studio',version:'0.4.0'},{instructions:GUIDE_INSTRUCTIONS+'Use capabilities first. Knowledge includes standard facts, design interpretations and implementation maturity. Prepare an intent for visible Studio review or build unsigned CBOR using caller wallet data. The dedicated music tool is stateless and does not enter the retained ordinary packet cache or its witness verifier. No tool signs or submits; never infer ledger confirmation from preparation or witness verification.'});
     const register = (name,description,schema,action,annotations=READ_ONLY) => server.registerTool(name,{description,inputSchema:schema,annotations},async args=>{
       if(activeCalls>=8) return safeError(new Error('Service tool concurrency limit reached.'));
       activeCalls++;
@@ -103,6 +105,7 @@ export function createService(options={}) {
     });
     registerGuideTools(server);
     registerMobileTools(register);
+    registerCreationOptionsTools(register);
     registerProofTools(register);
     registerMusicTools(register);
     registerMusicUnsignedTool(register,prepareMusic);
@@ -118,8 +121,8 @@ export function createService(options={}) {
       const bundle=await payload(args);return {bundle,dataMetadata:payloadMetadata(bundle),dataMeasurement:metadataMeasure(payloadMetadata(bundle))};
     });
     register('validate_metadata','Validate a canonical decimal-label map of ledger metadata. Rejects null, booleans, floats, oversized UTF-8 items, depth and size overflow; measures actual CSL auxiliary CBOR. This does not validate every CIP or build a transaction.',z.strictObject({metadata:z.record(z.string(),z.unknown())}),({metadata})=>({valid:true,...metadataMeasure(metadata)}));
-    register('create_mint_intent','Create a deterministic, hashed NFT/data intent from exact base64 files. Open review.url for a direct content review in Studio; save packetJson as a fallback. No wallet, address, transaction or signing authority is included.',intentSchema,async ({mode,...args})=>{
-      const intent=await createMintIntent(await payload(args),mode);
+    register('create_mint_intent','Create a deterministic, hashed NFT/data intent from exact base64 files. Open review.url for a direct content review in Studio; save packetJson as a fallback. No wallet, address, transaction or signing authority is included.',intentSchema,async ({mode,mintOptions,...args})=>{
+      const intent=await createMintIntent(await payload(args),mode,mintOptions);
       return {intent,filename:`nft-studio-${intent.intentHash.slice(0,12)}.intent.json`,packetJson:JSON.stringify(intent,null,2),review:{url:await createMintReviewUrl(intent,STUDIO_REVIEW_URL),baseUrl:STUDIO_REVIEW_URL,transport:'url-fragment',mobile:{tool:'create_mobile_handoff',browserControl:'Continue on phone → Create QR code',expiresAfterSeconds:900,action:'When the user requests a phone QR, pass this exact intent to create_mobile_handoff and display its QR, complete link and expiry.'},action:'Open this exact review link, inspect the files, connect your wallet, review the network fee and destination, then approve signing. Opening the link never signs or submits.',privacy:'The link contains your content in its fragment. Treat it like the request file; share only with intended reviewers. Studio removes the fragment from browser history before inspecting it.'},status:'intent-only; no transaction prepared'};
     });
     register('verify_mint_intent','Rebuild and verify an intent using shared browser/server canonicalization. Rejects changed bytes, mismatched hashes, extra fields and oversized packets.',z.strictObject({intent:z.unknown()}),async ({intent})=>({valid:true,intent:await verifyMintIntent(intent)}));
@@ -129,17 +132,17 @@ export function createService(options={}) {
       activeBuilds++;
       try {
         const verified=await verifyMintIntent(intent), w=snapshot(wallet), p=await protocol();
-        const prepared=await buildStudioTransaction(C,verified.bundle,verified.mode,w,p);
+        const prepared=await buildStudioTransaction(C,verified.bundle,verified.mode,w,p,verified.mintOptions);
         const packetId=randomUUID();
         packets.set(packetId,{prepared,wallet:w,intentHash:verified.intentHash});
         return {
           schema:'nft-studio.unsigned.v1',packetId,intentHash:verified.intentHash,
           unsignedHex:prepared.unsignedHex,transactionHash:prepared.hash,
           networkId:1,mode:prepared.mode,recipient:prepared.address,inputRefs:prepared.inputRefs,requiredPaymentKeyHashes:prepared.requiredKeys,
-          asset:prepared.mode==='nft'?{policyId:prepared.policyId,assetName:prepared.assetName,assetNameHex:Buffer.from(prepared.assetName).toString('hex'),quantity:'1',policyScriptHex:prepared.policyScript,policyExpirySlot:prepared.expirySlot}:null,
+          asset:prepared.mode==='nft'?{policyId:prepared.policyId,assetName:prepared.assetName,assetNameHex:Buffer.from(prepared.assetName).toString('hex'),quantity:String(prepared.quantity ?? 1),policyScriptHex:prepared.policyScript,policyExpirySlot:prepared.expirySlot}:null,
           fees:{lovelace:prepared.fee,nftOutputMinimumLovelace:prepared.minimumAda,estimatedSignedBytes:prepared.signedEstimate,metadataBytes:prepared.metadataBytes},
           validity:{validUntilSlot:prepared.validUntilSlot,preparedAt:new Date(prepared.createdAt).toISOString(),packetExpiresAt:new Date(prepared.createdAt+240000).toISOString()},
-          protocol:prepared.protocol,metadata:prepared.metadata,policySemantics:CAPABILITIES.policy,
+          protocol:prepared.protocol,metadata:prepared.metadata,policySemantics:{...CAPABILITIES.policy,quantityThisTransaction:prepared.quantity??1},
           checks:{sharedBuilder:true,auxiliaryCommitment:true,completeSignedSize:'estimated; exact after wallet witnesses',walletInputs:'caller-supplied snapshot; chain unspent state unverified',signed:false,submitted:false},
           next:'Independently inspect body, all outputs, fees and mint identity. Have the external wallet sign this exact CBOR with partialSign=true; send its witness-set CBOR and refreshed wallet snapshot to verify_signed_transaction before the packet expires.',
         };

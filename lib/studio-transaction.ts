@@ -1,3 +1,4 @@
+import { verifyMintOptions, type MintOptions } from './studio-mint-options';
 import type * as Cardano from '@emurgo/cardano-serialization-lib-browser-inlined';
 import {
   errorText,
@@ -37,6 +38,8 @@ export type StudioTransaction = PreparedTransaction & {
   policyScript?: string;
   assetName?: string;
   expirySlot?: number;
+  mintOptions?: MintOptions;
+  quantity?: number;
 };
 
 export type MusicReleaseTransaction = StudioTransaction & {
@@ -52,8 +55,17 @@ export async function buildStudioTransaction(
   mode: 'nft' | 'data',
   wallet: WalletState,
   p: Protocol,
+  options?: MintOptions,
 ): Promise<StudioTransaction> {
-  return buildStudioTransactionCore(C, bundle, mode, wallet, p);
+  return buildStudioTransactionCore(
+    C,
+    bundle,
+    mode,
+    wallet,
+    p,
+    undefined,
+    options,
+  );
 }
 
 /** Verifies a whole music package; the shared constructor supplies its metadata.
@@ -127,9 +139,14 @@ async function buildStudioTransactionCore(
   wallet: WalletState,
   p: Protocol,
   musicRelease?: MusicReleasePackage,
+  options?: MintOptions,
 ): Promise<StudioTransaction> {
   if (mode !== 'nft' && mode !== 'data')
     throw new Error('Choose NFT or data record.');
+  if (options && (mode !== 'nft' || musicRelease))
+    throw Error('These mint options apply only to ordinary NFTs.');
+  const mintOptions = options ? verifyMintOptions(options) : undefined;
+  const quantity = mintOptions?.quantity ?? 1;
   await verifyPayloadBundle(bundle);
   if (mode === 'nft' && !bundle.cover)
     throw new Error('Choose an image cover before preparing an NFT.');
@@ -178,7 +195,10 @@ async function buildStudioTransactionCore(
   const currentSlot =
     p.slot + Math.max(0, Math.floor(Date.now() / 1000) - p.blockTime);
   const validUntilSlot = currentSlot + 600,
-    expirySlot = mode === 'nft' ? currentSlot + 3600 : undefined;
+    expirySlot =
+      mode === 'nft'
+        ? currentSlot + (mintOptions?.mintWindowHours ?? 1) * 3600
+        : undefined;
   let script: Cardano.NativeScript | undefined,
     asset: Cardano.AssetName | undefined;
   let policyId: string | undefined,
@@ -205,7 +225,7 @@ async function buildStudioTransactionCore(
     asset = C.AssetName.new(new TextEncoder().encode(assetName));
     const ma = C.MultiAsset.new(),
       assets = C.Assets.new();
-    assets.insert(asset, bn(1));
+    assets.insert(asset, bn(quantity));
     ma.insert(script.hash(), assets);
     output = C.TransactionOutputBuilder.new()
       .with_address(change)
@@ -223,6 +243,14 @@ async function buildStudioTransactionCore(
         bundle,
         policyId && assetName ? { policyId, assetName } : undefined,
       );
+  if (mintOptions) {
+    const entry = (metadata['721'] as Record<string, Record<string, unknown>>)[
+      policyId!
+    ][assetName!] as Record<string, unknown>;
+    if (Object.keys(mintOptions.traits).length)
+      entry.traits = mintOptions.traits;
+    if (mintOptions.message) metadata['674'] = { msg: [mintOptions.message] };
+  }
   const general = C.GeneralTransactionMetadata.new();
   for (const [label, value] of Object.entries(metadata))
     general.insert(
@@ -261,7 +289,7 @@ async function buildStudioTransactionCore(
       mint.add_asset(
         C.MintWitness.new_native_script(C.NativeScriptSource.new(script)),
         asset,
-        C.Int.new_i32(1),
+        C.Int.new_i32(quantity),
       );
       builder.set_mint_builder(mint);
     }
@@ -297,6 +325,7 @@ async function buildStudioTransactionCore(
       policyScript: script?.to_hex(),
       assetName,
       expirySlot,
+      ...(mintOptions ? { mintOptions, quantity } : {}),
       signedEstimate,
       metadataBytes: aux.to_bytes().length,
       fee,

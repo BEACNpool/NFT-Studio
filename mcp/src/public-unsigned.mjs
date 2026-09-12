@@ -55,7 +55,7 @@ function transactionEvidence(C, prepared, snapshot) {
   if(actualRefs.length!==prepared.inputRefs.length||actualRefs.some(ref=>!prepared.inputRefs.includes(ref)))fail('Selected input report mismatch.');
   if(prepared.mode==='nft'){
     const mint=body.mint();if(!mint||mint.keys().len()!==1||mint.keys().get(0).to_hex()!==prepared.policyId)fail('Unexpected minted policy.');
-    const groups=mint.get(mint.keys().get(0));if(groups.len()!==1)fail('Duplicate mint policy groups.');const assets=groups.get(0);if(assets.len()!==1||encHex(assets.keys().get(0).name())!==encHex(enc.encode(prepared.assetName))||assets.get(assets.keys().get(0)).to_str()!=='1')fail('Unexpected minted asset or quantity.');
+    const groups=mint.get(mint.keys().get(0));if(groups.len()!==1)fail('Duplicate mint policy groups.');const assets=groups.get(0);if(assets.len()!==1||encHex(assets.keys().get(0).name())!==encHex(enc.encode(prepared.assetName))||assets.get(assets.keys().get(0)).to_str()!==String(prepared.quantity ?? 1))fail('Unexpected minted asset or quantity.');
     const minted=C.Value.new(C.BigNum.from_str('0'));minted.set_multiasset(mint.as_positive_multiasset());available=available.checked_add(minted);
     if(witnesses.native_scripts()?.len()!==1||witnesses.native_scripts().get(0).to_hex()!==prepared.policyScript)fail('Native policy witness mismatch.');
   } else if(body.mint()||witnesses.native_scripts()?.len())fail('Data mode must not mint a token.');
@@ -141,7 +141,7 @@ export function createUnsignedPreparers(C, {
       const protocol = await quotedProtocol(protocolProvider);
       const prepared = music
         ? await buildMusicReleaseTransaction(C, content, snapshot.wallet, protocol)
-        : await buildStudioTransaction(C, content.bundle, content.mode, snapshot.wallet, protocol);
+        : await buildStudioTransaction(C, content.bundle, content.mode, snapshot.wallet, protocol, content.mintOptions);
       const evidence = transactionEvidence(C, prepared, snapshot);
       const musicRelease = music ? await musicTransactionContent(C, prepared, content, args.packetJson) : null;
       return {
@@ -150,7 +150,7 @@ export function createUnsignedPreparers(C, {
         mode: prepared.mode, networkId: 1,
         unsignedHex: prepared.unsignedHex, transactionHash: prepared.hash, bodyHex: evidence.bodyHex,
         selectedInputRefs: prepared.inputRefs, requiredPaymentKeyHashes: prepared.requiredKeys, recipient: prepared.address, outputs: evidence.outputs,
-        asset: prepared.mode === 'nft' ? { policyId: prepared.policyId, assetNameHex: encHex(enc.encode(prepared.assetName)), quantity: '1', nativeScriptHex: prepared.policyScript, policyExpirySlot: prepared.expirySlot } : null,
+        asset: prepared.mode === 'nft' ? { policyId: prepared.policyId, assetNameHex: encHex(enc.encode(prepared.assetName)), quantity: String(prepared.quantity ?? 1), nativeScriptHex: prepared.policyScript, policyExpirySlot: prepared.expirySlot } : null,
         feeLovelace: prepared.fee, unsignedBytes: evidence.unsignedBytes, estimatedSignedBytes: prepared.signedEstimate, metadata: prepared.metadata, auxiliaryDataHash: evidence.auxiliaryDataHash,
         protocol, validUntilSlot: prepared.validUntilSlot, preparedAt: prepared.createdAt,
         reviewUrl: music ? MUSIC_REVIEW_URL : reviewUrl,
@@ -167,7 +167,7 @@ export function createUnsignedPreparers(C, {
         privacy: music
           ? 'The service receives the supplied music package and authorized wallet snapshot. This adapter does not persist or log them; its fixed provider receives no package, credit, address or UTxO data. Provider infrastructure may retain operational metadata.'
           : 'The service receives the supplied intent and wallet snapshot. This adapter does not persist or log them. Provider infrastructure may retain operational metadata.',
-        policySemantics: { quantityThisTransaction: prepared.mode === 'nft' ? 1 : 0, lifetimeSupplyCap: false, burnAfterExpiry: false },
+        policySemantics: { quantityThisTransaction: prepared.mode === 'nft' ? (prepared.quantity ?? 1) : 0, lifetimeSupplyCap: false, burnAfterExpiry: false },
         signed: false, submitted: false,
       };
     });

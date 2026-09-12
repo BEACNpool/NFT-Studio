@@ -16,7 +16,7 @@ export const MOBILE_HANDOFF_CAPABILITIES = Object.freeze({
   transport: 'The same encrypted HTTPS transfer used by NFT-Studio',
   relay: HANDOFF_API,
   expiresAfterSeconds: HANDOFF_TTL_SECONDS,
-  input: 'Verified ordinary nft-studio.intent.v1 NFT/data intent',
+  input: 'Verified ordinary nft-studio.intent.v1 or v2 NFT/data intent',
   limits: { rawPayloadBytes: 12000, files: 8, intentJsonBytes: 80000 },
   qr: 'Self-contained SVG for the exact short phone URL; local-file helper also saves PNG',
   privacy: 'Uploads AES-GCM ciphertext for 15 minutes. The content decryption key stays in the phone-link fragment. Anyone with the complete link can view the creation until expiry.',
