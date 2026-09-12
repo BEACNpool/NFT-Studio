@@ -48,8 +48,13 @@ The flag explicitly authorizes sending encrypted content to NFT-Studio's existin
 15-minute relay. It invokes `create_mobile_handoff` through the local MCP, which
 reads back and verifies the exact intent before returning a QR. The exporter
 checks the response, regenerates the QR from its verified Studio phone URL, and
-adds `mobile-qr.png`, `mobile-qr.svg`, `mobile-url.txt` and a self-contained
-`mobile.html`. Display the PNG in chat and provide the full link and expiry.
+adds `mobile-qr.txt`, `mobile-qr.png`, `mobile-qr.svg`, `mobile-url.txt` and a
+self-contained `mobile.html`. The CLI prints the Unicode QR, full phone link,
+expiry and wallet instructions to stderr; stdout remains JSON for scripts.
+In a terminal or text-only chat, reproduce the TXT verbatim in an unwrapped
+fenced code block in the user-facing answer. Use a monospace font; preserve the
+full width and white border. Image-capable clients can also show the PNG.
+Provide the full link and expiry alongside either rendering.
 Desktop review and `intent.json` remain available.
 
 `mobile-transfer.private.json` holds the creator revocation arguments. Keep it

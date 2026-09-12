@@ -6,6 +6,7 @@ import {resolve,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
+import {renderTerminalQr,mobileTerminalMessage} from './terminal-qr.mjs';
 import {Client} from '@modelcontextprotocol/client';
 import {StdioClientTransport} from '@modelcontextprotocol/client/stdio';
 export const LIMITS=Object.freeze({requestBytes:16384,files:8,rawBytes:12000,responseBytes:524288,intentBytes:80000,timeoutMs:30000});
@@ -28,7 +29,21 @@ export async function readRequest(requestPath){
  for(const file of value.files){fields(file,['path','name','mediaType']);boundedText(file.path,4096);boundedText(file.name,64);boundedText(file.mediaType,64);if(/^[a-z][a-z0-9+.-]*:\/\//i.test(file.path)||file.path.startsWith('//')||file.path.startsWith('data:')||file.path.startsWith('file:')||file.path.startsWith('\\\\'))throw Error('Use a local filesystem path, not a URL or network share.');const bytes=await boundedFile(resolve(dirname(path),file.path),LIMITS.rawBytes);total+=bytes.length;if(!bytes.length||total>LIMITS.rawBytes)throw Error('Use 1–12000 total raw file bytes.');files.push({name:file.name,mediaType:file.mediaType,base64:bytes.toString('base64')});}
  return {mode:value.mode,name:value.name,...(value.mintOptions===undefined?{}:{mintOptions:value.mintOptions}),...(value.description===undefined?{}:{description:value.description}),...(value.coverIndex===undefined?{}:{coverIndex:value.coverIndex}),files};
 }
-export function unpackResponse(result){if(Buffer.byteLength(JSON.stringify(result))>LIMITS.responseBytes)throw Error('MCP response exceeds the 512 KiB limit.');if(result.isError)throw Error('Local MCP rejected the request; check file types, names and payload limits.');const texts=result.content?.filter(c=>c.type==='text')||[];if(texts.length!==1)throw Error('Unexpected MCP response content.');const parsed=JSON.parse(texts[0].text);if(result.structuredContent!==undefined)assert.deepEqual(parsed,result.structuredContent,'MCP text and structured results differ.');return result.structuredContent??parsed;}
+export function unpackResponse(result){
+ if(Buffer.byteLength(JSON.stringify(result))>LIMITS.responseBytes)throw Error('MCP response exceeds the 512 KiB limit.');
+ if(result.isError)throw Error('Local MCP rejected the request; check file types, names and payload limits.');
+ const texts=result.content?.filter(c=>c.type==='text')||[];
+ if(texts.length<1||texts.length>2)throw Error('Unexpected MCP response content.');
+ const parsed=JSON.parse(texts[0].text);
+ if(result.structuredContent!==undefined)assert.deepEqual(parsed,result.structuredContent,'MCP text and structured results differ.');
+ if(texts.length===2){
+  assert.equal(parsed.schema,'nft-studio.mobile-handoff.v1');
+  const terminal=renderTerminalQr(parsed.url);
+  assert.deepEqual(Object.fromEntries(Object.keys(terminal).map(k=>[k,parsed.qr?.[k]])),terminal,'Terminal QR differs from the phone link.');
+  assert.equal(texts[1].text,mobileTerminalMessage(parsed),'MCP display and structured results differ.');
+ }
+ return result.structuredContent??parsed;
+}
 function decodeFile(file){const prefix=`data:${file.mediaType}`;if(file.uri.startsWith(prefix+';base64,')){const raw=file.uri.slice(prefix.length+8),bytes=Buffer.from(raw,'base64');assert.equal(bytes.toString('base64'),raw);return bytes;}assert(file.uri.startsWith(prefix+','));return Buffer.from(decodeURIComponent(file.uri.slice(prefix.length+1)),'utf8');}
 export function verifyHandoff(made,verified,args){
  const intent=made.intent;assert.equal(verified.valid,true);assert.deepEqual(verified.intent,intent);assert.equal(typeof made.packetJson,'string');assert(Buffer.byteLength(made.packetJson)<=LIMITS.intentBytes);assert.deepEqual(JSON.parse(made.packetJson),intent);
@@ -65,18 +80,20 @@ export async function createReview(requestPath,outputPath,{entry=fileURLToPath(n
    const {payloadExport}=await import('./payload-export.mjs');
    Object.assign(contents,await payloadExport(result,intent));calls.push('create_payload_qr');
   }
-  const receipt={schema:'nft-studio.local-review.v1',status:'verified-intent-only',intentHash:intent.intentHash,bundleHash:intent.bundle.sha256,rawBytes:intent.bundle.bytes,reviewUrlCharacters:made.review.url.length,...(transfer?{mobile:{url:transfer.url,expiresAt:transfer.expiresAt,expiresAtIso:transfer.expiresAtIso,qr:'mobile-qr.png',page:'mobile.html'}}:{}),files:Object.entries(contents).map(([name,content])=>({name,bytes:Buffer.byteLength(content),sha256:sha(content)})),mcpCalls:calls,walletConnected:false,signed:false,submitted:false};
+  const receipt={schema:'nft-studio.local-review.v1',status:'verified-intent-only',intentHash:intent.intentHash,bundleHash:intent.bundle.sha256,rawBytes:intent.bundle.bytes,reviewUrlCharacters:made.review.url.length,...(transfer?{mobile:{url:transfer.url,expiresAt:transfer.expiresAt,expiresAtIso:transfer.expiresAtIso,qr:'mobile-qr.png',terminalQr:'mobile-qr.txt',page:'mobile.html'}}:{}),files:Object.entries(contents).map(([name,content])=>({name,bytes:Buffer.byteLength(content),sha256:sha(content)})),mcpCalls:calls,walletConnected:false,signed:false,submitted:false};
   await mkdir(out,{mode:0o700});for(const [name,content] of Object.entries(contents))await writeFile(resolve(out,name),content,{flag:'wx',mode:0o600});await writeFile(resolve(out,'receipt.json'),JSON.stringify(receipt,null,2)+'\n',{flag:'wx',mode:0o600});complete=true;
-  return {...receipt,outputDirectory:out,next:mobile?'Display mobile-qr.png, provide the complete mobile link and expiry, or open mobile.html. Keep mobile-transfer.private.json private; it contains the creator revocation token.':'Open review.html in your browser, or import intent.json in Studio. The full link is saved without copying it through model prose.'};
+  return {...receipt,outputDirectory:out,next:mobile?'In terminal/text clients, display mobile-qr.txt verbatim in an unwrapped fenced code block in the user-facing answer. Include the complete mobile link and expiry. PNG/SVG and mobile.html are also available. Keep mobile-transfer.private.json private; it contains the creator revocation token.':'Open review.html in your browser, or import intent.json in Studio. The full link is saved without copying it through model prose.'};
  }finally{
   if(transfer&&!complete)await call('revoke_mobile_handoff',transfer.endTransfer.arguments).catch(()=>{});
   await client.close();
  }
 }
-export async function main(argv=process.argv.slice(2)){
+export async function main(argv=process.argv.slice(2),options={}){
  const usage='Usage: node mcp/create-review.mjs --request REQUEST.json --output NEW_DIRECTORY [--mobile | --payload-qr]';
- if(argv.length===1&&argv[0]==='--help'){console.log(usage+'\nReads explicit local files, creates and verifies an exact intent, and saves review.html, intent.json, review-url.txt and receipt.json. --mobile explicitly uploads encrypted content to the native 15-minute Studio relay and adds QR PNG/SVG, mobile.html, mobile-url.txt and a private revocation record. --payload-qr creates a public embedded payload QR with no upload or expiry and saves printable PNG/SVG and a complete link; small payloads only. No wallet, signing or submission. Existing outputs are never overwritten.');return;}
+ if(argv.length===1&&argv[0]==='--help'){console.log(usage+'\nReads explicit local files, creates and verifies an exact intent, and saves review.html, intent.json, review-url.txt and receipt.json. --mobile explicitly uploads encrypted content to the native 15-minute Studio relay, prints a scannable Unicode QR to stderr, and saves QR TXT/PNG/SVG, mobile.html, mobile-url.txt and a private revocation record. Stdout stays JSON; redirect stderr to silence the display. --payload-qr creates a public embedded payload QR with no upload or expiry and saves printable PNG/SVG and a complete link; small payloads only. No wallet, signing or submission. Existing outputs are never overwritten.');return;}
  if(![4,5].includes(argv.length)||argv[0]!=='--request'||argv[2]!=='--output'||(argv.length===5&&!['--mobile','--payload-qr'].includes(argv[4])))throw Error(usage);
- console.log(JSON.stringify(await createReview(argv[1],argv[3],{mobile:argv[4]==='--mobile',payloadQr:argv[4]==='--payload-qr'}),null,2));
+ const result=await createReview(argv[1],argv[3],{...options,mobile:argv[4]==='--mobile',payloadQr:argv[4]==='--payload-qr'});
+ console.log(JSON.stringify(result,null,2));
+ if(result.mobile)process.stderr.write('\n'+mobileTerminalMessage({...result.mobile,qr:renderTerminalQr(result.mobile.url)},{markdown:false}));
 }
 if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url))main().catch(error=>{console.error(error instanceof assert.AssertionError?'MCP handoff integrity verification failed; no completed export was produced.':error.message);process.exitCode=1;});

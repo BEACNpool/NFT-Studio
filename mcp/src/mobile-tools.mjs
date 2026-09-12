@@ -1,6 +1,7 @@
 import * as z from 'zod/v4';
 import QRCode from 'qrcode/lib/core/qrcode.js';
 import SvgRenderer from 'qrcode/lib/renderer/svg-tag.js';
+import {renderTerminalQr} from '../terminal-qr.mjs';
 import { verifyMintIntent } from '@studio/studio-intent.ts';
 import {
   createPhoneTransfer, receivePhoneTransfer, revokePhoneTransfer,
@@ -18,7 +19,7 @@ export const MOBILE_HANDOFF_CAPABILITIES = Object.freeze({
   expiresAfterSeconds: HANDOFF_TTL_SECONDS,
   input: 'Verified ordinary nft-studio.intent.v1 or v2 NFT/data intent',
   limits: { rawPayloadBytes: 12000, files: 8, intentJsonBytes: 80000 },
-  qr: 'Self-contained SVG for the exact short phone URL; local-file helper also saves PNG',
+  qr: 'Scannable Unicode terminal text and self-contained SVG for the exact short phone URL; local-file helper prints the terminal QR and also saves TXT/PNG/SVG',
   privacy: 'Uploads AES-GCM ciphertext for 15 minutes. The content decryption key stays in the phone-link fragment. Anyone with the complete link can view the creation until expiry.',
   unsupported: 'Oversized previews, dedicated music-release packets, Scrolls, Books and larger catalogue creators are not ordinary transfer intents. Preserve those files and explain their own supported browser route; do not substitute a LAN server or unrelated QR.',
   walletConnected: false, signed: false, submitted: false,
@@ -57,12 +58,12 @@ export async function createMobileHandoff({ intent: supplied }) {
       name: intent.bundle.name, rawBytes: intent.bundle.bytes,
       url: transfer.url, expiresAt: transfer.expiresAt,
       expiresAtIso: new Date(transfer.expiresAt).toISOString(),
-      qr: { mediaType: 'image/svg+xml', filename: 'mobile-qr.svg', svg },
+      qr: { mediaType: 'image/svg+xml', filename: 'mobile-qr.svg', svg, ...renderTerminalQr(transfer.url) },
       endTransfer: { tool: 'revoke_mobile_handoff', arguments: {
         id: transfer.id, revokeToken: transfer.revokeToken,
       } },
       checks: { exactIntentReadBack: true, walletConnected: false, signed: false, submitted: false },
-      next: 'Display the QR as an image, the complete phone link and its expiry. Scan with a phone camera. Studio opens the exact creation; choose Open in wallet browser only when ready for wallet review. Retain endTransfer privately. Do not replace this link with a local-network URL or create another transfer unless requested.',
+      next: 'In terminal or text-only clients, show qr.terminalText verbatim in an unwrapped fenced code block in your user-facing answer. A tool result or local image path alone is not delivery. Image-capable clients may also display qr.svg. Include the complete phone link and expiry. Scan with a phone camera, then choose Open in wallet browser for wallet review. Retain endTransfer privately. Do not replace this link with a local-network URL or create another transfer unless requested.',
       privacy: MOBILE_HANDOFF_CAPABILITIES.privacy,
     };
   } catch (error) {
@@ -76,7 +77,7 @@ export async function createMobileHandoff({ intent: supplied }) {
 
 export function registerMobileTools(register) {
   register('create_mobile_handoff',
-    'Send a verified ordinary NFT/data intent to a phone through NFT-Studio’s built-in encrypted 15-minute relay. Use when the user requests a mobile QR, phone transfer or mobile wallet handoff. Returns a verified short HTTPS link, displayable QR SVG and expiry. Uploads ciphertext; does not connect a wallet, sign, submit or promise oversized files will fit. Preserve the exact intent and never substitute a LAN preview server.',
+    'Send a verified ordinary NFT/data intent to a phone through NFT-Studio’s built-in encrypted 15-minute relay. Use when the user requests a mobile QR, phone transfer or mobile wallet handoff. Returns a verified short HTTPS link, scannable terminal QR text, QR SVG and expiry. In terminal clients, put qr.terminalText verbatim in a fenced code block in the user-facing answer; do not provide only an image path. Uploads ciphertext; does not connect a wallet, sign, submit or promise oversized files will fit. Preserve the exact intent and never substitute a LAN preview server.',
     createSchema, createMobileHandoff, createAnnotations);
   register('revoke_mobile_handoff',
     'End a phone transfer created by create_mobile_handoff when the user asks to end it. Use its exact endTransfer.arguments; do not put the creator revocation token in public links. Does not affect the local files, wallet or blockchain.',

@@ -1,3 +1,4 @@
+import {jsonToolResult as jsonResult} from '../tool-result.mjs';
 import {registerCreationOptionsTools,CREATION_OPTIONS_CAPABILITIES} from './creation-options-tools.mjs';
 import {registerMobileTools,MOBILE_HANDOFF_CAPABILITIES} from './mobile-tools.mjs';
 import {registerGuideTools,GUIDE_CAPABILITIES,GUIDE_INSTRUCTIONS} from './guide-tools.mjs';
@@ -25,7 +26,7 @@ import { empty, payloadSchema, intentSchema, prepareSchema, verifySignedSchema, 
 export const STUDIO_URL = 'https://beacnpool.github.io/NFT-Studio/';
 export const STUDIO_REVIEW_URL = new URL('?view=labs&lab=agents', STUDIO_URL).href;
 export const CAPABILITIES = Object.freeze({
-  schema:'nft-studio.mcp.capabilities.v1', serverVersion:'0.4.0',
+  schema:'nft-studio.mcp.capabilities.v1', serverVersion:'0.4.1',
   transports:['stdio','streamable-http'], protocolEras:['2026-07-28','2025 legacy negotiation'],
   network:'Cardano mainnet', custody:'external signer only; no keys, signing or submission in this service',
   creationOptions:CREATION_OPTIONS_CAPABILITIES,
@@ -58,7 +59,6 @@ export const CAPABILITIES = Object.freeze({
 });
 const READ_ONLY = {readOnlyHint:true,destructiveHint:false,idempotentHint:true,openWorldHint:false};
 const NETWORK_READ = {...READ_ONLY,openWorldHint:true};
-const jsonResult = output => ({content:[{type:'text',text:JSON.stringify(output)}],structuredContent:output});
 const payload = args => preparePayloadBundle({...args,files:decodeFiles(args.files)});
 function safeError(error) {
   // Never log arguments, CBOR, wallet addresses or headers. Shared validation errors are short.
@@ -97,7 +97,7 @@ export function createService(options={}) {
   const expiryTimer=setInterval(sweep,30000); expiryTimer.unref();
   const capabilities = () => ({...CAPABILITIES,knowledge:{asOf:catalog.asOf,entries:catalog.entries.length,sources:catalog.sources.length}});
   function factory() {
-    const server = new McpServer({name:'beacn-nft-studio',version:'0.4.0'},{instructions:GUIDE_INSTRUCTIONS+'Use capabilities first. Knowledge includes standard facts, design interpretations and implementation maturity. Prepare an intent for visible Studio review or build unsigned CBOR using caller wallet data. The dedicated music tool is stateless and does not enter the retained ordinary packet cache or its witness verifier. No tool signs or submits; never infer ledger confirmation from preparation or witness verification.'});
+    const server = new McpServer({name:'beacn-nft-studio',version:'0.4.1'},{instructions:GUIDE_INSTRUCTIONS+'Use capabilities first. Knowledge includes standard facts, design interpretations and implementation maturity. Prepare an intent for visible Studio review or build unsigned CBOR using caller wallet data. The dedicated music tool is stateless and does not enter the retained ordinary packet cache or its witness verifier. No tool signs or submits; never infer ledger confirmation from preparation or witness verification.'});
     const register = (name,description,schema,action,annotations=READ_ONLY) => server.registerTool(name,{description,inputSchema:schema,annotations},async args=>{
       if(activeCalls>=8) return safeError(new Error('Service tool concurrency limit reached.'));
       activeCalls++;

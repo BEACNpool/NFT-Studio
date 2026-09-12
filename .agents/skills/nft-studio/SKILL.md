@@ -98,11 +98,15 @@ is clear intent for the temporary content transfer, not permission to mint.
   It uses the same encrypted relay as Studio's **Continue on phone → Create QR code**.
   It reads the encrypted transfer back, decrypts it and checks the complete intent.
 - For local files, run `node mcp/create-review.mjs --request REQUEST.json --output NEW_DIRECTORY --mobile`.
-  This saves `mobile-qr.png`, `mobile-qr.svg`, `mobile.html`, `mobile-url.txt`, the
+  This prints a terminal QR and saves `mobile-qr.txt`, `mobile-qr.png`, `mobile-qr.svg`, `mobile.html`, `mobile-url.txt`, the
   desktop review files, a receipt and `mobile-transfer.private.json`.
-- **Show the QR as an image**, give the complete phone link and state its expiry.
-  Do not just print the SVG markup or give the desktop `#mint=` link as a QR.
-  Use the client file/image facility; the helper's PNG is suitable for chat.
+- **In a terminal or text-only client, show `qr.terminalText` (or `mobile-qr.txt`)
+  verbatim in a fenced code block in the user-facing answer.** Preserve spaces,
+  block characters and rows; use monospace and do not wrap lines. Do not assume
+  tool output is visible to the user. A local image path or SVG markup alone is
+  not delivery. Image-capable clients may also show `qr.svg` or the helper's PNG.
+  Give the complete phone link and expiry. Never encode the desktop `#mint=` link
+  as a substitute. The CLI keeps JSON on stdout and prints its QR to stderr.
   The phone opens the same creation in Studio. **Open in wallet browser** continues
   into a compatible mobile wallet for the user's separate review and approval.
 - The relay keeps encrypted content for 15 minutes. The decryption key is in the

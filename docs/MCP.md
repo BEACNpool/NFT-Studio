@@ -152,7 +152,7 @@ Run the compiled file directly. `npm run` can write banners to stdout, which is 
 | `validate_payload` | Exact file bytes, MIME signature/UTF-8 checks, canonical embedded URIs, SHA-256 and data metadata measurement |
 | `validate_metadata` | Ledger-safe JSON subset validation and actual auxiliary CBOR size/hash |
 | `create_proof_record` / `verify_proof_record` | Proposed CIP-190 public hash records and exact-byte verification, with raw record/metadata CBOR exports |
-| `create_mobile_handoff` / `revoke_mobile_handoff` | Native encrypted 15-minute phone transfer, QR SVG, exact-content read-back, and creator revocation |
+| `create_mobile_handoff` / `revoke_mobile_handoff` | Native encrypted 15-minute phone transfer, visible terminal QR text plus SVG, exact-content read-back, and creator revocation |
 | `create_mint_intent` / `verify_mint_intent` | Deterministic file packet for visible browser review |
 | `create_music_release` / `verify_music_release` | Canonical files-and-credits package for the Music release lab |
 | `apply_state_capsule_parameters` | Apply exact seed/name parameters to the pinned experimental program and export its blueprint and identity |

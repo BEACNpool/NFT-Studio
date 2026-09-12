@@ -44,8 +44,12 @@ After the preview, choose **Send to mobile (QR)** or ask “Send this to my phon
 The agent calls `create_mobile_handoff` with the exact verified ordinary intent
 and displays its QR, complete HTTPS phone link and expiry. This uses the same
 15-minute encrypted transfer as **Continue on phone → Create QR code** in Studio.
-The local-file helper supports `--mobile` and saves PNG/SVG QR images and a phone
-review page. Opening the link grants no wallet permission.
+MCP 0.4.1 includes scannable Unicode text in `qr.terminalText` and a separate
+human-readable text block. In terminal clients, the agent must show it verbatim
+in a fenced code block in its answer; an image path alone is insufficient.
+The local-file helper's `--mobile` prints the QR to stderr, preserves JSON stdout,
+and saves TXT/PNG/SVG QR files and a phone review page. Opening the link grants no
+wallet permission.
 
 See [the native mobile workflow](../docs/MOBILE_HANDOFF.md) for agent steps, saved files,
 privacy, expiry and supported package limits.

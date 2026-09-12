@@ -42,6 +42,10 @@ MCP 0.4.0 adds `studio_utilities`, `configure_mint_options` and `create_payload_
 CIP-25 traits and CIP-20 messages travel in the verified request. A lifetime supply
 cap, shared edition, holder gate or redemption service is not implied.
 
+MCP 0.4.1 displays native mobile handoff QRs as scannable terminal text as well as
+images. The local `--mobile` exporter prints the QR and also saves TXT/PNG/SVG;
+see the [mobile handoff guide](docs/MOBILE_HANDOFF.md).
+
 ## BEACN Labs
 
 [Open Labs](https://beacnpool.github.io/NFT-Studio/?view=labs) to explore working
