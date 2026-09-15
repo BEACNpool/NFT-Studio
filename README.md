@@ -1,5 +1,11 @@
 # NFT-Studio
 
+> **Development paused — September 2026.** BEACN retired, so NFT Studio is no longer maintained. The site and source
+> stay public. Browser features that read from or submit to the chain used BEACN's Koios mirror (`PROTOCOL_URL` in
+> `lib/cardano.ts`), which is retired; point it at your own mirror built from
+> [the open recipe](https://github.com/BEACNpool/ledger-scrolls/tree/main/tools/cors-mirror). The phone-handoff relay
+> runs on beacnpool.org, which BEACN is letting go. [BEACN archive](https://beacnpool.github.io/ABCDE/pool/)
+
 **BEACN Workbench** — [open the visual workspace](https://beacnpool.github.io/NFT-Studio/workbench/) or run `npm --prefix mcp run tui`. Twelve sourced CIP utility recipes, a searchable MCP toolbox, compatible build plans and exact-intent mint options. [Workbench guide](docs/WORKBENCH.md).
 
 ![BEACN Workbench utility library](docs/workbench-preview.png)
