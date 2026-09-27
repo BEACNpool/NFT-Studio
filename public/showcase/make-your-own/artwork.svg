@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+<title id="title">NFT-Studio — Make your own</title><desc id="desc">A luminous question mark above a mint and gold creative nucleus. Why would you use anything else? NFT-Studio. Make it yours.</desc>
+<defs>
+<radialGradient id="bg"><stop stop-color="#34206a"/><stop offset="1" stop-color="#090c18"/></radialGradient>
+<linearGradient id="metal" x2="1" y2="1"><stop stop-color="#afffe5"/><stop offset=".45" stop-color="#54e7ce"/><stop offset="1" stop-color="#b798ff"/></linearGradient>
+<linearGradient id="gold" x2="0" y2="1"><stop stop-color="#fff1ae"/><stop offset="1" stop-color="#dc9b46"/></linearGradient>
+<filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="10"/></filter>
+<pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#a39bff" stroke-opacity=".06"/></pattern>
+<style>@keyframes orbit{to{transform:rotate(360deg)}}@keyframes breathe{50%{opacity:.35}}.orbit{transform-origin:600px 530px;animation:orbit 36s linear infinite}.pulse{animation:breathe 5s ease-in-out infinite}@media(prefers-reduced-motion:reduce){.orbit,.pulse{animation:none}}text{font-family:Arial,Helvetica,sans-serif}</style>
+</defs>
+<path fill="url(#bg)" d="M0 0h1200v1200H0z"/><path fill="url(#grid)" d="M0 0h1200v1200H0z"/>
+<rect x="30" y="30" width="1140" height="1140" rx="30" fill="none" stroke="#8df4dd" stroke-opacity=".28"/>
+<path d="M65 130V65h65m940 0h65v65M65 1070v65h65m940 0h65v-65" fill="none" stroke="url(#gold)" stroke-width="3"/>
+<text x="600" y="112" text-anchor="middle" fill="#a8c5ca" font-size="17" letter-spacing="7">YOUR IDEA. YOUR ART. YOUR NFT.</text>
+<text x="600" y="182" text-anchor="middle" fill="#f6f5ff" font-size="37" font-weight="700">WHY BUY SOMEONE ELSE’S</text>
+<text x="600" y="238" text-anchor="middle" fill="#f6f5ff" font-size="37" font-weight="700">WHEN YOU CAN MAKE YOUR OWN?</text>
+<circle cx="600" cy="530" r="242" fill="none" stroke="#aa9be7" stroke-opacity=".16"/>
+<circle cx="600" cy="530" r="215" fill="none" stroke="#aa9be7" stroke-opacity=".13" stroke-dasharray="2 12"/>
+<ellipse cx="600" cy="600" rx="345" ry="102" fill="none" stroke="#b29dfd" stroke-opacity=".4" transform="rotate(-23 600 600)"/>
+<ellipse cx="600" cy="600" rx="345" ry="102" fill="none" stroke="#6cffe2" stroke-opacity=".35" transform="rotate(23 600 600)"/>
+<g class="orbit" fill="#b0ffe9"><circle cx="600" cy="288" r="6"/><circle cx="390" cy="650" r="5"/><circle cx="810" cy="650" r="5"/><path d="m835 377 5 12 12 5-12 5-5 12-5-12-12-5 12-5z" fill="url(#gold)"/></g>
+<g class="pulse" filter="url(#glow)" opacity=".6"><path d="M534 420c0-93 149-93 149-8 0 52-83 56-83 118" fill="none" stroke="#7effdc" stroke-width="27"/><circle cx="600" cy="606" r="30" fill="#7effdc"/></g>
+<path d="M534 420c0-93 149-93 149-8 0 52-83 56-83 118" fill="none" stroke="url(#metal)" stroke-width="24" stroke-linecap="round"/>
+<path d="m600 563 39 23v46l-39 23-39-23v-46z" fill="#111d32" stroke="url(#gold)" stroke-width="3"/><path d="m600 563 39 23-39 23-39-23m39 23v46" fill="none" stroke="#8cf9df" stroke-width="2"/>
+<path d="M475 735h250" stroke="url(#gold)" stroke-width="2"/>
+<text x="600" y="799" text-anchor="middle" fill="#b0d6d1" font-size="16" letter-spacing="6">CUSTOM ART · ON-CHAIN · CIP-25 METADATA</text>
+<text x="600" y="902" text-anchor="middle" fill="url(#metal)" font-size="102" font-weight="900" letter-spacing="-5">NFT-Studio</text>
+<text x="600" y="985" text-anchor="middle" fill="url(#gold)" font-size="55" font-weight="700">Make it yours.</text>
+<text x="600" y="1091" text-anchor="middle" fill="#a7a4c7" font-size="16" letter-spacing="5">MADE BY BEACN · WITH NFT-STUDIO</text>
+</svg>
