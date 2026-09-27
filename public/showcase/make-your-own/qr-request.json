@@ -1,0 +1,13 @@
+{
+  "mode": "nft",
+  "name": "Make Your Own | BEACN",
+  "description": "Made by BEACN with NFT-Studio. Your idea. Your art. Your NFT.",
+  "coverIndex": 0,
+  "files": [
+    {
+      "path": "qr-edition.svg",
+      "name": "art.svg",
+      "mediaType": "image/svg+xml"
+    }
+  ]
+}
