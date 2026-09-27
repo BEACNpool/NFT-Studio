@@ -1,0 +1,13 @@
+{
+  "mode": "nft",
+  "name": "NFT-Studio \u2014 Make Your Own",
+  "description": "Your idea. Your art. Your NFT. Customized animated SVG artwork made by BEACN with NFT-Studio, prepared for embedded on-chain art with CIP-25 metadata. This example is not yet minted.",
+  "coverIndex": 0,
+  "files": [
+    {
+      "path": "artwork.svg",
+      "name": "artwork.svg",
+      "mediaType": "image/svg+xml"
+    }
+  ]
+}
