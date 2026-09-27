@@ -1,5 +1,7 @@
 # CORS Mirror — be your own gatekeeper
 
+BEACN instance restored on September 27, 2026 for NFT-Studio. Live mainnet tip, protocol parameters, transaction lookup and browser preflight were checked. The Worker forwards only selected API headers, rejects unsupported methods, uses a 15-second upstream timeout, and avoids caching chain responses. No API keys or wallet credentials are required.
+
 The public Koios API (`api.koios.rest`) is keyless and open — but as of
 mid-2026 its **browser** CORS policy only answers its own website. Scripts
 and CLIs are unaffected; web readers are stonewalled.
