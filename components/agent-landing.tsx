@@ -127,24 +127,36 @@ export function AgentLanding() {
         </section>
         <figure className="al-sculpture">
           <div className="al-art-label">
-            <span>Made of possibilities.</span>
-            <span>001 / ∞</span>
+            <span>Made with NFT-Studio</span>
+            <span>Mintable artwork</span>
           </div>
-          <img
-            src={assetPath('/agent/imagination.webp')}
-            alt="An impossible ribbon of chrome and lime glass, folded into a sculptural knot."
-            width="1024"
-            height="1024"
-            fetchPriority="high"
-          />
+          <a
+            className="al-art-link"
+            href={assetPath('/showcase/make-your-own/')}
+            aria-label="View and mint Make Your Own by BEACN"
+          >
+            <img
+              src={assetPath('/showcase/make-your-own/artwork.svg')}
+              alt="Make Your Own by BEACN: a luminous question mark above a mint and gold creative cube."
+              width="1200"
+              height="1200"
+              fetchPriority="high"
+            />
+          </a>
           <figcaption>
-            <span>A little art. A whole new world.</span>
-            <span>Powered by your imagination ↗</span>
+            <span>Make Your Own · BEACN</span>
+            <a href={assetPath('/showcase/make-your-own/')}>
+              View &amp; mint this NFT ↗
+            </a>
           </figcaption>
         </figure>
       </main>
       <footer className="al-footer">
-        <span>Built for agents. Made for everyone.</span>
+        <span>
+          <a href={assetPath('/showcase/make-your-own/')}>
+            Mint the example NFT ↗
+          </a>
+        </span>
         <span>
           On Cardano <i /> 0 ADA studio fee
           <span className="al-network"> · Network fees apply</span>

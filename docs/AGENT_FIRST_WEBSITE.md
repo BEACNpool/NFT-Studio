@@ -58,3 +58,13 @@ the encrypted relay has not been restored. Real phone/app launching and wallet
 signing are not established by automated browser/link checks.
 
 No external fonts, image CDN or additional runtime library is required.
+
+## Mintable hero artwork
+
+The homepage image now uses the exact original animated
+`public/showcase/make-your-own/artwork.svg`, already packaged in that showcase's
+verified mint intent. Clicking it opens the existing wallet mint page. The footer
+also links to it, including compact layouts that omit the large artwork.
+The homepage does not connect a wallet or initiate a transaction.
+This is a mintable example, not a claim that a token has been confirmed on-chain.
+The earlier generated sculpture remains an archived/social asset.

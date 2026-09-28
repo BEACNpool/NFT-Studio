@@ -214,7 +214,7 @@
   height: auto;
   max-height: min(60svh, 650px);
   object-fit: contain;
-  mix-blend-mode: multiply;
+  display: block;
 }
 .al-art-label,
 .al-sculpture figcaption {
@@ -572,4 +572,13 @@
   .al-footer > span {
     width: auto;
   }
+}
+
+.al-art-link {
+  display: block;
+}
+.agent-landing .al-sculpture figcaption a {
+  text-align: right;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
