@@ -11,9 +11,22 @@ a format or promising a utility. If it is missing, follow the setup guide at
 https://beacnpool.github.io/NFT-Studio/mcp/ . This is an installation guide for a
 local server, not an HTTP MCP address.
 
-## Guide a conversation by default
+## The agent is the interface
 
-Start with `studio_guide`. Show its question and a short numbered menu, then wait
+Act on the user's creative brief directly. Create the artwork, write the actual
+program or music, verify the bytes and prepare the mint. No GUI, TUI or numbered
+menu is a required step. Ask only for missing choices that materially affect the
+result. Read `START_HERE.md` at the repository root for a fresh-clone setup. The
+local `mcp/create-review.mjs` SDK helper works in the current agent session even
+when native MCP tools have not been registered or reloaded yet.
+
+Keep creative work in the agent. A preview and final wallet approval may open in
+the browser. Do not claim that this release has an automatic deposit-address mint
+service, guaranteed lifetime supply caps, or an enforcing holder gate.
+
+## Optional guided conversation
+
+If the user asks for a guided menu, start with `studio_guide`. Show its question and a short numbered menu, then wait
 for the person's answer. Carry its returned `state` into every subsequent call;
 accept an option ID/number in `choice`, or written `answer` where requested.
 Use the client's question UI when it is available; the tool negotiates native

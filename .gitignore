@@ -50,3 +50,4 @@ next-env.d.ts
 /public/workbench/index.html
 
 /tmp/workbench-qa/
+/tmp/agent-site-qa/

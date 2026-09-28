@@ -1,43 +1,49 @@
 # NFT-Studio
 
-> **Development paused — September 2026.** BEACN retired, so NFT Studio is no longer maintained. The site and source
-> stay public. **The BEACN Koios mirror was restored September 27, 2026** for browser chain reads and NFT mint preparation;
-> see [restoration checks](docs/KOIOS_RESTORATION_2026-09-27.md). Wallet signing and submission remain user-controlled.
-> You can also operate [your own mirror](public/tools/ledger/tools/cors-mirror/). The phone-handoff relay
-> runs on beacnpool.org, which BEACN is letting go. [BEACN archive](https://beacnpool.github.io/ABCDE/pool/)
+**Your imagination. Your agent. On-chain.**
 
-**BEACN Workbench** — [open the visual workspace](https://beacnpool.github.io/NFT-Studio/workbench/) or run `npm --prefix mcp run tui`. Twelve sourced CIP utility recipes, a searchable MCP toolbox, compatible build plans and exact-intent mint options. [Workbench guide](docs/WORKBENCH.md).
+NFT-Studio is a skill and minting toolkit for Codex, Claude Code and other local
+coding agents. Describe an idea. Your agent creates the art, writes the code,
+checks the content, and prepares the mint. You control final signing.
 
-![BEACN Workbench utility library](docs/workbench-preview.png)
+[Get started](https://beacnpool.github.io/NFT-Studio/#install) ·
+[Agent starting guide](START_HERE.md) · [Canonical skill](.agents/skills/nft-studio/SKILL.md)
 
+```sh
+git clone https://github.com/BEACNpool/NFT-Studio.git
+cd NFT-Studio
+codex
+```
 
-[Open NFT Studio](https://beacnpool.github.io/NFT-Studio/) · [Build verification](https://github.com/BEACNpool/NFT-Studio/actions/workflows/verify.yml)
+Use `claude` instead if that is your agent. Then ask:
 
-An **AI-driven creation studio for Cardano**. Connect your AI through the MCP,
-shape an idea together, preview and revise the actual files, then approve the
-mint in your own wallet. Create art, sound, playable games and useful apps—or
-start with a previously minted original for inspiration.
+> Read START_HERE.md and set up NFT-Studio. Then help me create and mint an NFT from my idea.
 
-**[Install the MCP](https://beacnpool.github.io/NFT-Studio/mcp/)** ·
-**[Explore minted inspiration](https://beacnpool.github.io/NFT-Studio/#inspiration)** ·
-[Interactive guide contract](docs/CREATIVE_GUIDE.md)
+Your agent follows the setup, installs the pinned tools and verifies them. Git,
+Node.js 22.13+ with npm, and a signed-in coding agent are prerequisites. No root
+frontend installation or Studio account is required for the creative workflow.
+The skill and local SDK helper work from the checkout; native MCP registration
+is documented for both Codex and Claude Code.
 
-Ask your connected AI: **“Open NFT-Studio and guide me.”** The MCP offers a menu
-and one question at a time, including preview, revision, pause and keeping files
-without minting. Native question forms are used where the client supports them;
-numbered chat menus work elsewhere. A complete one-prompt request works too.
+**The agent is the interface.** Art, playable games, interactive instruments,
+useful applications and exact files start with a conversation. No GUI or TUI is
+required for creation. Existing browser tools and content-bound wallet-review
+links remain compatible, but they are not the primary product workflow.
 
-The website helps visitors build a brief and copy it into their AI. It does not
-run a hidden model or pretend its menu generates artwork. The AI creates the
-media; the MCP guides, checks and packages exact bytes; the browser builds the
-transaction for your visible wallet approval.
+The current minting tools prepare exact content and unsigned transactions;
+wallets or explicitly authorized external signers approve signing and submission.
+The ordinary embedded profile has a 12,000-byte content limit. Complex utility
+needs real implementation; quantity is not a lifetime supply guarantee.
+NFT-Studio charges 0 ADA platform fee; Cardano network fees still apply.
 
-![NFT-Studio AI creation and minted inspiration](docs/creative-guide-preview.png)
+The BEACN Koios mirror was restored September 27, 2026; see
+[restoration checks](docs/KOIOS_RESTORATION_2026-09-27.md). The older phone-handoff
+relay depends on its configured host; verify availability before offering it.
 
-The existing browser editors remain under **Create directly in your browser**.
-**Create, Explore, Saved and Activity** work on phone and desktop. Switching tabs
-keeps an unsaved editor open, and browser Back/Forward follows the app screens.
-Saved projects and receipts stay local to the browser and origin.
+## Existing tools and compatibility
+
+The remainder documents existing browser tools, experiments and prior releases.
+For new agent-led creation, start with [START_HERE.md](START_HERE.md).
 
 ## BEACN Payload QR · Create. Scan. Carry.
 

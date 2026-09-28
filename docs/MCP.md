@@ -1,8 +1,15 @@
 # Connect an agent to NFT Studio
 
-## Interactive creation
+## Agent-first creation
 
-Start with **studio_guide** for a guided conversation, or choose the **nft-studio**
+The primary workflow is a skill in your coding agent: clone the repository, open
+Codex or Claude Code, and ask it to read [START_HERE.md](../START_HERE.md). It sets up
+the local tools, creates exact content and prepares a mint. No GUI/TUI or menu is
+required. The local SDK helper works before native MCP registration.
+
+## Optional interactive guidance
+
+When the user requests a menu, start with **studio_guide** for a guided conversation, or choose the **nft-studio**
 MCP prompt. Ask one question at a time, carry the returned creative state, show a
 real preview, then offer revisions, wallet review, or keeping the files without
 minting. **studio_inspiration** provides curated original editions, play links,

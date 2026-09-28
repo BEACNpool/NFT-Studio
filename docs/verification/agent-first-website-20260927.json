@@ -1,0 +1,166 @@
+{
+  "results": [
+    {
+      "browser": "chromium",
+      "width": 320,
+      "landing": true,
+      "agentTabs": true,
+      "prompts": true,
+      "clipboard": true,
+      "overflow": false,
+      "pageErrors": 0
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "landing": true,
+      "agentTabs": true,
+      "prompts": true,
+      "clipboard": true,
+      "overflow": false,
+      "pageErrors": 0
+    },
+    {
+      "browser": "chromium",
+      "width": 768,
+      "landing": true,
+      "agentTabs": true,
+      "prompts": true,
+      "clipboard": true,
+      "overflow": false,
+      "pageErrors": 0
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "landing": true,
+      "agentTabs": true,
+      "prompts": true,
+      "clipboard": true,
+      "overflow": false,
+      "pageErrors": 0
+    },
+    {
+      "browser": "chromium",
+      "legacyUnsavedBackForward": true
+    },
+    {
+      "browser": "chromium",
+      "setupAlias": true,
+      "legacyReview": true,
+      "exactIntentPreview": true
+    },
+    {
+      "browser": "firefox",
+      "width": 320,
+      "landing": true,
+      "agentTabs": true,
+      "prompts": true,
+      "clipboard": true,
+      "overflow": false,
+      "pageErrors": 0
+    },
+    {
+      "browser": "firefox",
+      "width": 390,
+      "landing": true,
+      "agentTabs": true,
+      "prompts": true,
+      "clipboard": true,
+      "overflow": false,
+      "pageErrors": 0
+    },
+    {
+      "browser": "firefox",
+      "width": 768,
+      "landing": true,
+      "agentTabs": true,
+      "prompts": true,
+      "clipboard": true,
+      "overflow": false,
+      "pageErrors": 0
+    },
+    {
+      "browser": "firefox",
+      "width": 1440,
+      "landing": true,
+      "agentTabs": true,
+      "prompts": true,
+      "clipboard": true,
+      "overflow": false,
+      "pageErrors": 0
+    },
+    {
+      "browser": "firefox",
+      "setupAlias": true,
+      "legacyReview": true,
+      "exactIntentPreview": true
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "landing": true,
+      "agentTabs": true,
+      "prompts": true,
+      "clipboard": true,
+      "overflow": false,
+      "pageErrors": 0
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "landing": true,
+      "agentTabs": true,
+      "prompts": true,
+      "clipboard": true,
+      "overflow": false,
+      "pageErrors": 0
+    },
+    {
+      "browser": "webkit",
+      "width": 768,
+      "landing": true,
+      "agentTabs": true,
+      "prompts": true,
+      "clipboard": true,
+      "overflow": false,
+      "pageErrors": 0
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "landing": true,
+      "agentTabs": true,
+      "prompts": true,
+      "clipboard": true,
+      "overflow": false,
+      "pageErrors": 0
+    },
+    {
+      "browser": "webkit",
+      "setupAlias": true,
+      "legacyReview": true,
+      "exactIntentPreview": true
+    }
+  ],
+  "scope": "Agent-first public website and repository onboarding",
+  "mcpTests": {
+    "passed": 102,
+    "failed": 0
+  },
+  "engineChecks": [
+    "verify:studio (9 groups)",
+    "verify:mint (12 groups)",
+    "verify:design (9 groups)",
+    "verify:handoff"
+  ],
+  "typecheck": "passed",
+  "changedComponentsLint": "0 warnings, 0 errors",
+  "staticExport": "454 files; privacy and subpath checks passed",
+  "accessibility": "Chromium desktop/mobile and WebKit tablet scans: no reported violations after fixes",
+  "limitations": [
+    "Emulated devices, not physical wallet acceptance",
+    "No signing or transaction submission",
+    "Existing Koios and promotional NFT sources preserved"
+  ]
+}

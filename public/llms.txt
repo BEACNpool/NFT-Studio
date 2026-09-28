@@ -1,4 +1,4 @@
-# BEACN NFT Studio
+# NFT-Studio — agent-first creation
 
 Public app: https://beacnpool.github.io/NFT-Studio/
 Open source: https://github.com/BEACNpool/NFT-Studio
@@ -32,7 +32,11 @@ create_music_release, verify_music_release, prepare_unsigned_music_transaction.
 A separately deployable Worker has 19 tools. Operators supply their own HTTPS host.
 No personal hosting address is advertised here.
 
-Begin with studio_guide for creation; discover studio_capabilities for limits.
+Read START_HERE.md and .agents/skills/nft-studio/SKILL.md in the repository.
+Act on the user’s brief directly; no GUI, TUI or menu is required.
+Use studio_guide only when the user wants a guided menu. Discover
+studio_capabilities for limits. Claude Code uses .claude/skills/nft-studio.
+The local mcp/create-review.mjs SDK helper works without native MCP registration.
 After a preview offer revise, wallet review, keep without minting, or Send to mobile (QR).
 When asked for a phone QR, call create_mobile_handoff with the exact verified ordinary
 intent. Show its QR as an image, full phone URL and expiry. This uses Studio's native

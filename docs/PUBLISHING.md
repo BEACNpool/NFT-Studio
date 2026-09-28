@@ -27,10 +27,17 @@ page and release record. Exercise wallet discovery, Ledger frames and a creation
 review under `/NFT-Studio/`. Simulated transaction checks must intercept signing
 and broadcasting; a normal deployment does not authorize spending from a wallet.
 
+Run `scripts/audit-agent-site.mjs` against the **static export under its
+subdirectory** for the agent-first homepage, setup alias, clipboard controls,
+responsive layouts and existing exact-content review links. It uses Playwright;
+`PLAYWRIGHT_MODULE` can select an existing installation. Its screenshots and
+results remain in ignored `tmp/agent-site-qa/`.
+
 Run `scripts/audit-app-navigation.cjs` against the **static export under its
 subdirectory**, not just the development server. It verifies that an unsaved
 creation survives browser Back/Forward and tab changes. Set `STUDIO_URL` to the
-served app and supply `PUPPETEER_MODULE` / `CHROMIUM_EXECUTABLE_PATH` if browser
+served app with `?view=create` (the compatibility editor) and supply
+`PUPPETEER_MODULE` / `CHROMIUM_EXECUTABLE_PATH` if browser
 tooling is installed outside this checkout. `public/studio-navigation.js` must
 load before the framework: it handles only history entries owned by this app,
 preventing server-route restoration from remounting the static editor.

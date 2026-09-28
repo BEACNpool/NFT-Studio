@@ -1,4 +1,4 @@
-import { NFTStudio } from '@/components/studio-shell';
+import { AgentHome } from '@/components/agent-home';
 export default function Home() {
-  return <NFTStudio />;
+  return <AgentHome />;
 }

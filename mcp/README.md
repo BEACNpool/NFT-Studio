@@ -1,17 +1,13 @@
-# NFT Studio MCP
+# NFT-Studio for your agent
 
-MCP **0.5.0** adds `studio_workbench`, `get_utility_recipe`, `plan_nft_utility` and `inspect_mint_readiness`: 28 Node / 26 Worker tools, 62 resources. Run `npm run tui` here for the terminal workspace. The visual `ui://nft-studio/workbench/v1` resource renders in compatible MCP Apps hosts, with structured text and browser fallback. [Complete workbench guide](../docs/WORKBENCH.md).
+Describe the idea; your agent creates, checks and prepares the mint. Start with
+[START_HERE.md](../START_HERE.md) for Codex, Claude Code or another local agent.
+The repository carries the creative skill and the real MCP tools it uses.
+No GUI or TUI is required for creative work. The browser can display the exact
+preview and final wallet approval. The workbench remains optional legacy tooling.
 
-An AI-guided Cardano creation studio: interactive questions, minted inspiration,
-exact content packages, and a visible wallet review. The connected AI creates the
-media; this MCP guides the process and validates and packages exact files.
-
-Start by asking **“Open NFT-Studio and guide me.”** The `studio_guide` tool offers
-one question at a time, native forms where supported, and numbered chat menus
-elsewhere. Choose an idea, preview, revise, or keep your work without minting.
-`studio_inspiration` supplies minted originals, source links and separate-copy
-review paths. The `nft-studio` MCP prompt starts the same conversation. Complete
-one-prompt requests remain supported. [Interactive guide contract](../docs/CREATIVE_GUIDE.md).
+MCP 0.5.0 exposes 28 Node / 26 Worker tools and 62 resources. Discover the running
+capabilities rather than assuming every utility or experiment is implemented.
 
 Install and build from the repository root:
 
