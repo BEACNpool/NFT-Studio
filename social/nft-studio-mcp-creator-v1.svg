@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#141e2a"/><stop offset="1" stop-color="#080e16"/></linearGradient><linearGradient id="mint" x2="1" y2="1"><stop stop-color="#a8ffe0"/><stop offset="1" stop-color="#91b6ff"/></linearGradient></defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<circle cx="1070" cy="270" r="310" fill="#1b493f" opacity=".22"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<rect x="56" y="49" width="8" height="37" rx="4" fill="#a8ffe0"/>
+<text x="81" y="79" fill="#a8ffe0" font-size="19" font-weight="700" letter-spacing="3">IMAGINE IT. MINT IT.</text>
+<text x="54" y="188" fill="#fff" font-size="90" font-weight="700" letter-spacing="-5">NFT-Studio</text>
+<text x="58" y="270" fill="#f2f6ff" font-size="41" font-weight="600">The MCP NFT creator</text>
+<text x="58" y="322" fill="#f2f6ff" font-size="41" font-weight="600">for your AI agent.</text>
+<text x="59" y="385" fill="#b6c5d5" font-size="23">Describe your idea. Your agent builds it.</text>
+<text x="59" y="420" fill="#b6c5d5" font-size="23">Preview and mint with your browser wallet.</text>
+<g fill="#172b32" stroke="#3b5c60"><rect x="59" y="460" width="103" height="38" rx="19"/><rect x="173" y="460" width="169" height="38" rx="19"/><rect x="353" y="460" width="178" height="38" rx="19"/></g>
+<g fill="#c8ffe8" font-size="17" font-weight="600"><text x="82" y="485">Codex</text><text x="194" y="485">Claude Code</text><text x="374" y="485">Art · Games · Utility</text></g>
+<rect x="724" y="113" width="414" height="380" rx="24" fill="#14222e" stroke="#395460"/>
+<circle cx="752" cy="143" r="5" fill="#a8ffe0"/><text x="768" y="149" fill="#a8ffe0" font-size="13" font-weight="700" letter-spacing="2">YOUR AGENT + NFT-STUDIO</text>
+<rect x="747" y="174" width="365" height="65" rx="12" fill="#233743"/>
+<text x="768" y="202" fill="#f4f8fc" font-size="19">“Make me a playable NFT.”</text><text x="768" y="223" fill="#96aabd" font-size="13">Your idea starts the conversation.</text>
+<path d="M929 251v22m-7-7 7 7 7-7" stroke="#a8ffe0" stroke-width="2" fill="none"/>
+<rect x="851" y="291" width="155" height="132" rx="15" fill="#0b151f" stroke="#638b81"/>
+<g fill="url(#mint)"><path d="M913 312h32v11h11v11h11v33h-11v11h-11v11h-32v-11h-11v-11h-11v-33h11v-11h11z"/><rect x="917" y="324" width="23" height="53" rx="6" transform="rotate(45 928 350)"/></g>
+<path d="M912 350h32m-16-16v32" stroke="#102b29" stroke-width="6"/>
+<text x="902" y="409" fill="#aac4c5" font-size="12" letter-spacing="2">PLAY NFT</text>
+<text x="792" y="465" fill="#c8ffe8" font-size="20" font-weight="600">Create. Preview. Mint.</text>
+<path d="M59 544h1079" stroke="#2a3a48"/>
+<text x="59" y="586" fill="#d4e0e9" font-size="19">Open source. Agent-first. On Cardano.</text>
+<text x="927" y="586" fill="#a8ffe0" font-size="18" font-weight="700">Built by BEACN ↗</text>
+</g></svg>
