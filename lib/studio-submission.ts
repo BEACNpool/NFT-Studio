@@ -1,4 +1,4 @@
-import { PROTOCOL_URL } from './cardano';
+import { PROTOCOL_URL, errorText } from './cardano';
 
 export type SubmissionAttempt = {
   schema: 'nft-studio.submission.v1';
@@ -7,6 +7,7 @@ export type SubmissionAttempt = {
   attemptedAt: number;
   updatedAt: number;
   message?: string;
+  walletError?: string;
 };
 export type AttemptStorage = Pick<Storage, 'getItem' | 'setItem'>;
 export type AttemptLocks = {
@@ -98,9 +99,12 @@ export async function submitTransactionOnce(options: {
           'The wallet returned a different or invalid transaction hash.',
         );
       attempt = { ...attempt, state: 'submitted', updatedAt: Date.now() };
-    } catch {
+    } catch (error) {
+      let detail = 'Wallet returned an unreadable error.';
+      try { detail = errorText(error).slice(0, 4000); } catch { /* Keep fallback. */ }
       attempt = {
         ...attempt,
+        walletError: detail,
         state: 'unknown',
         updatedAt: Date.now(),
         message:

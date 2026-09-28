@@ -2,8 +2,9 @@
 
 ## Current public route — September 27, 2026
 
-The encrypted transfer relay below is **not restored**. For agent-created NFTs,
-use the self-contained exact review link, or `--payload-qr` for content that fits
+The encrypted relay is an external dependency: a September 27 transfer was
+verified after earlier outage notes. Check each requested transfer by exact
+upload/readback; do not promise availability from this document. Alternatively use the self-contained exact review link, or `--payload-qr` for content that fits
 the 2,331-byte encoded URL limit. See [Payload QR](PAYLOAD_QR.md).
 
 Scan the payload QR or open the complete review link on your phone. At wallet
@@ -22,7 +23,17 @@ anyone holding a copy can read and forward it.
 Automated checks verify exact link preservation and browser behavior. Launching
 VESPR and signing on a real iOS/Android device remain physical-device checks.
 
-## Historical encrypted relay route (requires available service)
+After scanning, the phone review shows **Copy URL** and **Paste this into a dApp
+browser**. Copy the complete URL, open VESPR Discover / dApp browser and paste
+into its address bar. If clipboard access is blocked, select and copy the URL
+shown on the page. Never omit the content fragment.
+
+If signing reports an unclear submission, do not mint again. Open
+[Saved transaction recovery](https://beacnpool.github.io/NFT-Studio/diagnostics/)
+in the same wallet browser, select the saved receipt and copy its report. The
+reader does not connect, sign or submit; old receipts may lack the wallet error.
+
+## Encrypted relay route (requires available service)
 
 After previewing a creation, choose **Send to mobile (QR)** or tell your agent
 “Send this to my phone.” The agent shows a scannable terminal QR or image, the complete phone

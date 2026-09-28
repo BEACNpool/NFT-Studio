@@ -1199,3 +1199,9 @@ body {
     min-height: 700px;
   }
 }
+
+/* Keep exact-link handoff controls within narrow phone screens. */
+.ns-creation-controls { grid-template-columns: minmax(0, 1fr); }
+.ns-creation-controls > *, .ns-browser-help > * { min-width: 0; }
+.ns-browser-help > button { white-space: normal; height: auto; min-height: 44px; }
+.ns-browser-help textarea { max-width: 100%; box-sizing: border-box; }

@@ -105,9 +105,11 @@ updates or permanent one-of-one supply from an ordinary native NFT request.
 
 When the user asks to mint on their phone, preserve the exact previewed content.
 The current public setup supports self-contained review links and payload QR.
-**The encrypted 15-minute relay has not been restored as of September 27, 2026.**
-Do not use `create_mobile_handoff` / `--mobile` as the default or present the
-historical relay button as a working fallback. See `docs/MOBILE_HANDOFF.md`.
+The encrypted 15-minute relay is an external dependency. A September 27
+transfer succeeded after earlier outage notes; verify availability by the
+helper’s exact upload/readback for each requested transfer, never by old status
+text. Use `create_mobile_handoff` / `--mobile` for supported packages too large
+for a payload QR when that check succeeds. See `docs/MOBILE_HANDOFF.md`.
 
 1. For compact content, call `create_payload_qr` on the verified intent, or run
    `node mcp/create-review.mjs --request REQUEST.json --output NEW_DIRECTORY --payload-qr`.
@@ -134,6 +136,22 @@ A local file path alone is not mobile delivery. Show an actual image when the
 client supports it and include the complete link or downloadable file. Physical
 phone/app acceptance must be tested on the intended device; browser automation
 only verifies our link construction and review UI.
+
+## Complete laptop-to-phone delivery
+
+For a requested phone mint, deliver a usable exact-content phone link and QR
+when supported, not only local HTML/ZIP paths. After scanning, explain **Copy
+URL → paste into VESPR Discover / dApp browser → review → approve**. The phone
+page must offer Copy URL and a selectable fallback if clipboard access fails.
+Use the existing mobile helper for larger supported packages only when its live
+relay upload/readback succeeds; do not assume availability from old notes.
+Display the expiry and preserve the desktop fallback. Never encode an oversized
+review URL into a generic QR or silently reduce the artwork.
+
+If submission is unclear, collect the saved transaction ID and check inclusion.
+Use `/NFT-Studio/diagnostics/` in the same wallet browser to display/copy a saved
+report without downloading. Do not remint while the outcome is unknown. Report
+files prepared, signature verified, submitted and confirmed as separate stages.
 
 ## Wallets, fees and completion
 
@@ -167,8 +185,8 @@ canonical intent before creating any QR; v2 binds all choices in its hash.
 
 BEACN Payload QR embeds small public content with no transfer expiry, upload or
 revocation; 2,331 encoded URL bytes maximum. The historical
-15-minute encrypted `create_mobile_handoff` requires an available relay; the
-public relay is currently unavailable.
+15-minute encrypted `create_mobile_handoff` requires an available relay;
+check each requested transfer live and retain the desktop fallback.
 Local-file helper: `--payload-qr` for print PNG/SVG and link; `--mobile` only with a verified available relay.
 Never substitute an uploaded link when an embedded payload exceeds capacity.
 Docs: https://github.com/BEACNpool/NFT-Studio/blob/main/docs/PAYLOAD_QR.md and

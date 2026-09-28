@@ -897,3 +897,8 @@
     transition: none;
   }
 }
+
+@media (max-width: 480px) {
+  .ns-topbar-inner { flex-wrap: wrap; padding-block: 8px; }
+  .ns-mobile-app .ns-topbar-actions { margin-left: auto; }
+}

@@ -220,6 +220,7 @@ export function FileMintDialog(
       if (!mounted.current)
         throw new Error('The creator was closed. Nothing was signed.');
       const witness = await api.signTx(prepared.unsignedHex, true);
+      setBusy('Verifying wallet signatures…');
       const [after, state] = await Promise.all([
         fetchProtocol(),
         readWallet(api),
@@ -265,7 +266,9 @@ export function FileMintDialog(
           return api.submitTx(signed.hex);
         },
       });
-      const finished = { ...record, state: result.attempt.state };
+      const finished = { ...record, state: result.attempt.state, submission: result.attempt };
+      if (result.attempt.state !== 'submitted')
+        setError(result.attempt.walletError || result.attempt.message || 'Check the transaction ID before another mint.');
       setReceipt(finished);
       try {
         saveReceipt(finished);
@@ -334,6 +337,28 @@ export function FileMintDialog(
                   : 'Check the saved ID. An unavailable reader or slow wallet response does not prove rejection.'}
               </p>
               <code>{receipt.hash}</code>
+              <a className="ns-text-link" href="https://beacnpool.github.io/NFT-Studio/diagnostics/">Recover saved transaction report</a>
+              <details>
+                <summary>Show transaction report (no download needed)</summary>
+                <p>Select and copy this report if your wallet browser cannot save files.</p>
+                <textarea
+                  aria-label="Transaction report"
+                  readOnly
+                  rows={9}
+                  style={{ width: '100%' }}
+                  value={JSON.stringify({
+                    schema: 'nft-studio.diagnostic.v1',
+                    hash: receipt.hash,
+                    state: receipt.state,
+                    wallet: walletName,
+                    bytes: receipt.bytes,
+                    error: error || undefined,
+                    submission: receipt.submission,
+                    observation,
+                  }, null, 2)}
+                  onFocus={(event) => event.currentTarget.select()}
+                />
+              </details>
               <div className="ns-button-row">
                 <Button
                   onClick={() =>

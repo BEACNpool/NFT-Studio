@@ -129,6 +129,20 @@ try {
       const result=await sub.submitTransactionOnce(options);assert.equal(result.attempt.state,'unknown');await sub.submitTransactionOnce(options);assert.equal(calls,1);}
     let calls=0;await assert.rejects(sub.submitTransactionOnce({hash:nft.hash,locks:locks(),storage:{getItem:()=>null,setItem:()=>{throw Error('quota');}},submit:async()=>{calls++;return nft.hash;}}));assert.equal(calls,0);
   });
+  await test('Wallet errors remain readable and durable without permitting a retry',async()=>{
+    for (const failure of [{code:2,info:'Native script validation failed'}, new Error('Network unavailable')]) {
+      const storage=memory(); let calls=0;
+      const options={hash:nft.hash,storage,locks:locks(),submit:async()=>{calls++;throw failure;}};
+      const result=await sub.submitTransactionOnce(options);
+      assert.equal(result.attempt.state,'unknown');
+      assert.equal(result.attempt.walletError, failure.info || failure.message);
+      assert.equal(sub.readSubmissionAttempt(nft.hash,storage).walletError,result.attempt.walletError);
+      await sub.submitTransactionOnce(options); assert.equal(calls,1);
+    }
+    const circular={}; circular.self=circular;
+    const result=await sub.submitTransactionOnce({hash:nft.hash,storage:memory(),locks:locks(),submit:async()=>{throw circular;}});
+    assert.equal(result.attempt.state,'unknown'); assert.match(result.attempt.walletError,/unreadable/);
+  });
   await test('Confirmation distinguishes null from zero blocks and rejects mismatched hash/invalid responses',async()=>{
     const feed=(row)=>async()=>new Response(JSON.stringify(row),{status:200});
     for(const rows of [[],[{tx_hash:nft.hash,num_confirmations:null}]])assert.equal((await sub.checkTransaction(nft.hash,{fetcher:feed(rows)})).state,'pending');

@@ -36,13 +36,6 @@ export function WalletBrowserHelp({
     const timer = setInterval(refresh, 1500);
     return () => clearInterval(timer);
   }, [reviewUrl, expiresAt]);
-  if (reviewUrl && hasWallet)
-    return (
-      <p className="ns-lab-muted">
-        Your wallet browser is ready. Check this creation, then choose Review
-        with my wallet below.
-      </p>
-    );
   if (reviewUrl && expired)
     return (
       <p className="ns-lab-muted">
@@ -58,12 +51,12 @@ export function WalletBrowserHelp({
       </span>
       <h3>
         {reviewUrl
-          ? 'Continue in your mobile wallet.'
+          ? 'Paste this into a dApp browser'
           : 'Creating on your phone?'}
       </h3>
       <p>
         {reviewUrl
-          ? 'Open this same creation in VESPR’s browser to review and sign.'
+          ? 'Copy the URL below, open VESPR → Discover / dApp browser, and paste it into the address bar. Then review this creation and approve the mint in your wallet.'
           : 'Open this link in VESPR’s browser to create and sign in one place.'}
       </p>
       <a
@@ -84,9 +77,10 @@ export function WalletBrowserHelp({
             setCopied(true);
             setError('');
           } catch {
+            setCopied(false);
             setError(
               reviewUrl
-                ? 'Clipboard unavailable. Open your original QR link inside VESPR’s browser.'
+                ? 'Clipboard unavailable. Select and copy the complete URL below, then paste it into your dApp browser.'
                 : 'Copy the address from your browser’s address bar.',
             );
           }
@@ -94,17 +88,23 @@ export function WalletBrowserHelp({
       >
         {copied ? <Check size={16} /> : <Copy size={16} />}{' '}
         {copied
-          ? 'Link copied'
-          : reviewUrl
-            ? 'Copy creation link'
-            : 'Copy app link'}
+          ? 'URL copied'
+          : 'Copy URL'}
       </Button>
       <small>
         {reviewUrl
           ? 'Choose VESPR if Android asks. If the button does not open your wallet, copy the creation link and paste it into VESPR’s browser.'
           : 'Your phone chooses the wallet app. Start there before uploading; drafts stay in the browser where you create them.'}
       </small>
+      {reviewUrl && hasWallet && <p>Your wallet browser is ready. Choose Review with my wallet.</p>}
       {error && <p role="status">{error}</p>}
+      {error && (
+        <label>Creation URL — select and copy
+          <textarea aria-label="Creation URL" readOnly rows={3} value={url}
+            style={{ width: '100%', overflowWrap: 'anywhere' }}
+            onFocus={(event) => event.currentTarget.select()} />
+        </label>
+      )}
     </div>
   );
 }

@@ -82,8 +82,20 @@ see [MCP.md](docs/MCP.md). The website URL is a guide, not a hosted MCP endpoint
 For VESPR, deliver the exact review link or create a compact `--payload-qr`.
 The exported review page has **Open in mobile wallet (VESPR)**; if the app does
 not launch, paste the complete review link into its dApp browser. The user still
-reviews and signs. The encrypted relay is currently unavailable, so do not use
-`--mobile` as the default. See [mobile delivery](docs/MOBILE_HANDOFF.md).
+reviews and signs. For larger supported packages, use `--mobile` only after the helper verifies a
+live encrypted relay transfer. Show its QR, full phone URL and expiry. If the
+relay is unavailable, keep the exact desktop review and report the blocker; do
+not put an oversized review link into a QR. See [mobile delivery](docs/MOBILE_HANDOFF.md).
+
+After scanning, **Copy URL** copies the exact creation link. Tell the user:
+**Paste this into a dApp browser** — in VESPR, open Discover / dApp browser and
+paste it into the address bar. A direct **Open in wallet browser** link is also
+available. Creating files is not a completed wallet handoff or confirmed mint.
+
+If signing ends with “Submission response unclear”, stop retries. Open
+https://beacnpool.github.io/NFT-Studio/diagnostics/ in the same wallet browser,
+read the saved receipt and copy its report. Check the transaction ID on chain
+before another attempt. The report reader never signs or submits.
 
 ## Minting authority and real limits
 
