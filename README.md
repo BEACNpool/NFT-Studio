@@ -258,3 +258,9 @@ review page. Opening the link grants no wallet permission.
 
 See [the native mobile workflow](docs/MOBILE_HANDOFF.md) for agent steps, saved files,
 privacy, expiry and supported package limits.
+
+### Mint a laptop creation with your phone
+
+Generate a fresh phone handoff with the [local file helper](docs/MCP_LOCAL_FILES.md) using `--mobile`, then open its `mobile.html` page. Scan the QR with your phone, choose **Copy URL**, and paste the complete URL into **VESPR’s Discover / dApp browser**. Connect your wallet, review the creation and transaction, then sign to mint into your wallet. The receiving page also provides **Open in wallet browser** and a selectable URL if automatic opening or copying is unavailable.
+
+Phone links expire after 15 minutes; generate a fresh QR if needed. Keep the complete link, including its `#transfer` fragment. A QR carries a mint request, not an existing NFT or wallet keys. Transferring an already minted NFT is a separate wallet action. If a submission is unclear, use the inline transaction report and check its status before attempting another mint. See [mobile handoff details](docs/MOBILE_HANDOFF.md).
