@@ -20,10 +20,10 @@ export const metadata: Metadata = {
     siteName: 'NFT-Studio',
     images: [
       {
-        url: 'https://beacnpool.github.io/NFT-Studio/social/nft-studio-mcp-creator-v1.png',
+        url: 'https://beacnpool.github.io/NFT-Studio/social/make-your-own-nft-v2.png',
         width: 1200,
         height: 630,
-        alt: 'NFT-Studio — The MCP NFT creator for your AI agent. Create art, games and utility with Codex or Claude Code.',
+        alt: 'Make Your Own by BEACN — the mintable NFT artwork featured on the NFT-Studio homepage.',
       },
     ],
     type: 'website',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     description:
       'Create art, games and utility with your AI agent. Preview and mint with your browser wallet.',
     images: [
-      'https://beacnpool.github.io/NFT-Studio/social/nft-studio-mcp-creator-v1.png',
+      'https://beacnpool.github.io/NFT-Studio/social/make-your-own-nft-v2.png',
     ],
   },
   icons: { icon: assetPath('/brand/nft-studio.svg') },
