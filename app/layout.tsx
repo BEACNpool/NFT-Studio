@@ -8,32 +8,34 @@ import './labs.css';
 import './agent-landing.css';
 import { assetPath } from '@/lib/paths';
 export const metadata: Metadata = {
-  title: 'NFT-Studio — Your imagination. Your agent. On-chain.',
+  title: 'NFT-Studio — The MCP NFT creator for your AI agent',
   applicationName: 'NFT-Studio',
   description:
     'Teach your agent how to mint. Clone NFT-Studio, open Codex or Claude Code, and turn your ideas into art, games, music and useful NFTs on Cardano.',
   openGraph: {
-    title: 'Your imagination. Your agent. On-chain.',
+    title: 'NFT-Studio — The MCP NFT creator for your AI agent',
     description:
-      'Give your agent the NFT-Studio skill. Then tell it what’s on your mind.',
+      'Create art, games and utility with Codex or Claude Code. Preview and mint with your browser wallet.',
     url: 'https://beacnpool.github.io/NFT-Studio/',
     siteName: 'NFT-Studio',
     images: [
       {
-        url: 'https://beacnpool.github.io/NFT-Studio/agent/imagination.webp',
-        width: 1024,
-        height: 1024,
-        alt: 'An impossible silver and chartreuse sculpture',
+        url: 'https://beacnpool.github.io/NFT-Studio/social/nft-studio-mcp-creator-v1.png',
+        width: 1200,
+        height: 630,
+        alt: 'NFT-Studio — The MCP NFT creator for your AI agent. Create art, games and utility with Codex or Claude Code.',
       },
     ],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'NFT-Studio — Your imagination. Your agent. On-chain.',
+    title: 'NFT-Studio — The MCP NFT creator for your AI agent',
     description:
-      'Teach your agent how to mint. Then tell it what’s on your mind.',
-    images: ['https://beacnpool.github.io/NFT-Studio/agent/imagination.webp'],
+      'Create art, games and utility with your AI agent. Preview and mint with your browser wallet.',
+    images: [
+      'https://beacnpool.github.io/NFT-Studio/social/nft-studio-mcp-creator-v1.png',
+    ],
   },
   icons: { icon: assetPath('/brand/nft-studio.svg') },
 };
