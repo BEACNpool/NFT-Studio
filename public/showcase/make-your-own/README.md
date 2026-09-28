@@ -17,3 +17,7 @@ CIP-25 metadata support is an implemented feature, not a claim of all-CIP compli
 `qr-edition.svg` preserves the message, palette and watermark in 1,462 bytes. Native `create_payload_qr` exports a 2,039-byte URL, under the 2,331-byte limit; the exporter independently decodes the QR and verifies the exact intent. `qr-intent.json` is this separate compact edition, while `intent.json` retains the original animated edition.
 
 The public page checks tip freshness and protocol availability through the restored mirror before showing live availability. No real-wallet mint has been claimed or performed.
+
+## Artwork-first layout
+
+The main artwork appears first and the primary mint action carries the exact original animated edition. A CIP-158 wallet-browser link wraps that same verified request for mobile use. The compact QR edition is explicitly separate in an expandable section. Costs are quoted by wallet review, not a fabricated fixed ADA price or payment address. Free open-source clone and setup links follow the mint section.
