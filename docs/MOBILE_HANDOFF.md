@@ -1,5 +1,29 @@
 # Send to mobile in NFT-Studio
 
+## Current public route — September 27, 2026
+
+The encrypted transfer relay below is **not restored**. For agent-created NFTs,
+use the self-contained exact review link, or `--payload-qr` for content that fits
+the 2,331-byte encoded URL limit. See [Payload QR](PAYLOAD_QR.md).
+
+Scan the payload QR or open the complete review link on your phone. At wallet
+review, choose **Open in wallet browser**. Newly exported `review.html` and
+`payload.html` also include **Open in mobile wallet (VESPR)**. The link uses
+[CIP-158](https://cips.cardano.org/cip/CIP-0158), preserving the complete URL and
+its content fragment. The phone selects a compatible installed wallet. If it
+does not launch, copy the complete review link into VESPR’s dApp browser.
+No wallet action happens until the user connects and approves.
+
+For content too large for a payload QR, share the exact `review-url.txt` or saved
+`review.html` through the user’s chosen channel. Do not truncate or shorten the
+content-bearing URL. These links need no relay. They contain the creation, so
+anyone holding a copy can read and forward it.
+
+Automated checks verify exact link preservation and browser behavior. Launching
+VESPR and signing on a real iOS/Android device remain physical-device checks.
+
+## Historical encrypted relay route (requires available service)
+
 After previewing a creation, choose **Send to mobile (QR)** or tell your agent
 “Send this to my phone.” The agent shows a scannable terminal QR or image, the complete phone
 link and its expiry. Scan it with your phone camera to open the same creation.

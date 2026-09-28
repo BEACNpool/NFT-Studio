@@ -101,41 +101,39 @@ Scrolls, Books and existing catalogue programs over the compact limit use their
 browser Studio creators. Do not claim arbitrary Plutus, holder gating, CIP-68
 updates or permanent one-of-one supply from an ordinary native NFT request.
 
-## Send to mobile (QR)
+## Send to mobile / VESPR
 
-Offer this after the actual preview, and use it directly when the user asks for
-“QR”, “send to mobile”, “on my phone”, or a mobile wallet handoff. A mobile request
-is clear intent for the temporary content transfer, not permission to mint.
+When the user asks to mint on their phone, preserve the exact previewed content.
+The current public setup supports self-contained review links and payload QR.
+**The encrypted 15-minute relay has not been restored as of September 27, 2026.**
+Do not use `create_mobile_handoff` / `--mobile` as the default or present the
+historical relay button as a working fallback. See `docs/MOBILE_HANDOFF.md`.
 
-- For an exact supported ordinary intent, call `create_mobile_handoff({intent})`.
-  It uses the same encrypted relay as Studio's **Continue on phone → Create QR code**.
-  It reads the encrypted transfer back, decrypts it and checks the complete intent.
-- For local files, run `node mcp/create-review.mjs --request REQUEST.json --output NEW_DIRECTORY --mobile`.
-  This prints a terminal QR and saves `mobile-qr.txt`, `mobile-qr.png`, `mobile-qr.svg`, `mobile.html`, `mobile-url.txt`, the
-  desktop review files, a receipt and `mobile-transfer.private.json`.
-- **In a terminal or text-only client, show `qr.terminalText` (or `mobile-qr.txt`)
-  verbatim in a fenced code block in the user-facing answer.** Preserve spaces,
-  block characters and rows; use monospace and do not wrap lines. Do not assume
-  tool output is visible to the user. A local image path or SVG markup alone is
-  not delivery. Image-capable clients may also show `qr.svg` or the helper's PNG.
-  Give the complete phone link and expiry. Never encode the desktop `#mint=` link
-  as a substitute. The CLI keeps JSON on stdout and prints its QR to stderr.
-  The phone opens the same creation in Studio. **Open in wallet browser** continues
-  into a compatible mobile wallet for the user's separate review and approval.
-- The relay keeps encrypted content for 15 minutes. The decryption key is in the
-  link fragment; anyone with the full link can view the content until expiry.
-  Retain `endTransfer` privately. If asked to end the transfer, call
-  `revoke_mobile_handoff` with those exact arguments. Create a fresh transfer only
-  when requested or after the user asks to continue an expired transfer.
-- Ordinary limits still apply: eight files, 12,000 total raw bytes, 80,000-byte
-  intent JSON. An oversized GIF or image is not a supported mint intent. Preserve
-  it and explain the limit; obtain agreement before making a materially different
-  compact version. Dedicated music packets, Scrolls, Books and large catalogue
-  creators use their own supported browser routes.
-- **Never substitute a temporary LAN server, unrelated file host or generic QR**
-  for NFT-Studio's native mobile handoff. If the installed MCP lacks this tool,
-  direct the user to **Continue on phone → Create QR code** in Studio and explain
-  how to update the MCP. See `docs/MOBILE_HANDOFF.md`.
+1. For compact content, call `create_payload_qr` on the verified intent, or run
+   `node mcp/create-review.mjs --request REQUEST.json --output NEW_DIRECTORY --payload-qr`.
+   Deliver the PNG/SVG plus complete `payload-url.txt` link. The content is in
+   the link, with no upload or transport expiry. Anyone with it can read and
+   forward it, so share only with intended recipients. The full encoded URL
+   must fit 2,331 bytes; never shrink or change the art silently to force a fit.
+2. Scan the QR or open the exact link on the phone. Open the same creation in
+   VESPR's dApp browser using **Open in wallet browser** at wallet review.
+   Saved `review.html` and `payload.html` also have **Open in mobile wallet (VESPR)**.
+   These use CIP-158 `web+cardano://browse/v1?uri=<percent-encoded-full-URL>`.
+   The OS chooses a compatible installed wallet; do not promise an app launch
+   on every device. The full fragment must survive encoding.
+3. If a payload exceeds QR capacity, keep the full ordinary `review-url.txt`
+   and saved `review.html`. Deliver the complete link/file through the user's
+   chosen sharing method; do not truncate it, upload it elsewhere without
+   authorization, or claim it fits a QR. The review's mobile button can open
+   its exact link without a relay. If deep linking fails, copy the complete
+   review link into VESPR's dApp browser.
+4. The user previews the creation, connects their wallet, and reviews/signs the
+   transaction. Handoff is neither mint consent nor evidence of a completed mint.
+
+A local file path alone is not mobile delivery. Show an actual image when the
+client supports it and include the complete link or downloadable file. Physical
+phone/app acceptance must be tested on the intended device; browser automation
+only verifies our link construction and review UI.
 
 ## Wallets, fees and completion
 
@@ -168,9 +166,10 @@ message are public descriptions, not enforced benefits. Apply options to the
 canonical intent before creating any QR; v2 binds all choices in its hash.
 
 BEACN Payload QR embeds small public content with no transfer expiry, upload or
-revocation; 2,331 encoded URL bytes maximum. This is distinct from the existing
-15-minute encrypted `create_mobile_handoff` for private phone continuation.
-Local-file helper: `--payload-qr` for print PNG/SVG and link; `--mobile` for relay.
+revocation; 2,331 encoded URL bytes maximum. The historical
+15-minute encrypted `create_mobile_handoff` requires an available relay; the
+public relay is currently unavailable.
+Local-file helper: `--payload-qr` for print PNG/SVG and link; `--mobile` only with a verified available relay.
 Never substitute an uploaded link when an embedded payload exceeds capacity.
 Docs: https://github.com/BEACNpool/NFT-Studio/blob/main/docs/PAYLOAD_QR.md and
 https://github.com/BEACNpool/NFT-Studio/blob/main/docs/MINT_OPTIONS.md .

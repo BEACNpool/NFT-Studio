@@ -12,55 +12,37 @@ const results = [];
 for (const [name, type] of Object.entries({ chromium, firefox, webkit })) {
   const browser = await type.launch({ headless: true });
   try {
-    for (const width of [320, 390, 768, 1440]) {
+    for (const [width, height] of [
+      [320, 568],
+      [390, 844],
+      [768, 1024],
+      [1440, 900],
+      [1366, 768],
+      [844, 390],
+      [1024, 600],
+    ]) {
       const context = await browser.newContext({
-          viewport: { width, height: 900 },
-          reducedMotion: 'reduce',
-        }),
-        page = await context.newPage(),
+        viewport: { width, height },
+        reducedMotion: 'reduce',
+      });
+      const page = await context.newPage(),
         errors = [];
       page.on('pageerror', (e) => errors.push(e.message));
-      const r = await page.goto(base, { waitUntil: 'networkidle' });
-      assert.equal(r.status(), 200);
-      await page.locator('.al-agent-tabs').waitFor();
-      assert.equal(await page.locator('.ns-app').count(), 0);
       assert.equal(
-        await page.evaluate(
-          () => document.documentElement.scrollWidth > innerWidth,
-        ),
-        false,
+        (await page.goto(base, { waitUntil: 'networkidle' })).status(),
+        200,
       );
-      assert(
-        await page
-          .locator('.al-sculpture img')
-          .evaluate((i) => i.complete && i.naturalWidth === 1024),
-      );
-      await page
-        .getByRole('button', { name: 'Claude Code', exact: true })
-        .click();
-      assert.match(await page.locator('.al-step pre').innerText(), /\nclaude$/);
-      await page
-        .getByRole('button', { name: 'Other agents', exact: true })
-        .click();
-      assert.doesNotMatch(
-        await page.locator('.al-step pre').innerText(),
-        /\n(?:codex|claude)$/,
-      );
-      await page.getByRole('button', { name: 'Codex', exact: true }).click();
-      assert.match(await page.locator('.al-step pre').innerText(), /\ncodex$/);
-      for (const [label, expected] of [
-        ['Games', 'Something you can actually play.'],
-        ['Music', 'An idea with a sound of its own.'],
-        ['Useful things', 'A collectible that does something.'],
-        ['Art', 'A world only you could imagine.'],
-      ]) {
-        await page.getByRole('button', { name: label, exact: true }).click();
-        assert.equal(
-          await page.locator('.al-example-copy h3').innerText(),
-          expected,
-        );
-      }
-      // Exercise clipboard success deterministically without changing the user's clipboard.
+      await page.locator('.al-copy').waitFor();
+      assert.equal(await page.locator('.ns-app').count(), 0);
+      const size = await page.evaluate(() => ({
+        width: document.documentElement.scrollWidth,
+        height: document.documentElement.scrollHeight,
+        viewportWidth: innerWidth,
+        viewportHeight: innerHeight,
+      }));
+      assert(size.width <= width, JSON.stringify(size));
+      assert(size.height <= height, JSON.stringify(size));
+      assert.equal(await page.locator('.al-features li').count(), 5);
       await page.evaluate(() => {
         window.__copied = '';
         Object.defineProperty(navigator, 'clipboard', {
@@ -73,40 +55,54 @@ for (const [name, type] of Object.entries({ chromium, firefox, webkit })) {
         });
       });
       await page
-        .getByRole('button', { name: 'Copy commands', exact: true })
+        .getByRole('button', { name: 'Copy install directions' })
         .click();
       assert.match(
         await page.evaluate(() => window.__copied),
-        /^git clone https:\/\/github.com\/BEACNpool\/NFT-Studio.git\ncd NFT-Studio\ncodex$/,
+        /Clone https:\/\/github.com\/BEACNpool\/NFT-Studio and follow START_HERE.md/,
       );
-      await page
-        .getByRole('button', { name: 'Copy first prompt', exact: true })
-        .click();
-      assert.match(
-        await page.evaluate(() => window.__copied),
-        /^Read START_HERE.md/,
-      );
-      await page.locator('.al-questions summary').first().click();
+      assert.match(await page.locator('.al-copy').innerText(), /Copied/);
       assert(
-        (await page
-          .locator('.al-questions details')
-          .first()
-          .getAttribute('open')) !== null,
+        await page.evaluate(
+          () => document.documentElement.scrollHeight <= innerHeight,
+        ),
       );
-      await page.evaluate(() => window.scrollTo(0, 0));
       await page.screenshot({
         path: `${output}/${name}-${width}.png`,
         fullPage: true,
       });
+      await page.evaluate(() =>
+        Object.defineProperty(navigator, 'clipboard', {
+          configurable: true,
+          value: {
+            writeText: async () => {
+              throw Error('blocked');
+            },
+          },
+        }),
+      );
+      await page.locator('.al-copy').click();
+      const fallback = page.locator('#al-prompt');
+      assert.match(
+        await fallback.inputValue(),
+        /set up the NFT-Studio skill for this agent/,
+      );
+      await page.waitForFunction(() => {
+        const el = document.querySelector('#al-prompt');
+        return el && el.selectionEnd - el.selectionStart === el.value.length;
+      });
+      assert.equal(
+        await fallback.evaluate((el) => el.selectionEnd - el.selectionStart),
+        (await fallback.inputValue()).length,
+      );
       assert.deepEqual(errors, []);
       results.push({
         browser: name,
         width,
-        landing: true,
-        agentTabs: true,
-        prompts: true,
+        height,
+        oneScreen: true,
         clipboard: true,
-        overflow: false,
+        clipboardFallback: true,
         pageErrors: 0,
       });
       await context.close();

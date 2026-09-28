@@ -3,7 +3,9 @@
 The September 2026 direction is **the agent is the interface**. The homepage
 and `/mcp/` entry lead to cloning the repository and asking an agent to read
 `START_HERE.md`. They do not lead with the TUI, visual workbench, or browser editor.
-The current tool limits and final signing authority remain visible.
+The copy button provides an agent-readable clone/setup prompt. The agent
+handles installation using START_HERE.md and the repository-local Codex / Claude
+skills; it does not claim to install a global skill from a website click.
 
 `components/agent-home.tsx` keeps existing `?view=`, `?create=` and mint/transfer
 fragment links on the original Studio renderer. The default homepage uses
@@ -35,6 +37,24 @@ claim of a minted NFT. Original generation prompt:
 > no coins, no crypto symbols. This is an abstract metaphor for imagination
 > becoming a tangible object.
 
-The four small prompt illustrations use original CSS; they are labeled examples,
-not minted products. No external fonts, image CDN or additional runtime library
-is required by the landing page.
+## Single-screen refinement — September 27, 2026
+
+David requested one page with no scrolling, a copy-install-directions button,
+Codex / Claude Code skill onboarding, creative features and browser-wallet minting.
+The default page now has a single viewport composition: headline, Art / Games /
+Music / Interactive NFTs / Apps & utility list, one setup CTA, and wallet guidance.
+Decorative sculpture is omitted on small screens so the complete content fits.
+There is no overflow clipping; clipboard failure reveals selectable instructions,
+and enlarged text may naturally scroll rather than hiding content.
+
+The copy button writes a complete clone + START_HERE prompt. Success is announced,
+and denied clipboard access focuses/selects a read-only manual-copy field.
+Existing review links and historical views retain their renderer.
+
+Generated local review/payload pages now include a CIP-158 mobile-wallet link,
+with the complete content fragment percent-encoded and a VESPR paste fallback.
+Agent instructions prefer self-contained payload QR or exact review URLs because
+the encrypted relay has not been restored. Real phone/app launching and wallet
+signing are not established by automated browser/link checks.
+
+No external fonts, image CDN or additional runtime library is required.

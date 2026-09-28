@@ -1,0 +1,223 @@
+{
+  "results": [
+    {
+      "browser": "chromium",
+      "width": 320,
+      "height": 568,
+      "oneScreen": true,
+      "clipboard": true,
+      "clipboardFallback": true,
+      "pageErrors": 0
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "height": 844,
+      "oneScreen": true,
+      "clipboard": true,
+      "clipboardFallback": true,
+      "pageErrors": 0
+    },
+    {
+      "browser": "chromium",
+      "width": 768,
+      "height": 1024,
+      "oneScreen": true,
+      "clipboard": true,
+      "clipboardFallback": true,
+      "pageErrors": 0
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "height": 900,
+      "oneScreen": true,
+      "clipboard": true,
+      "clipboardFallback": true,
+      "pageErrors": 0
+    },
+    {
+      "browser": "chromium",
+      "width": 1366,
+      "height": 768,
+      "oneScreen": true,
+      "clipboard": true,
+      "clipboardFallback": true,
+      "pageErrors": 0
+    },
+    {
+      "browser": "chromium",
+      "width": 844,
+      "height": 390,
+      "oneScreen": true,
+      "clipboard": true,
+      "clipboardFallback": true,
+      "pageErrors": 0
+    },
+    {
+      "browser": "chromium",
+      "width": 1024,
+      "height": 600,
+      "oneScreen": true,
+      "clipboard": true,
+      "clipboardFallback": true,
+      "pageErrors": 0
+    },
+    {
+      "browser": "chromium",
+      "legacyUnsavedBackForward": true
+    },
+    {
+      "browser": "chromium",
+      "setupAlias": true,
+      "legacyReview": true,
+      "exactIntentPreview": true
+    },
+    {
+      "browser": "firefox",
+      "width": 320,
+      "height": 568,
+      "oneScreen": true,
+      "clipboard": true,
+      "clipboardFallback": true,
+      "pageErrors": 0
+    },
+    {
+      "browser": "firefox",
+      "width": 390,
+      "height": 844,
+      "oneScreen": true,
+      "clipboard": true,
+      "clipboardFallback": true,
+      "pageErrors": 0
+    },
+    {
+      "browser": "firefox",
+      "width": 768,
+      "height": 1024,
+      "oneScreen": true,
+      "clipboard": true,
+      "clipboardFallback": true,
+      "pageErrors": 0
+    },
+    {
+      "browser": "firefox",
+      "width": 1440,
+      "height": 900,
+      "oneScreen": true,
+      "clipboard": true,
+      "clipboardFallback": true,
+      "pageErrors": 0
+    },
+    {
+      "browser": "firefox",
+      "width": 1366,
+      "height": 768,
+      "oneScreen": true,
+      "clipboard": true,
+      "clipboardFallback": true,
+      "pageErrors": 0
+    },
+    {
+      "browser": "firefox",
+      "width": 844,
+      "height": 390,
+      "oneScreen": true,
+      "clipboard": true,
+      "clipboardFallback": true,
+      "pageErrors": 0
+    },
+    {
+      "browser": "firefox",
+      "width": 1024,
+      "height": 600,
+      "oneScreen": true,
+      "clipboard": true,
+      "clipboardFallback": true,
+      "pageErrors": 0
+    },
+    {
+      "browser": "firefox",
+      "setupAlias": true,
+      "legacyReview": true,
+      "exactIntentPreview": true
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "height": 568,
+      "oneScreen": true,
+      "clipboard": true,
+      "clipboardFallback": true,
+      "pageErrors": 0
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "height": 844,
+      "oneScreen": true,
+      "clipboard": true,
+      "clipboardFallback": true,
+      "pageErrors": 0
+    },
+    {
+      "browser": "webkit",
+      "width": 768,
+      "height": 1024,
+      "oneScreen": true,
+      "clipboard": true,
+      "clipboardFallback": true,
+      "pageErrors": 0
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "height": 900,
+      "oneScreen": true,
+      "clipboard": true,
+      "clipboardFallback": true,
+      "pageErrors": 0
+    },
+    {
+      "browser": "webkit",
+      "width": 1366,
+      "height": 768,
+      "oneScreen": true,
+      "clipboard": true,
+      "clipboardFallback": true,
+      "pageErrors": 0
+    },
+    {
+      "browser": "webkit",
+      "width": 844,
+      "height": 390,
+      "oneScreen": true,
+      "clipboard": true,
+      "clipboardFallback": true,
+      "pageErrors": 0
+    },
+    {
+      "browser": "webkit",
+      "width": 1024,
+      "height": 600,
+      "oneScreen": true,
+      "clipboard": true,
+      "clipboardFallback": true,
+      "pageErrors": 0
+    },
+    {
+      "browser": "webkit",
+      "setupAlias": true,
+      "legacyReview": true,
+      "exactIntentPreview": true
+    }
+  ],
+  "scope": "Single-screen agent landing and existing review compatibility",
+  "mcpTests": 103,
+  "typecheck": "passed",
+  "lint": "0 errors; 25 existing warnings",
+  "staticFiles": 458,
+  "physicalMobileWalletTested": false,
+  "signed": false,
+  "submitted": false
+}

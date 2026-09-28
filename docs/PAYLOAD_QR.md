@@ -7,6 +7,9 @@ handing out small interactive lessons, and communities remixing a tiny game or t
 The code carries a creation request. The viewer chooses whether to mint it with
  their own wallet. Sharing is an invitation, not an automatic ownership transfer.
 
+The encrypted phone relay is currently unavailable; use this self-contained
+payload route for compact mobile handoff. See [current mobile instructions](MOBILE_HANDOFF.md).
+
 ## Choose the right QR
 
 | | Continue on phone | Print & share payload QR |
@@ -39,7 +42,7 @@ not one shared collection or a capped campaign. No viral-growth guarantee is mad
 - `studio_utilities`: available capabilities and their enforcement/dependencies.
 - `configure_mint_options`: update a verified intent. Omitted options retain their existing values. The returned v2 hash binds the new choices; prepare a fresh transaction.
 - `create_payload_qr`: return the exact public URL and printable SVG, with measured capacity and no network upload.
-- `create_mobile_handoff`: keep using this for the separate encrypted 15-minute phone route.
+- `create_mobile_handoff`: historical encrypted 15-minute route; requires an available relay.
 
 Local exact-file export:
 
@@ -49,7 +52,7 @@ node mcp/create-review.mjs --request request.json --output new-output --payload-
 
 Outputs include the original verified request/review, `payload-qr.png`,
 `payload-qr.svg`, `payload-url.txt`, `payload.html`, and a verification receipt.
-Use `--mobile` instead for the temporary encrypted route. A request may include
+Use `--mobile` only with a verified available relay. A request may include
 `mintOptions` in the exact shape documented in [Mint options](MINT_OPTIONS.md).
 
 The codec uses canonical JSON, deterministic raw DEFLATE level 9 and canonical

@@ -77,6 +77,14 @@ Read the canonical skill and use the local helper, or configure stdio with
 `node` and the absolute `mcp/dist/cli.mjs` path. Client configuration formats vary;
 see [MCP.md](docs/MCP.md). The website URL is a guide, not a hosted MCP endpoint.
 
+## Mint on a phone
+
+For VESPR, deliver the exact review link or create a compact `--payload-qr`.
+The exported review page has **Open in mobile wallet (VESPR)**; if the app does
+not launch, paste the complete review link into its dApp browser. The user still
+reviews and signs. The encrypted relay is currently unavailable, so do not use
+`--mobile` as the default. See [mobile delivery](docs/MOBILE_HANDOFF.md).
+
 ## Minting authority and real limits
 
 The agent creates and verifies content and prepares the transaction. The user
