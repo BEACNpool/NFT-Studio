@@ -12,9 +12,9 @@ export function parseLiveOptions(args) {
       if(seen||!['8','9','10','12','13','15','17','19','22','26'].includes(args[++i]))throw new Error('--expected-tools must be 8, 9, 10, 12, 13, 15, 17, 19, 22 or 26, provided once.');
       expectedTools=Number(args[i]);seen=true;
     }else if(args[i]==='--expected-resources'){
-      if(seenResources||!['55','56','61','62'].includes(args[++i]))throw new Error('--expected-resources must be 55, 56, 61 or 62, provided once.');
+      if(seenResources||!['55','56','61','62','63'].includes(args[++i]))throw new Error('--expected-resources must be 55, 56, 61, 62 or 63, provided once.');
       expectedResources=Number(args[i]);seenResources=true;
-    }else if(args[i].startsWith('-')||target)throw new Error('Usage: verify-live-endpoint.mjs HTTPS_ENDPOINT [--expected-tools 8|9|10|12|13|15|17|19|22|26] [--expected-resources 55|56|61|62]');
+    }else if(args[i].startsWith('-')||target)throw new Error('Usage: verify-live-endpoint.mjs HTTPS_ENDPOINT [--expected-tools 8|9|10|12|13|15|17|19|22|26] [--expected-resources 55|56|61|62|63]');
     else target=args[i];
   }
   const endpoint=new URL(target||'');

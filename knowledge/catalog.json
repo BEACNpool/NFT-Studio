@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-09-07",
+  "asOf": "2026-09-29",
   "sourceRevision": "05ee6bb05982289dbe00c4187b9d54cf90e2e276",
-  "description": "BEACN Labs original research summaries and implementation designs. A pinned research snapshot, not a live registry or proof of Studio support.",
+  "description": "BEACN Labs original research summaries and implementation designs. Base snapshot sourceRevision is retained; individual sources carry their own revisions and access dates. CIP-113 added 2026-09-29. Not a live registry or proof of Studio support.",
   "sources": [
     {
       "id": "cip-0001",
@@ -1052,6 +1052,20 @@
       "license": "No repository license established; source bytes not redistributed",
       "attribution": "Cardano Foundation and contributors",
       "sourceType": "primary-implementation"
+    },
+    {
+      "id": "cip-0113",
+      "url": "https://github.com/cardano-foundation/CIPs/blob/e759a4a56c03c87175f3561b136283398fefccfe/CIP-0113/README.md",
+      "rawUrl": "https://raw.githubusercontent.com/cardano-foundation/CIPs/e759a4a56c03c87175f3561b136283398fefccfe/CIP-0113/README.md",
+      "sourceCommit": "e759a4a56c03c87175f3561b136283398fefccfe",
+      "sha256": "4ab3d73de376957cf16deedd5a400631248ead558b976236f56aa51a4a405579",
+      "accessedAt": "2026-09-29T20:08:17.933773+00:00",
+      "title": "CIP-0113: Programmable token-like assets",
+      "declaredStatus": "Proposed",
+      "license": "CC-BY-4.0",
+      "created": "2023-01-14",
+      "attribution": "Michele Nuzzi; Matteo Coppola; Philip DiSarro; Giovanni Gargiulo",
+      "sourceType": "primary-specification"
     }
   ],
   "entries": [
@@ -3121,7 +3135,7 @@
         ],
         "doesNotGuarantee": [
           "An active CIP-143 deployment target",
-          "Final status of candidate CIP-113"
+          "Implementation readiness of CIP-113"
         ]
       },
       "lifecycle": [
@@ -3134,7 +3148,7 @@
         "Marketing restrictions as native NFT features"
       ],
       "interoperability": [
-        "Replacement-candidate status must be researched separately; this entry does not claim acceptance."
+        "The historical source retains its candidate wording. See cip-0113 for the separately pinned 2026-09-29 merged specification (declared status Proposed)."
       ],
       "maturity": {
         "standardStatus": "Inactive (incorporated into candidate CIP-0113)",
@@ -3147,7 +3161,8 @@
       ],
       "relatedIds": [
         "cip-0001",
-        "cip-0188"
+        "cip-0188",
+        "cip-0113"
       ]
     },
     {
@@ -5165,6 +5180,95 @@
         "cip-0088",
         "cip-0190",
         "artifact-passport"
+      ]
+    },
+    {
+      "id": "cip-0113",
+      "title": "CIP-0113: Programmable token-like assets",
+      "kind": "standard",
+      "summary": "Merged into the official Cardano CIPs repository on 2026-09-29; declared status remains Proposed. Defines programmable tokens whose ownership changes require script validation, including tokenized-securities use cases.",
+      "tags": [
+        "programmable-token",
+        "CIP-113",
+        "securities",
+        "transfer-restrictions",
+        "KYC",
+        "CryptoJoe101"
+      ],
+      "sourceIds": [
+        "cip-0113"
+      ],
+      "facts": [
+        {
+          "text": "The merged specification declares Status: Proposed, Version 3.0, and lists Michele Nuzzi, Matteo Coppola, Philip DiSarro and Giovanni Gargiulo as authors.",
+          "sourceIds": [
+            "cip-0113"
+          ]
+        },
+        {
+          "text": "Programmable tokens require successful script execution to change owner; motivation includes regulated stablecoins, transfer restrictions and tokenized securities without a hard fork.",
+          "sourceIds": [
+            "cip-0113"
+          ]
+        },
+        {
+          "text": "Tokens remain in shared script custody; an on-chain registry connects token policies with their validation logic.",
+          "sourceIds": [
+            "cip-0113"
+          ]
+        },
+        {
+          "text": "Third-party powers and trigger authority depend on each substandard, not CIP-113 conformance alone.",
+          "sourceIds": [
+            "cip-0113"
+          ]
+        },
+        {
+          "text": "The Path to Active still lists unchecked issuance, end-to-end testing and wallet-adoption criteria.",
+          "sourceIds": [
+            "cip-0113"
+          ]
+        }
+      ],
+      "designNotes": [
+        "Contributor spotlight: the supplied announcement credits Giovanni Gargiulo (@CryptoJoe101) for sustained work toward production readiness; this is attribution, not an independent security assessment.",
+        "Merge evidence and implementation discovery links: knowledge/research/2026-09-29-cip113/README.md."
+      ],
+      "enforcement": {
+        "layer": "Plutus smart-contract custody and token-specific rules",
+        "guarantees": [
+          "Specified ownership changes pass script validation when correctly implemented."
+        ],
+        "doesNotGuarantee": [
+          "Legal compliance, audited deployment or wallet/DEX support",
+          "Programmable transfers for ordinary Studio native NFTs"
+        ]
+      },
+      "lifecycle": [
+        "Review the pinned specification and selected substandard",
+        "Implement and test issuance, transfer, burn and any third-party actions",
+        "Verify wallet integration, authority and recovery before deployment"
+      ],
+      "risks": [
+        "Issuer/substandard controls may include freezing or seizure",
+        "A merged specification does not establish production readiness of a particular deployment"
+      ],
+      "interoperability": [
+        "Inspect wallet and application support for programmable-token custody and balances.",
+        "CIP-143 is prior art; follow this merged CIP-113 specification for the current design."
+      ],
+      "maturity": {
+        "standardStatus": "Proposed",
+        "studioStatus": "research-only",
+        "evidenceLevel": "primary-source-reviewed",
+        "version": "3.0; merged 2026-09-29; e759a4a56c03c87175f3561b136283398fefccfe"
+      },
+      "opportunities": [
+        "Research configurable transfer restrictions for assets that require them."
+      ],
+      "relatedIds": [
+        "cip-0143",
+        "cip-0001"
       ]
     }
   ]

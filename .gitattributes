@@ -9,3 +9,6 @@ public/labs/music-seal/** -text
 
 # Dated agent acceptance receipts and exact component/codec snapshots.
 experiments/agent-acceptance/** -text
+
+# Exact merged CIP-113 bytes retain upstream whitespace and line endings.
+knowledge/research/2026-09-29-cip113/CIP-0113.md -text whitespace=-blank-at-eol

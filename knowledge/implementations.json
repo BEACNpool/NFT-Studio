@@ -5,7 +5,7 @@
   "repository": "https://github.com/BEACNpool/NFT-Studio",
   "sourceCatalog": {
     "path": "knowledge/catalog.json",
-    "sha256": "dd46b26ee495a932ba0d06c01ef674941b1f262f52652c0fe45f4fc92d1e4e79"
+    "sha256": "5dfa23f8a3db42bdf4f2fa9e23536574864df5e9baff3c946232765b6a2cc381"
   },
   "description": "Dated implementation observations, separate from the frozen research catalog and upstream CIP status. Publication describes source availability; capability environment and evidence describe what was actually exercised.",
   "records": [
