@@ -220,7 +220,7 @@ budgets and fees are in `evidence/setup-checks.json`; they are measured estimate
 not an unchanging fee quote. Fee caps: 5.5 ADA aggregate and 1.5 ADA per step;
 minimum ordinary-address refund: 5 ADA. The reference script remains funded.
 
-The explicit CLI has `prepare`, `inspect` and `execute` commands. It requires a
+The explicit CLI has `prepare`, `inspect`, `renew` and `execute` commands. It requires a
 verified `--host`, a canonical absolute private `--directory` outside this repo,
 and an existing `--credential` path for Blockfrost mainnet. The private parent
 must already exist. `prepare` also requires `--recipient`, verifies fresh
@@ -238,6 +238,27 @@ absent and reconcile outstanding hashes before removing that specific stale lock
 Never create a replacement wallet to bypass a lock, expiry or fingerprint error.
 Preserve the same wallet and funding address when renewing an unstarted plan;
 an in-progress plan needs state-specific recovery, not another setup.
+
+If the single 55 ADA funding output also contains one token, `renew` can prepare
+a reviewed return to the already pinned recipient. It requires `--previous` with
+the prior plan hash and `--return-token` with the exact asset unit. The funding
+output must have three confirmations and exactly one unit of that token. The
+first transaction returns it with 2 ADA, keeping the original seed/collateral
+outputs in their original positions. The final ordinary ADA refund must still be
+at least 5 ADA; fees retain the same caps. No extra transaction is added.
+
+Renewal refuses any prepared transaction or recorded submission attempt. It
+archives the previous plan, empty journal and funding instructions, preserves
+the setup key/address and recipient, and produces a new source-bound plan hash.
+The prior approval hash cannot execute the revised plan. An interrupted renewal
+fails closed if the committed plan and journal disagree; inspect the archived
+records before recovery. No renewal signs or submits a transaction.
+
+`node scripts/verify-setup.mjs --funding-token` rehearses the complete revised
+workflow with a synthetic token. `evidence/setup-token-checks.json` verifies the
+token return and final refund and rejects unexpected assets, quantities, funding
+outputs and return ADA. `evidence/setup-token-node-checks.json` records unsigned
+node evaluation of its scripts using synthetic additional UTxOs.
 
 `evidence/setup-node-checks.json` records unsigned mainnet-node script evaluation
 with synthetic additional UTxOs. That is separate from full signed inclusion.

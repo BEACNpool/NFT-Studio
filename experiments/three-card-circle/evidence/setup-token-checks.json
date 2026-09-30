@@ -1,21 +1,21 @@
 {
   "ok": true,
   "mode": "exact production workflow; Emulator, synthetic keys, no real network submission",
-  "createdAt": "2026-09-30T02:39:35.537Z",
+  "createdAt": "2026-09-30T02:39:12.250Z",
   "parametersObservedAt": "2026-09-30T02:00:14.524Z",
   "transactions": [
     {
       "index": 0,
-      "label": "prepare seed outputs",
-      "hash": "c447d588e3e2e486d4b18c564c5a3587f602177aa105a09bc5b98911ed5ba095",
-      "signedBytes": 423,
-      "feeLovelace": "174169",
+      "label": "prepare seed outputs and return funding token",
+      "hash": "aa71c65c28da17ae39712c70dcdf28091457151628f0f517dbf4883c40e2598b",
+      "signedBytes": 541,
+      "feeLovelace": "179361",
       "status": "confirmed"
     },
     {
       "index": 1,
       "label": "register bootstrap authority",
-      "hash": "62f7ad3e893211dd9fdeb3dc28783181ed543b9e87d6811d3c00bfe10b7fe637",
+      "hash": "d3b96756c8ed439155f617263eb3735285f880fe253249c1dcd3910ee645b17c",
       "signedBytes": 617,
       "feeLovelace": "183717",
       "status": "confirmed"
@@ -23,15 +23,15 @@
     {
       "index": 2,
       "label": "bootstrap immutable core",
-      "hash": "bf22b0d9ab489628b8db71f5cde7c398a0769ce2fb3be95ddad122776789a49d",
+      "hash": "8d79932897bea902bc828d7d97ba074643eb8336e7df19aaa5a7851c182b0459",
       "signedBytes": 7789,
-      "feeLovelace": "534900",
+      "feeLovelace": "533359",
       "status": "confirmed"
     },
     {
       "index": 3,
       "label": "create ownership record",
-      "hash": "f1f91205b99ffbdec045e90a6bbec975fd4de5a00878c6910cfc6eba51f7f0ca",
+      "hash": "3ddc7e080fb2357a4d717c154f167f452d38b3ed5750b573ba6ae56da1507b29",
       "signedBytes": 4083,
       "feeLovelace": "350532",
       "status": "confirmed"
@@ -39,7 +39,7 @@
     {
       "index": 4,
       "label": "register transfer modules",
-      "hash": "5b3ef246742bb57789764c6fd5af90bafbdbfbe2631a7aa39b788cb9e367ee86",
+      "hash": "e924f18cb51ae888705bb6f862c8f15992f75dcae63c770b3cb3303cf9ce98f9",
       "signedBytes": 4209,
       "feeLovelace": "344268",
       "status": "confirmed"
@@ -47,7 +47,7 @@
     {
       "index": 5,
       "label": "register issuance modules",
-      "hash": "ddece641cd8cc242c4279941b84ef33dbffa8bf4df22255c2b77a021a6d89c69",
+      "hash": "fb11d95ba0c6b5661bc7a5841f83b1f4520d28ec0bfd1fcdfbcf678254a1a1b6",
       "signedBytes": 5154,
       "feeLovelace": "384842",
       "status": "confirmed"
@@ -55,15 +55,15 @@
     {
       "index": 6,
       "label": "register collection policy",
-      "hash": "f3db382e6bb10526560c8c281819a04b03f0be1440630ce5d37db68b2bdd59ca",
+      "hash": "4919e8cf035498c9204b9ca6faae09acf3dcb39fbc419f0863dc5367ecbb06fe",
       "signedBytes": 6330,
-      "feeLovelace": "497734",
+      "feeLovelace": "498604",
       "status": "confirmed"
     },
     {
       "index": 7,
       "label": "publish state reference",
-      "hash": "5ae13eac49a0f301d503d4b6da0883994bae114e6b318b543ac5912104cccedf",
+      "hash": "d662bc7603270475fbca6c2ad900b556db8f52678b1ef0baf8d70cc67ba9821b",
       "signedBytes": 3614,
       "feeLovelace": "314573",
       "status": "confirmed"
@@ -71,40 +71,50 @@
     {
       "index": 8,
       "label": "issue three NFTs",
-      "hash": "5b20287d6f12b59e749a17d323644a77d8d35fd4b259b27f3198d2b4273eeeef",
+      "hash": "8199c25b88ac35ea80435ab5753cd613c6b865ff1a2c1e33ad1fbb8bd48d66b3",
       "signedBytes": 15198,
-      "feeLovelace": "1017585",
+      "feeLovelace": "1017041",
       "status": "confirmed"
     },
     {
       "index": 9,
       "label": "deliver all three to recipient",
-      "hash": "64d2ba0df6b47ab05ab3a0e3e57a4b4a5a6cef8a73843104047655beaf54eb94",
+      "hash": "aa707f5770a3456f3d4d51df539ed8d238d0b5e6fa2a17788f95f6bb42ffd40a",
       "signedBytes": 5734,
-      "feeLovelace": "692601",
+      "feeLovelace": "693653",
       "status": "confirmed"
     },
     {
       "index": 10,
       "label": "return unused ADA",
-      "hash": "55873259c624da73ae02741ed93647b4bd90b09aaef8b91b0e4d76b8c72eeffd",
+      "hash": "2d7b787ebb84d6cd295ee7a9545eb836a11639a1a589e892e71c9b99ef8040cb",
       "signedBytes": 265,
       "feeLovelace": "167217",
       "status": "confirmed"
     }
   ],
-  "totalReturnedLovelace": "8163552",
+  "fundingTokenReturn": {
+    "unitBytes": 46,
+    "lovelace": "2000000",
+    "quantity": "1"
+  },
+  "totalReturnedLovelace": "8158523",
   "fundingLovelace": "55000000",
-  "refundLovelace": "8163552",
+  "refundLovelace": "6158523",
   "referenceReserveLovelace": "15399630",
-  "feesLovelace": "4662138",
+  "feesLovelace": "4667167",
   "negativeChecks": [
     "wrong recipient key",
     "expired approval",
     "wrong funding allowance",
     "expired transaction",
     "node evaluation rejection",
-    "each of eleven repeated submissions blocked"
+    "each of eleven repeated submissions blocked",
+    "unreviewed enclosed token",
+    "wrong token quantity",
+    "unexpected token identity",
+    "wrong funded output",
+    "wrong return ADA"
   ],
   "durableRoundtripChecks": 44,
   "preflightChecks": 23

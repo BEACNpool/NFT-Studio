@@ -1,0 +1,170 @@
+{
+  "ok": true,
+  "createdAt": "2026-09-30T02:39:35.716Z",
+  "mode": "unsigned transactions with synthetic additional UTxOs; no real signature or submission",
+  "results": [
+    {
+      "index": 0,
+      "label": "prepare seed outputs",
+      "nativeOnly": true
+    },
+    {
+      "index": 1,
+      "label": "register bootstrap authority",
+      "evaluations": {
+        "certificate:0": {
+          "memory": 12919,
+          "steps": 3693754
+        }
+      }
+    },
+    {
+      "index": 2,
+      "label": "bootstrap immutable core",
+      "evaluations": {
+        "mint:0": {
+          "memory": 144472,
+          "steps": 52382941
+        },
+        "mint:1": {
+          "memory": 155079,
+          "steps": 56940357
+        },
+        "mint:2": {
+          "memory": 100712,
+          "steps": 40208670
+        },
+        "withdrawal:0": {
+          "memory": 14077,
+          "steps": 5507577
+        }
+      }
+    },
+    {
+      "index": 3,
+      "label": "create ownership record",
+      "evaluations": {
+        "mint:0": {
+          "memory": 182847,
+          "steps": 66183491
+        }
+      }
+    },
+    {
+      "index": 4,
+      "label": "register transfer modules",
+      "evaluations": {
+        "certificate:0": {
+          "memory": 15747,
+          "steps": 4269330
+        },
+        "certificate:1": {
+          "memory": 15315,
+          "steps": 4185790
+        },
+        "certificate:2": {
+          "memory": 14283,
+          "steps": 4005046
+        }
+      }
+    },
+    {
+      "index": 5,
+      "label": "register issuance modules",
+      "evaluations": {
+        "certificate:0": {
+          "memory": 16547,
+          "steps": 4397330
+        },
+        "certificate:1": {
+          "memory": 16115,
+          "steps": 4250782
+        }
+      }
+    },
+    {
+      "index": 6,
+      "label": "register collection policy",
+      "evaluations": {
+        "spend:0": {
+          "memory": 52675,
+          "steps": 17506196
+        },
+        "mint:0": {
+          "memory": 375580,
+          "steps": 130708248
+        },
+        "withdrawal:0": {
+          "memory": 351974,
+          "steps": 122339720
+        }
+      }
+    },
+    {
+      "index": 7,
+      "label": "publish state reference",
+      "nativeOnly": true
+    },
+    {
+      "index": 8,
+      "label": "issue three NFTs",
+      "evaluations": {
+        "spend:0": {
+          "memory": 943561,
+          "steps": 315973018
+        },
+        "mint:0": {
+          "memory": 81625,
+          "steps": 30122979
+        },
+        "withdrawal:0": {
+          "memory": 346563,
+          "steps": 132235879
+        },
+        "withdrawal:1": {
+          "memory": 349790,
+          "steps": 117971537
+        }
+      }
+    },
+    {
+      "index": 9,
+      "label": "deliver all three to recipient",
+      "evaluations": {
+        "spend:0": {
+          "memory": 2032208,
+          "steps": 675357057
+        },
+        "spend:1": {
+          "memory": 57983,
+          "steps": 19602537
+        },
+        "spend:2": {
+          "memory": 57983,
+          "steps": 19602537
+        },
+        "spend:3": {
+          "memory": 57983,
+          "steps": 19602537
+        },
+        "withdrawal:0": {
+          "memory": 431488,
+          "steps": 154122870
+        },
+        "withdrawal:1": {
+          "memory": 23493,
+          "steps": 8098447
+        },
+        "withdrawal:2": {
+          "memory": 210039,
+          "steps": 70156724
+        }
+      }
+    },
+    {
+      "index": 10,
+      "label": "return unused ADA",
+      "nativeOnly": true
+    }
+  ]
+}

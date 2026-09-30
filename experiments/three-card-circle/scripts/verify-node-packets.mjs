@@ -4,7 +4,7 @@ import {readFileSync,writeFileSync} from 'node:fs';
 import {makeProvider} from './setup-provider.mjs';
 import {decode} from './setup-workflow.mjs';
 const transport=makeProvider(process.env.BLOCKFROST_PROJECT_ID_FILE);await transport.verifyNetwork();
-const mode=process.argv[2]||'setup';assert.ok(['setup','wallet'].includes(mode));
+const mode=process.argv[2]||'setup';assert.ok(['setup','setup-token','wallet'].includes(mode));
 const contexts=decode(readFileSync(`evidence/${mode}-evaluation-raw.json`,'utf8'));
 const results=[];
 for(const [index,packet] of contexts.entries()){

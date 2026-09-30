@@ -29,6 +29,15 @@ export function validatePlan(plan,now=Date.now()){
  assert.notEqual(key(plan.setupAddress),key(plan.recipientAddress),'Recipient must control a separate key');
  assert.ok(Date.parse(plan.expiresAt)>now,'Approval plan expired');
  assert.equal(plan.artwork.length,3);assert.ok(plan.artwork.every(x=>typeof x==='string'&&x.startsWith('<svg')));
+ if(plan.fundingTokenReturn){
+  const r=plan.fundingTokenReturn,entries=Object.entries(r.assets??{});
+  assert.equal(entries.length,1,'Review exactly one enclosed funding token');
+  assert.match(entries[0][0],/^[a-f0-9]{56}(?:[a-f0-9]{2}){0,32}$/,'Invalid funding token unit');
+  assert.equal(entries[0][1],1n,'Return the single reviewed token');
+  assert.equal(r.lovelace,'2000000','Funding token return must carry exactly 2 ADA');
+  assert.match(r.input?.txHash??'',/^[a-f0-9]{64}$/,'Pin the funded transaction');
+  assert.ok(Number.isSafeInteger(r.input.outputIndex)&&r.input.outputIndex>=0,'Pin the funding output');
+ }
 }
 function metadata(plan){return Object.fromEntries(plan.artwork.map((art,i)=>['CARD0'+(i+1),{name:`NFT-Studio Circle ${i+1}/3`,mediaType:'image/svg+xml',image:('data:image/svg+xml;base64,'+Buffer.from(art).toString('base64')).match(/.{1,64}/g),description:['Three distinct programmable NFT-Studio cards.','Hold one or two: send to an existing holder.','Hold all three before transfer: invite a new owner.'],website:['https://beacnpool.github.io/NFT-Studio/','showcase/three-card-circle/']} ]));}
 export async function buildStep({lucid,provider,plan,journal,index,now=Date.now}){
@@ -40,12 +49,14 @@ export async function buildStep({lucid,provider,plan,journal,index,now=Date.now}
  let tx,referenceBytes=0,collateral;
  if(index===0){
   assert.equal(wallet.length,1,'Send one exact funding output to the dedicated wallet');
-  assert.equal(Object.keys(wallet[0].assets).length,1,'Funding must be ADA only');
-  assert.equal(wallet[0].assets.lovelace,limits.funding,'Funding amount differs from reviewed plan');
+  const returned=plan.fundingTokenReturn;
+  assert.deepEqual(wallet[0].assets,{lovelace:limits.funding,...returned?.assets},'Funding assets differ from the reviewed plan');
+  if(returned)assert.equal(ref(wallet[0]),ref(returned.input),'Funding output differs from the reviewed plan');
   assert.ok(!wallet[0].datum&&!wallet[0].datumHash&&!wallet[0].scriptRef);
   tx=lucid.newTx().collectFrom(wallet);
   for(let i=0;i<5;i++)tx=tx.pay.ToAddress(plan.setupAddress,{lovelace:2_000_000n});
   tx=tx.pay.ToAddress(plan.setupAddress,{lovelace:limits.collateral});
+  if(returned)tx=tx.pay.ToAddress(plan.recipientAddress,{lovelace:BigInt(returned.lovelace),...returned.assets});
  }else{
   const ctx=context(plan,journal),{c,seeds,refs}=ctx;collateral=ctx.collateral;
   options.presetWalletInputs=[collateral];
@@ -89,10 +100,17 @@ export async function buildStep({lucid,provider,plan,journal,index,now=Date.now}
   assert.equal(body.total_collateral(),limits.declaredCollateral);
  }
  const inputsNow=await provider.getUtxosByOutRef(inputs);assert.equal(inputsNow.length,inputs.length);
+ if(index===0&&plan.fundingTokenReturn){
+  const out=outputs(unsigned),returned=plan.fundingTokenReturn;
+  assert.equal(out.length,8,'Expected seed, collateral, token return and fee outputs');
+  assert.equal(out[6].address,plan.recipientAddress,'Enclosed token must go to the pinned recipient');
+  assert.deepEqual(out[6].assets,{lovelace:BigInt(returned.lovelace),...returned.assets});
+  assert.equal(out[7].address,plan.setupAddress);assert.deepEqual(Object.keys(out[7].assets),['lovelace']);
+ }
  const previousFees=journal.steps.reduce((n,s)=>n+BigInt(s.feeLovelace),0n);
  assert.ok(previousFees+body.fee()<=limits.fees,'Total fee cap exceeded');
  if(index===10){const out=outputs(unsigned);assert.equal(out.length,1);assert.equal(out[0].address,plan.recipientAddress);assert.ok(out[0].assets.lovelace>=limits.minRefund,'Refund is below reviewed minimum');}
- return {index,label:labels[index],unsigned,hash:CML.hash_transaction(body).to_hex(),expiresAt,referenceBytes,requiredKeys:inputKeys([...inputsNow, ...(collateral?[collateral]:[])]),inputRefs:inputs,referenceRefs:refs,collateralRefs,parameters:lucid.config().protocolParameters,feeLovelace:String(body.fee()),stateOutref:index>7?ref((await provider.getUtxoByUnit(context(plan,journal).c.ids.state+T.names.state))):null};
+ return {index,label:index===0&&plan.fundingTokenReturn?'prepare seed outputs and return funding token':labels[index],unsigned,hash:CML.hash_transaction(body).to_hex(),expiresAt,referenceBytes,requiredKeys:inputKeys([...inputsNow, ...(collateral?[collateral]:[])]),inputRefs:inputs,referenceRefs:refs,collateralRefs,parameters:lucid.config().protocolParameters,feeLovelace:String(body.fee()),stateOutref:index>7?ref((await provider.getUtxoByUnit(context(plan,journal).c.ids.state+T.names.state))):null};
 }
 export async function executePacket({packet,lucid,provider,plan,journal,storage,locks,save,freshness,confirm,evaluate,now=Date.now}){
  const preflight=async()=>{

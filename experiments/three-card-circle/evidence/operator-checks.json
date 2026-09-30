@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "createdAt": "2026-09-30T02:13:43.875Z",
+  "createdAt": "2026-09-30T02:39:12.920Z",
   "mode": "temporary private filesystem, synthetic identities; no mainnet signing or submission",
   "checks": [
     "exclusive wallet directory creation",
@@ -16,6 +16,13 @@
     "wrong approval refused before credential loading or locking",
     "changed source refused",
     "expired plan refused",
-    "default transport denies submission and foreign origins"
+    "default transport denies submission and foreign origins",
+    "renewal requires exact previous plan",
+    "renewal cannot replace wallet or redirect recipient",
+    "failed renewal preserves original plan and releases lock",
+    "renewal refuses any existing transaction packet",
+    "renewal archives prior plan, retains exact key and resets only empty journal",
+    "old approval cannot execute renewed plan",
+    "renewal refuses any durable submission attempt"
   ]
 }
