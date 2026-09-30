@@ -53,6 +53,11 @@ jobs:
       - run: npm run verify:capsules
       - run: npm --prefix mcp ci
       - run: npm run verify:mcp
+      - run: npm --prefix experiments/three-card-circle ci --ignore-scripts
+      - run: npm --prefix experiments/three-card-circle run test:reader
+      - run: npm --prefix experiments/three-card-circle run test:operator
+      - run: npm --prefix experiments/three-card-circle run build:wallet
+      - run: git diff --exit-code -- public/showcase/three-card-circle/wallet
       - run: npm run build:pages
       - uses: actions/upload-artifact@v4
         with:

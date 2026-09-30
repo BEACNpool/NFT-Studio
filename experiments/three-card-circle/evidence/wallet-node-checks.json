@@ -1,0 +1,165 @@
+{
+  "ok": true,
+  "createdAt": "2026-09-30T02:14:04.722Z",
+  "mode": "unsigned transactions with synthetic additional UTxOs; no real signature or submission",
+  "results": [
+    {
+      "index": 0,
+      "label": "browser owner transfer",
+      "evaluations": {
+        "spend:1": {
+          "memory": 56243,
+          "steps": 19238091
+        },
+        "spend:2": {
+          "memory": 56243,
+          "steps": 19238091
+        },
+        "spend:3": {
+          "memory": 56243,
+          "steps": 19238091
+        },
+        "spend:4": {
+          "memory": 2045936,
+          "steps": 684972753
+        },
+        "withdrawal:0": {
+          "memory": 208653,
+          "steps": 69636065
+        },
+        "withdrawal:1": {
+          "memory": 433591,
+          "steps": 156985911
+        },
+        "withdrawal:2": {
+          "memory": 25891,
+          "steps": 10074700
+        }
+      }
+    },
+    {
+      "index": 1,
+      "label": "browser owner transfer",
+      "evaluations": {
+        "spend:1": {
+          "memory": 56243,
+          "steps": 19238091
+        },
+        "spend:2": {
+          "memory": 56243,
+          "steps": 19238091
+        },
+        "spend:3": {
+          "memory": 56243,
+          "steps": 19238091
+        },
+        "spend:4": {
+          "memory": 2045936,
+          "steps": 684972753
+        },
+        "withdrawal:0": {
+          "memory": 208653,
+          "steps": 69636065
+        },
+        "withdrawal:1": {
+          "memory": 433591,
+          "steps": 156985911
+        },
+        "withdrawal:2": {
+          "memory": 25891,
+          "steps": 10074700
+        }
+      }
+    },
+    {
+      "index": 2,
+      "label": "browser owner transfer",
+      "evaluations": {
+        "spend:1": {
+          "memory": 56243,
+          "steps": 19238091
+        },
+        "spend:2": {
+          "memory": 1049534,
+          "steps": 351868725
+        },
+        "withdrawal:0": {
+          "memory": 171227,
+          "steps": 58923593
+        },
+        "withdrawal:1": {
+          "memory": 192371,
+          "steps": 75042131
+        },
+        "withdrawal:2": {
+          "memory": 25891,
+          "steps": 10074700
+        }
+      }
+    },
+    {
+      "index": 3,
+      "label": "browser owner transfer",
+      "evaluations": {
+        "spend:0": {
+          "memory": 56243,
+          "steps": 19238091
+        },
+        "spend:1": {
+          "memory": 56243,
+          "steps": 19238091
+        },
+        "spend:2": {
+          "memory": 1520543,
+          "steps": 509541064
+        },
+        "withdrawal:0": {
+          "memory": 189940,
+          "steps": 64279829
+        },
+        "withdrawal:1": {
+          "memory": 297471,
+          "steps": 111605878
+        },
+        "withdrawal:2": {
+          "memory": 25891,
+          "steps": 10074700
+        }
+      }
+    },
+    {
+      "index": 4,
+      "label": "browser owner transfer",
+      "evaluations": {
+        "spend:1": {
+          "memory": 56243,
+          "steps": 19238091
+        },
+        "spend:2": {
+          "memory": 56243,
+          "steps": 19238091
+        },
+        "spend:3": {
+          "memory": 56243,
+          "steps": 19238091
+        },
+        "spend:4": {
+          "memory": 2045936,
+          "steps": 684972753
+        },
+        "withdrawal:0": {
+          "memory": 208653,
+          "steps": 69636065
+        },
+        "withdrawal:1": {
+          "memory": 433591,
+          "steps": 156985911
+        },
+        "withdrawal:2": {
+          "memory": 25891,
+          "steps": 10074700
+        }
+      }
+    }
+  ]
+}

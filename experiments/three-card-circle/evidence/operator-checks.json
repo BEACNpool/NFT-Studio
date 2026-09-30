@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "createdAt": "2026-09-30T02:13:43.875Z",
+  "mode": "temporary private filesystem, synthetic identities; no mainnet signing or submission",
+  "checks": [
+    "exclusive wallet directory creation",
+    "exclusive 0600 file creation preserves existing bytes",
+    "symlink and broad permissions refused",
+    "immutable revisions and atomic journal replacement",
+    "orphan temporary write does not replace committed journal",
+    "exclusive execution lock and exception cleanup",
+    "process death leaves lock and refuses blind restart",
+    "durable original attempt survives updates and rejects overwrite",
+    "unknown submission is journaled and never automatically signed or submitted again",
+    "wrong host refused",
+    "wrong approval refused before credential loading or locking",
+    "changed source refused",
+    "expired plan refused",
+    "default transport denies submission and foreign origins"
+  ]
+}

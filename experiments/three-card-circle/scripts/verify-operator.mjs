@@ -1,0 +1,37 @@
+/** Real filesystem refusal/restart checks; no mainnet key, signer or submission. */
+import assert from 'node:assert/strict';
+import {mkdtempSync,readFileSync,readdirSync,existsSync,chmodSync,symlinkSync,mkdirSync,writeFileSync} from 'node:fs';
+import {tmpdir,hostname} from 'node:os';
+import {join} from 'node:path';
+import {spawnSync} from 'node:child_process';
+import {credentialToAddress} from '@lucid-evolution/lucid';
+import {createFile,createDirectory,persistJournal,attemptStorage,withRunLock,privatePath,planHash,fingerprint,loadPlan} from './setup-operator.mjs';
+import {encode,decode} from './setup-workflow.mjs';
+import {makeProvider,endpoint} from './setup-provider.mjs';
+import {submitOnce} from './submission.mjs';
+const base=mkdtempSync(join(tmpdir(),'circle-operator-'));chmodSync(base,0o700);
+const checks=[];const pass=name=>checks.push(name);
+const directory=join(base,'wallet');createDirectory(directory);assert.throws(()=>createDirectory(directory),/EEXIST/);pass('exclusive wallet directory creation');
+const f=join(directory,'exclusive');createFile(f,'original');assert.throws(()=>createFile(f,'replacement'),/EEXIST/);assert.equal(readFileSync(f,'utf8'),'original');privatePath(f);pass('exclusive 0600 file creation preserves existing bytes');
+const link=join(base,'alias');symlinkSync(directory,link);assert.throws(()=>privatePath(link,'directory'),/wrong type/);chmodSync(f,0o644);assert.throws(()=>privatePath(f),/permissions/);chmodSync(f,0o600);pass('symlink and broad permissions refused');
+const j={schema:1,planHash:'test',steps:[]};persistJournal(directory,j);persistJournal(directory,{...j,steps:[{status:'prepared'}]});assert.equal(readdirSync(join(directory,'journal-revisions')).length,2);assert.deepEqual(decode(readFileSync(join(directory,'journal.json'),'utf8')).steps,[{status:'prepared'}]);pass('immutable revisions and atomic journal replacement');
+// An interrupted pre-rename write leaves the old committed journal usable.
+createFile(join(directory,'journal-interrupted.tmp'),'partial');assert.equal(decode(readFileSync(join(directory,'journal.json'),'utf8')).steps.length,1);pass('orphan temporary write does not replace committed journal');
+await assert.rejects(withRunLock(directory,async()=>{await assert.rejects(withRunLock(directory,async()=>{}),/EEXIST/);throw Error('controlled failure');}),/controlled failure/);assert.equal(existsSync(join(directory,'run.lock')),false);pass('exclusive execution lock and exception cleanup');
+const child=spawnSync(process.execPath,['--input-type=module','-e',`import {withRunLock} from ${JSON.stringify(new URL('./setup-operator.mjs',import.meta.url).href)};await withRunLock(${JSON.stringify(directory)},async()=>process.kill(process.pid,'SIGKILL'));`]);assert.equal(child.signal,'SIGKILL');await assert.rejects(withRunLock(directory,async()=>{}),/EEXIST/);pass('process death leaves lock and refuses blind restart');
+const storage=attemptStorage(directory),key='test-attempt',record=JSON.stringify({id:'a'.repeat(64),status:'attempted'});storage.setItem(key,record);assert.equal(storage.getItem(key),record);assert.throws(()=>storage.setItem(key,record),/already exists/);storage.setItem(key,JSON.stringify({id:'a'.repeat(64),status:'unknown'}));assert.equal(storage.getItem(key),record);pass('durable original attempt survives updates and rejects overwrite');
+const unknown=attemptStorage(base);let posts=0,signs=0;
+const request={scope:'unknown',packet:{unsigned:'synthetic'},storage:unknown,locks:{request:async(_,fn)=>fn()},preflight:async()=>{},sign:async()=>{signs++;return 'synthetic';},inspect:async()=>({id:'b'.repeat(64)}),submit:async()=>{posts++;throw Error('connection lost');}};
+await assert.rejects(submitOnce(request),/outcome unclear/);await assert.rejects(submitOnce(request),/previous attempt/);assert.equal(posts,1);assert.equal(signs,1);pass('unknown submission is journaled and never automatically signed or submitted again');
+const cli=(args)=>spawnSync(process.execPath,[new URL('./setup-operator.mjs',import.meta.url).pathname,...args],{encoding:'utf8'});
+assert.match(cli(['inspect','--host','wrong-host','--directory',directory]).stderr,/reviewed operator host/);pass('wrong host refused');
+const clean=join(base,'plan');createDirectory(clean);
+const addr=k=>credentialToAddress('Mainnet',{type:'Key',hash:k.repeat(28)});
+const plan={operation:'activate-three-card-circle',network:'Mainnet',operatorHost:hostname(),fundingLovelace:'55000000',setupAddress:addr('12'),recipientAddress:addr('34'),expiresAt:new Date(Date.now()+3600000).toISOString(),sourceFingerprint:fingerprint(),artwork:Array(3).fill('<svg/>')};plan.planHash=planHash(plan);createFile(join(clean,'plan.json'),encode(plan));
+assert.equal(loadPlan(clean).planHash,plan.planHash);
+const args=['execute','--host',hostname(),'--directory',clean,'--credential',join(base,'does-not-exist'),'--approve','not-approved'];assert.match(cli(args).stderr,/exact plan hash/);assert.equal(existsSync(join(clean,'run.lock')),false);pass('wrong approval refused before credential loading or locking');
+const changed={...plan,sourceFingerprint:'wrong'};changed.planHash=planHash(changed);writeFileSync(join(clean,'plan.json'),encode(changed));assert.throws(()=>loadPlan(clean),/source changed/);pass('changed source refused');
+const expired={...plan,expiresAt:'2020-01-01'};expired.planHash=planHash(expired);writeFileSync(join(clean,'plan.json'),encode(expired));assert.throws(()=>loadPlan(clean),/expired/);pass('expired plan refused');
+const credential=join(base,'synthetic-credential');createFile(credential,'mainnet'+'0'.repeat(32));const p=makeProvider(credential);
+await assert.rejects(p.provider.fetch(endpoint+'/tx/submit',{method:'POST'}),/Submission disabled/);await assert.rejects(p.provider.fetch('https://example.com/api/v0/blocks/latest'));pass('default transport denies submission and foreign origins');
+const result={ok:true,createdAt:new Date().toISOString(),mode:'temporary private filesystem, synthetic identities; no mainnet signing or submission',checks};writeFileSync('evidence/operator-checks.json',JSON.stringify(result,null,2)+'\n');console.log(`PASS: ${checks.length} operator filesystem, refusal and recovery checks.`);

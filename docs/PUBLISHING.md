@@ -33,7 +33,8 @@ responsive layouts and existing exact-content review links. It uses Playwright;
 `PLAYWRIGHT_MODULE` can select an existing installation. Its screenshots and
 results remain in ignored `tmp/agent-site-qa/`.
 
-Run `scripts/audit-app-navigation.cjs` against the **static export under its
+Run `scripts/audit-app-navigation.mjs` (Playwright, using `PLAYWRIGHT_MODULE`),
+or the retained `scripts/audit-app-navigation.cjs` against the **static export under its
 subdirectory**, not just the development server. It verifies that an unsaved
 creation survives browser Back/Forward and tab changes. Set `STUDIO_URL` to the
 served app with `?view=create` (the compatibility editor) and supply

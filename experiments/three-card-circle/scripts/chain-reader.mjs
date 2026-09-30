@@ -13,7 +13,7 @@ export function validateTip(tip,now=Date.now()) {
   requireThat(Number.isSafeInteger(tip?.block_no) && Number.isFinite(tip?.block_time) && now/1000-tip.block_time<600 && now/1000-tip.block_time>-60,'The chain provider is stale or unavailable.');
   return tip;
 }
-export async function readKoiosTip({fetcher=globalThis.fetch,base=BEACN_KOIOS_URL}={}) {
+export async function readKoiosTip({fetcher=globalThis.fetch.bind(globalThis),base=BEACN_KOIOS_URL}={}) {
   const r=await fetcher(base+'/tip',{cache:'no-store',signal:AbortSignal.timeout(15000)});
   requireThat(r.ok,'BEACN Koios is unavailable.');
   const tips=await r.json(); requireThat(Array.isArray(tips) && tips.length===1,'Unexpected chain tip.');
@@ -81,7 +81,7 @@ export function validateSnapshot(c,state,outputs,tip,now=Date.now()) {
   return {...record,cards,addresses,together:new Set(addresses).size===1,tip,holders:new Set(addresses).size,transfers:record.revision-1};
 }
 export class ChainReader {
-  constructor(config,{fetcher=globalThis.fetch,base=BEACN_KOIOS_URL}={}) { this.config=validateConfig(config); this.fetcher=fetcher; this.base=base; }
+  constructor(config,{fetcher=globalThis.fetch.bind(globalThis),base=BEACN_KOIOS_URL}={}) { this.config=validateConfig(config); this.fetcher=fetcher; this.base=base; }
   async request(path,body) {
     const r=await this.fetcher(this.base+'/'+path,{method:body?'POST':'GET',cache:'no-store',headers:body?{'Content-Type':'application/json'}:{},body:body?JSON.stringify(body):undefined,signal:AbortSignal.timeout(15000)});
     requireThat(r.ok,'Chain data could not be loaded. Please try again.');

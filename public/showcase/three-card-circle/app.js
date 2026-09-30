@@ -54,6 +54,12 @@ async function refresh() {
   } finally {busy=false;$('#refresh').disabled=false;}
 }
 $('#refresh').addEventListener('click',refresh);
+$('#create-open').addEventListener('click',()=>openDialog($('#create-dialog')));
+$('#copy-prompt').addEventListener('click',async()=>{
+  const prompt=$('#creator-prompt');
+  try{await navigator.clipboard.writeText(prompt.value);$('#create-status').textContent='Copied. Paste it into your coding agent.';}
+  catch{prompt.focus();prompt.select();$('#create-status').textContent='Select and copy the prompt above.';}
+});
 for(const button of document.querySelectorAll('[data-copy]')) button.addEventListener('click',async()=>{
   const address=snapshot?.addresses[Number(button.dataset.copy)];if(!address)return;
   try {await navigator.clipboard.writeText(address);$('#refresh-status').textContent='Full owner address copied.';const label=button.querySelector('.owner-label');label.firstChild.textContent='COPIED ';setTimeout(()=>{label.firstChild.textContent='OWNER ADDRESS ';},1800);}
@@ -82,14 +88,55 @@ async function loadHistory(offset=0) {
 $('#history-open').addEventListener('click',()=>{historyOffset=0;historyAnchor=null;openDialog($('#history-dialog'));loadHistory(0);});
 $('#history-newer').addEventListener('click',()=>loadHistory(Math.max(0,historyOffset-3)));
 $('#history-older').addEventListener('click',()=>loadHistory(historyOffset+3));
+let transferModule=null,transferSession=null,prepared=null,transferBusy=false;
+const transferForm=$('#transfer-form'),review=$('#transfer-review');
+const walletMobile=$('#wallet-mobile');walletMobile.href='web+cardano://browse/v1?uri='+encodeURIComponent(location.href);
+function transferError(e){$('#wallet-status').textContent=errorText(e);if(e.transactionId)showReceipt(e.transactionId);}
+function showReceipt(id){const a=$('#transfer-receipt');a.href='https://cardanoscan.io/transaction/'+id;a.textContent='Check transaction '+id+' ↗';a.hidden=false;}
+function showCards(){
+  const {snapshot,identity}=transferSession,list=$('#transfer-cards');list.replaceChildren();
+  snapshot.cards.forEach((card,i)=>{const label=document.createElement('label'),input=document.createElement('input');input.type='checkbox';input.value=String(i);input.name='card';input.disabled=!identity.keys.includes(card.owner);input.checked=!input.disabled;label.append(input,document.createTextNode(['01 · The Spark','02 · The Connection','03 · The Invitation'][i]+(input.disabled?' · another owner':'')));list.append(label);});
+  transferForm.hidden=false;review.hidden=true;$('#transfer-prepare').disabled=!snapshot.owners.some(k=>identity.keys.includes(k));
+  $('#wallet-status').textContent=$('#transfer-prepare').disabled?'Connected. This wallet does not control a card.':'Connected. Choose cards and a recipient, then review the transfer.';
+}
 $('#connect').addEventListener('click',()=>{
+  if(transferBusy){openDialog($('#wallet-dialog'));return;}
+  prepared=null;transferSession=null;transferForm.hidden=true;review.hidden=true;$('#transfer-receipt').hidden=true;
   const list=$('#wallet-list');list.replaceChildren();
   const wallets=Object.entries(window.cardano||{}).filter(([,w])=>typeof w?.enable==='function');
-  $('#wallet-status').textContent=wallets.length?'Connection only. No signing or payment.':'Open this page in VESPR’s dApp browser to connect.';
+  $('#wallet-status').textContent=wallets.length?'Connect to check which cards you control.':'Open this page in VESPR’s dApp browser to connect.';
   openDialog($('#wallet-dialog'));
   for(const [id,wallet] of wallets){const button=document.createElement('button');button.type='button';button.textContent=wallet.name||id;
-    button.addEventListener('click',async()=>{button.disabled=true;try{const api=await wallet.enable();if(await api.getNetworkId()!==1)throw Error('Switch your wallet to Cardano mainnet.');$('#wallet-status').textContent=`${wallet.name||id} connected. ${snapshot?.active?'Transfer signing is not enabled yet.':'Mainnet activation pending.'}`;list.replaceChildren();}catch(e){$('#wallet-status').textContent=errorText(e);}finally{button.disabled=false;}});list.append(button);
+    button.addEventListener('click',async()=>{button.disabled=true;try{
+      const api=await wallet.enable();if(await api.getNetworkId()!==1)throw Error('Switch your wallet to Cardano mainnet.');
+      await refresh();list.replaceChildren();
+      if(activationState!=='active'||!snapshot?.active){$('#wallet-status').textContent=`${wallet.name||id} connected. ${activationState==='inactive'?'Mainnet activation pending.':'Verified ownership is unavailable.'}`;return;}
+      $('#wallet-status').textContent='Checking ownership and loading the transfer tools…';
+      transferModule??=await import('./wallet/transfer.js');transferSession=await transferModule.connectTransfer(api,reader.config);showCards();
+    }catch(e){transferError(e);}finally{button.disabled=false;}});list.append(button);
   }
+});
+transferForm.addEventListener('submit',async event=>{
+  event.preventDefault();if(transferBusy||!transferSession)return;transferBusy=true;$('#transfer-prepare').disabled=true;
+  try{
+    $('#wallet-status').textContent='Preparing and checking the transfer. No signature requested.';
+    const indices=[...document.querySelectorAll('#transfer-cards input:checked')].map(i=>Number(i.value));
+    prepared=await transferModule.prepareTransfer(transferSession,{indices,destination:$('#transfer-destination').value});
+    const p=prepared.packet;$('#review-cards').textContent=p.indices.map(i=>['The Spark','The Connection','The Invitation'][i]).join(', ');
+    $('#review-recipient').textContent=$('#transfer-destination').value.trim();$('#review-destination').textContent=p.destination;$('#review-fee').textContent=(Number(p.feeLovelace)/1e6).toFixed(6)+' ADA';$('#review-expiry').textContent=new Date(p.expiresAt).toLocaleTimeString();
+    transferForm.hidden=true;review.hidden=false;$('#transfer-sign').disabled=false;$('#transfer-back').disabled=false;
+    $('#wallet-status').textContent='Review the full destination and costs. Your wallet will request approval.';
+  }catch(e){prepared=null;transferError(e);}finally{transferBusy=false;$('#transfer-prepare').disabled=false;}
+});
+$('#transfer-back').addEventListener('click',()=>{if(!transferBusy){prepared=null;review.hidden=true;transferForm.hidden=false;}});
+$('#transfer-sign').addEventListener('click',async()=>{
+  if(transferBusy||!prepared)return;transferBusy=true;$('#transfer-sign').disabled=true;$('#transfer-back').disabled=true;
+  try{
+    $('#wallet-status').textContent='Check and approve the transaction in your wallet.';
+    const result=await transferModule.signAndSubmit(transferSession,prepared);showReceipt(result.id);prepared=null;
+    $('#wallet-status').textContent='Submitted. Ownership updates here after three confirmations. Do not send again.';
+  }catch(e){transferError(e);prepared=null;$('#transfer-back').disabled=Boolean(e.transactionId);}
+  finally{transferBusy=false;}
 });
 refresh();
 setInterval(()=>{if(!document.hidden && !document.querySelector('dialog[open]'))refresh();},60000);

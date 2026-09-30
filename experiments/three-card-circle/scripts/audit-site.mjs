@@ -31,7 +31,10 @@ async function fixture(page,{active=false}={}){
  });
  return model;
 }
-async function ready(page,active=false){await page.locator('#refresh-status').filter({hasText:active?'Confirmed ledger revision':'The contract is not activated'}).waitFor();}
+async function ready(page,active=false){
+ try{await page.waitForFunction(text=>document.querySelector('#refresh-status')?.textContent.includes(text),active?'Confirmed ledger revision':'The contract is not activated',{timeout:10000});}
+ catch(error){throw Error(`Ledger did not become ready: ${await page.locator('#refresh-status').textContent()}`,{cause:error});}
+}
 async function assertLayout(page,{allowVertical=false}={}){
  const metrics=await page.evaluate(()=>{
   const visible=[...document.querySelectorAll('header,footer,.title-row,.rules,.card,.owner')].map(el=>({name:el.className||el.tagName,x:el.getBoundingClientRect().x,y:el.getBoundingClientRect().y,right:el.getBoundingClientRect().right,bottom:el.getBoundingClientRect().bottom}));
@@ -86,7 +89,15 @@ for(const [engine,type] of Object.entries({chromium,firefox,webkit})){
   model.stale=true;await page.locator('#refresh').click();await page.locator('#chain-status').filter({hasText:'Data unavailable'}).waitFor();assert.deepEqual(await page.locator('.address').allTextContents(),Array(3).fill('Unverified'));
   await page.locator('#history-open').click();await page.locator('#history-note').filter({hasText:'data is unavailable'}).waitFor();await page.locator('#history-dialog [data-close]').click();
   model.stale=false;model.unavailable=true;await page.locator('#refresh').click();await page.locator('#refresh-status').filter({hasText:'could not be verified'}).waitFor();assert.equal(await page.locator('[data-copy]:disabled').count(),3);
-  results.push({engine,copyFullAddress:true,clipboardFallback:true,pagedConfirmedHistory:true,ledgerUpdate:true,providerFailureClearsAddresses:true});await page.close();
+  results.push({engine,copyFullAddress:true,clipboardFallback:true,pagedConfirmedHistory:true,ledgerUpdate:true,providerFailureClearsAddresses:true});
+  await page.locator('#create-open').click();await page.locator('#create-dialog').waitFor({state:'visible'});
+  assert.equal(await page.locator('.create-steps li').count(),3);assert.match(await page.locator('.creator-boundary').textContent(),/Custom rules require contract work/);
+  await page.evaluate(()=>{window.clipboardFails=false;});await page.locator('#copy-prompt').click();assert.equal(await page.evaluate(()=>window.copied),await page.locator('#creator-prompt').inputValue());
+  await page.evaluate(()=>{window.clipboardFails=true;});await page.locator('#copy-prompt').click();await page.locator('#create-status').filter({hasText:'Select and copy'}).waitFor();
+  assert.equal(await page.locator('#create-dialog a[href="../../mcp/"]').count(),1);
+  if(engine==='chromium')await page.screenshot({path:`${output}/creator-guide-mobile.png`,fullPage:true});
+  await page.locator('#create-dialog [data-close]').click();assert.equal(await page.locator('#create-open').evaluate(el=>el===document.activeElement),true);
+  results.push({engine,creatorGuide:true,copyableStartingPrompt:true,creatorClipboardFallback:true,contractBoundaries:true});await page.close();
  }finally{await browser.close();}
 }
 const result={ok:true,mode:'isolated browser contexts; synthetic authenticated-chain fixtures and wallets; no signing or real submission',results};

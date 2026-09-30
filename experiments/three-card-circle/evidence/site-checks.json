@@ -1,159 +1,405 @@
 {
   "ok": true,
-  "mode": "local static subdirectory export; isolated browser contexts and synthetic wallets",
+  "mode": "isolated browser contexts; synthetic authenticated-chain fixtures and wallets; no signing or real submission",
   "results": [
     {
       "engine": "chromium",
       "width": 320,
-      "layout": true,
-      "missingWallet": true,
-      "errors": [],
+      "height": 568,
+      "active": false,
+      "singleScreen": true,
+      "fullAddresses": true,
+      "accessibility": true
+    },
+    {
+      "engine": "chromium",
+      "width": 320,
+      "height": 568,
+      "active": true,
+      "singleScreen": true,
+      "fullAddresses": true,
       "accessibility": true
     },
     {
       "engine": "chromium",
       "width": 390,
-      "layout": true,
-      "missingWallet": true,
-      "errors": [],
+      "height": 844,
+      "active": false,
+      "singleScreen": true,
+      "fullAddresses": true,
+      "accessibility": true
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "height": 844,
+      "active": true,
+      "singleScreen": true,
+      "fullAddresses": true,
       "accessibility": true
     },
     {
       "engine": "chromium",
       "width": 768,
-      "layout": true,
-      "missingWallet": true,
-      "errors": [],
+      "height": 1024,
+      "active": false,
+      "singleScreen": true,
+      "fullAddresses": true,
+      "accessibility": true
+    },
+    {
+      "engine": "chromium",
+      "width": 768,
+      "height": 1024,
+      "active": true,
+      "singleScreen": true,
+      "fullAddresses": true,
       "accessibility": true
     },
     {
       "engine": "chromium",
       "width": 1440,
-      "layout": true,
-      "missingWallet": true,
-      "errors": [],
+      "height": 900,
+      "active": false,
+      "singleScreen": true,
+      "fullAddresses": true,
       "accessibility": true
     },
     {
       "engine": "chromium",
+      "width": 1440,
+      "height": 900,
+      "active": true,
+      "singleScreen": true,
+      "fullAddresses": true,
+      "accessibility": true
+    },
+    {
+      "engine": "chromium",
+      "width": 844,
+      "height": 390,
+      "active": false,
+      "singleScreen": true,
+      "fullAddresses": true,
+      "accessibility": true
+    },
+    {
+      "engine": "chromium",
+      "width": 844,
+      "height": 390,
+      "active": true,
+      "singleScreen": true,
+      "fullAddresses": true,
+      "accessibility": true
+    },
+    {
+      "engine": "chromium",
+      "equivalent200PercentZoomReflow": true
+    },
+    {
+      "engine": "chromium",
+      "mode": "missing",
+      "readOnlyWallet": true,
+      "dialogFocusRestored": true
+    },
+    {
+      "engine": "chromium",
       "mode": "mainnet",
-      "readOnlyWallet": true
+      "readOnlyWallet": true,
+      "dialogFocusRestored": true
     },
     {
       "engine": "chromium",
       "mode": "wrong-network",
-      "readOnlyWallet": true
+      "readOnlyWallet": true,
+      "dialogFocusRestored": true
     },
     {
       "engine": "chromium",
       "mode": "declined",
-      "readOnlyWallet": true
+      "readOnlyWallet": true,
+      "dialogFocusRestored": true
     },
     {
       "engine": "chromium",
-      "unavailableActivationFailsClosed": true
+      "copyFullAddress": true,
+      "clipboardFallback": true,
+      "pagedConfirmedHistory": true,
+      "ledgerUpdate": true,
+      "providerFailureClearsAddresses": true
+    },
+    {
+      "engine": "chromium",
+      "creatorGuide": true,
+      "copyableStartingPrompt": true,
+      "creatorClipboardFallback": true,
+      "contractBoundaries": true
     },
     {
       "engine": "firefox",
       "width": 320,
-      "layout": true,
-      "missingWallet": true,
-      "errors": [],
+      "height": 568,
+      "active": false,
+      "singleScreen": true,
+      "fullAddresses": true,
+      "accessibility": true
+    },
+    {
+      "engine": "firefox",
+      "width": 320,
+      "height": 568,
+      "active": true,
+      "singleScreen": true,
+      "fullAddresses": true,
       "accessibility": true
     },
     {
       "engine": "firefox",
       "width": 390,
-      "layout": true,
-      "missingWallet": true,
-      "errors": [],
+      "height": 844,
+      "active": false,
+      "singleScreen": true,
+      "fullAddresses": true,
+      "accessibility": true
+    },
+    {
+      "engine": "firefox",
+      "width": 390,
+      "height": 844,
+      "active": true,
+      "singleScreen": true,
+      "fullAddresses": true,
       "accessibility": true
     },
     {
       "engine": "firefox",
       "width": 768,
-      "layout": true,
-      "missingWallet": true,
-      "errors": [],
+      "height": 1024,
+      "active": false,
+      "singleScreen": true,
+      "fullAddresses": true,
+      "accessibility": true
+    },
+    {
+      "engine": "firefox",
+      "width": 768,
+      "height": 1024,
+      "active": true,
+      "singleScreen": true,
+      "fullAddresses": true,
       "accessibility": true
     },
     {
       "engine": "firefox",
       "width": 1440,
-      "layout": true,
-      "missingWallet": true,
-      "errors": [],
+      "height": 900,
+      "active": false,
+      "singleScreen": true,
+      "fullAddresses": true,
       "accessibility": true
     },
     {
       "engine": "firefox",
+      "width": 1440,
+      "height": 900,
+      "active": true,
+      "singleScreen": true,
+      "fullAddresses": true,
+      "accessibility": true
+    },
+    {
+      "engine": "firefox",
+      "width": 844,
+      "height": 390,
+      "active": false,
+      "singleScreen": true,
+      "fullAddresses": true,
+      "accessibility": true
+    },
+    {
+      "engine": "firefox",
+      "width": 844,
+      "height": 390,
+      "active": true,
+      "singleScreen": true,
+      "fullAddresses": true,
+      "accessibility": true
+    },
+    {
+      "engine": "firefox",
+      "equivalent200PercentZoomReflow": true
+    },
+    {
+      "engine": "firefox",
+      "mode": "missing",
+      "readOnlyWallet": true,
+      "dialogFocusRestored": true
+    },
+    {
+      "engine": "firefox",
       "mode": "mainnet",
-      "readOnlyWallet": true
+      "readOnlyWallet": true,
+      "dialogFocusRestored": true
     },
     {
       "engine": "firefox",
       "mode": "wrong-network",
-      "readOnlyWallet": true
+      "readOnlyWallet": true,
+      "dialogFocusRestored": true
     },
     {
       "engine": "firefox",
       "mode": "declined",
-      "readOnlyWallet": true
+      "readOnlyWallet": true,
+      "dialogFocusRestored": true
     },
     {
       "engine": "firefox",
-      "unavailableActivationFailsClosed": true
+      "copyFullAddress": true,
+      "clipboardFallback": true,
+      "pagedConfirmedHistory": true,
+      "ledgerUpdate": true,
+      "providerFailureClearsAddresses": true
+    },
+    {
+      "engine": "firefox",
+      "creatorGuide": true,
+      "copyableStartingPrompt": true,
+      "creatorClipboardFallback": true,
+      "contractBoundaries": true
     },
     {
       "engine": "webkit",
       "width": 320,
-      "layout": true,
-      "missingWallet": true,
-      "errors": [],
+      "height": 568,
+      "active": false,
+      "singleScreen": true,
+      "fullAddresses": true,
+      "accessibility": true
+    },
+    {
+      "engine": "webkit",
+      "width": 320,
+      "height": 568,
+      "active": true,
+      "singleScreen": true,
+      "fullAddresses": true,
       "accessibility": true
     },
     {
       "engine": "webkit",
       "width": 390,
-      "layout": true,
-      "missingWallet": true,
-      "errors": [],
+      "height": 844,
+      "active": false,
+      "singleScreen": true,
+      "fullAddresses": true,
+      "accessibility": true
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "height": 844,
+      "active": true,
+      "singleScreen": true,
+      "fullAddresses": true,
       "accessibility": true
     },
     {
       "engine": "webkit",
       "width": 768,
-      "layout": true,
-      "missingWallet": true,
-      "errors": [],
+      "height": 1024,
+      "active": false,
+      "singleScreen": true,
+      "fullAddresses": true,
+      "accessibility": true
+    },
+    {
+      "engine": "webkit",
+      "width": 768,
+      "height": 1024,
+      "active": true,
+      "singleScreen": true,
+      "fullAddresses": true,
       "accessibility": true
     },
     {
       "engine": "webkit",
       "width": 1440,
-      "layout": true,
-      "missingWallet": true,
-      "errors": [],
+      "height": 900,
+      "active": false,
+      "singleScreen": true,
+      "fullAddresses": true,
       "accessibility": true
     },
     {
       "engine": "webkit",
+      "width": 1440,
+      "height": 900,
+      "active": true,
+      "singleScreen": true,
+      "fullAddresses": true,
+      "accessibility": true
+    },
+    {
+      "engine": "webkit",
+      "width": 844,
+      "height": 390,
+      "active": false,
+      "singleScreen": true,
+      "fullAddresses": true,
+      "accessibility": true
+    },
+    {
+      "engine": "webkit",
+      "width": 844,
+      "height": 390,
+      "active": true,
+      "singleScreen": true,
+      "fullAddresses": true,
+      "accessibility": true
+    },
+    {
+      "engine": "webkit",
+      "equivalent200PercentZoomReflow": true
+    },
+    {
+      "engine": "webkit",
+      "mode": "missing",
+      "readOnlyWallet": true,
+      "dialogFocusRestored": true
+    },
+    {
+      "engine": "webkit",
       "mode": "mainnet",
-      "readOnlyWallet": true
+      "readOnlyWallet": true,
+      "dialogFocusRestored": true
     },
     {
       "engine": "webkit",
       "mode": "wrong-network",
-      "readOnlyWallet": true
+      "readOnlyWallet": true,
+      "dialogFocusRestored": true
     },
     {
       "engine": "webkit",
       "mode": "declined",
-      "readOnlyWallet": true
+      "readOnlyWallet": true,
+      "dialogFocusRestored": true
     },
     {
       "engine": "webkit",
-      "unavailableActivationFailsClosed": true
+      "copyFullAddress": true,
+      "clipboardFallback": true,
+      "pagedConfirmedHistory": true,
+      "ledgerUpdate": true,
+      "providerFailureClearsAddresses": true
+    },
+    {
+      "engine": "webkit",
+      "creatorGuide": true,
+      "copyableStartingPrompt": true,
+      "creatorClipboardFallback": true,
+      "contractBoundaries": true
     }
   ]
 }

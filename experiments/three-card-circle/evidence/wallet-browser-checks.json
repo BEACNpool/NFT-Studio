@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "createdAt": "2026-09-30T02:12:23.951Z",
+  "mode": "real browser bundle, synthetic CIP-30 key witnesses and Emulator only; no mainnet submission or physical-wallet claim",
+  "checks": [
+    "unsigned review shows exact programmable destination and fee before signing",
+    "wallet change refused before signing",
+    "spent inputs refused before signing",
+    "wallet changes after signing prevent submission",
+    "all-three transfer to a new owner signs and updates actual Emulator ledger",
+    "all-three holder can introduce an owner with a subset",
+    "split-to-new-owner rejected with no signature request",
+    "split cards reunite with an existing owner atomically",
+    "uncertain submission persists across reopening and blocks a second signature or POST",
+    "firefox loads the actual transfer engine",
+    "webkit loads the actual transfer engine"
+  ],
+  "signatures": 5,
+  "submissionCalls": 4
+}

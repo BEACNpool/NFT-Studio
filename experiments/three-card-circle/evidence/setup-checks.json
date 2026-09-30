@@ -1,0 +1,110 @@
+{
+  "ok": true,
+  "mode": "exact production workflow; Emulator, synthetic keys, no real network submission",
+  "createdAt": "2026-09-30T02:09:14.397Z",
+  "parametersObservedAt": "2026-09-30T02:00:14.524Z",
+  "transactions": [
+    {
+      "index": 0,
+      "label": "prepare seed outputs",
+      "hash": "944772d793f271ad0605d479fbc7a375bf295e93cc54cff8f4091e07f5275369",
+      "signedBytes": 423,
+      "feeLovelace": "174169",
+      "status": "confirmed"
+    },
+    {
+      "index": 1,
+      "label": "register bootstrap authority",
+      "hash": "9114db47984a506007b4d6e4007af57159244f1b19354b0efddbd0019f52b1c6",
+      "signedBytes": 617,
+      "feeLovelace": "183717",
+      "status": "confirmed"
+    },
+    {
+      "index": 2,
+      "label": "bootstrap immutable core",
+      "hash": "77b1bdf67691b48b2d76240f009d5394f541c61c29408c00ff45776a369fb43e",
+      "signedBytes": 7789,
+      "feeLovelace": "534900",
+      "status": "confirmed"
+    },
+    {
+      "index": 3,
+      "label": "create ownership record",
+      "hash": "8d331e72d5cf29c48a761e9681cc5f530ceb0dd96dd7d12c6406877113c2a605",
+      "signedBytes": 4083,
+      "feeLovelace": "350532",
+      "status": "confirmed"
+    },
+    {
+      "index": 4,
+      "label": "register transfer modules",
+      "hash": "448dc71f1256b7323eab839754d4cde699a28aea8dce72df56f98599f31f78f0",
+      "signedBytes": 4209,
+      "feeLovelace": "344268",
+      "status": "confirmed"
+    },
+    {
+      "index": 5,
+      "label": "register issuance modules",
+      "hash": "c581f9c0efed9769272a729f4265e54ba23d2db70cd6df305f589d80b75180d1",
+      "signedBytes": 5154,
+      "feeLovelace": "384842",
+      "status": "confirmed"
+    },
+    {
+      "index": 6,
+      "label": "register collection policy",
+      "hash": "e240aed6e7c1435db3385a702b84030bfbd833e76e58f2cc3b9047935d64ec6c",
+      "signedBytes": 6330,
+      "feeLovelace": "497773",
+      "status": "confirmed"
+    },
+    {
+      "index": 7,
+      "label": "publish state reference",
+      "hash": "8c27c169a8c3f54cf8d3872f453c14d9ec85d58b469f8fee06fea32433a751be",
+      "signedBytes": 3614,
+      "feeLovelace": "314573",
+      "status": "confirmed"
+    },
+    {
+      "index": 8,
+      "label": "issue three NFTs",
+      "hash": "6ffb5155595ff0db5b8f4f1d242b76be006924ab47ae02d55190f6416ef7d1b4",
+      "signedBytes": 15198,
+      "feeLovelace": "1015244",
+      "status": "confirmed"
+    },
+    {
+      "index": 9,
+      "label": "deliver all three to recipient",
+      "hash": "07cfbf6f06d621ff06d97790a8657da3753097498bd70c9a2731c1ffebb87563",
+      "signedBytes": 5734,
+      "feeLovelace": "692321",
+      "status": "confirmed"
+    },
+    {
+      "index": 10,
+      "label": "return unused ADA",
+      "hash": "f0ba634da2dd7af58627f1cbd50bdb13add12ade58283772ec7a5ac94ba62a3a",
+      "signedBytes": 265,
+      "feeLovelace": "167217",
+      "status": "confirmed"
+    }
+  ],
+  "fundingLovelace": "55000000",
+  "refundLovelace": "8166134",
+  "referenceReserveLovelace": "15399630",
+  "feesLovelace": "4659556",
+  "negativeChecks": [
+    "wrong recipient key",
+    "expired approval",
+    "wrong funding allowance",
+    "expired transaction",
+    "node evaluation rejection",
+    "each of eleven repeated submissions blocked"
+  ],
+  "durableRoundtripChecks": 44,
+  "preflightChecks": 23
+}
