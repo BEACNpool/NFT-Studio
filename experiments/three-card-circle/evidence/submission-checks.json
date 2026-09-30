@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "checks": 13,
+  "mode": "synthetic transactions and intercepted submit only",
+  "coverage": [
+    "exact body",
+    "metadata commitment",
+    "script witness preservation",
+    "owner signature",
+    "size and fee limits",
+    "write-before-submit",
+    "readback failure",
+    "stale post-sign state",
+    "ambiguous response",
+    "cross-tab concurrency",
+    "no implicit retry"
+  ]
+}

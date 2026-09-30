@@ -1,0 +1,217 @@
+{
+  "environment": "isolated emulator; synthetic funds; live mainnet parameters",
+  "parametersObservedAt": "2026-09-29T23:25:49.911Z",
+  "createdAt": "2026-09-29T23:34:21.059Z",
+  "transactions": [
+    {
+      "label": "prepare isolated seed outputs",
+      "hash": "1d4d93c56a8c0ddf4b669164f4f941fd017e5d102dad8dd13eeba63e141c725b",
+      "signedBytes": 456,
+      "feeLovelace": "175621"
+    },
+    {
+      "label": "register bootstrap authority",
+      "hash": "909004ef484d507d4ba02cef9984d1acd3947d25ada1666d0a45d45ed8288756",
+      "signedBytes": 613,
+      "feeLovelace": "183541"
+    },
+    {
+      "label": "bootstrap immutable CIP-113 core",
+      "hash": "1558c3ab29ac39b4ebe197f607cd7efe81d4607b6ca2d46a9b2dde34861596e1",
+      "signedBytes": 7749,
+      "feeLovelace": "531680"
+    },
+    {
+      "label": "create bounded ownership record",
+      "hash": "2e3ed17e9c5db60da4f4c83830a8a03bdf3faa1b8c0a67ab5fba174beecbf686",
+      "signedBytes": 4043,
+      "feeLovelace": "348382"
+    },
+    {
+      "label": "register dispatcher/delegate/transfer",
+      "hash": "64cd43dfb6b0d8bd4e07b3f36acddb7db5398407a69c26b7ad2e5fc116bd13d7",
+      "signedBytes": 4205,
+      "feeLovelace": "344092"
+    },
+    {
+      "label": "register issue/issuance",
+      "hash": "bc8138053df8afba17a0df08e6f972713af3c0f5ee872fbd2ddcfe73820ac5f6",
+      "signedBytes": 5150,
+      "feeLovelace": "384666"
+    },
+    {
+      "label": "register collection policy once",
+      "hash": "1ab5d9aa538e83d6898dc567aa5993fd14a6d3dc7a11bd615556533094260af7",
+      "signedBytes": 6290,
+      "feeLovelace": "495334"
+    },
+    {
+      "label": "publish recoverable state reference",
+      "hash": "1c456d8dfcf7a7bd82fac344c60634e32938e209ccbe3db59ffd282667c2a5d0",
+      "signedBytes": 3610,
+      "feeLovelace": "314397"
+    },
+    {
+      "label": "issue exactly three distinct cards to creator",
+      "hash": "2af58dff5c0d224ee0be07216246cab64e694f1b0fb93eaeaf9bb8a0e28e976b",
+      "signedBytes": 15194,
+      "feeLovelace": "1015131"
+    },
+    {
+      "label": "all-three owner introduces two new owners atomically",
+      "hash": "9f1347c53ec8c3f290aac0348bf1ff803ac48cc73767abfee8c2d4d6122c7d32",
+      "signedBytes": 5570,
+      "feeLovelace": "627828"
+    },
+    {
+      "label": "existing holder can receive second card",
+      "hash": "8905d5acfb41f10dcae28f1f45d2e8fe52e17415fb15692584a8204b684d8c3a",
+      "signedBytes": 5410,
+      "feeLovelace": "565805"
+    },
+    {
+      "label": "holder of two can receive the third",
+      "hash": "92e09434791208d1595791a2a894d64cb8dfe488ad98f967164928a163183eeb",
+      "signedBytes": 5410,
+      "feeLovelace": "566957"
+    },
+    {
+      "label": "all-three owner transfers whole set to a new owner",
+      "hash": "ab7e0b5d0743b2b31cbd0495c726ff9e1e110449424f1d31844a43a9d43220fa",
+      "signedBytes": 5730,
+      "feeLovelace": "693953"
+    }
+  ],
+  "rejections": [
+    {
+      "label": "transfer cannot omit consumed ownership record",
+      "reason": "(FiberFailure) EvaluatorError: \"failed script execution Withdraw[0] unexpected empty list List Con( ProtoList( Data, [], ), )\""
+    },
+    {
+      "label": "record cannot lie about recipient",
+      "reason": "(FiberFailure) EvaluatorError: \"failed script execution Spend[0] the validator crashed / exited prematurely\""
+    },
+    {
+      "label": "cards cannot escape to a normal address",
+      "reason": "(FiberFailure) EvaluatorError: \"failed script execution Spend[0] the validator crashed / exited prematurely\""
+    },
+    {
+      "label": "one-card owner cannot introduce outsider",
+      "reason": "(FiberFailure) EvaluatorError: \"failed script execution Spend[2] the validator crashed / exited prematurely\""
+    },
+    {
+      "label": "ownership cannot be authorized by reference alone",
+      "reason": "(FiberFailure) EvaluatorError: \"failed script execution Withdraw[0] unexpected empty list List Con( ProtoList( Data, [], ), )\""
+    },
+    {
+      "label": "forged signer list is caught by ledger",
+      "reason": "(FiberFailure) TxSubmitError: Error: Missing vkey witness. Key hash: 8cc4a47cc58b4b871ad9b2fa13f2c87871bca99c0019179cfdc08bce"
+    },
+    {
+      "label": "two-card owner cannot introduce outsider",
+      "reason": "(FiberFailure) EvaluatorError: \"failed script execution Spend[2] the validator crashed / exited prematurely\""
+    },
+    {
+      "label": "cannot become all-three and invite in same transaction",
+      "reason": "(FiberFailure) EvaluatorError: \"failed script execution Spend[3] the validator crashed / exited prematurely\""
+    },
+    {
+      "label": "concurrent transaction loses spent state",
+      "reason": "(FiberFailure) TxSubmitError: Error: Could not spend UTxO: {}"
+    },
+    {
+      "label": "issuance cannot repeat",
+      "reason": "(FiberFailure) EvaluatorError: \"failed script execution Spend[1] the validator crashed / exited prematurely\""
+    }
+  ],
+  "ownership": [
+    {
+      "label": "issued",
+      "revision": "1",
+      "owners": [
+        "23e3280176149899698d2fce3ddad914d824afb2a70b61768b4024ff",
+        "23e3280176149899698d2fce3ddad914d824afb2a70b61768b4024ff",
+        "23e3280176149899698d2fce3ddad914d824afb2a70b61768b4024ff"
+      ]
+    },
+    {
+      "label": "first distribution",
+      "revision": "2",
+      "owners": [
+        "2d0e4c2ee789615d75d70cefd0e65f7d9f9639b16fbc8889871376e7",
+        "8cc4a47cc58b4b871ad9b2fa13f2c87871bca99c0019179cfdc08bce",
+        "23e3280176149899698d2fce3ddad914d824afb2a70b61768b4024ff"
+      ]
+    },
+    {
+      "label": "two held by Bob",
+      "revision": "3",
+      "owners": [
+        "8cc4a47cc58b4b871ad9b2fa13f2c87871bca99c0019179cfdc08bce",
+        "8cc4a47cc58b4b871ad9b2fa13f2c87871bca99c0019179cfdc08bce",
+        "23e3280176149899698d2fce3ddad914d824afb2a70b61768b4024ff"
+      ]
+    },
+    {
+      "label": "all three held by Bob",
+      "revision": "4",
+      "owners": [
+        "8cc4a47cc58b4b871ad9b2fa13f2c87871bca99c0019179cfdc08bce",
+        "8cc4a47cc58b4b871ad9b2fa13f2c87871bca99c0019179cfdc08bce",
+        "8cc4a47cc58b4b871ad9b2fa13f2c87871bca99c0019179cfdc08bce"
+      ]
+    },
+    {
+      "label": "whole set moved",
+      "revision": "5",
+      "owners": [
+        "2d0e4c2ee789615d75d70cefd0e65f7d9f9639b16fbc8889871376e7",
+        "2d0e4c2ee789615d75d70cefd0e65f7d9f9639b16fbc8889871376e7",
+        "2d0e4c2ee789615d75d70cefd0e65f7d9f9639b16fbc8889871376e7"
+      ]
+    }
+  ],
+  "scripts": {
+    "fail": "1d6c1785258305ab74e550ef0435b2341b2ce0aa30054864989e8330",
+    "lock": "310440318e42f8e1df2fa40706da217e88430899de2b8f791f331cef",
+    "params": "1429d1e72fde10158124604cafb9b67dfc1056c88e21e051ae46a69a",
+    "template": "ad59e8ec6f20c132e843bc6249e0cef4e6e82413d255c0f524de7d9c",
+    "registry": "777104f5aefa6c5516e12890462a71985f06984a6c2b38455c787f21",
+    "plb": "7763dfbc04dae62ad40322737a7252de1640e64fa732dcfc422488bd",
+    "delegate": "2e44ae45be55d4d8d91c779396a1c489ab290cb785dd7c4492080b4e",
+    "third": "89ef4458a3534022f6a4835a584a5adaf170536153ab178c4d77fd7a",
+    "unfracking": "c10900e12bcf5a5a3453b07dc977c0a960b88b052c205133d1506799",
+    "dispatcher": "56edc095b34a750e80b519a9dcbcfa12e17f09cccc9d1c1e0bca9f45",
+    "issuance": "345dc3124da3815923c48b958cadd81c5d8f309632abb175721caed1",
+    "state": "4285bfdbece6de5cbc6b5c159770d72acfd587ca73a760c935c1a106",
+    "denied": "435b42cc200719c3868dfe01689ee07e2eeff5f5809f25408cbe4e7d",
+    "transfer": "23cb404995cb015eb20e611e73ee55bcb4d4ff844b203ec20ff0f8e2",
+    "issue": "0f3d30c0dd723f25138ea8d7c2bdc263966846a77c1e32768f1f5d63",
+    "nft": "63ca457c6f2d6a62e6744e1dd519decb5857b0c793b3e5eb58296a7d"
+  },
+  "artwork": [
+    {
+      "name": "CARD01",
+      "bytes": 1764,
+      "sha256": "731dff3943ca6097391069d557a7f6a353633b1a5a27e5cc6137b4230e8b799e"
+    },
+    {
+      "name": "CARD02",
+      "bytes": 1774,
+      "sha256": "23827bf5c8504ceb96065a564fa84cdc4af74506befa6aebb53eaa827c5b0747"
+    },
+    {
+      "name": "CARD03",
+      "bytes": 1774,
+      "sha256": "d493950d6b5afeb91e9e4df7a046ab01887bc72c09ea326c79fea3179a8d0950"
+    }
+  ],
+  "cardBackingLovelace": "3439380",
+  "registrationDepositsLovelace": "12000000",
+  "referenceReserveLovelace": "15399630",
+  "permanentProtocolLovelace": "9550960",
+  "stateBackingLovelace": "1784340",
+  "activationFeesLovelace": "3792844",
+  "activationTotalLovelace": "45967154",
+  "ok": true
+}

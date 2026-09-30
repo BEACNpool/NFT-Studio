@@ -1,0 +1,12 @@
+{
+  "summary": {
+    "total": 645,
+    "passed": 645,
+    "failed": 0,
+    "kind": {
+      "unit": 609,
+      "property": 36
+    }
+  },
+  "seed": 3562244930
+}

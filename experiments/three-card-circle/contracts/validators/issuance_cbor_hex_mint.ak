@@ -1,0 +1,55 @@
+//// Issuance CBOR Hex Reference NFT Minting Policy.
+////
+//// One-shot minting policy that creates a reference NFT marking the UTxO
+//// containing the issuance script template bytes (prefix and postfix).
+
+use aiken/collection/list
+use cardano/address
+use cardano/assets.{PolicyId}
+use cardano/transaction.{InlineDatum, OutputReference, Transaction}
+use prog_assets.{expect_only_nft_of_policy}
+use types.{IssuanceCborHex, issuance_cbor_hex_token_name}
+
+validator issuance_cbor_hex_mint(
+  utxo_ref: OutputReference,
+  always_fail_hash: ByteArray,
+) {
+  mint(_redeemer: Data, own_policy: PolicyId, self: Transaction) {
+    trace @"Starting issuance_cbor_hex_mint validation"
+    // Must consume the one-shot UTxO
+    list.expect_any(
+      self.inputs,
+      fn(input) { input.output_reference == utxo_ref },
+    )
+
+    // Exactly one NFT for policy with expected name
+    expect
+      expect_only_nft_of_policy(
+        self.mint,
+        own_policy,
+        issuance_cbor_hex_token_name,
+      )
+
+    // The always-fail address where the NFT must be locked
+    let expected_address = address.from_script(always_fail_hash)
+    // Find the single output holding the minted NFT
+    let nft_output = list.expect_find(
+      self.outputs,
+      fn(output) {
+        assets.has_nft_strict(
+          output.value,
+          own_policy,
+          issuance_cbor_hex_token_name,
+        )
+      },
+    )
+    expect InlineDatum(datum) = nft_output.datum
+    expect _issuance_datum: IssuanceCborHex = datum
+    // NFT must be locked at the always-fail address with no stake credential
+    (nft_output.address == expected_address)?
+  }
+
+  else(_) {
+    fail
+  }
+}

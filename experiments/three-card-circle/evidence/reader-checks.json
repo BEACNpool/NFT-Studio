@@ -1,0 +1,5 @@
+{
+  "ok": true,
+  "checks": 13,
+  "mode": "synthetic fixtures; authenticated identity, ownership agreement, freshness, confirmations and concurrent update rejection"
+}

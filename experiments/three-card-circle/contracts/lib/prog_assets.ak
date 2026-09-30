@@ -1,0 +1,303 @@
+use aiken/builtin.{less_than_bytearray, less_than_equals_bytearray}
+use aiken/collection/dict
+use aiken/primitive/bytearray
+use cardano/address.{Credential, Inline}
+use cardano/assets.{AssetName, PolicyId, Value}
+use cardano/transaction.{DatumHash, InlineDatum, NoDatum, Output}
+use env
+use tokens.{Tokens}
+use unsafe_list
+
+pub type Assets =
+  Pairs<PolicyId, Tokens>
+
+pub type SumStrategy<i> =
+  fn(i, fn(Output) -> Assets, fn() -> Assets) -> Assets
+
+/// A Convenient helper to extract assets from values. Comes at no cost since it is usually inlined by the compiler.
+pub fn from_value(self: Value) -> Assets {
+  self |> assets.to_dict |> dict.to_pairs
+}
+
+/// Split a Value into its lovelace quantity and the remaining (ada-less)
+/// assets. The ada entry (empty policy id) is guaranteed present in any
+/// ledger Value and sorts first, so it is peeled off the head; the function
+/// fails loudly on a Value without one.
+pub fn split_lovelace(self: Value, return: fn(Int, Assets) -> result) -> result {
+  expect [Pair("", ada), ..rest] = from_value(self)
+  expect [Pair(_, lovelace)] = dict.to_pairs(ada)
+  return(lovelace, rest)
+}
+
+/// Split an dictionnary at the given key. Returning the elements before (in reverse key order), the
+/// value at the key, and the elements after (in same key order).
+pub fn value_split_at(
+  self: Value,
+  at: PolicyId,
+  return: fn(Assets, Tokens, Assets) -> result,
+) -> result {
+  do_split_at(from_value(self), at, [], return)
+}
+
+pub fn assets_split_at(
+  self: Assets,
+  at: PolicyId,
+  return: fn(Assets, Tokens, Assets) -> result,
+) -> result {
+  do_split_at(self, at, [], return)
+}
+
+fn do_split_at(
+  self: Assets,
+  at: PolicyId,
+  before: Assets,
+  return: fn(Assets, Tokens, Assets) -> result,
+) -> result {
+  when self is {
+    [] -> return(before, dict.empty, [])
+    [Pair(k, _) as head, ..tail] ->
+      if less_than_bytearray(k, at) {
+        // Skip while keys are smaller (strictly) than searched key
+        do_split_at(tail, at, [head, ..before], return)
+      } else {
+        if k == at {
+          // Done searching, get the value and return the tail after
+          return(before, head.2nd, tail)
+        } else {
+          // The head and tail are all after the key; no need to continue searching.
+          return(before, dict.empty, self)
+        }
+      }
+  }
+}
+
+/// Lookup the first asset policy from an output, or fails loudly if the output holds no tokens (beyond Ada).
+pub fn expect_first_policy(self: Output) -> PolicyId {
+  unsafe_list.expect_head(unsafe_list.expect_tail(from_value(self.value))).1st
+}
+
+/// A faster version of assets.merge that preserves empty maps. This allows to
+/// bypass the null check on value since quantities can only ever increase.
+/// Importantly, it is also *necessary* to ensure that policies are retained in
+/// the map for later validations even if they result in no outputs (e.g. a burn
+/// fully compensate a spend).
+///
+/// It also focuses on assets and completely ignores Ada.
+///
+/// The function recurses over a list or input-like objects, and let the
+/// caller select whether to add an output or not.
+///
+/// ## Example
+///
+/// ```aiken
+/// collect(
+///   self.inputs,
+///   [],
+///   fn(input, select, discard) {
+///     let output = input.output
+///     if output.address.payment_credential == needle {
+///       select(output)
+///     } else {
+///       discard()
+///     }
+///   },
+/// )
+/// ```
+///
+/// /!\ PRE-CONDITION /!\
+/// The given zero assets is expected to not contain any Ada. This is enforced
+/// when assertions are enabled (`--env with_assertions`).
+///
+/// This is generally true when the initial zero is an empty list or coming
+/// from the mint value.
+pub fn collect(elems: List<i>, zero: Assets, strategy: SumStrategy<i>) -> Assets {
+  do_collect(elems, strategy, env.assert_no_ada_policy(zero))
+}
+
+fn do_collect(elems: List<i>, strategy: SumStrategy<i>, sum: Assets) -> Assets {
+  when elems is {
+    [] -> sum
+    [head, ..tail] ->
+      do_collect(
+        tail,
+        strategy,
+        strategy(
+          head,
+          // Output is selected
+          fn(output) {
+            output.value
+              |> from_value
+              // Drop ADA, guaranteed to be present in outputs.
+              |> unsafe_list.expect_tail
+              // NOTE: left-optimised union
+              // The `union` consumes the left argument into the right argument. So it is
+              // generally better to provide the smallest argument as left value. The `sum`
+              // will generally grow as large as outputs and in many scenario will no be much
+              // larger. However, it is very often smaller initially (often empty). Hence why
+              // we force it as first argument here.
+              |> union(sum, _)
+          },
+          // Output is discarded
+          fn() { sum },
+        ),
+      )
+  }
+}
+
+/// Merge two Assets by summing token quantities.
+/// Used to combine validated input prog value with validated mint prog value.
+pub fn union(left: Assets, right: Assets) -> Assets {
+  when left is {
+    [] -> right
+    // NOTE: Preserving null assets
+    // It is primordial here to not discard assets if even they result in an
+    // empty dict. This is because the 'left' assets may have negative quantities
+    // coming from burns. If a burn is fully cover by a spend, we must preserve
+    // the key in the map to ensure that validations necessary to that policy
+    // occur as expected.
+    [Pair(k, v), ..rest] -> union(rest, do_insert(right, k, v))
+  }
+}
+
+fn do_insert(self: Assets, k1: PolicyId, v1: Tokens) -> Assets {
+  when self is {
+    [] -> [Pair(k1, v1)]
+    [Pair(k2, _) as head, ..rest] ->
+      if less_than_equals_bytearray(k1, k2) {
+        if k1 == k2 {
+          [Pair(k1, tokens.union(v1, head.2nd)), ..rest]
+        } else {
+          [Pair(k1, v1), ..self]
+        }
+      } else {
+        [head, ..do_insert(rest, k1, v1)]
+      }
+  }
+}
+
+/// Under `policy_id`, `value` holds EXACTLY one token, of quantity EXACTLY 1,
+/// and it is named `asset_name`. Everything else in `value` — other policies,
+/// ada — is ignored: this is strict about one policy's slice, not about the
+/// value as a whole.
+///
+/// Every caller passes `self.mint`, where it reads as: "this policy mints one
+/// NFT with this name and nothing else" — no second token, no quantity above 1,
+/// and no burn (a −1 fails the `Pair(_, 1)` match just as a 2 does).
+///
+/// A trap, not a predicate — hence `expect_`: an absent policy, a second token
+/// or a wrong quantity all ABORT; only a wrong name returns `False`, and every
+/// caller wraps the call in `expect`, so in practice all four fail the
+/// transaction. `only` is the arity-one / quantity-one part; `of_policy` says
+/// the scope is one policy's slice, not the value.
+///
+/// Not to be confused with stdlib `assets.has_nft_strict`, which is strict over
+/// the WHOLE value — its non-ADA half must be exactly that one NFT. That is the
+/// right tool for "is this output the NFT output"; this one is the right tool
+/// for "does this policy mint exactly this NFT". `protocol_params.mint` uses
+/// both, three lines apart, for those two different questions.
+pub fn expect_only_nft_of_policy(
+  value: Value,
+  policy_id: PolicyId,
+  asset_name: AssetName,
+) -> Bool {
+  let policy_assets = assets.to_dict(value) |> dict.expect_get(policy_id)
+  expect [Pair(actual_asset_name, 1)] = dict.to_pairs(policy_assets)
+  actual_asset_name == asset_name
+}
+
+pub fn collect_output_assets(
+  outputs: List<Output>,
+  programmable_logic_base_cred: Credential,
+  max_inline_datum_bytes: Int,
+) -> Assets {
+  collect(
+    outputs,
+    [],
+    fn(output, select, discard) {
+      if output.address.payment_credential == programmable_logic_base_cred {
+        expect Some(Inline(..)) = output.address.stake_credential
+        expect is_seizable_output_shape_bounded(output, max_inline_datum_bytes)?
+        select(output)
+      } else {
+        discard()
+      }
+    },
+  )
+}
+
+/// A programmable-token (PLB) output must stay seizable by a third party.
+///
+///   * A datum HASH is forbidden: to spend a datum-hash UTxO the ledger
+///     requires the datum preimage in the transaction witness, so a holder
+///     could pin an output with a secret preimage and make it unspendable by
+///     anyone but themselves — a third-party seizure could never be
+///     constructed. Only `NoDatum` or an inline datum is allowed.
+///   * A reference script is forbidden: a seizure must reproduce the paired
+///     input's reference script byte-for-byte in the continuing output, so a
+///     large one would bloat the (unavoidable, per-UTxO-atomic) seizure
+///     transaction past `maxTxSize`. Programmable-token UTxOs have no
+///     legitimate need to carry a reference script.
+///   * An inline datum is BOUNDED by `max_inline_datum_bytes` (issue #106, vector 3):
+///     seizure must reproduce it byte-for-byte too, so an unbounded one pushes
+///     the seizure past `maxTxSize` — or, short of that, collapses how many
+///     UTxOs an issuer can seize per transaction. The bound is a compile-time
+///     parameter of every script that creates PLB outputs, retuned by a
+///     redeploy as DeFi order/loan state grows.
+///
+/// Enforced at every site that creates a PLB output carrying a programmable
+/// token — the transfer gate, the fresh destinations of a third-party or
+/// unfracking action, and issuance — so the property holds inductively for
+/// every PLB UTxO that holds one. It does NOT hold for arbitrary PLB UTxOs:
+/// creating an output runs no script, so anyone may pay ada or
+/// non-programmable assets to this address in any shape. Such a UTxO carries
+/// nothing the protocol must ever move.
+pub fn is_seizable_output_shape(output: Output) -> Bool {
+  let datum_is_not_hash = when output.datum is {
+    DatumHash(_) -> False
+    _ -> True
+  }
+  datum_is_not_hash && output.reference_script == None
+}
+
+/// `is_seizable_output_shape` PLUS the inline-datum size bound (issue #106,
+/// vector 3): the serialised datum must fit in `max_inline_datum_bytes`, a
+/// compile-time parameter of every script that creates PLB outputs.
+///
+/// Used at every site that creates a PLB output carrying a programmable
+/// token: the transfer gate, the fresh destination outputs of a third-party
+/// or unfracking action, and `issuance_logic`, for PLB outputs that carry the
+/// policy being minted.
+///
+/// The Token module's minting logic remains the right place for anything
+/// finer than a byte bound — it knows what its outputs should look like.
+/// This bound is the floor under it, not a replacement for it: without it,
+/// an issuer (or a hostile token module) could mint a PLB output with a
+/// datum too large to reproduce in a seizure transaction, making it
+/// unseizable by construction — CIP-68 reference tokens with data-URI
+/// logos are the standing example of a datum large enough to matter.
+///
+/// The bound is a core guarantee for every PLB UTxO that carries a
+/// programmable token, with one deployment invariant no script can check:
+/// each of the four scripts bounds only the outputs IT creates, so all four
+/// must be deployed with the same value (or, minimally, every creator's
+/// bound ≤ every carrier's). A UTxO born under a laxer bound cannot carry
+/// that datum forward — `transfer` bounds every PLB output it creates. No
+/// validator refuses to SPEND it: its tokens can move to a compliant output,
+/// and a paired continuing output on the third-party path is not re-bounded,
+/// so a seizure passes every on-chain check. The limit is feasibility, not
+/// validation — the seizure must reproduce that datum byte for byte, which
+/// collapses how many UTxOs fit in one transaction and, past `maxTxSize`,
+/// leaves no constructible seizure at all. Correct by composition, at
+/// deployment.
+pub fn is_seizable_output_shape_bounded(
+  output: Output,
+  max_inline_datum_bytes: Int,
+) -> Bool {
+  let datum_ok = when output.datum is {
+    DatumHash(_) -> False
+    NoDatum -> True
+    InlineDatum(d) ->
+      bytearray.length(builtin.serialise_data(d)) <= max_inline_datum_bytes
+  }
+  datum_ok && output.reference_script == None
+}

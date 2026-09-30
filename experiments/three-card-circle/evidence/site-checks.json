@@ -1,0 +1,159 @@
+{
+  "ok": true,
+  "mode": "local static subdirectory export; isolated browser contexts and synthetic wallets",
+  "results": [
+    {
+      "engine": "chromium",
+      "width": 320,
+      "layout": true,
+      "missingWallet": true,
+      "errors": [],
+      "accessibility": true
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "layout": true,
+      "missingWallet": true,
+      "errors": [],
+      "accessibility": true
+    },
+    {
+      "engine": "chromium",
+      "width": 768,
+      "layout": true,
+      "missingWallet": true,
+      "errors": [],
+      "accessibility": true
+    },
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "layout": true,
+      "missingWallet": true,
+      "errors": [],
+      "accessibility": true
+    },
+    {
+      "engine": "chromium",
+      "mode": "mainnet",
+      "readOnlyWallet": true
+    },
+    {
+      "engine": "chromium",
+      "mode": "wrong-network",
+      "readOnlyWallet": true
+    },
+    {
+      "engine": "chromium",
+      "mode": "declined",
+      "readOnlyWallet": true
+    },
+    {
+      "engine": "chromium",
+      "unavailableActivationFailsClosed": true
+    },
+    {
+      "engine": "firefox",
+      "width": 320,
+      "layout": true,
+      "missingWallet": true,
+      "errors": [],
+      "accessibility": true
+    },
+    {
+      "engine": "firefox",
+      "width": 390,
+      "layout": true,
+      "missingWallet": true,
+      "errors": [],
+      "accessibility": true
+    },
+    {
+      "engine": "firefox",
+      "width": 768,
+      "layout": true,
+      "missingWallet": true,
+      "errors": [],
+      "accessibility": true
+    },
+    {
+      "engine": "firefox",
+      "width": 1440,
+      "layout": true,
+      "missingWallet": true,
+      "errors": [],
+      "accessibility": true
+    },
+    {
+      "engine": "firefox",
+      "mode": "mainnet",
+      "readOnlyWallet": true
+    },
+    {
+      "engine": "firefox",
+      "mode": "wrong-network",
+      "readOnlyWallet": true
+    },
+    {
+      "engine": "firefox",
+      "mode": "declined",
+      "readOnlyWallet": true
+    },
+    {
+      "engine": "firefox",
+      "unavailableActivationFailsClosed": true
+    },
+    {
+      "engine": "webkit",
+      "width": 320,
+      "layout": true,
+      "missingWallet": true,
+      "errors": [],
+      "accessibility": true
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "layout": true,
+      "missingWallet": true,
+      "errors": [],
+      "accessibility": true
+    },
+    {
+      "engine": "webkit",
+      "width": 768,
+      "layout": true,
+      "missingWallet": true,
+      "errors": [],
+      "accessibility": true
+    },
+    {
+      "engine": "webkit",
+      "width": 1440,
+      "layout": true,
+      "missingWallet": true,
+      "errors": [],
+      "accessibility": true
+    },
+    {
+      "engine": "webkit",
+      "mode": "mainnet",
+      "readOnlyWallet": true
+    },
+    {
+      "engine": "webkit",
+      "mode": "wrong-network",
+      "readOnlyWallet": true
+    },
+    {
+      "engine": "webkit",
+      "mode": "declined",
+      "readOnlyWallet": true
+    },
+    {
+      "engine": "webkit",
+      "unavailableActivationFailsClosed": true
+    }
+  ]
+}

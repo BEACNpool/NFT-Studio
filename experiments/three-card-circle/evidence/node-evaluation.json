@@ -1,0 +1,64 @@
+{
+  "observedAt": "2026-09-29T23:34:53.123Z",
+  "endpoint": "https://cardano-mainnet.blockfrost.io/api/v0/utils/txs/evaluate/utxos?version=6",
+  "mode": "unsigned transactions with synthetic additional UTxOs; no submission",
+  "results": [
+    {
+      "name": "existing-holder-transfer",
+      "expect": "accept",
+      "httpStatus": 200,
+      "response": {
+        "type": "jsonwsp/response",
+        "version": "1.0",
+        "servicename": "ogmios",
+        "methodname": "EvaluateTx",
+        "result": {
+          "EvaluationResult": {
+            "spend:1": {
+              "memory": 53475,
+              "steps": 18421671
+            },
+            "spend:2": {
+              "memory": 1032318,
+              "steps": 347172862
+            },
+            "withdrawal:0": {
+              "memory": 171227,
+              "steps": 58923593
+            },
+            "withdrawal:1": {
+              "memory": 190969,
+              "steps": 74689749
+            },
+            "withdrawal:2": {
+              "memory": 25891,
+              "steps": 10074700
+            }
+          }
+        },
+        "reflection": {
+          "id": "c4c29f39-1a1e-4ffa-a80f-59f0896cc07d"
+        }
+      }
+    },
+    {
+      "name": "new-owner-with-only-one-card",
+      "expect": "reject",
+      "httpStatus": 200,
+      "response": {
+        "type": "jsonwsp/response",
+        "version": "1.0",
+        "servicename": "ogmios",
+        "methodname": "EvaluateTx",
+        "result": {
+          "EvaluationFailure": {
+            "ScriptFailures": {}
+          }
+        },
+        "reflection": {
+          "id": "3ffe770d-d7d3-4174-a7b8-8bb883ede927"
+        }
+      }
+    }
+  ]
+}

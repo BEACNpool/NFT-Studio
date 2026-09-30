@@ -1,0 +1,35 @@
+import assert from 'node:assert/strict';
+import {bech32} from '@scure/base';
+import {writeFileSync} from 'node:fs';
+import {ChainReader,validateSnapshot,stateName,cardNames} from './chain-reader.mjs';
+const c={network:'Mainnet',statePolicy:'11'.repeat(28),tokenPolicy:'22'.repeat(28),transferHash:'33'.repeat(28),programmableHash:'44'.repeat(28),startBlock:100,confirmations:3};
+const owners=['55','66','77'].map(s=>s.repeat(28));
+const address=(prefix,payment,stake='')=>bech32.encode('addr',bech32.toWords(Uint8Array.from(Buffer.from(prefix+payment+stake,'hex'))),150);
+const output=(policy,name,i,addr)=>({tx_hash:String(i).repeat(64),tx_index:0,address:addr,block_height:110,is_spent:false,asset_list:[{policy_id:policy,asset_name:name,quantity:'1'}]});
+const state={...output(c.statePolicy,stateName,1,address('71',c.statePolicy)),inline_datum:{value:{constructor:0,fields:[{int:1},{bytes:c.tokenPolicy},{bytes:c.transferHash},{list:owners.map(bytes=>({bytes}))},{constructor:1,fields:[]},{int:2}]}}};
+const cards=cardNames.map((name,i)=>output(c.tokenPolicy,name,i+2,address('11',c.programmableHash,owners[i])));
+const tip={block_no:115,block_time:Date.now()/1000};
+assert.equal(validateSnapshot(c,state,cards,tip).holders,3);
+assert.equal(validateSnapshot(c,state,cards,tip).transfers,1);
+const fail=(change,pattern)=>{const fixture=structuredClone({c,state,cards,tip});change(fixture);assert.throws(()=>validateSnapshot(fixture.c,fixture.state,fixture.cards,fixture.tip),pattern);};
+fail(f=>f.cards.pop(),/all three/);
+fail(f=>f.cards[1]=f.cards[0],/duplicated/);
+fail(f=>f.cards[0].address=address('01',c.programmableHash,owners[0]),/disagree/);
+fail(f=>f.cards[0].address=address('11',c.programmableHash,owners[1]),/disagree/);
+fail(f=>f.state.asset_list[0].policy_id=c.tokenPolicy,/authentic/);
+fail(f=>f.state.address=address('61',c.statePolicy),/wrong address/);
+fail(f=>f.state.inline_datum.value.fields[1].bytes=c.statePolicy,/identity/);
+fail(f=>f.state.inline_datum.value.fields[5].int=0,/revision/);
+fail(f=>f.tip.block_time-=3600,/stale/);
+fail(f=>f.cards[0].block_height=115,/confirmations/);
+let calls=0;
+const fetcher=async (url,options)=>{
+ const body=options.body&&JSON.parse(options.body);let result;
+ if(url.endsWith('/tip')) result=[tip];
+ else if(body._asset_list[0][0]===c.statePolicy){calls++;result=[structuredClone(state)];if(calls>1)result[0].tx_hash='f'.repeat(64);}
+ else result=cards;
+ return {ok:true,json:async()=>result};
+};
+await assert.rejects(new ChainReader(c,{fetcher}).snapshot(),/changed during/);
+writeFileSync('evidence/reader-checks.json',JSON.stringify({ok:true,checks:13,mode:'synthetic fixtures; authenticated identity, ownership agreement, freshness, confirmations and concurrent update rejection'},null,2)+'\n');
+console.log('PASS: reader verifies identity, all three cards and confirmed consistent state.');

@@ -1,0 +1,46 @@
+{
+  "ok": true,
+  "note": "Aiken and Lucid encode embedded Data maps differently. Both hashes are verified against their own bytes; independently parameterized programs match after identical encoding. Transactions use builder hashes.",
+  "checks": [
+    {
+      "validator": "state",
+      "aikenHash": "9dd609064fa1400a82ec0e6fd10c8d66fba37db2cd1dace90786cc91",
+      "builderHash": "8b5c58c4b82c37b8491d176279773ecf7b624798b66e4aacc67f438d",
+      "sameBytes": false,
+      "independentParameterApplication": true,
+      "normalizedProgramsIdentical": true,
+      "pythonBlake2b224": true,
+      "lucidCml": true
+    },
+    {
+      "validator": "transfer",
+      "aikenHash": "65c3810a16dd847b6713a204fe5976c7248a47e77d004f746a5ec592",
+      "builderHash": "65c3810a16dd847b6713a204fe5976c7248a47e77d004f746a5ec592",
+      "sameBytes": true,
+      "independentParameterApplication": true,
+      "normalizedProgramsIdentical": true,
+      "pythonBlake2b224": true,
+      "lucidCml": true
+    },
+    {
+      "validator": "issue",
+      "aikenHash": "dfefa023bd8531c2c3a16308392a6e7cfe89efe8dfab5eeba968a94f",
+      "builderHash": "dfefa023bd8531c2c3a16308392a6e7cfe89efe8dfab5eeba968a94f",
+      "sameBytes": true,
+      "independentParameterApplication": true,
+      "normalizedProgramsIdentical": true,
+      "pythonBlake2b224": true,
+      "lucidCml": true
+    },
+    {
+      "validator": "nft",
+      "aikenHash": "f6f914f4bebd557c2f1f2d5a4f52b1f52e17aff37db0cb6a0dc1b288",
+      "builderHash": "f6f914f4bebd557c2f1f2d5a4f52b1f52e17aff37db0cb6a0dc1b288",
+      "sameBytes": true,
+      "independentParameterApplication": true,
+      "normalizedProgramsIdentical": true,
+      "pythonBlake2b224": true,
+      "lucidCml": true
+    }
+  ]
+}

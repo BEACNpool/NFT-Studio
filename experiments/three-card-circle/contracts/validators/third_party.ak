@@ -1,0 +1,100 @@
+//// Third-Party Transfer Stake Validator (seize / clawback / freeze).
+////
+//// Standalone withdraw-0 validator carrying the third-party-transfer
+//// invariants (see `programmable_logic/third_party` for the invariants
+//// themselves and the rationale behind each one).
+////
+//// Why a separate script instead of inlining the logic in the `transfer`
+//// validator?
+////
+//// `transfer` is the hot path: EVERY programmable-token transfer references
+//// it, so every byte of it is a reference-script fee paid by every user on
+//// every transfer, forever. The third-party path — forced
+//// transfer, seizure, freeze enforcement, burn — is heavy but rare.
+//// Hosting it here keeps those bytes off the transfer reference script and
+//// moves their cost onto the only transactions that use them.
+////
+//// Dispatch: `programmable_logic_global`, reached from PLB via `programmable_logic_global_cred`,
+//// requires THIS validator's withdraw-0 under a `ThirdPartyAct` redeemer —
+//// against a hash baked into the dispatcher at compile time. A third-party
+//// transaction therefore never loads the `transfer` reference script at all.
+//// `unfracking` is dispatched the same way.
+////
+//// Security shape: this delegation is purely RESTRICTIVE and self-contained.
+//// Exactly ONE delegate is required per dispatch; whichever runs enforces its
+//// full invariants over the whole transaction, so authorising any one of them
+//// is sound. This script reads no PROTOCOL-PARAMS datum: `programmable_logic_base_cred`,
+//// `registry_node_cs` and the seizure datum bound are compile-time parameters,
+//// and it never needs the other delegates' hashes, so there is no circular
+//// dependency. It still reads the registry node's inline datum and the output
+//// datums it bounds.
+
+use aiken/collection/list as aiken_list
+use cardano/address.{Credential}
+use cardano/assets.{PolicyId} as value
+use cardano/certificate.{Certificate, RegisterCredential}
+use cardano/transaction.{InlineDatum, Input, Transaction}
+use prog_assets
+use programmable_logic/third_party as invariants
+use types.{ThirdPartyRedeemer}
+
+validator third_party(
+  programmable_logic_base_cred: Credential,
+  registry_node_cs: PolicyId,
+  max_inline_datum_bytes: Int,
+) {
+  withdraw(
+    redeemer: ThirdPartyRedeemer,
+    _account: Credential,
+    self: Transaction,
+  ) {
+    trace @"Starting third-party transfer validation"
+
+    let ThirdPartyRedeemer { registry_node_idx, outputs_start_idx } = redeemer
+
+    let registry_node = locate_registry_node(
+      self.reference_inputs,
+      registry_node_idx,
+      registry_node_cs,
+    )
+
+    invariants.validate_third_party(
+      self,
+      programmable_logic_base_cred,
+      registry_node,
+      outputs_start_idx,
+      max_inline_datum_bytes,
+    )
+  }
+
+  publish(_r: Data, c: Certificate, _s: Transaction) {
+    when c is {
+      RegisterCredential { .. } -> True
+      _ -> False
+    }
+  }
+
+  else(_) {
+    fail
+  }
+}
+
+/// Resolve the subject policy's registry node from the reference input at
+/// the redeemer-hinted index, authenticated by the registry NFT policy
+/// (first non-ada asset must be a registry-node NFT — same authentication
+/// as `registry_node.new_registry_node_getter` and `unfracking`).
+fn locate_registry_node(
+  reference_inputs: List<Input>,
+  registry_node_idx: Int,
+  registry_node_cs: PolicyId,
+) -> Data {
+  let node_ref = aiken_list.expect_at(reference_inputs, registry_node_idx)
+  // Checking the POLICY ID alone suffices because registry NFTs are
+  // mint-gated by the `registry` validator's mint handler, which binds the
+  // NFT asset name to the node's `key` and shape-checks the datum at Insert —
+  // so any UTxO carrying this policy is a genuine node whose datum fields
+  // cannot lie.
+  expect prog_assets.expect_first_policy(node_ref.output) == registry_node_cs
+  expect InlineDatum(data) = node_ref.output.datum
+  data
+}

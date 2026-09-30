@@ -1,0 +1,274 @@
+use aiken/builtin.{equals_bytearray, less_than_bytearray}
+use aiken/collection/dict.{Dict}
+use cardano/address.{Credential}
+use cardano/assets.{AssetName, PolicyId} as value
+use cardano/transaction.{Input, Output, Transaction}
+use prog_assets.{Assets}
+use programmable_logic/owner.{authorised_stake_cred}
+use registry_node.{with_key_and_next_key, with_key_and_transfer_logic}
+use tokens
+use types.{RegistryProof, TokenDoesNotExist, TokenExists}
+use unsafe_list
+use unsafe_pairs
+
+/// Validate a transfer action
+pub fn validate_transfer(
+  self: Transaction,
+  programmable_logic_base_cred: Credential,
+  get_registry_node: fn(Int) -> Data,
+  proofs: List<RegistryProof>,
+  max_inline_datum_bytes: Int,
+) -> Bool {
+  // NOTE: The transfer validator is always invoked via a withdrawal, so
+  // we know there's AT LEAST ONE withdrawal.
+  let first_withdrawal = unsafe_list.expect_head(self.withdrawals).1st
+  let has_withdrawal = new_withdrawal_checker(
+    fn(script_hash) { script_hash == first_withdrawal },
+    unsafe_list.expect_tail(self.withdrawals),
+  )
+
+  // Collect all programmable tokens across inputs and minted/burned values.
+  // A policy that appears only in `tx.mint` (a pure mint, not present in any
+  // input) is dropped — `issuance_logic` owns its custody, not the transfer
+  // path (Finding 02; see `collect_input_assets`).
+  let input_assets = collect_input_assets(
+    self,
+    has_withdrawal,
+    programmable_logic_base_cred,
+  )
+
+  // Collect all outputs that carry programmable tokens. We use them to ensure that
+  // prog tokens cannot escape their fate.
+  let output_assets = prog_assets.collect_output_assets(
+    self.outputs,
+    programmable_logic_base_cred,
+    max_inline_datum_bytes,
+  )
+
+  // One proof per input policy, in ascending policy order, and the proof
+  // list must be exactly consumed — a transaction carrying a trailing proof
+  // is rejected.
+  [] == verify_proofs(
+    proofs,
+    choose_registered_token_with(get_registry_node, has_withdrawal, _, _, _, _),
+    input_assets,
+    output_assets,
+  )
+}
+
+fn new_withdrawal_checker(
+  has_withdrawal: fn(Credential) -> Bool,
+  withdrawals: Pairs<Credential, Int>,
+) -> fn(Credential) -> Bool {
+  when withdrawals is {
+    [] -> has_withdrawal
+    [Pair(head, _), ..tail] ->
+      new_withdrawal_checker(
+        fn(script_hash) { head == script_hash || has_withdrawal(script_hash) },
+        tail,
+      )
+  }
+}
+
+fn collect_input_assets(
+  tx: Transaction,
+  has_withdrawal: fn(Credential) -> Bool,
+  programmable_logic_base_cred: Credential,
+) -> Assets {
+  let has_signatory = unsafe_list.has_or_fail(tx.extra_signatories, _)
+
+  // Seeded with EMPTY assets (Finding 02). Mint contributions are folded in
+  // AFTER the input scan via `apply_mint_to_known_policies`, which keeps
+  // mint deltas ONLY for policies that appear in PLB inputs. Mint-only
+  // ("purely minted") policies are dropped here — a pure mint routed to a
+  // non-PLB address is not this path's concern. That custody check belongs
+  // in `issuance_logic`, whose precise per-registry-node delegation
+  // (Finding 04) covers both the third-party + mint escape and this
+  // transfer + mint variant: it delegates only to a validator whose
+  // redeemer names the minted policy's node, and otherwise enforces
+  // `no_escape` itself.
+  let programmable_logic_base_inputs = prog_assets.collect(
+    tx.inputs,
+    [],
+    fn(input, select, discard) {
+      let output = input.output
+      if output.address.payment_credential == programmable_logic_base_cred {
+        expect _stake_cred = authorised_stake_cred(
+          output.address,
+          has_signatory,
+          has_withdrawal,
+        )
+        select(output)
+      } else {
+        discard()
+      }
+    },
+  )
+
+  apply_mint_to_known_policies(
+    programmable_logic_base_inputs,
+    prog_assets.from_value(tx.mint),
+  )
+}
+
+/// Apply mint deltas onto known input policies. Mint-only policies are
+/// dropped — issuance_mint owns their custody (Finding 02 fix).
+///
+/// Outer recursion walks `inputs`; for each input policy we call
+/// `prog_assets.assets_split_at` on the remaining `mint`. The split_at trichotomy
+/// maps 1:1 onto what the contract needs:
+///
+///   * `before`         = mint policies with id < `i_policy`. Pure mints by
+///                        contract — dropped. They fall out of the output
+///                        naturally because we never include them; the cons
+///                        cells `do_split_at` allocates while skipping them
+///                        ARE the work of identifying them, not waste.
+///   * `mint_at_policy` = mint tokens for `i_policy` (or `dict.empty`). When
+///                        non-empty, merged via `tokens.union` (per-name
+///                        `sum_if_non_zero`, so a full burn collapses to an
+///                        empty entry that `verify_proofs` already treats as
+///                        "burned").
+///   * `mint_after`     = mint policies with id > `i_policy`. Becomes the
+///                        new search space for the next input policy, so
+///                        total split_at work across all iterations is
+///                        O(|mint|).
+///
+/// When `inputs` runs out, any remaining `mint_after` is dropped by virtue
+/// of the `[] -> []` base case — the rest of the pure-mint pile.
+///
+/// Pre-condition (held at every call site): both arguments are sorted
+/// ascending by policy id. `prog_assets.collect` and `prog_assets.from_value` both
+/// produce canonically-sorted Assets.
+///
+/// Cost: O(|inputs| + |mint|); `tokens.union` paid only at exact matches.
+fn apply_mint_to_known_policies(inputs: Assets, mint: Assets) -> Assets {
+  // Mint-empty short-circuit at the OUTER level: a transfer-only tx (no
+  // mint) skips the per-input `assets_split_at` calls entirely, so it pays
+  // no per-policy split cost.
+  when mint is {
+    [] -> inputs
+    _ ->
+      when inputs is {
+        [] -> []
+        [Pair(i_policy, i_tokens) as head, ..i_rest] -> {
+          let _before, mint_at_policy, mint_after <- prog_assets.assets_split_at(
+            mint,
+            i_policy,
+          )
+          [
+            when dict.to_pairs(mint_at_policy) is {
+              [] -> head
+              _ -> Pair(i_policy, tokens.union(mint_at_policy, i_tokens))
+            },
+            ..apply_mint_to_known_policies(i_rest, mint_after)
+          ]
+        }
+      }
+  }
+}
+
+/// Consume one proof per input policy, in ascending order. A programmable
+/// policy (`TokenExists`) must be contained in the paired output policy
+/// unless fully burned, in which case it is not expected in the outputs at
+/// all. An unregistered policy (`TokenDoesNotExist`) is skipped. Aborts on
+/// an invalid proof.
+fn verify_proofs(
+  proofs: List<RegistryProof>,
+  choose_registered_token: fn(
+    PolicyId,
+    RegistryProof,
+    fn() -> List<RegistryProof>,
+    fn() -> List<RegistryProof>,
+  ) ->
+    List<RegistryProof>,
+  input_assets: Pairs<PolicyId, Dict<AssetName, Int>>,
+  output_assets: Pairs<PolicyId, Dict<AssetName, Int>>,
+) -> List<RegistryProof> {
+  when input_assets is {
+    [] -> proofs
+    [Pair(policy, head_input_tokens), ..tail_input_assets] ->
+      // We expect one proof per policy, if not, this blows up and halts the validation.
+      choose_registered_token(
+        policy,
+        unsafe_list.expect_head(proofs),
+        fn() {
+          let tail_output_assets = if head_input_tokens == dict.empty {
+            // Tokens have been entirely consumed (a.k.a burned) so they won't appear in outputs.
+            output_assets
+          } else {
+            // Existing programmable token, must be in output.
+
+            // Outputs must be a superset of inputs, so they may contain extra
+            // policies not found in validated inputs. Yet, both input assets and
+            // output assets are in ascending policy order.
+            let head_output_tokens, tail_output_assets <- unsafe_pairs.expect_pop_until_and_then(
+              output_assets,
+              equals_bytearray(policy, _),
+            )
+            expect
+              tokens.expect_contains(
+                dict.to_pairs(head_output_tokens),
+                dict.to_pairs(head_input_tokens),
+              )
+
+            tail_output_assets
+          }
+
+          verify_proofs(
+            unsafe_list.expect_tail(proofs),
+            choose_registered_token,
+            tail_input_assets,
+            tail_output_assets,
+          )
+        },
+        fn() {
+          // Not a programmable token, skip it
+          verify_proofs(
+            unsafe_list.expect_tail(proofs),
+            choose_registered_token,
+            tail_input_assets,
+            output_assets,
+          )
+        },
+      )
+  }
+}
+
+/// Validate a single currency symbol against its proof. Calls
+/// `when_registered` for a `TokenExists` proof and `when_not_registered`
+/// for a `TokenDoesNotExist` proof; aborts on an invalid proof.
+fn choose_registered_token_with(
+  get_registry_node: fn(Int) -> Data,
+  has_withdrawal: fn(Credential) -> Bool,
+  policy: PolicyId,
+  proof: RegistryProof,
+  when_registered: fn() -> result,
+  when_not_registered: fn() -> result,
+) -> result {
+  when proof is {
+    TokenExists { node_idx } -> {
+      let key, transfer_logic_script <- with_key_and_transfer_logic(
+        get_registry_node(node_idx),
+      )
+
+      // Validate the node's key matches the currency symbol
+      expect key == policy
+
+      // Validate the transfer logic script is invoked
+      expect has_withdrawal(transfer_logic_script)
+
+      when_registered()
+    }
+
+    TokenDoesNotExist { node_idx } -> {
+      let key, next <- with_key_and_next_key(get_registry_node(node_idx))
+
+      // Validate the node covers the currency symbol (node.key < policy < node.next)
+      expect less_than_bytearray(key, policy)
+      expect less_than_bytearray(policy, next)
+
+      // This is NOT a programmable token (proof is valid)
+      when_not_registered()
+    }
+  }
+}
