@@ -2,7 +2,15 @@
 
 An NFT-Studio promotional collection of exactly three distinct business cards.
 [Public preview](https://beacnpool.github.io/NFT-Studio/showcase/three-card-circle/).
-**Mainnet is inactive. No real NFTs were minted and no ADA was spent.**
+**Live on Cardano mainnet. All three NFTs were minted and delivered on September
+30, 2026 UTC (September 29 CDT).**
+
+[Confirmed deployment and exact SVG readback](evidence/mainnet-deployment.json)
+records the real policy identities, three unique tokens, current owner address
+and eleven confirmed setup transactions. Actual setup/delivery/refund fees were
+4.669940 ADA. The website reads real ownership and transfer history; its
+**Create your own** guide includes an NFT-Studio starting prompt and setup links.
+The budget tables below retain their separately labeled synthetic measurements.
 
 ## Ownership rules
 
@@ -66,10 +74,11 @@ public mint queue, return-only inventory pool or later retirement mechanism.
 These checks are not an independent contract audit. CIP-113 remains a proposed
 standard. Physical-wallet interoperability, actual funding inputs, fee estimates,
 signed size and real deployment identities must be rechecked before activation.
-The published deployment remains inactive until setup is approved, funded and
-confirmed. No synthetic owners are shown. The owner transfer interface is
-implemented and tested with synthetic CIP-30 signatures; physical VESPR
-acceptance and real mainnet activation are still pending.
+This deployment's approved setup, issuance and delivery are confirmed on
+mainnet. The page displays authenticated real owners. The owner transfer
+interface is tested with synthetic CIP-30 signatures, and its contract identities,
+reference script and ownership data were checked against the live deployment.
+Physical VESPR signing acceptance remains unverified.
 
 ## Compact ownership view
 

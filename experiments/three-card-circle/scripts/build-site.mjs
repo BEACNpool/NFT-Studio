@@ -4,6 +4,8 @@ import {createCanvas,loadImage,GlobalFonts} from '@napi-rs/canvas';
 import {execFileSync} from 'node:child_process';
 import {readFileSync,writeFileSync} from 'node:fs';
 const dir='public/showcase/three-card-circle';
+const deployment=JSON.parse(readFileSync(`${dir}/deployment.json`,'utf8'));
+const active=deployment.status==='active'&&deployment.deployment?.network==='Mainnet';
 for (const [query,family] of [['Arial','Arial'],['Arial:style=Bold','Arial'],['Georgia','Georgia'],['Georgia:style=Italic','Georgia'],['monospace','monospace']]) {
   const path=execFileSync('fc-match',['--format=%{file}',query],{encoding:'utf8'}).trim();
   if (!GlobalFonts.registerFromPath(path,family)) throw Error(`Could not load ${family}`);
@@ -23,7 +25,7 @@ for(const [i,x,y,angle] of [[1,633,186,-10],[2,798,148,1],[3,960,190,10]]){
  ctx.drawImage(img,-100,-140,200,280);ctx.restore();
 }
 ctx.strokeStyle='#394134';ctx.beginPath();ctx.moveTo(64,531);ctx.lineTo(1136,531);ctx.stroke();
-ctx.fillStyle='#d8ff70';ctx.font='17px monospace';ctx.fillText('CARDANO · MAINNET ACTIVATION PENDING',64,574);
+ctx.fillStyle='#d8ff70';ctx.font='17px monospace';ctx.fillText(active?'CARDANO · LIVE ON MAINNET':'CARDANO · MAINNET ACTIVATION PENDING',64,574);
 ctx.fillStyle='#b8c1b4';ctx.textAlign='right';ctx.font='17px Arial';ctx.fillText('beacnpool.github.io/NFT-Studio',1136,574);
 writeFileSync(`${dir}/social.png`,canvas.toBuffer('image/png'));
 console.log('Built the read-only chain reader and 1200 × 630 sharing image.');

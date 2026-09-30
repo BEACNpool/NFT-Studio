@@ -1,0 +1,55 @@
+{
+  "status": "active",
+  "network": "Mainnet",
+  "completedAt": "2026-09-30T03:00:45.759Z",
+  "verifiedAt": "2026-09-30T03:01:35.383Z",
+  "deployment": {
+    "network": "Mainnet",
+    "statePolicy": "2da74246051172ea1c92ab27d6137c4bb7931ae48db9f4d54a5f4727",
+    "tokenPolicy": "23cda0164b83c315a5db2a9e0189892b4a058833016760d27324b946",
+    "transferHash": "a7357d533a11a795605e894421249a477e671592f63ae32448d1d103",
+    "programmableHash": "5976473fe9e4cf630eb7a035d8040ddc98ff92f14e5f5f358d190767",
+    "startBlock": 14005903,
+    "confirmations": 3,
+    "bootstrap": {
+      "transactionId": "4cf08aec477224edbbe95705c6c09a8649512a42d6fbf9c92bae3995666d9225",
+      "admin": "337eea587d124cdc743fd76b562f54a33903f519966da46833f482c2"
+    },
+    "referenceOutref": "1c8152a7d26ffa9a40458101ae4544ce29b1527f96a534ee51bd236e9919eeb3#0"
+  },
+  "mintTransaction": "bd4ed85e45fa94e7a7821e5b705800205177b40387b1cd68bb0180134be7ed91",
+  "deliveryTransaction": "d6775480f62e154154cc71e0f8b2a1bebd80335e53ccc48e82dd949a7002b8aa",
+  "initialDeliveredRevision": 2,
+  "cards": [
+    {
+      "name": "CARD01",
+      "unit": "23cda0164b83c315a5db2a9e0189892b4a058833016760d27324b946434152443031",
+      "ownerAddress": "addr1z9vhv3ela8jv7ccwk7srtkqyphwf3luj79897he435vswe6h3uvv7ucph4quxy593t0sp803tkmge2d7vfmjugww2k6qefjyzr",
+      "output": "d6775480f62e154154cc71e0f8b2a1bebd80335e53ccc48e82dd949a7002b8aa#0",
+      "quantity": "1",
+      "embeddedSvgSha256": "731dff3943ca6097391069d557a7f6a353633b1a5a27e5cc6137b4230e8b799e"
+    },
+    {
+      "name": "CARD02",
+      "unit": "23cda0164b83c315a5db2a9e0189892b4a058833016760d27324b946434152443032",
+      "ownerAddress": "addr1z9vhv3ela8jv7ccwk7srtkqyphwf3luj79897he435vswe6h3uvv7ucph4quxy593t0sp803tkmge2d7vfmjugww2k6qefjyzr",
+      "output": "d6775480f62e154154cc71e0f8b2a1bebd80335e53ccc48e82dd949a7002b8aa#1",
+      "quantity": "1",
+      "embeddedSvgSha256": "23827bf5c8504ceb96065a564fa84cdc4af74506befa6aebb53eaa827c5b0747"
+    },
+    {
+      "name": "CARD03",
+      "unit": "23cda0164b83c315a5db2a9e0189892b4a058833016760d27324b946434152443033",
+      "ownerAddress": "addr1z9vhv3ela8jv7ccwk7srtkqyphwf3luj79897he435vswe6h3uvv7ucph4quxy593t0sp803tkmge2d7vfmjugww2k6qefjyzr",
+      "output": "d6775480f62e154154cc71e0f8b2a1bebd80335e53ccc48e82dd949a7002b8aa#2",
+      "quantity": "1",
+      "embeddedSvgSha256": "d493950d6b5afeb91e9e4df7a046ab01887bc72c09ea326c79fea3179a8d0950"
+    }
+  ],
+  "allSetupTransactionsConfirmed": 11,
+  "setupFeesLovelace": "4669940",
+  "exactEmbeddedSvgReadback": true,
+  "liveKoiosOwnershipAndHistoryVerified": true,
+  "transferContractAndReferenceVerified": true,
+  "physicalVESPRSigningVerified": false
+}
