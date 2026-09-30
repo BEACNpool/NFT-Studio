@@ -11,6 +11,7 @@ import {
   readdir,
   readFile,
   access,
+  rm,
 } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 const prefix = '/NFT-Studio',
@@ -39,6 +40,8 @@ try {
   await mkdir(out, { recursive: true });
   await cp(nested, out, { recursive: true });
   await cp(resolve('public'), out, { recursive: true });
+  // This showcase is retired. Incremental exports must not retain its old files.
+  await rm(join(out, 'showcase/three-card-circle'), { recursive: true, force: true });
   await writeFile(join(out, 'index.html'), html);
   await writeFile(join(out, 'index.rsc'), rsc);
   await writeFile(join(out, '.nojekyll'), '');

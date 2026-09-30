@@ -3,7 +3,7 @@ import {build} from 'esbuild';
 import {createCanvas,loadImage,GlobalFonts} from '@napi-rs/canvas';
 import {execFileSync} from 'node:child_process';
 import {readFileSync,writeFileSync} from 'node:fs';
-const dir='public/showcase/three-card-circle';
+const dir='experiments/three-card-circle/archive/showcase';
 const deployment=JSON.parse(readFileSync(`${dir}/deployment.json`,'utf8'));
 const active=deployment.status==='active'&&deployment.deployment?.network==='Mainnet';
 for (const [query,family] of [['Arial','Arial'],['Arial:style=Bold','Arial'],['Georgia','Georgia'],['Georgia:style=Italic','Georgia'],['monospace','monospace']]) {

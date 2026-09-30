@@ -10,7 +10,7 @@ const tokenMode=process.argv.includes('--funding-token'),tokenUnit='aa'.repeat(2
 const setup=generateEmulatorAccountFromPrivateKey({lovelace:limits.funding,...(tokenMode?{[tokenUnit]:1n}:{})});
 const recipient=generateEmulatorAccountFromPrivateKey({lovelace:0n}),recipientKey=getAddressDetails(recipient.address).paymentCredential.hash;
 const provider=new Emulator([setup],params.parameters),lucid=await Lucid(provider,'Custom');lucid.selectWallet.fromPrivateKey(setup.privateKey);
-const plan={operation:'activate-three-card-circle',network:'Custom',planHash:'synthetic-operator-test',fundingLovelace:String(limits.funding),setupAddress:setup.address,recipientAddress:credentialToAddress('Custom',{type:'Key',hash:recipientKey},{type:'Key',hash:'ab'.repeat(28)}),expiresAt:new Date(Date.now()+86400000).toISOString(),artwork:[1,2,3].map(i=>readFileSync(`../../public/showcase/three-card-circle/card-0${i}.svg`,'utf8'))};
+const plan={operation:'activate-three-card-circle',network:'Custom',planHash:'synthetic-operator-test',fundingLovelace:String(limits.funding),setupAddress:setup.address,recipientAddress:credentialToAddress('Custom',{type:'Key',hash:recipientKey},{type:'Key',hash:'ab'.repeat(28)}),expiresAt:new Date(Date.now()+86400000).toISOString(),artwork:[1,2,3].map(i=>readFileSync(`../../experiments/three-card-circle/archive/showcase/card-0${i}.svg`,'utf8'))};
 if(tokenMode){
  const input=(await provider.getUtxos(setup.address))[0];
  plan.fundingTokenReturn={input:{txHash:input.txHash,outputIndex:input.outputIndex},lovelace:'2000000',assets:{[tokenUnit]:1n}};

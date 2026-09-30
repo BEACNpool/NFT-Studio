@@ -62,7 +62,7 @@ const referenceBytes=CML.PlutusV3Script.from_cbor_hex(refs[0].scriptRef.script).
 const context=async()=>({state:await state(),params:await params(),registry:await registry(),refs});
 const metadata={};
 for(let i=1;i<=3;i++){
- const art=readFileSync(`../../public/showcase/three-card-circle/card-0${i}.svg`);
+ const art=readFileSync(`../../experiments/three-card-circle/archive/showcase/card-0${i}.svg`);
  metadata['CARD0'+i]={name:`NFT-Studio Circle ${i}/3`,mediaType:'image/svg+xml',image:('data:image/svg+xml;base64,'+art.toString('base64')).match(/.{1,64}/g),description:['Three distinct programmable NFT-Studio cards.','Hold one or two: send to an existing holder.','Hold all three before transfer: invite a new owner.'],website:['https://beacnpool.github.io/NFT-Studio/','showcase/three-card-circle/']};
 }
 await send('issue all three cards to setup key',T.mintAll(lucid,c,{...await context(),metadata}).collectFrom([await feeInput()]),{referenceBytes});

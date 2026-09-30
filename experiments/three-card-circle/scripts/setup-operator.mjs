@@ -26,7 +26,7 @@ export function createDirectory(directory){
 }
 export function fingerprint(){
  const paths=['scripts/setup-operator.mjs','scripts/setup-workflow.mjs','scripts/setup-provider.mjs','scripts/transactions.mjs','scripts/submission.mjs','contracts/plutus.json','package-lock.json'];
- return sha(paths.map(p=>p+':'+sha(readFileSync(join(root,p)))).join('\n')+'\n'+[1,2,3].map(i=>sha(readFileSync(join(repo,`public/showcase/three-card-circle/card-0${i}.svg`)))).join('\n'));
+ return sha(paths.map(p=>p+':'+sha(readFileSync(join(root,p)))).join('\n')+'\n'+[1,2,3].map(i=>sha(readFileSync(join(repo,`experiments/three-card-circle/archive/showcase/card-0${i}.svg`)))).join('\n'));
 }
 const syncDir=dir=>{const fd=openSync(dir,'r');try{fsyncSync(fd);}finally{closeSync(fd);}};
 export function createFile(path,text){
@@ -135,7 +135,7 @@ async function main(){
   const recovered=CML.PrivateKey.from_bech32(readFileSync(keyPath,'utf8').trim()),challenge=randomBytes(32);
   assert.equal(recovered.to_public().hash().to_hex(),secret.to_public().hash().to_hex());
   assert.equal(recovered.to_public().verify(challenge,recovered.sign(challenge)),true);privatePath(keyPath);
-  const plan={operation:'activate-three-card-circle',network:'Mainnet',operatorHost:hostname(),createdAt:new Date().toISOString(),expiresAt:new Date(Date.now()+12*3600000).toISOString(),sourceFingerprint:fingerprint(),fundingLovelace:String(limits.funding),setupAddress:address,recipientAddress:options.recipient,parameters,artwork:[1,2,3].map(i=>readFileSync(join(repo,`public/showcase/three-card-circle/card-0${i}.svg`),'utf8'))};
+  const plan={operation:'activate-three-card-circle',network:'Mainnet',operatorHost:hostname(),createdAt:new Date().toISOString(),expiresAt:new Date(Date.now()+12*3600000).toISOString(),sourceFingerprint:fingerprint(),fundingLovelace:String(limits.funding),setupAddress:address,recipientAddress:options.recipient,parameters,artwork:[1,2,3].map(i=>readFileSync(join(repo,`experiments/three-card-circle/archive/showcase/card-0${i}.svg`),'utf8'))};
   plan.planHash=planHash(plan);validatePlan(plan);createFile(join(directory,'plan.json'),encode(plan)+'\n');
   persistJournal(directory,{schema:1,planHash:plan.planHash,steps:[]});
   createFile(join(directory,'funding-instruction.json'),JSON.stringify(summary(plan),null,2)+'\n');

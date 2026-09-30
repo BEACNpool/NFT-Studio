@@ -5,7 +5,7 @@ import {dirname,resolve} from 'node:path';
 import {createRequire} from 'node:module';
 const repo=resolve(import.meta.dirname,'../../..');
 const rootRequire=createRequire(resolve(repo,'package.json'));
-const output=resolve(repo,'public/showcase/three-card-circle/wallet');
+const output=resolve(repo,'experiments/three-card-circle/archive/showcase/wallet');
 await build({entryPoints:[resolve(import.meta.dirname,'wallet-transfer.mjs')],outfile:output+'/transfer.js',bundle:true,format:'esm',platform:'browser',target:'es2022',minify:true,legalComments:'linked',loader:{'.wasm':'file'},assetNames:'[name]-[hash]',alias:{buffer:rootRequire.resolve('buffer/'),events:rootRequire.resolve('events/')},plugins:[{
  name:'wasm-bindgen-browser',setup(build){
   build.onLoad({filter:/(cardano_multiplatform_lib|cardano_message_signing|uplc_tx)\.js$/},({path})=>{

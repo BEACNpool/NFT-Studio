@@ -56,14 +56,14 @@ for(const k of ['state']){
 const refsFor=keys=>scriptRefs.filter(u=>keys.some(k=>validatorToScriptHash(u.scriptRef)===c.ids[k]));
 const ctx=async()=>({state:await state(),params:await params(),registry:await registry()});
 const metadata={};for(let i=1;i<=3;i++){
- const art=readFileSync(`../../public/showcase/three-card-circle/card-0${i}.svg`);
+ const art=readFileSync(`../../experiments/three-card-circle/archive/showcase/card-0${i}.svg`);
  metadata['CARD0'+i]={name:`NFT-Studio Circle ${i}/3`,mediaType:'image/svg+xml',image:('data:image/svg+xml;base64,'+art.toString('base64')).match(/.{1,64}/g),description:['Three distinct programmable NFT-Studio cards.','Hold one or two: send to an existing holder.','Hold all three before transfer: invite a new owner.'],website:['https://beacnpool.github.io/NFT-Studio/','showcase/three-card-circle/']};
 }
 const mintArgs={...await ctx(),refs:refsFor(['state','issue','issuance']),metadata};
 const issued=await send('issue exactly three distinct cards to creator',T.mintAll(lucid,c,mintArgs).collectFrom([await feeInput()]),{coinSelection:false});
 const md=JSON.parse(CML.decode_metadatum_to_json_str(issued.signed.toTransaction().auxiliary_data().metadata().get(721n),CML.MetadataJsonSchema.NoConversions));
 report.artwork=[];for(let i=1;i<=3;i++){
- const art=readFileSync(`../../public/showcase/three-card-circle/card-0${i}.svg`),recovered=Buffer.from(md[c.ids.nft]['CARD0'+i].image.join('').split(',')[1],'base64');
+ const art=readFileSync(`../../experiments/three-card-circle/archive/showcase/card-0${i}.svg`),recovered=Buffer.from(md[c.ids.nft]['CARD0'+i].image.join('').split(',')[1],'base64');
  assert.deepEqual(recovered,art);report.artwork.push({name:'CARD0'+i,bytes:art.length,sha256:createHash('sha256').update(art).digest('hex')});
 }
 async function checkOwners(label,expected){

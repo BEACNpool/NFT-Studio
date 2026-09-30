@@ -1,15 +1,19 @@
-# Three-Card Circle
+# Three-Card Circle — retired showcase
 
-An NFT-Studio promotional collection of exactly three distinct business cards.
-[Public preview](https://beacnpool.github.io/NFT-Studio/showcase/three-card-circle/).
-**Live on Cardano mainnet. All three NFTs were minted and delivered on September
-30, 2026 UTC (September 29 CDT).**
+**The public showcase was withdrawn at the owner's request on September 30, 2026.**
+Its page, artwork and wallet assets are preserved in `archive/showcase/` for
+historical inspection and are excluded from the website. Do not republish or
+reactivate this experiment as part of a normal build.
+
+The three original on-chain assets still exist. The deployed rules do not permit
+ordinary-wallet delivery, burning or withdrawal of the NFT/state ADA backing.
+The published transfer reference has been removed, so the archived transfer UI
+is not operational. Historical implementation notes and measurements follow.
 
 [Confirmed deployment and exact SVG readback](evidence/mainnet-deployment.json)
-records the real policy identities, three unique tokens, current owner address
-and eleven confirmed setup transactions. Actual setup/delivery/refund fees were
-4.669940 ADA. The website reads real ownership and transfer history; its
-**Create your own** guide includes an NFT-Studio starting prompt and setup links.
+records the real policy identities, three unique tokens, owner address at that
+verification and eleven confirmed setup transactions. The archived reader and
+creator guide are retained as evidence, not as a currently offered product.
 The budget tables below retain their separately labeled synthetic measurements.
 
 ## Ownership rules
@@ -153,11 +157,13 @@ delivery. It constructs its own in-memory Emulator provider; it cannot broadcast
 to Cardano. Run it again after refreshing parameters or changing a builder.
 
 From the repository root, `node experiments/three-card-circle/scripts/build-site.mjs`
-bundles the reader and generates the sharing image from the exact SVG card art.
-The normal `npm run build:pages` exports the site. Follow `docs/PUBLISHING.md`.
+rebuilds only the archived reader and sharing image from the exact SVG card art.
+`npm run build:pages` excludes this retired showcase, including stale files from
+an earlier export. The wallet build also writes only into the archive.
 
-`public/showcase/three-card-circle/deployment.json` stays inactive/null until a
-separately approved deployment is confirmed. Activation must pin Mainnet,
+`archive/showcase/deployment.json` preserves the historical deployment identity.
+The following activation requirements are historical, not a request to redeploy:
+activation must pin Mainnet,
 `statePolicy`, `tokenPolicy`, `transferHash`, `programmableHash`, `startBlock` and
 `confirmations: 3` from the actual reviewed instance. It must also update all
 activation labels and sharing metadata and enable a reviewed signing interface;
@@ -173,9 +179,9 @@ with its license retained. The new collection-specific modules are
 NFT-Studio code under the repository license. Earlier five-card and return-only
 prototypes are separate experiments and do not define these rules.
 
-## Create your own with NFT-Studio
+## Archived creator guide
 
-The showcase’s **Create your own** dialog explains the three steps: define art
+The archived showcase’s **Create your own** dialog explains the three steps: define art
 and behavior, build and test with a coding agent, then review and approve with a
 wallet. Its copyable prompt routes to `START_HERE.md` and capability discovery.
 Embedded games/apps run in viewers; contract-enforced ownership rules require a
@@ -183,7 +189,7 @@ separate tested contract and a new deployment identity. An ordinary native mint
 does not enforce Circle rules. Use this experiment as implementation evidence,
 not a claim that every proposed rule is a one-click Studio feature.
 
-## Owner transfers
+## Historical owner-transfer implementation
 
 The lockfile uses registry packages with integrity hashes and the tested versions;
 it does not depend on a neighboring local checkout.

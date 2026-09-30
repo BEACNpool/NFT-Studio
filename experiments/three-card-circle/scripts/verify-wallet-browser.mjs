@@ -11,7 +11,7 @@ function account(amount){const key=CML.PrivateKey.generate_ed25519(),hash=key.to
 const setup=account(55_000_000n),alice=account(20_000_000n),bob=account(20_000_000n),charlie=account(20_000_000n);
 const provider=new Emulator([setup,alice,bob,{...bob,assets:{lovelace:5_000_000n}},charlie],parameters);
 const lucid=await Lucid(provider,'Mainnet');lucid.selectWallet.fromPrivateKey(setup.privateKey);
-const plan={operation:'activate-three-card-circle',network:'Mainnet',planHash:'browser-fixture',fundingLovelace:'55000000',setupAddress:setup.address,recipientAddress:alice.address,expiresAt:new Date(Date.now()+86400000).toISOString(),artwork:[1,2,3].map(i=>readFileSync(`../../public/showcase/three-card-circle/card-0${i}.svg`,'utf8'))};
+const plan={operation:'activate-three-card-circle',network:'Mainnet',planHash:'browser-fixture',fundingLovelace:'55000000',setupAddress:setup.address,recipientAddress:alice.address,expiresAt:new Date(Date.now()+86400000).toISOString(),artwork:[1,2,3].map(i=>readFileSync(`../../experiments/three-card-circle/archive/showcase/card-0${i}.svg`,'utf8'))};
 const journal={steps:[]},map=new Map(),storage={getItem:k=>map.get(k),setItem:(k,v)=>map.set(k,v)};
 for(let index=0;index<labels.length;index++){
  const packet=await buildStep({lucid,provider,plan,journal,index,now:()=>provider.now()});journal.steps[index]={...packet,status:'prepared'};
