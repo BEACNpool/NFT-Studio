@@ -56,36 +56,67 @@ public mint queue, return-only inventory pool or later retirement mechanism.
   UTxO during fetching, stale provider tips and updates with fewer than three
   confirmations. This is an indexer-backed display, not an independent chain
   verifier. Confirmation depth does not eliminate rollback risk.
+- `evidence/budget-checks.json`: an isolated 55 ADA wallet completes all setup
+  steps, transfers the complete set to a separate recipient key and returns
+  unused ADA to that recipient's ordinary base address. Every signed transaction
+  passes the body, script, signature, fee and size guard. No real keys or funds
+  are used. The 5 ADA collateral output stays separate until the final refund;
+  3 ADA is declared as collateral, leaving a valid return output if a script fails.
 
 These checks are not an independent contract audit. CIP-113 remains a proposed
-standard. Hardware-wallet interoperability, actual funding inputs, fee estimates,
+standard. Physical-wallet interoperability, actual funding inputs, fee estimates,
 signed size and real deployment identities must be rechecked before activation.
 The website is deliberately a read-only preview: wallet checking requests no
 signature, minting and transfers are inactive, and no synthetic owner is shown.
 
+## Compact ownership view
+
+The page shows the three cards and their full programmable addresses on one
+screen. It derives each address from the pinned payment script and the owner key
+in the authenticated state, then checks the actual card output matches it. The
+"all 3" rule therefore means one exact address, not wallet-wide holdings.
+
+BEACN Koios supplies confirmed state and card UTxOs. The page refreshes every
+minute while visible and supports manual refresh. History opens in a dialog,
+three entries per page, pinned to the same confirmed block for pagination.
+Unavailable or inconsistent data clears the addresses instead of keeping an
+apparently live stale ledger. An inactive deployment reads only the provider tip.
+
+`scripts/audit-site.mjs` covers inactive and synthetic active layouts, full address
+copy/fallback, history, failures and read-only wallet discovery. Its revised
+browser suite must pass on the final static export before this update is published.
+
 ## Measured ADA budget
 
 Based on the September 29, 2026 mainnet parameter snapshot and synthetic funding
-inputs in `evidence/emulator.json`:
+inputs in `evidence/budget-checks.json`, including delivery to the recipient and
+return of unused funds:
 
 | Purpose | ADA | Treatment |
 | --- | ---: | --- |
-| Activation network fees | 3.792844 | Spent, not refunded |
+| Setup, delivery and refund network fees | 4.661873 | Spent, not refunded |
 | Six registration deposits | 12.000000 | Locked; these validators do not authorize deregistration |
 | Permanent protocol outputs | 9.550960 | Locked |
 | Shared ownership record | 1.784340 | Preserved in every update; no exit |
 | Backing for all three cards | 3.439380 | Travels with cards; cannot be withdrawn by this design |
 | State reference-script reserve | 15.399630 | Issuer-key output; recoverable, but the same script must be available for subsequent transfers |
-| **Measured activation total** | **45.967154** | Excludes unspent collateral |
+| **Measured net setup and delivery total** | **46.836183** | After returning unused funds |
 
-Allow **52 ADA available in the creator's wallet**, including 5 ADA of separate
-unspent collateral and a small buffer. This is a review budget, not permission to
-spend. Actual wallet inputs/signatures and protocol parameters can change it.
-No payment to an unactivated script address is required. Never fund an address
-derived from the synthetic test seeds.
+The bounded rehearsal starts with **55 ADA** in an isolated setup wallet and
+returns **8.163817 ADA** after all eleven transactions succeed. The 15.399630 ADA
+reference-script output remains in that wallet for transfer availability. The
+recipient controls all three NFTs through their own payment key. Funding the
+setup wallet is distinct from paying a contract address. No live setup wallet or
+mainnet instance has been created by this rehearsal.
+
+This replaces the earlier 52 ADA allowance, which was based on net activation
+cost with large synthetic funding inputs. Actual inputs, signatures and live
+protocol parameters must be rechecked before a concrete funding instruction.
+Never fund an address derived from synthetic test seeds. A budget is not approval
+to sign or submit real transactions.
 
 The three-card mint is **15,194 signed bytes** against the current 16,384-byte
-maximum, with a measured 1.015131 ADA fee included above. Tested transfers cost
+maximum, with a measured 1.019753 ADA fee included above. Earlier tested transfers cost
 0.565805–0.693953 ADA. There is no universal under-one-ADA promise. The former
 five-card prototype's first mint was 16,684 bytes and failed; this design uses one
 state reference script and embeds the exact three SVG artworks in CIP-25 metadata.
@@ -104,6 +135,10 @@ associated boundaries. The emulator writes ignored raw synthetic transaction
 contexts required by the submission and node-evaluation tests. Node evaluation
 uses `BLOCKFROST_PROJECT_ID_FILE` pointing to a private credential file; credential
 contents are never committed. No script here submits a real mainnet transaction.
+
+`node scripts/verify-budget.mjs` rehearses the bounded 55 ADA setup and recipient
+delivery. It constructs its own in-memory Emulator provider; it cannot broadcast
+to Cardano. Run it again after refreshing parameters or changing a builder.
 
 From the repository root, `node experiments/three-card-circle/scripts/build-site.mjs`
 bundles the reader and generates the sharing image from the exact SVG card art.

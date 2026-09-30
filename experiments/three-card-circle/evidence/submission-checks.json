@@ -1,10 +1,12 @@
 {
   "ok": true,
-  "checks": 13,
+  "checks": 16,
   "mode": "synthetic transactions and intercepted submit only",
   "coverage": [
     "exact body",
     "metadata commitment",
+    "script witness set permutation",
+    "missing or duplicated script rejection",
     "script witness preservation",
     "owner signature",
     "size and fee limits",

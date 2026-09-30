@@ -1,0 +1,81 @@
+{
+  "mode": "isolated emulator; synthetic setup and recipient keys; one 55 ADA funding output; no network access",
+  "parametersObservedAt": "2026-09-29T23:25:49.911Z",
+  "createdAt": "2026-09-30T00:50:56.495Z",
+  "fundingLovelace": "55000000",
+  "transactions": [
+    {
+      "label": "prepare five seeds and separate collateral",
+      "id": "56598d95e9f9ff5d4e0c4c3a30d96c7e43197bcc023e7f63c00502407545413e",
+      "signedBytes": 419,
+      "feeLovelace": "173993"
+    },
+    {
+      "label": "register bootstrap authority",
+      "id": "9a5680dd6b9c2005af4e512357a5ff0652d68876a7ac977f0cd3c5feb419c9e6",
+      "signedBytes": 613,
+      "feeLovelace": "183541"
+    },
+    {
+      "label": "bootstrap immutable CIP-113 core",
+      "id": "b6bd513b304fa11c8033bdcfb66db4f53cfcbb8ea48f7d810e5ebfe7b0a3e294",
+      "signedBytes": 7785,
+      "feeLovelace": "533183"
+    },
+    {
+      "label": "create bounded ownership record",
+      "id": "5a57601ce5546c0501911babb32336b6858942f5bbf55e1326c9455ee1bad1ea",
+      "signedBytes": 4079,
+      "feeLovelace": "349966"
+    },
+    {
+      "label": "register dispatcher/delegate/transfer",
+      "id": "1310666e5b3cf550eaffab486d4b17743fc06ce7a9119c0db8ba988a6d15ac8b",
+      "signedBytes": 4205,
+      "feeLovelace": "344092"
+    },
+    {
+      "label": "register issue/issuance",
+      "id": "c041fc53b8b79768a6724495a3871638d7740c927b0af9ad7bcff6d9ff879f50",
+      "signedBytes": 5150,
+      "feeLovelace": "384666"
+    },
+    {
+      "label": "register collection policy once",
+      "id": "9ef005d2a2be418e80c6cd8eeea88ca420e40b2e9e862228c8f40d841d2586a0",
+      "signedBytes": 6326,
+      "feeLovelace": "498428"
+    },
+    {
+      "label": "publish recoverable state reference",
+      "id": "3898d9ba28edab023d9086f21902d5575f2abcfe7ff02e87e4483dbe7d64e008",
+      "signedBytes": 3610,
+      "feeLovelace": "314397"
+    },
+    {
+      "label": "issue all three cards to setup key",
+      "id": "1c90ccb5e7949f6f237db703e9eef1a0ed33ade750cb2260005b53b0a907dc88",
+      "signedBytes": 15194,
+      "feeLovelace": "1019753"
+    },
+    {
+      "label": "transfer complete set to recipient key",
+      "id": "fe1766e143731bca514ec575e59e503de7fcb302787b1a583d7e5fdb28db4d1d",
+      "signedBytes": 5730,
+      "feeLovelace": "692813"
+    },
+    {
+      "label": "return all unused ADA and collateral",
+      "id": "dbacbe0e6ebaa6ec459ca0fe1f457d0935c67256f90d488e5b705e6f6f354340",
+      "signedBytes": 261,
+      "feeLovelace": "167041"
+    }
+  ],
+  "referenceReserveLovelace": "15399630",
+  "returnedUnusedLovelace": "8163817",
+  "totalFeesLovelace": "4661873",
+  "recipientAddressBytes": 57,
+  "recipientBase": "addr_test1qqmhcdmqcunj05hhr4qzxrgq5j8ueyu66t5aedgwacgdjl9t4w46h2at4w46h2at4w46h2at4w46h2at4w46h2at4w4ssgqd56",
+  "recipientOwnsAllThree": true,
+  "ok": true
+}

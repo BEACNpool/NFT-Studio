@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
 import {bech32} from '@scure/base';
 import {writeFileSync} from 'node:fs';
-import {ChainReader,validateSnapshot,stateName,cardNames} from './chain-reader.mjs';
+import * as CSL from '@emurgo/cardano-serialization-lib-nodejs';
+import {ChainReader,validateSnapshot,stateName,cardNames,addressForOwner,readKoiosTip,BEACN_KOIOS_URL} from './chain-reader.mjs';
 const c={network:'Mainnet',statePolicy:'11'.repeat(28),tokenPolicy:'22'.repeat(28),transferHash:'33'.repeat(28),programmableHash:'44'.repeat(28),startBlock:100,confirmations:3};
 const owners=['55','66','77'].map(s=>s.repeat(28));
 const address=(prefix,payment,stake='')=>bech32.encode('addr',bech32.toWords(Uint8Array.from(Buffer.from(prefix+payment+stake,'hex'))),150);
@@ -11,6 +12,17 @@ const cards=cardNames.map((name,i)=>output(c.tokenPolicy,name,i+2,address('11',c
 const tip={block_no:115,block_time:Date.now()/1000};
 assert.equal(validateSnapshot(c,state,cards,tip).holders,3);
 assert.equal(validateSnapshot(c,state,cards,tip).transfers,1);
+const verified=validateSnapshot(c,state,cards,tip);
+assert.deepEqual(verified.addresses,cards.map(u=>u.address));
+assert.equal(verified.together,false);
+for(const owner of owners){
+ const independent=CSL.BaseAddress.new(1,CSL.Credential.from_scripthash(CSL.ScriptHash.from_hex(c.programmableHash)),CSL.Credential.from_keyhash(CSL.Ed25519KeyHash.from_hex(owner))).to_address().to_bech32();
+ assert.equal(addressForOwner(c,owner),independent);
+}
+const joined=structuredClone(state);joined.inline_datum.value.fields[3].list=owners.map(()=>({bytes:owners[0]}));
+const joinedCards=cards.map(u=>({...u,address:addressForOwner(c,owners[0])}));
+assert.equal(validateSnapshot(c,joined,joinedCards,tip).together,true);
+assert.equal(validateSnapshot(c,joined,joinedCards,tip).holders,1);
 const fail=(change,pattern)=>{const fixture=structuredClone({c,state,cards,tip});change(fixture);assert.throws(()=>validateSnapshot(fixture.c,fixture.state,fixture.cards,fixture.tip),pattern);};
 fail(f=>f.cards.pop(),/all three/);
 fail(f=>f.cards[1]=f.cards[0],/duplicated/);
@@ -22,6 +34,12 @@ fail(f=>f.state.inline_datum.value.fields[1].bytes=c.statePolicy,/identity/);
 fail(f=>f.state.inline_datum.value.fields[5].int=0,/revision/);
 fail(f=>f.tip.block_time-=3600,/stale/);
 fail(f=>f.cards[0].block_height=115,/confirmations/);
+fail(f=>f.tip.block_time+=600,/stale/);
+fail(f=>f.state.inline_datum.value.fields[3].list.pop(),/three owner/);
+fail(f=>f.cards[0].asset_list[0].quantity='2',/exactly one/);
+const inactive=structuredClone(state);inactive.inline_datum.value.fields[4].constructor=0;inactive.inline_datum.value.fields[5].int=0;
+assert.deepEqual(validateSnapshot(c,inactive,[],tip).addresses,[]);
+assert.throws(()=>validateSnapshot(c,inactive,cards,tip),/Inactive record/);
 let calls=0;
 const fetcher=async (url,options)=>{
  const body=options.body&&JSON.parse(options.body);let result;
@@ -31,5 +49,31 @@ const fetcher=async (url,options)=>{
  return {ok:true,json:async()=>result};
 };
 await assert.rejects(new ChainReader(c,{fetcher}).snapshot(),/changed during/);
-writeFileSync('evidence/reader-checks.json',JSON.stringify({ok:true,checks:13,mode:'synthetic fixtures; authenticated identity, ownership agreement, freshness, confirmations and concurrent update rejection'},null,2)+'\n');
-console.log('PASS: reader verifies identity, all three cards and confirmed consistent state.');
+const response=rows=>({ok:true,json:async()=>structuredClone(rows)});
+assert.deepEqual(await readKoiosTip({fetcher:async url=>{assert.equal(url,BEACN_KOIOS_URL+'/tip');return response([tip]);}}),tip);
+await assert.rejects(readKoiosTip({fetcher:async()=>response([{...tip,block_time:tip.block_time-3600}])}),/stale/);
+const historyRows=Array.from({length:7},(_,i)=>({tx_hash:(i+10).toString(16).padStart(64,'0'),block_height:113-i,block_time:tip.block_time-60-i*20}));
+const historyCalls=[];
+const historyReader=new ChainReader(c,{fetcher:async(raw,options)=>{
+ const url=new URL(raw);if(url.pathname.endsWith('/tip'))return response([tip]);
+ assert.equal(url.pathname.endsWith('/asset_txs'),true);
+ const body=JSON.parse(options.body);assert.equal(body._asset_policy,c.statePolicy);assert.equal(body._asset_name,stateName);assert.equal(body._history,true);assert.equal(body._after_block_height,c.startBlock-1);
+ assert.equal(url.searchParams.get('order'),'block_height.desc,tx_hash.desc');
+ const offset=Number(url.searchParams.get('offset')),limit=Number(url.searchParams.get('limit'));
+ historyCalls.push(url.searchParams.get('block_height'));
+ return response(historyRows.slice(offset,offset+limit));
+}});
+const first=await historyReader.history();assert.equal(first.rows.length,3);assert.equal(first.more,true);assert.equal(first.next,3);assert.equal(first.anchorBlock,113);
+tip.block_no+=5;
+const second=await historyReader.history(first.next,3,first.anchorBlock);assert.equal(second.rows.length,3);assert.equal(second.more,true);
+const last=await historyReader.history(second.next,3,first.anchorBlock);assert.equal(last.rows.length,1);assert.equal(last.more,false);
+assert.deepEqual(historyCalls,['lte.113','lte.113','lte.113']);
+assert.equal(new Set([...first.rows,...second.rows,...last.rows].map(u=>u.tx_hash)).size,7);
+tip.block_no=114;
+await assert.rejects(historyReader.history(0,3,first.anchorBlock),/confirmation point changed/);
+await assert.rejects(historyReader.history(-1),/Invalid history page/);
+const badHistory=new ChainReader(c,{fetcher:async url=>url.endsWith('/tip')?response([tip]):response([{...historyRows[0],block_height:999}])});
+await assert.rejects(badHistory.history(),/Invalid history/);
+const groups=['authenticated singleton and datum identity','exact full addresses independently derived by CSL','same-address and split-address eligibility','inactive collection','all three actual outputs agree with the state','stale or future provider and confirmation depth','concurrent state update rejection','confirmed history with stable page anchor','history pages contain all entries once','history rollback and invalid input rejection'];
+writeFileSync('evidence/reader-checks.json',JSON.stringify({ok:true,mode:'synthetic fixtures only; no wallet or chain mutation',groups},null,2)+'\n');
+console.log(`PASS: ${groups.length} reader validation groups.`);

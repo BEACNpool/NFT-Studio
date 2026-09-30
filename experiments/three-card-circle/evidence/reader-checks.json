@@ -1,5 +1,16 @@
 {
   "ok": true,
-  "checks": 13,
-  "mode": "synthetic fixtures; authenticated identity, ownership agreement, freshness, confirmations and concurrent update rejection"
+  "mode": "synthetic fixtures only; no wallet or chain mutation",
+  "groups": [
+    "authenticated singleton and datum identity",
+    "exact full addresses independently derived by CSL",
+    "same-address and split-address eligibility",
+    "inactive collection",
+    "all three actual outputs agree with the state",
+    "stale or future provider and confirmation depth",
+    "concurrent state update rejection",
+    "confirmed history with stable page anchor",
+    "history pages contain all entries once",
+    "history rollback and invalid input rejection"
+  ]
 }

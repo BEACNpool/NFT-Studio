@@ -2,7 +2,14 @@
 import {CML,fromHex,getAddressDetails} from '@lucid-evolution/lucid';
 const requireThat=(condition,message)=>{if(!condition)throw Error(message);};
 const stringify=value=>JSON.stringify(value,(_,v)=>typeof v==='bigint'?String(v):v);
-function scriptWitnesses(witnesses){const value=JSON.parse(witnesses.to_json());delete value.vkeywitnesses;delete value.bootstrap_witnesses;return stringify(value);}
+function scriptWitnesses(witnesses){
+ const value=JSON.parse(witnesses.to_json());delete value.vkeywitnesses;delete value.bootstrap_witnesses;
+ // CML may reorder the outer script sets while merging a key witness. Compare
+ // their complete contents, retaining duplicates. Never sort inside a script,
+ // datum or redeemer: internal order can change the program or its data.
+ for(const name of ['plutus_v1_scripts','plutus_v2_scripts','plutus_v3_scripts'])if(Array.isArray(value[name]))value[name]=value[name].map(stringify).sort();
+ return stringify(value);
+}
 export function verifySigned({unsigned,signed,parameters,feeCapLovelace,requiredKeys=[],minimumFee}){
  const before=CML.Transaction.from_cbor_hex(unsigned),after=CML.Transaction.from_cbor_hex(signed);
  requireThat(before.body().to_cbor_hex()===after.body().to_cbor_hex(),'Signed transaction body changed');
